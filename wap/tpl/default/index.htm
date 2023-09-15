@@ -1,0 +1,70 @@
+<!--{template header}-->
+	<div class="a">
+		号外号外：团购秒杀功能已经上线！(buy.shenei.net)<br/>
+		<a href="http://buy.shenei.net" target=_blank>第一期团购</a> - 仅售45元，最高原价318元的【独品沙龙】染、烫拉超值套餐~<br/>
+		<a href="space.php?uid=111&do=blog&id=1087">写日记送好礼</a> - 10～100元好礼随便拿哦~<br/>
+	<h3>生活便利&nbsp; <a href="space.php?do=mtag&tagid=48">更多</a></h3>
+		<a href="space.php?do=thread&id=75">公交宝典</a> - 刚来工院，教你到处玩的路线<br/>
+		<a href="http://xx.shenei.net/wap/category.php?id=69" target=_blank>外卖快餐</a> - 享受下大学的宅男宅女生活<br/>
+	<!--<a href="http://xx.shenei.net/wap/category.php?id=4" target=_blank>兼职信息</a> - 花自己赚的钱…爽！<br/>-->
+		<a href="space.php?do=mtag&tagid=49" target=_blank>八卦校园</a> - 无聊ing...<br/>
+	</div>
+	
+	<div class="a">
+	<h3>心情记录&nbsp; <a href="space.php?do=doing&view=all">更多</a></h3>
+	<!--{loop $dolist $value}-->
+		<a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a>:
+				$value[message](<!--{date('H:i',$value[dateline],1)}-->)<br/>
+	<!--{/loop}-->
+	</div>
+	<div class="a">
+	<h3>榜上有名&nbsp; <a href="space.php?do=top">更多</a></h3>
+	<!--{loop $showlist $value}-->
+		<!--{if $value[index]<1}-->
+			<!--{if $star}-->
+				<table>
+					<tr>
+					<!--{loop $star $starvalue}-->
+					<td><a href="space.php?uid=$starvalue[uid]" ><!--{avatar($starvalue[uid],small)}--></a></td>
+					<td><a href="space.php?uid=$starvalue[uid]" >{$_SN[$starvalue[uid]]}</a><br/>
+					访问: $starvalue[viewnum]<br/>
+					好友: $starvalue[friendnum]<br/>
+					</td>
+		
+				<!--{/loop}-->
+					</tr>
+				</table>
+				<a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a>&nbsp;
+			<!--{else}-->
+			<table>
+				<tr>
+					<td width="50"><a href="space.php?uid=$value[uid]" ><!--{avatar($value[uid],small)}--></a></td>
+					<td><a href="space.php?uid=$value[uid]" >{$_SN[$value[uid]]}</a><br/>
+					访问: $value[viewnum]<br/>
+					好友: $value[friendnum]<br/>
+					</td>
+				</tr>
+			</table>
+			<!--{/if}-->
+		<!--{else}-->
+		<a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a>&nbsp;
+		<!--{/if}-->
+	<!--{/loop}-->
+	</div>
+	<div class="a">
+	<h3>空间日志 &nbsp;<a href="space.php?do=blog&view=all" >更多</a></h3>
+	<!--{loop $bloglist $key $value}-->
+			<a href="space.php?do=blog&uid=$value[uid]&id=$value[blogid]">$value[subject]</a>(<!--{date('m-d H:i',$value[dateline],1)}-->)<br/>
+	<!--{/loop}-->
+	</div>
+	<div class="a">
+	<h3>群组话题&nbsp;<a href="space.php?do=mtag&view=hot" >更多</a></h3>
+	<!--{loop $threadlist $key $value}-->
+			<a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]">$value[subject]<span>($value[hot])</span></a><br/>
+	<!--{/loop}-->
+	</div>
+
+	
+	
+	
+<!--{template footer}-->

@@ -1,0 +1,18 @@
+<!--{loop $myset_like_p $key $value}-->
+											<li style="float:left;">
+												<table border="0" cellpadding="0" cellspacing="0" style="color:#b2b2b2">
+												  <tr>
+												    <td valign="top">
+												    	<div class="avatar48"><a href="space.php?uid=$value[uid]&do=musicbox&view=me"><!--{avatar($value[uid],small)}--></a></div>
+												    </td>
+												    <td width="100">
+												    	<div style="float:left;"><a href="space.php?uid=$value[uid]" title="$value[username]" target="_blank">$value[username]</a></div>
+												    	<div style="width:100%">
+												    		音乐 <span style="color:#FF0000">$value[songcount]</span>,专辑 <span style="color:#FF0000"><!--{if $value[albumcount]}-->$value[albumcount]<!--{else}-->0<!--{/if}--></span><br />
+												    		共播放 $value[songplay] 次
+												    	</div>
+												    </td>
+												  </tr>
+												</table>
+											</li>
+<!--{/loop}-->

@@ -1,0 +1,279 @@
+<!--{template header}-->
+<style type="text/css">
+@import url(template/vicstyle4/network.css);
+</style>
+<div class="navbar">
+	<div class="vs4_tabs" >
+		<ul class="tabs">
+			<li><a href="space.php?do=home"><span>个人中心</span></a></li>
+			<li class="active"><a href="network.php"><span style="font-weight: bold;">社区广场</span></a></li>
+			<li><a href="sohovicstyle.php"><span>寻找soho潮人</span></a></li>
+			<li><a href="floor.php"><span>抢楼行动</span></a></li>
+			<li><a href="space.php?do=sys"><span>官方论坛</span></a></li>
+			<li><a href="space.php?do=thread"><span>社交圈子</span></a></li>
+			<li><a href="space.php"><span>我的BLOG</span></a></li>
+		</ul>
+	</div>
+</div>
+<div id="vs4con_t"><p><img src="template/vicstyle4/image/con_t_l.gif" /></p></div>
+<div id="vs4_content" style="padding:0 25px 0 25px;width:855px;overflow:hidden;">
+		<DIV class="vic_headmsg">
+			<DIV id="scroll11" style="DISPLAY: block; OVERFLOW: hidden; HEIGHT: 30px; ">
+				<ul> 
+				<!--{loop $dolist $value}-->
+				<li>
+					<div>
+					<a href="space.php?uid=$value[uid]"><span style="font-weight: bold; color: #FF6600;">{$_SN[$value[uid]]}</span></a>&nbsp;<!--{date('- Y年m月d日 - D - H:i :',$value[dateline],1)}--> 
+					<span style="color:green;">$value[message]</span> <a href="space.php?uid=$value[uid]&do=doing&doid=$value[doid]" target="_blank" style="color:#ddd;"></a>
+					</div>
+				</li>
+				<!--{/loop}-->
+				</ul> 
+			</div>
+			<script>startMarquee(30, 60, 4000, 'scroll11');</script>
+		</div>
+
+
+	<div class="vic_headmt">
+		<div class="vic_qlfirstpage">
+			<div class="vic_qlf_l">
+				<div class="vic_qlf_l_top">
+					<!--{loop $showlisttop $value}-->
+					<!--{if empty($value[note])}-->
+					<a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  title="抢楼TOP1用户：>>>>{$_SN[$value[uid]]}<<<<|房子价格：$value[credit]积分|抢房宣言：$value[note]">
+					<!--{else}-->
+					<a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  title="抢楼TOP1用户：>>>>{$_SN[$value[uid]]}<<<<|房子价格：$value[credit]积分|此人都TOP1了居然没有抢房宣言！">
+					<!--{/if}-->
+					<!--{avatar($value[uid],middle)}--></a><p></p>
+					<p><SPAN>抢楼TOP1</SPAN></p>
+					<a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  title="踩脏TA家！保我房价！"><img src="template/vicstyle4/image/ql_fp_1.gif" style="height:20px;" /></a>
+					<a href="space.php?do=top" title="我要当房奴！"><img src="template/vicstyle4/image/ql_fp_2.gif" style="height:20px;" /></a>
+					<!--{/loop}-->
+				</div>
+				<div class="vic_qlf_l_but">
+					<ul><!--{loop $showlist $value}-->
+						<li><a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)" title="抢楼积极分子：>>>>{$_SN[$value[uid]]}<<<<|房子价格：$value[credit]积分"><!--{avatar($value[uid],small)}--></a>
+						</li><!--{/loop}-->
+					</ul>
+				</div>
+			</div>
+			<div class="vic_qlf_r">
+				<li style="height: 20px;"><span style="color: #FF6600;">抢楼小纸条：</span></li>
+				<li>您现在还没有买到楼房？现在就去买个房吧！</li>
+				<li>这会大大提升您的窝窝曝光率哦~</li>
+				<li>花钱越多，楼层越好，曝光率也会越高</li>
+				<li>买到的新房被别人踩脏一次，其保留价将减少1哦</li>
+				<li><a href="space.php?do=top" style="color:red;">现在就去购房抢楼！</a>&nbsp;&nbsp;<a href="floor.php">看看行情</a></li>
+			</div>
+		</div>
+		<div class="vic_nn_t"><span style="color: #FF6600;">社区</span><span>居民秀</span></div>
+		<div class="vic_nnfirstpage">
+			<ul>
+				<!--{eval $favlist_i=0;}-->
+				<!--{loop $favlist $value}-->
+				  <!--{if $favlist_i<33}-->
+					<li>
+					<a href="space.php?uid=$value[uid]" title="$value[username]" target="_blank"><!--{avatar($value[uid],small)}--></a></li>
+				  <!--{/if}-->
+				  <!--{eval $favlist_i=$favlist_i+1;}-->
+				<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+	
+	<div class="nbox_vic">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=blog&view=all">更多日志</a></span>最新日志 &raquo;</h2>
+		<ul class="vicnw_box_1">
+			<!--{loop $netcache['bloglist'] $key $value}-->
+			<li class="content">
+				<p class="imgleft"><!--{eval echo ($start+$key+1);}--></p>
+				<h3 class="title"><span><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]" title="$value[subject]" target="_blank" >$value[subject]</a></span></h3>
+				<p class="imgright"><!--{date('m-d',$value[dateline],1)}--></p>
+				<p class="auther"><!--{avatar($value[uid],small)}--><a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a>	<!--{if $value[viewnum]}-->$value[viewnum]次<!--{/if}--></p>
+				<span class="time"> <!--{if $value[replynum]}-->$value[replynum] 人评论<!--{/if}--></span>
+			</li>
+			<!--{/loop}-->
+		</ul>
+	</div>
+	<div id="vic_rollbox">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=home&view=all">更多动态</a></span>最新动态 &raquo;</h2>
+		<DIV class="direction_list">
+			<DIV id="scrollbody" style="DISPLAY: block; OVERFLOW: hidden; HEIGHT: 250px; ">
+				<UL>
+				<!--{loop $feedlist $value}-->
+					<li style="width: 294px;">
+					<span class="midicon img16"><!--{avatar($value[uid],small)}--></span> <span><a href="space.php?uid=$value[uid]">$value[title_template]</span></li>
+					<!--{/loop}-->
+				</ul>
+			</div>
+			<script>startMarquee(186, 80, 0, 'scrollbody');</script>
+		</div>
+	</div>
+	<div style="clear:both; height:7px;"></div>
+	<div class="vic_headad">
+	</div>
+	<div id="npoll"  class="headmast">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=poll">更多投票</a></span>投票 &raquo;</h2>
+			<ul>
+			<!--{loop $polllist $key $value}-->
+				<li class="poll_$key"><a href="space.php?uid=$value[uid]&do=poll&pid=$value[pid]" target="_blank">$value[subject]</a><!--{if $key == 0}--><p><a href="">已有 $value[voternum] 位会员投票</a></p><!--{/if}--></li>
+			<!--{/loop}-->
+			</ul>
+	</div>
+
+	<div class="headmast">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=album">更多相册</a></span>更新相册 &raquo;</h2>
+		<ul>
+			<!--{loop $piclist2 $key $value}-->
+			<div class="albumwrap">
+			<li class="albumbox">
+				<div>
+					<a href="space.php?uid={$value[uid]}&do=album&picid={$value[picid]}" target="_blank"><img src="attachment/$value[pic]" class="img" alt="【$value[albumname]】更新于<!--{date('m-d H:i',$value[updatetime],1)}-->" /></a>
+				</div>
+			<p><a href="space.php?uid=$value[uid]"><strong>{$_SN[$value[uid]]}</strong></a></p>
+			</li>
+			</div>
+			<!--{/loop}-->
+		</ul>
+	</div>
+
+	<div id="nshare" class="headmast">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=share&view=all">更多分享</a></span>分享 &raquo;</h2>
+			<ul>
+			<!--{loop $sharelist $value}-->
+				<li><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a> <em><a href="space.php?uid=$value[uid]&do=share&view=me">$value[title_template]</a></em></li>
+			<!--{/loop}-->
+			</ul>
+	</div>
+
+	
+	<div id="searchbar" class="nbox s_clear">
+		<div class="floatleft">
+			<form method="get" action="cp.php">
+				<input name="searchkey" value="" size="15" class="t_input" type="text" style="padding:5px;">
+				<input name="searchsubmit" value="找人" class="submit" type="submit"> &nbsp;
+					查找：<a href="cp.php?ac=friend&op=search&view=sex" target="_blank">男女朋友</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=reside" target="_blank">同城</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=birth" target="_blank">老乡</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=birthyear" target="_blank">同年月日</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=edu" target="_blank">同学</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=work" target="_blank">同事</a><span class="pipe">|</span>
+					<a href="space.php?do=top&view=online" target="_blank">在线会员($olcount)</a>
+				<input type="hidden" name="searchmode" value="1" />
+				<input type="hidden" name="ac" value="friend" />
+				<input type="hidden" name="op" value="search" />
+			</form>
+		</div>
+		<div class="floatright">
+			<form method="get" action="space.php">
+				<input name="searchkey" value="" size="15" class="t_input" type="text" style="padding:5px;">
+				<select name="do">
+				<option value="blog">日志</option>
+				<option value="album">相册</option>
+				<option value="thread">话题</option>
+				<option value="poll">投票</option>
+				<option value="event">活动</option>
+				</select>
+				<input name="searchsubmit" value="搜索" class="submit" type="submit">
+				<input type="hidden" name="view" value="all" />
+				<input type="hidden" name="orderby" value="dateline" />
+			</form>
+		</div>
+	</div>
+
+	<div class="mem_article">
+		<div class=newbuttom_glidex>
+			<ul>
+				<li class=on>热门日志</li>
+				<li><a href="space.php?do=blog&view=all">查看更多</a></li>
+			</ul>
+		</div>
+		<h3 class="ct_tside"><span>热门</span>日志</h3>
+		<div class=managebox>
+			<!--{loop $bloglist $key $value}-->
+				<!--{if $key==0}-->
+					<dl>
+					<dt><a href="space.php?uid=$value[uid]" target="_blank">
+					<!--{avatar($value[uid],middle)}--></a></dt>
+					<dd class="blogtitle"><span><b><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]" title="$value[subject]" target="_blank">$value[subject]</a></b></span> </dd>
+					<dd><small><!--{date('m-d h:i',$value[dateline],1)}--></small> </dd>
+					<dd class="bloginfo">$value[message]</dd></dl>
+					<table class="bloglibox" cellspacing=0 cellpadding=0 width=323 border=0>
+						<tbody>
+							<tr class="blogli_title">
+								<td width=218 style="padding-left:48px">标题</td>
+								<td align=middle width=73>作者</td></tr>
+  				<!--{else}-->
+							<tr class="blogli">
+							<td class="li_icon"><li><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]" title="$value[subject]" target="_blank">$value[subject]</a></li></td>
+							<td class="blog_author"><li><a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a></li></td></tr>
+ 				<!--{/if}-->
+			<!--{/loop}-->
+						</tbody>
+					</table>
+		</div>
+	</div>
+
+	<div class="mem_article">
+		<div class="newbuttom_glidex">
+			<ul>
+				<li class=on>群组话题</li>
+				<li><a href="space.php?do=thread">更多话题</a> </li>
+			</ul>
+		</div>
+		<h3 class="ct_tside"><span>热门</span>话题</h3>
+		<div class="managebox">
+			<!--{loop $threadlist $key $value}-->
+			<!--{if $key==0}-->
+				<dl>
+					<dt><a href="space.php?uid=$value[uid]" target="_blank"> <!--{avatar($value[uid],middle)}--></a></dt>
+					<dd class="blogtitle"><span><b><a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" target="_blank">$value[subject]</a></b></span> </dd>
+					<dd><small><!--{date('m-d h:i',$value[dateline],1)}--></small> </dd>
+					<dd class="bloginfo">所属小组：<a href="space.php?do=mtag&tagid=$value[tagid]">$value[tagname]</a> &nbsp;推荐$value[hot]人</dd>
+				</dl>
+				<table class="bloglibox" cellspacing=0 cellpadding=0 width=323 border=0>
+					<tbody>
+						<tr class="blogli_title">
+							<td width=210 style="padding-left:48px">标题</td>
+							<td align=middle width=65>作者</td></tr>
+  				<!--{else}-->
+						<tr class="blogli">
+							<td class="li_icon"><li><a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" target="_blank">$value[subject]</a></li></td>
+							<td class="blog_author"><li><a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a></li></td></tr>
+ 				<!--{/if}-->
+				<!--{/loop}-->
+					</tbody>
+				</table>
+		</div>
+	</div>
+	<div id="addpst_1" style="float:left;"><a href="http://www.vicstyle.com/"><img src="template/vicstyle4/image/show1.gif" /></a></div>
+	<div style="clear:both;"></div>
+	<div id="addpst_2" style="float:left; margin:0 5px 0 0;"><a href="http://www.vicstyle.com/"><img src="template/vicstyle4/image/show2.gif" /></a></div>
+	<div id="m_star">	
+		<h3 class="ct_tside"><span>推荐</span>应用</h3>
+			<div class="managebox">
+				<ul>
+					<!--{loop $myapplist $value}-->
+						<li><a href="userapp.php?id=$value[appid]" target="_blank"><img src="http://appicon.manyou.com/logos/$value[appid]" alt="$value[appname]" /></a></li>
+					<!--{/loop}-->
+				</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<div id="m_vic_but" >
+		<h3 class="ct_tside"><span>热门</span>群组</h3>
+		<div class="managebox">
+			<ul>
+			<!--{loop $netcache['mtaglist'] $value}-->
+				<li><a href="space.php?do=mtag&tagid={$value[tagid]}"><img src="{$value[pic]}" alt="$value[tagname]" title="群组名称：$value[tagname]"/></a></li>
+			<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+	<div style="clear:both;height:20px;"></div>
+</div>
+<div id="vs4con_b"><p><img src="template/vicstyle4/image/con_b_l.gif" /></p></div>
+</div>
+
+<!--{template footer}-->

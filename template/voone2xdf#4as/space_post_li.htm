@@ -1,0 +1,49 @@
+
+<!--{if empty($ajax_edit)}--><div id="post_$value[pid]_li"><!--{/if}-->
+<DIV class="groupm_titli">
+<DIV class="rbtop">
+<DIV></DIV></DIV>
+<DIV class="rbcontent">
+<DIV class="groupbbstithead">
+<DIV class="bbsheadbox">
+
+<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a></DIV>
+<DL>
+  <DT class="font_black"><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a> </DT>
+ <DD class="font_gray"><span class="time">($value[num]层)</span></DD>
+  
+  </DL>
+<DIV class="bbscontentbar"> <DD class="font_gray">
+  
+  <!--{if $value[uid]==$_SGLOBAL[supe_uid]}-->
+					<a href="cp.php?ac=thread&op=edit&pid=$value[pid]" id="p_$value[pid]_edit" onclick="ajaxmenu(event, this.id, 99999,'' , -1)">编辑</a>
+					<!--{/if}-->
+					<!--{if $mtag[grade]>=8 || $value[uid]==$_SGLOBAL[supe_uid]}-->
+					<a href="cp.php?ac=thread&op=delete&pid=$value[pid]&tagid=$thread[tagid]" id="p_$value[pid]_delete" onclick="ajaxmenu(event, this.id, 99999)">删除</a>
+					<!--{/if}-->
+					<!--{if $value[uid]!=$_SGLOBAL[supe_uid] && (($mtag[allowpost] && !$eventid) || ($eventid && $userevent[status]>1))}--><a href="cp.php?ac=thread&op=reply&pid=$value[pid]" id="p_$value[pid]_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a> <!--{/if}-->
+					<a href="cp.php?ac=common&op=report&idtype=post&id=$value[pid]" id="a_report_$value[pid]" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+					</DD> </DIV>
+<DIV class="bbstimebox"><SPAN class="font_gray" style="color:#999">回复时间: <!--{date('Y-m-d H:i',$value[dateline],1)}-->
+</SPAN> </DIV></DIV></DIV>
+<DIV class="rbbot">
+<DIV></DIV></DIV></DIV>
+<DIV class="groupbbscontent" id="info_div">
+
+<P><div class="detail" id="detail_$value[pid]">
+				$value[message]
+				<!--{if $value[pic]}--><div><a href="$value[pic]" target="_blank"><img src="$value[pic]" class="resizeimg" /></a></div><!--{/if}-->
+			</div>
+		</td>
+	</tr>
+	</table>
+	</li>
+</ul>
+</P>
+
+<!--{if empty($ajax_edit)}--></div><!--{/if}-->	
+<DIV class="clear"></DIV></DIV>
+
+
+
+

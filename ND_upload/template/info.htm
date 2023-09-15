@@ -1,0 +1,231 @@
+<!--{eval $_TPL['titles'] = array($valueND['ntt'].'资源');}-->
+<!--{template header}-->
+<STYLE type=text/css>.reg_del {
+	BORDER-RIGHT: #b1bdd6 1px solid; BORDER-TOP: #b1bdd6 1px solid; DISPLAY: block; BACKGROUND: url(template/default/image/delete.gif) #f1ebf5 no-repeat 0px 0px; LEFT: 490px; OVERFLOW: hidden; BORDER-LEFT: #b1bdd6 1px solid; WIDTH: 13px; TEXT-INDENT: -999em; MARGIN-RIGHT: 10px; BORDER-BOTTOM: #b1bdd6 1px solid; POSITION: relative; TOP: 0.5em; HEIGHT: 13px
+}
+.reg_del:hover {
+	BACKGROUND-POSITION: 0px -15px
+}
+.light {
+	BORDER-TOP: #cccccc 1px solid; MARGIN-TOP: 10px; PADDING-LEFT: 5px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px solid; BACKGROUND-COLOR: #f5f5f5
+}
+.downlist_head {
+	COLOR: #999999
+}
+.downlist_head TH {
+	TEXT-ALIGN: center
+}
+.downlist_body {
+	COLOR: #0033ff; TEXT-ALIGN: center
+}
+.a_order {
+	BORDER-RIGHT: #7f93bc 1px solid; PADDING-RIGHT: 11px; BORDER-TOP: #7f93bc 1px solid; PADDING-LEFT: 11px; PADDING-BOTTOM: 0px; OVERFLOW: hidden; BORDER-LEFT: #7f93bc 1px solid; WIDTH: 25px; COLOR: #fff; LINE-HEIGHT: 15px; PADDING-TOP: 2px; BORDER-BOTTOM: #7f93bc 1px solid; HEIGHT: 15px; BACKGROUND-COLOR: #576ea5
+}
+.a_order:hover {
+	BACKGROUND: #fff no-repeat 100% -20px; COLOR: #2c629e; TEXT-DECORATION: none
+}
+</STYLE>
+<script language="javascript">
+function opendownlist(){
+		$("downlist").style.display = "block";			
+	}
+function closedownlist(){
+		$("downlist").style.display = "none";			
+	}
+</script>
+<div class="searchbar floatright">
+<form method="post" name="searchform" action="ND_upload.php?do=search">
+	<input name="keyword" value="" size="26" class="t_input" type="text"><input name="searchsubmit" value="搜索资源" class="submit" type="submit">
+</form>
+</div>
+<h2 class="title"><img src="image/app/download.gif" />网盘资源</h2>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[nd_all]><a href="ND_upload.php"><span>全部资源($count1)</span></a></li>
+		<li$actives[my]><a href="ND_upload.php?do=my"><span>我的资源($count3)</span></a></li>
+		<li$actives[friend]><a href="ND_upload.php?do=friend"><span>好友的资源($count2)</span></a></li>
+		<li class="null"><a href="ND_upload.php?do=add">上传资源</a></li>
+	</ul>
+</div>
+
+
+
+<div id="content">
+<DIV class=entry>
+<DIV class=title>
+
+<TABLE cellSpacing=0 cellPadding=4 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD style="FONT-SIZE: 14px; PADDING-TOP: 10px" 
+      colSpan=5><STRONG>{$valueND[title]}</STRONG></TD></TR>
+  <TR>
+    <TD width="52%">资源格式：{$valueND[geshi]}</TD>
+    <TD colSpan=4>资源大小：$size</TD></TR>
+  <TR>
+    <TD width="52%">所需积分：{$valueND[jifen]}分　<A href="cp.php?ac=credit" target=_blank>如何获取积分?</A></TD>
+    <TD colSpan=4>下载次数：{$valueND[downnum]}次</TD></TR>
+  <TR>
+    <TD width="52%">上 传 人：<!--{if $valueND[nouser] }-->匿名<!--{else}--><A 
+      href="space.php?uid={$valueND[uid]}">$spaces[username]</A><!--{/if}--></TD>
+    <TD colSpan=4>上传时间： $dates</TD></TR>
+  <TR>
+    <TD width="52%">资源分类： {$valueND[ntt]} - <A 
+      href="ND_upload.php?do=list&id={$valueND[stwo]}">{$valueND[ntt1]}</A></TD>
+    <TD colSpan=4>文件数量： $filenums</TD></TR></TBODY></TABLE></DIV><BR>
+<DIV id=article>
+<DIV style="PADDING-LEFT: 10px"><STRONG>资源描述：</STRONG></DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; WIDTH: 500px; PADDING-TOP: 10px; BACKGROUND-COLOR: #ffffff">{$valueND[jieshao]}</DIV></DIV><BR>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; BACKGROUND-COLOR: #f5f5f1">
+<DIV style="FLOAT: left"><A class=submit style="TEXT-DECORATION: none" 
+onclick="opendownlist();return false;" name=c1>点击下载</A></DIV>
+
+<DIV style="FLOAT: left"><A class=a_share id=b_report$id 
+onclick="ajaxmenu(event, this.id, 99999,'' , 0)" 
+href="ND_upload.php?do=report&idtype=ND_info&id=$id">举报</A> 
+<A class=a_share id=a_share$id onClick="ajaxmenu(event, this.id, 99999,'' ,0)" 
+href="ND_upload.php?do=share&type=ND_info&id=$id">分享</A> 
+</DIV>
+<DIV style="CLEAR: both"></DIV></DIV>
+<DIV id=downlist style="DISPLAY: none">
+<TABLE style="PADDING-RIGHT: 13px" width="100%" align=left>
+  <TBODY>
+  <TR class=downlist_head>
+    <TH width="45%">文件名</TH>
+    <TH width="20%">类型</TH>
+    <TH width="20%">大小</TH>
+    <TH width="15%">下载</TH></TR>
+  <TBODY class=downlist_body>
+  <!--{eval $j			=	0;}-->
+  <!--{eval for($i=0;$i<count($listND)-1;$i++) { }-->
+  <!--{eval $j			=	$i+1;}-->
+  <!--{eval 
+	$fileinfo	=	pathinfo($listND[$i]);
+  	$filename	=	substr($listtitle[$i],0,strlen($listtitle[$i])-strlen($fileinfo["extension"])-1);
+	if(strstr($listND[$i],"http://")) {	//Add By 01
+		$filesize	=	getFileSize($listND[$i]);
+	}else{
+		$filesize	=	filesize($listND[$i]);
+	}
+  	$daxiao1	=	$filesize/1024;
+	$daxiao1	=	sprintf("%.2f",$daxiao1);
+	if($daxiao1>1)
+	{
+		if($daxiao1>=1024)
+		{
+			$daxiao1=	$daxiao1/1024;
+			$daxiao1=	sprintf("%.2f",$daxiao1);
+			$filesize	=	$daxiao1." "."MB";
+		}
+		else
+		{
+			$filesize	=	$daxiao1." "."KB";
+		}
+			
+	}
+	else
+	{
+		$filesize	=	$daxiao1." "."Byte";
+	}
+  }-->
+  <TR>
+    <TD title="$filename">$filename</TD>
+    <TD>$fileinfo[extension]</TD>
+    <TD>$filesize</TD>
+    <TD><a href="ND_upload.php?do=down&id=$id&n=$j" target="_blank" class=a_order>下&nbsp;载</a></TD></TR>
+	 <!--{eval } }-->  
+	  </TBODY></TABLE></DIV>
+<DIV style="CLEAR: both; MARGIN-TOP: 10px; PADDING-LEFT: 7px">&nbsp;</DIV></DIV>
+
+<div class="comments" id="div_main_content">
+		<h2>
+			<a href="#quickcommentform_{$id}" class="r_option">发表评论</a>  评论 (<span id="comment_replynum">{$valueND[comment]}</span> 个评论)</h2>
+		<div class="page">$multi</div>
+		<div class="comments_list" id="comment">
+			<ul id="comment_ul">
+			<!--{loop $listcomment $value}-->
+				<!--{template space_comment_li}-->
+			<!--{/loop}-->
+			</ul>
+		</div>
+		<div class="page">$multi</div>
+
+		<form id="quickcommentform_{$id}" name="quickcommentform_{$id}" action="cp.php?ac=comment" method="post" class="quickpost">
+
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<a href="###" id="comment_face" title="插入表情" onclick="showFace(this.id, 'comment_message');return false;"><img src="image/facelist.gif" align="absmiddle" /></a>
+						<!--{if $_SGLOBAL['magic']['doodle']}-->
+						<a id="a_magic_doodle" href="magic.php?mid=doodle&showid=comment_doodle&target=comment_message" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
+						<!--{/if}-->
+						<br />
+						<textarea id="comment_message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" name="message" rows="5" style="width:500px;"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="refer" value="ND_upload.php?do=info&id=$id" />
+						<input type="hidden" name="id" value="$id">
+						<input type="hidden" name="idtype" value="ND_coment_id">
+						<input type="hidden" name="commentsubmit" value="true" />
+						<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论" onclick="ajaxpost('quickcommentform_{$id}', 'comment_add')" />
+						<div id="__quickcommentform_{$id}"></div>
+					</td>
+				</tr>
+			</table>
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /></form>
+		<br />
+	</div>
+
+</div>
+<DIV id=sidebar>
+<DIV><A style="TEXT-DECORATION: none" onClick="opendownlist();return true;" 
+href="#c1"><IMG 
+src="upload_js/forms/download.jpg" 
+border=0></A> </DIV><BR>
+<DIV class=sidebox>
+<H2 class=title>
+<P class=r_option><A href="ND_upload.php?do=alldown&id=$id">全部</A> 
+</P>下载过的网友 </H2>
+<UL class=avatar_list>
+<!--{loop $downuser $value}-->
+  <LI>
+  <!--{if $value[username]}-->
+	<div class="avatar48"><a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a></div>
+	<!--{else}-->
+	<div class="avatar48"><img src="image/magic/hidden.gif" class="avatar" /></div>
+	<!--{/if}-->
+	<!--{if $value[username]}-->
+	<P><a href="space.php?uid=$value[uid]" id="author_$value[uid]">{$_SN[$value[uid]]}</a></P>
+	<!--{else}-->
+	<P>匿名</P>
+	<!--{/if}-->
+	</LI>
+<!--{/loop}-->
+ </UL></DIV>
+ 
+<DIV class=sidebox>
+<H2 class=title>上传者的其它资源</H2>
+<UL class=line_list>
+<!--{loop $othernd $value}-->
+  <LI><IMG 
+  src="upload_js/forms/1.gif"> 
+  <A title=$value[title] 
+  href="ND_upload.php?do=info&id=$value[id]">$value[title]</A> </LI>
+<!--{/loop}-->
+</UL></DIV>
+<DIV class=sidebox>
+<H2 class=title>上传者下载过的资源</H2>
+<UL class=line_list>
+<!--{loop $userdowns $value}-->
+  <LI><IMG 
+  src="upload_js/forms/2.gif"> 
+  <A title=$value[title] 
+  href="ND_upload.php?do=info&id=$value[id]">$value[title]</A> </LI>
+<!--{/loop}-->
+  </UL></DIV><!-- 右侧栏广告--></DIV>
+	
+<!--{template footer}-->

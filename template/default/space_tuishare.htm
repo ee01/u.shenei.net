@@ -1,0 +1,12 @@
+<div class="tuishare">
+<ul>
+<li>分享：<!--{loop $sharelist $value}--><a href="$value[appurl]" title="$value[name]" target="_blank"><img src="$value[icon]" border=0 
+
+alt="$value[name]" align="absmiddle"></a><!--{/loop}--></li>
+<ul>收藏：<!--{loop $tuilist $value}--><a href="$value[appurl]" title="$value[name]" target="_blank"><img src="$value[icon]" border=0 alt="$value[name]"align="absmiddle"></a><!--{/loop}--></li>
+<li>推广：<input type="text" value="$link" size="60" name="theurl" id="theurl"> <input type="button" value="复制地址" 
+
+onclick="javascript:setCopy('$link');return false;">
+</li>
+</ul>
+</div>

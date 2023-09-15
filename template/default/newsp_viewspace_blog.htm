@@ -1,0 +1,96 @@
+<!--{template viewspace_header}-->
+<div class="frame_1">
+<!--{template viewspace_profile}-->
+<div class="block">		
+<div class="blocktitle">
+<h2>博文分类</h2>
+</div>
+<div class="blockcontent">
+<div class="bloglist">
+	<ul class="post_list line_list">
+		<li<!--{if !$_GET[classid]}--> class="current"<!--{/if}-->><a href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$space[uid]&do=blog&view=me', '');">全部博文</a></li>
+		<!--{loop $classarr $classid $classname}-->
+		<li<!--{if $_GET[classid]==$classid}--> class="current"<!--{/if}-->>
+			<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$space[uid]&do=blog&classid=$classid', '');">$classname</a>
+			<!--{if $space[self]}-->
+				<a href="cp.php?ac=class&op=edit&classid=$classid" id="c_edit_$classid" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+				<a href="cp.php?ac=class&op=delete&classid=$classid" id="c_delete_$classid" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+			<!--{/if}-->
+		</li>
+		<!--{/loop}-->
+	</ul>
+	</div>
+	
+</div>
+</div>
+</div>
+<div class="frame_3">
+<div id="blog" class="block">		
+<div class="blocktitle">
+<!--{if $space[self]}--><em><a href="cp.php?ac=blog">发表博文</a></em><!--{/if}-->
+<h2>{$_SN[$space[uid]]}的博文</h2>
+</div>
+<div class="blockcontent">
+
+	<!--{if $count}-->
+	<div class="bloglist">
+		<ul>
+		<!--{loop $list $value}-->
+			<li><a href="cp.php?ac=share&type=blog&id=$value[blogid]" id="a_share_$value[blogid]" onclick="ajaxmenu(event, this.id, 99999,'' , -1)" class="a_share">分享</a>
+			
+
+<a href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=$do&id=$value[blogid]', '');" style=" font-size:14px; font-weight:bold"  <!--{if $value[magiccolor]}--> class="magiccolor$value[magiccolor]"<!--{/if}-->>$value[subject]</a>
+<div class="info">
+<span class="time"><!--{date('Y-m-d H:i',$value[dateline],1)}--></span>
+<span class="tool">
+| <!--{if $classarr[$value[classid]]}-->分类: <a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=blog&classid=$value[classid]', '');">{$classarr[$value[classid]]}</a><span class="pipe">|</span><!--{/if}-->  
+<!--{if $value[replynum]}--><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=$do&id=$value[blogid]#comment', '');">$value[replynum] 个评论</a><!--{else}-->没有评论<!--{/if}--> | 
+<!--{if $value[viewnum]}--><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=$do&id=$value[blogid]', '');">$value[viewnum] 次阅读</a><!--{/if}--> 
+<!--{if $value['friend']}-->
+| <a href="$theurl&friend=$value[friend]" class="gray">
+<!--{if $value['friend'] == 1}-->仅好友可见
+<!--{elseif $value['friend'] == 2}-->指定好友可见
+<!--{elseif $value['friend'] == 3}-->仅自己可见
+<!--{elseif $value['friend'] == 4}-->凭密码可见<!--{/if}-->
+</a>
+
+<!--{/if}-->
+</span>
+</div>
+<div class="content">
+<!--{if $value[pic]}--><p class="image">
+
+
+
+
+
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=blog&id=$value[blogid]', '');"><img src="$value[pic]" alt="$value[subject]" /></a></p><!--{/if}-->
+$value[message]
+</div>
+</li>
+<!--{/loop}-->
+			
+		<!--{if $pricount}-->
+		<li>
+			<div class="title">本页有 $pricount 篇博文因作者的隐私设置而隐藏</div>
+		</li>
+		<!--{/if}-->
+	
+		</ul>
+	</div>
+	
+	<div class="pages">$multi</div>
+	
+	<!--{else}-->
+	<div class="nomessage" >还没有相关的博文。</div>
+	<!--{/if}-->
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!--{template viewspace_footer}-->

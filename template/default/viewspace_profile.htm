@@ -1,0 +1,77 @@
+<div id="profile" class="block" >
+<div class="blocktitle">
+<em><!--{if !$space['self']}-->
+
+			<!--{if $space['magiccredit']}-->	
+				<a id="a_magic_gift" href="cp.php?&ac=magic&op=receive&uid=$space[uid]" onclick="ajaxmenu(event, this.id)"><img src="viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />送你 <span>$space[magiccredit]</span> 积分</a>
+			<!--{/if}-->
+
+			<!--{if $_SGLOBAL[magic][viewmagiclog] || $_SGLOBAL[magic][viewmagic] || $_SGLOBAL[magic][viewvisitor]}-->
+			<!--{loop array('viewmagiclog','viewmagic','viewvisitor') $mid}-->
+				<!--{if $_SGLOBAL[magic][$mid]}-->
+				<a id="a_magic_{$mid}" href="magic.php?mid=$mid&idtype=uid&id=$space[uid]" onclick="ajaxmenu(event,this.id,1)">
+				<img src="image/magic/{$mid}.small.gif" title="{$_SGLOBAL[magic][$mid]}" alt="{$_SGLOBAL[magic][$mid]}" style="vertical-align: middle;" />
+				</a>
+				<!--{/if}-->
+			<!--{/loop}-->
+			<!--{/if}-->
+		<!--{else}-->
+
+
+
+			<!--{if $_SGLOBAL[magic][gift]}-->		
+				<!--{if $space['magiccredit']}-->
+				<a id="a_magic_retrieve" href="cp.php?ac=magic&op=retrieve" onclick="ajaxmenu(event,this.id)"><img src="viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />回收积分</a>
+				<!--{else}-->
+				<a id="a_magic_gift" href="magic.php?mid=gift" onclick="ajaxmenu(event,this.id,1)"><img src="viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />埋个红包</a>
+				<!--{/if}-->				
+			<!--{/if}-->
+		<!--{/if}--></em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a href="viewspace.php?uid=$space[uid]" class="avatar"><!--{avatar($space[uid],big)}--></a>
+<div class="username">
+<!--{if $space[self]}--><p class="avatar_op"><a href="cp.php?ac=avatar">上传头像</a></p><!--{/if}-->
+<p <!--{if $isonline}-->class="onlineU" title="在线"<!--{/if}-->>昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$space[uid]', '');">{$_SN[$space[uid]]}</a></p>
+<p>等级：<a href="do.php?ac=ajax&op=credit&uid=$space[uid]" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)">$space[creditstar]</a></p>
+<p>荣誉：
+<!--{if $_SCONFIG['videophoto'] && $space[videostatus]}-->
+<a id="a_space_videophoto" href="space.php?uid=$space[uid]&do=videophoto" onClick="ajaxmenu(event, this.id, 1)"><img src="viewspace/img/tool/video.gif" align="absmiddle" title="已通过视频认证" alt="已通过视频认证" /></a>
+<!--{elseif $_SCONFIG['videophoto']}-->
+<!--{if !$space[self]}-->
+<img src="viewspace/img/tool/video_off.gif" align="absmiddle" title="未视频认证用户" alt="未视频认证用户"/>
+<!--{else}-->
+<a href="cp.php?ac=videophoto"><img src="viewspace/img/tool/video_off.gif" align="absmiddle" title="未视频认证用户" alt="未视频认证用户"/></a>
+<!--{/if}-->
+<!--{/if}-->
+<!--{if $uvips[ztime] > 0 or $space[groupid] == $_SCONFIG[vipapp]}-->
+<a href="pay.php?ac=vip"><img src="image/pay/vip.gif" title="VIP会员:<!--{if $uvips[ztime] > 0}-->$uvips[day]天<!--{else}-->终身VIP<!--{/if}-->" alt="VIP会员"  border="0" align="absmiddle" /></a>
+<!--{else}-->
+<a href="pay.php?ac=vip" target="_blank"><img src="image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
+<!--{/if}-->
+</p>
+</div>
+<div class="tool">
+<!--{if !$space[self]}-->
+<a href="cp.php?ac=fetion&uid=$space[uid]" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="发短信到TA手机" class="fetion">飞信短信</a>
+<a href="cp.php?ac=pm&uid=$space[uid]" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="发送站内短消息" class="message">发消息</a>
+<a href="cp.php?ac=poke&op=send&uid=$space[uid]" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="打个招呼" class="hi">问候</a>
+<a href="cp.php?ac=common&op=report&idtype=uid&id=$space[uid]" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="举报此人" class="report">举报</a>
+<!--{if $space['isfriend']}-->
+<a href="userapp.php?id=1027468&my_suffix=Lw%3D%3D" title="赠送礼物" class="sendgift" target="_blank">送礼物</a>
+<!--{else}-->
+<a href="cp.php?ac=friend&op=add&uid=$space[uid]" id="a_friend" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="加为好友" class="friend">加好友</a>
+<!--{/if}-->
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=wall&view=me', 'wall');" id="a_comment" title="给TA留言" class="comment">留言板</a>
+<!--{/if}-->
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+

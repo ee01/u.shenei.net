@@ -1,0 +1,237 @@
+<!--{template viewspace_header}-->
+
+<style>
+.entry .magicpaper1{ padding: 30px; width: 630px; background:#F7F5E9 url(../../image/magic/paper/1.bg.gif) repeat-y; }
+.entry .magicpaper2{ background: url(../../image/magic/paper/2.top.gif) repeat-x; }
+	.entry .magicpaper2 .resizeimg{ padding: 50px 0 0;background: url(../../image/magic/paper/2.gif) no-repeat 0 0; }
+		.entry .magicpaper2 .resizeimg2{ padding: 10px; }
+.entry .magicpaper3{ background: url(../../image/magic/paper/3.bg.gif) repeat ; }
+	.entry .magicpaper3 .resizeimg{ padding: 0; background: url(../../image/magic/paper/3.topbg.gif) repeat-x 0 0; }
+		.entry .magicpaper3 .resizeimg2{ padding: 50px 10px 10px; background: url(../../image/magic/paper/3.logo.gif) no-repeat 100% 0; }
+.entry .magicpaper4{ padding: 30px; width: 630px; background: #F0E9DA; }
+	.entry .magicpaper4 .resizeimg{ padding: 20px; background: #fff url(../../image/magic/paper/4.bottom.gif) no-repeat 100% 100%; border: 1px solid #EDD8CD; }
+		.entry .magicpaper4 .resizeimg2{ padding: 50px 0 0; background: url(../../image/magic/paper/4.top.gif) no-repeat; }	
+.entry .magicpaper5{ padding: 30px; width: 630px; background: url(../../image/magic/paper/5.bg.gif); }
+	.entry .magicpaper5 .resizeimg{ padding: 20px; background: #FCFFEA; border: 1px dashed #DDDDCC; }	
+.entry .magicpaper6{ padding: 0; background: #F1FCFE url(../../image/magic/paper/6.bg.gif) repeat-x; }
+	.entry .magicpaper6 .resizeimg{ padding: 100px 20px 20px; background: url(../../image/magic/paper/6.topbg.gif) no-repeat;}
+.entry .magicpaper7{ padding: 0; background: #FBF7ED url(../../image/magic/paper/7.bg.gif) repeat-x; }
+	.entry .magicpaper7 .resizeimg{ padding: 100px 20px 20px; background: url(../../image/magic/paper/7.toplogo.gif) no-repeat;}	
+.entry .magicpaper8{ padding: 30px; width: 630px; background: #F9F9F9; line-height:31px; }
+	.entry .magicpaper8 .resizeimg{ padding: 9px 20px 9px 40px; background: #FFF url(../../image/magic/paper/8.bg.gif) repeat-y; border: 1px solid #E9E9E9; }
+
+</style>
+
+
+<div class="frame_1">
+<!--{template viewspace_profile}-->
+<div class="block">		
+<div class="blocktitle">
+<h2>博文分类</h2>
+</div>
+<div class="blockcontent">
+<div class="bloglist">
+	<ul class="post_list line_list">
+		<li<!--{if !$_GET[classid]}--> class="current"<!--{/if}-->><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$space[uid]&do=blog&view=me', '');">全部博文</a></li>
+		<!--{loop $classarr $classid $classname}-->
+		<li<!--{if $_GET[classid]==$classid}--> class="current"<!--{/if}-->>
+			<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$space[uid]&do=blog&classid=$classid', '');">$classname</a>
+			<!--{if $space[self]}-->
+				<a href="cp.php?ac=class&op=edit&classid=$classid" id="c_edit_$classid" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+				<a href="cp.php?ac=class&op=delete&classid=$classid" id="c_delete_$classid" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+			<!--{/if}-->
+		</li>
+		<!--{/loop}-->
+	</ul>
+	</div>
+	
+	
+</div>
+</div>
+</div>
+<div class="frame_3">
+<div id="blog" class="block">		
+<div class="blocktitle">
+<h2>{$_SN[$space[uid]]}的博文</h2>
+</div>
+<div class="blockcontent">
+<div class="bloglist">
+
+<div<!--{if $blog['related']}--> id="content"<!--{/if}-->>
+	<div class="entry">
+		<div class="title">
+			<h1 <!--{if $blog[magiccolor]}--> class="magiccolor$blog[magiccolor]"<!--{/if}-->><!--{if $classarr[$blog[classid]]}-->[<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=blog&classid=$blog[classid]', '');">{$classarr[$blog[classid]]}</a>]<!--{/if}-->$blog[subject]</h1>	<!--Modify By 01-->
+                         <a href="cp.php?ac=share&type=blog&id=$blog[blogid]" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >分享</a>
+                         <!--{if $blog[hot]}--><span class="hot"><em>热</em>$blog[hot]</span><!--{/if}-->
+			<!--{if $blog['friend']}-->
+			<span class="r_option locked gray">
+			<a href="space.php?uid=$space[uid]&do=$do&view=me&friend=$blog[friend]" class="gray">
+			<!--{if $blog['friend'] == 1}-->仅好友可见
+			<!--{elseif $blog['friend'] == 2}-->指定好友可见
+			<!--{elseif $blog['friend'] == 3}-->仅自己可见
+			<!--{elseif $blog['friend'] == 4}-->凭密码可见<!--{/if}-->
+			</a>
+			</span>
+			<!--{/if}-->
+                        <!--{if $blog[viewnum]}-->$blog[viewnum] 次阅读 | <!--{/if}-->
+			<span id="comment_replynum">$blog[replynum]</span> 个评论
+			<!--{if $blog[tag]}-->
+				<a href="space.php?uid=$blog[uid]&do=tag">标签</a>:&nbsp;
+				<!--{loop $blog[tag] $tagid $tagname}-->
+				<a href="space.php?uid=$blog[uid]&do=tag&id=$tagid">$tagname</a>&nbsp;
+				<!--{/loop}-->
+			<!--{/if}-->
+			<span class="time"><!--{date('Y-m-d H:i',$blog[dateline],1)}--></span>
+		</div>
+
+
+			<div id="blog_article" class="article <!--{if $blog[magicpaper]}--> magicpaper$blog[magicpaper]<!--{/if}-->">
+		<div class="resizeimg">
+			<div class="resizeimg2">
+			<div class="resizeimg3">
+			<div class="resizeimg4">
+			$blog[message]
+			</div>
+			</div>
+			</div>
+		</div>
+			</div>
+
+		<div style="padding:0 0 10px;">
+
+			<div style="text-align: right; padding-top:10px; ">
+                              
+				
+                        
+		<!--{if $_SGLOBAL[supe_uid] == $blog[uid]}-->
+			<!--{if $_SGLOBAL[magic][bgimage]}-->
+			<img src="image/magic/bgimage.small.gif" class="magicicon">
+				<!--{if $blog[magicpaper]}-->
+			<a href="cp.php?ac=magic&op=cancelbgimage&idtype=blogid&id=$blog[blogid]" id="a_magic_bgimage" onclick="ajaxmenu(event,this.id, 1)">取消{$_SGLOBAL[magic][bgimage]}</a>
+				<!--{else}-->
+			<a href="magic.php?mid=bgimage&idtype=blogid&id=$blog[blogid]" id="a_magic_bgimage" onclick="ajaxmenu(event,this.id, 1)">{$_SGLOBAL[magic][bgimage]}</a>	
+				<!--{/if}-->
+			<!--{/if}-->
+			<!--{if $_SGLOBAL[magic][call]}-->
+			<img src="image/magic/call.small.gif" class="magicicon">
+			<a href="magic.php?mid=call&idtype=blogid&id=$blog[blogid]" id="a_magic_call" onclick="ajaxmenu(event,this.id, 1)">{$_SGLOBAL[magic][call]}</a>
+			<!--{/if}-->
+			<!--{if $_SGLOBAL[magic][updateline]}-->
+			<img src="image/magic/updateline.small.gif" class="magicicon">
+			<a href="magic.php?mid=updateline&idtype=blogid&id=$blog[blogid]" id="a_magic_updateline" onclick="ajaxmenu(event,this.id, 1)">{$_SGLOBAL[magic][updateline]}</a>
+			<!--{/if}-->
+			<!--{if $_SGLOBAL[magic][downdateline]}-->
+			<img src="image/magic/downdateline.small.gif" class="magicicon">
+			<a href="magic.php?mid=downdateline&idtype=blogid&id=$blog[blogid]" id="a_magic_downdateline" onclick="ajaxmenu(event,this.id, 1)">{$_SGLOBAL[magic][downdateline]}</a>
+			<!--{/if}-->
+			<!--{if $_SGLOBAL[magic][color]}-->
+			<img src="image/magic/color.small.gif" class="magicicon">
+				<!--{if $blog[magiccolor]}-->
+			<a href="cp.php?ac=magic&op=cancelcolor&idtype=blogid&id=$blog[blogid]" id="a_magic_color" onclick="ajaxmenu(event,this.id)">取消{$_SGLOBAL[magic][color]}</a>
+				<!--{else}-->
+			<a href="magic.php?mid=color&idtype=blogid&id=$blog[blogid]" id="a_magic_color" onclick="ajaxmenu(event,this.id, 1)">{$_SGLOBAL[magic][color]}</a>
+				<!--{/if}-->
+			<!--{/if}-->
+			<!--{if $_SGLOBAL[magic][hot]}-->
+			<img src="image/magic/hot.small.gif" class="magicicon">
+			<a href="magic.php?mid=hot&idtype=blogid&id=$blog[blogid]" id="a_magic_hot" onclick="ajaxmenu(event,this.id, 1)">{$_SGLOBAL[magic][hot]}</a>
+			<!--{/if}-->
+			<span class="pipe">|</span>
+		<!--{/if}-->
+
+		<!--{if $_SGLOBAL[supe_uid] == $blog[uid] || checkperm('manageblog')}-->
+		<a href="cp.php?ac=topic&op=join&id=$blog[blogid]&idtype=blogid" id="a_topicjoin_$blog[blogid]" onclick="ajaxmenu(event, this.id)">凑热闹</a><span class="pipe">|</span>
+		<a href="cp.php?ac=blog&blogid=$blog[blogid]&op=edit">编辑</a><span class="pipe">|</span>
+		<a href="cp.php?ac=blog&blogid=$blog[blogid]&op=delete" id="blog_delete_$blog[blogid]" onclick="ajaxmenu(event, this.id)">删除</a><span class="pipe">|</span>
+		<!--{/if}-->
+
+		<!--{if checkperm('manageblog')}-->
+		<a href="cp.php?ac=blog&blogid=$blog[blogid]&op=edithot" id="blog_hot_$blog[blogid]" onclick="ajaxmenu(event, this.id)">热度</a><span class="pipe">|</span>
+		<!--{/if}-->
+		 <a href="cp.php?ac=common&op=report&idtype=blogid&id=$blog[blogid]" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+
+                
+			</div>
+			
+		</div>
+
+	</div>
+
+
+
+<div id="content">
+
+	<div id="click_div">
+		<!--{template space_click}-->
+	</div>
+
+		<!--{template space_tuishare}-->	<!--Add By 01-->
+
+	<!--{if $topic}-->
+	<div class="affiche">
+		<img src="image/app/topic.gif" align="absmiddle">
+		<strong>凑个热闹</strong>：
+		<a href="space.php?do=topic&topicid=$topic[topicid]">$topic[subject]</a>
+	</div>
+	<!--{/if}-->
+
+	<div class="comments" id="div_main_content">
+		<h2>评论 (<span id="Span1">$blog[replynum]</span> 个评论)</h2>
+		<div class="comments_list" id="comment">
+			<!--{if $cid}-->
+			<div class="notice">
+				当前只显示与你操作相关的单个评论，<a href="space.php?uid=$blog[uid]&do=blog&id=$blog[blogid]">点击此处查看全部评论</a>
+			</div>
+			<!--{/if}-->
+			<ul id="comment_ul">
+			<!--{loop $list $value}-->
+				<!--{template space_comment_li}-->
+			<!--{/loop}-->
+			</ul>
+		</div>
+		<div class="page">$multi</div>
+
+		<!--{if !$blog[noreply]}-->
+		<form id="quickcommentform_{$id}" name="quickcommentform_{$id}" action="cp.php?ac=comment" method="post" class="quickpost">
+
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<a href="###" id="comment_face" title="插入表情" onclick="showFace(this.id, 'comment_message');"><img src="image/facelist.gif" align="absmiddle" /></a>
+						<!--{if $_SGLOBAL['magic']['doodle']}-->
+						<a id="a_magic_doodle" href="magic.php?mid=doodle&showid=comment_doodle&target=comment_message" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
+						<!--{/if}-->
+						<br />
+						<textarea id="comment_message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" name="message" rows="5" style="width:500px;"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="refer" value="space.php?uid=$blog[uid]&do=$do&id=$id" />
+						<input type="hidden" name="id" value="$id">
+						<input type="hidden" name="idtype" value="blogid">
+						<input type="hidden" name="commentsubmit" value="true" />
+						<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论" onclick="ajaxpost('quickcommentform_{$id}', 'comment_add')" />
+						<input type="checkbox" name="hiddenreply" value="1"<!--{if $blog[hiddenreply]}--> checked disabled<!--{/if}-->> 评论仅作者可见
+						<div id="__quickcommentform_{$id}"></div>
+					</td>
+				</tr>
+			</table>
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /></form>
+		<br />
+		<!--{/if}-->
+	</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<!--{template viewspace_footer}-->

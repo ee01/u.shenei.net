@@ -1,0 +1,74 @@
+<!--{template viewspace_header}-->
+
+
+<div class="frame_1">
+<!--{template viewspace_profile}-->
+</div>
+<div class="frame_3">
+<div id="blog" class="block">		
+<div class="blocktitle">
+<!--{if $space[self]}--><em><a href="cp.php?ac=upload">上传图片</a></em><!--{/if}-->
+<h2>{$_SN[$space[uid]]}的相册</h2>
+</div>
+<div class="blockcontent">
+
+<!--{if $count}-->
+<div class="photolist">
+	<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<!--{loop $list $key $value}-->
+<td>
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="avatar">
+<a href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=$do&id=$value[albumid]', '');"><img src="$value[pic]" alt="$value[albumname]" /></a>
+						</td>
+</tr>
+<tr>
+<td>
+						<!--{if $value['friend']}-->
+							<span class="r_option locked gray">
+							<a href="$theurl&friend=$value[friend]" class="gray">
+							<!--{if $value['friend'] == 1}-->仅好友可见
+							<!--{elseif $value['friend'] == 2}-->指定好友可见
+							<!--{elseif $value['friend'] == 3}-->仅自己可见
+							<!--{elseif $value['friend'] == 4}-->凭密码可见<!--{/if}-->
+							</a>
+							</span>
+						<!--{/if}-->
+							<h4><a href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=$do&id=$value[albumid]', '');"><!--{if $value[albumname]}-->$value[albumname]<!--{else}-->默认相册<!--{/if}--></a></h4>
+							<!--{if $space[friend]}--><p><a href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$value[uid]&do=default', '');">{$_SN[$value[uid]]}</a></p><!--{/if}-->
+							<p>
+								<!--{if $value[picnum]}-->$value[picnum] 张照片<br><!--{/if}-->
+								更新: <!--{date('Y-m-d H:i', $value[updatetime], 1)}-->
+							</p>
+							<!--{if $value[uid]==$_SGLOBAL[supe_uid]}--><p><a href="cp.php?ac=album&op=edit&albumid=$value[albumid]">管理相册</a><span class="pipe">|</span><a href="cp.php?ac=upload&albumid=$value[albumid]">上传图片</a></p><!--{/if}-->
+						</td>
+</tr>
+</table>
+</td>
+<!--{if $key%2==1}--></tr><tr><!--{/if}-->
+<!--{/loop}-->
+</tr>
+</table>
+			
+</div>
+
+<!--{if $pricount}-->
+<div class="nomessage" >本页有 $pricount 个相册因作者的隐私设置而隐藏</div>
+<!--{/if}-->
+
+<div class="pages">$multi</div>
+<!--{else}-->
+<div class="nomessage" >没有可浏览的相册。</div>
+<!--{/if}-->
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<!--{template viewspace_footer}-->

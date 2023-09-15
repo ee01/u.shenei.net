@@ -1,0 +1,116 @@
+/*
+[name]ÆÕÆÕµ­ÑÅ[/name]
+Powered by hao678.cn
+*/
+body {
+	color: #666;
+	background-image: url(images/littlegarden_bg.gif);
+	background-repeat: repeat;
+	background-color: #FFFFFF;
+	overflow: hidden;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: -32px;
+}
+a{
+	color: #316194;
+}
+#wrap {
+	border: 1px none #CED4CA;
+	background-image: url(images/star11.gif);
+	background-repeat: repeat-y;
+	background-position: center;
+	width: 972px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 52px;
+	padding-left: 52px;
+}
+#header {
+	color: #CCC;
+	background-image: url(images/star11.gif);
+	background-repeat: repeat-y;
+	width: 1074px;
+	background-position: center;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	padding: 0px;
+}
+#header a{
+	color: #a5c3e7;
+}
+.headerwarp {
+	background-color: #FFFFFF;
+	background-image: url(images/littlegarden_tt.gif);
+	padding-bottom: 100px;
+	background-repeat: no-repeat;
+	background-position: 60px top;
+}
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+#header ul{
+	margin-top: 50px;
+	margin-left: -30px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+.login_thumb { background-image: url(images/login_bg.gif); }
+#ubar h2,
+#space_page .feed_header,
+.sidebox h2.title {
+	height: 30px;
+	line-height: 30px;
+	background-color: #FFFFFF;
+	background-image: url(images/town16.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-top: 0;
+	padding-right: 10px;
+	padding-bottom: 0;
+	padding-left: 32px;
+	color: #999999;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCE1F2;
+}
+
+.ulist,
+ .tabs_header,
+ #space_page .feed li,
+ #space_page .comments_list li,
+ #footer { border-color: #DDE5D9; }
+.tabs_header ul.tabs li.active a,
+.tabs_header ul.tabs li.active a span,
+.tabs_header ul.tabs li a,
+.tabs_header ul.tabs li a span { background: none; }
+.ulist { background: #EFF3ED; }
+.tabs_header ul.tabs li a {
+	border: 1px solid #DDE5D9;
+	border-bottom: none;
+	background-image: url(images/littlegarden_ebg.gif);
+}
+.tabs_header { height: 31px; }
+.avatar48{
+	background-image: url(images/littlegarden_ebg.gif);
+	border: 1px dashed #cee3f7;
+}
+.mydoing a{
+	background-image: url(images/littlegarden_ebg.gif);
+}
+#footer {
+	padding: 10px 0 10px 0;
+	color: #333;
+	text-align: center;
+	border-top-width: 1px;
+	border-top-style: none;
+	border-top-color: #cee3f7;
+}
+    #footer a { color: #333; }

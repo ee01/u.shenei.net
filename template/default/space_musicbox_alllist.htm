@@ -1,0 +1,92 @@
+<!--{eval $_TPL['titles'] = array("所有音乐 - 乐集集");}-->
+<!--{template header}-->
+<SCRIPT language="JavaScript" src="js/WerslingPlay.js"></SCRIPT>
+<!--{if empty($actives[commend])}-->
+<div id="idBox1" class="floatright">
+		<div class="searchbar">
+					<form id="msearchform" name="msearchform" method="post" action="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=p&language=a&search=">
+						<table border="0" cellpadding="0" cellspacing="0">
+						  <tr>
+						  	<td><img src="images/clean_011.gif"></td>
+						    <td><input id="example1" name="example1" type="text" action="ajaxsomusic.php" style="padding:2px 2px 3px 2px; width:145px; background:#FFE9E6; border: 1px solid #FFF;" /></td>
+						    <td style="padding-left:3px;"><input type="submit" name="searchmsubmitbutton" value="搜索音乐" class="submit" /><input type="hidden" name="searchmsubmit" value="true" /><input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /></td>
+						  </tr>
+						</table>
+					</form>
+		</div>
+</div>
+<!--{/if}-->
+<h2 class="title"><img src="images/musicicon.gif" />音乐</h2>
+<div class="tabs_header" style="margin-bottom: 0px;">
+	<ul class="tabs">
+		<li><a href="space.php?do=musicbox&mview=friends"><span>好友的音乐</span></a></li>
+		<li><a href="space.php?do=musicbox&mview=mybox"><span>我的音乐</span></a></li>
+		<li class=active><a href="space.php?do=musicbox&mview=all"><span>大家的推荐</span></a></li>
+		<li class="null"><a href="space.php?do=musicbox&mview=commend">我要推荐</a></li>
+	</ul>
+	<a class="r_option" href="$_SGLOBAL[refer]">&laquo; 返回上一页</a>
+</div>
+
+
+
+<div id="content" style="width:640px; padding-top:10px;">
+	
+	
+									<div style="padding:10px 10px 10px 15px; margin-bottom:5px; font-size:14px; font-weight:bold; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">
+										大家推荐的音乐
+									</div>
+				    			<!--{if $allmusiclist}-->
+												<!--{loop $allmusiclist $key $value}-->
+								    			<div class="musiclistcss">
+								    				<div class="musiclistcss0">
+								    					<img src="images/listplay.gif" align="absmiddle" /><a href="space.php?uid=$value['userid']&do=musicbox&mview=mpage&mid=$value[songid]"><!--{eval echo getstr($value[songname],26,-1,-1,-1)}--></a> <a href="space.php?uid=$value['userid']&do=musicbox&mview=mpage&mid=$value[songid]" target="_blank"><img src="images/053753307.gif" align="absmiddle" alt="新窗口试听音乐" /></a>
+								    				</div>
+								    				<div class="musiclistcss1">
+								    					<a href="space.php?uid=$value['userid']&do=musicbox&view=me"><!--{avatar($value['userid'],small)}--></a><a href="space.php?uid=$value[suid]" target="_blank" style="color:#333333;">$value[username]</a><img src="images/listtbg.gif" width="<!--{eval echo (280*(intval($value['playtotal'])/intval($playtotal)))}-->" height="19" align="absmiddle" />
+								    				</div>
+								    				<!--{if !empty($value['lsuid'])}-->
+								    						<div class="musiclistcss3">
+																	<img src="images/mini_icons_010.gif" align="absmiddle" /> <a href="space.php?uid=$value[lsuid]" target="_blank" style="color:#333333; font-size:10px;">$value[lsusername]</a>
+																</div>
+														<!--{/if}-->
+								    			</div>
+								    		<!--{/loop}-->
+								  <!--{/if}-->
+									<!--{if $multi}--><div class="page">$multi</div><!--{/if}-->
+				
+
+
+</div>
+								
+<div id="sidebar" style="width:150px;">
+			<!--右边菜单-->
+					<div class="cat">
+						<h3><img src="images/Fugue_090.gif" align="absmiddle" /> 音乐排序</h3>
+						<ul class="post_list line_list" style="background:#EFEFEF; padding: 0 0 0;">
+							<li$actives['p']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=p&language=$_GET['language']&search=$urlsearchkeyword">评分热度</a></li>
+							<li$actives['t']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=t&language=$_GET['language']&search=$urlsearchkeyword">最新发表</a></li>
+						</ul>
+						<h3><img src="images/Fugue_690.gif" align="absmiddle" /> 音乐语言</h3>
+						<ul class="post_list line_list">
+							<li$actives1['a']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=$_GET['order']&language=a&search=$urlsearchkeyword">所有</a></li>
+							<li$actives1['c']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=$_GET['order']&language=c&search=$urlsearchkeyword">国语</a></li>
+							<li$actives1['e']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=$_GET['order']&language=e&search=$urlsearchkeyword">英文</a></li>
+							<li$actives1['y']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=$_GET['order']&language=y&search=$urlsearchkeyword">粤语</a></li>
+							<li$actives1['j']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=$_GET['order']&language=j&search=$urlsearchkeyword">日韩</a></li>
+							<li$actives1['o']<a href="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=$_GET['order']&language=o&search=$urlsearchkeyword">其他</a></li>
+						</ul>
+					</div>
+					<div class="cat musiccat">
+						<h3 style="background:#fcf9e6; color:#ff8d00"><img src="images/Fugue_1373.gif" align="absmiddle" /> <a href="space.php?do=musicbox&mview=alllist" style="color:#ff8d00;">所有音乐</a></h3>
+						<h3><a href="space.php?uid=$space['uid']&do=musicbox&mview=all&viewtype=albumlist"$allactiveslink[albumlist]>所有专辑</a></h3>
+						<h3><a href="space.php?uid=$space['uid']&do=musicbox&mview=all&viewtype=allplay"$allactiveslink[allplay]>大家在听</a></h3>
+						<h3><a href="space.php?uid=$space['uid']&do=musicbox&mview=all&viewtype=allsay"$allactiveslink[allsay]>大家在说</a></h3>
+						<h3><a href="space.php?uid=$space['uid']&do=musicbox&mview=all&viewtype=allclass"$allactiveslink[allclass]>音乐分类</a></h3>
+						<ul class="post_list line_list"></ul>
+					</div>
+			<img src="images/musicad.jpg" />
+</div>
+
+
+
+<!--{template footer}-->

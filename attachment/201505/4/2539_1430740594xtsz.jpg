@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="5;url=http://www.qilooo.com/">
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>404 - Page Not Found</title>
+<link type="text/css" rel="stylesheet" href="http://www.qilooo.net/404b.css" />
+</head>
+<body id="error-404">
+<div id="navbar">
+	<h1 id="logo">
+		<span>齐鲁家园</span>
+	</h1>
+</div>
+<div id="page">
+	<div id="pageInt">
+		<div id="content">
+			<h2>找不到页面。</h2>
+			<p class="info">额错咧，额一开始就错咧，额如果不点过来，<br />额滴页面就不会这样，额页面不这样，<br />额就不会沦落到介个地方……</p>
+			<div class="actions"><a href="javascript:history.back();">返回上一页</a>
+			<span class="pipe">|</span><a href="http://www.qilooo.com/">去首页</a></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

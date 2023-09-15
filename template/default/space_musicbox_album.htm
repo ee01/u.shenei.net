@@ -1,0 +1,103 @@
+<!--{eval $_TPL['titles'] = array("《".$musicalbuminfo_name."》 - 专辑信息");}-->
+<!--{template header}-->
+
+<SCRIPT language="JavaScript" src="js/WerslingPlay.js"></SCRIPT>
+
+
+<!--{eval 
+	$_TPL['spacetitle'] = "音乐专辑";
+}-->
+<!--{template space_menu}-->
+<div class="tmenu">
+	<ul>
+		<li>
+			<img src="images/045631148.gif" align="absmiddle" /> <a href="space.php?uid=$space['uid']&do=musicbox&mview=mybox"><!--{if $space['sex']==1}-->他<!--{elseif $space['sex']==2}-->她<!--{else}-->TA<!--{/if}-->的音乐</a>
+		</li>
+		<li>
+			<img src="images/045631148.gif" align="absmiddle" /> <span style="color:#FF2605; font-weight:bold;"><!--{if $space['sex']==1}-->他<!--{elseif $space['sex']==2}-->她<!--{else}-->TA<!--{/if}-->的专辑</span>
+		</li>
+		<li>&nbsp;</li>
+	</ul>
+	<div class="r_option" style="padding:5px 15px 0 0;"><a href="/">返回首页</a></div>
+</div>
+
+
+
+									<script type="text/javascript">
+										
+										
+									</script>
+				
+				
+				<!--{if $_GET['mview']=='malbum' && !empty($_GET['albumid'])}-->
+							<div class="xsnazzy">
+								<b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b><b class="xb5"></b><b class="xb6"></b><b class="xb7"></b>
+									<div class="yxboxcontent">
+										<table border="0" cellpadding="0" cellspacing="0">
+										  <tr>
+										    <td valign="top" style="padding-right:20px;">
+										    	<div style="text-align:center;"><span style="font-size:14px; font-weight:bold; color:#0033CC">《<!--{eval echo$musicalbuminfo_name}-->》</span><!--{if !empty($musicalbuminfo_dateline)}--><span style="font-size:9px; color:#75A0B2;"><!--{date('m-d H:i',$musicalbuminfo_dateline,1)}--></span><!--{/if}--></div>
+										    	<div style="width:100%; padding-top:10px; text-align:center;">
+										    		<table border="0" align="center" cellpadding="0" cellspacing="0">
+														  <tr>
+														    <td valign="top">
+														    	<ul id="show">
+																		<li>
+																			<div class="rim">
+																				<div class="imgrim">$musicalbuminfo_fengmian</div>
+																			</div>
+																		</li>
+																	</ul>	
+														    </td>
+														  </tr>
+														</table>
+										    	</div>
+										    	<div style="text-align:center;">
+										    		<!--{if $_SGLOBAL['supe_uid']}--><img src="images/as_2.gif" onclick="return cc()" style="cursor: pointer;" /><!--{/if}-->
+										    	</div>
+										    </td>
+										    <td valign="top">
+										    	<div style="margin:10px;">
+													  <div id="ibox01" class="testboxbg"></div>
+													  <div id="ibox02" class="testboxbg"></div>
+													  <div id="ibox03" class="testboxbg"></div>
+													  <div id="ibox04" class="testboxbg"></div>
+													  <div id="ibox05" class="testboxbg"></div>
+													  <div id="boxcon" class="testboxcon">
+													  	<!--{if $albummusiclist}-->
+																<table width="100%" border="0" cellpadding="3" cellspacing="2" bgcolor="#FFFFFF">
+																								<!--{loop $albummusiclist $key $value}-->
+																								<tr>
+																							    <td width="20"><span style="color:#75A0B2; font-size:10px; font-weight:bold;"><em><!--{eval echo $key+1}--></em></span></td>
+																							    <td width="20"><!--{if $_SGLOBAL['supe_uid']}--><label><input type="checkbox" name="musicsingle" value="$value[songid]" /></label><!--{/if}--></td>
+																							    <td width="200"><div style="width: 260px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;"><a href="space.php?uid=$space['uid']&do=musicbox&mview=mpage&mid=$value[songid]">$value[songname]</a></div></td>
+																							    <td width="80"><div style="width: 65px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;"><!--{if empty($value['singer'])}-->未知歌手<!--{else}-->$value[singer]<!--{/if}--></div></td>
+																							    <td width="45"><a href="space.php?uid=$space['uid']&do=musicbox&mview=mpage&mid=$value[songid]"><img src="images/03584778.gif" align="absmiddle" /></a></td>
+																							  </tr>
+																								<!--{/loop}-->
+																</table>
+																<div style="padding:10px;">
+																	<!--{if $_SGLOBAL['supe_uid']}--><input type="button" name="chooseall" value="选择全部" class="submit" onclick="hs_ca()" /><!--{/if}-->
+																</div>
+															<!--{else}-->
+																暂时没有推荐音乐!
+															<!--{/if}-->
+													  </div>
+													  <div id="ibox05" class="testboxbg"></div>
+													  <div id="ibox04" class="testboxbg"></div>
+													  <div id="ibox03" class="testboxbg"></div>
+													  <div id="ibox02" class="testboxbg"></div>
+													  <div id="ibox01" class="testboxbg"></div>
+													</div>
+										    </td>
+										  </tr>
+										</table>
+									</div>
+								<b class="xb7"></b><b class="xb6"></b><b class="xb5"></b><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b>
+							</div>
+							<div style="font-size:14px; font-weight:bold; padding:10px 0 0 20px;">{$_SN[$space[uid]]}的其他专辑</div>
+							<div id="mymusicalbumlist_cc"></div>
+							<script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=getmyalbumlist&myop1=true&mmodel=$_GET[albumid]&uid=$space[uid]', 'mymusicalbumlist_cc');</script>
+				<!--{/if}-->
+
+<!--{template footer}-->

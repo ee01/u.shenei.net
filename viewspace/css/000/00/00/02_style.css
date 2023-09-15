@@ -1,0 +1,18 @@
+.block  .blocktitle {background-image:url(); border-bottom-color:#D2D2D2; background-color:#FFFFFF; border-bottom-style:dashed; } 
+.block  .blocktitle h2 {color:#101010; font-size:12px; } 
+.block  .blocktitle em a {color:#101010; font-size:12px; } 
+.block  {border-color:#D2D2D2; border-width:1px; background-image:url(/viewspace/img/webcolor/pink_title.jpg); } 
+.block  .blockcontent {background-color:#FFFFFF; color:#000000; background-image:url(); } 
+.block  .blockcontent a {color:#106B32; } 
+.block  .blockcontent a:hover {color:#106B32; } 
+#banner {height:210px; background-image:url(/viewspace/img/webcolor/7c9c93c2309baf7d5f6e940104bfef29_b.jpg); background-repeat:repeat; background-color:#FFFFFF; background-position:left top; } 
+#banner .title h1 {color:#030000; } 
+#banner .title p {color:#656464; } 
+#banner .title p a {color:#656464; } 
+#title {top:84px; left:67px; } 
+body {background-image:url(); background-color:#FFFFFF; background-repeat:repeat; } 
+#menu .active a {color:#CC6700; } 
+#menu a {color:#484848; } 
+#menu {background-image:url(/viewspace/img/webcolor/white_menu.jpg); height:32px; background-color:#C7C735; } 
+#menu ul {margin-top:0px; } 
+#menu . a:hover {color:#CC6700; } 

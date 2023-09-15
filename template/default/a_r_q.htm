@@ -1,0 +1,128 @@
+<div class="wowo_content">
+	<div class="wowo_block wowo_todaywowo">
+		<div class="wowo_blockcontent">
+			<h2>今日人气空友<span>一直在用心经营自己的家。。。</span></h2>
+			<script>
+				function todayview(tag,n){
+					for(var i=0;i<5;i++){
+						var curB=$("tag_"+tag+"_"+i);
+						if(!curB)break;
+						if(n==i){
+							curB.className="current";
+						}else{
+							curB.className=" ";
+						}
+					}
+				}
+			</script>
+			<ul class="tag_female">
+			<!--{block/sql/SELECT%20%2A%20FROM%20%60uchome_space%60%20AS%20%60space%60%20LEFT%20JOIN%20%60uchome_spacefield%60%20AS%20%60spacefield%60%20on%20%60space%60.%60uid%60%3D%60spacefield%60.%60uid%60%20WHERE%20%60space%60.%60updatetime%60%3E%27%5B86400%5D%27%20AND%20%60space%60.%60avatar%60%3D%271%27%20AND%20%60spacefield%60.%60sex%60%3D%272%27%20ORDER%20BY%20%60space%60.%60viewnum%60%20DESC%2C%20%60space%60.%60friendnum%60%20DESC%2C%20%60space%60.%60updatetime%60%20DESC%20LIMIT%200%2C5/cachename/girl/cachetime/600}-->
+<!--{loop $_SBLOCK['girl'] $key $value}-->
+				<li id="tag_female_<!--{eval echo ($start+$key+0);}-->" onmouseover="return todayview('female',<!--{eval echo ($start+$key+0);}-->)">
+					<a href="space.php?uid=$value[uid]" class="avatar"><!--{avatar($value[uid],small)}--></a>
+					<div class="info">
+						<p><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></p>
+						<p class="tool">
+						<!--{if !$value[name]}-->
+<img border=0 src="image/lightening/name_g.gif" alt="未经过实名认证">
+<!--{else}-->
+<img border=0 src="image/lightening/name_l.gif" alt="$value['name']">
+<!--{/if}-->
+<!--{if !$value[resideprovince]}-->
+|<img border=0 src="image/lightening/home_g.gif" alt="家乡未填写"></a>
+<!--{else}-->
+|<img border=0 src="image/lightening/home_l.gif" alt="$value[resideprovince] $value[residecity]">
+<!--{/if}-->
+<!--{if empty($value[sex])}-->
+|<a href="cp.php?ac=profile"><img border=0 src="image/lightening/sex_g.gif" alt="性别未填写"></a>
+<!--{else}--><span class="sl">
+|<img border=0 src="image/lightening/sex_l.gif" alt="性别已填写"></span>
+<!--{/if}-->
+<!--{if $_SCONFIG[videophoto]}-->	
+<!--{if $space[videostatus]}-->
+|<img border=0 src="image/lightening/v_l.gif" alt="视频认证通过"></span>
+<!--{else}--><span class="sl">
+|<img border=0 src="image/lightening/v_g.gif" alt="未通过视频认证"></a>
+<!--{/if}-->
+<!--{/if}-->	
+						</p>
+						<p class="popularity">人气:$value[viewnum]</p>
+					</div>
+				</li>			
+			
+			<!--{/loop}-->
+			</ul>
+			<ul class="tag_male">
+			
+<!--{block/sql/SELECT%20%2A%20FROM%20%60uchome_space%60%20AS%20%60space%60%20LEFT%20JOIN%20%60uchome_spacefield%60%20AS%20%60spacefield%60%20on%20%60space%60.%60uid%60%3D%60spacefield%60.%60uid%60%20WHERE%20%60space%60.%60updatetime%60%3E%27%5B86400%5D%27%20AND%20%60space%60.%60avatar%60%3D%271%27%20AND%20%60spacefield%60.%60sex%60%3D%271%27%20ORDER%20BY%20%60space%60.%60viewnum%60%20DESC%2C%20%60space%60.%60friendnum%60%20DESC%2C%20%60space%60.%60updatetime%60%20DESC%20LIMIT%200%2C5/cachename/boy/cachetime/600}-->
+<!--{loop  $_SBLOCK['boy'] $key $value}-->
+				<li id="tag_male_<!--{eval echo ($start+$key+0);}-->" onmouseover="return todayview('male',<!--{eval echo ($start+$key+0);}-->)">
+					<a href="space.php?uid=$value[uid]" class="avatar"><!--{avatar($value[uid],small)}--></a>
+					<div class="info">
+						<p><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></p>
+						<p class="tool">
+						<!--{if !$value[name]}-->
+<img border=0 src="image/lightening/name_g.gif" alt="未经过实名认证">
+<!--{else}-->
+<img border=0 src="image/lightening/name_l.gif" alt="$value['name']">
+<!--{/if}-->
+<!--{if !$value[resideprovince]}-->
+|<img border=0 src="image/lightening/home_g.gif" alt="家乡未填写"></a>
+<!--{else}-->
+|<img border=0 src="image/lightening/home_l.gif" alt="$value[resideprovince] $value[residecity]">
+<!--{/if}-->
+<!--{if empty($value[sex])}-->
+|<a href="cp.php?ac=profile"><img border=0 src="image/lightening/sex_g.gif" alt="性别未填写"></a>
+<!--{else}--><span class="sl">
+|<img border=0 src="image/lightening/sex_l.gif" alt="性别已填写"></span>
+<!--{/if}-->
+<!--{if $_SCONFIG[videophoto]}-->	
+<!--{if $space[videostatus]}-->
+|<img border=0 src="image/lightening/v_g.gif" alt="未通过视频认证"></a>
+<!--{else}--><span class="sl">
+|<img border=0 src="image/lightening/v_l.gif" alt="视频认证通过"></span>
+<!--{/if}-->
+<!--{/if}-->	
+						</p>
+						<p class="popularity">人气:$value[viewnum]</p>
+					</div>
+				</li>			
+			
+			<!--{/loop}-->
+			</ul>
+			<script>
+				todayview('female',0);
+				todayview('male',0);
+			</script>
+		</div>
+	</div>
+  
+	<div class="wowo_block wowo_circles">
+		<div class="wowo_blocktitle">
+			<em>
+<!--{loop $mtaglist $value}-->
+<a href="space.php?do=mtag&tagid=$value[tagid]">$value[tagname]</a><!--{/loop}--></em>
+			<h2>MY圈子</h2>
+		</div>
+		<div class="wowo_blockcontent">
+			<dl>
+				<!--{loop $mtaglist $value}-->
+				<dt style="border-bottom:1px dotted #CCC;">
+					<a href="space.php?do=mtag&tagid=$value[tagid]"><img src="$value[pic]" /></a>
+					<p><span style="color:#FF0103;">[最热]</span><a href="space.php?do=mtag&tagid=$value[tagid]">$value[tagname]</a></p>
+					<p>已有 $value[membernum]人 加入</p>
+				</dt>
+				<dd>
+					<ul>
+						<!--{loop $wthreadlist[$value[tagid]] $thread}-->
+						<li><a href="space.php?uid={$thread[uid]}&do=thread&id={$thread[tid]}">$thread[subject]</a></li>
+						<!--{/loop}-->
+					</ul>
+				</dd>
+<!--{/loop}-->
+				
+				
+			</dl>
+		</div>
+	</div>
+</div>

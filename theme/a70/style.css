@@ -1,0 +1,44 @@
+/*
+[name]µ­Íü °®[/name]
+http://www.zhengzhou001.cn
+*/
+a{ color: #19B8DF; }
+
+body { padding: 0 0 50px;  background: url(images/foot.jpg) no-repeat bottom;background-color:#CEEFFF; color: #666; }
+
+#header { margin: 0 auto;padding:0;  background: url(images/top_bg.jpg) repeat-x; color: #CCC; }
+#header a { color: #6A8FA1; }
+.headerwarp { height: 400px;margin:0 auto;padding:0; width: 1003px;   background: url(images/header.jpg) no-repeat; color: #5A7B8C; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#wrap { padding: 15px;  background:url(images/mainbg.jpg) repeat-y 50% 100%;margin-top:-30px; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#ubar h2,
+.sidebox h2.title { padding: 0 15px; height: 35px; background:url(images/title.gif); color: #5778A1; line-height: 35px; }
+#space_page  .feed_header { padding: 0 80px;color:#19B8DF;font-size:14px;font-weight:bold; height: 68px; background:url(images/title.gif); color:#19B8DF;font-size:14px;font-weight:bold; line-height: 68px; }
+#space_page  .feed_header a { line-height: 68px;text-decoration:underline;color:#cccccc; }
+.entry-title {color:#19B8DF;font-size:14px;font-weight:bold;}
+#ubar h2{
+  background-position: 0 -100px;
+}
+.sidebox h2.title{
+  background-position: 0 -200px;
+}
+
+
+.ulist,
+#space_page .feed li,
+#space_page .comments_list li,
+#footer { border-color: #ECF1F3; }
+.tabs_header{ position: absolute; margin:-85px 0 0 -140px; width: 700px; border: none;}
+
+.tabs_header ul.tabs li a, .tabs_header ul.tabs li a span{font-size:12px;background:none;  width: 56px; color:#666666;text-align:center;text-decoration:none; font-size:11px; filter:Alpha(opacity=98);filter:glow (color=#FFFFFF,strength=3) }
+.tabs_header ul.tabs li.active a, .tabs_header ul.tabs li.active a span{font-size:12px;background:none; color:#77E4FF; text-decoration:none; font-size:12px; }
+
+.tabs_header ul.tabs li{
+  margin: 0 5px 0 0;
+}
+
+a#i_rss{
+  color: #FFF;
+}

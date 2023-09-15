@@ -1,0 +1,127 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=$_SC[charset]" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<title><!--{if $_TPL['titles']}--><!--{loop $_TPL['titles'] $value}--><!--{if $value}-->$value - <!--{/if}--><!--{/loop}--><!--{/if}--><!--{if $_SN[$space[uid]]}-->{$_SN[$space[uid]]} - <!--{/if}-->$_SCONFIG[sitename]</title>
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<style type="text/css">
+@import url(template/default/style.css);
+@import url(template/vicstyle4/vicstyle4.css);
+<!--{if $_TPL['css']}-->
+@import url(template/default/{$_TPL[css]}.css);
+<!--{/if}-->
+<!--{if !empty($_SGLOBAL['space_theme'])}-->
+@import url(theme/$_SGLOBAL[space_theme]/style.css);
+<!--{elseif $_SCONFIG[template] != 'default'}-->
+@import url(template/vicstyle4/style.css);
+<!--{/if}-->
+<!--{if !empty($_SGLOBAL['space_css'])}-->
+$_SGLOBAL[space_css]
+<!--{/if}-->
+</style>
+<link rel="shortcut icon" href="image/favicon.ico" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=$space[uid]" />
+</head>
+<body>
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+	<div id="header">
+	<!--{if $_SGLOBAL['ad']['header']}--><div id="ad_header"><!--{ad/header}--></div><!--{/if}-->
+	<div class="headerwarp">
+		<!--{if empty($_SGLOBAL['space_theme'])}-->
+		<h1 class="logo" ><a href="index.php"><img src="template/$_SCONFIG[template]/image/logo.gif" alt="$_SCONFIG[sitename]" /></a></h1>
+		<!--{/if}-->
+		<!--{if empty($_SGLOBAL['space_theme'])}-->
+		<ul id="vs4_nav" <!--{if !empty($_SGLOBAL['space_theme'])}--> style="margin:7px 0 0 0;"<!--{/if}-->>
+		<!--{else}-->
+		<ul id="vs4_nav2" <!--{if !empty($_SGLOBAL['space_theme'])}--> style="margin:7px 0 0 0;"<!--{/if}-->>
+		<!--{/if}-->
+		
+				<!--{if $_SGLOBAL[supe_uid]}-->
+					<li class="vs4_dropmenu" id="navhead_v2" onmouseover="showMenu(this.id)" style="margin-top:5px;"><a href="javascript:;" style="font-size: 15px;font-weight: bold;">站点导航</a></li>
+					<!--{if empty($_SGLOBAL['space_theme'])}-->
+					<li class="vs4_dropmenu" id="navhead_v1" onmouseover="showMenu(this.id)" style="margin-top:5px;"><a href="javascript:;" style="font-size: 15px;font-weight: bold;color:#FFf;background-image: url(template/vicstyle4/image/hdnav_bg.gif); background-repeat: no-repeat;background-position: center;">个人设置</a></li>
+					<!--{else}--><li class="vs4_dropmenu" id="navhead_v1" onmouseover="showMenu(this.id)" style="margin-top:5px;"><a href="javascript:;"style="font-size: 15px;font-weight: bold;">个人设置</a></li>
+					<!--{/if}-->
+					<li class="vs4_dropmenu" id="navhead_v3" onmouseover="showMenu(this.id)" style="margin-top:5px;"><a href="javascript:;"style="font-size: 15px;font-weight: bold;">社区服务</a></li>
+					<li style="margin-top:5px;"><a href="space.php?do=pm<!--{if !empty($_SGLOBAL['member']['newpm'])}-->&filter=newpm<!--{/if}-->" style="display: block; width: 80px;font-size: 15px;font-weight: bold;">消息<!--{if !empty($_SGLOBAL['member']['newpm'])}--><img src="image/new.gif"><!--{/if}--></a></li>
+					<!--{if $_SGLOBAL['member']['allnotenum']}-->
+					<li class="vs4_dropmenu" id="membernotemenu" onmouseover="showMenu(this.id)" style="margin-top:5px;"><a href="space.php?do=notice" style="font-size: 15px;font-weight: bold;color:#FFf;background-image: url(template/vicstyle4/image/notify_bg.gif); background-repeat: no-repeat;background-position: center;">{$_SGLOBAL[member][allnotenum]}个提醒</a></li><!--{/if}-->
+				<!--{else}-->
+					<li style="class="vs4_dropmenu"  id="navhead_v2" onmouseover="showMenu(this.id)" style="margin-top:5px;"><a href="javascript:;" style="font-size: 15px;font-weight: bold;">站点导航</a></li>
+					<li style="class="vs4_dropmenu"  id="navhead_v3" onmouseover="showMenu(this.id)" style="margin-top:5px;"><a href="javascript:;" style="font-size: 15px;font-weight: bold;">社区服务</a></li>
+				<!--{/if}-->
+		</ul>	
+		<ul id="navhead_v1_menu" class="vs4_dropmenu_drop" style="display:none;">
+			<li><a href="space.php?do=home">个人中心</a></li>
+			<li><a href="cp.php?ac=avatar">我的头像</a></li>
+			<li><a href="cp.php?ac=profile">个人资料</a></li>
+			<li><a href="cp.php?ac=theme">主页风格</a></li>
+			<li><a href="cp.php?ac=credit">我的积分</a></li>
+			<li><a href="space.php?do=friend">我的好友</a></li>	
+			<!--{if $_SCONFIG[sendmailday]}-->
+			<li><a href="cp.php?ac=sendmail">邮件提醒</a></li>
+			<!--{/if}-->
+			<li><a href="cp.php?ac=privacy">隐私筛选</a></li>
+			<!--{if checkperm('admin')}-->
+			<li><a href="admincp.php">站点管理</a></li>
+			<!--{/if}-->
+			<!--{if checkperm('allowstat')}-->
+			<li><a href="do.php?ac=stat">趋势统计</a></li>
+			<!--{/if}-->
+		</ul>
+		<ul id="navhead_v2_menu" class="vs4_dropmenu_drop" style="display:none;">
+			<li><a href="index.php">首页</a></li>
+			<li><a href="network.php" target="_blank">广场</a></li>
+			<li><a href="space.php?do=thread">群组</a></li>
+			<li><a href="space.php?do=top">排行</a></li>
+			<li><a href="floor.php">抢楼</a></li>
+			<li><a href="sohovicstyle.php">潮人</a></li>
+			<li><a href="space.php?do=sys">论坛</a></li>
+			<li><a href="space.php?do=thread">圈子</a></li>
+		</ul>
+		<ul id="navhead_v3_menu" class="vs4_dropmenu_drop" style="display:none;">
+			<li><a href="cp.php?ac=userapp">娱乐游戏</a></li>
+			<li><a href="cp.php?ac=magic">道具中心</a></li>
+			<li><a href="cp.php?ac=task">任务系统</a></li>
+			<li><a href="help.php">HELP帮助</a></li>
+		</ul>
+		<div class="vs4_account" <!--{if !empty($_SGLOBAL['space_theme'])}--> style="margin:7px 0 0 0;"<!--{/if}-->>
+			<!--{if $_SGLOBAL[supe_uid]}-->
+				<a href="space.php?uid=$_SGLOBAL[supe_uid]" class="loginName">{$_SN[$_SGLOBAL[supe_uid]]}</a>
+				<!--{if $_SGLOBAL[member][credit]}-->
+				<a href="cp.php?ac=credit" style="font-size:11px;padding:0 0 0 5px;"><img src="image/credit.gif">{$_SGLOBAL[member][credit]}</a>
+				<!--{/if}-->
+				<!--{if empty($_SCONFIG['closeinvite'])}-->
+				<a href="cp.php?ac=invite">邀请</a> 
+				<!--{/if}-->
+				<a href="cp.php?ac=task">任务</a> 
+				<a href="cp.php?ac=magic">道具</a>
+				<a href="cp.php">设置</a> 
+				<a href="cp.php?ac=common&op=logout&uhash=$_SGLOBAL[uhash]">退出</a>
+			<!--{else}-->
+				<a href="do.php?ac=$_SCONFIG[login_action]">登录</a> | 
+				<a href="do.php?ac=$_SCONFIG[register_action]">注册</a>
+			<!--{/if}-->
+		</div>
+	</div>
+	</div>
+	<div id="wrap">
+		<!--{if empty($_SGLOBAL['space_theme'])}-->
+		<div id="vs4_headmain"></div>
+		<!--{/if}-->
+	<!--{if empty($_TPL['nosidebar'])}-->
+	<div id="vs4_main">
+		<div id="mainarea">
+		<!--{if $_SGLOBAL['ad']['contenttop']}--><div id="ad_contenttop"><!--{ad/contenttop}--></div><!--{/if}-->
+	<!--{/if}-->
+
+<!--{/if}-->

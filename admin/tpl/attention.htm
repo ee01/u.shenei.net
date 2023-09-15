@@ -1,0 +1,137 @@
+<!--{eval 
+	$_TPL['availables'] = array('0'=>'无效', '1'=>'有效');
+}-->
+<!--{template admin/tpl/header}-->
+
+<div class="mainarea">
+<div class="maininner">
+
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[view]><a href="admincp.php?ac=attention"><span>浏览提醒</span></a></li>
+		<li class="null"><a href="admincp.php?ac=attention&op=add">添加新提醒</a></li>
+	</ul>
+</div>
+
+		
+<!--{if empty($_GET['op'])}-->
+
+	<form method="post" action="admincp.php?ac=attention">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	<div class="bdrcontent">
+		
+		<div class="title">
+			<h3>提醒列表</h3>
+
+		</div>
+		
+		<table cellspacing="0" cellpadding="0" class="formtable">
+		<tr>
+			<th>标题</th>
+			<th width="10%">图标</th>
+			<th width="24%">提醒时间</th>
+			<th width="5%">排序</th>
+			<th width="8%">有效</th>
+			<th width="8%">编辑</th>
+		</tr>
+		<!--{loop $listvalue $key $value}-->
+		<tr>
+			<td><input type="checkbox" name="adids[]" value="$value[id]"> $value[title]</td>
+            <td><a href="$value[imglink]"><img src="$value[imgurl]" width="50" height="50" border=0></a></td>
+			<td><!--{eval echo sgmdate("m月d日 H:i",$value[startime])}--><br><!--{eval echo sgmdate("m月d日 H:i", $value[endtime])}-->   </td>
+			<td>$value[aorder]</td>
+			<td>$_TPL[availables][$value[isactive]]</td>
+			<td><a href="admincp.php?ac=attention&op=edit&id=$value[id]">编辑</a></td>
+		</tr>
+		<!--{/loop}-->
+		</table>
+
+
+	</div>
+	
+	<div class="footactions">
+		<input type="checkbox" name="chkall" onclick="checkAll(this.form, 'adid')">全选
+		<input type="submit" name="delsubmit" value="批量删除" class="submit">
+	</div>
+	
+	</form>
+
+<!--{elseif $_GET['op'] == 'add' || $_GET['op'] == 'edit'}-->
+
+	<form method="post" action="admincp.php?ac=attention">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	
+	<div class="bdrcontent">
+		
+		<table cellspacing="0" cellpadding="0" class="formtable">
+
+		<tr><th style="width:12em;">提醒标题</th>
+		<td><input name="title" value="$attention[title]" class="t_input" size="60"></td>
+		</tr>
+		
+		<tr><th>图片链接(200*200)</th>
+		<td>
+        <!--{if $attention[imgurl]}-->
+        <input type="text" name="imgurl"  value="$attention[imgurl]" class="t_input" size="60"> 
+		<!--{else}-->
+        <input type="text" name="imgurl"  value="image/attention/" class="t_input" size="60"> 
+        <!--{/if}-->
+		</td>
+        </tr>	
+		<tr><th>图片链接</th>
+		<td>
+        <input type="text" name="imglink"  value="$attention[imglink]" class="t_input" size="60"> 
+		</td>
+        </tr>   
+<!--
+		<tr><th>排序</th>
+		<td>
+        <input type="text" name="aorder"  value="$attention[aorder]" class="t_input" size="10"> 
+		</td>
+        </tr>             	
+-->
+		<tr>
+			<th>提醒时间</th>
+			<td>
+			<script type="text/javascript" src="source/script_calendar.js" charset="$_SC[charset]"></script>
+			<input type="text" name="startime" id="startime" value="<!--{eval echo sgmdate('Y-m-d H:i', $attention[startime])}-->"  onclick="showcalendar(event,this,1,'<!--{eval echo sgmdate('Y-m-d H:i', $_SGLOBAL[timestamp])}-->', '<!--{eval echo sgmdate('Y-m-d H:i', $_SGLOBAL[timestamp] + 3600 * 24 * 60)}-->')" />
+						 至
+			<input type="text" name="endtime" id="endtime" value="<!--{eval echo sgmdate('Y-m-d H:i', $attention[endtime])}-->"  onclick="showcalendar(event,this,1,'<!--{eval echo sgmdate('Y-m-d H:i', $_SGLOBAL[timestamp])}-->', '<!--{eval echo sgmdate('Y-m-d H:i', $_SGLOBAL[timestamp] + 3600 * 24 * 60)}-->')" />
+			</td>
+		</tr>
+		<tr>
+		<th>有效性</th>
+		<td>
+		<input type="radio" name="available" value="1" $availables[1]>有效
+		<input type="radio" name="available" value="0" $availables[0]>无效
+		</td></tr>
+
+		
+		<tr>
+		<th>提醒内容(文字，必填)</th>
+		<td><textarea rows="10" style="width:98%;" name="content"> $attention[content]</textarea></td>
+		</tr>
+
+	
+		
+		</table>
+	</div>
+	
+	<div class="footactions">
+		<input type="hidden" name="id"  value="$attention[id]">
+		<input type="submit" name="attentionsubmit" value="提交" class="submit">
+	</div>
+
+	</form>
+	
+
+	</div>
+<!--{/if}-->
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

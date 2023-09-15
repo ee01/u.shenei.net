@@ -1,0 +1,37 @@
+<div id="content">
+<form method="post" action="cp.php?ac=fetion&op=contact">
+<table cellpadding="0" cellspacing="0" class="formtable">
+    <tr>
+		<th style="vertical-align: top; text-align:right"><label for="message">类别:</label></th>
+		<td>
+        <label for="category1"><input id="category1" type="radio" value="建议" name="category" checked/>建议</label>
+        <label for="category2"><input id="category2" type="radio" value="举报" name="category"/>举报</label>
+        <label for="category3"><input id="category3" type="radio" value="投诉" name="category"/>投诉</label>
+        <label for="category4"><input id="category4" type="radio" value="合作" name="category"/>合作</label>
+        <label for="category5"><input id="category5" type="radio" value="其他" name="category"/>其他</label>
+        </td>
+	</tr>
+    <tr>
+		<th style="vertical-align: top; text-align:right"><label for="message">内容:</label></th>
+		<td><textarea id="message" name="message" cols="40" rows="4" style="width: 400px; height: 150px;" onkeydown="ctrlEnter(event, 'fetion_contactsubmit_btn');"></textarea></td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td>
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+		<input type="hidden" name="fetion_contactsubmit" value="true" />
+		<input type="submit" name="fetion_contactsubmit_btn" id="fetion_contactsubmit_btn" value="发送" class="submit" />
+		</td>
+	</tr>
+</table>
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>
+<div id="sidebar">
+	<div class="sidebox" id="help">
+		<h2 class="title">联系我们</h2>
+		<p>您可以在这里给我们发送投诉或建议短信，以便我们及时处理。</p>
+        <p>请勿发送无关内容，谢谢合作！</p>
+	</div>
+
+</div>

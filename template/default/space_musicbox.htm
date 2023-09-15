@@ -1,0 +1,846 @@
+<!--{eval $_TPL['titles'] = array('我的音乐');}-->
+<!--{template header}-->
+<SCRIPT language="JavaScript" src="js/WerslingPlay.js"></SCRIPT>
+<!--{if $space[self]}-->
+	<!--{if empty($actives[commend])}-->
+	<div id="idBox1" class="floatright">
+		<div class="searchbar">
+					<form id="msearchform" name="msearchform" method="post" action="space.php?uid=$space['uid']&do=musicbox&mview=alllist&order=p&language=a&search=">
+						<table border="0" cellpadding="0" cellspacing="0">
+						  <tr>
+						  	<td><img src="images/clean_011.gif"></td>
+						    <td><input id="example1" name="example1" type="text" action="ajaxsomusic.php" style="padding:2px 2px 3px 2px; width:145px; background:#FFE9E6; border: 1px solid #FFF;" /></td>
+						    <td style="padding-left:3px;"><input type="submit" name="searchmsubmitbutton" value="搜索音乐" class="submit" /><input type="hidden" name="searchmsubmit" value="true" /><input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /></td>
+						  </tr>
+						</table>
+					</form>
+		</div>
+	</div>
+	<!--{/if}-->
+<h2 class="title"><img src="images/musicicon.gif" />音乐</h2>
+<div class="tabs_header" style="margin-bottom: 0px;">
+	<ul class="tabs">
+		<li$actives[friends]><a href="space.php?do=musicbox&mview=friends"><span>好友的音乐</span></a></li>
+		<li$actives[mybox] $actives[setting] $actives[disk]><a href="space.php?do=musicbox&mview=mybox"><span>我的音乐</span></a></li>
+		<li><a href="space.php?do=musicbox&mview=all"><span>大家的推荐</span></a></li>
+		<!--{if $_SGLOBAL['member']['groupid']==1}-->
+			<li$actives[admin]><a href="space.php?do=musicbox&mview=admin"><span>管理控制</span></a></li>
+		<!--{/if}-->
+		<!--{if !empty($actives[commend])}-->
+			<li$actives[commend]><a href="space.php?do=musicbox&mview=commend"><span>分享音乐</span></a></li>
+		<!--{else}-->
+			<li class="null"><a href="space.php?do=musicbox&mview=commend">我要推荐</a></li>
+		<!--{/if}-->
+	</ul>
+	<a class="r_option" href="$_SGLOBAL[refer]">&laquo; 返回上一页</a>
+</div>
+<!--{else}-->
+	<!--{eval 
+		$_TPL['spacetitle'] = "音乐";
+	}-->
+	<!--{template space_menu}-->
+<!--{/if}-->
+
+
+				<script type="text/javascript">
+					var onSelectflag=0;
+					var fmtypevalue=1;
+					<!--{if $_SC['music_upload']=="1"}-->
+								var utypestate=0;
+					<!--{else}-->
+								<!--{if $_SC['music_link']=="1"}-->
+									var utypestate=1;
+								<!--{else}-->
+									var utypestate=2;
+								<!--{/if}-->
+					<!--{/if}-->
+					var listorder = new Array();
+					
+					function reloadMood(showid, result) {
+						var x = new Ajax();
+						x.get('do.php?ac=ajaxm&op=seachmusicname', function(s){
+						$('mystate1').innerHTML = s;
+						});
+					}
+					
+					function reloadMood_add(showid, result) {
+						var x = new Ajax();
+						x.get('do.php?ac=ajaxm&op=getmyalbumlist&myop=true&uid=$space[uid]', function(s){
+						$('mymusicalbumlist_c').innerHTML = s;
+						});
+					}
+					
+					function setlabel(obj){
+						el("label").value = el("label").value + (obj.innerHTML+",");
+					}
+					
+					function setutype(tkey){
+						if(tkey==0){
+							var btnSubmit = el("commendmusic_btn");
+							<!--{if $editmusic['upload']=="1"}-->
+							el("songurl").value="$editmusic['songurl']";
+							<!--{else}-->
+							el("songurl").value="";
+							el("songurldisk").value="";
+							<!--{/if}-->
+							utypestate = 0;
+							el("upload_u").style.display = "";
+							el("upload_disk").style.display = "none";
+							el("upload_link").style.display = "none";
+							btnSubmit.onclick = doSubmit;
+						} else if(tkey==1){
+							var btnSubmit = el("commendmusic_btn");
+							el("txtFileName").value="";
+							el("songurldisk").value="";
+							utypestate = 1;
+							el("upload_u").style.display = "none";
+							el("upload_disk").style.display = "none";
+							el("upload_link").style.display = "";
+							btnSubmit.onclick = doSubmit1;
+						} else{
+							var btnSubmit = el("commendmusic_btn");
+							el("txtFileName").value="";
+							el("songurl").value="";
+							utypestate = 2;
+							el("upload_u").style.display = "none";
+							el("upload_link").style.display = "none";
+							el("upload_disk").style.display = "";
+							btnSubmit.onclick = doSubmit1;
+						}
+					}
+					
+					function setdiskurlvalue(tvalue) {
+						el("songurldisk").value=tvalue;
+					}
+					
+					//选择图片
+					function picView1(albumid) {
+						if(albumid == 'none') {
+							$('albumpic_body').innerHTML = '';
+						} else {
+							ajaxget('do.php?ac=ajaxm&op=albummusic&id='+albumid+'&ajaxdiv=albumpic_body', 'albumpic_body');
+						}
+					}
+					
+					function getObj(objName){return(document.getElementById(objName));}
+					
+					function musicdelete(showid, result) {
+								//删除音乐
+								var x = new Ajax();
+								x.get('do.php?ac=ajaxm&op=getmymusiclist&uid=$space[uid]', function(s){
+									$('mymusiclist_c').innerHTML = s;
+								});
+								hideMenu();
+					}
+					
+					function tonotc_send(showid, result) {
+								hideMenu();
+								var x = new Ajax();
+								x.get('do.php?ac=ajaxm&op=mycollectmusiclist&uid=$space[uid]', function(s){
+									$('mycollectmusiclist_c').innerHTML = s;
+								});
+					}
+					
+					function musicalbumdelete(showid, result) {
+								//删除专辑
+								hideMenu();
+								var x = new Ajax();
+								x.get('do.php?ac=ajaxm&op=getmyalbumlist&myop=true&uid=$space[uid]', function(s){
+									$('mymusicalbumlist_c').innerHTML = s;
+								});
+					}
+					
+					function musicsetbg(songid) {
+						ajaxget('do.php?ac=ajaxm&op=getmyboxlist&bgsongid='+songid, 'mymusicboxlist');
+					}
+					
+					function musicsetbgnot(songid) {
+						ajaxget('do.php?ac=ajaxm&op=getmyboxlist&type=not&bgsongid='+songid, 'mymusicboxlist');
+					}
+					
+					function musicsboxsdel(songid) {
+						ajaxget('do.php?ac=ajaxm&op=getmyboxlist&type=del&bgsongid='+songid, 'mymusicboxlist');
+					}
+					
+					function orderdown(okey){
+						var x = new Ajax();
+						var otemp;
+						var otempstr="";
+						otemp=listorder[okey];
+						listorder[okey]=listorder[okey+1];
+						listorder[okey+1]=otemp;
+						for(var i = 0; i < listorder.length; i++) {
+								otempstr+=listorder[i]+'|';
+							}
+						ajaxget('do.php?ac=ajaxm&op=getmyboxlist&songorder='+otempstr, 'mymusicboxlist');
+					}
+					
+					function orderup(okey){
+						var x = new Ajax();
+						var otemp;
+						var otempstr="";
+						otemp=listorder[okey];
+						listorder[okey]=listorder[okey-1];
+						listorder[okey-1]=otemp;
+						for(var i = 0; i < listorder.length; i++) {
+								otempstr+=listorder[i]+'|';
+							}
+						ajaxget('do.php?ac=ajaxm&op=getmyboxlist&songorder='+otempstr, 'mymusicboxlist');
+					}
+					
+					function edit_album_show(id) {
+						var obj = $('uchome-edit-'+id);
+						if(id == 'album') {
+							$('uchome-edit-pic').style.display = 'none';
+						}
+						if(id == 'pic') {
+							$('uchome-edit-album').style.display = 'none';
+						}
+						if(obj.style.display == '') {
+							obj.style.display = 'none';
+						} else {
+							obj.style.display = '';
+						}
+					}
+					
+					function greatnewmusicalbumdisplay(){
+						if(el("greatnewmusicalbum").style.display == ""){
+							el("greatnewmusicalbum").style.display = "none";
+						} else{
+							el("greatnewmusicalbum").style.display = "";
+						}
+					}
+					
+					function choosefmtype(w1){
+						if(w1 == 1){
+							el("chooseidphoto").style.display = "";
+							el("chooseidup").style.display = "none";
+							fmtypevalue = 1;
+						} else{
+							el("chooseidphoto").style.display = "none";
+							el("chooseidup").style.display = "";
+							fmtypevalue = 2;
+						}
+					}
+					
+					
+					function sendaddmymusicalbum(formObj) {
+						//新建专辑
+						if(cTrim(el("mynewmusicalbum_albumname").value,0)==""){
+								alert("对不起，专辑名称不能为空!");
+								return false;
+						} else if(fmtypevalue==1 && el("mynewmusicalbum_fengmian").value==""){
+								alert("对不起，请从相册中选取图片作为新专辑封面!");
+								return false;
+						} else{
+								hideMenu();
+								ajaxpost('addnewmusicalbum', 'reloadMood_add', 2000);
+						}
+							return true;
+					}
+
+				</script>
+				
+				<!--{if $_GET['mview']=='commend'}-->
+				
+								<!--推荐音乐页面-->
+								<script type="text/javascript" src="js/swfupload.js"></script>
+								<script type="text/javascript" src="js/swfupload.swfobject.js"></script>
+								<script type="text/javascript" src="js/fileprogress.js"></script>
+								<script type="text/javascript" src="js/handlers.js"></script>
+									<!--{if empty($editmusic)}-->
+										<script type="text/javascript">
+											var swfu;
+									
+											window.onload = function () {
+												swfu = new SWFUpload({
+													upload_url: "upload.php",	
+													file_post_name: "resume_file",
+													file_size_limit : "<!--{eval echo(minfilesize($residuesize))}--> MB",
+													file_types : "*.mp3;*.wma;",
+													file_types_description : "All Files",
+													file_upload_limit : "1",
+													file_queue_limit : "1",
+													swfupload_loaded_handler : swfUploadLoaded,
+													
+													file_dialog_start_handler: fileDialogStart,
+													file_queued_handler : fileQueued,
+													file_queue_error_handler : fileQueueError,
+													file_dialog_complete_handler : fileDialogComplete,
+													upload_progress_handler : uploadProgress,
+													upload_error_handler : uploadError,
+													upload_success_handler : uploadSuccess,
+													upload_complete_handler : uploadComplete,
+													button_image_url : "XPButtonUploadText_61x22.png",
+													button_placeholder_id : "spanButtonPlaceholder",
+													button_width: 61,
+													button_height: 22,
+													flash_url : "swfupload.swf",
+									
+													custom_settings : {
+														progress_target : "fsUploadProgress",
+														upload_successful : false
+													},
+													debug: false
+												});
+									
+											};
+										</script>
+									<!--{/if}-->
+											<form id="blackform" name="blackform" method="post" enctype="multipart/form-data" action="space.php?do=musicbox&mview=commend<!--{if !empty($editmusic)}-->&mid=$editmusic['songid']<!--{/if}-->">
+														<table cellspacing="0" cellpadding="0" class="formtable" style="width:90%;" align="center">
+															<caption>
+																<h2><img src="images/gif_47_047.gif" align="absmiddle" /><!--{if !empty($editmusic['songname'])}--><span style="color:#FF0000;">当前编辑音乐 $editmusic['songname'] 的信息</span><!--{else}-->填写音乐信息<!--{/if}--></h2>
+																<p>标记为红色的选项必须填写</p>
+															</caption>
+														</table>
+														<ul class="formarea">
+																<li class="texta">
+																		<table cellspacing="0" cellpadding="0" class="formtable" style="width:90%;" align="center">
+																				<tr><th width="75"><span style="color:#FFFFFF;">音乐名称<img src="images/mini_icons_020.gif" /></span></th><td style="padding-right:0px;"><span class="it_s"><input type="text" name="songname" id="songname" onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" size="85" value="$editmusic['songname']"></span>
+																					<br /><span style="color:#E5E5E5;">请不要包含任何特殊符号</span>
+																					</td></tr>
+																				<tr><th><span style="color:#FFFFFF;">编入专辑</span><img src="images/mini_icons_020.gif" /></th>
+																					<td class="tdnowrap">
+																						<div id="myalbumlist" class="m_albumc_nob"></div>
+																						<script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=getmyalbumlist&fengmian=no&uid=$space[uid]<!--{if $editmusic[albumid]!=""}-->&editalbumid=$editmusic[albumid]<!--{/if}-->', 'myalbumlist');</script>
+																					</td>
+																				</tr>
+																				<!--{if empty($editmusic)}-->
+																						<tr>
+																							<th width="75">
+																										<span style="color:#FFFFFF;">音乐<img src="images/mini_icons_020.gif" /></span>
+																										<!--{if $_SC['music_upload']=="1"}-->
+																												<br /><input type="radio" name="utype" value="0" <!--{if empty($editmusic['upload']) || $editmusic['upload']=="0"}-->checked="true" <!--{/if}--> <!--{if $editmusic['upload']=="0"}-->disabled="true"<!--{/if}--> onclick="setutype(0)"><span style="color:#FFFFFF;">上传</span>
+																										<!--{/if}-->
+																										<!--{if $_SC['music_link']=="1"}-->
+																												<br /><input type="radio" name="utype" value="1" <!--{if $_SC['music_upload']!="1" && $_SC['music_link']=="1"}-->checked="true" <!--{else}--><!--{if $editmusic['upload']=="1"}-->checked="true" <!--{/if}--><!--{/if}--> <!--{if $editmusic['upload']=="0"}-->disabled="true"<!--{/if}--> onclick="setutype(1)"><span style="color:#FFFFFF;">链接</span>
+																										<!--{/if}-->
+																										<!--{if $_SC['music_i_disk']=="1"}-->
+																												<br /><input type="radio" name="utype" value="2" <!--{if $_SC['music_upload']!="1" && $_SC['music_link']!="1" && $_SC['music_i_disk']!="0"}-->checked="true" <!--{else}--><!--{if $editmusic['upload']=="2"}-->checked="true" <!--{/if}--><!--{/if}--> <!--{if $editmusic['upload']=="0"}-->disabled="true"<!--{/if}--> onclick="setutype(2)"><span style="color:#FFFFFF;">网盘</span>
+																										<!--{/if}-->
+																							</th>
+																							<td>
+																								<div>
+																									<div id="upload_u" <!--{if $editmusic['upload']!="" || $_SC['music_upload']!="1"}-->style="display:none;"<!--{/if}-->>
+																										<input type="text" id="txtFileName" disabled="true" class="t_input"/>
+																										<span id="spanButtonPlaceholder"></span>
+																										<span style="color:#E5E5E5;">
+																											&nbsp;&nbsp;不大于<!--{eval echo(minfilesize($residuesize))}-->M, 
+																											空间 $maxattachsize, 已用 $spaceattachsize ({$percent}%)
+																											<img src="images/percentImage.png" alt="{$percent}%" class="percentImage" style="background-position: -<!--{eval echo(122-121*($percent/100))}-->px 0pt;" />
+																										</span>
+																										<br /><span style="color:#E5E5E5;">请选择您电脑中的音乐文件以便上传</span>
+																									</div>
+																									
+																									<div id="upload_link" <!--{if $_SC['music_upload']!="1" && $_SC['music_link']!="0"}-->style="display:block;"<!--{else}--><!--{if $editmusic['upload']==""}-->style="display:none;"<!--{/if}--><!--{/if}-->>
+																										<input type="text" class="t_input" name="songurl" id="songurl" <!--{if $editmusic['songurl']!=""}-->value="$editmusic['songurl']" <!--{/if}--> <!--{if $editmusic['upload']=="0"}-->disabled="true"<!--{/if}--> size="60">
+																										<br /><span style="color:#E5E5E5;"><!--{if $editmusic['upload']!=""}--><!--{if $editmusic['upload']=="0"}-->上传的音乐限制不能修改...<!--{else}-->请复制并粘贴音乐地址到此处，格式：http://<!--{/if}--><!--{else}-->请复制并粘贴音乐地址到此处，格式：http://<!--{/if}--></span>
+																									</div>
+																									
+																									<div id="upload_disk" <!--{if $_SC['music_upload']!="1" && $_SC['music_link']!="1" && $_SC['music_i_disk']!="0"}-->style="display:block;"<!--{else}--><!--{if $editmusic['upload']!="2"}-->style="display:none;"<!--{/if}--><!--{/if}-->>
+																										<input type="text" class="t_input" style="color:#666666;" name="songurldisk" id="songurldisk" readonly <!--{if $editmusic['songurl']!=""}-->value="$editmusic['songurl']" <!--{/if}--> size="60">
+																										<br /><a href="do.php?ac=ajaxm&op=selectmydiskfile" id="a_selectmydiskfile" onclick="ajaxmenu(event, this.id)" style="color:#FFF000;">点这里选择我的网盘文件</a>
+																									</div>
+																									
+																									<div class="flash" id="fsUploadProgress"></div>
+																									<input type="hidden" name="hidFileID" id="hidFileID" value="" />
+																									<input type="hidden" name="hidFileusize" id="hidFileusize" value="" />
+																								</div>
+																							</td>
+																						</tr>
+																				<!--{/if}-->	
+																		</table>
+																</li>
+																<li class="null"></li>
+														</ul>
+													<table cellspacing="0" cellpadding="0" class="formtable" style="width:90%; margin-top:20px;" align="center">
+															<tr><th width="75">歌手/演奏<img src="images/mini_icons_020.gif" /></th><td><span class="it_s"><input type="text" onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" name="singer" id="singer" size="80" value="$editmusic['singer']"></span></td></tr>
+															<tr>
+																<th width="75">分类<img src="images/mini_icons_020.gif" /></th>
+																<td>
+																	<input name="musicca[]" type="checkbox" value="流行歌曲"<!--{eval echo(checkboxis($musiccat,"流行歌曲"))}-->/>流行歌曲
+																	<input name="musicca[]" type="checkbox" value="hip-hop"<!--{eval echo(checkboxis($musiccat,"hip-hop"))}-->/>hip-hop
+																	<input name="musicca[]" type="checkbox" value="RandB"<!--{eval echo(checkboxis($musiccat,"RandB"))}-->/>RandB
+																	<input name="musicca[]" type="checkbox" value="RAP"<!--{eval echo(checkboxis($musiccat,"RAP"))}-->/>RAP
+																	<input name="musicca[]" type="checkbox" value="HOUSE"<!--{eval echo(checkboxis($musiccat,"HOUSE"))}-->/>HOUSE
+																	<input name="musicca[]" type="checkbox" value="迷幻"<!--{eval echo(checkboxis($musiccat,"迷幻"))}-->/>迷幻
+																	<input name="musicca[]" type="checkbox" value="电子"<!--{eval echo(checkboxis($musiccat,"电子"))}-->/>电子
+																	<input name="musicca[]" type="checkbox" value="轻音乐"<!--{eval echo(checkboxis($musiccat,"轻音乐"))}-->/>轻音乐
+																	<input name="musicca[]" type="checkbox" value="爵士"<!--{eval echo(checkboxis($musiccat,"爵士"))}-->/>爵士
+																	<input name="musicca[]" type="checkbox" value="电影原声"<!--{eval echo(checkboxis($musiccat,"电影原声"))}-->/>电影原声
+																	<br />
+																	<input name="musicca[]" type="checkbox" value="动漫原声"<!--{eval echo(checkboxis($musiccat,"动漫原声"))}-->/>动漫原声
+																	<input name="musicca[]" type="checkbox" value="古典乐"<!--{eval echo(checkboxis($musiccat,"古典乐"))}-->/>古典乐
+																	<input name="musicca[]" type="checkbox" value="交响乐"<!--{eval echo(checkboxis($musiccat,"交响乐"))}-->/>交响乐
+																	<input name="musicca[]" type="checkbox" value="舞曲"<!--{eval echo(checkboxis($musiccat,"舞曲"))}-->/>舞曲
+																	<input name="musicca[]" type="checkbox" value="朋克"<!--{eval echo(checkboxis($musiccat,"朋克"))}-->/>朋克
+																	<input name="musicca[]" type="checkbox" value="民谣"<!--{eval echo(checkboxis($musiccat,"民谣"))}-->/>民谣
+																	<input name="musicca[]" type="checkbox" value="金属"<!--{eval echo(checkboxis($musiccat,"金属"))}-->/>金属
+																	<input name="musicca[]" type="checkbox" value="摇滚"<!--{eval echo(checkboxis($musiccat,"摇滚"))}-->/>摇滚
+																	<input name="musicca[]" type="checkbox" value="乡村"<!--{eval echo(checkboxis($musiccat,"乡村"))}-->/>乡村
+																	<input name="musicca[]" type="checkbox" value="歌特"<!--{eval echo(checkboxis($musiccat,"歌特"))}-->/>歌特
+																	<input name="musicca[]" type="checkbox" value="翻唱"<!--{eval echo(checkboxis($musiccat,"翻唱"))}-->/>翻唱
+																	<br />
+																	<input name="musicca[]" type="checkbox" value="怀旧"<!--{eval echo(checkboxis($musiccat,"怀旧"))}-->/>怀旧
+																	<input name="musicca[]" type="checkbox" value="最新单曲"<!--{eval echo(checkboxis($musiccat,"最新单曲"))}-->/>最新单曲
+																	<input name="musicca[]" type="checkbox" value="其他"<!--{eval echo(checkboxis($musiccat,"其他"))}-->/>其他
+																</td>
+															</tr>
+														<tr><th width="75">标签<img src="images/mini_icons_020.gif" /></th><td><span class="it_s"><input type="text" onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" name="label" id="label" size="80" value="$musiclab"></span>
+																<br /><span style="color:#b9b9b9;">标签之间用","号隔开</span>
+																</td></tr>
+															<tr><th width="75">提供下载<img src="images/mini_icons_020.gif" /></th><td><input type="radio" name="down" value="0" <!--{if $editmusic['down']=="" || $editmusic['down']=="0"}-->checked="true"<!--{/if}-->>所有人可下载<input type="radio" name="down" value="1" <!--{if $editmusic['down']=="1"}-->checked="true"<!--{/if}-->>仅好友可下载</td></tr>
+															<tr><th width="75">语言<img src="images/mini_icons_020.gif" /></th><td><input type="radio" name="lang" value="1" <!--{if $editmusic['lang']=="1" || empty($editmusic)}-->checked="true"<!--{/if}-->>国语<input type="radio" name="lang" value="2" <!--{if $editmusic['lang']=="2"}-->checked="true"<!--{/if}-->>粤语<input type="radio" name="lang" value="3" <!--{if $editmusic['lang']=="3"}-->checked="true"<!--{/if}-->>英文<input type="radio" name="lang" value="4" <!--{if $editmusic['lang']=="4"}-->checked="true"<!--{/if}-->>日韩<input type="radio" name="lang" value="5" <!--{if $editmusic['lang']=="5"}-->checked="true"<!--{/if}-->>其他</td></tr>
+															<tr><th width="75">推荐感言<img src="images/mini_icons_020.gif" /></th><td><span class="it_s"><textarea onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" name="usersay" id="usersay" rows="4" cols="55">$editmusic['usersay']</textarea></span></td></tr>
+															<tr><th width="75">歌词/描述<img src="images/mini_icons_020.gif" /></th><td><span class="it_s"><textarea onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" name="lyric" id="lyric" rows="10" cols="55">$editmusic['lyric']</textarea></span></td></tr>
+															<tr><th>&nbsp;</th><td><input type="hidden" name="<!--{if empty($editmusic)}-->commendsubmit<!--{else}-->editcommendsubmit<!--{/if}-->" value="true" /><!--{if $_SC['music_upload']!="0" || $_SC['music_link']!="0" || $_SC['music_i_disk']!="0"}--><input type="submit" id="commendmusic_btn" value="填写完毕，提交" class="submit"><!--{/if}--><input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /></td></tr>
+													</table>
+											</form>
+											<!--{if empty($editmusic)}-->
+												<!--{if $_SC['music_upload']!="1" && $_SC['music_link']!="0"}--><script type="text/javascript">setutype(1);window.setInterval(validateForm, 1);</script><!--{/if}-->
+												<!--{if $_SC['music_upload']!="1" && $_SC['music_link']!="1" && $_SC['music_i_disk']!="0"}--><script type="text/javascript">setutype(2);window.setInterval(validateForm, 1);</script><!--{/if}-->
+											<!--{/if}-->
+											
+				<!--{elseif $_GET['mview']=='friends'}-->
+				<!--好友的音乐-->
+				
+					<!--{if $musiclist}-->
+						<div id="content" style="width:640px; padding-top:10px;">
+									<table border="0" cellpadding="3" cellspacing="0" width="100%">
+											<tr><td colspan="2"><div style="padding:10px 10px 10px 15px; font-size:14px; font-weight:bold; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">好友最新推荐音乐</div>
+												<!--{loop $musiclist $key $value}-->
+														
+														<!--{if $value['userid']!=""}-->
+																<!--{if $value['userid']!=$thefirstuserid}--><!--{if $musiclist[$key++]['userid']!="" && $thekeyc>6}--><div style="padding-top:5px;">&nbsp;<a href="space.php?uid=$musiclist[$key-2]['uid']&do=musicbox&view=me"><img src="images/Fugue_1228.gif" align="absmiddle" /> 查看TA更多的音乐...</a></div><!--{/if}--></div></div></div></div></div></div><!--{/if}-->
+															</td></tr><tr><td valign="top" style="width:55px;"><div class="avatar48"><a href="space.php?uid=$value['uid']&do=musicbox&view=me"><!--{avatar($value[uid],small)}--></a></div><div style="text-align:center"><a href="space.php?uid=$value[uid]" title="$value[username]" target="_blank">$value[username]</a></div></td><td valign="top">
+																<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+																	<div class="task_notice">
+																		<div class="task_notice_body">
+														<!--{/if}-->
+														<!--{if $value['userid']==""}--><!--{eval $thekeyc++}--><!--{else}--><!--{eval $thekeyc=0}--><!--{/if}-->
+														
+														
+														<!--{if $thekeyc<6}-->
+															<div style="padding-bottom:4px;">
+																<img src="images/Fugue_1369.gif" align="absmiddle" /> <a href="space.php?uid=$value[uid]&do=musicbox&mview=mpage&mid=$value[songid]" target="_blank">$value['songname']</a>
+																<!--{if $value['albumid']!=""}-->&nbsp;<a href="space.php?uid=$value['uid']&do=musicbox&mview=mybox&thismenu=myalbum" target="_blank"><img src="images/Fugue_6481.gif" align="absmiddle" /></a><a href="space.php?uid=$value['uid']&do=musicbox&mview=malbum&albumid=$value['aalbumid']&userspace=$value['uid']" target="_blank">《$value['albumname']》</a><!--{/if}-->
+															</div>
+														<!--{/if}-->
+												<!--{/loop}-->
+												</div></div></div></div></div></div>
+											</td></tr>
+									</table>
+						</div>
+						<div id="sidebar" style="width:150px;">
+								<div class="cat">
+									<h3>邀请朋友听音乐</h3>
+									<ul class="post_list line_list">
+										<li>
+											您可以通过QQ、MSN等IM工具，或者发送邮件，把下面的链接告诉你的好友，邀请他们加入进来。
+											<br />[<a href="cp.php?ac=invite" target="_blank">我要邀请朋友</a>]
+										</li>
+									</ul>
+								</div>
+							<img src="images/musicad.jpg" />
+						</div>
+					<!--{else}-->
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;暂时还没有!
+					<!--{/if}-->
+				
+				<!--{else}-->
+				
+										<div id="content" style="width:640px; padding-top:10px;">
+				
+												<!--{if (empty($_GET['mview']) || $_GET['mview']=='mybox') && empty($_GET['thismenu'])}-->
+												<!--我推荐的音乐-->
+													<div style="padding:10px 10px 10px 15px; font-size:14px; font-weight:bold; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">
+														<div class="r_option">
+															<!--{if $_SGLOBAL['supe_uid']}-->
+																<input type="button" name="chooseall" value="全部" class="submit" onclick="hs_ca()" />&nbsp;<input type="button" name="continuousplay" value="连播" class="submit" onclick="return cc()" />
+															<!--{else}-->
+																<a href="space.php?uid=$space['uid']&do=musicbox&mview=all">浏览更多音乐</a>
+															<!--{/if}-->
+														</div>
+														<!--{if $space[self]}-->我推荐的音乐<!--{else}-->{$_SN[$space[uid]]}的推荐<!--{/if}-->
+													</div>
+													<div id="mymusiclist_c"></div>
+													<script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=getmymusiclist&uid=$space[uid]', 'mymusiclist_c');</script>
+
+													<!--{if $space[self]}-->
+														<div>
+															<div style="padding:0 10px 0 10px;">
+																空间 $maxattachsize, 已用 $space[attachsize] ({$percent}%)<!--{if $_SC['music_integralset']=="1"}--> [<a href="do.php?ac=ajaxm&op=jifenguize" id="jifen_1" onclick="ajaxmenu(event, this.id)" style="font-size:12px;">积分规则</a>]<!--{/if}--><br />
+																<img src="images/percentImage.png" alt="{$percent}%" class="percentImage" style="background-position: -<!--{eval echo(122-121*($percent/100))}-->px 0pt;" />
+															</div>
+														</div>
+													<!--{/if}-->
+													
+													<br />
+													<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+														<div class="task_notice">
+															<div class="task_notice_body">
+																<div class="notice"><!--{if $space[self]}-->TA们收藏了我的音乐 [<a href="space.php?do=musicbox&mview=mybox&thismenu=mymusicfans">查看全部</a>]<!--{else}-->TA们收藏了{$_SN[$space[uid]]}的音乐<!--{/if}--></div>
+																<ul class="avatar_list">
+																	<!--{if $collectionuserlist}-->
+																		<!--{loop $collectionuserlist $key $value}-->
+																		<li>
+																			<div class="avatar48"><a href="space.php?uid=$value[uid]&do=musicbox&view=me"><!--{avatar($value[uid],small)}--></a></div>
+																			<p><a href="space.php?uid=$value[uid]" title="$value[username]" target="_blank">$value[username]</a></p>
+																		</li>
+																		<!--{/loop}-->
+																	<!--{else}-->
+																		&nbsp;&nbsp;&nbsp;&nbsp;暂时还没有!
+																	<!--{/if}-->
+																</ul>
+															</div>
+														</div>
+													</div></div></div></div>
+													
+													
+													<!--{if $space[self]}-->
+															<br />
+															<table cellspacing="0" cellpadding="0" align="center" class="formtable" style="width:98%">
+																<caption>
+																<h2>你有可能喜欢他们</h2>
+																<p>音乐品味与你相近的会员...[<a href="space.php?do=musicbox&mview=setting" >更改设置</a>]</p>
+																</caption>
+																<tbody>
+																	<tr>
+																		<td>
+																			<ul style="width:100%;">
+																				<!--{if $myset_like_p}-->
+																					<!--{template space_musicbox_congener}-->
+																				<!--{else}-->
+																					&nbsp;&nbsp;&nbsp;&nbsp;暂时没有!
+																				<!--{/if}-->
+																			</ul>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+													<!--{/if}-->
+													
+													
+													
+												
+												<!--{elseif $_GET['mview']=='mybox' && $_GET['thismenu']=='myalbum'}-->
+												<!--我的音乐专辑-->
+												<table cellspacing="0" cellpadding="0" align="center" class="formtable" style="width:98%">
+																					<caption>
+																					<h2>
+																							<!--{if $space[self]}-->我创建的音乐专辑<!--{else}-->{$_SN[$space[uid]]}创建的音乐专辑<!--{/if}-->
+																							<!--{if $_SGLOBAL['supe_uid']==$space['uid']}-->
+																								<span style="padding-left:20px;"></span><img src="images/05375380.gif" align="absmiddle" /> <a href="do.php?ac=ajaxm&op=greatmyalbum&ctype=great" id="gma_0" onclick="ajaxmenu(event, this.id)" style="font-size:12px; font-weight: normal;  color:#FF0000;">新建专辑</a>
+																							<!--{/if}-->
+																					</h2>
+																					</caption>
+																				</table>
+														<div id="mymusicalbumlist_c" style="padding-top:10px;"></div>
+														<script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=getmyalbumlist&myop=true&uid=$space[uid]', 'mymusicalbumlist_c');</script>
+														
+														
+														
+												<!--{elseif $_GET['mview']=='mybox' && $_GET['thismenu']=='mycollect'}-->
+												<!--我的收藏-->
+															<div style="margin-bottom:10px; padding:10px 0 10px 15px; font-size:14px; font-weight:bold; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">
+																<div class="r_option">
+																	<!--{if $_SGLOBAL['supe_uid']}-->
+																		<input type="button" name="chooseall" value="全部" class="submit" onclick="hs_ca('musicsinglec')" />&nbsp;<input type="button" name="continuousplay" value="连播" class="submit" onclick="return cc('musicsinglec')" />
+																	<!--{else}-->
+																		<a href="space.php?uid=$space['uid']&do=musicbox&mview=all">浏览更多音乐</a>
+																	<!--{/if}-->
+																</div>
+																<!--{if $space[self]}-->我收藏的音乐<!--{else}-->{$_SN[$space[uid]]}的收藏<!--{/if}-->
+															</div>
+															<div id="mycollectmusiclist_c"></div>
+															<script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=mycollectmusiclist&uid=$space[uid]', 'mycollectmusiclist_c');</script>
+												
+												<!--{elseif $_GET['mview']=='mybox' && $_GET['thismenu']=='mymusicfans'}-->
+												<!--我的粉丝-->
+												
+															<!--{if $space[self]}-->
+																			<table cellspacing="0" cellpadding="0" align="center" class="formtable" style="width:98%">
+																				<caption>
+																					<h2>他们收藏了我的音乐</h2>
+																				</caption>
+																			</table>
+																			<ul class="avatar_list">
+																				<!--{if $collectionuserlist}-->
+																					<!--{loop $collectionuserlist $key $value}-->
+																					<li>
+																						<div class="avatar48"><a href="space.php?uid=$value[uid]&do=musicbox&view=me"><!--{avatar($value[uid],small)}--></a></div>
+																						<p><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" target="_blank">$value[username]</a></p>
+																					</li>
+																					<!--{/loop}-->
+																				<!--{else}-->
+																					&nbsp;&nbsp;&nbsp;&nbsp;暂时还没有!
+																				<!--{/if}-->
+																			</ul>
+															<!--{/if}-->
+												
+												
+												
+												<!--{elseif $_GET['mview']=='mybox' && $_GET['thismenu']=='musicfeed'}-->
+												<!--我的动态-->
+												
+												<table cellspacing="0" cellpadding="0" align="center" class="formtable" style="width:98%">
+																					<caption>
+																					<h2>我的音乐动态</h2>
+																					</caption>
+																				</table>
+														
+														<!--{if $space[self]}-->
+																	<div class="feed" style="width:90%; padding:0 15px 0 20px;">
+																		<div id="feed_div" class="enter-content">
+																				<!--{loop $list $day $values}-->
+																					<!--{if $day=='yesterday'}--><h4 class="feedtime">昨天</h4><!--{elseif $day!='today'}--><h4 class="feedtime">$day</h4><!--{/if}-->
+																					<ul>
+																					<!--{loop $values $value}-->
+																						<!--{template space_feed_li}-->
+																					<!--{/loop}-->
+																					</ul>
+																				<!--{/loop}-->
+																		</div>
+																	</div>
+														<!--{/if}-->
+												
+												<!--{elseif $_GET['mview']=='mybox' && $_GET['thismenu']=='mymusicbox'}-->
+												<!--我的音乐盒-->
+														<!--{if $space[self]}-->
+																	<div style="margin-bottom:10px; padding:10px 0 10px 15px; font-size:14px; font-weight:bold; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">
+																		<div class="r_option">
+																			<span style="font-size:11px; color:#838383"><input type="button" name="continuousplay" value="同步背景音乐" class="submit" onclick="javascript:location.href='space.php?do=musicbox&mview=backgroundmusic';" /><!--<a href="space.php?do=musicbox&mview=backgroundmusic" target=_blank><i><font color=red>点此同步我的音乐盒到博客背景音乐！</font></i></a> <b>点<img src="images/mbi_0160.gif" />设为背景音乐</b>(<font color=red>会覆盖个人资料里的背景音乐设置</font>，取消即播放个人资料里的音乐)--></span>&nbsp;&nbsp;<input type="button" name="continuousplay" value="播放盒子" class="submit" onclick="tomyboxcc()" />
+																		</div>
+																		我的音乐盒
+																	</div>
+																		<!--{if $mymusicboxlist}-->
+																				<script type="text/javascript">
+																					<!--{loop $mymusicboxlist $key $value}-->
+																					listorder[$key]="$value['boxid']";
+																					<!--{/loop}-->
+																				</script>
+																				
+																				<div id="mymusicboxlist">
+																						<ul id="share_ul">
+																							<!--{loop $mymusicboxlist $key $value}-->
+																								<li>
+																									<div class="title" style="background:#FEFEFE;">
+																										<div class="r_option"><!--{if $key==0}--><span style="cursor: pointer;" onclick="orderdown($key)"><img src="images/04563141.gif"/></span><!--{else}--><!--{if ($key+1)==$mymusicboxlisttc}--><span style="cursor: pointer;" onclick="orderup($key)"><img src="images/04563158.gif"/></span><!--{else}--><span style="cursor: pointer;" onclick="orderup($key)"><img src="images/04563158.gif"/></span><span style="cursor: pointer;" onclick="orderdown($key)"><img src="images/04563141.gif"/></span><!--{/if}--><!--{/if}--><img src="images/web_icon_009.gif" onclick="musicsboxsdel($value[boxid])" style="cursor: pointer;" /><!--<!--{if $value['page']==1}--><img src="images/mbi_016.gif" /><img src="images/mbi_016n.gif" onclick="musicsetbgnot($value[boxid])" style="cursor: pointer;" /><!--{else}--><img src="images/mbi_0160.gif" onclick="musicsetbg($value[boxid])" style="cursor: pointer;" /><img src="images/web_icon_009.gif" onclick="musicsboxsdel($value[boxid])" style="cursor: pointer;" /><!--{/if}-->--></div>
+																											<div id="mlistid_<!--{eval echo $key+1}-->" style="padding:3px 3px 3px 10px; ">
+																												<span style="color:#00B4FF; font-size:10px; font-weight:bold;"><em><!--{eval echo $key+1}--></em></span> <a href="space.php?uid=$value['userid']&do=musicbox&mview=mpage&mid=$value[songid]">$value['songname']</a>
+																											</div>
+																										</div>
+																								</li>
+																							<!--{/loop}-->
+																						</ul>
+																				</div>
+																		<!--{else}-->
+																				&nbsp;&nbsp;&nbsp;&nbsp;目前没有音乐!<br /><br />
+																		<!--{/if}-->
+																		小提示：打开一首歌曲试听页面，就可以在播放器下面看到“添加到音乐盒”字样。<a href="space.php?do=musicbox&mview=all" target="_blank">快去添加歌曲到音乐盒吧！</a>
+														<!--{/if}-->
+														
+														
+												<!--{elseif $_GET['mview']=='setting' && empty($_GET['setmenu'])}-->
+												<!--我的设置-->
+														<!--{if $space[self]}-->
+																<div style="margin-bottom:10px; padding:10px 0 10px 15px; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">
+																	设置你大致喜欢的音乐风格，找到你喜欢的歌和与你品味相似的朋友
+																</div>
+																<form method="post" id="mymusiclike" name="mymusiclike" action="space.php?do=musicbox&mview=setting">
+																			<table border="0" cellpadding="2" cellspacing="2">
+																			  <tr>
+																			    <td align="right">节奏感：</td>
+																			    <td><input name="myfancy[]" type="checkbox" value="轻柔舒缓"<!--{eval echo(checkboxis($myset_like_1,"轻柔舒缓"))}-->/>轻柔舒缓<input name="myfancy[]" type="checkbox" value="简明轻快"<!--{eval echo(checkboxis($myset_like_1,"简明轻快"))}-->/>简明轻快<input name="myfancy[]" type="checkbox" value="强烈劲爆"<!--{eval echo(checkboxis($myset_like_1,"强烈劲爆"))}-->/>强烈劲爆</td>
+																			  </tr>
+																			  <tr>
+																			    <td align="right">情感表达：</td>
+																			    <td><input name="myfancy[]" type="checkbox" value="伤感"<!--{eval echo(checkboxis($myset_like_1,"伤感"))}-->/>伤感<input name="myfancy[]" type="checkbox" value="甜蜜"<!--{eval echo(checkboxis($myset_like_1,"甜蜜"))}-->/>甜蜜<input name="myfancy[]" type="checkbox" value="安静"<!--{eval echo(checkboxis($myset_like_1,"安静"))}-->/>安静<input name="myfancy[]" type="checkbox" value="清新"<!--{eval echo(checkboxis($myset_like_1,"清新"))}-->/>清新<input name="myfancy[]" type="checkbox" value="怀旧"<!--{eval echo(checkboxis($myset_like_1,"怀旧"))}-->/>怀旧<input name="myfancy[]" type="checkbox" value="激烈"<!--{eval echo(checkboxis($myset_like_1,"激烈"))}-->/>激烈<input name="myfancy[]" type="checkbox" value="狂野"<!--{eval echo(checkboxis($myset_like_1,"狂野"))}-->/>狂野</td>
+																			  </tr>
+																			  <tr>
+																			    <td align="right">音乐类型：</td>
+																			    <td><input name="myfancy[]" type="checkbox" value="流行"<!--{eval echo(checkboxis($myset_like_1,"流行"))}-->/>流行<input name="myfancy[]" type="checkbox" value="R&B"<!--{eval echo(checkboxis($myset_like_1,"R&B"))}-->/>R&B<input name="myfancy[]" type="checkbox" value="HipHop&Rap"<!--{eval echo(checkboxis($myset_like_1,"HipHop&Rap"))}-->/>HipHop&Rap<input name="myfancy[]" type="checkbox" value="民族"<!--{eval echo(checkboxis($myset_like_1,"民族"))}-->/>民族<input name="myfancy[]" type="checkbox" value="摇滚"<!--{eval echo(checkboxis($myset_like_1,"摇滚"))}-->/>摇滚<input name="myfancy[]" type="checkbox" value="古典"<!--{eval echo(checkboxis($myset_like_1,"古典"))}-->/>古典<input name="myfancy[]" type="checkbox" value="爵士"<!--{eval echo(checkboxis($myset_like_1,"爵士"))}-->/>爵士<input name="myfancy[]" type="checkbox" value="电子"<!--{eval echo(checkboxis($myset_like_1,"电子"))}-->/>电子</td>
+																			  </tr>
+																			  <tr>
+																			    <td align="right">语言：</td>
+																			    <td><input name="myfancy[]" type="checkbox" value="国语"<!--{eval echo(checkboxis($myset_like_1,"国语"))}-->/>国语<input name="myfancy[]" type="checkbox" value="粤语"<!--{eval echo(checkboxis($myset_like_1,"粤语"))}-->/>粤语<input name="myfancy[]" type="checkbox" value="英文"<!--{eval echo(checkboxis($myset_like_1,"英文"))}-->/>英文<input name="myfancy[]" type="checkbox" value="日韩"<!--{eval echo(checkboxis($myset_like_1,"日韩"))}-->/>日韩<input name="myfancy[]" type="checkbox" value="其它"<!--{eval echo(checkboxis($myset_like_1,"其它"))}-->/>其它</td>
+																			  </tr>
+																			  <tr>
+																			    <td align="right">最喜欢的歌手：</td>
+																			    <td><span class="it_s"><textarea onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" name="likesinger" id="likesinger" rows="6" cols="55">$myset_like_2</textarea></span></td>
+																			  </tr>
+																			  <tr>
+																			    <td>&nbsp;</td>
+																			    <td>尽可能的把您喜欢的歌手都推荐出来，多个歌手名字之间用半角逗号间隔</td>
+																			  </tr>
+																			  <tr>
+																			    <td>&nbsp;</td>
+																			    <td>
+																			    	<input type="hidden" name="mylikecommendsubmit" value="true" />
+																			    	<input type="submit" id="commendmusiclike_btn" value="保存设置" class="submit">
+																			    	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+																			    </td>
+																			  </tr>
+																			</table>
+																</form>
+														<!--{/if}-->
+												
+												
+												<!--{elseif $_GET['mview']=='disk'}-->
+												
+														<!--{if $space[self]}-->
+																	<!--{if $_GET['dotype']=="upload"}-->
+																			<form id="formdisk" name="formdisk" method="post" action="space.php?do=musicbox&mview=disk">
+																				<script type="text/javascript">
+																				// <![CDATA[
+																				function fs2you_show_upctrl(){
+																				var fu = document.getElementById("fs2you_upctrl");
+																				if(fu)fu.innerHTML='<img src="http://static.rayfile.com/media/img/loading.gif" style="border: 0px" />';
+																				var obj = document.createElement("script");
+																				obj.setAttribute("type", "text/javascript");
+																				obj.setAttribute("src", "http://www.rayfile.com/jslib/upctrl.js");
+																				document.body.appendChild(obj);
+																				}
+																				// ]]>
+																				</script>
+																				<style type="text/css">
+																				#fs2you_upctrl 
+																				{
+																					border: solid 1px #BBE9FF;
+																					color: #4F6B72;
+																					background: #F5FBFF none repeat scroll 0%;
+																					padding: 5px;
+																				}
+																				</style>
+																				<script type="text/javascript">
+																				// <![CDATA[
+																					var fs2you_account = "2699991@qq.com";
+																					var fs2you_message_body_name = "";
+																				// ]]>
+																				</script>
+																				<div id="fs2you_upctrl"><a href="javascript:fs2you_show_upctrl()">我想要上传一些文件</a></div>
+																				<div style="padding:10px;">
+																					<input type="hidden" name="commenddisksubmit" value="true" />
+																	    		<input type="submit" id="commend_btn" value="提交" class="submit">
+																	    		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+																	    	</div>
+																			</form>
+																	<!--{else}-->
+																	
+																			<table cellspacing="0" cellpadding="0" align="center" class="formtable" style="width:98%">
+																					<caption>
+																					<h2>我上传到网盘中的文件&nbsp;&nbsp;&nbsp;&nbsp;(非MP3或wma文件,将不会出现在此列表中)</h2>
+																					</caption>
+																				</table>
+																			
+																			
+																			<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+																				<div class="task_notice">
+																					<div class="task_notice_body">
+																						<table width="100%" cellspacing="0" cellpadding="0">
+																									<thead>
+																										<tr >
+																											<td class="subject" style="font-size:14px; font-weight:bold; color:#ff8d00; ">音乐描述</td>
+																											<td class="subject" style="font-size:14px; font-weight:bold; color:#ff8d00; ">rayfile下载地址</td>
+																										</tr>
+																									</thead>
+																									<tbody>
+																									<!--{if $mydiskfilelist}-->
+																									<!--{loop $mydiskfilelist $key $value}-->
+																										<tr<!--{if $key%2==1}--> class="alt"<!--{/if}-->>
+																											<td width="200">
+																												<div style="width: 180px; text-overflow: ellipsis; text-align: left; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;">
+																													$value[filedescription]
+																												</div>
+																											</td>
+																											<td class="subject">
+																												<div style="width: 270px; text-overflow: ellipsis; text-align: left; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;">
+																													<a  href="$value[fileurl]" target="_blank" style="font-size:10px;">$value[fileurl]</a>
+																												</div>
+																											</td>
+																										</tr>
+																									<!--{/loop}-->
+																									<!--{else}-->
+																									<tr>
+																										<td class="subject">暂时没有!</td>
+																										<td class="subject">&nbsp;</td>
+																										<td class="subject">&nbsp;</td>
+																									</tr>
+																									<!--{/if}-->
+																									</tbody>
+																						</table>
+																					</div>
+																				</div>
+																			</div></div></div></div>
+																				<table cellspacing="0" cellpadding="0" align="center" class="formtable" style="width:98%">
+																					<caption>
+																					<h2>什么是rayfile网盘？</h2>
+																					</caption>
+																					<tbody>
+																						<tr>
+																							<td>
+																								RayFile是一款提供在线存储和网络寄存的服务。<br />
+																								上传音乐文件到网盘可以长期且有效的保存你的音乐文件。在“推荐音乐”页面，你可以点选“网盘”选项来选择某个网盘文件。<br />
+																								[<a href="space.php?do=musicbox&mview=disk&dotype=upload">我要上传</a>]
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																	<!--{/if}-->
+													<!--{/if}-->
+													
+													
+													
+																	
+												<!--{/if}-->
+												
+												
+												
+												
+												
+								</div>
+								
+								<div id="sidebar" style="width:150px;">
+										<!--右边菜单-->
+										<div class="cat">
+											<h3><!--{if $space[self]}-->我的面板<!--{else}-->导航菜单<!--{/if}--></h3>
+											<ul class="post_list line_list">
+												<li$all_actives[all]>
+													<img src="images/<!--{if $space[self]}-->0537531951<!--{else}-->045631148111<!--{/if}-->.gif" align="absmiddle" /> <a href="space.php?uid=$space['uid']&do=musicbox&mview=mybox" <!--{if empty($_GET['thismenu']) && $_GET['mview']!='setting' && $_GET['mview']!='disk'}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->><!--{if $space[self]}-->我的<!--{else}--><!--{if $space['sex']==1}-->他<!--{elseif $space['sex']==2}-->她<!--{else}-->TA<!--{/if}-->的<!--{/if}-->推荐</a>
+												</li>
+												<li$all_actives[all]>
+													<img src="images/<!--{if $space[self]}-->05375385<!--{else}-->045631148111<!--{/if}-->.gif" align="absmiddle" /> <a href="space.php?uid=$space['uid']&do=musicbox&mview=mybox&thismenu=myalbum" <!--{if $_GET['thismenu']=="myalbum"}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->><!--{if $space[self]}-->我的<!--{else}--><!--{if $space['sex']==1}-->他<!--{elseif $space['sex']==2}-->她<!--{else}-->TA<!--{/if}-->的<!--{/if}-->专辑</a>
+												</li>
+												<li$all_actives[all]>
+													<img src="images/<!--{if $space[self]}-->053753150<!--{else}-->045631148111<!--{/if}-->.gif" align="absmiddle" /> <a href="space.php?uid=$space['uid']&do=musicbox&mview=mybox&thismenu=mycollect" <!--{if $_GET['thismenu']=="mycollect"}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->><!--{if $space[self]}-->我的<!--{else}--><!--{if $space['sex']==1}-->他<!--{elseif $space['sex']==2}-->她<!--{else}-->TA<!--{/if}-->的<!--{/if}-->收藏</a>
+												</li>
+												<!--{if $space[self]}-->
+														<li$all_actives[all]>
+															<img src="images/Fugue_1553.gif" align="absmiddle" /> <a href="space.php?do=musicbox&mview=mybox&thismenu=mymusicfans" <!--{if $_GET['thismenu']=='mymusicfans'}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->>我的粉丝</a>
+														</li>
+														<li$all_actives[all]>
+															<img src="images/053753245.gif" align="absmiddle" /> <a href="space.php?do=musicbox&mview=disk" <!--{if $_GET['mview']=='disk'}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->>Rayfile</a> [<a href="space.php?do=musicbox&mview=disk&dotype=upload">上传</a>]
+														</li>
+														<li$all_actives[all]>
+															<img src="images/Fugue_2077.gif" align="absmiddle" /> <a href="space.php?do=musicbox&mview=setting" <!--{if $_GET['mview']=='setting'}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->>品味设置</a>
+														</li>
+														<li$all_actives[all]>
+															<img src="images/045631397.gif" align="absmiddle" /> <a href="space.php?do=musicbox&mview=mybox&thismenu=musicfeed" <!--{if $_GET['thismenu']=="musicfeed"}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->>我的动态</a>
+														</li>
+														<li$all_actives[all]>
+															<img src="images/05375332.gif" align="absmiddle" /> <a href="space.php?do=musicbox&mview=mybox&thismenu=mymusicbox" <!--{if $_GET['thismenu']=="mymusicbox"}-->style="color:#FF2605; font-weight:bold;"<!--{/if}-->>音乐盒</a>
+														</li>
+												<!--{/if}-->
+											</ul>
+										</div>
+										<!--{if empty($_GET['thismenu']) && $_GET['mview']!='setting' && $_GET['mview']!='disk'}--><img src="images/musicad.jpg" /><!--{/if}-->
+								</div>
+												
+												
+				<!--{/if}-->
+
+
+
+
+<!--{template footer}-->

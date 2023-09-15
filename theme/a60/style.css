@@ -1,0 +1,43 @@
+﻿/*
+[name]Cat[/name]
+Powered by Ucenter Home
+*/
+body { background: #000; color: #444; }
+a { color: #444; }
+.line_list li { border-color: #9E0000; }
+.quote { background-image: url(images/q_start.gif); }
+.quote .q, .quote blockquote { background-image: url(images/q_end.gif); }
+.time { color: #444; }
+.avatar48 { padding: 1px; width: 48px; height: 48px; border: 1px solid #333; background: none; overflow: hidden; }
+#header { margin: 0; background: url(images/top_bg.jpg) repeat-x left top; color: #444; }
+.headerwarp { background: none; }
+#header a { color: #9E0000; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#space_page { padding: 270px 0 0; background: url(images/img.jpg) no-repeat left top; }
+#ubar h2 { background: url(images/title.gif) no-repeat 0 -100px; }
+.tabs_header, #space_page .comments_list li, #footer { border-color: #9E0000; }
+.tabs_header ul.tabs li a, .tabs_header ul.tabs li a span { background: none; }
+.tabs_header ul.tabs li.active a, .tabs_header ul.tabs li.active a span { background-image: url(images/tab_bg.gif); color: #9E0000; }
+a#i_rss { background-image: url(images/rss_icon.gif); }
+.index_name { color: #9E0000; }
+.online_icon { background-image: url(images/online_icon.gif); }
+.setting_status { background-image: url(images/spanner_icon.gif); }
+#space_page .feed_header { background: url(images/title.gif) no-repeat 0 0; color: #9E0000; }
+.t_input, textarea { border-color: #222; background: #111; color: #9E0000; }
+.submit { border-color: #333; background: #222; }
+.feed .entry-title { color: #9E0000; }
+.feed a:visited { color: #9E0000; }
+.feed .detail { color: #444; }
+.feed li { border-color: #9E0000; }
+.feed a img.summaryimg{ border-color:#333; }
+.feed a:hover img.summaryimg{ border-color:#444; }
+.feed .float_cancel { background: none; color: #333; }
+.entry_list .image_right img { border-color: #333; }
+.pipe { color: #444; }
+.ulist { border: 1px solid #9E0000; background: #111; }
+#space_page .album_list { background: #111; }
+#space_page .album_list .album { border: 1px solid #222; background: #000; }
+.sidebox h2.title { background: url(images/title.gif) no-repeat 0 -200px; color: #9E0000; }
+        .comments_list .quote { padding: 10px; border: 1px solid #2F2F2F; background: #222 none repeat scroll 0 0; font-size: 12px; }

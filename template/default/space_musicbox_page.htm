@@ -1,0 +1,340 @@
+<!--{eval $_TPL['titles'] = array($musicinfo['songname']." - 试听");}-->
+<!--{template header}-->
+<STYLE>
+.m_collect,
+.m_box,
+.m_share { float: right; margin-left: 4px; padding: 0 5px 0 18px; height: 15px; border: 1px solid #7F93BC; background: #FFF none no-repeat scroll left top; line-height: 15px; overflow: hidden; display: inline; }
+    .m_collect:hover,
+    .m_box:hover,
+    .m_share:hover { background-color: #576EA5; background-position: 0% 0px; color: #FFF; text-decoration: none; }
+.m_collect { background-image: url(images/053753150.gif); width: 60px; }
+.m_box { background-image: url(images/05375332.gif); width: 72px; }
+.m_share { background-image: url(template/$_SCONFIG[template]/image/share.gif); width: 84px; }
+</STYLE>
+<SCRIPT language="JavaScript" src="js/WerslingPlay.js"></SCRIPT>
+<!--{eval 
+	$_TPL['spacetitle'] = "音乐";
+}-->
+<!--{template space_menu}-->
+<div class="tmenu">
+	<ul>
+		<li>
+			<img src="images/0456318191.gif" align="absmiddle" /> <span style="color:#FF2605; font-weight:bold;">正在试听</span>
+		</li>
+		<li>
+			<img src="images/045631148.gif" align="absmiddle" /> <a href="space.php?uid=$space['uid']&do=musicbox&mview=mybox"><!--{if $space['sex']==1}-->他<!--{elseif $space['sex']==2}-->她<!--{else}-->TA<!--{/if}-->的音乐</a>
+		</li>
+		<li>
+			<img src="images/045631148.gif" align="absmiddle" /> <a href="space.php?uid=$space['uid']&do=musicbox&mview=mybox&thismenu=myalbum"><!--{if $space['sex']==1}-->他<!--{elseif $space['sex']==2}-->她<!--{else}-->TA<!--{/if}-->的专辑</a>
+		</li>
+		<li>&nbsp;</li>
+	</ul>
+	<div class="r_option" style="padding:5px 15px 0 0;"><a href="space.php?uid=$space['uid']&do=musicbox&mview=all">返回首页</a></div>
+</div>
+
+									<script type="text/javascript">
+										var collectionrealj=0;
+										
+										function musicpingfenget(showid, result) {
+											//获取评分
+											var x = new Ajax();
+											x.get('do.php?ac=ajaxm&op=getmusicpingfenuser&songid=$musicinfo[songid]&songuserid=$musicinfo[userid]', function(s){
+											$('musicpingfenuser').innerHTML = s;
+												});
+										}
+										
+										function musicpinglunget(showid, result) {
+											//获取评论
+											var x = new Ajax();
+											x.get('do.php?ac=ajaxm&op=getmusicpinglun&songid=$musicinfo[songid]&songuser=$musicinfo[userid]', function(s){
+											$('musicpinglunlist').innerHTML = s;
+												});
+										}
+										
+										function sendaddmymusicpinglun() {
+											//添加评论
+											if(cTrim(el("pingluntext").value,0)==""){
+												alert("对不起，请填写你的评论内容!");
+												el("pingluntext").value = "";
+												return false;
+											} else{
+												ajaxpost('musicpinglunform', 'musicpinglunget', 2000);
+												el("pingluntext").value = "";
+											}
+											return true;
+										}									
+										
+										function sharetomyfriend_send() {
+											//分享音乐
+											hideMenu();
+										}
+										
+										function tomymusicbox_send() {
+											//添加到音乐盒
+											hideMenu();
+										}
+										
+										function deletemusicpinglun_send(showid, result) {
+											//删除评论
+											hideMenu();
+											var x = new Ajax();
+											x.get('do.php?ac=ajaxm&op=getmusicpinglun&songid=$musicinfo[songid]&songuser=$musicinfo[userid]', function(s){
+											$('musicpinglunlist').innerHTML = s;
+												});
+										}
+										
+										function tocollection_send(showid, result) {
+											//收藏音乐
+											hideMenu();
+											var x = new Ajax();
+											x.get('do.php?ac=ajaxm&op=getcollectionuser&songid=$musicinfo[songid]', function(s){
+											$('collectionuser_c').innerHTML = s;
+												});
+										}
+										
+										function editthephoto_send(showid, result) {
+											//修改歌手照片
+											hideMenu();
+											//var x = new Ajax();
+											//x.get('do.php?ac=ajaxm&op=getcollectionuser&songid=$musicinfo[songid]', function(s){
+											//$('collectionuser_c').innerHTML = s;
+											//	});
+										}
+										
+									</script>
+				
+				<!--{if $_GET['mview']=='mpage' && !empty($_GET['mid'])}-->
+				<div id="content">
+					<div style="width:140px; float:left;border-right:solid 1px #EBEBEB; background:#F5F5F5; padding:10px;">
+								<span style="color:#333; font-size:16px;">$musicinfo['singer']</span>
+						    	<div style="padding:5px;"><img src="$musicinfo['photourl']" style="border:solid 1px #CCCCCC;" /><!--{if $_SGLOBAL['member']['groupid']==1}--><br /><a href="do.php?ac=ajaxm&op=editsingerphoto&singerid=$musicinfo['singerid']" id="editphoto_$musicinfo['singerid']" onclick="ajaxmenu(event, this.id)">修改照片</a> <a  href="http://image.baidu.com/i?ct=201326592&cl=2&lm=-1&tn=baiduimage&pv=&word=<!--{eval echo urlencode(iconv('UTF-8', 'GB2312', $musicinfo['singer']))}-->&z=0" target="_blank">百度照片</a><!--{/if}--></div>
+						    		<div style="border-bottom:solid 1px #b9b9b9;">
+						    			<img src="images/mini_icons_064.gif" />&nbsp;此音乐共被听&nbsp;$musicinfo['playtotal']&nbsp;次
+						    		</div>
+						    		<div style="border-bottom:solid 1px #b9b9b9; padding:10px 0 10px 0;">
+						    			<img src="images/Fugue_647.gif" />&nbsp;<<!--{if !empty($musicinfo['albumfengmian'])}--><a href="space.php?uid=$musicinfo['userid']&do=musicbox&mview=malbum&albumid=$musicinfo['albumid']&userspace=$musicinfo['userid']" target="_blank">$musicinfo['albumname']</a><!--{else}--><a href="space.php?uid=$musicinfo['userid']&do=musicbox&mview=malbum&albumid=true&userspace=$musicinfo['userid']" target="_blank">默认专辑</a><!--{/if}-->><br /><!--{if !empty($musicinfo['albumfengmian'])}--><a href="space.php?uid=$musicinfo['userid']&do=musicbox&mview=malbum&albumid=$musicinfo['albumid']&userspace=$musicinfo['userid']" target="_blank"><img src="$musicinfo['albumfengmian']" style="border:solid 1px #A19D9A;" /></a><!--{/if}-->
+						    		</div>
+						    		<div style="padding:10px 0 10px 0;">
+						    			<img src="images/Fugue_1909.gif" />&nbsp;音乐标签：$labellist
+						    		</div>
+						    		<img src="images/musicad.jpg" />
+						    		<div style="padding:10px 0 2px 0;border-bottom:solid 1px #b9b9b9">
+						    			&nbsp;收藏了此音乐的用户
+						    		</div>
+						    		<div id="collectionuser_c" style="padding:10px 0 2px 0; border-bottom:solid 1px #b9b9b9">
+						    			&nbsp;&nbsp;暂时还没有
+						    		</div>
+						    		<script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=getcollectionuser&songid=$musicinfo[songid]', 'collectionuser_c');</script>
+					</div>
+					
+					
+					<div style="width:358px; float:left;padding:10px;">
+									<div style="padding:5px 0; color:#ff0000; font-size:16px; font-weight:bold">$musicinfo['songname']</div>
+									<!--{if $_SGLOBAL['supe_uid'] || $_SC['music_v_guest']=="1"}-->
+											<table border="0" cellpadding="0" cellspacing="5">
+											  <tr>
+											    <td align="center">
+											    	<!--{if $_SC['music_play_auto']=="1"}-->
+											    						<img src="images/play1_no.gif" />
+											    	<!--{else}-->
+														    			<!--{if $_SC['music_palyer_style']=="1"}-->
+																	    				<!--{if $musicinfo['upload']!="0"}-->
+																	    					<img id="cplay" src="images/play1.gif" style="cursor: pointer;" onclick="doplaymusic(1,'musicplayer','$musicinfo[songurl]','cplay')" />
+																	    				<!--{else}-->
+																	    					<img id="cplay" src="images/play1.gif" style="cursor: pointer;" onclick="doplaymusic(2,'musicplayer','$musicinfo[songurl]','cplay')" />
+																	    				<!--{/if}-->
+														    			<!--{else}-->
+																	    				<!--{if $musicinfo['upload']!="0"}-->
+																	    					<img id="cplay" src="images/play1.gif" style="cursor: pointer;" onclick="doplaymusicwin(1,'musicplayer','$musicinfo[songurl]','cplay')" />
+																	    				<!--{else}-->
+																	    					<img id="cplay" src="images/play1.gif" style="cursor: pointer;" onclick="doplaymusicwin(2,'musicplayer','$musicinfo[songurl]','cplay')" />
+																	    				<!--{/if}-->
+														    			<!--{/if}-->
+											    	<!--{/if}-->
+											    </td>
+											    <td align="center">
+											    	<a href="space.php?do=musicbox&mybox=ok&songidlist=$musicinfo[songid]" target="jjcutemusiclisten" onclick="boxcc()"><img src="images/play2.gif" /></a>
+											    </td>
+											  </tr>
+											</table>
+									<!--{/if}-->
+						    	<div>
+						    		<!--{if $_SC['music_v_guest']=="0" && !$_SGLOBAL['supe_uid']}-->
+													<p class="alert"><a href="do.php?ac=$_SCONFIG[login_action]">登录后才可以试听此音乐!</a></p>
+													<!--{if $_SC['music_palyer_style']=="1"}-->
+														<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,124,0" width="100%" height="24" id="cmp">
+															<param name="movie" value="cmp.swf?src=&skin_src=mini/mini02.zip&auto_play=1&play_mode=1&context_menu=0&show_tip=0&plugins_disabled=1&c.swf" />
+															<param name="quality" value="high" />
+															<param name="allowFullScreen" value="true" />
+															<param name="allowScriptAccess" value="always" />
+															<param name="wmode" value="Transparent"/>
+															<embed pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="24" name="cmp" src="cmp.swf?src=$musicinfo['songurl']&skin_src=mini/mini02.zip&auto_play=1&play_mode=1&context_menu=0&show_tip=0&plugins_disabled=1&c.swf" quality="high"  allowfullscreen="true" allowscriptaccess="always" wmode="Transparent" ></embed>
+														</object>
+													<!--{else}-->
+														<object id="Player" width="100%" height="62" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,7,1112" align="baseline" border="0" standby="Loading Microsoft Windows Media Player components..." type="application/x-oleobject">
+															<param name="URL" value="">
+															<param name="autoStart" value="true">
+															<param name="invokeURLs" value="false">
+															<param name="playCount" value="0">
+															<param name="volume" value="80">
+															<param name="enableContextMenu" value="0">
+															<param name="defaultFrame" value="datawindow">
+															<embed name="player" type="application/x-mplayer2" height="62" width="100%" showstatusbar="true" autostart="true" pluginspage="http://www.microsoft.com/windows/windowsmedia/" src="">
+														</object>
+													<!--{/if}-->
+										<!--{else}-->
+															<!--{if $_SC['music_play_auto']=="0"}-->
+																<div id="musicplayer" style="display:none"></div>
+															<!--{else}-->
+																	<!--{if $_SC['music_palyer_style']=="1"}-->
+																			<div id="musicplayer">
+																				<!--{if $musicinfo['upload']!="0"}-->
+																						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,124,0" width="100%" height="24" id="cmp">
+																							<param name="movie" value="cmp.swf?src=$musicinfo['songurl']&skin_src=mini/mini02.zip&auto_play=1&play_mode=1&context_menu=0&show_tip=0&plugins_disabled=1&c.swf" />
+																							<param name="quality" value="high" />
+																							<param name="allowFullScreen" value="true" />
+																							<param name="allowScriptAccess" value="always" />
+																							<param name="wmode" value="Transparent"/>
+																							<embed pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="24" name="cmp" src="cmp.swf?src=$musicinfo['songurl']&skin_src=mini/mini02.zip&auto_play=1&play_mode=1&context_menu=0&show_tip=0&plugins_disabled=1&c.swf" quality="high"  allowfullscreen="true" allowscriptaccess="always" wmode="Transparent" ></embed>
+																						</object>
+																				<!--{else}-->
+																						<script type="text/javascript">writeplay2("$musicinfo[songurl]");</script>
+																				<!--{/if}-->
+																			</div>
+																	<!--{else}-->
+																			<div id="musicplayer">
+																					<!--{if $musicinfo['upload']!="0"}-->
+																						<object id="Player" width="100%" height="62" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,7,1112" align="baseline" border="0" standby="Loading Microsoft Windows Media Player components..." type="application/x-oleobject">
+																						<param name="URL" value="$musicinfo['songurl']">
+																						<param name="autoStart" value="true">
+																						<param name="invokeURLs" value="false">
+																						<param name="playCount" value="100">
+																						<param name="volume" value="80">
+																						<param name="enableContextMenu" value="1">
+																						<param name="defaultFrame" value="datawindow">
+																						<embed name="player" type="application/x-mplayer2" height="62" width="100%" showstatusbar="true" autostart="true" pluginspage="http://www.microsoft.com/windows/windowsmedia/" src="$musicinfo['songurl']">
+																					</object>
+																					<!--{else}-->
+																						<script type="text/javascript">writeplay1("$musicinfo[songurl]");</script>
+																					<!--{/if}-->
+																			</div>
+																	<!--{/if}-->
+															<!--{/if}-->
+										<!--{/if}-->
+															
+						    	</div>
+						    	<table border="0" cellpadding="0" cellspacing="10">
+									  <tr>
+									    <td align="center">
+									    	<!--<img src="images/mbi_038.gif" align="absmiddle"/>&nbsp;<a href="do.php?ac=ajaxm&op=tocollection&songid=$musicinfo[songid]" id="a_tocollection" onclick="ajaxmenu(event, this.id)" style="color:#FF0000;">添加到收藏</a>-->
+											<a href="do.php?ac=ajaxm&op=tocollection&songid=$musicinfo[songid]" id="a_tocollection" onclick="ajaxmenu(event, this.id)" class="m_collect">添加到收藏</a>
+									    </td>
+									    <td align="center">
+									    	<!--<img src="images/mbi_038.gif" align="absmiddle"/>&nbsp;<a href="do.php?ac=ajaxm&op=tomymusicbox&songid=$musicinfo[songid]" id="a_toinbox" onclick="ajaxmenu(event, this.id)" style="color:#FF0000;">添加到音乐盒</a>-->
+											<a href="do.php?ac=ajaxm&op=tomymusicbox&songid=$musicinfo[songid]" id="a_toinbox" onclick="ajaxmenu(event, this.id)" class="m_box">添加到音乐盒</a>
+									    </td>
+									    <td align="center">
+									    	<!--<img src="images/mbi_038.gif" align="absmiddle"/>&nbsp;<a href="do.php?ac=ajaxm&op=sharetomyfriend&songid=$musicinfo[songid]" id="a_fengxiang" onclick="ajaxmenu(event, this.id)" style="color:#FF0000;">分享给好友</a>-->
+											<a href="do.php?ac=ajaxm&op=sharetomyfriend&songid=$musicinfo[songid]" id="a_fengxiang" onclick="ajaxmenu(event, this.id)" class="m_share">分享给指定好友</a>
+									    </td>
+									  </tr>
+									</table>
+									<table border="0" cellpadding="0" cellspacing="5">
+									  <tr>
+									  	<td align="center">&nbsp;&nbsp;</td>
+									    <td align="center">
+									    	<a  href="http://mp3.baidu.com/m?f=ms&rn=&tn=baidump3&ct=134217728&word=<!--{eval echo urlencode(iconv('UTF-8', 'GB2312', $musicinfo['songname']))}-->&lm=-1" target="_blank">在百度搜索此音乐</a>
+									    </td>
+									    <td align="center">
+									    	<a  href="http://mp3.gougou.com/search?search=<!--{eval echo urlencode(iconv('UTF-8', 'GB2312', $musicinfo['songname']))}-->" target="_blank">在迅雷搜索此音乐</a>
+									    </td>
+									  </tr>
+									</table>
+									
+									<!--{if $_SC['music_down_auto']=="1"}-->
+							    	<div style="margin:10px 0 0 0; border-bottom:solid 1px #b9b9b9; padding:0 0 3px 0;">
+							    		<!--{if $_SGLOBAL['supe_uid']}-->
+							    			<img src="images/mini_icons_104.gif" align="absmiddle" />&nbsp;&nbsp;
+								    			<!--{if $musicinfo[down]==0}-->
+								    				<a  href="$musicinfo['songurl']" target="_blank">音乐地址</a><span style="color:#b9b9b9">(右键，目标另存为...)</span>
+								    			<!--{else}-->
+									    				<!--{if $_SGLOBAL['supe_uid']==$space['uid'] || in_array($_SGLOBAL['supe_uid'], $space['friends'])}-->
+									    					<a  href="$musicinfo['songurl']" target="_blank">音乐地址</a><span style="color:#b9b9b9">(右键，目标另存为...)</span>
+									    				<!--{else}-->
+									    					<a  href="cp.php?ac=friend&op=add&uid=$space['uid']" id="a_friend_$space['uid']" onclick="ajaxmenu(event, this.id, 1)" title="加好友">加为好友就可以见到下载链接</a>
+									    				<!--{/if}-->
+								    			<!--{/if}-->
+							    		<!--{/if}-->
+							    	</div>
+							    <!--{else}-->
+							    		<div style="margin:10px 0 0 0; border-bottom:solid 1px #b9b9b9; padding:0 0 3px 0;">
+							    		<!--{if $_SGLOBAL['supe_uid']}--><img src="images/mini_icons_104.gif" align="absmiddle" />&nbsp;&nbsp;<span style="color:#b9b9b9">系统禁止下载</span><!--{/if}-->
+							    	</div>
+							    <!--{/if}-->
+						    	<div style="margin:20px 0 0 0; border-bottom:solid 1px #b9b9b9; padding:0 0 3px 0;"><img src="images/clean_009.gif" />&nbsp;音乐歌词</div>
+						    	<!--{if !empty($musicinfo['lyric'])}-->
+							    	<div style="margin:2px 0 0 0; padding:2px;">
+							    		<pre style="width:100%;word-break: break-all; word-wrap:break-word;"><img src="images/greyscale_015.gif" />&nbsp;$musicinfo['lyric']&nbsp;<img src="images/greyscale_016.gif" /></pre>
+							    	</div>
+						    	<!--{else}-->
+						    		<div style="margin:2px 0 0 0; padding:2px;">
+							    		没有歌词
+							    	</div>
+						    	<!--{/if}-->
+					</div>
+					
+				</div>
+				<div id="sidebar">
+					<!--{if $_SGLOBAL['member']['groupid']==1}-->
+											<form id="admindeletemusicform" method="post" action="space.php?do=musicbox&mop=deletemusic&mid=$musicinfo['songid']&isupload=$musicinfo['upload']&songuserid=$musicinfo['userid']">
+												<input type="hidden" name="deletemusicsubmit" value="true" />
+												<input type="submit" name="deletemusicsubmit_btn" value="删除" class="submit" />
+												<a href="space.php?do=musicbox&mop=admintuijian&mid=$musicinfo['songid']">推荐</a>
+												<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+											</form>
+					<!--{/if}-->
+					<!--{if $musicinfo['usersay']}-->
+					<div class="searchfirend" style="margin:0;">
+						<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+							<h3>推荐感言</h3>
+							<div style="padding:0 10px 10px 10px;">
+								<!--{if $needdivborder}--><div style="PADDING-TOP:10px; OVERFLOW-Y: auto; SCROLLBAR-FACE-COLOR: #ffffff; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; OVERFLOW: auto; WIDTH: 220px; SCROLLBAR-SHADOW-COLOR: #919192; SCROLLBAR-3DLIGHT-COLOR:#ffffff; SCROLLBAR-ARROW-COLOR: #919192; SCROLLBAR-TRACK-COLOR: #ffffff; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; HEIGHT: 300px; TEXT-ALIGN: left; background-repeat: no-repeat;"><!--{/if}-->
+									<pre>$musicinfo['usersay']</pre>
+								<!--{if $needdivborder}--></div><!--{/if}-->
+							</div>
+						</div></div></div></div>
+					</div>
+					<!--{/if}-->
+					<div class="sidebox">
+							<h2 class="title"><img src="images/Fugue_1795.gif" align="absmiddle" /> 音乐评分</h2>
+							<form id="musicpingfenform" method="post" action="space.php?do=musicbox&mop=musicpingfen&songid=$musicinfo[songid]&songuserid=$musicinfo[userid]">
+								<div id="musicpingfenuser" style="padding:0 10px 0 10px;"></div>
+								<input type="hidden" name="pingfensongname" value="$musicinfo['songname']" />
+							</form>
+						  <script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=getmusicpingfenuser&songid=$musicinfo[songid]&songuserid=$musicinfo[userid]', 'musicpingfenuser');</script>
+					</div>
+					<div class="sidebox">
+							<h2 class="title"><img src="images/Fugue_1806.gif" align="absmiddle" /> 相关评论</h2>
+							<div id="musicpinglunlist"></div>
+						  <script type="text/javascript">ajaxget('do.php?ac=ajaxm&op=getmusicpinglun&songid=$musicinfo[songid]&songuser=$musicinfo[userid]', 'musicpinglunlist');</script>
+						  
+									  <div style="padding:0 10px 0 10px;">
+									  	<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+									  		<!--{if !$_SGLOBAL['supe_uid']}-->
+											    				<p class="alert">请登录后评论!</p>
+												<!--{else}-->
+															<form id="musicpinglunform" method="post" action="space.php?do=musicbox&mop=musicpinglun&songid=$musicinfo['songid']&songuserid=$musicinfo['userid']">
+																<input type="hidden" name="pinglunsongname" value="$musicinfo['songname']" />
+																<span class="it_s"><textarea onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" name="pingluntext" id="pingluntext" rows="6" cols="30"></textarea></span><br/>
+																<input type="hidden" name="pinglunsubmit" value="true" />
+																<input type="button" name="commendpinglun_btn" value="发表" class="submit" onclick="return sendaddmymusicpinglun()"><span style="font-size:10px; color:#333">200字以内</span>
+																<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+															</form>
+												<!--{/if}-->
+											</div></div></div></div>
+										</div>
+					</div>
+				</div>
+				<!--{/if}-->
+
+<!--{template footer}-->

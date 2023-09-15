@@ -1,0 +1,339 @@
+<!--{template pay_header}-->
+<style type="text/css">
+<!--
+.pay_text {
+	color: #006699;
+	CURSOR: hand;
+}
+-->
+</style>
+
+
+<form method="post" action="" class="c_form">
+  <table class="formtable"><tr><td>
+    <table width="700" border="0" align="left">
+	<caption>
+      <h2>网站根路径</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp </p>
+        </caption>
+
+<tr>
+    <th width="120">本站网址</th>
+    <td><input type="text" name="config[payurl]" value="<!--{if $configs[siteallurl]}-->$configs[siteallurl]<!--{else}-->$configs[payurl]<!--{/if}-->" size="40" class="t_input" />
+      尾部一定要加/ </td>
+  </tr>
+    </table>
+  </td>
+  </tr>
+  <tr><td>
+      <h2>财付通设置 - <span class="pay_text" onclick="div_linfo('tid');">点击打开设置</span></h2>
+  <div id="tid" style="<!--{if $configs[tenpay]}-->position:relative;<!--{else}-->position:absolute;visibility:hidden;<!--{/if}-->">
+    <table width="700" border="0" align="left">
+<tr>
+    <th width="120">财付通目录</th>
+    <td><input type="text" name="config[tfile]" value="$configs[tfile]" size="25" class="t_input" />
+      前后不要加/ </td>
+  </tr>
+  <tr>
+    <th>财付通账号</th>
+    <td><input type="text" name="config[tenpay]" value="$configs[tenpay]" size="25" class="t_input" />
+      *不打开服务请留空</td>
+  </tr>
+  <tr>
+    <th>财付通密匙</th>
+    <td><input type="text" name="config[tenpaym]" value="$configs[tenpaym]" size="40" class="t_input" />必须填写正确,增强加密数据安全返回.</td>
+  </tr>
+  <tr>
+    <th>手续费</th>
+    <td><input type="text" name="config[tps]" value="$configs[tps]" size="6" class="t_input" />
+      <strong>%</strong></td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[tpnote]" cols="70" rows="4" class="t_input">$configs[tpnote]</textarea></td>
+  </tr>
+    </table>
+	</div>
+  </td>
+  </tr><tr><td>
+      <h2>网银设置 - <span class="pay_text" onclick="div_linfo('cbid');">点击打开设置</span></h2>
+  <div id="cbid" style="<!--{if $configs[tenpay]}-->position:relative;<!--{else}-->position:absolute;visibility:hidden;<!--{/if}-->">
+    <table width="700" border="0" align="left">
+  <tr>
+    <th width="120">网银目录</th>
+    <td><input type="text" name="config[cbfile]" value="$configs[cbfile]" size="25" class="t_input" />
+      前后不要加/ </td>
+  </tr>
+  <tr>
+    <th>网银账号</th>
+    <td><input type="text" name="config[cbankpay]" value="$configs[cbankpay]" size="25" class="t_input" />
+      *不打开服务请留空</td>
+  </tr>
+  <tr>
+    <th>网银密匙</th>
+    <td><input type="text" name="config[cbankm]" value="$configs[cbankm]" size="40" class="t_input" />必须填写正确,增强加密数据安全返回.</td>
+  </tr>
+  <tr>
+    <th>手续费</th>
+    <td><input type="text" name="config[cbs]" value="$configs[cbs]" size="6" class="t_input" />
+      <strong>%</strong></td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[cbnote]" cols="70" rows="4" class="t_input">$configs[cbnote]</textarea></td>
+  </tr>
+    </table>
+	</div>
+  </td></tr>
+  <tr><td>
+  
+      <h2>支付宝设置 - <span class="pay_text" onclick="div_linfo('apid');">点击打开设置</span></h2>
+  <div id="apid" style="<!--{if $configs[appay]}-->position:relative;<!--{else}-->position:absolute;visibility:hidden;<!--{/if}-->">
+    <table width="700" border="0" align="left">
+  <tr>
+    <th width="120">支付宝目录</th>
+    <td><input type="text" name="config[apfile]" value="$configs[apfile]" size="25" class="t_input" />
+      前后不要加/ </td>
+  </tr>
+  <tr>
+    <th>卖家Email</th>
+    <td><input type="text" name="config[payemail]" value="$configs[payemail]" size="28" class="t_input" /> 
+    必须填写,否则无法支付</td>
+  </tr>
+  <tr>
+    <th>合作者身份ID</th>
+    <td><input type="text" name="config[appay]" value="$configs[appay]" size="25" class="t_input" />
+      *不打开服务请留空</td>
+  </tr>
+  <tr>
+    <th>交易安全校验码</th>
+    <td><input type="text" name="config[apm]" value="$configs[apm]" size="40" class="t_input" />必须填写正确,增强加密数据安全返回.</td>
+  </tr>
+  <tr>
+    <th>手续费</th>
+    <td><input type="text" name="config[aps]" value="$configs[aps]" size="6" class="t_input" />
+      <strong>%</strong></td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[apnote]" cols="70" rows="4" class="t_input">$configs[apnote]</textarea></td>
+  </tr>
+    </table>
+	</div>
+  </td></tr>
+  <tr><td>
+  
+      <h2>易宝支付设置(神州行手机卡充值方式) - <span class="pay_text" onclick="div_linfo('clid');">点击打开设置</span></h2>
+  <div id="clid" style="<!--{if $configs[clpay]}-->position:relative;<!--{else}-->position:absolute;visibility:hidden;<!--{/if}-->">
+    <table width="700" border="0" align="left">
+  <tr>
+    <th width="120">易宝目录</th>
+    <td><input type="text" name="config[clfile]" value="$configs[clfile]" size="25" class="t_input" />
+      前后不要加/ </td>
+  </tr>
+  <tr>
+    <th>易宝账号</th>
+    <td><input type="text" name="config[clpay]" value="$configs[clpay]" size="25" class="t_input" />
+      *不打开服务请留空</td>
+  </tr>
+  <tr>
+    <th>易宝密匙</th>
+    <td><input name="config[clm]" type="text" class="t_input" value="$configs[clm]" size="75" />必须填写正确,增强加密数据安全返回.</td>
+  </tr>
+  <tr>
+    <th>手续费</th>
+    <td><input type="text" name="config[cls]" value="$configs[cls]" size="6" class="t_input" />
+      <strong>%</strong></td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[clnote]" cols="70" rows="4" class="t_input">$configs[clnote]</textarea></td>
+  </tr>
+    </table>
+	</div>
+  </td></tr><tr><td>
+      <h2>易宝支付设置(银行卡充值方式) - <span class="pay_text" onclick="div_linfo('clbid');">点击打开设置</span></h2>
+  <div id="clbid" style="<!--{if $configs[clbpay]}-->position:relative;<!--{else}-->position:absolute;visibility:hidden;<!--{/if}-->">
+    <table width="700" border="0" align="left">
+  <tr>
+    <th width="120">易宝目录</th>
+    <td><input type="text" name="config[clbfile]" value="$configs[clbfile]" size="25" class="t_input" />
+      前后不要加/ </td>
+  </tr>
+  <tr>
+    <th>易宝账号</th>
+    <td><input type="text" name="config[clbpay]" value="$configs[clbpay]" size="25" class="t_input" />
+      *不打开服务请留空</td>
+  </tr>
+  <tr>
+    <th>易宝密匙</th>
+    <td><input name="config[clbm]" type="text" class="t_input" value="$configs[clbm]" size="75" />必须填写正确,增强加密数据安全返回.</td>
+  </tr>
+  <tr>
+    <th>手续费</th>
+    <td><input type="text" name="config[clbs]" value="$configs[clbs]" size="6" class="t_input" />
+      <strong>%</strong></td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[clbnote]" cols="70" rows="4" class="t_input">$configs[clbnote]</textarea></td>
+  </tr>
+    </table>
+	</div>
+  </td></tr><tr><td>
+      <h2>PayPal设置(海外专用) - <span class="pay_text" onclick="div_linfo('ppid');">点击打开设置</span></h2>
+  <div id="ppid" style="<!--{if $configs[pppay]}-->position:relative;<!--{else}-->position:absolute;visibility:hidden;<!--{/if}-->">
+    <table width="700" border="0" align="left">
+  <tr>
+    <th width="120">PayPal目录</th>
+    <td><input type="text" name="config[ppfile]" value="$configs[ppfile]" size="25" class="t_input" />
+      前后不要加/ </td>
+  </tr>
+  <tr>
+    <th>PayPal账号(Email)</th>
+    <td><input type="text" name="config[pppay]" value="$configs[pppay]" size="25" class="t_input" />
+      *不打开服务请留空 </td>
+  </tr>
+  <tr>
+    <th>PayPal密匙(安全ID)</th>
+    <td><input name="config[ppm]" type="text" class="t_input" value="$configs[ppm]" size="45" />  必须填写正确,增强加密数据安全返回.</td>
+  </tr>
+  <tr>
+    <th>动态密匙</th>
+    <td><strong>$configs[web_paykey]</strong>
+      <input name="config[web_paykey]" type="hidden" class="t_input" value="" />  
+    一般无须修改此值.</td>
+  </tr>
+  <tr>
+    <th>手续费</th>
+    <td><input type="text" name="config[pps]" value="$configs[pps]" size="6" class="t_input" />
+      <strong>%</strong></td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[ppnote]" cols="70" rows="4" class="t_input">$configs[ppnote]</textarea></td>
+  </tr>
+    </table>
+	</div>
+  </td></tr>
+  <tr><td>
+    <table width="700" border="0" align="left">
+	
+	<caption>
+      <h2>人民币-&gt;积分充值比例</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp </p>
+        </caption>
+  <tr>
+    <td width="120">人民币充值比例</td>
+    <td><input name="config[bilv]" type="text" id="config[bilv]" value="$configs[bilv]" size="10" class="t_input" />
+      (相当于充值1人民币所得多少积分,默认是1) 整数</td>
+  </tr>
+  <tr>
+    <td>美元充值比例</td>
+    <td><input type="text" name="config[ppbilv]" value="$configs[ppbilv]" size="6" class="t_input" />
+     (相当于充值1美元所得多少积分,默认是1) 整数(只对PayPal有效)</td>
+  </tr>
+    </table>
+  </td></tr>
+  <tr><td>
+    <table width="700" border="0" align="left" id="vipfid">
+	<caption>
+      <h2>VIP充值设置</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp </p>
+        </caption>
+  <tr>
+    <th width="120">VIP会员组</th>
+    <td><select name="config[vipapp]" id="config[vipapp]">
+						<!--{loop $userapp $key $value}-->
+						<!--{if $_SCONFIG[vipapp] == $key}-->
+      <option value="$key" selected="selected">$value</option>
+						<!--{else}-->
+      <option value="$key">$value</option>
+						<!--{/if}-->
+						<!--{/loop}-->
+    </select>    <a href="pay.php?ac=vipconfig">VIP功能设置</a></td>
+  </tr>
+  <tr>
+    <th>服务类型</th>
+    <td><textarea name="config[vipcls]" cols="50" rows="5" class="t_input" id="config[vipcls]">$configs[vipcls]</textarea>
+      <br />
+      (一行一个类型)
+      <br />
+	  如:30|10|100 相当于30天所需10元,收费100%	  </td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[clsnote]" cols="70" rows="4" class="t_input">$configs[clsnote]</textarea></td>
+  </tr>
+    </table>
+  </td></tr>
+  <tr><td>
+    <table width="700" border="0" align="left">	
+	<caption>
+      <h2>积分兑换VIP设置</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp </p>
+        </caption>
+  <tr>
+    <th width="120">积分兑换开关</th>
+    <td>
+<!--{if $_SCONFIG[ctvip] == 1}-->
+	<input name="config[ctvip]" type="radio" value="1" checked="checked" />
+	开启 
+	<input name="config[ctvip]" type="radio" value="0" />关闭
+<!--{else}-->
+	<input name="config[ctvip]" type="radio" value="1" />开启 
+	<input name="config[ctvip]" type="radio" value="0" checked="checked" />
+	关闭
+<!--{/if}-->      </td>
+  </tr>
+  <tr>
+    <th>服务类型</th>
+    <td><textarea name="config[vipjf]" cols="50" rows="5" class="t_input" id="config[vipjf]">$configs[vipjf]</textarea>
+      <br />
+      (一行一个类型)
+      <br />
+	  如:60|30 相当于60积分兑换30天</td>
+  </tr>
+  <tr>
+    <th>服务介绍</th>
+    <td><textarea name="config[jfnote]" cols="70" rows="4" class="t_input">$configs[jfnote]</textarea></td>
+  </tr>
+    </table>
+  </td></tr>
+  <tr><td>
+    <table width="700" border="0" align="left">
+	<caption>
+      <h2>积分充值帮助</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp </p>
+        </caption>
+  <tr>
+    <th width="120">帮助页面URL</th>
+    <td><input name="config[pay_help]" type="text" id="config[pay_help]" value="$configs[pay_help]" size="50" class="t_input" /> </td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2" align="center"><input type="submit" name="Submit" value="保存配置"/></td>
+    </tr>
+    </table>
+  </td></tr>
+  </table>
+  
+</form>
+<script language="JavaScript" type="text/javascript">
+   function div_linfo (id) {
+    var id = document.getElementById(id);
+	    if (id.style.visibility == 'hidden') {
+     id.style.position='relative';
+     id.style.visibility='';
+	 } else {
+     id.style.position='absolute';
+     id.style.visibility='hidden';
+	 }
+   }
+</script>
+
+<!--{template footer}-->

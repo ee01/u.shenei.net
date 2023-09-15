@@ -1,0 +1,808 @@
+<!--{template pay_header}-->
+
+<table border="0" align="right">
+  <tr>
+    <td width="185" height="48" align="center">	
+	 <strong> <!--{if $space[groupid] == $_SCONFIG[vipapp]}-->
+      <font color="#666666">VIP状态:<!--{if $vips[ztime] > 0}-->$v_day[day] 天<!--{else}-->终身VIP<!--{/if}--></font>		
+		  <img src="image/pay/vip.gif" alt="VIP会员:<!--{if $vips[ztime] > 0}-->$v_day[day]天<!--{else}-->终身VIP<!--{/if}-->" border="0" align="absmiddle" />
+			<!--{else}-->
+      <font color="#666666">VIP状态:未激活</font>	<img src="image/pay/vip2.gif" alt="未激活" border="0" align="absmiddle" />
+			<!--{/if}--></strong><br />
+    用户:<strong> $space[username]</strong> 积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>   </font> </td>
+  </tr>
+</table>
+<br />
+
+<!--{if $pay == ''}-->
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+		      <caption>
+      <h2>在线充值</h2>
+	  
+        </caption>
+<!--{if $_SCONFIG[appay] != ''}-->
+  <tr>
+    <td width="150" align="center"><a href="pay.php?pay=appay" target="_blank"><img src="image/pay/alipay.jpg" width="125" height="50" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>支付宝 - $_SCONFIG[aps]%手续费</h2>
+        <p>&nbsp;&nbsp;&nbsp$_SCONFIG[apnote]
+</p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="left"><div class="submit" id="stk"><a href="pay.php?pay=appay" target="_blank">我要充值</a> </div>       </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+	  
+		<!--{/if}-->
+<!--{if $_SCONFIG[tenpay] != ''}-->
+  <tr>
+    <td width="150" align="center"><a href="pay.php?pay=tenpay" target="_blank"><img src="image/pay/tpay.jpg" width="125" height="50" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>财付通 - $_SCONFIG[tps]%手续费</h2>
+        <p>&nbsp;&nbsp;&nbsp$_SCONFIG[tpnote]</p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="left"><div class="submit" id="stk"><a href="pay.php?pay=tenpay" target="_blank">我要充值</a> </div>       </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+	  
+		<!--{/if}-->
+		
+		<!--{if $_SCONFIG[cbankpay] != ''}-->
+	   <tr>
+    <td align="center"><a href="pay.php?pay=chinabank" target="_blank"><img src="image/pay/bankpay.gif" width="125" height="50" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>网银在线 - $_SCONFIG[cbs]%手续费</h2>
+        <p>&nbsp;&nbsp&nbsp$_SCONFIG[cbnote]</p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="left"><div class="submit" id="stk"><a href="pay.php?pay=chinabank" target="_blank">我要充值</a> </div> </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+		<!--{/if}-->
+		<!--{if $_SCONFIG[clpay] != ''}-->
+  <tr>
+    <td width="150" align="center"><a href="pay.php?pay=clpay" target="_blank"><img src="image/pay/callback.jpg" width="125" height="50" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>易宝手机充值卡 - $_SCONFIG[cls]%手续费</h2>
+        <p>&nbsp;&nbsp;&nbsp$_SCONFIG[clnote]</p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="left"><div class="submit" id="stk"><a href="pay.php?pay=clpay" target="_blank">我要充值</a> </div>       </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+	  
+		<!--{/if}-->
+		<!--{if $_SCONFIG[clbpay] != ''}-->
+  <tr>
+    <td width="150" align="center"><a href="pay.php?pay=clbpay" target="_blank"><img src="image/pay/callbank.jpg" width="125" height="40" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>易宝银行卡 - $_SCONFIG[clbs]%手续费</h2>
+        <p>&nbsp;&nbsp;&nbsp$_SCONFIG[clbnote]</p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="left"><div class="submit" id="stk"><a href="pay.php?pay=clbpay" target="_blank">我要充值</a> </div>       </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+	  
+		<!--{/if}--><!--{if $_SCONFIG[pppay] != ''}-->
+  <tr>
+    <td width="150" align="center"><a href="pay.php?pay=pppay" target="_blank"><img src="image/pay/paypal.gif" width="145" height="55" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>PayPal(海外专用) - $_SCONFIG[pps]%手续费</h2>
+        <p>&nbsp;&nbsp;&nbsp$_SCONFIG[ppnote]</p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="left"><div class="submit" id="stk"><a href="pay.php?pay=pppay" target="_blank">我要充值</a> </div>       </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+	  
+		<!--{/if}-->
+</table>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+		      <caption>
+      <h2>升级VIP功能</h2>
+        </caption>
+<!--{if $_SCONFIG[vipcls] != ''}-->
+
+  <tr>
+    <td width="150" align="center"><a href="pay.php?pay=buyvip" target="_blank"><img src="image/pay/vippay.jpg" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>购买VIP</h2>
+        <p>&nbsp;&nbsp&nbsp$_SCONFIG[clsnote] <br />
+          &nbsp;&nbsp&nbsp<a href="pay.php?ac=vip" target="_blank">查看VIP特权</a></p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td align="left"><div class="submit" id="stk"><a href="pay.php?pay=buyvip" target="_blank">我要购买</a> </div>     </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+		<!--{/if}-->
+		
+<!--{if $_SCONFIG[ctvip] == 1}-->
+  <tr>
+    <td align="center"><a href="pay.php?pay=ctvip" target="_blank"><img src="image/pay/vippay1.jpg" border="0" /></a></td>
+    <td><table cellspacing="0" cellpadding="0" class="formtable">
+      <caption>
+      <h2>积分兑换VIP</h2>
+        <p>&nbsp;&nbsp&nbsp$_SCONFIG[jfnote]<br />
+          &nbsp;&nbsp&nbsp<a href="pay.php?ac=vip" target="_blank">查看VIP特权</a></p>
+        </caption>
+      <tr>
+        <th width="120"></th>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="left"><div class="submit" id="stk"><a href="pay.php?pay=ctvip" target="_blank">我要兑换</a> </div>     </td>
+        </tr>
+    </table></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+		<!--{/if}-->
+</table>
+		<!--{elseif $pay == 'appay'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     输入金额</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     在线支付     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成充值   </font></strong> </td>
+  </tr>
+</table>
+<br />
+
+		<table width="98%" border="0" class="formtable">
+		      <caption>
+      <h2>在线充值 - 支付宝$_SCONFIG[aps]%手续费</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 充值成功后，系统将会向 $space[username] 的账号自动充入积分，
+无需等待，即时生效！</p>
+        </caption>
+<tr>
+      <td width="130" height="25" align="center"><span class="spaf" style="font-weight: bold">用 户 名</span></td>
+      <td width="629" class="spaf">$space[username] (我的积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>积分)</td>
+    </tr>
+  <form id="form10" name="form10" method="post" action="$_SCONFIG[apfile]/index.php">
+    <tr>
+      <td width="130" height="25" align="center"><strong class="spaf">充值金额</strong></td>
+      <td><input value="10" name="paym" type="text" class="tts" id="paym" onkeypress="if (event.keyCode!=46 &amp;&amp; event.keyCode!=45 &amp;&amp; (event.keyCode&lt;48 || event.keyCode&gt;57)) event.returnValue=false" size="6" />
+      <span class="spaf"><strong>元</strong><strong>(RMB)</strong> (一元人民币 = <strong>$_SCONFIG[bilv] </strong>积分)</span></td>
+    </tr>
+    <tr>
+      <td height="65" align="center">&nbsp;</td>
+      <td height="65" align="left"><input class="submit" name="Submit3" type="submit" value="确认充值" title="我要充值"  /></td>
+    </tr>
+      <tr>
+        <td height="1" colspan="3" bgcolor="#FF9900"></td>
+      </tr>
+  </form>
+</table>
+		<!--{elseif $pay == 'tenpay'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     输入金额</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     在线支付     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成充值   </font></strong> </td>
+  </tr>
+</table>
+<br />
+
+		<table width="98%" border="0" class="formtable">
+		      <caption>
+      <h2>在线充值 - 财付通$_SCONFIG[tps]%手续费</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 充值成功后，系统将会向 $space[username] 的账号自动充入积分，
+无需等待，即时生效！</p>
+        </caption>
+<tr>
+      <td width="130" height="25" align="center"><span class="spaf" style="font-weight: bold">用 户 名</span></td>
+      <td width="629" class="spaf">$space[username] (我的积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>积分)</td>
+    </tr>
+  <form id="form10" name="form10" method="post" action="$_SCONFIG[tfile]/index.php">
+    <tr>
+      <td width="130" height="25" align="center"><strong class="spaf">充值金额</strong></td>
+      <td><input value="10" name="paym" type="text" class="tts" id="paym" onkeypress="if (event.keyCode!=46 &amp;&amp; event.keyCode!=45 &amp;&amp; (event.keyCode&lt;48 || event.keyCode&gt;57)) event.returnValue=false" size="6" />
+      <span class="spaf"><strong>元</strong><strong>(RMB)</strong> (一元人民币 = <strong>$_SCONFIG[bilv] </strong>积分)</span></td>
+    </tr>
+    <tr>
+      <td height="65" align="center">&nbsp;</td>
+      <td height="65" align="left"><input class="submit" name="Submit3" type="submit" value="确认充值" title="我要充值"  /></td>
+    </tr>
+      <tr>
+        <td height="1" colspan="3" bgcolor="#FF9900"></td>
+      </tr>
+  </form>
+</table>
+		<!--{elseif $pay == 'chinabank'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     输入金额</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     在线支付     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成充值   </font></strong> </td>
+  </tr>
+</table>
+<br />
+<table width="98%" border="0" class="formtable">
+		      <caption>  
+			  <h2>在线充值 - 网银在线$_SCONFIG[cbs]%手续费</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 充值成功后，系统将会向 $space[username] 的账号自动充入积分，
+无需等待，即时生效！</p>
+        </caption>
+<tr>
+      <td width="130" height="25" align="center"><span class="spaf" style="font-weight: bold">用 户 名</span></td>
+      <td width="629" class="spaf">$space[username] (我的积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>积分)</td>
+  </tr>
+  <form id="form10" name="form10" method="POST" action="$_SCONFIG[cbfile]/Send.php">
+    <tr>
+      <td width="130" height="25" align="center"><strong class="spaf">充值金额</strong></td>
+      <td><input value="10" name="paym" type="text" class="tts" id="paym" onkeypress="if (event.keyCode!=46 &amp;&amp; event.keyCode!=45 &amp;&amp; (event.keyCode&lt;48 || event.keyCode&gt;57)) event.returnValue=false" size="6" />
+      <span class="spaf"><strong>元</strong><strong>(RMB)</strong> (一元人民币<strong> </strong>= <strong>$_SCONFIG[bilv] </strong>积分)</span></td>
+    </tr>
+    <tr>
+      <td height="65" align="center">&nbsp;</td>
+      <td height="65" align="left"><input class="submit" name="Submit3" type="submit" value="确认充值" title="我要充值"  /></td>
+    </tr>
+      <tr>
+        <td height="1" colspan="3" bgcolor="#FF9900"></td>
+      </tr>
+  </form>
+</table>
+
+		<!--{elseif $pay == 'clpay'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     输入金额</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     在线支付     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成充值   </font></strong> </td>
+  </tr>
+</table>
+<br />
+
+		<table width="98%" border="0" class="formtable">
+		      <caption>
+      <h2>在线充值 - 易宝手机充值卡$_SCONFIG[cls]%手续费</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 充值成功后，系统将会向 $space[username] 的账号自动充入积分，
+无需等待，即时生效！</p>
+        </caption>
+<tr>
+      <td width="130" height="25" align="center"><span class="spaf" style="font-weight: bold">用 户 名</span></td>
+      <td width="629" class="spaf">$space[username] (我的积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>积分)</td>
+    </tr>
+  <form id="form10" name="form10" method="post" action="$_SCONFIG[clfile]/req.php">
+    <tr>
+      <td width="130" height="25" align="center"><strong class="spaf">充值金额</strong></td>
+      <td><input value="10" name="paym" type="text" class="tts" id="paym" onkeypress="if (event.keyCode!=46 &amp;&amp; event.keyCode!=45 &amp;&amp; (event.keyCode&lt;48 || event.keyCode&gt;57)) event.returnValue=false" size="6" />
+      <span class="spaf"><strong>元</strong><strong>(RMB)</strong> (一元人民币<strong> </strong>= <strong>$_SCONFIG[bilv] </strong>积分)</span></td>
+    </tr>
+    <tr>
+      <td height="65" align="center">&nbsp;</td>
+      <td height="65" align="left"><input class="submit" name="Submit3" type="submit" value="确认充值" title="我要充值"  /></td>
+    </tr>
+      <tr>
+        <td height="1" colspan="3" bgcolor="#FF9900"></td>
+      </tr>
+  </form>
+</table>
+		<!--{elseif $pay == 'clbpay'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     输入金额</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     在线支付     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成充值   </font></strong> </td>
+  </tr>
+</table>
+<br />
+
+		<table width="98%" border="0" class="formtable">
+		      <caption>
+      <h2>在线充值 - 易宝银行卡支付$_SCONFIG[clbs]%手续费</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 充值成功后，系统将会向 $space[username] 的账号自动充入积分，
+无需等待，即时生效！</p>
+        </caption>
+<tr>
+      <td width="130" height="25" align="center"><span class="spaf" style="font-weight: bold">用 户 名</span></td>
+      <td width="629" class="spaf">$space[username] (我的积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>积分)</td>
+    </tr>
+  <form id="form10" name="form10" method="post" action="$_SCONFIG[clbfile]/req.php">
+    <tr>
+      <td width="130" height="25" align="center"><strong class="spaf">充值金额</strong></td>
+      <td><input value="10" name="paym" type="text" class="tts" id="paym" onkeypress="if (event.keyCode!=46 &amp;&amp; event.keyCode!=45 &amp;&amp; (event.keyCode&lt;48 || event.keyCode&gt;57)) event.returnValue=false" size="6" />
+      <span class="spaf"><strong>元</strong><strong>(RMB)</strong> (一元人民币<strong> </strong>= <strong>$_SCONFIG[bilv] </strong>积分)</span></td>
+    </tr>
+    <tr>
+      <td height="65" align="center">&nbsp;</td>
+      <td height="65" align="left"><input class="submit" name="Submit3" type="submit" value="确认充值" title="我要充值"  /></td>
+    </tr>
+      <tr>
+        <td height="1" colspan="3" bgcolor="#FF9900"></td>
+      </tr>
+  </form>
+</table>
+		<!--{elseif $pay == 'pppay'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     输入金额</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     在线支付     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成充值   </font></strong> </td>
+  </tr>
+</table>
+<br />
+
+		<table width="98%" border="0" class="formtable">
+		      <caption>
+      <h2>在线充值 - PayPal在线支付$_SCONFIG[pps]%手续费</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 充值成功后，系统将会向 $space[username] 的账号自动充入积分，
+无需等待，即时生效！</p>
+        </caption>
+<tr>
+      <td width="130" height="25" align="center"><span class="spaf" style="font-weight: bold">用 户 名</span></td>
+      <td width="629" class="spaf">$space[username] (我的积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>积分)</td>
+    </tr>
+  <form id="form10" name="form10" method="post" action="$_SCONFIG[ppfile]/paypal.php">
+    <tr>
+      <td width="130" height="25" align="center"><strong class="spaf">充值金额</strong></td>
+      <td><input value="10" name="paym" type="text" class="tts" id="paym" onkeypress="if (event.keyCode!=46 &amp;&amp; event.keyCode!=45 &amp;&amp; (event.keyCode&lt;48 || event.keyCode&gt;57)) event.returnValue=false" size="7" />
+      <span class="spaf"><strong>美元(USD)</strong> (一美元<strong> </strong>=<strong> $_SCONFIG[ppbilv]</strong> 积分)</span></td>
+    </tr>
+    <tr>
+      <td height="65" align="center">&nbsp;</td>
+      <td height="65" align="left"><input class="submit" name="Submit3" type="submit" value="确认充值" title="我要充值"  /></td>
+    </tr>
+      <tr>
+        <td height="1" colspan="3" bgcolor="#FF9900"></td>
+      </tr>
+  </form>
+</table>
+		
+		<!--{elseif $pay == 'buyvip'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     选择服务</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     确认购买     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    在线支付   </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第四步<br />
+    完成购买   </font></strong> </td>
+  </tr>
+</table>
+<br />
+		<table width="98%" border="0" class="formtable">
+      <form id="form2" name="form2" method="post" action="pay.php?pay=info">
+		      <caption>
+      <h2>购买VIP - 选择服务</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 购买成功后，无需等待，即时生效！</p>
+        </caption>
+  <tr>
+    <td width="120" height="25" align="center"><strong class="spaf">商品名称:</strong></td>
+    <td class="STYLE2">VIP会员
+    <a href="pay.php?ac=vip" target="_blank">查看VIP特权</a></td>
+    </tr>
+  <tr>
+    <td align="center" valign="top"><strong class="spaf">服务类型:</strong></td>
+    <td>
+	
+						<!--{loop $varr $key $value}-->
+	<p>
+	<!--{if $key == 1}-->
+	 
+        <input name="cvip" type="radio" value="$key" checked="checked" />
+	<!--{else}-->
+        <input name="cvip" type="radio" value="$key" />
+	<!--{/if}-->
+        <span class="spaf">$value[0]天 ￥<s>$value[1]</s>&nbsp; &nbsp; ￥<b>$value[3]</b> 节省￥$value[4]</span>      </p>
+						<!--{/loop}-->
+	</td>
+    </tr>
+  <tr>
+    <td height="30" align="center" valign="middle"><strong class="spaf">选择支付方式:</strong></td>
+    <td><p>
+		<!--{if $_SCONFIG[appay] != ''}-->
+        <input name="cpay" type="radio" value="3" />
+        <span class="spaf">支付宝</span>
+		<!--{/if}-->
+		<!--{if $_SCONFIG[tenpay] != ''}-->
+        <input name="cpay" type="radio" value="1" checked="checked" />
+        <span class="spaf">财付通</span>
+		<!--{/if}-->
+		<!--{if $_SCONFIG[cbankpay] != ''}-->
+      <input type="radio" name="cpay" value="2" />
+      <span class="spaf">网银在线</span>
+		<!--{/if}-->
+		<!--{if $_SCONFIG[clpay] != ''}-->
+      <input type="radio" name="cpay" value="4" />
+      <span class="spaf">手机充值卡</span>
+		<!--{/if}-->
+		<!--{if $_SCONFIG[clbpay] != ''}-->
+      <input type="radio" name="cpay" value="5" />
+      <span class="spaf">易宝</span>
+		<!--{/if}-->
+		<!--{if $_SCONFIG[pppay] != ''}-->
+      <input type="radio" name="cpay" value="6" />
+      <span class="spaf">PayPal</span>
+		<!--{/if}--></p>      </td>
+    </tr>
+  <tr>
+    <td height="30" align="center" valign="middle">&nbsp;</td>
+    <td><input class="submit" name="Submit32" type="submit" value="下一步"></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+      </form>
+</table>
+
+		<!--{elseif $pay == 'ctvip'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     选择服务</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     确认兑换     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成兑换   </font></strong> </td>
+  </tr>
+</table>
+<br />
+		<table width="98%" border="0" class="formtable">
+      <form id="form2" name="form2" method="post" action="pay.php?pay=ctinfo">
+		      <caption>
+      <h2>积分兑换VIP - 选择服务</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 兑换成功后，无需等待，即时生效！</p>
+        </caption>
+  <tr>
+    <td width="120" height="25" align="center"><strong class="spaf">商品名称:</strong></td>
+    <td class="STYLE2">VIP会员
+    <a href="pay.php?ac=vip" target="_blank">查看VIP特权</a>(可用积分:$space[credit])</td>
+    </tr>
+  <tr>
+    <td align="center" valign="top"><strong class="spaf">服务类型:</strong></td>
+    <td>
+	
+						<!--{loop $ctarr $key $value}-->
+	<p>
+	<!--{if $key == 0}-->
+	 
+        <input name="cvip" type="radio" value="$key" checked="checked" />
+	<!--{else}-->
+        <input name="cvip" type="radio" value="$key" />
+	<!--{/if}-->
+        <span class="spaf">$value[0]积分 &nbsp; <-> &nbsp; <b>$value[1]</b>天 </span>      </p>
+						<!--{/loop}-->
+	</td>
+    </tr>
+  <tr>
+    <td height="30" align="center" valign="middle">&nbsp;</td>
+    <td><input class="submit" name="Submit32" type="submit" value="下一步"></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+      </form>
+</table>
+		<!--{elseif $pay == 'ctinfo'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     选择服务</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     确认兑换     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    完成兑换   </font></strong> </td>
+  </tr>
+</table>
+<br />
+		<table width="98%" border="0" class="formtable">
+      <form id="form2" name="form2" method="post" action="pay.php?pay=ctinfo">
+		      <caption>
+      <h2>积分兑换VIP - 选择服务</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 兑换成功后，无需等待，即时生效！</p>
+        </caption>
+  <tr>
+    <td width="120" height="25" align="center"><strong class="spaf">商品名称:</strong></td>
+    <td class="STYLE2">VIP会员
+    <a href="pay.php?ac=vip" target="_blank">查看VIP特权</a>(可用积分:$space[credit])</td>
+    </tr>
+  <tr>
+    <td align="center" valign="top"><strong class="spaf">服务类型:</strong></td>
+    <td>
+	
+	 
+        <input name="cvip" type="hidden" value="$cvip" checked="checked" />
+        <span class="spaf">$ctinfo[vjf]积分 &nbsp; <-> &nbsp; <b>$ctinfo[vday]</b>天 </span>      </p>
+	</td>
+    </tr>
+  <tr>
+    <td height="30" align="center" valign="middle">&nbsp;</td>
+    <td><input class="submit" name="ctsubmit" type="submit" value="确认兑换">
+    <input class="submit" type="button" name="Submit2" value="重新选择" onclick="javascript:history.go(-1);" /></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+      </form>
+</table>
+		<!--{elseif $pay == 'info'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     选择服务</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     确认购买     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+    在线支付   </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第四步<br />
+    完成购买   </font></strong> </td>
+  </tr>
+</table>
+<br />
+		<table width="98%" border="0" class="formtable">
+      <form id="form2" name="form2" method="post" action="$paypost">
+		      <caption>
+      <h2>购买VIP - 确认购买</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 购买成功后，无需等待，即时生效！</p>
+        </caption>
+  <tr>
+    <td width="120" height="25" align="center"><strong class="spaf">商品名称:</strong></td>
+    <td><span class="STYLE2">VIP会员</span>    <a href="pay.php?ac=vip" target="_blank"><strong>查看VIP特权</strong></a></td>
+    </tr>
+  <tr>
+    <td align="center" valign="top"><strong class="spaf">服务类型:</strong></td>
+    <td class="STYLE2">$vipinfo[pmey]元/$vipinfo[day]天
+      <input name="cvip" type="hidden" id="cvip" value="$cvip" /></td>
+    </tr>
+  <tr>
+    <td height="30" align="center" valign="middle"><strong class="spaf">选择支付方式:</strong></td>
+    <td class="STYLE2">$bankinfo[$cpay]      
+    <input name="cpay" type="hidden" id="cpay" value="$cpay" /></td>
+    </tr>
+  <tr>
+    <td height="30" align="center" valign="middle"></td>
+    <td><input class="submit" name="Submit32" type="submit" value="确认购买">
+    <input class="submit" type="button" name="Submit" value="重新选择" onclick="javascript:history.go(-1);" /></td>
+  </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+      </form>
+</table>
+		<!--{elseif $pay == 'v'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     选择用户</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     确认升级     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+     完成操作   </font></strong> </td>
+  </tr>
+</table>
+<br />
+		<table width="98%" border="0" class="formtable">
+      <form id="form2" name="form2" method="post" action="$paypost">
+		      <caption>
+      <h2>升级VIP - 确认升级</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 升级成功后，无需等待，即时生效！</p>
+        </caption>
+  <tr>
+    <td width="120" height="25" align="center"><strong class="spaf">用户名:</strong></td>
+    <td><span class="STYLE2">$space[username]</span>    </td>
+    </tr>
+  <tr>
+    <td align="center" valign="top"><strong class="spaf">服务天数:</strong></td>
+    <td class="STYLE2">
+	<select name="v_day">
+      <!--{loop $dayarr $key $value}-->
+	       <option value="$key">$value 天</option>
+		 
+      <!--{/loop}-->
+      </select>
+    <input name="cpay" type="hidden" id="cpay" value="4" />
+    <input name="uid" type="hidden" id="uid" value="$space[uid]" /></td>
+    </tr>
+      <tr>
+        <td height="10" colspan="2"></td>
+      </tr>
+  <tr>
+    <td height="30" align="center" valign="middle"></td>
+    <td><input class="submit" name="openvip" type="submit" value="确认操作">
+    <input class="submit" type="button" name="Submit" value="重新选择" onclick="javascript:history.go(-1);" /></td>
+  </tr>
+      <tr>
+        <td height="20" colspan="2"></td>
+      </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+      </form>
+</table><!--{elseif $pay == 'c'}-->
+		<table border="0" align="right">
+  <tr>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第一步<br />
+     选择用户</font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第二步<br />
+     确认取消     </font></strong> </td>
+    <td width="110" height="48" align="center" background="image/pay/pay_04.gif">
+      <strong><font color="#666666"> 第三步<br />
+     完成操作   </font></strong> </td>
+  </tr>
+</table>
+<br />
+		<table width="98%" border="0" class="formtable">
+      <form id="form2" name="form2" method="post" action="$paypost">
+		      <caption>
+      <h2>取消VIP - 确认取消</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp 取消成功后，无需等待，即时生效！</p>
+        </caption>
+  <tr>
+    <td width="120" height="25" align="center"><strong class="spaf">用户名:</strong></td>
+    <td><span class="STYLE2">$space[username]</span>    </td>
+    </tr>
+  <tr>
+    <td align="center" valign="top"><strong class="spaf">当前天数:</strong></td>
+    <td>
+	<span class="STYLE2">剩余</span> <strong>$v_day[vday]</strong> <span class="STYLE2">天</span>
+    <input name="cpay" type="hidden" id="cpay" value="5" />
+    <input name="uid" type="hidden" id="uid" value="$space[uid]" /></td>
+    </tr>
+  <tr>
+    <td align="center" valign="top"><strong class="spaf">减少天数:</strong></td>
+    <td><input name="v_day" type="text" class="tts" id="v_day" value="$v_day[vday]" size="6" /></td>
+    </tr>
+      <tr>
+        <td height="10" colspan="2"></td>
+      </tr>
+  <tr>
+    <td height="30" align="center" valign="middle"></td>
+    <td><input class="submit" name="disablevip" type="submit" value="确认操作">
+    <input class="submit" type="button" name="Submit" value="重新选择" onclick="javascript:history.go(-1);" /></td>
+  </tr>
+      <tr>
+        <td height="20" colspan="2"></td>
+      </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="#FF9900"></td>
+      </tr>
+      </form>
+</table>
+
+
+		<!--{/if}-->
+<!--{template footer}-->

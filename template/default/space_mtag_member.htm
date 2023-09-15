@@ -1,0 +1,65 @@
+<!--{eval $_TPL['titles'] = array($mtag['tagname'], $mtag['title'], '成员');}-->
+<!--{eval $_TPL['nosidebar']=1;}-->
+
+<!--{template q_header}-->
+<DIV class="bodybox">
+
+
+<script>
+function searchFriend() {
+	$('searchform').submit();
+}
+</script>
+
+<DIV class="brbtop">
+<DIV>
+<P></P></DIV></DIV>
+<DIV class="brbcontent">
+<DIV class="groupmenberbox">
+<DIV class="group_tit"><IMG height=17 src="mtag/image/title_groupmenberlist18.gif" width=303>
+
+
+<!--{if $mtag[grade]>=8}-->
+<DIV class="buttomwhite" style="MARGIN-TOP: -30px; FLOAT: right">
+<a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=members">成员批量管理</a></DIV><!--{/if}-->
+
+<!--{if $mtag['allowinvite']}-->
+<DIV class="buttomwhite" style="MARGIN-TOP: -30px; FLOAT: right;margin-right:5px"><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=invite">邀请好友</a></DIV>
+			<!--{/if}-->
+	<!--{if $mtag[grade]==-9}-->
+<DIV class="buttomwhite" style="MARGIN-TOP: -30px; FLOAT: right; margin-right:5px"><A 
+href="cp.php?ac=mtag&op=join&tagid=$mtag[tagid]" id="_tag_join_$mtag[tagid]" onClick="ajaxmenu(event, this.id, 99999)">加入该圈子</A></DIV>
+		<!--{/if}-->
+</div>
+
+
+<DIV class="groupmenberhead">
+<DIV class="groupbbstit"><IMG src="mtag/image/title_groupmenber.gif"></DIV></DIV>
+<!--{if $list}-->
+<DIV class="groupnewmenber">
+<UL>
+  <!--{loop $list $key $value}-->
+  <LI><a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}-->
+  <P><B>{$_SN[$value[uid]]}</B></P></A></LI> 	<!--{/loop}-->
+</UL>
+<!--{else}-->
+	<div class="c_form">没有找到可浏览的成员信息。</div>
+	<!--{/if}-->
+	
+<div class="divline"></div>
+
+<div class="page">$multi</div>
+  
+
+</DIV></DIV></DIV>
+
+<DIV class="brbbot">
+<DIV>
+<P></P></DIV></DIV>
+<DIV class="clear"></DIV>
+</DIV>
+
+
+
+
+<!--{template q_footer}-->

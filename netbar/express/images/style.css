@@ -1,0 +1,193 @@
+/*= Reset =*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{ margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}:focus{ outline:0}ins{text-decoration:none}del{text-decoration:line-through}ol { list-style:decimal;}ul { list-style:none;}dt{ font-weight:bold;}h1 { font-size:32px;}h2 { font-size:28px;}h3 { font-size:24px;}h4 { font-size:20px;}h5 { font-size:14px;}h6 { font-size:12px;}
+/*= Float & Clear =*/
+.fr { float:right}.fl { float:left}.clear { clear:both}.clearfix:after{clear:both; content:'.'; display:block; visibility:hidden; height:0}.clearfix{display:inline-block}* html .clearfix {zoom:100%}.clearfix{display:block}
+hr { clear:both; height:0; border-color:#ace; border-style:solid; border-width:1px 0 0;}
+body { font:14px/1.5 "Lucida Grande", Helvetica ,Georgia,verdana,sans-serif,"ËÎÌו"; color:#07519A; background:url(http://tool.114la.com/images/header_bg.jpg) repeat-x #F7FBFF;}
+input,textarea { font-family:Arial, Helvetica, sans-serif;}
+#wrap { text-align:center; width:960px; margin:0 auto; position:relative;}
+.container {
+  text-align: left;
+  position: relative;
+  padding: 0;
+  overflow:hidden;
+  margin: 0 auto;  
+  width: 900px;
+}
+a {color:#07519A; text-decoration:none;}
+a:hover { color:#F00; text-decoration:underline }
+.hidetext {white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.red { color:#f00;}
+.gray { color:#666}
+
+#searchmenu li.focu,
+.title,
+.title span.text,
+#logo,
+h5.title span em,
+#copyurl a,
+em.arrow
+{ background-image:url(http://tool.114la.com/images/icons.png); _background-image:url(http://tool.114la.com/images/icons.gif); background-repeat:no-repeat}
+
+.topmeta { border:1px solid #ace; height:25px; line-height:25px; overflow:hidden; background:#E7F0F8; display:block; padding:0 10px; font:12px/25px Verdana, Arial;}
+
+.topmeta { font:12px/29px Verdana; height:29px; background:#EBF3FB; border:1px solid #ACE; padding:0 12px }
+.topmeta form { padding:0; float:left; width:760px; height:29px; overflow:hidden }
+.topmeta label { float:left; padding-left:10px }
+.topmeta .text { float:left; height:18px; border:1px solid #ACE; background:#FFF; width:88px; padding:0 3px; font:12px/18px Verdana; margin-top:4px }
+.topmeta .select { height:18px; float:left; overflow:hidden; border:1px solid #ACE; margin-top:4px }
+.topmeta .select select { float:left; margin:-2px; width:130px; font-family:Verdana; height:20px }
+.topmeta .button { float:left; font-size:12px; letter-spacing:5px; border:none; background:#017DCE url(http://tool.114la.com/images/login.png); width:50px; height:20px; line-height:18px; margin:4px 0 0 8px; color:#FFF }
+.topmeta form a { float:left; margin-left:12px }
+
+#header {overflow:hidden;  margin-bottom:6px;}
+#top { padding:5px 0 10px; height:70px;}
+#logo { padding-left:8px; height:70px; width:275px;background-position:-700px -69px;}
+#logo a{ float:left; overflow:hidden; height:70px; /*background:url(http://tool.114la.com/images/icons.png) -708px -69px no-repeat;_background:url(http://tool.114la.com/images/logo.gif);*/ text-indent:-99999px;}
+#logo a.la { width:125px}
+#logo a.tool { width:150px;}
+#banner { width:582px; margin-top:5px}
+.banner468,.banner100 { height:60px; overflow:hidden; border:1px solid #ace;}
+.banner468 { float:left; width:468px;}
+.banner100 { float:right; width:100px;}
+
+/*search*/
+#search { position: relative;}
+#searchmenu {height:32px; overflow:hidden; margin-left:20px; position:relative}
+#searchmenu li { display:block; float:left; width:68px; background:url(http://tool.114la.com/images/line01.gif) right 5px no-repeat; height:32px; line-height:26px;}
+#searchmenu li.focu { width:69px; margin-left:-1px; background-position:-290px -108px;}
+#searchmenu li.focu a{ font-weight:bold}
+#searchmenu li.focu a:hover { color:#07519A; text-decoration:none;}
+#searchmenu a { text-align:center; display:block;  }
+.searchcon input.int,.searchcon input.btn,.img1,.txt{ vertical-align:middle;}
+.searchcon { padding:10px 15px; margin-top:-7px; border:1px solid #ace; background-color:#EEF3F9; height:26px;  overflow:hidden;}
+.searchcon form { float:left; margin-right:10px;}
+.searchcon form input,.img1 { float:left}
+.searchcon input.int { border:1px solid #999; width:325px; margin:0 5px;height:22px;  padding:2px 2px 0; font:14px/20px Verdana}
+.searchcon input.btn { height:26px; line-height:20px; width:80px; text-align:center }
+.searchcon .adlink { _display:inline; line-height:26px;float:left; width:340px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-left:10px}
+#baidu9.searchcon input { float:none; font:12px Verdana }
+#baidu9.searchcon select { font:12px Verdana; vertical-align:middle; }
+#baidu9.searchcon .txt { border:1px solid #ace; height:18px; width:130px; padding:2px 3px 0 }
+#baidu9.searchcon .btn { width:45px; margin:0 10px;}
+#baidu9.searchcon .img1 { margin-right:8px; margin-top:1px; *margin-top:5px}
+
+#content { margin:8px auto; width:918px;}
+.item { width:294px; float:left; _display:inline; overflow:hidden; margin-left:9px; margin-bottom:8px;}
+/*.item {height:280px;}*/
+.title { line-height:35px; height:35px; padding-right:10px; overflow:hidden; background-position: right 0;}
+.title span.text { display:block; float: left; background-position:0 -45px; height:35px;padding-left:12px;}
+.box { border:1px solid #ace; border-bottom:3px solid #ace; }
+.item h5.title ,.tiem h5.title span.text{ height:27px; line-height:30px}
+.item h5.title {border-bottom:1px solid #ace;margin-bottom:2px; }
+.item ul { padding:5px 8px; line-height:2;}
+.item li { width:117px; padding-left:13px; margin-right:5px; background:url(http://tool.114la.com/images/li_icon.gif) no-repeat 5px 11px; float:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:13px; }
+em.s1, em.m1, em.s, em.m,em.close,em.icon1{ cursor: pointer; float:left; width:14px; overflow:hidden; height:12px; margin-top:8px; text-indent:-9999px; display:block; background-position:-2px -121px }
+em.s1 { background-position:-408px -124px; margin-top:8px; width:15px;}
+em.s {background-position:-51px -117px;}
+em.m {background-position:-156px -117px;}
+em.close {background-position:-104px -119px; margin-left:3px;}
+em.icon1{background-position:-214px -119px; width:20px; height:16px; cursor:default}
+
+#toolmenu { position:relative; left:20px;}
+#toolmenu li { display:block; float:left; background:url(http://tool.114la.com/images/line01.gif) right 5px no-repeat; padding:0 15px;}
+#toolmenu li a:hover ,.toolcon a:hover{ text-decoration:none;}
+#toolmenu li.focu a,#toolmenu li.focu a:hover{position:relative; display:block; background:url(http://tool.114la.com/images/tab1.jpg) repeat-x #fff; height:24px; font-weight:bold; border:1px solid #ace; line-height:24px; float:left; padding:0 10px; color:#07519A}
+em.arrow {background-position:-487px -128px;overflow:hidden; width:11px; height:6px; position: absolute; top:24px; left:50%; margin-left:-6px; display:none;}
+#toolmenu li.focu em.arrow{ display:block;}
+.toolcon { border:1px solid #ace;background:#ECF1F9; margin-top:-1px; padding:10px 10px; }
+.toolcon ul { background:#fff; _height:1%; padding:10px 0;}
+.toolcon li { float:left; width:125px; margin-left:19px; _display:inline;white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+.icon { margin-right:10px;}
+#result h5.title {margin-bottom:2px; height:28px; border-bottom:1px solid #ace; line-height:33px;}
+#result .con input.int { border:1px solid #ace; background:#fff; font:bold 12px/14px Verdana; color:#07519A; padding:3px; height:14px;}
+#result .con { padding:15px; font-size:12px}
+#result .con dl{ line-height:1.8;}
+#result .con hr { margin:15px 0; border-style:dashed;}
+.percent { height:13px; width:95px; overflow:hidden; border:1px solid #7AAFE4; color:#07519A;  background:url(http://tool.114la.com/images/sr_bg2.gif) no-repeat 1px 1px; font:bold 9px/13px Verdana; }
+.percent span{ display:block; height:7px; _display:inline; width:65px; margin:3px; margin-right:8px; float:left;}
+.percent span em { text-indent:-9999px; float:left; height:7px; background:url(http://tool.114la.com/images/sr_bg.gif) #fff repeat-x;}
+dd.google, dd.sogou{ background-image:url(http://tool.114la.com/images/icon_google.gif); background-repeat:no-repeat; background-position: left center; height:22px; line-height:22px; display:block; padding-left:22px}
+dd.google img{ margin-top:3px;}
+dd.sogou { background-image:url(http://tool.114la.com/images/icon_sogou.gif); font-size:12px}
+dd.sogou .percent { position:relative; top:4px; float:left; margin-right:2px;}
+#result .con label { cursor:pointer; padding-right:5px;}
+#result .con table { margin-top:10px; border-left:1px solid #ace; border-top:1px solid #ace; width:100%;border-collapse:collapse; border-spacing:0}
+#result .con table a { color:#000}
+#result .con th,#result .con td { vertical-align:middle; text-align:center; height:25px; line-height:25px; border-right:1px solid #ace; border-bottom:1px solid #ace;}
+#result .con td { font-size:12px;}
+#result .con th { background:#ECF1F9}
+#result .con td.desc { text-align:left; width:250px; padding:0 10px}
+#result .con tr { height:25px; line-height:25px;}
+#result .con tr.db td{ background:#F1F5FB}
+#result .con .bg{ background:#fff; padding:5px; _height:1%}
+#result .con textarea { border:1px solid #ace}
+caption { font-weight:bold;}
+
+
+
+#copyurl { font-size:12px; width:640px; margin-top:6px;}
+.url { float:left;border:1px solid #7AAFE4; width:390px; background:#fff; height:14px; padding:3px 10px; color:#999; font:12px/14px Verdana, Arial}
+#copyurl a {  line-height:22px; font-size:12px; margin:0 5px; height:22px; overflow:hidden; float:left; text-indent:-9999px; _display:inline;}
+a.btn1 { width:81px; background-position:0 -166px;}
+a.btn2 { width:120px; background-position:-143px -166px;}
+
+#keyword2 form label,#keyword2 span.label ,#key2result label{ width:100px; text-align:right; float:left;}
+ p.i { margin-bottom:10px; clear:both;}
+#keyword2 #chkgroup label { width:auto; float:none}
+#key2result .int { width:300px;}
+.prstyle textarea{ width:480px; height:45px; overflow:hidden; padding:3px; border:1px solid #ace; font-size:11px; color:#999;}
+.img2 { width:110px; float:left;}
+.img2 img { margin-top:15px;}
+.prstyle p { margin-bottom:10px;}
+
+.con i { font-style:normal; font-size:12px; }
+
+.loading { position:absolute; top:90px; width:80px; text-align:center; right:20px;background:#CC3300; font-style:italic; color:#fff;}
+#engine_keyword h1,#engine_keyword h2,#engine_keyword h3,#engine_keyword h4,#engine_keyword h5,#engine_keyword h6{ font-size:14px}
+#engine_keyword strong { color:#CC3300;}
+#engine_keyword a { text-decoration:underline;}
+
+.graph { border:1px solid #ace; margin-top:10px; padding-bottom:10px;}
+.graph .glist { padding:10px;}
+.graph .glist li{ display:inline; margin:4px; padding:5px; font-size:12px; cursor:pointer}
+.graph .glist li.focu { background:#DBE9F4; color:#0066FF}
+.graph img { margin:10px 0 0 20px;}
+
+#alexa .gotop{ float:right}
+#alexa .sitettl01 ,#alexa .pgnav1{ text-align:center;}
+#alexa .sitettl01 b { color:#f00;}
+#alexa .pgnav1 { margin:20px auto;}
+#alexa h3 { font-size:16px}
+#alexa h2{ font-size:14px; margin-top:10px;}
+#alexa .detailtb { _height:1%;}
+#alexa .detailtb table{ margin:1px; width:99.8%; border-right:1px solid #ace; border-top:1px solid #ace;}
+#alexa .detailtb th,#result .con .detailtb td,#result .con .detailtb table { text-align:left;}
+#alexa .detailtb th,#result .con .detailtb td { padding-left:8px; border-left:1px solid #ace; border-bottom:1px solid #ace;}
+#alexa .detailtb tr.alt th,#result .con .detailtb tr.alt td {background:#E4ECF5} 
+#alexa .pgnav1 { color:#000; margin-bottom:10px}
+#alexa .pgnav1 a{ color:#000; font-weight:bold;}
+
+.textright { text-align:right}
+#result .con .readonly { font-weight:bold; border:1px solid ##7F9DB9; color:#666; text-align:right;}
+
+.copy_con .input .text { width: 250px; border:1px solid #ace; padding:3px;}
+.copy_con { margin-right:20px;} 
+
+#footer { border-top:1px solid #ccc; text-align:center; padding:10px 0; margin:20px 0 25px; border-bottom:3px solid #ace}
+#footer, #footer a {font-size:12px; color:#999;}
+
+#wth_f { position:absolute; top:25px; left:120px; z-index:2; background:#FFF; border:1px solid #ACE; padding:8px; width:500px; filter:alpha(opacity=93); -moz-opacity:.93; opacity:0.93; text-align:left; }
+
+
+.l { float:left }
+.box6 { background:#EDF6FF; border:1px solid #ACE; overflow:auto; zoom:1; padding:8px; font-size:12px; margin-bottom:5px }
+.box6 strong { font-size:14px }
+.f18 { font:bold 14px/22px Verdana }
+.wea60 { margin:0 10px }
+.box7 { clear:both }
+.box7 p { border:1px solid #ACE; border-top:none; margin:0; padding:5px 8px; font:12px/18px Verdana; margin:-5px 0 5px 0 }
+.box7 p label { color:#00F }
+
+.box8 { border:1px solid #ACE; margin-top:10px; background:#ECF1F9; padding:10px; _height:1%;}

@@ -1,0 +1,343 @@
+<!--{eval $_TPL['titles'] = array($valueND['ntt'].'资源');}-->
+<!--{template header}-->
+<script language="javascript">
+function showlist()
+{
+	var obj			=	document.searchform.types;
+	var objValue	=	1;
+	for(var i=0;i<obj.length;i++) 
+	{ 
+		if(obj[i].checked) 
+			objValue=	obj[i].value;
+	}
+	if(objValue>1)
+	{
+		document.getElementById("typelist").style.display="block";
+	}
+	else
+	{
+		document.getElementById("typelist").style.display="none";
+	}
+}
+</script>
+<div class="searchbar floatright">
+<form method="post" name="searchform" action="ND_upload.php?do=search">
+	<input name="keyword" value="" size="26" class="t_input" type="text"><input name="searchsubmit" value="搜索资源" class="submit" type="submit">
+</form>
+</div>
+<h2 class="title"><img src="image/app/download.gif" />网盘资源</h2>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[nd_all]><a href="ND_upload.php"><span>全部资源($count1)</span></a></li>
+		<li$actives[my]><a href="ND_upload.php?do=my"><span>我的资源($count3)</span></a></li>
+		<li$actives[friend]><a href="ND_upload.php?do=friend"><span>好友的资源($count2)</span></a></li>
+		<li class="null"><a href="ND_upload.php?do=add">上传资源</a></li>
+	</ul>
+</div>
+<script language="javascript" src="image/editor/editor_function.js"></script>
+<script language="javascript">
+function checkalbum()
+{
+	var title	=	document.getElementById("title");
+	if(title.value=="")
+	{
+		alert('请填写标题！');
+		title.focus();
+		return;
+	}
+	var type	=	document.getElementById("type");
+	var typeva	=	type.options[type.selectedIndex].value;
+	if(typeva=="")
+	{
+		alert('请选择分类！');
+		type.focus();
+		return;
+	}
+	var stwo	=	document.getElementById("stwo");
+	var stwova	=	stwo.options[stwo.selectedIndex].value;
+	if(stwova==""||stwo.options.length<=0)
+	{
+		alert('请选择子分类！');
+		stwo.focus();
+		return;
+	}
+	var jifen	=	document.getElementById("jifen");
+	var jifenva	=	jifen.value;
+	if(jifenva==""||jifenva.search(/^[0-9]+$/)==-1)
+	{
+		alert('请正确输入下载所需积分！注意只能填写数字');
+		jifen.focus();
+		return;
+	}
+	var author	=	document.getElementById("author");
+	if(author.value=="")
+	{
+		alert('请填写作者！');
+		author.focus();
+		return;
+	}
+	var datetime=	document.getElementById("datetime");
+	if(datetime.value=="")
+	{
+		alert('请填写时间！');
+		datetime.focus();
+		return;
+	}
+	var obj		=	document.getElementById("fsUploadProgress1");
+	if(obj.childNodes.length<=0)
+	{
+		alert('请点击浏览选择上传文件！');
+		return;
+	}
+	var num		=	parseInt(document.getElementById("filenum").value);
+	var n		=	obj.childNodes.length/4;
+	if(n>num)
+	{
+		upload.startUpload();
+	}
+	else
+	{
+		document.getElementById('submits').click();
+	}
+	
+}
+function validate(obj) 
+{
+	edit_save();
+	obj.form.submit();
+}
+</script>
+<style>
+body {font-size:12px;}
+ul li {list-style-type: none;}
+.upload div{ float:left; width:100%;}
+.upload li{ float:left; height:25px; line-height:25px; overflow:hidden;
+}
+.progressBarInProgress {background-color:#00FF00; text-align:center}
+.clear{clear:both}
+</style>
+<style>
+#calendar{padding:5px;text-align:left;border:1px solid #7FCAE2;background:#FFF;margin-bottom:0.8em;}#calendar td{padding:2px;font-weight:bold;}#calendar_week td{height:2em;line-height:2em;border-bottom:1px solid #E3EDF5;}#hourminute td{padding:4px 2px;border-top:1px solid #E3EDF5;}.calendar_expire,.calendar_expire a:link,.calendar_expire a:visited{color:#666;font-weight:normal;}.calendar_default,.calendar_default a:link,.calendar_default a:visited{color:#09C;}.calendar_checked,.calendar_checked a:link,.calendar_checked a:visited{color:#F60;font-weight:bold;}td.calendar_checked,span.calendar_checked{background:#E3EDF5;}.calendar_today,.calendar_today a:link,.calendar_today a:visited{color:#444;font-weight:bold;}#calendar_header td{width:30px;height:20px;border-bottom:1px solid #E3EDF5;font-weight:normal;}#calendar_year{display:none;line-height:130%;background:#FFF;position:absolute;z-index:10;}#calendar_year .col{float:left;background:#FFF;margin-left:1px;border:1px solid #E3EDF5;padding:4px;}#calendar_month{display:none;background:#FFF;line-height:130%;border:1px solid #DDD;padding:4px;position:absolute;z-index:11;}
+</style>
+<STYLE type=text/css>TABLE.manage {
+	MARGIN: auto auto 10px; WIDTH: 100%; BACKGROUND-COLOR: #ffffff
+}
+TABLE.manage TH {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; PADDING-BOTTOM: 5px; COLOR: #666666; PADDING-TOP: 5px; BORDER-BOTTOM: #d9e0e8 1px solid; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: left
+}
+TABLE.manage TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #d9e0e8 1px solid
+}
+TABLE.manage TD A {
+	TEXT-DECORATION: none
+}
+TABLE.manage TD A:hover {
+	TEXT-DECORATION: none
+}
+.light {
+	BORDER-TOP: #cccccc 1px solid; MARGIN-TOP: 10px; PADDING-LEFT: 5px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px solid; BACKGROUND-COLOR: #f5f5f5
+}
+.type_style {
+	COLOR: #000000
+}
+.type_style A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.type_style A:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: #6699cc; TEXT-DECORATION: none
+}
+</STYLE>
+<SCRIPT src="upload_js/js/calendar.js" type=text/javascript></SCRIPT>
+
+<div id="content">
+<DIV class=light>我的资源统计：上传<FONT color=#ff0000> $count3 </FONT>个．被下载<FONT 
+color=#ff0000> $countdown </FONT>次．获得<FONT color=#ff0000> $huodefen </FONT>积分．下载<FONT 
+color=#ff0000> $xiazai </FONT>个．付出<FONT color=#ff0000> $diufen </FONT>积分</DIV>
+	<form id="form1" name="form1" action="ND_upload.php?do=add$parater" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		<input type="hidden" name="ndid" id="ndid" value="$infond[id]" />
+		<table cellspacing="0" cellpadding="0" class=manage>
+			<tr>
+			<td width="60" align="right">标题：</td>
+			<td><input type="text" name="title" id="title" style="width:200px;" value="$infond[title]"  /></td>
+			</tr>
+			<tr>
+			<td align="right">分类：</td>
+			<td>
+			<select name="type" id="type" style="width:100px;" onchange=redirec(this.options.selectedIndex)>
+			<option value="">请选择分类</option>
+			<!--{loop $type $value}-->
+			<!--{if $value[id]==$infond[type] }-->
+			<option value="$value[id]" selected="selected">$value[name]</option>
+			<!--{else}-->
+			<option value="$value[id]">$value[name]</option>
+			<!--{/if}-->
+			<!--{/loop}-->
+			</select>
+			<SELECT name="stwo" id="stwo" style="width:100px;"> 
+			 	<!--{if $infond[stwo] }--> 
+				<OPTION value="$infond[stwo]">$infond[name]</OPTION>
+				<!--{else}-->
+				<OPTION value="">请选择子分类</OPTION>
+		 		<!--{/if}-->
+			</SELECT></td>
+			</tr>
+			<SCRIPT language=javascript>
+var select2 = new Array(<!--{eval echo count($type)+1;}-->);
+for (i=0; i<<!--{eval echo count($type)+1;}-->; i++) 
+{
+select2[i] = new Array();
+}
+//定义基本选项
+
+select2[0][0] = new Option("请选择子分类", " ");
+<!--{eval $j=1;}-->
+<!--{loop $type $value}-->
+<!--{eval $i=0;}-->
+<!--{loop $value['child'] $value2}-->
+select2[<!--{eval echo $j;}-->][<!--{eval echo $i;}-->] = new Option("<!--{eval echo $value2['name'];}-->", "<!--{eval echo $value2['id'];}-->",0,0);
+<!--{eval $i++;}-->
+<!--{/loop}-->
+<!--{eval $j++;}-->
+<!--{/loop}-->
+function redirec(x)
+{
+var temp = document.form1.stwo;
+for (m=temp.options.length-1;m>=0;m--)
+temp.options[m]=null;
+for (i=0;i<select2[x].length;i++)
+{
+//temp.options[i]=new Option(select2[x][i].text,select2[x][i].value);
+ var   oOption   =   document.createElement("OPTION");   
+ oOption.value=select2[x][i].value;  
+ oOption.text=select2[x][i].text;   
+ temp.options.add(oOption);
+
+}
+temp.options[0].selected=true;
+}
+</SCRIPT>
+			<tr>
+			<td align="right">所需积分：</td>
+			<td><input type="text" name="jifen" id="jifen" style="width:200px;" value="<!--{if $infond[jifen] }-->$infond[jifen]<!--{else}-->10<!--{/if}-->" /><br />用户下载所花费的积分，都会累加到发布者的总积分</td>
+			</tr>
+			<tr>
+			<td align="right">是否公布：</td>
+			<td>
+			<input type="radio" name="publicall" id="publicall" value="1" <!--{if $infond[publicall] == '1' || empty($infond[publicall])}--> checked<!--{/if}--> >全部会员可下载
+			<input type="radio" name="publicall" id="publicall" value="2" <!--{if $infond[publicall] == '2'}--> checked<!--{/if}-->>只有好友可下载
+			<input type="radio" name="publicall" id="publicall" value="3" <!--{if $infond[publicall] == '3'}--> checked<!--{/if}-->>只有自己可下载
+			</td>
+			</tr>
+			<tr>
+			<td align="right">作者：</td>
+			<td><input type="text" name="author" id="author" value="$space[username]" style="width:200px;" /></td>
+			</tr>
+			<tr>
+			<td align="right">匿名发布：</td>
+			<td><input type="radio" name="nouser" id="nouser" value="0" <!--{if $infond[nouser] == '0' || empty($infond[nouser])}--> checked<!--{/if}--> >否
+			<input type="radio" name="nouser" id="nouser" value="1" <!--{if $infond[nouser] == '1'}--> checked<!--{/if}-->>是</td>
+			</tr>
+			<tr>
+			<td align="right">日期：</td>
+			<td><input type="text" name="datetime" id="datetime" onClick="showcalendar(event, this)" value="$times" style="width:200px;" /></td>
+			</tr>
+			<tr>
+			<td align="right">关键字：</td>
+			<td><input type="text" name="keyword" id="keyword" style="width:400px;" value="$ND_keyword" /><br />(关键字之间用逗号分开)</td>
+			</tr>
+			<tr>
+			<td align="right">简介:</td>
+			<td><textarea class="userData" name="message" id="uchome-ttHtmlEditor" style="height:100%;width:100%;display:none;border:0px">$infond[jieshao]</textarea><iframe src="editor.php?charset=$_SC[charset]&allowhtml=$allowhtml" name="uchome-ifrHtmlEditor" id="uchome-ifrHtmlEditor" scrolling="no" border="0" frameborder="0" style="width:100%;border: 1px solid #C5C5C5;" height="200"></iframe></td>
+			</tr>
+			<tr>
+			<td align="right">文件上传:</td>
+			<td><span id="spanButtonPlaceholder1"></span>(<font color="#FF0000"><b>谢谢您上传有价值的资料，相信您的资料对他人很有价值。</b></font>)</td>
+			</tr>
+			<tr>
+			<td></td>
+			<td><div>
+						<div class="upload" style=" margin-top:5px; margin-bottom:5px;">
+						<ul style="background-color:#CCCCCC">
+						<li style="width:120px">文件</li>
+						<li style="width:100px">文件大小</li>
+						<li style="width:150px">上传进度</li>
+						<li style="width:50px">操作</li>
+						</ul>
+						<ul id="fsUploadProgress1">
+						<!--{eval for($i=0;$i<count($filelist)-1;$i++) { }-->
+						<li style="width:120px"><a href="$filesrc[$i]" target="_blank">$filelist[$i]</a></li>
+						<li style="width:100px">
+						<!--{eval 
+							$size	=	filesize($filesrc[$i]);
+							$daxiao1=	$size/1024;
+							$daxiao1	=	sprintf("%.2f",$daxiao1);
+							if($daxiao1>1)
+							{
+								if($daxiao1>=1024)
+								{
+									$daxiao1=	$daxiao1/1024;
+									$daxiao1=	sprintf("%.2f",$daxiao1);
+									$size	=	$daxiao1." "."MB";
+								}
+								else
+								{
+									$size	=	$daxiao1." "."KB";
+								}
+			
+							}
+							else
+							{
+								$size	=	$daxiao1." "."Byte";
+							}
+							echo $size;
+						 }--></li>
+						<li style="width:150px;">已上传完成</li>
+						<li style="width:50px"><a href="ND_upload.php?do=delfile&id=$infond[id]&n=$i">删除</a></li>
+						<!--{eval } }-->
+						</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="2" align="center"><br />
+			<input type="hidden" name="filesrc" id="filesrc" value="$infond[datasrc]" />
+			<input type="hidden" name="filename" id="filename" value="$infond[namesrc]" />
+			<input type="hidden" name="filesize" id="filesize" value="<!--{if $infond[size] }-->$infond[size]<!--{else}-->0<!--{/if}-->" />
+			<input type="hidden" name="filenum" id="filenum" value="$i" />
+			<input type="button" name="submits" id="submits" class="submit" onClick="validate(this);" style="display: none;">
+			<input id="btnCancel3" type="button" value="<!--{if $infond }-->编辑保存<!--{else}-->开始上传<!--{/if}-->" onClick="checkalbum()" style="margin-left: 2px; height: 22px; font-size: 12px; width:100px" class="submit" />&nbsp;&nbsp;&nbsp;&nbsp;
+							</td>
+							</tr>
+		</table>
+	</form>
+</div>
+<div id="sidebar" >
+<DIV class=sidebox>
+<H2 class=title>功能说明</H2>
+<UL class=line_list 
+style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px">
+  <LI>1. 搜索功能和分类标签，方便查找资源；点击标题、格式、大小、上传时间、所需积分、下载次数表头可进行排序。 
+  <LI>2. 上传资源的格式只能为<FONT 
+  color=#ff0000>{$tlist}</FONT>，资源大小不能超过<FONT 
+  color=#ff0000>{$config[filesize]}M</FONT>。<!--{if $config[isshenhe] }-->资源上传后，后台管理员进行审核，审核通过才能显示到资源首页上。 <!--{/if}-->
+  <LI>3. 下载一个新资源，相应资源积分将从个人总积分中扣除，加到上传人总积分中。重复下载同一资源，积分只扣除一次。 
+  <LI>4. 排行榜计算方法：热门资源排行根据资源下载次数排行；资源积分排行 = 获得积分-付出积分。 </LI></UL></DIV>
+<DIV class=sidebox>
+<H2 class=title>分类</H2>
+<UL class=line_list 
+style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px">
+<!--{loop $type $value}-->
+  <LI style="FONT-WEIGHT: bold">$value[name]</LI>
+  <LI>
+  <!--{loop $value['child'] $value2}-->
+  <SPAN class=type_style><A 
+  href="ND_upload.php?do=list&id=$value2[id]">$value2[name]</A>&nbsp;|&nbsp;</SPAN>
+  <!--{/loop}-->
+  </LI>
+<!--{/loop}-->
+</UL></DIV>	
+	
+</div>
+<!--{template footer}-->

@@ -1,0 +1,26 @@
+
+<!--{if $list}-->
+	
+	<!--{loop $list $key $value}-->
+<div class=touxiang>
+
+<LI>
+<a href="space.php?uid=$value[uid]">
+<!--{avatar($value[uid],small)}-->
+<p<!--{if $ols[$value[uid]]}--><!--{/if}-->>
+					<B>{$_SN[$value[uid]]}</B><!--{if $value['username'] && $_SN[$value[uid]]!=$value['username']}--><span class="gray" style="font-size: 12px;">($value[username])</span><!--{/if}-->
+				</p>
+ 
+ <P><SPAN>Hot $value[credit] / Sub $value[viewnum]</SPAN></P>
+ 
+
+ </a>
+
+</LI>
+</div>	
+<!--{/loop}-->
+<div class=divline></div>
+	<div class="page">$multi</div>
+	<!--{else}-->
+	<div class="c_form">没有相关成员。</div>
+	<!--{/if}-->

@@ -1,0 +1,122 @@
+<!--{template header}-->
+	<div class="nav">
+	<a href="index.php">首页</a>&gt;
+	<a href="space.php?uid=$space[uid]">{$_SN[$space[uid]]}</a>&gt;
+	<a href="space.php?uid=$space[uid]&do=friend"><span>好友</span></a>
+	</div>
+
+<!--{if $op=='add'}-->
+	<div class="c">
+
+	<h3>加好友</h3>
+	<form method="post" action="cp.php?ac=friend&op=add&uid=$tospace[uid]">
+		加 <strong>{$_SN[$tospace[uid]]}</strong> 为好友，附言：<br />
+		<input type="text" name="note" value="" /><br />
+		(附言为可选，{$_SN[$tospace[uid]]} 会看到这条附言，最多50个字符)<br />
+		分组: <select name="gid">
+		<!--{loop $groups $key $value}-->
+		<option value="$key">$value</option>
+		<!--{/loop}-->
+		</select><br />
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+		<input type="hidden" name="addsubmit" value="true" />
+		<input type="submit" name="addsubmit_btn" id="addsubmit_btn" value="确定" class="submit" />
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+	</div>
+
+<!--{elseif $op=='request'}-->
+
+	<!--{if $list}-->
+	<div class="c" id="friend_ul">
+	<!--{eval $i=0;}-->
+	<!--{loop $list $key $value}-->
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="image">
+					<!--{eval $i++;}-->
+					{$i}.
+					<a href="space.php?uid=$value[uid]" class="avatarlink"><!--{avatar($value[uid],small)}--></a>
+					</td>
+					<td>
+						<div>
+							<a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a>
+							<!--{if $value[note]}--><span>$value[note]</span><!--{/if}-->
+							(<!--{date('m-d H:i',$value[dateline],1)}-->)
+
+						</div>
+						<div>
+							<a href="cp.php?ac=friend&op=add&uid=$value[uid]">批准申请</a>
+							<a href="cp.php?ac=friend&op=ignore&uid=$value[uid]&confirm=1">忽略</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+	<!--{/loop}-->
+	</div>
+	<div class="page">$multi</div>
+	<!--{else}-->
+	<div class="c">
+		没有新的好友请求。
+	</div>
+	<!--{/if}-->
+	<div class="nav">
+		<a href="cp.php?ac=friend&op=ignore&confirm=1&key=$space[key]">忽略所有好友申请(慎用)</a><br/>
+		<a href="cp.php?ac=friend&op=addconfirm&key=$space[key]">批准全部申请</a>
+	</div>
+<!--{elseif $op=='add2'}-->
+<div class="c">
+<h3>批准请求</h3>
+<form method="post" action="cp.php?ac=friend&op=add&uid=$tospace[uid]">
+	批准 <strong>{$_SN[$tospace[uid]]}</strong> 的好友请求，并分组：<br />
+	<!--{eval $i=0;}-->
+	<!--{loop $groups $key $value}-->
+	<input type="radio" name="gid" id="group_$key" value="$key"$groupselect[$key]> <label for="group_$key">$value</label><br />
+	<!--{eval $i++;}-->
+	<!--{/loop}-->
+	
+	<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+	<input type="submit" name="add2submit" value="批准" class="submit" />
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>
+<!--{elseif $op=='changegroup'}-->
+<div class="c">
+<h3>设置好友分组</h3>
+<form method="post" action="cp.php?ac=friend&op=changegroup&uid=$uid">
+	<!--{eval $i=0;}-->
+	<!--{loop $groups $key $value}-->
+	<input type="radio" name="group" value="$key"$groupselect[$key]> $value<br/>
+	<!--{eval $i++;}-->
+	<!--{/loop}-->
+	<input type="hidden" name="refer" value="$_SGLOBAL[refer]">
+	<button name="changegroupsubmit" type="submit" class="submit" value="true">确定</button>	
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>
+<!--{elseif $op =='ignore'}-->
+<div class="c">
+
+<h3>忽略好友</h3>
+<form method="post" action="cp.php?ac=friend&op=ignore&uid=$uid&confirm=1">
+	<p>确定忽略好友关系吗？</p>
+	
+	<input type="hidden" name="refer" value="$_SGLOBAL[refer]">
+	<button name="friendsubmit" type="submit" class="submit" value="true">确定</button>
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>
+<!--{elseif $op =='delete'}-->
+<div class="c">
+
+<h3>删除好友</h3>
+<form method="post" action="cp.php?ac=friend&op=delete&uid=$uid&confirm=1">
+	<p>确定删除好友关系吗？</p>
+	<input type="hidden" name="refer" value="$_SGLOBAL[refer]">
+	<button name="friendsubmit" type="submit" class="submit" value="true">确定</button>
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>
+<!--{/if}-->
+	
+<!--{template footer}-->

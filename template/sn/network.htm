@@ -1,0 +1,599 @@
+<!--{eval $_TPL['titles'] = array('舍内网'); $_TPL['nosidebar']=1;}-->
+<!--{template header}-->
+<div id="network">
+
+<script>
+function setintro(type) {
+	var intro = '';
+	var bPosition = '';
+	if(type == 'doing') {
+		intro = '用一句话记录自己生活中的点点滴滴';
+		bPosition = '0';
+	} else if(type == 'mtag') {
+		intro = '创建自己的小圈子，与大家交流感兴趣的话题';
+		bPosition = '175px';
+	} else if(type == 'pic') {
+		intro = '上传照片，分享生活中的精彩瞬间';
+		bPosition = '55px';
+	} else if(type == 'app') {
+		intro = '与好友一起玩转游戏和应用，增加好友感情';
+		bPosition = '118px';
+	} else {
+		intro = '马上注册，与好友分享日志、照片，一起玩转游戏';
+		bPosition = '0';
+	}
+	$('guest_intro').innerHTML = intro + '......';
+	$('guest_intro').style.backgroundPosition = bPosition + ' 100%'
+}
+function scrollPic(e, LN, Width, Price, Speed) {
+	id = e.id;
+	if(LN == 'Last'){ scrollNum = Width; } else if(LN == 'Next'){ scrollNum = 0 - Width; }
+	scrollStart = parseInt(e.style.marginLeft, 10);
+	scrollEnd = parseInt(e.style.marginLeft, 10) + scrollNum;
+	
+	MaxIndex = (e.getElementsByTagName('li').length / Price).toFixed(0);
+	sPicMaxScroll = 0 - Width * MaxIndex;
+
+	if(scrollStart == 0 && scrollEnd == Width){
+		scrollEnd = -1806;
+		e.style.marginLeft = parseInt(e.style.marginLeft, 10) - Speed + 'px';
+	} else if(scrollStart == sPicMaxScroll + Width && scrollEnd == sPicMaxScroll){
+		scrollEnd = 0;
+		e.style.marginLeft = parseInt(e.style.marginLeft, 10) + Speed + 'px';
+	}
+	scrollShowPic = setInterval(scrollShow, 1);
+	
+	function scrollShow() {
+		if(scrollStart > scrollEnd) {
+			if(parseInt(e.style.marginLeft, 10) > scrollEnd) {
+				$(id + '_last').onclick = function(){ return false; };
+				$(id + '_next').onclick = function(){ return false; };
+				e.style.marginLeft = parseInt(e.style.marginLeft, 10) - Speed + 'px';
+			} else {
+				clearInterval(scrollShowPic);
+				$(id + '_last').onclick = function(){ scrollPic(e, 'Last', Width, Price, Speed);return false; };
+				$(id + '_next').onclick = function(){ scrollPic(e, 'Next', Width, Price, Speed);return false; };
+			}
+		} else {
+			if(parseInt(e.style.marginLeft, 10) < scrollEnd) {
+				$(id + '_last').onclick = function(){ return false; };
+				$(id + '_next').onclick = function(){ return false; };
+				e.style.marginLeft = parseInt(e.style.marginLeft, 10) + Speed + 'px';
+			} else {
+				clearInterval(scrollShowPic);
+				$(id + '_last').onclick = function(){ scrollPic(e, 'Last', Width, Price, Speed);return false; };
+				$(id + '_next').onclick = function(){ scrollPic(e, 'Next', Width, Price, Speed);return false; };
+			}					
+		}
+	}
+}
+function scrollShowNav(e, Width, Price, Speed) {
+	id = e.id;
+	$(id + '_last').onclick = function(){ scrollPic(e, 'Last', Width, Price, Speed);return false; };
+	$(id + '_next').onclick = function(){ scrollPic(e, 'Next', Width, Price, Speed);return false; };
+	
+}
+function getUserTip(obj) {
+	var tipBox = $('usertip_box');
+	tipBox.childNodes[0].innerHTML = '<strong>' + obj.rel + ':<\/strong> ' + obj.rev + '...';
+	
+	var showLeft;
+	if(obj.parentNode.offsetLeft > 730) {
+		showLeft = $('showuser').offsetLeft + obj.parentNode.offsetLeft - 148;
+		tipBox.childNodes[0].style.right = 0;
+	} else {
+		tipBox.childNodes[0].style.right = 'auto';
+		showLeft = $('showuser').offsetLeft + obj.parentNode.offsetLeft;
+	}
+	tipBox.style.left = showLeft + 'px';
+	
+	var showTop; 
+	if(obj.className == 'uonline') {
+		showTop = $('showuser').offsetTop + obj.parentNode.offsetTop - tipBox.childNodes[0].clientHeight;
+	} else {
+		showTop = $('showuser').offsetTop + obj.parentNode.offsetTop + 48;
+	}
+	tipBox.style.top = showTop + 'px';
+	
+	tipBox.style.visibility = 'visible';
+}
+</script>
+
+
+<div id="guestbar" class="nbox">
+	<div class="nbox_c">
+			<SCRIPT type=text/javascript>
+<!--
+var _width = 730
+var _height = 200
+var text_height = 0
+var flash_height = _height + text_height
+var pic_arr = new Array();
+var link_arr = new Array();
+var text_arr = new Array();
+var i = 0;
+
+   pic_arr[0] = "template/$_SCONFIG[template]/image/1.jpg";
+   link_arr[0] = "exchange.php";
+      
+   pic_arr[1] = "template/$_SCONFIG[template]/image/2.jpg";
+   link_arr[1] = "http://shop.shenei.net/";
+      
+   pic_arr[2] = "template/$_SCONFIG[template]/image/3.jpg";
+   link_arr[2] = "do.php?ac=ereg";
+   
+   pic_arr[3] = "template/$_SCONFIG[template]/image/4.jpg";
+   link_arr[3] = "#";
+   
+   pic_arr[4] = "template/$_SCONFIG[template]/image/5.jpg";
+   link_arr[4] = "#";
+   
+   pic_arr[5] = "template/$_SCONFIG[template]/image/6.jpg";
+   link_arr[5] = "#";
+      
+//
+var p = pic_arr.join("|");
+var l = link_arr.join("|");
+var t = text_arr.join("|");
+var f = "template/$_SCONFIG[template]/image/huandeng.swf";
+document.write('<object ID="focus_flash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ _width +'" height="'+ flash_height +'">');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="'+f+'"><param name="quality" value="high"><param name="bgcolor">');
+document.write('<param name="menu" value="false"><param name=wmode value="transparent">');
+document.write('<param name="FlashVars" value="pics='+p+'&links='+l+'&texts='+t+'&borderwidth='+_width+'&borderheight='+_height+'&textheight='+text_height+'">');
+document.write('<embed ID="focus_flash" src="'+f+'" wmode="opaque" FlashVars="pics='+p+'&links='+l+'&texts='+t+'&borderwidth='+_width+'&borderheight='+_height+'&textheight='+text_height+'" menu="false" quality="high" width="'+ _width +'" height="'+ flash_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+document.write('</object>');
+//-->
+</SCRIPT>
+	</div>
+    <!--{if empty($_SGLOBAL[supe_uid])}-->
+	 <div class="side_rbox" id="nlogin_box">
+<div class="nreg">
+<p>扩大自己的好友圈！<br />
+提升自己的知名度！<br />
+业界精英、企业白领、型男靓女
+</p>
+
+<p><a href="do.php?ac=ereg"><img src="template/$_SCONFIG[template]/image/111_03.gif" /></a></p>
+</div>
+<form name="loginform" action="do.php?ac=$_SCONFIG[login_action]&$url_plus&ref" method="post">
+<div class="n_login">
+        <ul>
+<li><input type="text" name="username" id="username" class="t_input t_username" value="$membername" /></li>
+<li><input type="password" name="password" id="password" class="t_input t_password" value="$password" /></li>
+
+</ul>
+        <span>
+<input type="hidden" name="refer" value="space.php?do=home" />
+<input type="submit" id="loginsubmit" name="loginsubmit" value=" " class="submit" />
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+  </span>
+</div>
+        </form>
+</div>
+    
+   </div>
+   <!--{else}-->
+    <div class="side_rbox" id="nlogin_box">
+		<h3 class="ntitle">看看大家正在做什么</h3>
+		<div class="side_rbox_c" id="feedNow" style="height:160px;overflow:hidden;">
+		<!--{template data/blocktpl/2}-->
+		</div>
+        <script>startMarquee(170, 100, 0, 'feedNow');</script>
+	</div>
+    <!--{/if}-->
+</div>
+
+<div class="netreg"><a href="do.php?ac=$_SCONFIG[register_action]" ><img src="template/$_SCONFIG[template]/image/reg.gif" /></a></div>
+
+<div class="nbox">
+	<div class="nbox_c" style="height:353px; overflow:hidden">
+			<h2 class="ntitle"><span class="r_option"><a href="space.php?do=blog&view=all">更多日志</a></span> 大家的日志 &raquo;</h2>
+			<ul class="bloglist">
+			<!--{loop $bloglist $key $value}-->
+				<li <!--{if $key%2==1}-->class="list_r"<!--{/if}-->>
+					<h3><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]" target="_blank">$value[subject]</a></h3>
+					<div class="d_avatar avatar48"><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" target="_blank"><!--{avatar($value[uid],small)}--></a></div>
+					<p class="message">$value[message] ...</p>
+					<p class="nhot"><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]">$value[hot] 人推荐</a></p>
+					<p class="time"><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a> 发表于 <!--{date('m-d H:i',$value[dateline],1)}--></p>
+				</li>
+			<!--{/loop}-->
+			</ul>
+	</div>
+	<div class="nbox_s side_rbox side_rbox_w">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=doing&view=all">更多记录</a></span> 网友心情记录 &raquo;</h2>
+		<div class="side_rbox_c">
+			<ul class="side_rbox_c doinglist">
+				<!--{loop $dolist $value}-->
+				<li>
+					<p>
+						<a href="space.php?uid=$value[uid]&do=doing&doid=$value[doid]" target="_blank" class="time r_option dot" style="margin:0;background-position-y: 0;"><!--{date('H:i',$value[dateline],1)}--></a>
+						<a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" class="s_avatar"><!--{avatar($value[uid],small)}--></a>
+						<a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a>
+					</p>
+					<p class="message" title="$value[title]">$value[message]</p>
+				</li>
+			<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+
+<script>
+<!--
+/*第一种形式 第二种形式 更换显示样式*/
+function setTab(name,cursel,n){
+for(i=1;i<=n;i++){
+var menu=document.getElementById(name+i);
+var con=document.getElementById("con_"+name+"_"+i);
+menu.className=i==cursel?"hover":"";
+con.style.display=i==cursel?"block":"none";
+}
+}
+//-->
+</script>
+	<div id="radomusers">
+		<h2 class="ntitle">
+        <div id="one1" onclick="setTab('one',1,3)" class="hover">热门会员</div>
+      		<div id="one2" onclick="setTab('one',2,3)" >大学城帅哥</div>
+        <div id="one3" onclick="setTab('one',3,3)" >大学城靓妹</div>
+		
+        <span class="r_option"><a href="space.php?do=top">马上进入交友频道寻找自己的缘分！（需要登陆会员）</a></span></h2>
+		<ul id="con_one_1">
+		<!--{template data/blocktpl/3}-->
+		</ul>
+        
+		<ul id="con_one_2" style="display:none">
+		<!--{template data/blocktpl/4}-->
+		</ul>
+         <ul id="con_one_3" style="display:none">
+		<!--{template data/blocktpl/5}-->
+		</ul>
+       
+        
+	</div>
+
+<div id="searchbar" class="nbox s_clear">
+	<div id="sch_user">
+		<form method="get" action="cp.php">
+			<input name="searchkey" value="" size="15" class="t_input" type="text" style="padding:5px;">
+			<input name="searchsubmit" value="找人" class="submit" type="submit"> &nbsp;
+				查找：<a href="cp.php?ac=friend&op=search&view=sex" target="_blank">男女朋友</a><span class="pipe">|</span>
+				<a href="cp.php?ac=friend&op=search&view=reside" target="_blank">同城</a><span class="pipe">|</span>
+				<a href="cp.php?ac=friend&op=search&view=birth" target="_blank">老乡</a><span class="pipe">|</span>
+				<a href="cp.php?ac=friend&op=search&view=birthyear" target="_blank">同年同月同日生</a><span class="pipe">|</span>
+				<a href="cp.php?ac=friend&op=search&view=edu" target="_blank">同学</a><span class="pipe">|</span>
+				<a href="cp.php?ac=friend&op=search&view=work" target="_blank">同事</a><span class="pipe">|</span>
+				<a href="space.php?do=top&view=online" target="_blank">在线会员($olcount)</a>
+			<input type="hidden" name="searchmode" value="1" />
+			<input type="hidden" name="ac" value="friend" />
+			<input type="hidden" name="op" value="search" />
+		</form>
+	</div>
+	<div id="sch_content">
+		<form method="get" action="space.php">
+			<input name="searchkey" value="" size="15" class="t_input" type="text" style="padding:5px;">
+			<select name="do">
+			<option value="blog">日志</option>
+			<option value="album">相册</option>
+			<option value="thread">话题</option>
+			<option value="poll">投票</option>
+			<option value="event">活动</option>
+			</select>
+			<input name="searchsubmit" value="搜索" class="submit" type="submit">
+			<input type="hidden" name="view" value="all" />
+			<input type="hidden" name="orderby" value="dateline" />
+		</form>
+	</div>
+</div>
+
+<div id="showuser" class="nbox 966px">
+	<div id="user_recomm">
+		<h2>站长推荐</h2>
+		<!--{loop $star $value}-->
+		<div class="s_avatar"><a href="space.php?uid=$value[uid]" target="_blank"><!--{avatar($value[uid],middle)}--></a></div>
+		<div class="s_cnts">
+			<h3><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></h3>
+			<p>访问: $value[viewnum]</p>
+			<p>积分: $value[credit]</p>
+			<hr />
+			<p>好友: $value[friendnum]</p>
+			<p>更新: <!--{date('H:i',$value[updatetime],1)}--></p>
+		</div>
+		<!--{/loop}-->
+	</div>
+	<div id="user_wall" onmouseout="javascript:$('usertip_box').style.visibility = 'hidden';">
+		<div id="user_pay" class="s_clear">
+			<h2><a href="space.php?do=top">竞价排名</a></h2>
+			<ul>
+			<!--{loop $showlist $value}-->
+				<li><a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"><!--{avatar($value[uid],small)}--></a></li>
+			<!--{/loop}-->
+			</ul>
+			<p><a href="space.php?do=top">我要上榜</a></p>
+		</div>
+		<div id="user_online" class="s_clear">
+			<h2><a href="space.php?do=top&view=online">在线会员</a></h2>
+			<ul>
+			<!--{loop $onlinelist $value}-->
+				<li><a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" class="uonline" onmouseover="getUserTip(this)"><!--{avatar($value[uid],small)}--></a></li>
+			<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="usertip_box"><div></div></div>
+
+<!--音乐盒插件-->
+<div class="nbox">
+
+        <div class="nbox_c" style="background:#FFF; padding-bottom:8px;">
+
+                        <h2 class="ntitle"><span class="r_option"><a href="space.php?uid=0&do=musicbox&mview=alllist&order=p&language=&search=">更多音乐</a></span> 最新推荐的音乐 &raquo;</h2>
+
+                        
+
+                        <div style="padding:0 0 15px 10px;">
+
+                                <!--{if $lastmusiclist}-->
+
+                                        <ul style="width:100%;">
+
+                                                <!--{loop $lastmusiclist $key $value}-->
+
+                                                        <li style="float:left; width:238px; padding-top:10px;">
+
+                                                                <div style="width: 230px; text-overflow: ellipsis; text-align: left; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;">
+
+                                                                        <a href="space.php?uid=$value['userid']&do=musicbox&mview=mpage&mid=$value[songid]" target="_blank"><img src="images/053753307.gif" align="absmiddle" alt="新窗口试听音乐" /></a><a href="space.php?uid=$value['userid']&do=musicbox&mview=mpage&mid=$value[songid]"><!--{eval echo getstr($value[songname],18,-1,-1,-1)}--></a> <a href="space.php?uid=$value[suid]&do=musicbox&view=me" target="_blank" style="color:#333333;">{$_SN[$value[suid]]}</a><!--{if !empty($value['lsuid'])}--> <img src="images/mini_icons_010.gif" align="absmiddle" /> <a href="space.php?uid=$value[lsuid]" target="_blank" style="color:#333333; font-size:10px;">{$_SN[$value[lsuid]]}</a><!--{/if}-->
+
+                                                                </div>
+
+                                                        </li>
+
+                                                <!--{/loop}-->
+
+                                        </ul>
+
+                                <!--{/if}-->
+
+                        </div>
+
+                        
+
+                        
+
+                        <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+                          <tr>
+
+                            <td>
+
+                                                <div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+
+                                                                <div class="task_notice">
+
+                                                                        <div class="task_notice_body">
+
+                                                                                        <ul>
+
+                                                                                                <!--{loop $musicpeople $key $value}-->
+
+                                                                                                        <li style="width:208px; float:left;">
+
+                                                                                                                        <table border="0" cellpadding="0" cellspacing="2" style="color:#b2b2b2">
+
+                                                                                                                                <tr>
+
+                                                                                                                                        <td rowspan="3" valign="top" style="padding:0 3px 0 10px;">
+
+                                                                                                                                                <div class="avatar48"><a href="space.php?uid=$value[uid]&do=musicbox&view=me"><!--{avatar($value[uid],small)}--></a></div>
+
+                                                                                                                                        </td>
+
+                                                                                                                                        <td width="150"><div style="float:left;"><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" target="_blank">{$_SN[$value[uid]]}</a></div><!--{if ($key+1)<6}--><img src="images/mp<!--{eval echo ($key+1)}-->.gif" style="float:right" /><!--{/if}--></td>
+
+                                                                                                                                </tr>
+
+                                                                                                                                <tr>
+
+                                                                                                                                        <td >音乐 <span style="color:#FF0000">$value[songcount]</span>,专辑 <span style="color:#FF0000"><!--{if $value[albumcount]}-->$value[albumcount]<!--{else}-->0<!--{/if}--></span></td>
+
+                                                                                                                                </tr>
+
+                                                                                                                                <tr>
+
+                                                                                                                                        <td >共播放 $value[songplay] 次</td>
+
+                                                                                                                                </tr>
+
+                                                                                                                        </table>
+
+                                                                                                        </li>
+
+                                                                                                <!--{/loop}-->
+
+                                                                                        </ul>
+
+                                                                        </div>
+
+                                                                </div>
+
+                                                </div></div></div></div>
+
+                                        </td>
+
+                  </tr>
+
+                </table>
+
+                        
+
+                        
+
+                        
+
+        </div>
+
+        <div class="nbox_s side_rbox side_rbox_w">
+
+                <h2 class="ntitle"><span class="r_option"><a href="space.php?uid=0&do=musicbox&mview=all&viewtype=albumlist">更多专辑</a></span> 推荐专辑 &raquo;</h2>
+
+                <div class="side_rbox_c" style="background:#e6e6e6; padding-top:10px;">
+
+                                <ul style="width:100%;">
+
+                                        <!--{loop $bestalbum $key $value}-->
+
+                                                <li style="float:left; width:112px; height:180px; text-align:center; font-size:10px; color:#333; ">
+
+                                                        <div class="albumbg"><a href="space.php?uid=$value[uid]&do=musicbox&mview=malbum&albumid=$value[albumid]&userspace=$value[uid]" style="cursor: pointer;"><div class="imgmid" style="background:url($value[albumfengmian]) center no-repeat;"></div></a></div>
+
+                                                        <div style="font-size:12px;">
+
+                                                                《$value[albumname]》<br /><a href="space.php?uid=$value[uid]&do=musicbox&view=me" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a>创建
+
+                                                        </div>
+
+                                                        <div>音乐:<span style="color:#FF0000;">$value[songc]</span> 总评分:<span style="color:#FF0000;">$value[amark]</span></div>
+
+                                                </li>
+
+                                        <!--{/loop}-->
+
+                                </ul>
+
+                </div>
+
+        </div>
+
+</div>
+<!--音乐盒插件-->
+
+<div class="nbox" id="photolist">
+	<h2 class="ntitle">
+		<a href="space.php?do=album&view=all" class="r_option">更多图片</a>
+		相册图片 &raquo;
+		</h2>
+	<div id="p_control">
+		<a href="javascript:;" id="spics_last">上一页</a>
+		<a href="javascript:;" id="spics_next">下一页</a>
+		<ul id="p_control_pages">
+			<li>第一页</li>
+			<li>第二页</li>
+			<li>第三页</li>
+			<li>第四页</li>
+		</li>
+	</div>
+	<div id="spics_wrap">
+	<ul id="spics" style="margin-left: 0;">
+	<!--{loop $piclist $key $value}-->
+		<li class="spic_$key">
+			<div class="spic_img"><a href="space.php?uid={$value[uid]}&do=album&picid={$value[picid]}" target="_blank"><strong>$value[hot]</strong><img src="$value[pic]" alt="$value[albumname]" /></a></div>
+			<p><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></p>
+			<p><!--{date('m-d H:i',$value[dateline],1)}--></p>
+		</li>
+	<!--{/loop}-->
+	</ul>
+	</div>
+</div>
+<script type="text/javascript">
+scrollShowNav($('spics'), 903, 7, 43);
+</script>
+<div class="nbox">
+	<div class="nbox_c">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=thread&view=all">更多话题</a></span>圈子话题 &raquo;</h2>
+		<div class="tlist">
+			<table cellpadding="0" cellspacing="1">
+				<tbody>
+				<!--{loop $threadlist $key $value}-->
+					<tr <!--{if $key%2==1}-->class="color_row"<!--{/if}-->>
+						<td class="ttopic"><div class="ttop"><div><span>$value[hot]</span></div></div><a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" target="_blank">$value[subject]</a></td>
+						<td class="tuser"><a href="space.php?uid=$value[uid]" target="_blank"><!--{avatar($value[uid],small)}--></a> <a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a></td>
+						<td class="tgp"><a href="space.php?do=mtag&tagid=$value[tagid]">$value[tagname]</a></td>
+					</tr>
+				<!--{/loop}-->
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="npoll" class="nbox_s side_rbox side_rbox_w">
+		<div class="side_rbox_c">
+			<h2 class="ntitle"><span class="r_option"><a href="space.php?do=poll">更多投票</a></span>网友投票 &raquo;</h2>
+			<ul>
+			<!--{loop $polllist $key $value}-->
+				<li class="poll_$key"><a href="space.php?uid=$value[uid]&do=poll&pid=$value[pid]" target="_blank">$value[subject]</a><!--{if $key == 0}--><p><a href="">已有 $value[voternum] 位会员投票</a></p><!--{/if}--></li>
+			<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!--{if $myappcount}-->
+<div class="nbox">
+	<div class="nbox_c" style="border: none;">
+		<ul class="applist">
+		<!--{loop $myapplist $value}-->
+			<li>
+				<p class="aimg"><a href="userapp.php?id=$value[appid]" target="_blank"><img src="http://appicon.manyou.com/logos/$value[appid]" alt="$value[appname]" /></a></p>
+				<p><a href="userapp.php?id=$value[appid]" target="_blank">$value[appname]</a></p>
+			</li>
+		<!--{/loop}-->
+		</ul>
+	</div>
+	<div class="susb">
+		<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+			<div class="appmo">
+				<p>共有 <span>$myappcount</span> 个应用</p>
+				<p class="appmobutton"><a href="cp.php?ac=userapp&my_suffix=%2Fapp%2Flist">查看更多应用</a></p>
+			</div>
+		</div></div></div></div>	
+	</div>
+</div>
+<!--{/if}-->
+
+<div class="nbox">
+	<div class="nbox_c">
+	<h2 class="ntitle"><span class="r_option"><a href="space.php?do=event&view=recommend">更多活动</a></span> 同城活动 &raquo; 
+	<!--{loop $_SGLOBAL[eventclass] $value}-->
+		&nbsp; <a href="space.php?do=event&view=all&type=going&classid=$value[classid]" style="color:#ffffcc">$value[classname]</a></li>
+	<!--{/loop}-->
+	</h2>
+		<ul class="elist">
+		<!--{loop $eventlist $value}-->
+			<li>
+				<h3><a href="space.php?do=event&id=$value[eventid]" target="_blank">$value[title]</a></h3>
+				<p class="eimage"><a href="space.php?do=event&id=$value[eventid]" target="_blank"><img src="$value[pic]" alt=""/></a></p>
+				<p><span class="gray">时间:</span> <!--{date('n-j H:i',$value[starttime])}--> - <!--{date('n-j H:i',$value[endtime])}--></p>
+				<p><span class="gray">地点:</span> $value[province] $value[city] $value[location]</p>
+				<p><span class="gray">发起人:</span> <a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></p>
+				<p class="egz">$value[membernum] 人参加<span class="pipe">|</span>$value[follownum] 人关注</p>
+			</li>
+		<!--{/loop}-->
+		</ul>
+	</div>
+	<div id="nshare" class="nbox_s side_rbox side_rbox_w">
+		<h2 class="ntitle"><span class="r_option"><a href="space.php?do=share&view=all">更多分享</a></span>网友分享 &raquo;</h2>
+		<div class="side_rbox_c">
+			<ul>
+			
+
+
+<!--{loop $sharelist $value}-->
+				<li><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a> <em><a href="space.php?uid=$value[uid]&do=share&view=me">$value[title_template]</a></em></li>
+			<!--{/loop}-->
+			</ul>
+		</div>
+		</div>
+	
+
+</div>
+		
+
+
+
+<!--{template footer}-->
+

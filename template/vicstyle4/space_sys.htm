@@ -1,0 +1,178 @@
+<!--{eval $_TPL['titles'] = array('群组');}-->
+<!--{template header}-->
+<style type="text/css">
+@import url(template/vicstyle4/vs_mtag.css);
+</style>
+<div class="navbar">
+	<div class="vs4_tabs" >
+		<ul class="tabs">
+			<li><a href="space.php?do=home"><span>个人中心</span></a></li>
+			<li><a href="network.php"><span>社区广场</span></a></li>
+			<li><a href="sohovicstyle.php"><span>寻找soho潮人</span></a></li>
+			<li><a href="floor.php"><span>抢楼行动</span></a></li>
+			<li class="active"><a href="space.php?do=sys"><span style="font-weight: bold;">官方论坛</span></a></li>
+			<li><a href="space.php?do=thread"><span>社交圈子</span></a></li>
+			<li><a href="space.php"><span>我的BLOG</span></a></li>
+		</ul>
+	</div>
+</div>
+<div id="vs4con_t"><p><img src="template/vicstyle4/image/con_t_l.gif" /></p></div>
+<div id="vs4_content" style="padding:0 25px 0 25px;width:855px;">
+
+<h2 class="title"><img src="image/app/mtag.gif"><a href="space.php?do=sys">官方论坛</a></h2>
+<!--{if $space['uid'] && $space[self]}-->
+	<div class="vs4_uin">
+		<div class="vs4_m_userinfo">
+			<div class="avatar48" style="float:left;"><!--{avatar($_SGLOBAL[supe_uid],small)}-->
+			</div>
+			
+			<div class="vs4_m_box">
+			<ul>
+				<a href="space.php?uid=$space[uid]"<!--{eval g_color($space[groupid]);}-->><span style="color: #FF6600;font-weight: bold;">{$_SN[$space[uid]]}</span> </a>社区ID：<span style="color: #FF6600;font-weight: bold;">$space[uid]</span>&nbsp;
+				<!--{eval g_icon($space[groupid]);}-->
+				<a href="cp.php?ac=credit">$space[star]</a>
+				<span><!--{if $_SGLOBAL[session][magichidden]}-->当前隐身><!--{else}-->当前在线<!--{/if}--></span>
+				<!--{if $_SGLOBAL[magic][invisible]}-->
+					<!--{if $_SGLOBAL[session][magichidden]}-->
+						<img src="image/magic/invisible.small.gif" class="magicicon"><a id="a_magic_appear" href="cp.php?ac=magic&op=appear" onclick="ajaxmenu(event,this.id)" class="gray">我要上线</a>
+					<!--{else}-->
+						<img src="image/magic/invisible.small.gif" alt="{$_SGLOBAL[magic][invisible]}" class="magicicon"><a id="a_magic_invisible" href="magic.php?mid=invisible" onclick="ajaxmenu(event,this.id,1)" class="gray">我要隐身</a>
+					<!--{/if}-->
+				<!--{/if}-->
+			</ul>
+			<ul><span>&nbsp;热度:$space[viewnum]  积分:$space[credit]  经验:$space[experience] </span></ul>
+			<ul>
+				<li><img src="image/icon/activity.gif" class="midicon" /><a href="space.php?do=friend">我的好友</a></li>
+				<li><img src="image/icon/userapp.gif" class="midicon" /><a href="cp.php?ac=privacy">隐私筛选</a></li>
+				<li><img src="image/icon/task.gif" class="midicon" /><a href="cp.php?ac=task">我的任务</a></li>
+				<li><img src="image/icon/magic.gif" class="midicon" /><a href="floor.php">我要抢楼</a></li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	<div class="vs4_right">
+		<p><span>官方论坛公告</span></p>
+		<p>①官方论坛公告1</p>
+		<p>②<span style="color:#ff6600;">官方论坛公告2</span></p>
+		<p>③官方论坛公告3</p>
+	</div>
+	<div style="clear:both;"></div>
+<!--{/if}-->
+<div class="h_status">
+论坛分类：
+<a href="space.php?do=sys&view=hot"{$sub_actives[0]}>全部</a>
+<!--{loop $_SGLOBAL['profield'] $value}--><!--{if $value[fieldid]<=10}-->
+<span class="pipe">|</span><a href="space.php?do=sys&id=$value[fieldid]"{$sub_actives[$value[fieldid]]}>$value[title]</a>
+<!--{/if}--><!--{/loop}-->
+</div>
+<div class="h_status">
+	排序方式：
+	<a href="space.php?do=sys&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=threadnum"$orderbyarr[threadnum]>主题数排行</a><span class="pipe">|</span>
+	<a href="space.php?do=sys&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=postnum"$orderbyarr[postnum]>回帖数排行</a><span class="pipe"></span>
+</div>
+
+<div id="contentmain" style="width:580px;">
+
+<!--{if $rlist}-->
+	<div>
+		<h3 class="l_status">
+			<div class="r_option"><a href="space.php?do=sys&view=recommend">更多推荐</a></div>
+			论坛推荐
+		</h3>
+		<!--{loop $rlist $key $value}-->
+		<!--{if $value[fieldid]<=10}-->
+		<div id="v4mtag_show" <!--{if $key%3==1}--> style="background-color: #F6F6F6;"<!--{/if}--><!--{if $key%3==2}--> style="background-color: #EEEEEE;"<!--{/if}-->>
+		<div class="headusertopl"><a href="space.php?do=sys&view=&tagid=$value[tagid]&view=list" style="font-weight:bold;color: #444444;">$value[tagname]</a></div>
+		<div class="headusertopr"><span style="	font-weight: bold; color: #FF3300;cursor: crosshair;" title="主题数">$value[threadnum]</span> |  <span style="	font-weight: bold; color: #336699;cursor: crosshair;" title="回帖数">$value[postnum]</span></div>
+		<div style="clear:left;"></div>
+			<div class="headusermsg" >
+			<a <a href="space.php?do=sys&view=&tagid=$value[tagid]&view=list"><img src="$value[pic]" style="width:60px;height:60px;"></a>
+			</div>
+			<div class="headuserinfo">
+				<!--{if empty($value[announcement])}-->
+				<p>尚无公告</p>
+				<!--{else}-->
+				<p>论坛公告<br><span>$value[announcement]</span></p>
+				<!--{/if}-->
+			</div>
+			<div style="clear:both;"></div>	
+		</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+	</div>
+<!--{/if}-->
+
+<!--{if $list}-->
+
+	<div>
+		<!--{if $rlist}-->
+		<h3 class="l_status">
+			我的论坛
+		</h3>
+		<!--{/if}-->
+		<!--{loop $list $key $value}-->
+		<!--{if $value[fieldid]<=10}-->
+		<div id="v4mtag_show" <!--{if $key%3==1}--> style="background-color: #F6F6F6;"<!--{/if}--><!--{if $key%3==2}--> style="background-color: #EEEEEE;"<!--{/if}-->>
+		<div class="headusertopl"><a href="space.php?do=sys&view=&tagid=$value[tagid]&view=list" style="font-weight:bold;color: #444444;">$value[tagname]</a></div>
+		<div class="headusertopr"><span style="	font-weight: bold; color: #FF3300;cursor: crosshair;" title="主题数">$value[threadnum]</span> |  <span style="	font-weight: bold; color: #336699;cursor: crosshair;" title="回帖数">$value[postnum]</span></div>
+		<div style="clear:left;"></div>
+			<div class="headusermsg" >
+			<a href="space.php?do=sys&view=&tagid=$value[tagid]&view=list"><img src="$value[pic]" style="width:60px;height:60px;"></a>
+			</div>
+			<div class="headuserinfo">
+				<!--{if empty($value[announcement])}-->
+				<p>尚无公告</p>
+				<!--{else}-->
+				<p>论坛公告<br><span>$value[announcement]</span></p>
+				<!--{/if}-->
+			</div>
+			<div style="clear:both;"></div>	
+		</div><!--{/if}-->
+		<!--{/loop}-->
+	</div>
+	
+	<div class="page">$multi</div>
+
+<!--{else}-->
+	<div class="c_form">还没有论坛。</div>
+<!--{/if}-->
+
+</div>
+
+<div id="sidebar">
+
+	<div class="sidebox">
+	<h2 class="title">论坛类别</h2>
+	<ul class="post_list line_list2">
+		<li$pro_actives[all]><a href="space.php?do=sys&view=$_GET[view]&orderby=$_GET[orderby]">全部</a>
+		<!--{loop $_SGLOBAL['profield'] $value}-->
+		<!--{if $value[fieldid]<=10}-->
+		<li{$pro_actives[$value[fieldid]]}><a href="space.php?do=sys&view=$_GET[view]&fieldid=$value[fieldid]&orderby=$_GET[orderby]">$value[title]</a></li>
+		<!--{/if}-->
+		<!--{/loop}-->
+	</ul><div class="bot"></div>
+	</div>
+	
+	
+	<!--{if $threadlist}-->
+	<div class="sidebox">
+	<h2 class="title">论坛主题更新</h2>
+	<ul class="line_list2">
+		<!--{loop $threadlist $key $value}-->
+			<li>
+				<a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" <!--{if $value[magiccolor]}--> class="magiccolor$value[magiccolor]"<!--{/if}-->>$value[subject]</a>
+				<!--{if $value[hot]}-->
+				<br><span class="gray">$value[hot] 人推荐</span>
+				<!--{/if}-->
+			</li>
+		<!--{/loop}-->
+	</ul>
+	</div><div class="bot"></div>
+	<!--{/if}-->
+
+</div>
+
+<!--/sidebar-->
+</div>
+<div id="vs4con_b"><p><img src="template/vicstyle4/image/con_b_l.gif" /></p></div>
+<!--{template footer}-->

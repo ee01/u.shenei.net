@@ -1,0 +1,15 @@
+<!--{template header}-->
+			<h2 class="title"><img src="image/credit.gif">支付中心</h2>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[index]><a href="pay.php?ac=index"><span>积分充值</span></a></li>
+		<li$actives[vip]><a href="pay.php?ac=vip"><span>VIP特权</span></a></li>
+		<li$actives[list]><a href="pay.php?ac=list"><span>交易明细</span></a></li>
+		<li><a href="$_SCONFIG[pay_help]" target="_blank"><span>充值帮助</span></a></li>
+		<!--{if $adid}-->
+		<li$actives[userlist]><a href="pay.php?ac=userlist"><span>会员管理</span></a></li>
+		<li$actives[config]><a href="pay.php?ac=config"><span>充值配置</span></a></li>
+		<li$actives[vipconfig]><a href="pay.php?ac=vipconfig"><span>VIP功能配置</span></a></li>
+		<!--{/if}-->
+	</ul>
+</div>

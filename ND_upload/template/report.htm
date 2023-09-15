@@ -1,0 +1,41 @@
+<!--{template header}-->
+<h1>举报违规</h1>
+<a href="javascript:hideMenu();" class="float_del" title="关闭">关闭</a>
+<div class="popupmenu_inner" id="__reportform_{$_GET[id]}">
+<form method="post" id="reportform_{$_GET[id]}" name="reportform_{$_GET[id]}" action="ND_upload.php?do=report&idtype=$_GET[idtype]&id=$_GET[id]">
+	<table>
+	<tr>
+		<td>感谢您能协助我们一起管理站点，我们会对您的举报尽快处理。
+			<br>请填写举报理由(最多150个字符):
+			<img src="image/zoomin.gif" onmouseover="this.style.cursor='pointer'" onclick="zoomTextarea('reason', 1)">
+			<img src="image/zoomout.gif" onmouseover="this.style.cursor='pointer'" onclick="zoomTextarea('reason', 0)"><br />
+			<textarea id="reason" name="reason" cols="72" rows="3" onkeydown="ctrlEnter(event, 'reportsubmit_btn')"></textarea>
+			<!--{if $reason}-->
+			<br />
+			<select name="reportinfo" onchange="$('reason').value=this.value">
+				<option value="" selected>举报理由</option>
+				<!--{loop $reason $key $val}-->
+				<option value="$val">$val</option>
+				<!--{/loop}-->
+			</select>
+			<!--{/if}-->
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<input type="hidden" name="reportsubmit" value="true">
+		<!--{if $_SGLOBAL[inajax]}-->
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]">
+		<button name="reportsubmit_btn" id="reportsubmit_btn" type="button" class="submit" value="true" onclick="ajaxpost('reportform_{$_GET[id]}','',2000);">确定</button>
+		<!--{else}-->
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]">
+		<button name="reportsubmit_btn" id="reportsubmit_btn" type="submit" class="submit" value="true">确定</button>
+		<!--{/if}-->
+		</td>
+	</tr>
+	</table>
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+	</div>
+
+<!--{template footer}-->

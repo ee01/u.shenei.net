@@ -1,0 +1,100 @@
+<!--{template admin/tpl/header}-->
+
+<div class="mainarea">
+<div class="maininner">
+	<script language="javascript">
+function showlist()
+{
+	var obj			=	document.searchform.types;
+	var objValue	=	1;
+	for(var i=0;i<obj.length;i++) 
+	{ 
+		if(obj[i].checked) 
+			objValue=	obj[i].value;
+	}
+	if(objValue>1)
+	{
+		document.getElementById("typelist").style.display="block";
+	}
+	else
+	{
+		document.getElementById("typelist").style.display="none";
+	}
+}
+function checkAll()
+	{
+		var   aa   =   document.getElementsByName("del[]"); 
+		for(var i=0; i<aa.length; i++)
+		{
+				if(aa[i].checked)
+				{
+					aa[i].checked=false;
+					document.getElementById("selectall").value='全选'; 
+				}
+				else
+				{
+					aa[i].checked=true;
+					document.getElementById("selectall").value='取消'; 
+				}
+		}
+	}
+</script>
+	<form method="post" name="searchform" action="admincp.php?ac=list&op=ND_search">
+	<div class="block style4">
+		<table cellspacing="3" cellpadding="3">
+		<tr><td>关键字：<input name="keyword" value="" size="26" class="t_input" type="text"></td>
+			<td><input name="searchsubmit" value="搜索资源" class="submit" type="submit"></td>
+		</tr>
+		</table>
+
+	</div>
+	</form>
+
+<!--{if $list}-->
+
+	<form method="post" action="admincp.php?ac=list&op=del">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	<div class="bdrcontent">
+		<table cellspacing="0" cellpadding="0" class="formtable">
+		<tr><td width="25">&nbsp;</td><th>标题</th><th width="80">作者</th><th width="80">类别</th><th width="80">评论/查看</th><th width="80">时间</th><th width="80">审核</th><th width="80">操作</th></tr>
+		<!--{loop $list $value}-->
+		<tr>
+			<td>
+				<input type="checkbox" name="del[]" id="del[]" value="$value[id]">
+			</td>
+			<td>
+				<a href="ND_upload.php?do=info&id=$value[id]" target="_blank">$value[title]</a>
+			</td>
+			<td><a href="space.php?uid=$value[uid]">$value[username]</a></td>
+			<td>$value[ntt]</td>
+			<td>$value[comment]/$value[liulan]</td>
+			<td><!--{date('Y-m-d',$value[datetime])}--></td>
+			<td><!--{if $value[state]}--><font color="#009900">已审核</font><!--{else}--><font color="#FF0000">未审核</font><!--{/if}--></td>
+			<td><a href="admincp.php?ac=list&op=edit&id=$value[id]" >编辑</a>&nbsp;
+				<a href="admincp.php?ac=ND_comment&op=comm&id=$value[id]">评论</a>
+				</td>
+		</tr>
+		<!--{/loop}-->
+		</table>
+	</div>
+	
+	<div class="footactions">
+		<input type="button" name="selectall" id="selectall" value="全选" class="submit" onclick="checkAll()">
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('本操作不可恢复，确认删除？');" class="submit">
+	
+		<div class="pages">$multi</div>
+	</div>
+	</form>
+<!--{else}-->
+	<div class="bdrcontent">
+		<p>指定条件下还没有数据</p>
+	</div>
+<!--{/if}-->
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

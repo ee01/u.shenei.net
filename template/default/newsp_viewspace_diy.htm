@@ -1,0 +1,95 @@
+<!--{template viewspace_header}-->
+
+$allframe
+
+<div id="footer">
+<div class="copyright">
+<div class="f_status">
+<a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
+<a title="订阅 RSS" id="a_rss" href="rss.php?uid=$uid">订阅</a>
+<a href="cp.php?ac=common&op=report&idtype=space&id=$uid">举报该用户</a>
+</div>
+<p>{$_SN[$space[uid]]}的个人博客由〖舍内网〗提供，版权所有 <a href="http://FS.shenei.net" target="_blank">【疯·神】工作室</a>(2009-2010)</p>
+</div>
+</div>
+
+<ul id="setstyle_a_menu" class="stylemenu" style="display:none">
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+</ul>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+<form id="diy_form" method="post" action="viewspace.php">
+<input type="hidden" id="diystyle" name="diystyle" value=''>
+<input type="hidden" id="getback" name="getback" value='0'>
+<div class="toolbarbox">
+<div class="toolbarmymenu">
+<ul>
+<li class="m10"><a href="viewspace.php" onclick="return confirm('本次自定义样式将丢失，确定关闭吗？');">111</a></li>
+<li class="m8"><a href="#" onclick="stylegetback();">111</a></li>
+<li class="m9"><a href="#" onclick="savestyle();">111</a></li>
+</ul>
+</div>
+<div class="toolbarmenu">
+<ul>
+<li class="m1"><a href="javascript:void(0);" id="opensetframe">111</a></li>
+<li class="m2"><a href="javascript:void(0);" id="bodybg">111</a></li>
+<li class="m3"><a href="javascript:void(0);" id="bannerbg">111</a></li>
+<li class="m4"><a href="javascript:void(0);" id="footerbg">111</a></li>
+<li class="m5"><a href="javascript:void(0);" id="opensetblock">111</a></li>
+<li class="m11"><a href="javascript:void(0);" id="smusicp_sw">111</a></li>
+</ul>
+</div>
+<div class="toolbartxt">
+<ul>
+<li><a href="javascript:void(0);" id="cursor_btn">鼠标指针</a></li>
+<li><a href="javascript:void(0);" id="player_btn">播放地址</a></li>
+</ul>
+</div>
+</div>
+</form>
+<div class="toolshadow">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+var fastdiy = new transfer('fastdiystyle', 'fastdiy', 'oksubmit', 'fastdiy_header');
+var mystylesdiy = new transfer('mystylelist_sw', 'mystyles', 'cancel', 'mystyles_header');
+var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'sharestyle_header');
+var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
+
+var smusicp = new transfer('smusicp_sw', 'smusicp', 'oksubmit', 'smusicp_header');
+
+var setframe = new transfer('opensetframe', 'diy_frame', 'oksubmit', 'diy_frameheader');
+var setblock = new transfer('opensetblock', 'selectblock', 'oksubmit', 'selectblockheader');
+var tsetblock = new transfer('editblock', 'tsetblock', 'oksubmit', 'testblockheader');
+var selectbg_t = new transfer('selectbg_t', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var selectbg_c = new transfer('selectbg_c', 'selectbg_div', 'oksubmit', 'selectbg_header');
+
+var player = new transfer('player_btn', 'setplayer', 'oksubmit', 'playerheader');
+var cursor = new transfer('cursor_btn', 'setcursor', 'oksubmit', 'cursorheader');
+
+var bodybg = new transfer('bodybg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var bannerbg = new transfer('bannerbg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var footerbg = new transfer('footerbg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var sort = new sortDrag('block', 'blocktitle', 'blockcontent');
+var menuset = new transfer('editmenu', 'menu_set', 'oksubmit', 'menu_setheader');
+var menu_setbg = new transfer('menu_setbg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var titleset = new transfer('edittitle', 'title_set', 'oksubmit', 'title_setheader');
+
+var rangetitle = new drag('title', '', 'banner', '', function(obj) {
+// 此函数为回调函数
+var top = parseInt(obj.body.style.top)
+var left = parseInt(obj.body.style.left);
+if(isNaN(top) == false && isNaN(left) == false ) {
+cur_block = 'title';
+setblockstyle(top, '', '', 'top');
+setblockstyle(left, '', '', 'left');
+}
+}, 0);
+chgselectframe(defaultset);
+</script>
+
+
+</body>
+</html>

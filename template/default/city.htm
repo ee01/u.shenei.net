@@ -1,0 +1,49 @@
+<!--{eval $_TPL['titles'] = array('同城邂逅');}-->
+<!--{template header}-->
+<div class="c_header a_header">
+<div class="avatar48"><a href="space.php?uid=$_SGLOBAL['supe_uid']"><!--{avatar($_SGLOBAL['supe_uid'],small)}--> </a></div>
+<p style="font-size:14px"><strong>同城同乡</strong></p>
+<div class="spacelink">同一个城市，有缘让我们邂逅</div>
+</div>
+
+<div class="tabs_header">
+
+<ul class="tabs">
+<li class="active"><a href="city.php"><span>大学城那块地</span></a></li>
+<li><a href="sky.php"><span>大学城的天空</span></a></li>
+<!--<li><a href="pay.php"><span>积分充值</span></a></li>-->
+</ul>
+</div>
+
+<div id="content">	
+<div class="box">
+<!--{template google}-->
+</div>
+</div>
+<div id="sidebar">
+<div class="sidebox">
+<div>
+
+<IMG SRC="image/citygirl.gif" width="250" height="100"  border="0">
+</div>
+<div style="height:5px;"></div>
+<h2 class="title">
+人气城市排行
+</h2>
+<ul>
+<!--{if $citytop10}-->	
+<table width="100%" align="center">
+<!--{loop $citytop10 $key $value}-->	
+<tr>
+<td width="25" style="padding-right:2px;">{$key}</td>
+<td style="padding-right:6px;" align="left">{$value[resideprovince]} {$value[residecity]}</td>
+<td align="right"><!--{$value[ucounts]}-->人加入</td>
+</tr>	
+<!--{/loop}-->
+</table>
+<!--{/if}-->
+</ul>
+  </div>
+</div>
+
+<!--{template footer}-->

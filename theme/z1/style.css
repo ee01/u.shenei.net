@@ -1,0 +1,42 @@
+/*
+[name]¿¨Í¨·ç¸ñ[/name]
+Powered by Find-love2u.com
+*/
+a{ color: #5778A1; }
+
+body { padding: 0 0 50px; background: #86d9ff; color: #666; }
+#wrap { padding: 15px; border: 3px solid #86d9ff; background: #FFF; }
+#header { margin: 0; background: url(http://www.17woo.com/attachments/month_0904/0904102355957c45de8ff224ad.gif) repeat-x; color: #CCC; }
+#header a { color: #FFF; }
+.headerwarp { height: 240px; background: url(http://www.17woo.com/attachments/month_0904/09041023556cd2f8915b728590.jpg) no-repeat 0 40px; color: #5A7B8C; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(http://www.17woo.com/attachments/month_0904/0904102355abdc2744c853b505.gif); }
+#ubar h2,
+#space_page .feed_header,
+.sidebox h2.title { padding: 0 10px; height: 30px; background: #F2F2F2 url(http://www.17woo.com/attachments/month_0904/0904102355455dba675905100e.gif); color: #FFF; line-height: 29px; }
+
+#ubar h2{
+  background-position: 0 -100px;
+}
+.sidebox h2.title{
+  background-position: 0 -200px;
+}
+
+
+.ulist,
+#space_page .feed li,
+#space_page .comments_list li,
+#footer { border-color: #ECF1F3; }
+.tabs_header{ position: absolute; margin:-44px 0 0 170px; width: 600px; border: none;}
+
+.tabs_header ul.tabs li a, .tabs_header ul.tabs li a span{ background-image: url(images/tab_bg.gif); color: #FFF; }
+.tabs_header ul.tabs li.active a, .tabs_header ul.tabs li.active a span{ background-image: url(http://www.17woo.com/attachments/month_0904/09041023556dfbfd609f4d65bc.gif); color: #5778A1; }
+
+.tabs_header ul.tabs li{
+  margin: 0 5px 0 0;
+}
+
+a#i_rss{
+  color: #FFF;
+}

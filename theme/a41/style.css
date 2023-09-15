@@ -1,0 +1,30 @@
+/*
+[name]ÄÌÆ¿¾Û»á[/name]
+Powered by Ucenter Home
+*/
+a{ color: #d6335d; }
+
+body { padding: 0 0 50px; background: url(images/bg.gif) center center; color: #666; background-attachment: fixed;}
+#wrap { padding: 14px; border: 2px solid #e55c89; background: #fce5ed; }
+#header { margin: 0; background: url(images/top_bg.jpg) repeat-x; color: #aeabab; }
+.headerwarp { height: 250px; background: url(images/header.gif) no-repeat 0 40px; }
+#header a { color: #ffffff; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -230px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#ubar h2 { height: 43px; background: url(images/title.gif) no-repeat 0 -100px; }
+#space_page .feed_header { height: 43px; background: url(images/title.gif) no-repeat 0 0; color: #d6335d; }
+.sidebox h2.title { height: 40px; background: url(images/title.gif) no-repeat 0 -200px; color: #444; }
+
+.ulist,
+#space_page .feed li,
+#space_page .comments_list li,
+#footer { border-color: #aeabab; }
+.tabs_header{ position: absolute; margin:-44px 0 0 170px; width: 600px; border: none;}
+
+.tabs_header ul.tabs li a, .tabs_header ul.tabs li a span{ background-image: url(images/tab_bg.gif); color: #FFF; }
+.tabs_header ul.tabs li.active a, .tabs_header ul.tabs li.active a span{ background-image: url(images/active_tab_bg.gif); color: #ab546e; }
+
+.tabs_header ul.tabs li{
+  margin: 0 5px 0 0;
+}

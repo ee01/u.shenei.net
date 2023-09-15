@@ -1,0 +1,135 @@
+<div class="diant">
+  <div class="ar_r_t"><div class="ar_l_t"><div class="ar_r_b"><div class="ar_l_b">
+
+<!--{if !$novip}-->
+<!--{if $space[groupid]==3}-->
+<img border=0 src="image/lightening/vip_l.gif" title="VIP会员">
+<!--{else}-->
+<span class="sl">
+<img border=0 src="image/lightening/vip_g.gif" title="非VIP会员"></a></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$noname}-->
+<!--{if $space[namestatus]}-->
+<img border=0 src="image/lightening/name_l.gif" title="实名认证">
+<!--{else}--><span class="sl">
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/name_g.gif" title="未通过实名"></a></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$noavatar}-->
+<!--{if empty($space[avatar])}-->
+<a href="cp.php?ac=avatar"><img border=0 src="image/lightening/avatar_g.gif" title="未上传头像"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/avatar_l.gif" title="头像已上传"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if $_SCONFIG[videophoto] && !$novideo}-->	
+<!--{if $space[videostatus]}-->
+<img border=0 src="image/lightening/v_l.gif" title="视频认证点亮"></span>
+<!--{else}--><span class="sl">
+<a href="cp.php?ac=videophoto"><img border=0 src="image/lightening/v_g.gif" title="视频认证未点亮"></a>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$noemail}-->
+<!--{if empty($space['emailcheck'])}-->
+<a href="cp.php?ac=profile&op=contact"><img border=0 src="image/lightening/email_g.gif" title="Email未认证"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/email_l.gif" title="Email认证"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$nomobile}-->
+<!--{if empty($space['mobile'])}-->
+<a href="cp.php?ac=profile&op=contact"><img border=0 src="image/lightening/mod_g.gif" title="手机未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/mod_l.gif" title="手机已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$nosex}-->
+<!--{if empty($space[sex])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/sex_g.gif" title="性别未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/sex_l.gif" title="性别已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$nobirthday}-->
+<!--{if empty($space[birthday])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/birthday_g.gif" title="生日未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/birthday_l.gif" title="生日已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$nobirthcity}-->
+<!--{if empty($space[birthcity])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/birth_g.gif" title="家乡未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/birth_l.gif" title="家乡已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$noresidecity}-->
+<!--{if empty($space[residecity])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/home_g.gif" title="居住地未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/home_l.gif" title="居住地已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$noqq}-->
+<!--{if empty($space[qq])}-->
+<a href="cp.php?ac=profile&op=contact"><img border=0 src="image/lightening/qq_g.gif" title="QQ未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/qq_l.gif" title="QQ已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$nomsn}-->
+<!--{if empty($space[msn])}-->
+<a href="cp.php?ac=profile&op=contact"><img border=0 src="image/lightening/msn_g.gif" title="MSN未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/msn_l.gif" title="MSN已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$noedu}-->
+<!--{if !$space[edu]}-->
+<a href="cp.php?ac=profile&op=edu"><img border=0 src="image/lightening/edu_g.gif" title="教育情况尚未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/edu_l.gif" title="教育情况已填写"></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$noalbum}-->
+<!--{if $space[credit]}-->
+<img border=0 src="image/lightening/album_l.gif" title="相册达人">
+<!--{else}-->
+<span class="sl">
+<a href="cp.php?ac=upload"><img border=0 src="image/lightening/album_g.gif" title="未使用相册"></a></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$notheme}-->
+<!--{if $space[theme]}-->
+<img border=0 src="image/lightening/home_l.gif" title="装饰达人">
+<!--{else}-->
+<span class="sl">
+<a href="cp.php?ac=theme"><img border=0 src="image/lightening/home_g.gif" title="未装饰空间"></a></span>
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$notask}-->
+<!--{if $task}-->
+<a href="cp.php?ac=task"><img border=0 src="image/lightening/zuan_g.gif" title="有未完成任务"></a></span>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/zuan_l.gif" title="任务达人">
+<!--{/if}-->
+<!--{/if}-->
+
+</div></div></div></div></div><br><br>

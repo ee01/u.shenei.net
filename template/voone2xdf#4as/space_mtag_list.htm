@@ -1,0 +1,128 @@
+<!--{eval $_TPL['titles'] = array($mtag['tagname'], $mtag['title'], '讨论区');}-->
+<!--{eval $_TPL['nosidebar']=1;}-->
+<!--{template q_header}-->
+<link href="template/voone/quan.css" rel="stylesheet" type="text/css" />
+
+<DIV class="bodybox">
+<!--
+<!--{template m_header}-->
+
+<div class="tabs_header" style="border-bottom:1px dashed #333; height:25px">
+<div class="r_option">
+<a href="cp.php?ac=share&type=mtag&id=$mtag[tagid]" id="a_share" class="a_share" onclick="ajaxmenu(event, this.id, 1)">分享</a>
+<a href="admincp.php?ac=mtag&tagid=$mtag[tagid]" target="_blank">管理</a>
+	<a href="cp.php?ac=common&op=report&idtype=tagid&id=$mtag[tagid]" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+	</div>	
+	
+	<ul class="groupmenu">
+  <li><a href="space.php?do=mtag&tagid=$mtag[tagid]"><span>首页</span></a> </li>
+ 
+<li$actives[list]><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=list"><span>讨论区</span></a></li>
+<li$actives[digest]><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=digest"><span>精华区</span></a></li>
+		<!--{if $eventnum}-->
+<li><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=event"><span>群组活动</span></a></li>
+		<!--{/if}-->
+<li><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=member"><span>成员列表</span></a></li>  
+</LI>
+</UL>
+</div>
+-->
+
+<DIV class="groupbbsbox">
+<DIV class="groupbbshead">
+<DIV class="groupbbstit" style=" font-size:14px; font-weight:bold"><span style="color:#B1C600">NEWTOPIC</span> 圈子新帖</DIV>
+<DIV class="groupbbsbar">
+<UL>
+<!--{if empty($mtag['ismember']) && $mtag['joinperm'] < 2}-->
+<!--{elseif $mtag['allowpost']}-->
+  <LI><a href="cp.php?ac=thread&tagid=$mtag[tagid]"><IMG src="template/voone/image/button_newtopic.gif"></A> 
+</LI>
+<!--{/if}-->
+
+</UL></DIV></DIV>
+<!--{if $list}-->
+<TABLE class="bbsli" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TH class="gray" colSpan=4>
+      <DIV class="rbtop">
+      <DIV></DIV></DIV></TH></TR>
+  <TR>
+    <TH>&nbsp;&nbsp;&nbsp;文章标题</TH>
+    <TH style="WIDTH: 75px; TEXT-ALIGN: center">发起人</TH>
+    <TH style="WIDTH: 75px; TEXT-ALIGN: center">回复/浏览</TH>
+    <TH style="WIDTH: 120px; TEXT-ALIGN: center">最后回复</TH></TR>
+  <TR>
+    <TH class=gray colSpan=4>
+      <DIV class="rbbot">
+      <DIV></DIV></DIV></TH></TR>
+	<!--{loop $list $key $value}-->
+	<!--{eval $magicegg = ""}-->							
+				<!--{eval if($value[magicegg]) for($i=0; $i<$value[magicegg]; $i++) $magicegg .= '<img src="image/magic/egg/'.mt_rand(1,6).'.gif" />';}-->
+  <TR>
+    <TD><SPAN>$magicegg <a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" <!--{if $value[magiccolor]}--> class="magiccolor$value[magiccolor]"<!--{/if}-->>$value[subject]</a> <font style="color:#999">$value[hot] 人推荐</font></SPAN>
+<!--{if $value[displayorder]}--><IMG src="template/voone/image/icon_blogctd.gif"> <!--{/if}-->
+<!--{if $value[digest]}--><IMG src="template/voone/image/icon_bbselit.gif"> <!--{/if}--></TD>
+    <TD class=font_yellow align=middle><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></TD>
+    <TD align=middle>$value[replynum] / $value[viewnum]</TD>
+    <TD align=middle><!--{date('m-d H:i',$value[lastpost],1)}--> </TD></TR>
+	<!--{/loop}-->
+</TBODY></TABLE><BR>
+
+
+<div class="page">$multi</div>
+<!--{else}-->
+<div class="c_form">还没有相关话题。</div>
+<!--{/if}-->
+</DIV>
+
+<DIV class="groupr">
+<!--{if empty($mtag['ismember']) && $mtag['joinperm'] < 2}-->
+<DIV class=groupjoin><a href="cp.php?ac=mtag&op=join&tagid=$mtag[tagid]" id="a_mtag_join_$mtag[tagid]" onclick="ajaxmenu(event, this.id, 99999)"><IMG height=57 alt="" 
+src="template/voone/image/button_groupjoin.gif" width=207></A></DIV>
+
+			<!--{elseif $mtag['allowpost']}-->
+<DIV id="groupmanageinfo">
+<DIV class="rbtop">
+<DIV></DIV></DIV>
+<DIV class="rbcontent">
+<DL>
+  <DT><!--{avatar($_SGLOBAL[supe_uid],small)}-->
+</DT>
+  <DD class="groupmanagename">Hi! <B><a href="space.php?do=home">{$_SN[$_SGLOBAL[supe_uid]]}</a></B> 
+  </DD>
+  <DD class="groupmanageinfo">我们已经恭候多时了！ </DD></DL></DIV></DIV>
+<DIV id="groupmanagebox">
+<DIV class="rbcontent">
+
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addfriend.gif" width=13></SPAN><a href="cp.php?ac=thread&tagid=$mtag[tagid]">发起话题</a></li>
+	
+<!--{if $mtag['grade'] >= 8}-->
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addtopic.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=base">群组设置</a></li>
+			<!--{/if}-->
+			<!--{if $mtag['grade'] >= 8}-->
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addmessage.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=members">成员管理</a></li>
+
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addlink.gif" width=13></SPAN><a href="admincp.php?ac=thread&&perpage=20&tagid=$mtag[tagid]&searchsubmit=1" target="_blank">话题管理</a></li>
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addlink.gif" width=13></SPAN><a href="admincp.php?ac=post&&perpage=20&tagid=$mtag[tagid]&searchsubmit=1">回帖管理</a></li>
+
+		<!--{elseif $mtag['ismember'] && !$mtag['closeapply']}-->
+			<li><SPAN><IMG height=13 src="template/voone/image/icon_addlink.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=apply&tagid=$mtag[tagid]" id="a_apply" onclick="ajaxmenu(event, this.id, 99999)">群主申请</a></li>
+			<!--{/if}-->
+			<!--{if $mtag['allowinvite']}-->
+			<li><SPAN><IMG height=13 src="template/voone/image/icon_editmember.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=invite">邀请好友</a></li>
+			<!--{/if}-->
+			<!--{if $mtag['ismember']}-->
+			<li><SPAN><IMG height=13 src="template/voone/image/icon_rewriteinfo.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=out&tagid=$mtag[tagid]" id="a_ignore_top" onclick="ajaxmenu(event, this.id, 99999)">退出群组</a></li>
+			<!--{/if}-->
+<DIV class="clear"></DIV></DIV>
+<DIV class="rbbot">
+<DIV></DIV></DIV></DIV>
+
+			<!--{/if}-->
+
+</div>
+
+</DIV>
+
+<!--{template footer}-->

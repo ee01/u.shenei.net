@@ -1,0 +1,58 @@
+<!--{template viewspace_header}-->
+<div class="frame_1">
+<!--{template viewspace_profile}-->
+
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="cp.php?ac=userapp" target="_blank">全部</a></em>
+<h2>小应用</h2>
+</div>
+<div class="blockcontent">
+<ul class="pluglist">
+	<!--{loop $space['userapp'] $value}-->
+					<!--{if $value['allowsidenav']}-->
+					<li class="userapp-$value[appid]"><a href="userapp.php?id=$value[appid]&uid=$space[uid]" title="$value[appname]"><img src="http://appicon.manyou.com/icons/$value[appid]" alt="$value[appname]" />$value[appname]</a></li>
+					<!--{/if}-->
+					<!--{/loop}-->
+</ul>
+</div>
+</div>
+<div id="applist" >
+		<!--{loop $narrowlist $value}-->
+		<!--{if $value[myml]}-->
+		<div id="Div2" class="block" >
+		<div class="blocktitle">
+		<em><a href="$value[appurl]">详情</a><!--{if $space[self]}--> | <a href="cp.php?ac=space&op=delete&appid=$value[appid]" id="A1" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a><!--{/if}--></em>
+		<h2>$value[appname]</h2>
+		</div>
+		<div class="blockcontent">	
+		<!--{eval eval($value[myml]);}-->
+		</div>
+		</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+
+</div>
+</div>
+<div class="frame_3">
+<div id="applist" >
+		<!--{loop $widelist $value}-->
+		<!--{if $value[myml]}-->
+		<div id="applist" class="block" >
+		<div class="blocktitle">
+		<em><a href="$value[appurl]">详情</a><!--{if $space[self]}--> | <a href="cp.php?ac=space&op=delete&appid=$value[appid]" id="user_app_$value[appid]" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a><!--{/if}--></em>
+		<h2>$value[appname]</h2>
+		</div>
+
+		<div class="blockcontent">	
+		<!--{eval eval($value[myml]);}-->
+		</div>
+		</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+
+</div>
+</div>
+
+
+<!--{template viewspace_footer}-->

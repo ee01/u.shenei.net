@@ -1,0 +1,202 @@
+<!--{eval $_TPL['titles'] = array('群组');}-->
+<!--{template header}-->
+<style type="text/css">
+@import url(template/vicstyle4/vs_mtag.css);
+</style>
+<div class="navbar">
+	<div class="vs4_tabs" >
+		<ul class="tabs">
+			<li><a href="space.php?do=home"><span>个人中心</span></a></li>
+			<li><a href="network.php"><span>社区广场</span></a></li>
+			<li><a href="sohovicstyle.php"><span>寻找soho潮人</span></a></li>
+			<li><a href="floor.php"><span>抢楼行动</span></a></li>
+			<li class="active"><a href="space.php?do=thread"><span style="font-weight: bold;">社交圈子</span></a></li>
+			<li><a href="space.php"><span>我的BLOG</span></a></li>
+		</ul>
+	</div>
+</div>
+<div id="vs4con_t"><p><img src="template/vicstyle4/image/con_t_l.gif" /></p></div>
+<div id="vs4_content" style="padding:0 25px 0 25px;width:855px;">
+<div class="searchbar floatright">
+<form method="get" action="space.php">
+	<input name="searchkey" value="" size="15" class="t_input" type="text">
+	<input name="searchsubmit" value="搜索群组" class="submit" type="submit">
+	<input type="hidden" name="searchmode" value="1" />
+	<input type="hidden" name="do" value="mtag" />
+	<input type="hidden" name="view" value="hot" />
+</form>
+</div>
+<h2 class="title"><img src="image/app/mtag.gif">群组</h2>
+<!--{if $space['uid'] && $space[self]}-->
+	<div class="vs4_uin">
+		<div class="vs4_m_user">
+			<a href="space.php?uid=$space[uid]"<!--{eval g_color($space[groupid]);}-->>用户：<span style="color: #FF6600;font-weight: bold;">{$_SN[$space[uid]]}</span> </a>社区ID：<span style="color: #FF6600;font-weight: bold;">$space[uid]</span>&nbsp;
+			<!--{eval g_icon($space[groupid]);}-->
+			<a href="cp.php?ac=credit">$space[star]</a>
+			<span><!--{if $_SGLOBAL[session][magichidden]}-->当前隐身><!--{else}-->当前在线<!--{/if}--></span>
+			<!--{if $_SGLOBAL[magic][invisible]}-->
+				<!--{if $_SGLOBAL[session][magichidden]}-->
+					<img src="image/magic/invisible.small.gif" class="magicicon"><a id="a_magic_appear" href="cp.php?ac=magic&op=appear" onclick="ajaxmenu(event,this.id)" class="gray">我要上线</a>
+				<!--{else}-->
+					<img src="image/magic/invisible.small.gif" alt="{$_SGLOBAL[magic][invisible]}" class="magicicon"><a id="a_magic_invisible" href="magic.php?mid=invisible" onclick="ajaxmenu(event,this.id,1)" class="gray">我要隐身</a>
+				<!--{/if}-->
+			<!--{/if}--><span>&nbsp;热度:$space[viewnum]  积分:$space[credit]  经验:$space[experience] </span>
+		</div>
+		<div class="vs4_m_userinfo">
+			<div class="avatar48" style="float:left;"><!--{avatar($_SGLOBAL[supe_uid],small)}-->
+			</div>
+			<div class="vs4_m_box">
+			<ul>
+				<li><img src="image/icon/mood.gif" class="midicon" /><a href="cp.php?ac=avatar">我的头像</a></li>
+				<li><img src="image/icon/profile.gif" class="midicon" /><a href="cp.php?ac=profile">个人资料</a></li>
+				<li><img src="image/icon/debate.gif" class="midicon" /><a href="cp.php?ac=theme">主页风格</a></li>
+				<li><img src="image/icon/show.gif" class="midicon" /><a href="cp.php?ac=credit">我的积分</a></li>
+			</ul>
+			<ul>
+				<li><img src="image/icon/activity.gif" class="midicon" /><a href="space.php?do=friend">我的好友</a></li>
+				<li><img src="image/icon/userapp.gif" class="midicon" /><a href="cp.php?ac=privacy">隐私筛选</a></li>
+				<li><img src="image/icon/task.gif" class="midicon" /><a href="cp.php?ac=task">我的任务</a></li>
+				<li><img src="image/icon/magic.gif" class="midicon" /><a href="floor.php">我要抢楼</a></li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	<div class="vs4_right">
+		<p><span>群组使用提示</span></p>
+		<p>①群组需要等级<span style="color:#ff6600;">XXX</span>以上才可以建立</p>
+		<p>②群组分类中的<span style="color:#ff6600;">XXX类</span>群可自由加入，<span style="color:#ff6600;">XXX类</span>群需要群主审批才可加入</p>
+		<p>③群组内严禁讨论国家法律不允许的内容</p>
+	</div>
+
+	<div style="clear:both;"></div>
+<!--{/if}-->
+<div class="tabs_header">
+	<ul class="tabs">
+		<li><a href="space.php?uid=$space[uid]&do=thread"><span>群组话题</span></a></li>
+		<li$actives[me]><a href="space.php?do=mtag&view=me"><span>我参与的群组</span></a></li>
+		<li$actives[manage]><a href="space.php?do=mtag&view=manage"><span>我管理的群组</span></a></li>
+		<li$actives[hot]><a href="space.php?do=mtag&view=hot"><span>热门群组</span></a></li>
+		<li$actives[recommend]><a href="space.php?do=mtag&view=recommend"><span>推荐群组</span></a></li>
+		<li class="null"><a href="cp.php?ac=thread">发起新话题</a></li>
+		<li class="null"><a href="cp.php?ac=mtag">创建群组</a></li>
+	</ul>
+</div>
+
+<div class="h_status">
+	排序方式：
+	<a href="space.php?do=mtag&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=threadnum"$orderbyarr[threadnum]>话题数排行</a><span class="pipe">|</span>
+	<a href="space.php?do=mtag&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=postnum"$orderbyarr[postnum]>回帖数排行</a><span class="pipe">|</span>
+	<a href="space.php?do=mtag&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=membernum"$orderbyarr[membernum]>成员数排行</a>
+</div>
+
+<!--{if $searchkey}-->
+<div class="h_status">以下是搜索群组 <span style="color:red;font-weight:bold;">$searchkey</span> 结果列表</div>
+<!--{/if}-->
+	
+<div id="contentmain" style="width:580px;">
+
+<!--{if $rlist}-->
+	<div>
+		<h3 class="l_status">
+			<div class="r_option"><a href="space.php?do=mtag&view=recommend">更多推荐</a></div>
+			群组推荐
+		</h3>
+		<!--{loop $rlist $key $value}-->
+		<!--{if $value[fieldid]>10}-->
+		<div id="vicmtag_show" <!--{if $key%3==1}--> style="background-color: #F6F6F6;"<!--{/if}--><!--{if $key%3==2}--> style="background-color: #EEEEEE;"<!--{/if}-->>
+			<div class="headusermsg" >
+			<a href="space.php?do=mtag&tagid=$value[tagid]"><img src="$value[pic]"></a>
+			</div><div class="hide_msg" ><!--{if empty($value[announcement])}-->
+				<p><span class="shownum">尚无群公告</span></p>
+				<!--{else}-->
+				<p><span class="shownum">群公告</span><br><span class="notice_span">$value[announcement]</span></p>
+				<!--{/if}--></div>
+			<div class="headuserinfo">
+				<p><a href="space.php?do=mtag&tagid=$value[tagid]" style="font-weight:bold;">$value[tagname]</a></p>
+				<p>分类: $value[title]</p>
+				<p>已有 <span class="shownum">$value[membernum]</span> 人加入</p>
+				<p>话题: $value[threadnum]</p>
+				<p>回帖: $value[postnum]</p>
+			</div>
+			<div style="clear:both;"></div>	
+		</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+	</div>
+<!--{/if}-->
+
+<!--{if $list}-->
+
+	<div>
+		<!--{if $rlist}-->
+		<h3 class="l_status">
+			我的群组
+		</h3>
+		<!--{/if}-->
+		<!--{loop $list $key $value}-->
+		<!--{if $value[fieldid]>10}-->
+		<div id="vicmtag_show" <!--{if $key%3==1}--> style="background-color: #F6F6F6;"<!--{/if}--><!--{if $key%3==2}--> style="background-color: #EEEEEE;"<!--{/if}-->>
+			<div class="headusermsg" >
+			<a href="space.php?do=mtag&tagid=$value[tagid]"><img src="$value[pic]"></a>
+			</div><div class="hide_msg" ><!--{if empty($value[announcement])}-->
+				<p><span class="shownum">尚无群公告</span></p>
+				<!--{else}-->
+				<p><span class="shownum">群公告</span><br><span class="notice_span">$value[announcement]</span></p>
+				<!--{/if}--></div>
+			<div class="headuserinfo">
+				<p><a href="space.php?do=mtag&tagid=$value[tagid]" style="font-weight:bold;">$value[tagname]</a></p>
+				<p>分类: $value[title]</p>
+				<p>已有 <span class="shownum">$value[membernum]</span> 人加入</p>
+				<p>话题: $value[threadnum]</p>
+				<p>回帖: $value[postnum]</p>
+			</div>
+			<div style="clear:both;"></div>	
+		</div><!--{/if}-->
+		<!--{/loop}-->
+	</div>
+	
+	<div class="page">$multi</div>
+
+<!--{else}-->
+	<div class="c_form">还没有群组。</div>
+<!--{/if}-->
+
+</div>
+
+<div id="sidebar">
+
+	<div class="sidebox">
+	<h2 class="title">群组分类</h2>
+	<ul class="post_list line_list">
+		<li$pro_actives[all]><a href="space.php?do=mtag&view=$_GET[view]&orderby=$_GET[orderby]">全部</a>
+		<!--{loop $_SGLOBAL['profield'] $value}-->
+		<!--{if $value[fieldid]>10}-->
+		<li{$pro_actives[$value[fieldid]]}><a href="space.php?do=mtag&view=$_GET[view]&fieldid=$value[fieldid]&orderby=$_GET[orderby]">$value[title]</a></li>
+		<!--{/if}-->
+		<!--{/loop}-->
+	</ul><div class="bot"></div>
+	</div>
+	
+	
+	<!--{if $threadlist}-->
+	<div class="sidebox">
+	<h2 class="title">这些群组的话题更新</h2>
+	<ul class="line_list">
+		<!--{loop $threadlist $key $value}-->
+			<li>
+				<a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" <!--{if $value[magiccolor]}--> class="magiccolor$value[magiccolor]"<!--{/if}-->>$value[subject]</a>
+				<!--{if $value[hot]}-->
+				<br><span class="gray">$value[hot] 人推荐</span>
+				<!--{/if}-->
+			</li>
+		<!--{/loop}-->
+	</ul>
+	</div>
+	<!--{/if}-->
+
+</div>
+
+<!--/sidebar-->
+</div>
+<div id="vs4con_b"><p><img src="template/vicstyle4/image/con_b_l.gif" /></p></div>
+<!--{template footer}-->

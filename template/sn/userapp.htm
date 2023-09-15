@@ -1,0 +1,163 @@
+<!--{eval $_TPL['titles'] = array($app['name']);}-->
+<!--{template header}-->
+
+<script type="text/javascript" src="http://static.manyou.com/scripts/my_iframe.js"></script>
+<script language="javascript">
+var prefixURL = "$my_prefix";
+var suffixURL = "$my_suffix";
+var queryString = '';
+var url = "http://apps.manyou.com/{$my_appId}";
+var oldHash = null;
+var timer = null;
+var appId = '$my_appId';
+
+var server = new MyXD.Server("ifm0");
+server.registHandler('iframeHasLoaded');
+server.registHandler('setTitle');
+server.start();
+
+
+function iframeHasLoaded(ifm_id) {
+    MyXD.Util.showIframe(ifm_id);
+    document.getElementById('loading').style.display = 'none';
+}
+
+function  htmlspecialchars_decode(string) {
+	string = string.toString();
+	string = string.replace(/&amp;/g, '&');
+	string = string.replace(/&lt;/g, '<');
+	string = string.replace(/&gt;/g, '>');
+	string = string.replace(/&quot;/g, '"');
+	string = string.replace(/&#039;/g, "'");
+	return string;
+
+}
+function setTitle(x) {
+	<!--{eval $my_site_name=htmlspecialchars($_SCONFIG['sitename'], ENT_QUOTES);}-->
+	<!--{eval $my_site_key=htmlspecialchars($_SITE_KEY, ENT_QUOTES);}-->
+	var my_site_name = htmlspecialchars_decode('{$my_site_name}');
+	var my_site_key = htmlspecialchars_decode('{$my_site_key}');
+
+	x = htmlspecialchars_decode(x);
+	document.title = x + ' - <!--{if $space}--><!--{eval echo saddslashes($_SN[$space[uid]])}--> - <!--{/if}-->' + my_site_name + ' - ' + my_site_key;
+}
+
+</script>
+
+<!--{if $appid == "1033526"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=11" target="_blank">更多>></a></span>荣光医院玩家讨论</h1>
+	<ul>
+		<div style="margin:-15px;line-height:1.7em;">
+		<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=11" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=11" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/20}--></div>
+	</ul>
+</div>
+<!--{/if}-->
+<!--{if $appid == "1021978"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=8" target="_blank">更多>></a></span>开心农场玩家讨论</h1>
+	<ul>
+		<div style="margin:-15px;line-height:1.7em;">
+		<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=8" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=8" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/21}--></div>
+	</ul>
+</div>
+<!--{/if}-->
+<!--{if $appid == "1029889"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=4" target="_blank">更多>></a></span>开心宝贝玩家讨论</h1>
+	<ul>
+		<div style="margin:-15px;line-height:1.7em;">
+		<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=4" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=4" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/22}--></div>
+	</ul>
+</div>
+<!--{/if}-->
+<!--{if $appid == "1038853"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=29" target="_blank">更多>></a></span>大富翁玩家讨论</h1>
+	<ul>
+		<div style="margin:-15px;line-height:1.7em;">
+		<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=29" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=29" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/24}--></div>
+	</ul>
+</div>
+<!--{/if}-->
+<!--{if $appid == "1040890"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=5" target="_blank">更多>></a></span>楼一幢玩家讨论</h1>
+	<ul>
+		<div style="margin:-15px;line-height:1.7em;">
+		<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=5" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=5" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/23}--></div>
+	</ul>
+</div>
+<!--{/if}-->
+<!--{if $appid == "1039242"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=6" target="_blank">更多>></a></span>幸福厨房玩家讨论</h1>
+	<ul>
+		<div style="margin:-15px;line-height:1.7em;">
+		<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=6" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=6" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/25}--></div>
+	</ul>
+</div>
+<!--{/if}-->
+
+<!--{if $aaa}-->其他调用方法
+<!--{if $appid == "1033526"}-->
+<div style="width:780px;height:210px;background:white;position:absolute;margin-left:10px;margin-top:583px;">
+<div style="margin:15px;line-height:1.7em;">
+<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=8" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=8" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/20}--></div>
+</div>
+<!--{/if}-->
+<!--{if $appid == "1021978"}-->
+<div style="width:800px;height:210px;background:white;position:absolute;margin-left:10px;margin-top:627px;">
+<div style="margin:15px;line-height:1.7em;">
+<div style="width:200px;height:90px;float:right"><a href="cp.php?ac=thread&tagid=11" target=_blank><img src="image/my/fabiao.gif" /></a><br /><a href="cp.php?ac=mtag&op=join&tagid=11" target=_blank><img src="image/my/jiaru.gif" /></a></div><!--{template data/blocktpl/21}--></div>
+</div>
+<!--{/if}-->
+
+<!--{if $appid == "1033526"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=5" target="_blank">更多>></a></span>荣光医院玩家讨论</h1>
+	<ul>
+		<!--{template data/blocktpl/11}-->
+	</ul>
+	</div>
+<!--{/if}-->
+<!--{if $appid == "1021978"}-->
+<div class="myykx">
+	<h1 class="title"><span><a href="space.php?do=mtag&tagid=3" target="_blank">更多>></a></span>开心农场玩家讨论</h1>
+	<ul>
+		<!--{template data/blocktpl/12}-->
+	</ul>
+	</div>
+<!--{/if}-->
+
+其他调用方法<!--{/if}-->
+
+<div id="mx2note" style="display:none; padding:150px 0 150px 0; margin:1px; text-align:center; background-color:#FFFFBF;  font-size:12px; line-height:14px; color:#DB0000; letter-spacing:1px;">
+	本页面暂时不支持遨游2浏览器, 请您使用IE或Firefox, 我们对由此给您带来的不便深表歉意
+</div>
+<div id="loading" style="display:block; padding:100px 0 100px 0;text-align:center;color:#999999;font-size:12px;">
+【疯·神】工作室 提示：页面加载中...<br />
+	<img src="image/my/loading.gif" alt="loading..." style="position:relative;top:11px;"/>
+</div>
+
+<iframe id="ifm0" frameborder="0" width="810" scrolling="no" height="810" style="position:absolute; top:-5000px; left:-5000px;" src="{$url}"></iframe>
+
+<!--{if $aaa}-->
+<div class="myys">
+	<div class="myy">
+	<h1 class="title"><span><a href="news.php?do=news" target="_blank">更多>></a></span>宜宾资讯爆料</h1>
+	<ul>
+		<!--{template data/blocktpl/10}-->
+	</ul>
+	</div>
+
+	<div class="myy">
+	<h1 class="title"><span><a href="space.php?uid=1&do=blog&view=all" target="_blank">更多>></a></span>最新博客文章</h1>
+	<ul>
+		<!--{template data/blocktpl/6}-->
+	</ul>
+	</div>
+</div>
+<!--{/if}-->
+
+<!--{template footer}-->

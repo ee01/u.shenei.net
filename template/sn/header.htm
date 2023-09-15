@@ -1,0 +1,315 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=$_SC[charset]" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<!--{if $_SGLOBAL[supe_uid]==3 || $_SGLOBAL[supe_uid]==160}-->
+<title><!--{if $_TPL['titles']}--><!--{loop $_TPL['titles'] $value}--><!--{if $value}-->$value - <!--{/if}--><!--{/loop}--><!--{/if}--><!--{if $_SN[$space[uid]]}-->{$_SN[$space[uid]]} - <!--{/if}-->【黑菜乐园】 - 永远为你保存的记忆！</title>
+<!--{elseif strstr(ip2area($_SERVER['REMOTE_ADDR']),'三明') || strstr(ip2area($_SERVER['REMOTE_ADDR']),'APNIC')}-->
+<title><!--{if $_TPL['titles']}--><!--{loop $_TPL['titles'] $value}--><!--{if $value}-->$value - <!--{/if}--><!--{/loop}--><!--{/if}--><!--{if $_SN[$space[uid]]}-->{$_SN[$space[uid]]} - <!--{/if}-->【$_SCONFIG[sitename]】 - 将乐县第一中学 - 三明人的网上家园 - <!--{eval echo str_replace(' - 电信','',str_replace('APNIC','福建省三明市将乐县',ip2area($_SERVER['REMOTE_ADDR'])));}--></title>
+<!--{else}-->
+<title><!--{if $_TPL['titles']}--><!--{loop $_TPL['titles'] $value}--><!--{if $value}-->$value - <!--{/if}--><!--{/loop}--><!--{/if}--><!--{if $_SN[$space[uid]]}-->{$_SN[$space[uid]]} - <!--{/if}-->【$_SCONFIG[sitename]】 - 福州大学城最火爆的时尚交友互动平台！交友、游戏、学习、时尚一个不漏！</title>
+<!--{/if}-->
+<meta name="keywords" content="舍内网,舍内交友,舍内资讯,舍内人,舍内市,同城交友,fzxyw,舍内时尚,舍内时尚,舍内女人,舍内妈妈宝宝" />
+<meta name="description" content="舍内网是福州大学城最火爆的交友互动网站！为福州大学城提供一个网络交友、网络学习、游戏娱乐、消磨无聊时间的一个互动平台，在这里！你可以结识到更多的朋友，商家可以在这里找到更多的客户！我们期待你的加入！" />
+<meta name="generator" content="shenei.net" />
+<meta name="author" content="shenei.net" />
+<meta name="copyright" content="2009-2010 shenei.net" />
+<meta name="MSSmartTagsPreventParsing" content="True" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="template/$_SCONFIG[template]/image/script_common.js"></script>
+<script type="text/javascript" src="js/SuggestFramework.js"></script>
+<script type="text/javascript">window.onload = initializeSuggestFramework;</script>
+
+<link href="template/default/loading.css" media="screen" rel="stylesheet" type="text/css" />
+<style type="text/css">
+@import url(template/default/musicboxstyle.css);
+</style>
+<style type="text/css">
+<!--{if $_TPL['css']}-->
+@import url(template/$_SCONFIG[template]/{$_TPL[css]}.css);
+<!--{/if}-->
+<!--{if !empty($_SGLOBAL['space_theme'])}-->
+@import url(template/$_SCONFIG[template]/style.css);
+@import url(theme/$_SGLOBAL[space_theme]/style.css);
+
+<!--{elseif $_SCONFIG[template] != 'default'}-->
+@import url(template/$_SCONFIG[template]/style.css);
+<!--{/if}-->
+<!--{if !empty($_SGLOBAL['space_css'])}-->
+$_SGLOBAL[space_css]
+<!--{/if}-->
+</style>
+<link rel="shortcut icon" href="image/favicon.ico" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=$space[uid]" />
+
+<!--Add By 01↓	载入进度条-->
+<script src="http://libs.baidu.com/jquery/1.3.0/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery.noConflict();
+function load() {
+	jQuery("#loading div").animate({width:"100%"}).text("100%");
+	jQuery("#loading").hide(500);
+	jQuery("#loadingtext").fadeOut(500);
+}
+</script>
+<!--Add By 01↑-->
+</head>
+<body onload="load()">	<!--Modify By 01	载入进度条-->
+<!--Add By 01↓	载入进度条-->
+<span id="loadingtext">正在为您载入...</span>
+<div id="loading"><div></div></div>
+<script type="text/javascript">jQuery("#loading div").animate({width:"16%"}).text("16%");</script>
+<div id="blank"></div>
+<!--{template preview}-->
+<!--Add By 01↑-->
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+	<div id="header">
+  <div class="logo"><a href="index.php"><img src="template/$_SCONFIG[template]/image/logo.gif" alt="$_SCONFIG[sitename]" /></a></div>
+  <div class="h_avatar">
+    <div class="h_a_right">
+     <div></div>
+    <!--{if $_SGLOBAL[supe_uid]}-->
+  
+      <p><a href="space.php?uid=$_SGLOBAL[supe_uid]">{$_SN[$_SGLOBAL[supe_uid]]}</a>
+      <!--{if $_SGLOBAL[member][credit]}--><a href="cp.php?ac=credit"><img src="image/credit.gif">{$_SGLOBAL[member][credit]}</a> <!--{/if}-->
+
+      <!--{if $_SGLOBAL[member][groupid] == $_SCONFIG[vipapp]}-->
+		<a href="pay.php?ac=vip"><img src="image/pay/vip.gif" title="VIP会员:<!--{if $vips[ztime] > 0}-->$vips[day]天<!--{else}-->终身VIP<!--{/if}-->" border="0" align="absmiddle" /></a>
+      <!--{else}-->
+		<a href="pay.php?ac=vip" target="_blank"><img src="image/pay/vip2.gif" title="未激活" border="0" align="absmiddle" /></a>
+      <!--{/if}-->
+
+      <!--{if empty($_SCONFIG['closeinvite'])}--><a href="cp.php?ac=invite">邀请</a> | <!--{/if}-->
+			<a href="cp.php?ac=task">任务</a> | 
+			<a href="cp.php?ac=magic">道具</a> | 
+			<a href="cp.php">设置</a> | 
+			<a href="cp.php?ac=common&op=logout&uhash=$_SGLOBAL[uhash]">退出</a>
+      </p>
+        <span><a href="space.php?uid=$_SGLOBAL[supe_uid]"><!--{avatar($_SGLOBAL[supe_uid])}--></a></span>
+            <!--{else}-->
+    
+       <p>
+			尊敬的大学城朋友欢迎您!
+			<a href="do.php?ac=$_SCONFIG[login_action]">登录</a> | 
+			<a href="do.php?ac=$_SCONFIG[register_action]">注册</a> | 
+			<a href="do.php?ac=lostpasswd">忘记密码？</a>
+       </p>
+          <span><a href="space.php?uid=$_SGLOBAL[supe_uid]"><!--{avatar($_SGLOBAL[supe_uid])}--></a></span>
+		<!--{/if}-->
+       
+    </div>
+  </div>
+  <div class="h_nav">
+    <ul>
+      <li class="left"> </li>
+      <li><a href="http://www.shenei.net" target="_blank" style="display:block;filter:Alpha(opacity=70);opacity:.7;-moz-opacity:.7;">引导首页</a></li>
+      <li class="fgx"> </li>
+      <!--{if $_SGLOBAL[supe_uid]}-->
+      <li onmouseover="suboptwo(this,'feed_in')" onmouseout="suboptwo(this,'feed_in')"><a href="space.php?do=home">首页应用</a><img src="template/$_SCONFIG[template]/image/hot.gif" class="hot" /></li>
+                
+                <span id="feed_in" class="nav_in" style="display:none;">
+                <p><a href="space.php?do=doing"><img src="image/app/doing.gif"> 记录</a></p>
+                <p><a href="space.php?do=share"><img src="image/app/share.gif"> 分享</a></p>
+                <p><a href="space.php?do=blog"><img src="image/app/blog.gif"> 日志</a><em><a href="cp.php?ac=blog">发表</a></em></p>
+                <p><a href="space.php?do=album"><img src="image/app/album.gif"> 相册</a><em><a href="cp.php?ac=upload">上传</a></em></p>
+                <p><a href="space.php?do=musicbox"><img src="images/musicicon.gif"> 音乐</a><em><a href="space.php?do=musicbox&mview=commend">推荐</a></em></p>
+                <p><a href="ND_upload.php"><img src="image/app/download.gif"> 网盘</a><em><a href="ND_upload.php?do=add">共享</a></em></p>
+                <p><a href="space.php?do=mtag"><img src="image/app/mtag.gif"> 群组</a><em><a href="cp.php?ac=thread">话题</a></em></p>
+                <p><a href="space.php?do=subject"><img src="image/app/mtag.gif"> 博客</a><em><a href="http://me.shenei.net">主页</a></em></p>
+                <p><a href="space.php?do=poll"><img src="image/app/poll.gif"/> 投票</a><em><a href="cp.php?ac=poll">发布</a></em></p>
+                <p><a href="space.php?do=event"><img src="image/app/event.gif"/> 活动</a><em><a href="cp.php?ac=event">发起</a></em></p>
+                <p><a href="city.php"><img src="image/app/xiehou.gif"/> 同乡</a><em><a href="cp.php?ac=profile&op=contact">标记</a></em></p>
+                <p><a href="sky.php"><img src="image/icon/sky.gif"/> 天空</a><em><a href="http://sky.shenei.net" target="_blank">全景</a></em></p>
+<!--
+                <p><a href="space.php?do=share"><img src="image/app/share.gif"> 分享</a></p>
+                <p><a href="space.php?do=topic"><img src="image/app/topic.gif"> 热闹</a></p>
+-->
+                </span>
+             <li class="fgx"> </li> 
+			<li onmouseover="suboptwo(this,'space_in')" onmouseout="suboptwo(this,'space_in')"><a href="space.php">个人主页</a></li>
+             <li class="fgx"> </li>
+			<li><a href="space.php?do=friend">我的好友</a></li>
+            
+                <span id="space_in" class="nav_in" style="display:none;">
+                    <p><a href="cp.php?ac=friend&op=search">查 找 朋 友</a></p>
+           <p><!--{if  1==$space[sex] }--><a href="space.php?do=top&view=mm">异 性 情 缘</a><!--{else}--><a href="space.php?do=top&view=gg">异 性 情 缘</a><!--{/if}--></p>
+                	<p><a href="cp.php?ac=magic">购 买 道 具</a></p>
+                    <p><a href="cp.php?ac=invite">邀 请 好 友</a></p>
+                	<p><a href="cp.php?ac=avatar">修 改 头 像</a></p>
+					<p><a href="cp.php?ac=profile">更 新 资 料</a></p>
+					<p><a href="cp.php?ac=theme">主 页 设 置</a></p>
+					<p><a href="cp.php?ac=credit">我 的 积 分</a></p>
+					<!--{if $_SCONFIG[sendmailday]}-->
+					<p><a href="cp.php?ac=sendmail">邮 件 提 醒</a></p>
+					<!--{/if}-->
+					<p><a href="cp.php?ac=privacy">隐 私 筛 选</a></p>
+					<!--{if checkperm('admin')}-->
+					<p><a href="admincp.php">站 点 管 理</a></p>
+					<!--{/if}-->
+					<!--{if checkperm('allowstat')}-->
+					<p><a href="do.php?ac=stat">趋 势 统 计</a></p>
+					<!--{/if}-->
+                </span>
+            <li class="fgx"> </li>
+            <li><a href="network.php">大厅互动</a></li>
+            <!--{else}-->
+			<li><a href="index.php">大厅互动</a></li>
+		<!--{/if}-->
+        <!--{if $_SGLOBAL['appmenu']}-->
+			<!--{if $_SGLOBAL['appmenus']}-->
+            <li class="fgx"> </li>
+			<!--<li class="dropmenu" id="ucappmenu" onmouseover="showMenu(this.id)">-->
+			<li id="ucappmenu" onmouseover="showMenu(this.id)">
+				<a target="_blank" href="{$_SGLOBAL[appmenu][url]}" title="{$_SGLOBAL[appmenu][name]}">{$_SGLOBAL[appmenu][name]}</a><img src="template/$_SCONFIG[template]/image/hot.gif" class="hot" />
+			</li>
+			<!--{else}-->
+            <li class="fgx"> </li>
+			<li><a target="_blank" href="{$_SGLOBAL[appmenu][url]}" title="{$_SGLOBAL[appmenu][name]}">{$_SGLOBAL[appmenu][name]}</a><img src="template/$_SCONFIG[template]/image/hot.gif" class="hot" /></li>
+			<!--{/if}-->
+		<!--{/if}-->
+        
+        <!--{if $_SGLOBAL[supe_uid]}-->
+			
+			<!--{if $_SGLOBAL['member']['allnotenum']}--><li class="fgx"> </li><li id="membernotemenu" onmouseover="showMenu(this.id)"><a href="space.php?do=notice">{$_SGLOBAL[member][allnotenum]}个提醒</a></li><!--{/if}-->
+            <li class="fgx"> </li>
+            <li><a href="space.php?do=pm<!--{if !empty($_SGLOBAL['member']['newpm'])}-->&filter=newpm<!--{/if}-->">短消息</a>            <!--{if !empty($_SGLOBAL['member']['newpm'])}-->
+<a href="space.php?do=pm" class="new_xx"><img src="template/$_SCONFIG[template]/image/newspm.gif" /></a>
+	<!--<object data="image/sound/pm_1.wav" type="application/x-mplayer2" width="0" height="0"><param name="src" value="image/sound/pm_1.wav"><param name="autostart" value="1"><param name="playcount" value="1"></object>--><bgsound src="image/sound/pm_1.wav" loop="1"><!--{/if}--></li>
+	<!--{if !empty($_SGLOBAL['member']['notenum'])}--><bgsound src="image/sound/pm_2.wav" loop="1"><!--{/if}-->
+	<!--{if !empty($_SGLOBAL['member']['pokenum'])}--><bgsound src="image/sound/pm_3.wav" loop="1"><!--{/if}-->
+           
+
+     <li class="right"> </li>
+		<!--{else}-->
+        <li class="fgx"> </li>
+			<li><a href="help.php">帮助中心</a></li>
+		
+
+      <li class="right"> </li>
+      <!--{/if}-->
+    </ul>
+  </div>
+</div>
+
+<!--{if $_SGLOBAL[supe_uid]}--><!--{if $_SGLOBAL['ad']['header']}--><div id="ad_header"><!--{ad/header}--></div><!--{/if}--><!--{/if}-->
+	<div id="wrap">
+
+	<!--{if empty($_TPL['nosidebar'])}-->
+	<div id="main">
+		<div id="app_sidebar">
+		
+			<ul class="app_list" id="default_userapp">
+            <li class="zbl">个人中心</li>
+				<li><img src="image/app/doing.gif"><a href="space.php?do=doing">一句话博客</a> <img src="image/hot.gif" /></li>
+				<li><img src="image/app/ana.gif"><a href="ana.php">这话经典</a> <img src="image/hot.gif" /></li>
+				<li><img src="image/app/blog.gif"><a href="space.php?do=blog">日志</a> <img src="image/hot.gif" /><em><a href="cp.php?ac=blog">发表</a></em></li>
+				<li><img src="image/app/album.gif"><a href="space.php?do=album">相册</a><em><a href="cp.php?ac=upload">上传</a></em></li>
+				<li><img src="images/musicicon.gif"><a href="space.php?do=musicbox">音乐</a> <img src="image/hot.gif" /><em><a href="space.php?do=musicbox&mview=commend">推荐</a></em></li>
+				<li><img src="image/app/poll.gif"/><a href="space.php?do=poll">投票</a><em><a href="cp.php?ac=poll">发布</a></em></li>
+				<li><img src="image/app/mtag.gif"><a href="space.php?do=mtag">群组</a><em><a href="cp.php?ac=thread">话题</a></em></li>
+				<li><img src="image/app/download.gif"><a href="ND_upload.php">网盘</a> <img src="image/hot.gif" /><em><a href="ND_upload.php?do=add">共享</a></em></li>
+				<li><img src="image/app/subject.gif"><a href="space.php?do=subject">博客</a><em><a href=http://my.shenei.net target="_blank">主页</a></em></li>	
+				<li><img src="image/app/event.gif"/><a href="space.php?do=event">活动</a> <em><a href="cp.php?ac=event">发起</a></em></li>
+				<li><img src="image/app/friend.gif"/><a href="space.php?do=friend">好友</a> <em><a href="cp.php?ac=invite">邀请</a></em></li>
+				<li><img src="image/app/fetion.gif"><a href="cp.php?ac=fetion">飞信</a><img src="image/hot.gif" /><em><a href="fetion.php">速发</a></em></li>
+				<li><img src="image/app/xiehou.gif"><a href="city.php">大学城</a><img src="image/hot.gif" /><em><a href="cp.php?ac=profile&op=contact">标记</a></em></li>
+				<li><img src="image/icon/sky.gif"><a href="sky.php">许愿天空</a><em><a href=http://sky.shenei.net target="_blank">全景</a></em></li>
+				<li><img src="image/app/2010.gif"><a href=http://u.shenei.net/2010 target="_blank">新年祝福</a><img src="image/hot.gif" /><em><a href="cp.php?ac=task&op=do&taskid=27">送人</a></em></li>
+				<li><img src="image/app/mobile.gif"/><a href=http://wap.shenei.net target=_blank>手机版</a><em><A title=复制地址 onclick="javascript:setCopy('wap.shenei.net');" href="javascript:;">网址</A></em></li>
+				<li><img src="image/app/netbar.gif"><a href="netbar.php">百宝箱</a> <img src="image/hot.gif" /></li>
+				<li><img src="image/app/qecn.gif"><a href="askqecn.php">求医通</a></li>
+				<li><img src="image/app/share.gif"><a href="space.php?do=share">分享</a></li>
+				<li><img src="image/app/topic.gif"><a href="space.php?do=topic">热闹</a></li>
+				<!--{if $task}-->
+				<li><img src="image/app/renwu.gif"><a href="cp.php?ac=task" title=有未完成任务>任务</a></li>
+				<!--{/if}-->
+				<li><img src="image/icon/show.gif"><a href="space.php?do=top">排行榜</a> <img src="image/hot.gif" /></li>
+				<li ><img src="image/icon/exchange.gif" alt="积分换礼品" /><a href="exchange.php">兑奖中心</a></li>
+				<li><img src="image/icon/card.gif" alt="积分充值卡" /><a href="cp.php?ac=card">积分充值卡</a></li>
+<!--
+			<li class="zbl">同城互动</li>
+			<li><img src="image/app/schoolsales.gif" alt="校园买卖" /><a href="schoolsales.php">同城买卖</a> <img src="image/hot.gif" /></li>
+			<li><img src="image/icon/ask.gif"><a href="ask.php?do=ask">问答</a> <img src="image/hot.gif" /><em><a href="ask.php?do=ask&ac=post">提问</a></em></li>
+			<li><img src="image/icon/activity.gif"><a href="job.php?ac=index">求职</a> <img src="image/hot.gif" /><em><a href="job.php?ac=resumes&classid=all">招聘</a></em></li>
+			<li><img src="image/icon/share.gif"><a href="space-top.html">同城交友</a>
+			<!--{if  1==$space[sex] }-->
+				<em><a href="space.php?do=top&view=mm">异性</a></em>
+				<!--{else}-->
+				<em><a href="space.php?do=top&view=gg">异性</a></em>
+				<!--{/if}-->
+			</li>	
+			<li><img src="image/icon/3dmap.gif"><a href="3dmap.php">三维福州</a> <img src="image/hot.gif" /></li>
+-->
+			<!--{if $_SCONFIG['my_status']}-->
+            <li class="zbl">热门游戏应用</li>
+				<!--{loop $_SGLOBAL['userapp'] $value}-->
+				<!--{if $value[appid] != "1044077"}-->
+				<li><img src="http://appicon.manyou.com/icons/$value[appid]"><a href="userapp.php?id=$value[appid]">$value[appname]</a></li>
+				<!--{/if}-->
+				<!--{/loop}-->
+			<!--{/if}-->
+			</ul>
+			
+			<!--{if $_SCONFIG['my_status']}-->
+			<ul class="app_list" id="my_userapp">
+                        <li class="zbl">我的游戏应用</li>
+				<!--{loop $_SGLOBAL['my_menu'] $value}-->
+				<li id="userapp_li_$value[appid]"><img src="http://appicon.manyou.com/icons/$value[appid]"><a href="userapp.php?id=$value[appid]" title="$value[appname]">$value[appname]</a></li>
+				<!--{/loop}-->
+			</ul>
+			<!--{/if}-->
+			
+			<!--{if $_SGLOBAL['my_menu_more']}-->
+			<p class="app_more"><a href="javascript:;" id="a_app_more" onclick="userapp_open();" class="off">展开</a></p>
+			<!--{/if}-->
+			
+			<!--{if $_SCONFIG['my_status']}-->
+			<div class="app_m">
+				<ul>
+					<li><img src="image/app_add.gif"><a href="cp.php?ac=userapp&my_suffix=%2Fapp%2Flist" class="addApp">添加应用</a></li>
+					<li><img src="image/app_set.gif"><a href="cp.php?ac=userapp&op=menu" class="myApp">管理应用</a></li>
+				</ul>
+			</div>
+			<!--{/if}-->
+
+		<!--{if $_SGLOBAL[supe_uid]}-->
+		<!--{else}-->
+			<div class="bar_text">
+				<form id="loginform" name="loginform" action="do.php?ac=$_SCONFIG[login_action]&ref" method="post">
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+					<p class="title">登录站点</p>
+					<p>用户名</p>
+					<p><input type="text" name="username" id="username" class="t_input" size="15" value="" /></p>
+					<p>密码</p>
+					<p><input type="password" name="password" id="password" class="t_input" size="15" value="" /></p>
+					<p><input type="checkbox" id="cookietime" name="cookietime" value="315360000" checked /><label for="cookietime">记住我</label></p>
+					<p>
+						<input type="submit" id="loginsubmit" name="loginsubmit" value="登录" class="submit" />
+						<input type="button" name="regbutton" value="注册" class="button" onclick="urlto('do.php?ac=$_SCONFIG[register_action]');">
+					</p>
+				</form>
+			</div>
+		<!--{/if}-->
+		</div>
+
+		<div id="mainarea">
+		
+		<!--{if $_SGLOBAL['ad']['contenttop']}--><div id="ad_contenttop"><!--{ad/contenttop}--></div><!--{/if}-->
+	<!--{/if}-->
+
+<script type="text/javascript">jQuery("#loading div").animate({width:"34%"}).text("34%");jQuery("#blank").fadeOut(0);</script>	<!--Add By 01	载入进度条-->
+<!--{/if}-->
+
+<!--{if $ND_add_module }-->
+<!--{template ND_upload/template/add_module}-->
+<!--{/if}-->

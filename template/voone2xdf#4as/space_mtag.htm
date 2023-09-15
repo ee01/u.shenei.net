@@ -1,0 +1,146 @@
+<!--{eval $_TPL['titles'] = array('群组');}-->
+<!--{eval $_TPL['nosidebar']=1;}-->
+<!--{template header_x}-->
+<!--{template x_header}-->
+<link href="template/voone/mtag.css" rel="stylesheet" type="text/css" />
+<DIV class="mtag_all">
+<DIV id=groupmaps>
+<!--{if $_SGLOBAL['ad']['header']}--><div id="ad_header"><!--{ad/header}--></div><!--{/if}-->
+<!--mail left--></DIV>
+
+<div class="tabs_header" style="margin-top:10px">
+	<ul class="tabs">
+		<li><a href="space.php?uid=$space[uid]&do=thread"><span>群组话题</span></a></li>
+		<li$actives[me]><a href="space.php?do=mtag&view=me"><span>我参与的群组</span></a></li>
+		<li$actives[manage]><a href="space.php?do=mtag&view=manage"><span>我管理的群组</span></a></li>
+		<li$actives[hot]><a href="space.php?do=mtag&view=hot"><span>热门群组</span></a></li>
+		<li$actives[recommend]><a href="space.php?do=mtag&view=recommend"><span>推荐群组</span></a></li>
+
+
+	</ul>
+</div>
+
+
+
+<DIV id=groupmain>
+<DIV class=group_left>
+<form method="get" action="space.php">
+<DIV class=group_search>
+<DIV class=s_jiao_l><IMG src="template/voone/image/g_s_j_1.gif"></DIV>
+<DIV class=s_jiao_r><IMG src="template/voone/image/g_s_j_2.gif"></DIV>
+<DIV class=s_main><IMG src="template/voone/image/g_index_s.gif" 
+align=absMiddle> &nbsp;
+
+
+	<input name="searchkey" value="" size="15"  style="BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 1px; PADDING-LEFT: 1px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 2px; WIDTH: 350px; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BACKGROUND-COLOR: #dcdcdc; BORDER-RIGHT-WIDTH: 0px" type="text">
+	<input name="searchsubmit" value="搜索群组" class="submit" type="submit">
+	<input type="hidden" name="searchmode" value="1" />
+	<input type="hidden" name="do" value="mtag" />
+	<input type="hidden" name="view" value="hot" />
+
+<IMG class=tagimg 
+height=13 src="template/voone/image/tag_title.gif" width=122 align=absMiddle> 
+<DIV class=s_jiao><IMG height=6 src="template/voone/image/tag_title_jiao.gif" 
+width=12></DIV></DIV>
+<DIV class=s_tags>
+<UL>
+
+
+
+
+
+
+<li$pro_actives[all]><a href="space.php?do=mtag&view=$_GET[view]&orderby=$_GET[orderby]">全部</a>
+		<!--{loop $_SGLOBAL['profield'] $value}-->
+		<li{$pro_actives[$value[fieldid]]}><a href="space.php?do=mtag&view=$_GET[view]&fieldid=$value[fieldid]&orderby=$_GET[orderby]">$value[title]</a></li>
+		<!--{/loop}-->
+
+</UL></DIV>
+<DIV class=s_jiao_l2><IMG src="template/voone/image/g_s_j_3.gif"></DIV>
+<DIV class=s_jiao_r2><IMG src="template/voone/image/g_s_j_4.gif"></DIV></DIV>
+	</form>
+
+<div class="h_status">
+	排序方式：
+	<a href="space.php?do=mtag&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=threadnum"$orderbyarr[threadnum]>话题</a>
+	<a href="space.php?do=mtag&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=postnum"$orderbyarr[postnum]>回帖</a>
+	<a href="space.php?do=mtag&view=$_GET[view]&fieldid=$_GET[fieldid]&orderby=membernum"$orderbyarr[membernum]>成员</a>
+</div>
+<!--{if $searchkey}-->
+<div class="h_status">以下是搜索群组 <span style="color:red;font-weight:bold;">$searchkey</span> 结果列表</div>
+<!--{/if}-->
+
+<DIV class=group_index>
+
+<!--{if $list}-->
+
+	<div>
+		<!--{if $rlist}-->
+		<h3 class="l_status">
+			我的群组
+		</h3>
+		<!--{/if}-->
+
+		
+<!--{loop $list $key $value}-->
+<DIV class=g_list <!--{if $key%2==1}--> style="background: url(template/voone/image/g_index_bg2.gif) no-repeat;"<!--{/if}-->>
+<DIV class=g_title><a href="space.php?do=mtag&tagid=$value[tagid]">$value[tagname]</a></DIV>
+<DIV class=g_total>$value[membernum] <IMG src="template/voone/image/g_index_icon.gif" 
+align=absMiddle></DIV>
+<DIV class=g_type>
+<UL>
+  <LI style="float:left;"><a href="space.php?do=mtag&tagid=$value[tagid]"><img src="$value[pic]" style="width:156px;"></a>
+  </UL>
+</DIV> </DIV>
+		<!--{/loop}-->
+
+	</div>
+	
+
+<!--{else}-->
+	<div class="c_form">还没有群组。</div>
+<!--{/if}-->
+
+ <div class=divline2></div>
+ <div class="page">$multi</div>
+ 
+</DIV>
+</DIV>
+
+<!--右栏-->
+
+<DIV class=group_right>
+
+<DIV class=g_add><A href="cp.php?ac=mtag"><IMG 
+src="template/voone/image/g_icon_add.gif"></A></DIV>
+	<!--{if $threadlist}-->
+
+<DIV id=group_action>
+<DIV class=brbtop>
+<DIV>
+<P></P></DIV></DIV>
+
+<DIV class=brbcontent>
+<H3><IMG src="template/voone/image/title_action.gif"></H3>
+<DIV class=g_actionlist id="scrollbody" style="OVERFLOW: hidden; HEIGHT: 512px">
+<!--{loop $threadlist $value}-->
+<DL>
+  <DD><a href="space.php?uid=$value[uid]"><B>{$_SN[$value[uid]]}</B></A> (发表于)
+  <DD><a href="space.php?do=mtag&tagid=$value[tagid]"><B>$value[tagname]</B></A><SPAN class=font_gray></SPAN> 
+<DD><a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]">$value[subject]</a></DD>
+</DL>
+<!--{/loop}-->
+</DIV>
+
+  <script>startMarquee(226, 60, 0, 'scrollbody');</script>
+<DIV class=clear></DIV></DIV>
+<DIV class=brbbot>
+<DIV>
+<P></P></DIV></DIV></DIV>
+
+	<!--{/if}-->
+</div>
+	
+</DIV></div>
+
+<!--{template footer_x}-->

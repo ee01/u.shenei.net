@@ -1,0 +1,53 @@
+<!--{template header}-->
+<!--{template ana/view/ana_header}-->
+
+
+
+<div id="content">
+
+	<form id="PostAna_Form" name="PostAna_Form" action="ana.php?do=ana&ac=cp&op=post" method="post" class="post_doing" onsubmit="return PostAnaForm()">
+
+	<input type="hidden" name="ana_id" id="ana_id" value="$ana[id]" />
+
+<ul style="margin-bottom: 1em;">
+<li>
+<p>
+
+<table cellspacing="0" cellpadding="0" width="100%"><tr><td>
+
+<div class="nav"><h2><!--{if $id}-->编辑语录<!--{else}-->发布语录（每个人都是观点供应商！发布你认为有意义的一句话。）<!--{/if}--> - <a href="ana.php?do=ana">返回语录列表</a></h2></div>
+
+<div class="nav">
+语录来源：<input id="title" name="title" type="radio" value="原创" /> 原创
+<input id="title" name="title" type="radio" value="网络" checked="checked" /> 网络
+<input id="title" name="title" type="radio" value="书籍" /> 书籍
+<input id="title" name="title" type="radio" value="影视" /> 影视
+<input id="title" name="title" type="radio" value="音乐" /> 音乐
+<input id="title" name="title" type="radio" value="其它" /> 其它
+</div>
+
+<div class="nav">
+选择分类：<select name="typeid" id="typeid">
+<option value=""></option>
+<!--{loop $gEumsType $typeid $typename}-->
+<option value="$typeid" <!--{if $typeid == $ana[typeid] }-->selected="selected"<!--{/if}--> >$typename</option>
+<!--{/loop}-->
+</select>
+&nbsp;&nbsp;还可输入<span id="maxlimit">250</span>个字符
+</div>
+
+</td><td></td><td align="right">
+
+</td></tr></table>
+
+<textarea name="content" onkeyup="textCounter(this, 'maxlimit', 250)" rows="4" style="width:438px; height: 72px;">$ana[content]</textarea>
+
+<button type="submit" id="issuance" class="post_button">发布</button>
+
+</p>
+</li>
+</ul>
+</form>
+
+</div>
+<!--{template footer}-->

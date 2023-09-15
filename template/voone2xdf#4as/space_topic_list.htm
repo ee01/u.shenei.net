@@ -1,0 +1,70 @@
+<!--{eval $_TPL['titles'] = array('热闹');}-->
+<!--{template header_x}-->
+<DIV class="manage_m_r">
+<DIV class="brbtop_gray">
+<DIV>
+<P></P></DIV></DIV>
+<DIV class="brbcontent_gray">
+
+<div class="titles">
+<div class="titimg"><img src="template/voone/image/topic.gif"></div>
+<div class="titright">
+<p class="tit">热闹</p>
+<p class="nrtit">我们只是来凑个热闹的</p>
+</div>
+</div>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[new]><a href="space.php?do=topic&view=new"><span>最新参与</span></a></li>
+		<li$actives[hot]><a href="space.php?do=topic&view=hot"><span>最热参与</span></a></li>
+		<li$actives[me]><a href="space.php?do=topic&view=me"><span>我参与的热闹</span></a></li>
+		<!--{if checkperm('allowtopic')}-->
+		<li class="null"><a href="cp.php?ac=topic">添加新热闹</a></li>
+		<!--{/if}-->
+	</ul>
+	<!--{if $_SGLOBAL[refer]}-->
+	<div class="r_option">
+		<a  href="$_SGLOBAL[refer]">&laquo; 返回上一页</a>
+	</div>
+	<!--{/if}-->
+</div>
+<DIV class="managebox mbs">
+<!--{if $list}-->
+<div class="event_list">
+<ol>
+<!--{loop $list $key $value}-->
+<li>
+	<div class="event_icon">
+		<a href="space.php?do=topic&topicid=$value[topicid]"><img src="$value[pic]"></a>
+	</div>
+	
+	<div class="hotspot">
+		<a href="space.php?do=topic&topicid=$value[topicid]">$value[joinnum]</a>
+	</div>
+	
+	<div class="event_content">
+		<h4 class="event_title">
+			<a href="space.php?do=topic&topicid=$value[topicid]">$value[subject]</a>
+		</h4>
+		<ul>
+			<li>$value[message] ...</li>
+			<li class="gray">发起作者: <a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></li>
+			<li class="gray">发起时间: $value[dateline]</li>
+			<!--{if $value[endtime]}--><li class="gray">参与截止: $value[endtime]</li><!--{/if}-->
+			<li class="gray">最后参与: $value[lastpost]</li>
+		</ul>
+	</div>
+</li>
+<!--{/loop}-->
+</ol>
+</div>
+<!--{else}-->
+	<div class="c_form">目前还没有相关列表。</div>
+<!--{/if}-->
+</div>
+
+<DIV class="clear"></DIV></DIV>
+<DIV class="brbbot_gray">
+<DIV>
+<P></P></DIV></DIV></DIV>
+<!--{template footer_x}-->

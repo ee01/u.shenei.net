@@ -1,0 +1,20 @@
+<style type="text/css">
+@import url(ana/style/ana_style.css);
+</style>
+
+<div class="searchbar">
+状态：<!--{if empty($status) }--><strong>全部</strong><!--{else}--><a href="ana.php?do=ana&type={$type}&status=0">全部</a><!--{/if}--><span class="pipe">|</span>
+<!--{if $status == 1 }--><strong>未鉴定</strong><!--{else}--><a href="ana.php?do=ana&type={$type}&status=1">未鉴定</a><!--{/if}--><span class="pipe">|</span>
+<!--{if $status == 2 }--><strong>已鉴定</strong><!--{else}--><a href="ana.php?do=ana&type={$type}&status=2">已鉴定</a><!--{/if}-->
+</div>
+<h2 class="title"><img src="image/app/ana.gif">经典语录</h2>
+
+<div class="tabs_header">
+	<ul class="tabs">
+		<li $actives[0]><a href="ana.php?do=ana"><span>全部</span></a></li>
+	<!--{loop $gEumsType $typeid $typename}-->		
+		<li $actives[$typeid] ><a href="ana.php?do=ana&type={$typeid}"><span>{$typename}</span></a></li>
+	<!--{/loop}-->
+		<li class="null"><a href="ana.php?do=ana&ac=post" class="t_button"><strong>发布</strong></a></li>
+	</ul>
+</div>

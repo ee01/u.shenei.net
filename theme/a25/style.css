@@ -1,0 +1,31 @@
+/*
+[name]Óã¶ù[/name]
+Powered by Baipaole.com
+*/
+body { background: #417FAE; color: #666; }
+a { color: #4D4D00; }
+#wrap { width: 990px; }
+#header { margin: 0; width: 100%; background: url(images/top_bg.jpg) repeat-x left top; color: #CCC; }
+#header a { color: #FFF; }
+.headerwarp { width: 950px; height: 286px; background: url(images/header.jpg) repeat-x 0 40px; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#space_page { padding: 10px; width: 970px; background: #FFF url(images/ybg.jpg) no-repeat left top; }
+#ubar h2,
+#space_page .feed_header,
+.sidebox h2.title { padding: 0 20px; height: 30px; background-image: url(images/title.gif); color: #000; line-height: 30px; }
+.tabs_header { position: absolute; margin: -50px 0 0 60px; width: 560px; border: none; }
+#space_page .feed li,
+ #space_page .comments_list li,
+ #footer { border-color: #ECF1F3; }
+a#i_rss { color: #FFF; }
+.tabs_header ul.tabs li.active a,
+.tabs_header ul.tabs li.active a span,
+.tabs_header ul.tabs li a,
+.tabs_header ul.tabs li a span { background: none; }
+.ulist { background: #F9F0E3; }
+.tabs_header ul.tabs li a { border: 1px solid #EFD5B2; border-bottom: none; background: #F9F0E3; }
+.tabs_header { height: 31px; }
+#footer { padding: 20px 20px; border: none; background: url(images/ybg2.jpg) no-repeat 0 0; color: #FFF; }
+#footer a { color: #FFF; }

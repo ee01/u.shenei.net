@@ -1,0 +1,49 @@
+<!--{template header_x}-->
+
+
+
+<form id="signform" name="signform" method="post" action="cp.php?ac=sign&op=send" class="ajaxshowdiv">
+<!--{if !$_SGLOBAL[inajax]}-->
+<h2 class="title"><img src="image/icon/pm.gif">个性化设置</h2>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li><a href="viewspace.php"><span>取消编辑</span></a></li>
+	</ul>
+</div>
+<div class="c_form">
+<!--{else}-->
+<h1>个性化设置</h1>
+<a href="javascript:hideMenu();" title="关闭" class="float_del">关闭</a>
+<div class="popupmenu_inner">
+<!--{/if}-->
+
+	<table cellspacing="0" cellpadding="3">
+	<tr>
+		<th><label for="username">博客名称：</label></th>
+		<td>
+			<script type="text/javascript" src="source/script_autocomplete.js"></script>
+			<input type="text" id="username" name="username" value="$space[signn]" style="width: 396px;" class="t_input" tabindex="1"  />
+		</td>
+	</tr>
+	<tr>
+		<th style="vertical-align: top;"><label for="message">个性签名：</label></th>
+		<td><textarea id="message" name="message" cols="40" rows="4" style="width: 400px; height: 150px;" onkeydown="ctrlEnter(event, 'signsubmit_btn');">$space[signm]</textarea></td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td>
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+		<input type="hidden" name="signsubmit" value="true" />
+		<!--{if $_SGLOBAL[inajax]}-->
+		<input type="button" name="signsubmit_btn" id="signsubmit_btn" value="编辑" class="submit" onclick="ajaxpost('signform')" />
+		<!--{else}-->
+		<input type="submit" name="signsubmit_btn" id="signsubmit_btn" value="编辑" class="submit" />
+		<!--{/if}-->
+		</td>
+	</tr>
+</table>
+</div>
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+
+<!--{template footer_x}-->

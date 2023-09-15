@@ -1,0 +1,41 @@
+/*
+[name]Âó¿Ë.½Ü¿ËÑ·[/name]
+Powered by Ucenter Home
+*/
+
+a{ color: #888; }
+
+body { padding: 0 0 50px; background:#000 url(images/mj.jpg) no-repeat right 30px; color: #AAA; }
+#wrap { padding: 15px 10px; border: 5px solid #555;width:810px;overflow:hidden;}
+#header { margin: 0; background: url(images/top_bg.jpg) repeat-x; color: #CCC; }
+.headerwarp { height: 320px; background: no-repeat 0 40px; }
+#header a { color: #FFF; }
+#header .logo a { width: 100px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#ubar h2,
+#space_page .feed_header, .sidebox .title { padding: 0 10px; height: 30px; border-bottom: 0px solid #333; background-color:#333; background-image:none; color: #ddd; line-height: 29px; }
+
+.ulist,
+#space_page .feed li,
+#space_page .comments_list li,
+#footer { border-color: #333;color:#aaa; }
+#footer a{color:#aaa;}
+.tabs_header{ position: absolute; margin:-50px 0 0 0px; width: 550px; border: none;overflow:hidden;}
+
+
+.tabs_header ul.tabs li a, .tabs_header ul.tabs li a span{ background-image: url(images/tab_bg.gif); color: #333; }
+.tabs_header ul.tabs li.active a, .tabs_header ul.tabs li.active a span{ background-image: url(images/active_tab_bg.gif); color: #333; }
+
+.tabs_header ul.tabs li{
+  margin: 0 5px 0 0;
+}
+.line_list li{border-bottom:4px solid #333;}
+#space_feed li, .feed li, .box_content li{border-bottom:4px solid #333;}
+#obar{width:810px;} 
+#obar .sidebox .title{background:#333;color: #FFF;background-image:none;}
+#topwrap{display:none;}
+#comment_ul .detail{color:#ccc;}
+#footer{padding-top:310px;margin-top:0px;background:#000 url(http://img.u.shuaijiao.com/attachment/200906/28/19824_12461585723yEw.gif) no-repeat center top;} 
+body{cursor:url( http://www.ik68.cn/cursor/mouse017.ani );}
+* textarea{padding:0 1px; border:1px dashed #503524; width:550px;height:90px; background:#eeeeee; background-image: url(images/L.JPG);}

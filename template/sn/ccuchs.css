@@ -1,0 +1,132 @@
+A {
+	COLOR:#3b5888; TEXT-DECORATION:none;
+}
+A:hover {
+	COLOR:#3b5888; TEXT-DECORATION:underline;
+}
+#univs_name_menu {
+	Z-INDEX:9999; WIDTH:606px; POSITION:absolute;
+}
+.popup-wrapper {
+	BORDER:#d8dfea 5px solid; Z-INDEX:9999; OVERFLOW:hidden; POSITION:absolute;
+}
+.popup-content {
+	BORDER:#3b5888 1px solid; PADDING:6px; BACKGROUND:#f7f7f7; OVERFLOW:hidden; ZOOM:1;
+}
+#popup-country {
+	FONT:12px sans-serif; OVERFLOW:hidden; ZOOM:1; LIST-STYLE-TYPE:none;
+}
+#popup-country LI {
+	PADDING:0px 4px 0px 5px; BACKGROUND:url(image/popup_country_separator.gif) no-repeat 0px 50%; FLOAT:left; LINE-HEIGHT:22px; white-space:nowrap;
+}
+HTML #popup-country LI {
+	BACKGROUND-POSITION:0px 40%;
+}
+#popup-country LI A {
+	WORD-BREAK:keep-all; DISPLAY:block;
+}
+#popup-country LI.active A {
+	FONT-WEIGHT:bold; COLOR:#000;
+}
+#popup-country LI.active A:hover {
+	TEXT-DECORATION:none;
+}
+#popup-province {
+	BORDER:#c3c3c3 1px solid; PADDING:3px; BACKGROUND:#fff; OVERFLOW:hidden; ZOOM:1; LIST-STYLE-TYPE:none;
+}
+#popup-province LI {
+	FLOAT:left; WIDTH:33px; TEXT-ALIGN:center; LINE-HEIGHT:18px; HEIGHT:18px; white-space:nowrap;
+}
+#popup-province LI.active A {
+	BACKGROUND:#3b5888; COLOR:#fff;
+}
+#popup-province LI.active A:hover {
+	TEXT-DECORATION:none;
+}
+#popup-province LI A {
+	DISPLAY:block;
+}
+#popup-unis {
+	BORDER:#c3c3c3 1px solid; PADDING:10px 0px 10px 10px; OVERFLOW-Y:auto; BACKGROUND: #fff; OVERFLOW-X:hidden; MARGIN:5px 0px; ZOOM:1; LIST-STYLE-TYPE:none; HEIGHT:200px;
+}
+#popup-unis LI {
+	PADDING:4px 12px 4px 12px; BACKGROUND:url(image/school_list_dot.gif) no-repeat 0px 11px; FLOAT:left; WIDTH:160px;
+}
+#popup-unis LI A:hover {
+	BACKGROUND:#3b5888; COLOR:#fff; TEXT-DECORATION:none;
+}
+#popup-unis A.active {
+	BACKGROUND:#DDD; border:#999 1px solid; 
+}
+#univs_name_menu .canbutton {
+	FLOAT:right;
+}
+.float-right {
+	FLOAT:right;
+}
+#highschool_menu {
+	WIDTH:606px; POSITION:absolute;
+}
+#searchschoollist {
+	WIDTH:606px; POSITION:absolute;
+}
+#highschooltabpan {
+	BORDER:#c3c3c3 1px solid; PADDING:3px; BACKGROUND:#fff; OVERFLOW:hidden; ZOOM:1; LIST-STYLE-TYPE:none;
+}
+#highschooltabpan LI {
+	FLOAT:left; padding:0px 4px 0px 5px; TEXT-ALIGN:center; LINE-HEIGHT:18px; HEIGHT:18px; white-space:nowrap;
+}
+#highschooltabpan LI.active A {
+	BACKGROUND:#3b5888; COLOR:#fff;
+}
+#highschooltabpan LI.active A:hover {
+	TEXT-DECORATION:none;
+}
+#highschooltabpan LI A {
+	DISPLAY:block;
+}
+#highschoollistcontentul {
+	MARGIN:5px 0px;
+}
+#highschoollistcontentul ul {
+	LIST-STYLE-TYPE:none;
+}
+#highschoolcityqulist TD {
+	FONT-SIZE:13px; VERTICAL-ALIGN:middle; COLOR:#808080; TEXT-ALIGN:center;
+}
+#highschoolcityqulist A {
+	DISPLAY:block; FONT-SIZE:12px; TEXT-DECORATION:none;
+}
+#highschoolcityqulist TD.activetab A {
+	BACKGROUND:#3b5888; COLOR:#fff;
+}
+#highschoolcityqulist:unknown {
+	CLEAR:both; DISPLAY:block; VISIBILITY:hidden; HEIGHT:0px; content:".";
+}
+#highschoolcityqulist {
+	ZOOM:1;
+}
+#highschoollistcontentul {
+	BORDER:#c3c3c3 1px solid; PADDING:5px 10px 5px 10px; OVERFLOW-Y:auto; BACKGROUND:#fff; OVERFLOW-X:hidden; LIST-STYLE-TYPE:none; HEIGHT:200px;
+}
+#highschoollistcontentul:unknown {
+	CLEAR:both; DISPLAY:block; VISIBILITY:hidden; LINE-HEIGHT:0; HEIGHT:0px; content:".";
+}
+#highschoollistcontentul {
+	ZOOM:1;
+}
+#highschoollistcontentul li {
+	PADDING:4px 12px 4px 12px; BACKGROUND:url(image/school_list_dot.gif) no-repeat 0px 11px; FLOAT:left; WIDTH:160px;
+}
+#highschoollistcontentul li.univ {
+	WIDTH:112px;
+}
+#highschoollistcontentul li A:hover {
+	BACKGROUND:#3b5888; COLOR:#fff; TEXT-DECORATION:none;
+}
+#highschoollistcontentul A.active {
+	BACKGROUND:#DDD; border:#999 1px solid; 
+}
+#highschool_menu .operation A {
+	MARGIN-RIGHT:180px;
+}

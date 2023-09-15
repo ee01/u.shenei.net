@@ -1,0 +1,114 @@
+.brbtop P {background: url(image/bg_brbtl.gif) no-repeat left top;}
+.brbtop DIV {background: url(image/bg_brbtr.gif) no-repeat right top}
+.brbtop {background: url(image/bg_brbtb.gif) repeat-x 50% top}
+.brbbot P {background: url(image/bg_brbbl.gif) no-repeat left bottom}
+.brbbot DIV {background: url(image/bg_brbbr.gif) no-repeat right bottom}
+.brbbot {background: url(image/bg_brbtb.gif) repeat-x 50% bottom}
+.brbtop P {font-size: 1px; width: 100%; height: 5px}
+.brbtop DIV {font-size: 1px; width: 100%; height: 5px}
+.brbtop {font-size: 1px; width: 100%; height: 5px}
+.brbbot P {font-size: 1px; width: 100%; height: 5px}
+.brbbot DIV {font-size: 1px; width: 100%; height: 5px}
+.brbbot {font-size: 1px; width: 100%; height: 5px}
+.brbcontent {border-right: #d7d7d7 1px solid;border-left: #d7d7d7 1px solid;height: 1px;padding-left: 5px;padding-top: 5px;height: auto;padding-right: 5px;background-color: #FFFFFF;}
+
+.mtag_all{ margin: 0 auto; width: 940px; overflow: hidden;}
+#groupmaps,#groupupload {margin-left: auto; width: 940px; margin-right: auto}
+
+#groupmaps2 {margin-left: auto; width: 950px; margin-right: auto}
+
+#groupmain {margin-left: auto; width: 940px; margin-right: auto; background-color:#FFFFFF}
+.group_index{ float:left;width: 733px}
+.group_left {FLOAT: left; width: 733px}
+.group_right {FLOAT: right; width: 200px}
+
+.group_commend {margin-top: 7px}
+.group_log {margin-top: 7px}
+
+.group_user,.group_Concern,.group_Official,#groupupload,.group_add,#group_action {margin-top: 7px}
+#group_action .yocontent {padding-right: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; height:535px;}
+
+#groupupload {background-color: #eae8e9}
+#groupupload A {margin-right: 8px}
+.g_create {FLOAT: left;width: 900px;margin: 5px 0 0 8px;text-ALIGN: left;border-top-width: 1px;border-top-style: dashed;border-top-color: #CCCCCC; padding-top:5px
+}
+.g_upload {FLOAT: left; margin-left: 8px; width: 900px; text-ALIGN: left; }
+.g_create A,.g_upload A {color: #666}
+.g_create A:hover,.g_upload A:hover {color: #FF6600}
+
+.g_list {padding: 10px; background: url(image/g_index_bg.gif) no-repeat; FLOAT: left; margin-bottom: 10px; margin-left: 4px; width: 155px; margin-right: 3px; height: 85px;overflow: hidden;}
+.g_type UL {margin-top: 5px; list-style-type: none; height: 56px;}
+.g_type LI {display: inline;line-height: 16px;margin-right: 0px;overflow: hidden;height: 62px;font-size: 12px;color: #999999;
+    margin-top:1px}
+.g_type LI IMG {border: 1px solid #BFBFBF;}
+.g_title {font-size: 12px;color:#636363;border-bottom: #ccc 1px dashed;padding-bottom: 2px;height:15px;overflow: hidden;white-space: nowrap; width:150px}
+
+.g_title A:hover,.g_title A:visited {color: #232323}
+.g_title A {color: #FF0000;font-weight: bold; font-size: 12px;}
+.g_total {margin-top: -19px;FLOAT: right;color: #9e9e9e;background-color: #F6F5F5; padding-left:5px}
+
+.g_hottext {font-size: 9px; margin-bottom: -14px; text-ALIGN: right}
+.newbuttom_glide LI {}
+.group_search {}
+.s_jiao_l {FLOAT: left; margin-bottom: -3px}
+.s_jiao_r {FLOAT: right; margin-bottom: -3px}
+.s_jiao_l2 {margin-top: -4px; FLOAT: left}
+.s_jiao_r2 {margin-top: -4px; FLOAT: right}
+.s_main {PADDING-RIGHT: 5px; PADDING-LEFT: 10px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #6d6d6d 1px solid; BACKGROUND-COLOR: #878787}
+.s_jiao {margin-top: -5px; FLOAT: right; width: 100px}
+.tagimg {margin-left: 50px}
+.s_tags {padding-right: 5px; border-top: #f2f2f2 1px solid; padding-left: 10px; padding-bottom: 7px; padding-top: 7px; background-color: #f3f1f2;float:left;width:718px; }
+.s_tags A {color: #666}
+.s_tags UL {list-style-type: none}
+.s_tags LI {display: inline; line-height: 21px; margin-right: 10px}
+.s_tags .current { background:#fff; padding:5px 10px 10px 10px; font-weight: bold; border:1px solid #E7E2E4; border-bottom:none}
+
+
+.g_actionlist DL {width: 150px;padding: 5px 0 0 18px; background: url(image/action_bg.gif) no-repeat left 15px; margin: 0px 5px;  border-bottom: #eaeaea 1px solid;  height: auto; color:#999999;overflow: hidden;}
+.g_actionlist A {color: #999}
+.g_actionlist DD {padding-right: 3px; padding-left: 3px; padding-bottom: 3px; padding-top: 3px; margin-left:0px}
+.group_Official H3 {padding-bottom: 5px;padding-top: 5px;border-bottom-width: 1px;border-bottom-style: dashed;border-bottom-color: #999999;}
+.group_Official .p_list DT {padding-left: 0px}
+.group_Official .p_list {width: 180px}
+.group_Official .p_list_name {width: 100px}
+.group_Official .p_list_info {width: 100px}
+.group_Official .brbcontent {padding-right: 10px; padding-left: 10px; padding-bottom: 0px; padding-top: 0px; height:328px; overflow:hidden}
+#group_action .brbcontent {padding-right: 10px; padding-left: 10px; padding-bottom: 0px; padding-top: 0px; height:535px}
+#group_action .brbcontent H3 {padding-bottom: 5px;padding-top: 5px;border-bottom-width: 1px;border-bottom-style: dashed;border-bottom-color: #999999;}
+.g_add {}
+.h_status{ float:right;margin-bottom: 8px; margin-top:5px; padding: 5px; border-bottom:none; color: #999;}
+.h_status a{ border:1px solid #ccc; background:#eee; padding:2px 5px; color:#666}
+.h_status a:hover{border:1px solid #333;background:#878787;color:#fff;text-decoration: none;}
+ .h_status .active { font-weight: bold;border:1px solid #333;background:#878787; color:#fff }
+ 
+ .g_guanfan {border: #cccccc 1px solid; padding-right: 8px; background-position: right top;  padding-left: 8px; float: left; background-image: url(image/guanfangbg.gif); padding-bottom: 8px; margin: 0px 0px 10px 3px;  width: 708px; padding-top: 8px;background-repeat: no-repeat; height: 80px}
+.g_guanfan .g_type {FONT-SIZE: 11px; FONT-FAMILY: PMingLiU}
+.g_guanfan .g_type {WIDTH: 500px}
+.g_guanfan .g_type LI{margin-right:5px;}
+.g_guanfan .g_type LI A {COLOR: #666}
+.g_guanfan .g_type A:hover {COLOR: #FF9900}
+
+.g_usermain {
+	BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 12px; PADDING-LEFT: 12px; PADDING-BOTTOM: 0px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 0px; height:170px
+}
+.g_usermain H3{ padding-bottom:5px;padding-top:5px; border-bottom:1px dashed #888
+}
+.font_yellow A {COLOR: #fa2132}
+.p_user_list {
+	MARGIN-TOP: 5px; FLOAT: left; WIDTH: 175px;HEIGHT: 56px;
+	overflow: hidden; 
+}
+.p_user_list DT {
+	PADDING-RIGHT: 9px; PADDING-LEFT: 9px; FLOAT: left; PADDING-BOTTOM: 9px; WIDTH: 48px; PADDING-TOP: 9px; HEIGHT: 48px
+}
+.p_user_list DT img{ width:48px; height:48px
+}
+.p_user_name {
+	MARGIN-TOP: 4px; MARGIN-left: 0px;DISPLAY: block; FLOAT: left; WIDTH: 100px; LINE-HEIGHT: 22px; HEIGHT: 22px
+}
+.p_user_info {FONT-SIZE: 12px;MARGIN-left: 0px;FLOAT: left;WIDTH: 100px;LINE-HEIGHT: 16px;FONT-FAMILY: PMingLiU;HEIGHT: 50px;overflow: hidden;}
+.g_Official_list UL {LIST-STYLE-TYPE: none}
+.g_Official_list LI IMG {MARGIN-RIGHT: 5px}
+.g_Official_list LI A {COLOR: #666}
+.g_Official_list LI {MARGIN-TOP: 10px;FLOAT: left;WIDTH: 150px;display: block;}
+.divline2{clear:both;overflow:hidden;height:0px;width:100%}

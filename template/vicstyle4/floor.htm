@@ -1,0 +1,126 @@
+
+<!--{template header}-->
+<style type="text/css">
+@import url(template/vicstyle4/floor.css);
+</style>
+<div class="navbar">
+	<div class="vs4_tabs" >
+		<ul class="tabs">
+			<li><a href="space.php?do=home"><span>个人中心</span></a></li>
+			<li><a href="network.php"><span>社区广场</span></a></li>
+			<li><a href="sohovicstyle.php"><span>寻找soho潮人</span></a></li>
+			<li class="active"><a href="floor.php"><span style="font-weight: bold;">抢楼行动</span></a></li>
+			<li><a href="space.php?do=sys"><span>官方论坛</span></a></li>
+			<li><a href="space.php?do=thread"><span>社交圈子</span></a></li>
+			<li><a href="space.php"><span>我的BLOG</span></a></li>
+		</ul>
+	</div>
+</div>
+<div id="vs4con_t"><p><img src="template/vicstyle4/image/con_t_l.gif" /></p></div>
+<div id="vs4_content" style="padding:0 25px;width:855px;overflow: hidden;">
+	<DIV class="vic_headmsg">
+		<DIV id="scroll11" style="DISPLAY: block; OVERFLOW: hidden; HEIGHT: 30px; ">
+			<ul> 
+				<!--{loop $dolist $value}-->
+				<li>
+					<div>
+					<a href="space.php?uid=$value[uid]"><span style="font-weight: bold; color: #FF6600;">{$_SN[$value[uid]]}</span></a>&nbsp;<!--{date('- Y年m月d日 - D - H:i :',$value[dateline],1)}--> 
+					<span style="color:green;">$value[message]</span> <a href="space.php?uid=$value[uid]&do=doing&doid=$value[doid]" target="_blank" style="color:#ddd;"></a>
+					</div>
+				</li>
+				<!--{/loop}-->
+			</ul> 
+		</div>
+		<script>startMarquee(30, 60, 4000, 'scroll11');</script>
+	</div>
+	<div class="vic_headmt">
+		<div class="vic_qlfirstpage">
+			<div class="vic_qlf_l">
+				<div class="vic_qlf_l_top">
+					<!--{loop $showlisttop $value}-->
+					<!--{if empty($value[note])}-->
+					<a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  title="抢楼TOP1用户：>>>>{$_SN[$value[uid]]}<<<<|房子价格：$value[credit]积分|抢房宣言：$value[note]">
+					<!--{else}-->
+					<a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  title="抢楼TOP1用户：>>>>{$_SN[$value[uid]]}<<<<|房子价格：$value[credit]积分|此人都TOP1了居然没有抢房宣言！">
+					<!--{/if}-->
+					<!--{avatar($value[uid],middle)}--></a>
+					<p><SPAN>★TOP1</SPAN></p>
+					<a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  title="踩脏TA家！保我房价！"><img src="template/vicstyle4/image/ql_fp_1.gif" style="height:30px;" /></a>
+					<a href="space.php?do=top" title="我要当房奴！"><img src="template/vicstyle4/image/ql_fp_2.gif" style="height:30px;" /></a>
+					<!--{/loop}-->
+				</div>
+				<div class="vic_qlf_l_but">
+					<ul><!--{loop $showlist $value}-->
+						<li><a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" title="抢楼积极分子：>>>>{$_SN[$value[uid]]}<<<<|房子价格：$value[credit]积分"><!--{avatar($value[uid],small)}--></a>
+						</li><!--{/loop}-->
+					</ul>
+				</div>
+			</div>
+			<div class="vic_qlf_r">
+				<li><span>抢楼小纸条：</span></li>
+				<li>没有设置性别的朋友即使购买房子也无法拿到钥匙</li>
+				<li>现在就去买个房吧，这会大大提升您的窝窝曝光率</li>
+				<li>花钱越多，楼层越好，您的主页曝光率也会越高</li>
+				<li>买到的新房被别人踩脏一次，其保留价将减少1哦</li>
+				<li><a href="space.php?do=top">现在就去购房抢楼！</a>&nbsp;或者&nbsp;<a href="floor.php">看看行情</a></li>
+			</div>
+		</div>
+		<div class="vic_nn_t"><span>抢楼房奴秀</span>穿鞋互踩，不减房价。</div>
+		<div class="vic_nnfirstpage">
+			<ul>
+				<!--{loop $favlist $value}-->
+				<li>
+				<a href="space.php?uid=$value[uid]" title="$value[username]" target="_blank"><!--{avatar($value[uid],small)}--></a></li>
+				<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+	<div class="vic_headad">
+	</div>
+	<div style="clear:both;"></div>
+	<div class="floormain">
+		<div class="floorboy">
+			<div class="floorfot">
+			<ul>
+			<!--{loop $showlistboy $value}-->
+				<li class="floor">
+			
+					<div class="window">
+						<a href="space.php?uid=$value[uid]" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" title="抢楼积极分子：>>>>{$_SN[$value[uid]]}<<<<$value[uid]"><!--{avatar($value[uid],middle)}--></a>
+					</div >
+					<div class="lit_win"><img src="template/vicstyle4/image/gold_icon.gif" title="房价：$value[credit]积分" /></div>
+					<div class="lit_win"><a href="cp.php?ac=friend&op=add&uid=$value[uid]" ><img src="image/icon/friend.gif" title="加{$_SN[$value[uid]]}为好友" /></a></div>
+					<div class="lit_win"><a href="cp.php?ac=poke&op=send&uid=$value[uid]"><img src="image/icon/poke.gif" title="给{$_SN[$value[uid]]}留言" /></a>
+					</div>
+				
+				</li>
+			<!--{/loop}-->
+			</ul>
+			</div>
+		</div>
+		<div class="floorspace">
+		</div>
+		<div class="floorgirl">
+			<div class="floorfot2">
+			<ul>
+			<!--{loop $showlistgirl $value}-->
+				<li class="floor">
+			
+					<div class="window">
+						<a href="space.php?uid=$value[uid]" target="_blank" rel="{$_SN[$value[uid]]}" rev="$value[note]" onmouseover="getUserTip(this)"  rel="{$_SN[$value[uid]]}" rev="$value[note]" title="抢楼积极分子：>>>>{$_SN[$value[uid]]}<<<<"><!--{avatar($value[uid],middle)}--></a>
+					</div >
+					<div class="lit_win"><img src="template/vicstyle4/image/gold_icon.gif" title="房价：$value[credit]积分" /></div>
+					<div class="lit_win"><a href="cp.php?ac=friend&op=add&uid={$value[uid]}" ><img src="image/icon/friend.gif" title="加{$_SN[$value[uid]]}为好友" /></a></div>
+					<div class="lit_win"><a href="cp.php?ac=poke&op=send&uid={$value[uid]}"><img src="image/icon/poke.gif" title="给{$_SN[$value[uid]]}留言" /></a>
+					</div>
+				
+				</li>
+			<!--{/loop}-->
+			</ul>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+</div>
+<div id="vs4con_b"><p><img src="template/vicstyle4/image/con_b_l.gif" /></p></div>
+<!--{template footer}-->

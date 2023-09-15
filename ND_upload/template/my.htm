@@ -1,0 +1,194 @@
+<!--{eval $_TPL['titles'] = array('网盘资源');}-->
+<!--{template header}-->
+<style type="text/css">
+@import url(template/default/blog.css);
+</style>
+<STYLE type=text/css>TABLE.manage {
+	MARGIN: auto auto 10px; WIDTH: 100%; BACKGROUND-COLOR: #ffffff
+}
+TABLE.manage TH {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; PADDING-BOTTOM: 5px; COLOR: #666666; PADDING-TOP: 5px; BORDER-BOTTOM: #d9e0e8 1px solid; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: left
+}
+TABLE.manage TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #d9e0e8 1px solid
+}
+TABLE.manage TD A {
+	TEXT-DECORATION: none
+}
+TABLE.manage TD A:hover {
+	TEXT-DECORATION: none
+}
+.light {
+	BORDER-TOP: #cccccc 1px solid; MARGIN-TOP: 10px; PADDING-LEFT: 5px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px solid; BACKGROUND-COLOR: #f5f5f5
+}
+.type_style {
+	COLOR: #000000
+}
+.type_style A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.type_style A:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: #6699cc; TEXT-DECORATION: none
+}
+</STYLE>
+<script language="javascript">
+function showlist()
+{
+	var obj			=	document.searchform.types;
+	var objValue	=	1;
+	for(var i=0;i<obj.length;i++) 
+	{ 
+		if(obj[i].checked) 
+			objValue=	obj[i].value;
+	}
+	if(objValue>1)
+	{
+		document.getElementById("typelist").style.display="block";
+	}
+	else
+	{
+		document.getElementById("typelist").style.display="none";
+	}
+}
+</script>
+<div class="searchbar floatright">
+<form method="post" name="searchform" action="ND_upload.php?do=search">
+	<input name="keyword" value="" size="26" class="t_input" type="text"><input name="searchsubmit" value="搜索资源" class="submit" type="submit">
+</form>
+</div>
+<h2 class="title"><img src="image/app/download.gif" />网盘资源</h2>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[nd_all]><a href="ND_upload.php"><span>全部资源($count1)</span></a></li>
+		<li$actives[my]><a href="ND_upload.php?do=my"><span>我的资源($count3)</span></a></li>
+		<li$actives[friend]><a href="ND_upload.php?do=friend"><span>好友的资源($count2)</span></a></li>
+		<li class="null"><a href="ND_upload.php?do=add">上传资源</a></li>
+	</ul>
+</div>
+
+<div id="content" >
+<DIV class=light>我的资源统计：上传<FONT color=#ff0000> $count3 </FONT>个．被下载<FONT 
+color=#ff0000> $countdown </FONT>次．获得<FONT color=#ff0000> $huodefen </FONT>积分．下载<FONT 
+color=#ff0000> $xiazai </FONT>个．付出<FONT color=#ff0000> $diufen </FONT>积分</DIV>
+  <!--{if $config[istwoup] }-->
+<script language="javascript">
+function checkAll()
+	{
+		var   aa   =   document.getElementsByName("del[]"); 
+		for(var i=0; i<aa.length; i++)
+		{
+				if(aa[i].checked)
+				{
+					aa[i].checked=false;
+					document.getElementById("selectall").value='全选'; 
+				}
+				else
+				{
+					aa[i].checked=true;
+					document.getElementById("selectall").value='取消'; 
+				}
+		}
+	}
+</script>
+<!--{/if}-->
+<!--{if $list}-->
+<form action="ND_upload.php?do=del" method="post">
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+<TABLE class=manage cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+  <!--{if $config[istwoup] }-->
+  <TD align=left>&nbsp;</TD>
+	<!--{/if}-->
+    <TD align=left width="40%"><A 
+      href="ND_upload.php?do=my&orders=title&direct={$direct}">标题</A></TD>
+    <TD align=middle><A 
+      href="ND_upload.php?do=my&orders=geshi&direct={$direct}">格式</A></TD>
+    <TD align=middle><A 
+      href="ND_upload.php?do=my&orders=size&direct={$direct}">大小</A></TD>
+    <TD align=middle><A 
+      href="ND_upload.php?do=my&orders=jifen&direct={$direct}">需积分</A></TD>
+    <TD align=middle><A 
+      href="ND_upload.php?do=my&orders=downnum&direct={$direct}">下载数</A></TD>
+    <TD align=middle>操作</TD></TR>
+	<!--{loop $list $value}-->
+	  <TR>
+	  <!--{if $config[istwoup] }-->
+  <TD align=left><input type="checkbox" name="del[]" id="del[]" value="$value[id]" /></TD>
+	<!--{/if}-->
+    <TD align=left><A title=$value[title]  href="ND_upload.php?do=info&id=$value[id]">$value[title]</A></TD>
+    <TD align=middle>$value[geshi]</TD>
+    <TD align=middle>$value[sizes]</TD>
+    <TD align=middle>$value[jifen]</TD>
+    <TD align=middle>$value[downnum]</TD>
+    <TD align=middle><A 
+      href="ND_upload.php?do=info&id=$value[id]">下载</A> <!--{if $config[istwoup] }-->|<A 
+      href="ND_upload.php?do=add&op=edit&id=$value[id]">编辑</A><!--{/if}--></TD></TR>
+	  <!--{/loop}-->
+	  
+	  <TR>
+	  <!--{if $config[istwoup] }-->
+  <TD align=left colspan="7">
+  <input type="button" name="selectall" id="selectall" value="全选" class="submit" onclick="checkAll()">
+	<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('本操作不可恢复，确认删除？');" class="submit"></TD>
+	<!--{/if}-->
+   </TR>
+	</TBODY>
+	</TABLE>
+</form>
+	<div class="page">$multi</div>
+	
+	<!--{else}-->
+	<div class="c_form">还没有相关的资源。</div>
+	<!--{/if}-->
+
+</div>
+
+<div id="sidebar" >
+	<DIV class=sidebox>
+<H2 class=title>分类</H2>
+<UL class=line_list 
+style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px">
+ <!--{loop $type $value}-->
+  <LI style="FONT-WEIGHT: bold">$value[name]</LI>
+  <LI>
+  <!--{loop $value['child'] $value2}-->
+  <SPAN class=type_style><A href="ND_upload.php?do=list&id=$value2[id]">$value2[name]</A>&nbsp;|&nbsp;</SPAN>
+  <!--{/loop}-->
+  </LI>
+<!--{/loop}-->
+</UL></DIV>
+<DIV class=sidebox>
+<H2 class=title>下载排行榜</H2>
+<UL class=line_list style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px">
+ <!--{eval $i=1;}--> 
+ <!--{loop $downnun $value}-->
+<LI>{$i}. <A title=$value[title]  href="ND_upload.php?do=info&id=$value[id]">$value[title]</A></LI> 
+ <!--{eval $i++;}--> 
+<!--{/loop}-->
+</UL></DIV>
+
+<DIV class=sidebox>
+<H2 class=title>评论排行榜</H2>
+<UL class=line_list style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px">
+ <!--{eval $i=1;}--> 
+ <!--{loop $commentnun $value}-->
+<LI>{$i}. <A title=$value[title]  href="ND_upload.php?do=info&id=$value[id]">$value[title]</A></LI> 
+ <!--{eval $i++;}--> 
+<!--{/loop}-->
+</UL></DIV>
+
+<DIV class=sidebox>
+<H2 class=title>上传排行榜</H2>
+<UL class=line_list style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px">
+ <!--{eval $i=1;}--> 
+ <!--{loop $numnn $value}-->
+<LI>{$i}. <A title=$value[username]  href="space.php?uid=$value[uid]">$value[username]</A></LI> 
+ <!--{eval $i++;}--> 
+<!--{/loop}-->
+</UL></DIV>
+	
+	
+</div>
+	
+<!--{template footer}-->

@@ -1,0 +1,104 @@
+<!--{eval $_TPL['titles'] = array('飞信帮助');}-->
+	<div id="content">
+		<table cellpadding="0" cellspacing="0" class="formtable">
+		
+<!--{if $_GET['type']=='ktfx'}-->
+		<caption>
+			<h2>开通飞信</h2>
+		</caption>
+		<tr><td>
+		请先参考以下常用方法开通飞信，开通后按上面方法设置飞信。<br><br>
+		1) 编辑短信“KTFX”发送到10086或12520开通飞信。<br><br>
+		2) 登录飞信官方网站：<a href="http://www.fetion.com.cn">http://www.fetion.com.cn</a> ，点击页面右上角的“注册”链接，弹出注册对话框。<br><br>
+		<a href="http://www.fetion.com.cn/help/search?condition=%E5%BC%80%E9%80%9A%E9%A3%9E%E4%BF%A1&product=0">点击这里查看其他开通飞信方法</a><br><br>
+		温馨提示：目前除移动以外的手机用户，暂时还不能开通飞信。据媒体报道称，今年11月份开始才支持联通、电信手机开通飞信。
+		</td></tr>
+		
+<!--{elseif $_GET['type']=='zifei'}-->
+		<caption>
+			<h2>飞信资费</h2>
+		</caption>
+		<tr><td>
+		飞信类似QQ，如不开通其他增值服务的话，您可以免费使用、免费发送手机短信。<br /><br /><br />
+		在这里发送手机短信，我们只扣取您在我站的少许积分。
+		</td></tr>
+				
+<!--{elseif $_GET['type']=='website'}-->
+		<caption>
+			<h2>站内飞信</h2>
+		</caption>
+		<tr><td>
+		<h2>什么是站内飞信？</h2>
+		站内飞信：指给本站已设置飞信的用户发送飞信短信。发送对象只限本站已设置飞信的用户。<br>
+		站内飞信的发送原理是接收用户自己给自己发送短信，所以发送人在本站可以不设置飞信。因此，发送的站内飞信不能直接回复。<br><br>
+		</td></tr>
+		
+<!--{elseif $_GET['type']=='fetion'}-->
+		<caption>
+			<h2>站外飞信</h2>
+		</caption>
+		<tr><td>
+		<h2>什么是站外飞信？</h2>
+		站外飞信：指给自己的飞信好友发送飞信短信。发送对象只限飞信好友。接收号码不一定要在本站注册。<br>
+		站外飞信的发送原理类似飞信客户端软件，可以不用登陆飞信客户端的情况下给您的好友发送短信。用这种方式发送的手机短信，接收用户可以直接回复到您的手机。
+		</td></tr>
+
+<!--{elseif $_GET['type']=='apply'}-->
+		<caption>
+			<h2>应用设置</h2>
+		</caption>
+		<tr><td>
+		<h2>登陆通知</h2>
+		开启本项后，每次您登陆本站，您都会收到登陆通知。短信记录了您登陆的时间及登陆的IP地址。<br><br>
+		<h2>短信密码</h2>
+		开启本项后，登陆时，您可以选择用此种方式登录，登陆密码由系统随机生成，然后发送到您的手机上。您只要输入这个密码登陆本站。<br>
+		如果您在网吧等其他公共上网场所登陆，建议使用该方式登录，避免真正的网站登陆密码被盗。<br><br>
+		<h2>接收时段</h2>
+		由于您在本站设置了飞信，本站的用户随时都可以给您发送手机短信。为避免造成短信骚扰，您可以设置接收时段，只有在该时段内才能收到由本站发出的手机短信。<br>
+		如：每天早上07:00 至 晚上 23:00 ，请填入 07:00-23:00 。该设置只对站内飞信起作用。
+		</td></tr>
+
+<!--{elseif $_GET['type']=='setuser'}-->
+		<caption>
+			<h2>帐号设置</h2>
+		</caption>
+		<tr><td>
+		如果您已经开通的飞信，请点击“帐号设置”，填写您的飞信信息，然后点击“发送验证码”获取验证短信。<br />
+		把收到的验证码填入“验证码”输入框，点击“验证”，完成帐号设置。<br><br>
+		</td></tr>
+
+<!--{elseif $_GET['type']=='safe'}-->
+		<caption>
+			<h2>帐号安全</h2>
+		</caption>
+		<tr><td>
+		您在本站设置的飞信信息，全程加密处理，请放心使用。<br /><br />
+		</td></tr>
+
+<!--{elseif $_GET['type']=='other'}-->
+		<caption>
+			<h2>注意事项</h2>
+		</caption>
+		<tr><td>
+		请不要发送违法信息或恶意发送骚扰信息，一经发现立即封号。<br /><br />
+		</td></tr>
+
+<!--{/if}-->
+		</table>
+	</div>
+	
+	<div id="sidebar">
+		<div class="sidebox">
+		<h2 class="title">帮助</h2>
+		<ul class="line_list">
+			<li$sub_actives[ktfx]><a href="cp.php?ac=fetion&op=help&type=ktfx">开通飞信</a></li>
+			<li$sub_actives[zifei]><a href="cp.php?ac=fetion&op=help&type=zifei">飞信资费</a></li>
+			<li$sub_actives[website]><a href="cp.php?ac=fetion&op=help&type=website">站内飞信</a></li>
+			<li$sub_actives[fetion]><a href="cp.php?ac=fetion&op=help&type=fetion">站外飞信</a></li>
+			<li$sub_actives[apply]><a href="cp.php?ac=fetion&op=help&type=apply">应用设置</a></li>
+			<li$sub_actives[setuser]><a href="cp.php?ac=fetion&op=help&type=setuser">帐号设置</a></li>
+			<li$sub_actives[safe]><a href="cp.php?ac=fetion&op=help&type=safe">安全问题</a></li>
+			<li$sub_actives[other]><a href="cp.php?ac=fetion&op=help&type=other">注意事项</a></li>
+		</ul>
+		</div>
+	</div>

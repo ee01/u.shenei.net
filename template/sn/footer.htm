@@ -1,0 +1,128 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<script type="text/javascript">jQuery("#loading div").animate({width:"73%"}).text("73%");</script>	<!--Add By 01	载入进度条-->
+	<!--{if empty($_TPL['nosidebar'])}-->
+		<!--{if $_SGLOBAL['ad']['contentbottom']}--><br style="line-height:0;clear:both;"/><div id="ad_contentbottom"><!--{ad/contentbottom}--></div><!--{/if}-->
+		</div>
+		
+		<!--/mainarea-->
+		<div id="bottom"></div>
+	</div>
+	<!--/main-->
+	<!--{/if}-->
+
+	<div id="footer" title="<!--{eval echo debuginfo();}-->">
+			<div class="footer_t"><b><a>舍内网</a> ┊ <a  href="http://FS.shenei.net" target="_blank">关于我们</a> ┊ <a href="mailto:$_SCONFIG[adminemail]">联系我们</a> ┊ <a href="mailto:$_SCONFIG[adminemail]">网站合作</a></b></div>
+
+	<div class="footer_b">
+		<!--{if $_TPL['templates']}-->
+		<div class="chostlp" title="切换风格"><img id="chostlp" src="{$_TPL['default_template']['icon']}" onmouseover="showMenu(this.id)" alt="{$_TPL['default_template']['name']}" /></div>
+		<ul id="chostlp_menu" class="chostlp_drop" style="display: none">
+		<!--{loop $_TPL['templates'] $value}-->
+			<li><a href="cp.php?ac=common&op=changetpl&name=$value[name]" title="$value[name]"><img src="$value[icon]" alt="$value[name]" /></a></li>
+		<!--{/loop}-->
+		</ul>
+		<!--{/if}-->
+		
+		<p class="r_option">
+			<a href="javascript:;" onclick="window.scrollTo(0,0);" id="a_top" title="TOP"><img src="image/top.gif" alt="" style="padding: 5px 6px 6px;" /></a>
+		</p>
+		
+		<!--{if $_SGLOBAL['ad']['footer']}-->
+		<p style="padding:5px 0 10px 0;"><!--{ad/footer}--></p>
+		<!--{/if}-->
+			
+		<!--{if $_SCONFIG['close']}-->
+		<p style="color:blue;font-weight:bold;">
+			提醒：当前站点处于关闭状态
+		</p>
+		<!--{/if}-->
+		<p>
+			友情链接 -> 
+			<a href="http://www.shenei.net" target="_blank"><font color=black>舍内网</font></a> -
+			<a href="http://shop.shenei.net" target="_blank"><font color=black>舍内网店</font></a> -
+			<a href="http://buy.shenei.net" target="_blank"><font color=black>舍内团秒</font></a> -
+			<a href="http://me.shenei.net" target="_blank"><font color=black>舍内博客</font></a> -
+			<a href="http://www.fjut.edu.cn" target="_blank">工院官方</a> -
+			<a href="http://caizijiaren.book.topzj.com" target="_blank">琴声网</a> -
+			<span id="count_online"></span>
+		</p>
+<!--
+		<p>
+			$_SCONFIG[sitename] - 
+			<a href="mailto:$_SCONFIG[adminemail]">联系我们</a>
+			<!--{if $_SCONFIG['miibeian']}--> - <a  href="http://www.miibeian.gov.cn" target="_blank">$_SCONFIG[miibeian]</a><!--{/if}--> - <span id="count_online"></span>
+		</p>
+-->
+		<p>
+			Powered by <a  href="http://FS.shenei.net" target="_blank"><strong>【疯·神】工作室</strong></a> <span title="2.02">2.02</span>
+			<!--{if !empty($_SCONFIG['licensed'])}--><a  href="http://license.comsenz.com/?pid=7&host=$_SERVER[HTTP_HOST]" target="_blank">Licensed</a><!--{/if}-->
+			&copy; 2008-2009
+		</p>
+		</div>
+	</div>
+</div>
+<!--/wrap-->
+
+<!--{if $_SGLOBAL['appmenu']}-->
+<ul id="ucappmenu_menu" class="dropmenu_drop" style="display:none;">
+	<li><a href="{$_SGLOBAL[appmenu][url]}" title="{$_SGLOBAL[appmenu][name]}" target="_blank">{$_SGLOBAL[appmenu][name]}</a></li>
+	<!--{loop $_SGLOBAL['appmenus'] $value}-->
+	<li><a href="$value[url]" title="$value[name]" target="_blank">$value[name]</a></li>
+	<!--{/loop}-->
+</ul>
+<!--{/if}-->
+
+<!--{if $_SGLOBAL[supe_uid]}-->
+<ul id="membernotemenu_menu" class="dropmenu_drop" style="display:none;">
+	<!--{eval $member = $_SGLOBAL['member'];}-->
+	<!--{if $member[notenum]}--><li><img src="image/icon/notice.gif" width="16" alt="" /> <a href="space.php?do=notice"><strong>$member[notenum]</strong> 个新通知</a></li><!--{/if}-->
+	<!--{if $member[pokenum]}--><li><img src="image/icon/poke.gif" alt="" /> <a href="cp.php?ac=poke"><strong>$member[pokenum]</strong> 个新招呼</a></li><!--{/if}-->
+	<!--{if $member[addfriendnum]}--><li><img src="image/icon/friend.gif" alt="" /> <a href="cp.php?ac=friend&op=request"><strong>$member[addfriendnum]</strong> 个好友请求</a></li><!--{/if}-->
+	<!--{if $member[mtaginvitenum]}--><li><img src="image/icon/mtag.gif" alt="" /> <a href="cp.php?ac=mtag&op=mtaginvite"><strong>$member[mtaginvitenum]</strong> 个群组邀请</a></li><!--{/if}-->
+	<!--{if $member[eventinvitenum]}--><li><img src="image/icon/event.gif" alt="" /> <a href="cp.php?ac=event&op=eventinvite"><strong>$member[eventinvitenum]</strong> 个活动邀请</a></li><!--{/if}-->
+	<!--{if $member[myinvitenum]}--><li><img src="image/icon/userapp.gif" alt="" /> <a href="space.php?do=notice&view=userapp"><strong>$member[myinvitenum]</strong> 个应用消息</a></li><!--{/if}-->
+</ul>
+<!--{/if}-->
+
+<!--{if $_SGLOBAL[supe_uid]}-->
+<!--{if !isset($_SCOOKIE['checkpm'])}-->
+<script language="javascript"  type="text/javascript" src="cp.php?ac=pm&op=checknewpm&rand=$_SGLOBAL[timestamp]"></script>
+<!--{/if}-->
+<!--{if !isset($_SCOOKIE['synfriend'])}-->
+<script language="javascript"  type="text/javascript" src="cp.php?ac=friend&op=syn&rand=$_SGLOBAL[timestamp]"></script>
+<!--{/if}-->
+<!--{/if}-->
+<!--{if !isset($_SCOOKIE['sendmail'])}-->
+<script language="javascript"  type="text/javascript" src="do.php?ac=sendmail&rand=$_SGLOBAL[timestamp]"></script>
+<!--{/if}-->
+
+<!--{if $_SGLOBAL['ad']['couplet']}-->
+<script language="javascript" type="text/javascript" src="source/script_couplet.js"></script>
+<div id="uch_couplet" style="z-index: 10; position: absolute; display:none">
+	<div id="couplet_left" style="position: absolute; left: 2px; top: 60px; overflow: hidden;">
+		<div style="position: relative; top: 25px; margin:0.5em;" onMouseOver="this.style.cursor='hand'" onClick="closeBanner('uch_couplet');"><img src="image/advclose.gif"></div>
+		<!--{ad/couplet}-->
+	</div>
+	<div id="couplet_rigth" style="position: absolute; right: 2px; top: 60px; overflow: hidden;">
+		<div style="position: relative; top: 25px; margin:0.5em;" onMouseOver="this.style.cursor='hand'" onClick="closeBanner('uch_couplet');"><img src="image/advclose.gif"></div>
+		<!--{ad/couplet}-->
+	</div>
+	<script type="text/javascript">
+		lsfloatdiv('uch_couplet', 0, 0, '', 0).floatIt();
+	</script>
+</div>
+<!--{/if}-->
+<!--{if $_SCOOKIE[reward_log]}-->
+<script type="text/javascript">
+showreward();
+</script>
+<!--{/if}-->
+<script type="text/javascript">jQuery("#loading div").animate({width:"87%"}).text("87%");jQuery("#preview").fadeOut(2000);</script>	<!--Add By 01	载入进度条-->
+<span id="countonline" style="display:none;"><script src="http://s9.cnzz.com/stat.php?id=2162321&web_id=2162321" language="JavaScript"></script></span>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v2.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r1.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<script type="text/javascript">document.getElementById("count_online").innerHTML = document.getElementById("countonline").innerHTML; jQuery("#loading div").animate({width:"99%"}).text("99%");</script>	<!--Add By 01	载入进度条-->
+</body>
+</html>
+<!--{/if}-->

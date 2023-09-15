@@ -1,0 +1,18 @@
+<!--{if $preview}-->
+<div id="preview">
+	<div id="preview_main">
+		<!--{loop $preview $pvlist}-->
+		<div class="preview_title">×îĞÂ$pvlist[title]Ô¤ÀÀ</div>
+		<div class="preview_content">
+			<ul>
+			<!--{loop $pvlist[data] $pv}-->
+				<li>
+					<span>$pv[user]</span><em>>>&nbsp;&nbsp;&nbsp;&nbsp;$pv[message]</em><div><!--{if $pv[date]}--><!--{date('m-d H:i',$pv[date],1)}--><!--{/if}--></div>
+				</li>
+			<!--{/loop}-->
+			</ul>
+		</div>
+		<!--{/loop}-->
+	</div>
+</div>
+<!--{/if}-->

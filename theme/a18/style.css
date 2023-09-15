@@ -1,0 +1,66 @@
+/*
+[name]×Ï·ï·ç¸ñ[/name]
+Powered by Baipaole.com
+*/
+body {
+	color: #FFFFFF;
+	background-color: #51334F;
+}
+a { color: #CCCCCC; }
+.line_list li { border-color: #330000; }
+.quote { background-image: url(images/q_start.gif); }
+.quote .q, .quote blockquote { background-image: url(images/q_end.gif); }
+.time { color: #333; }
+.avatar48 { padding: 1px; width: 48px; height: 48px; border: 1px solid #333; background: none; overflow: hidden; }
+#wrap { width: 990px; }
+#header { margin: 0; width: 100%; background: url(images/top_bg.jpg) repeat-x left top; color: #FFFFFF; }
+#header a { color: #FFFFFF; }
+.headerwarp { width: 950px; height: 246px; background: url(images/header.jpg) repeat-x 0 40px; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#space_page {
+	padding: 10px;
+	width: 970px;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+#ubar h2,
+#space_page .feed_header,
+.sidebox h2.title { padding: 0 20px; height: 30px; background-image: url(images/title.gif); color: #000; line-height: 30px; }
+.tabs_header { position: absolute; margin: -50px 0 0 60px; width: 560px; border: none; }
+#space_page .feed li,
+ #space_page .comments_list li,
+ #footer {
+	border-top-color: #330033;
+	border-right-color: #330033;
+	border-bottom-color: #330033;
+	border-left-color: #330033;
+}
+a#i_rss { color: #000000; }
+.tabs_header ul.tabs li.active a,
+.tabs_header ul.tabs li.active a span,
+.tabs_header ul.tabs li a,
+.tabs_header ul.tabs li a span { background: none; }
+.ulist {
+	background-color: #000000;
+}
+.tabs_header ul.tabs li a {
+	background-color: #333300;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-top-color: #330000;
+	border-right-color: #330000;
+	border-bottom-color: #330000;
+	border-left-color: #330000;
+}
+.tabs_header { height: 31px; }
+#footer { padding: 20px 20px; border: none; background: url(images/ybg2.jpg) no-repeat 0 0; color: #000000; }
+#footer a { color: ; }

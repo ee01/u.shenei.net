@@ -1,0 +1,1359 @@
+<!--{eval $_TPL['titles'] = array('兑换中心');}-->
+<!--{template header}-->
+
+<head>
+<link rel="stylesheet" href="exchange/style.css" type="text/css" />
+</head>
+
+<div class="searchbar">
+<form method="get" action="exchange.php?op=exchange&do=search">
+<input name="key" value="" size="26" class="t_input" type="text">
+<input name="searchsubmit" value="搜索兑换品" class="submit" type="submit">
+<input type="hidden" name="searchmode" value="1" />
+<input type="hidden" name="search" value="1" />
+
+ 您当前拥有:  <span class="red"><b>$space['credit']</b></span> $SConfig["SYMBOL"] 
+</form>
+
+</div>
+<h2 class="title"><img src="image/icon/exchange.gif" />兑换中心</h2>
+
+<div class="tabs_header">
+  <ul class="tabs">	 
+				<li $actives[exchange]><a href="?op=exchange"><span>兑换中心</span></a></li>
+				<!--{if $_SGLOBAL['supe_uid']}-->
+				<li $actives[orderform]><a href="?op=orderform"><span>我的订单</span></a></li> 
+				<li $actives[setup]><a href="?op=setup"><span>收货信息</span></a></li> 
+				<!--{/if}-->								
+				<li $actives[help]><a href="?op=help"><span>兑换帮助</span></a></li> 
+				<li $actives[card]><a href="?op=card"><span>积分充值卡</span></a></li>
+<!--{if $isAdmin}-->      
+				<li $actives[admin_list]><a href="?op=admin_list"><span>奖品管理</span></a></li>         
+				<li $actives[admin_orderform]><a href="?op=admin_orderform"><span>订单处理</span></a></li>							
+				<li $actives[admin_config]><a href="?op=admin_config"><span>插件设置</span></a></li>
+				<li class="null"><a href="?op=admin_add">添加奖品</a></li>
+<!--{else}-->
+				<li><a href="space.php?do=mtag&tagid=$SConfig[APP_GROUPID]" target=_blank><span>兑换讨论组</span></a></li> 
+				<li class="null"><a href="?op=admin_add">我要赞助</a></li>
+<!--{/if}-->
+</ul>
+</div>
+
+
+<!--{if  $op=="exchange"|| empty($op)}-->
+
+<div class="notice">
+<p><a href="?op=exchange&type=all">所有奖品</a> |
+<!--{loop $eclassarr $v}-->
+<a href="?op=exchange&type=$v[classid]">$v[classname]</a> |
+<!--{/loop}-->
+</p>
+
+</div>
+
+
+<div class="d_content">
+<div class="album_list">
+	<!--{if $list}-->
+<table cellspacing="6" cellpadding="0">
+		<tr>
+			<!--{loop $list $key $value}-->
+				<td width="50%" class="album">
+				<table cellspacing="0" cellpadding="0">
+						<tr>
+							<td class="image"><a href="?op=detailcontent&id=$value['id']" target="_blank"><img src="$value[pic]" alt="$value[title]" /></a>	</br>
+							<!--{if $isAdmin}-->&nbsp;<a href="?op=admin_edit&id=$value['id']"><span class='red'>管理操作</span></a><!--{/if}-->
+							</td>
+							<td><h6><a href="?op=detailcontent&id=$value['id']" target="_blank" title="$value[title]">$value[showtitle]</a> </h6>
+					<p>消耗:<span class='red'><b>$value[showprice]</b></span>$SConfig["SYMBOL"] &nbsp;余:$value[num]  &nbsp;兑:<a href="?op=buyinto&id=$value['id']" target="_blank" title="查看已兑换会员列表">$value[sale]</a>&nbsp;<!--{if $value[buynum]>0}--> 限:<span class='red'>$value[buynum]</span><!--{/if}--></p>
+					 
+					 <p><!--{if strlen($value['url'])>6}-->网站:	<a href="$value[url]" target="_blank" style="color:orange; text-decoration:underline; margin-left:5px;">官方网站>></a><!--{/if}--></p>
+					 
+					<p class="gray" >简介:  $value[showbody]						
+					
+					<br>
+						
+						<form method="post" action="?op=exchange&ac=buy">
+						<input type="hidden" name="title" value="$value[title]">
+						<input type="hidden" name="url" value="$value[url]">
+						<input type="hidden" name="autokey" value="$value[autokey]" />
+						<input type="hidden" name="price" value="$value[price]" />
+						<input type="hidden" name="buynum" value="$value[buynum]" />
+						<input type="hidden" name="mpurl" value="$mpurl" />
+						<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /> 
+						<input type="hidden" name="id" value="$value[id]" />	
+						<input type="hidden" name="uid" value="$value[uid]">					
+数量:  <input type="text" name="amount" value="1" class="t_input" style="width:20px" <!--{if $value[autokey]&&$value[buynum]==1}-->disabled <!--{/if}--> />	<!--{if $value[autokey]&&$value[buynum]==1}--><input type="hidden" name="amount" value="1" /> <!--{/if}-->		
+
+                          <!--{if !$myinfo && !$value[autokey]}-->
+
+						        <input type="submit" name="buysubmit" value="马上兑换" onclick="javascript:alert('您的收货联系信息未填写完整，无法兑换。请进入我的助手进行填写！'); return false;" class="submit" style="width:70px" /> 
+						  
+						 <!--{else}-->
+
+						          <!--{if $space['credits']>=$value['price']}-->
+						          <input type="submit" name="buysubmit" value="马上兑换"  <!--{if $value[autokey]}--> onclick="return confirm('&nbsp;&nbsp;您确定要兑换此物品吗?\r\n \r\n  点击确定立即自动发货，是否继续确认?');"<!--{else}-->onclick="return confirm('&nbsp;&nbsp;您确定要兑换此物品吗?');"<!--{/if}--> class="submit" style="width:70px" />
+						          <!--{else}-->&nbsp;
+						         <button class="submit" style="width:70px" onclick="javascript:alert('您的积分不足，无法兑换。请努力！');">积分不足</button>
+						        <!--{/if}-->	
+
+						 <!--{/if}-->
+	
+						<a href="#"><!--{if $value[autokey]}--><img src="exchange/image/auto.png" align="absmiddle" alt="自动发货,点击兑换立刻自动发货，请到收件箱收取相关信息！"  /><!--{else}--><img src="exchange/image/hand.png" align="absmiddle" alt="手工发货-管理员手工发货，请认真填写好您的发货地址（我的助手）"  /><!--{/if}--></a></form>
+					
+						</p>
+						</td>
+					</tr>
+				</table>
+				</td>						
+				
+				<!--{if $key%2==1}--></tr><tr><!--{/if}-->
+			<!--{/loop}-->
+		</tr>
+	</table>
+	<!--{/if}-->
+</div>
+
+<div align="right"><img src="exchange/image/auto.png" align="absmiddle" alt="自动发货,点击兑换立刻自动发货，请到收件箱收取相关信息！"  /> 自动发货&nbsp;&nbsp; &nbsp;&nbsp; <img src="exchange/image/hand.png" align="absmiddle" alt="手工发货-管理员手工发货，请认真填写好您的发货地址（我的助手）"  />  手工发货&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div>
+<div class="page">$multi</div>
+
+<!--{elseif  $op=="detailcontent"}-->
+
+<div id="content" style="width:540px;">
+	<div class="h_status">
+查看详情<span class="pipe">|</span><a href="#" onclick="javascript:history.back()">返回</a>
+</div>
+<!--{if  $row}-->
+<div class="notice">
+ <h2>$row[title]</h2>
+</div>
+	<ul class="entry_list line_list" id="div_main">
+		<li>品名: $row[title] (<!--{if $row[autokey]}--><span class='red'><b>自动发货</b></span><!--{else}-->手工发货<!--{/if}-->)</li>
+		<li><p style="float:left;">消耗:$row[showprice]  $SConfig["SYMBOL"]&nbsp;&nbsp;|&nbsp;&nbsp;	  库存: $row[num] &nbsp;&nbsp;|&nbsp;&nbsp;已兑: <a href="?op=buyinto&id=$row['id']" target="_blank" title="查看已兑换会员列表">$row[sale] </a>&nbsp;&nbsp;</p>
+
+		<p style="float:right;">	
+		        <form method="post" action="?op=exchange&ac=buy">		
+				         <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+						 <input type="hidden" name="title" value="$row[title]" />
+						 <input type="hidden" name="url" value="$row[url]" />
+						 <input type="hidden" name="autokey" value="$row[autokey]" />
+						 <input type="hidden" name="price" value="$row[price]" />
+						 <input type="hidden" name="buynum" value="$row[buynum]" />
+						<input type="hidden" name="mpurl" value="$mpurl">
+						<input type="hidden" name="id" value="$row[id]">
+						<input type="hidden" name="uid" value="$row[uid]">
+数量: <!--{if $row[autokey]&&$row[buynum]==1}-->1 <input type="hidden" name="amount" value="1"  /><!--{else}--> <input type="text" name="amount" value="1" class="t_input" style="width:20px" />		<!--{/if}-->												
+	
+
+					 <!--{if !$myinfo && !$row[autokey]}-->
+
+						        <input type="submit" name="buysubmit" value="马上兑换" onclick="javascript:alert('您的收货联系信息未填写完整，无法兑换。请进入我的助手进行填写！'); return false;" class="submit" style="width:70px" /> 
+						  
+						 <!--{else}-->
+
+						 			   <!--{if $space['credits']>=$row['price']}-->
+						          <input type="submit" name="buysubmit" value="马上兑换"  <!--{if $row[autokey]}--> onclick="return confirm('&nbsp;&nbsp;您确定要兑换此物品吗?\r\n \r\n  点击确定立即自动发货，是否继续确认?');"<!--{else}-->onclick="return confirm('&nbsp;&nbsp;您确定要兑换此物品吗?');"<!--{/if}--> class="submit" style="width:70px" />
+						          <!--{else}-->&nbsp;
+						         <button class="submit" style="width:70px" onclick="javascript:alert('您的积分不足，无法兑换。请努力！');">积分不足</button>
+						        <!--{/if}-->	
+						
+				<!--{/if}-->
+								
+						</form></p>
+		<li>最大兑换数量: <!--{if $row[buynum]<1}-->不限制<!--{else}-->$row[buynum]<!--{/if}--> &nbsp;&nbsp;(允许每个会员最多兑换的数量) </li>
+		<li>每天兑换次数: <!--{if $row[robnumber]<1}-->不限制<!--{else}-->$row[robnumber]<!--{/if}--> &nbsp;&nbsp;(此物品每天允许兑换的次数) </li>
+		<li>派发期限: $row[begin] ~  $row[expiration]</li>
+		<!--{if strlen($row['url'])>6}-->
+		<li>官方网站: <a href="$row[url]" target="_blank" >$row[url]</a></li>
+		<!--{/if}-->
+		<li>说明: <br><br>$row[body]</li>
+	 </ul>
+<!--{else}-->
+<div class="c_form">暂无数据。</div>
+<!--{/if}-->
+</div>
+
+
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+<p class="r_option"><a href="#">&nbsp;</a></p>
+提交订单须知
+</h2>
+<ul class="post_list line_list">
+<li>请确认兑换数量</li>
+<li>请确认收货信息是否正确</li>
+<li>请与管理员保持联系</li>
+<li>积极跟踪您的订单状态</li>
+		<!--{if $_SGLOBAL['ad']['rightside']}-->	
+			<li><!--{ad/rightside}-->	</li>
+		<!--{/if}-->	
+		
+		</ul>
+</div>
+</div>
+
+<script type="text/javascript">
+	resizeImg('div_main','530');
+</script>
+
+
+<!--{elseif  $op=="orderform"}-->
+
+<div class="notice">提示:只能删除您『申请中』状态的订单。</div>
+<form method="post" action="?op=orderform&status=$status">
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+    <div class="bdrcontent">
+
+<div class="h_status"> 
+我的订单 | <a href="?op=orderform&status=1">申请中</a> |  <a href="?op=orderform&status=2">处理中</a> | <a href="?op=orderform&status=3">已发货</a> |  <a href="?op=orderform&status=4">已退货</a></div>
+
+        <table cellspacing="0" cellpadding="0" class="formtable">
+            <tr>  
+								<th width="25">序</th> 
+								<th width="80">订单号</th>
+								<th>名称</th> 
+								<th width="80">方式</th>	
+                <th width="80">数量</th>	
+								<th width="80">单价</th>	
+                <th width="80">状态</th>
+                <th width="100">时间</th>	
+								
+            </tr>
+	<!--{loop $list $value}-->
+		<tr>			
+		 <td>	<input type="checkbox" name="ids[{$value[id]}]" value="$value[id]">	</td>
+		 <td> <span class='red'><b>$value[id]</b></span></td>
+			<td ><a href="?op=detailcontent&id=$value[gid]" >$value[title]</a></td>		
+			<td><!--{if $value[autokey]}--><span class='red'>自动</span><!--{else}-->手工<!--{/if}--></td>
+			<td> $value[amount]</td>
+			<td> $value[price]</td>
+		  <td>$value[status]</td>			
+			<td><small class="t_date"><!--{date('Y-m-d H:i:s',$value[data])}--></small></td>
+				
+		</tr>
+		<!--{/loop}-->
+		</table>
+
+
+	</div>
+	
+	<div class="footactions">
+		<!--{if $perpage<=100}--><label><input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'ids')">全选</label>&nbsp;&nbsp;<!--{/if}-->
+		<input type="hidden" name="mpurl" value="$mpurl">
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('只能删除『申请中』状态的订单。\r\n  \r\n本操作不可恢复，您确认删除吗? ');" class="submit">	 
+		<div class="page">$multi</div>
+	</div>
+	</form>
+
+<!--{elseif  $op=="setup"}-->
+
+<div id="content" style="width:540px;">
+<div class="notice"><span class="red">(*必填) 重要: 请务必填写完整收货人联系资料，奖品将寄发此处！</span></div>
+<form method="post" action="?op=setup&ac=updata">
+<input type="hidden" name="mpurl" value="$mpurl">	
+<input type="hidden" name="uid" value="$row[uid]">	
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+
+<table  cellspacing="0" cellpadding="0" class="formtable">
+  <tr> 
+    <td width="124" align="right" valign="middle" ><span class='red'>*</span> 收货人姓名：</td>
+    <td width="416"><input type="text" name="name" value="$row[name]" class="t_input" style="width:100px" /></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle"><span class='red'>*</span>联系人手机：</td>
+    <td><input type="text" name="mobile" value="$row[mobile]" class="t_input" style="width:100px" />	</td>
+  </tr>
+  <script type="text/javascript" src="source/script_city.js"></script>
+  <tr>
+    <td width="124" align="right" valign="middle"><span class='red'>*</span>所在市区：</td>
+    <td id="citybox"><script type="text/javascript">
+		<!--
+		showprovince('state', 'city', '$row[state]', 'citybox');	
+		showcity('city', '$row[city]', 'state', 'citybox');	
+		//-->
+		</script></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle"><span class='red'>*</span>学校：</td>
+    <td><input type="text" name="country" value="$row[country]" class="t_input" style="width:100px" /></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle"><span class='red'>*</span>详细宿舍地址：</td>
+    <td><input type="text" name="address" value="$row[address]" class="t_input" style="width:350px" /></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle"><span class='red'>*</span>邮政编码：</td>
+    <td><input type="text" name="zipcode" value="$row[zipcode]" class="t_input" style="width:100px" /></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle"><span class='red'>*</span>QQ：</td>
+    <td><input type="text" name="qq" value="$row[qq]" class="t_input" style="width:100px" /></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle">宿舍或其他电话：</td>
+    <td><input type="text" name="phone" value="$row[phone]" class="t_input" style="width:100px" /></td>
+  </tr>
+  <tr>	
+    <td width="124" align="right" valign="middle">MSN：</td>
+    <td><input type="text" name="msn" value="$row[msn]" class="t_input" style="width:200px" /></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle">skype：</td>
+    <td><input type="text" name="skype" value="$row[skype]" class="t_input" style="width:200px" /></td>
+  </tr>
+  <tr>
+    <td width="124" align="right" valign="middle">Email：</td>
+    <td><input type="text" name="email" value="$row[email]" class="t_input" style="width:200px" /></td>
+  </tr>
+  <tr>
+    <td>　</td>
+    <td>	
+             
+
+		<input type="submit" name="setupsubmit" value="确定修改"  class="submit" style="width:70px" />
+						
+						
+			</td>
+  </tr>
+</table>
+</form>
+
+
+</div>
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+
+重要
+</h2>
+<ul class="post_list line_list">
+<li>请确认收货信息是否正确</li>
+<li>请填写完整联系人信息</li>
+
+		<!--{if $_SGLOBAL['ad']['rightside']}-->	
+			<li><!--{ad/rightside}-->	</li>
+		<!--{/if}-->	
+		</li>
+		</ul>
+</div>
+</div>
+
+<!--{elseif  $op=="buyinto"}-->
+<div id="content" style="width:540px;">
+
+<div class="h_status " >已兑换会员列表</div>
+<div class="s_clear" ></div>
+
+    <div class="bdrcontent">     
+
+<div class="box_action">
+<p><a href="?op=detailcontent&id=$list[0]['id']" >$list[0]['giftName'] </a></p>
+<p class="action">合计: $count</p></div>
+
+        <table cellspacing="0" cellpadding="0" class="formtable">
+            <tr>                						
+                <th  width="40%">会员名称</th>             
+                <th width="30%">兑换数量</th>     
+								<th width="30%">兑换时间</th>
+            </tr>
+<!--{if $list}-->	
+		<!--{loop $list $value}-->
+		<tr>		
+			<td> $value[username] </td>
+			<td>	$value[amount]</td>				
+			<td><small class="t_date"><!--{date('Y-m-d H:i:s',$value[data])}--></small></td>		
+		</tr>
+		<!--{/loop}-->
+<!--{else}-->
+		<tr>
+<td>　</td>
+<td>此物品暂无会员兑换。</td>
+<td></td>
+	</tr>
+<!--{/if}-->
+
+
+		</table>
+
+	</div>
+	
+	<div class="page">$multi</div>
+
+
+
+</div>
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+
+说明
+</h2>
+<ul class="post_list line_list">
+
+<li>
+		<!--{if $_SGLOBAL['ad']['rightside']}-->	
+			<!--{ad/rightside}-->	
+		<!--{/if}-->	
+		</li>
+		</ul>
+</div>
+</div>
+
+<!--{elseif  $op=="help"}-->
+
+<div id="content" style="width:540px;">
+<div class="notice">
+兑换帮助
+</div>
+<center><img src="exchange/image/help.gif" alt="获取积分兑换礼品流程" /></center>
+<div class="s_clear" ></div>
+<p>$SConfig[HELP_BODY]</p>
+</div>
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+
+帮助
+</h2>
+<ul class="post_list line_list">
+
+<li>
+		<!--{if $_SGLOBAL['ad']['rightside']}-->	
+			<!--{ad/rightside}-->	
+		<!--{/if}-->	
+		</li>
+		</ul>
+</div>
+</div>
+
+<!--{elseif  $op=="card"}-->
+<!--{if $_POST['rbinfo']=='check'}-->
+<div id="content" style="width:540px;"><form method="post" action="?op=card">
+<div class="notice"><input type="hidden" name="rbinfo" value="in" size="32">
+积分充值卡，输入卡号与卡密码即可免费得到相应的积分数。
+</div>
+<div class="s_clear" ></div>
+<p>请输入卡号：$cardnum<input type="hidden" name="cardnum" value="$cardnum" size="32"><input type="hidden" name="cardpsw" value="$cardpsw" size="32"></p>
+<p>积分：<font color ="#ff0000"><b>$card[money]</b></font>个</p>
+<p>到期时间：$overtime</p>
+<p><input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		<input type="submit" name="awardpsubmit" value="充值" class="submit">&nbsp;&nbsp;<input type="button" name="back" value="放弃返回" class="submit" onclick="history.back(-1);"></p>
+</div></form>
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+
+积分充值卡简介
+</h2>
+<ul class="post_list line_list">
+
+<li>积分充值卡可以向您所在的帐号充值相应的积分数</li>
+<li><b><font color="#FF0000">如何获取充值卡？</font></b></li>
+<li>本站会不定时向特定的会员发放相应的充值卡。</li>
+		</ul>
+</div>
+</div>
+<!--{else}-->
+<div id="content" style="width:540px;"><form method="post" action="?op=card">
+<div class="notice"><input type="hidden" name="rbinfo" value="check" size="32">
+积分充值卡，输入卡号与卡密码即可免费得到相应的积分数。
+</div>
+<div class="s_clear" ></div>
+<p>请输入卡号：<input type="text" name="cardnum" value="" size="32"></p>
+<p>请输入密码：<input type="text" name="cardpsw" value="" size="32"></p>
+<p><input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /><input type="submit" name="awardpsubmit" value="提交" class="submit">&nbsp;&nbsp;<input type="button" name="back" value="放弃返回" class="submit" onclick="history.back(-1);"></p>
+</div></form>
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+
+积分充值卡简介
+</h2>
+<ul class="post_list line_list">
+
+<li>积分充值卡可以向您所在的帐号充值相应的积分数</li>
+<li><b><font color="#FF0000">如何获取充值卡？</font></b></li>
+<li>本站会不定时向特定的会员发放相应的充值卡。</li>
+		</ul>
+</div>
+</div>
+<!--{/if}-->
+<!--{elseif $isAdmin or $op=="admin_add"}-->
+
+
+<!--{if $op=="admin_orderform_list"}-->
+<div id="content" style="width:540px;">
+
+<div class="notice">
+订单详情
+</div>
+
+<form method="post" action="?op=admin_orderform_list">
+<input type="hidden" name="id" value="$row['id']">	
+<input type="hidden" name="mpurl" value="$mpurl">	
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+
+<table  cellspacing="0" cellpadding="0" class="formtable">
+  <tr>
+    <td width="64">订单号 </td>
+    <td width="10">　</td>
+    <td width="197"><b>$row['id'] </b></td>
+  </tr>
+  <tr>
+    <td>申请人 </td>
+    <td>　</td>
+    <td>$row['uid']</td>
+  </tr>
+  <tr>
+    <td>奖品名称</td>
+    <td>　</td>
+    <td>$row['title']</td>
+  </tr>
+  <tr>
+    <td>兑换数量</td>
+    <td>　</td>
+    <td>$row['amount']</td>
+  </tr>
+  <tr>
+    <td>奖品总额</td>
+    <td>　</td>
+    <td>$row['amount']</td>
+  </tr>
+  <tr>
+    <td>当前状态</td>
+    <td>　</td>
+    <td>		
+		<!--{if $row['status']=='1'}-->申请中<!--{/if}-->
+		<!--{if $row['status']=='2'}-->处理中<!--{/if}-->
+		<!--{if $row['status']=='3'}-->已发货<!--{/if}-->
+		<!--{if $row['status']=='4'}-->已退货<!--{/if}-->		
+		</td>
+  </tr>
+  <tr>
+    <td>申请时间</td>
+    <td>　</td>
+    <td><small class="t_date"><!--{date('Y-m-d H:i:s',$row['data'])}--></small> </td>
+  </tr>
+  <tr>
+    <td>　</td>
+    <td>　</td>
+    <td>　</td>
+  </tr>
+  <tr>
+    <td>处理操作</td>
+    <td>　</td>
+    <td>	<select name="status" id="status">
+						<option value="0" >请选择</option>
+						<option value="2" <!--{if $row['status']=='2'}-->selected<!--{/if}-->>处理中</option>				
+						<option value="3" <!--{if $row['status']=='3'}-->selected<!--{/if}-->>已发货</option>
+						<option value="4" <!--{if $row['status']=='4'}-->selected<!--{/if}-->>已退货</option>
+					</select>	
+	</td>
+  </tr>
+	  <tr>
+    <td>　</td>
+    <td>　</td>
+    <td>如果选择【已退货】，则退还用户分值。(推荐！！)<br>删除也能退还用户分值(仅申请状态可以删除)。</td>
+  </tr>
+	  <tr>
+    <td>　</td>
+    <td>　</td>
+    <td>　</td>
+  </tr>
+	  <tr>
+    <td>　</td>
+    <td>　</td>
+    <td><input type="submit" name="updatesubmit" value="确定修改"  class="submit" style="width:70px" /></td>
+  </tr>
+</table>
+	
+</form>
+</div>
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+<p class="r_option"><a href="#">&nbsp;</a></p>
+收货人详细信息
+</h2>
+<ul class="post_list line_list">
+
+		
+		<li>姓名: <span class='red'><b>$user[name]</b></span></li>	
+		<li>手机: <span class='red'><b>$user[mobile]</b></span></li>
+		<li>学校: <span class='red'><b>$user[country]</b></span></li>
+		<li>地址: <span class='red'><b>$user[address]</b></span></li>
+		<li>邮编: <span class='red'><b>$user[zipcode]</b></span></li>
+		<li>ＱＱ: <span class='red'><b>$user[qq]</b></span></li>
+		<li>电话: $user[phone]</li>
+		<li>省份: $user[state]</li>
+		<li>市区: $user[city]</li>
+		<li>SKYPE: $user[skype]</li>
+		<li>MSN: $user[msn]</li>
+		<li>email: $user[email]</li>	
+<!--{if $_SGLOBAL['ad']['rightside']}-->	
+<li><!--{ad/rightside}--></li>
+<!--{/if}-->	
+		</ul>
+</div>
+</div>
+
+<!--{/if}-->
+
+
+
+<!--{if $op=="admin_orderform"}-->
+<form method="post" action="?op=admin_orderform&status=$status">
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+    <div class="bdrcontent">
+
+<div class="box_action">
+<p><a href="?op=admin_orderform&status=">所有订单</a> | <a href="?op=admin_orderform&status=1">申请中</a> |  <a href="?op=admin_orderform&status=2">处理中</a> | <a href="?op=admin_orderform&status=3">已发货</a> |  <a href="?op=admin_orderform&status=4">已退货</a></p>
+</div>
+
+
+
+        <table cellspacing="0" cellpadding="0" class="formtable">
+            <tr>  
+								<th width="25">序</th>
+								<th width="80">订单号</th>
+								<th width="80">申请人</th>
+								<th>奖品品名</th> 
+								<th width="40">方式</th>
+                <th width="40">数量</th>
+								<th width="40">单价</th>	
+								<th width="40">总额</th>	
+                <th width="60">状态</th>
+                <th width="110">时间</th>
+								<th width="40">操作</th>
+            </tr>
+	<!--{loop $list $value}-->
+		<tr>			
+		 <td>	
+		 <input type="checkbox" name="ids[{$value[id]}]" value="$value[id]">	 
+		 <input type="hidden" name="autokey[{$value[id]}]" value="$value[autokey]">
+		 </td>
+		 <td> <span class='red'><b>$value[id]</b></span></td>
+			<td ><a href="space.php?uid=$value[uid]" target="_blank" >$value[username]</a></td>		
+			<td ><a href="?op=admin_edit&id=$value[gid]" >$value[title]</a></td>	
+			<td><!--{if $value[autokey]}--><span class='red'>自动</span><!--{else}-->手工<!--{/if}--></td>
+			<td> $value[amount]</td>
+			<td> $value[price]</td>
+			<td> $value[total]</td>			
+		  <td>$value[status]</td>			
+			<td><small class="t_date"><!--{date('Y-m-d H:i:s',$value[data])}--></small></td>
+			<td><a href="?op=admin_orderform_list&id=$value[id]" >处理</a></td>	
+		</tr>
+		<!--{/loop}-->
+		</table>
+
+
+	</div>
+	
+	<div class="footactions">
+		<!--{if $perpage<=100}--><label><input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'ids')">全选</label>&nbsp;&nbsp;<!--{/if}-->
+		<input type="hidden" name="mpurl" value="$mpurl">
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('【郑重警告】\r\n \r\n 此删除操作仅仅删除申请中的订单(并退还积分)。\r\n \r\n  本操作不可恢复，是否继续确认删除?');" class="submit">	 
+	
+					<select name="and" id="and">
+						<option value="id" selected>订单号</option>
+						<option value="username">姓名</option>				
+						<option value="title">奖品名</option>
+					</select>		
+		<input type="text" name="searchtxt" value="" class="t_input" style="width:80px" /> <input type="submit" name="searchsubmit" value="搜索"  class="submit">
+	</div>
+	</form>
+	<div class="page">$multi</div>
+<!--{/if}-->
+
+<!--{if $op=="admin_list"}-->
+<form method="post" action="?op=admin_list">
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		 
+    <div class="bdrcontent">     
+
+<div class="box_action">
+<p><a href="?op=admin_list">奖品列表</a> | <a href="?op=admin_add">添加奖品</a></p>
+</div>
+
+        <table cellspacing="0" cellpadding="0" class="formtable">
+            <tr>
+                <th width="25">序</th> 
+								<th>名称</th>
+                <th width="80">显示顺序</th>               
+                <th width="80">价格</th>
+                <th width="80">库存</th>
+                <th width="80">已售</th>
+                <th width="80">限兑</th>
+								<th width="40">可用</th>
+                <th width="40">详情</th>
+								<th width="40">属性</th>
+            </tr>
+		<!--{loop $list $value}-->
+		<tr>
+			<td>	<input type="checkbox" name="ids[{$value[id]}]" value="$value[id]">	<input type="hidden" name="autokey[{$value[id]}]" value="$value[autokey]" /></td>
+			<td >&nbsp;&nbsp;<a href="?op=admin_edit&id=$value[id]" >$value[title]</a></td>
+			<td>	<input type="text" name="rank[{$value[id]}]" value="$value[rank]" class="t_input" style="width:40px" />	</td>			
+			<td><input type="text" name="price[{$value[id]}]" value="$value[price]" class="t_input" style="width:40px" /></td>
+			<td><input type="text" name="num[{$value[id]}]" value="$value[num]" class="t_input" style="width:40px" /></td>
+		  <td><input type="text" name="sale[{$value[id]}]" value="$value[sale]" class="t_input" style="width:40px" /></td>			
+			<td><input type="text" name="buynum[{$value[id]}]" value="$value[buynum]" class="t_input" style="width:40px" /></td>
+				<td><input type="checkbox" name="ac[{$value[id]}]" value="1" <!--{if $value[ac]==1}--> checked="checked" <!--{/if}--> /></td>
+			
+			<td><a href="?op=admin_edit&id=$value[id]" >编辑</a></td>
+			<td><a href="?op=admin_keys&id=$value[id]" ><!--{if $value[autokey]}--><span class='red'> 编辑</span><!--{else}-->添加<!--{/if}--></a></td>
+		</tr>
+		<!--{/loop}-->
+		</table>
+
+	</div>
+	
+	<div class="footactions">
+		<!--{if $perpage<=100}--><label><input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'ids')">全选</label>&nbsp;&nbsp;<!--{/if}-->
+		<input type="hidden" name="mpurl" value="$mpurl">
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('本操作不可恢复，确认删除?');" class="submit">
+	  &nbsp;&nbsp;<input type="submit" name="upadtesubmit" value="批量更新"  class="submit">
+		 &nbsp;&nbsp;	
+
+		<input type="text" name="searchtxt" value="" class="t_input" style="width:80px" /> <input type="submit" name="searchsubmit" value="搜索"  class="submit">
+	</div>
+	</form>
+	<div class="page">$multi</div>
+	<!--{/if}-->
+
+<!--{if $op=="admin_keys"}-->
+
+<form method="post" action="?op=admin_keys">
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		<input type="hidden" name="mpurl" value="$mpurl" />
+    <div class="bdrcontent">     
+
+<div class="box_action">
+<p><a href="?op=admin_keys&id=$id">卡号列表</a> | <a href="?op=admin_keys&id=$id&status=2">已兑换</a> | <a href="?op=admin_keys&id=$id&status=1">未兑换(可发放)</a></p>
+</div>
+
+        <table cellspacing="0" cellpadding="0" class="formtable">
+            <tr>
+                <th width="25">序</th> 
+								<th width="180">所属物品</th>
+                <th >卡号内容</th>               
+                <th width="40">可用</th>
+                <th width="80">兑换者</th>
+								<th width="100">时间</th>
+            </tr>
+<!--{if ($list[0]['keys'])}-->
+		<!--{loop $list $value}-->
+		<tr>
+			<td>	<input type="checkbox" name="ids[{$value[keyid]}]" value="$value[keyid]">	<input type="hidden" name="gifts_id[{$value[keyid]}]" value="$value[gifts_id]"></td>
+			<td> <a href="?op=admin_edit&id=$value[gifts_id]" style="width:180px">$value[title]</a></td>
+			<td>	<input type="text" name="keys[{$value[keyid]}]" value="$value[keys]" class="t_input" style="width:340px" />	</td>			
+			<td><input type="checkbox" name="ac[{$value[keyid]}]" value="1" <!--{if $value[ac]==1}--> checked="checked" <!--{/if}--> /></td>
+			<td> $value['username'] </td>		 		
+			<td><small class="t_date"><!--{date('Y-m-d H:i:s',$value[dateline])}--></small></td>		
+		</tr>
+		<!--{/loop}-->
+<!--{else}-->
+		<tr>
+<td>　</td>
+<td>　</td>
+<td>『$giftsName 』下暂无数据,请<a href="#" onclick="javascript:history.back()">返回</a> 或者在下面批量 新添加。</td>
+<td></td>
+<td></td>
+	</tr>
+<!--{/if}-->
+
+
+		</table>
+
+	</div>
+	
+	<div class="footactions">
+		<!--{if $perpage<=100}--><label><input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'ids')">全选</label>&nbsp;&nbsp;<!--{/if}-->
+		<input type="hidden" name="mpurl" value="$mpurl">
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('本操作不可恢复，确认删除?');" class="submit">
+	  &nbsp;&nbsp;<input type="submit" name="upadtesubmit" value="批量更新"  class="submit">
+
+		<input type="text" name="searchtxt" value="" class="t_input" style="width:80px" /> <input type="submit" name="searchsubmit" value="搜索"  class="submit">
+&nbsp;&nbsp;		
+	
+	</div>
+	</form>
+
+<div class="page">$multi</div>
+
+<!--{if ($id)}-->
+ <div class="bdrcontent">    
+ <form method="post" action="?op=add_keys&id=$id">
+ <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+ <input type="hidden" name="id" value="$id">
+<table cellspacing="0" cellpadding="0" class="formtable">
+  <tr>
+    <th>为『$giftsName 』批量新添加帐号</th>
+  </tr>
+  <tr>
+    <td><input type="button" class="button" value="&nbsp;+&nbsp;" onclick="zoomtextarea('keys', 1)" /> <input type="button" class="button" value="&nbsp;-&nbsp;" onclick="zoomtextarea('keys', 0)" /> <input type="button" class="button" value="查看统计" onclick='document.getElementById("mycc").innerHTML=(keys.value.split("\n").length).toString();' />&nbsp;[共有<b><span id="mycc" class="red">$count</span></b>项] &nbsp;<br>
+
+	(每一行一个帐号信息,如果有帐号和密码在同一行, 请使用:(冒号)分割, 冒号左边是帐号,右边是密码.)
+	<br>
+	<textarea class="userData" name="keys" id="keys" style="width:95%;border: 1px solid #C5C5C5;"  rows="10"  cols="100">$keylist</textarea>
+	</td>
+  </tr>
+  <tr>
+    <td><input type="submit" name="addkeyssubmit" value="批量添加"  class="submit"></td>
+  </tr>
+
+</table>
+</form>
+
+<script type="text/javascript">
+function zoomtextarea(objname, zoom) {
+	zoomsize = zoom ? 10 : -10;
+	obj = $(objname);
+	if(obj.rows + zoomsize > 0 && obj.cols + zoomsize * 3 > 0) {
+		obj.rows += zoomsize;		
+	}
+}
+</script>
+</div>
+	<!--{/if}-->
+
+	<!--{/if}-->
+
+
+
+<!--{if $op=="admin_config"}-->
+<script type="text/javascript">
+function getdate(obj) {		   	
+
+var p = window.frames['uchome-ifrHtmlEditor'];
+	var obj = p.window.frames['HtmlEditor'];
+	var status = p.document.getElementById('uchome-editstatus').value;
+	if(status == 'code') {
+		$('uchome-ttHtmlEditor').value = p.document.getElementById('sourceEditor').value;
+	} else if(status == 'text') {
+		if(is_ie) {
+			obj.document.body.innerText = p.document.getElementById('dvtext').value;
+			$('uchome-ttHtmlEditor').value = obj.document.body.innerHTML;
+		} else {
+			obj.document.body.textContent = p.document.getElementById('dvtext').value;
+			var sOutText = obj.document.body.innerHTML;
+			$('uchome-ttHtmlEditor').value = sOutText.replace(/\r\n|\n/g,"<br>");
+		}
+	} else {
+		$('uchome-ttHtmlEditor').value = obj.document.body.innerHTML;
+	}
+
+	return true;	
+	}
+	</script>
+<div id="content" style="width:540px;">
+
+<div class="notice">
+插件设置
+</div>
+
+<form method="post" action="?op=admin_config">
+<input type="hidden" name="mpurl" value="$mpurl">	
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+
+<table  cellspacing="0" cellpadding="0" class="formtable">
+  <tr>
+    <td width="100"  align="right" valign="middle">插件管理员UID</td>
+    <td width="5">　</td>
+    <td width="400"><input type="text" name="ADMINUID" id="ADMINUID" value="$SConfig[ADMINUID]" disabled class="t_input" style="width:100px" /> &nbsp; 请进入config.php设置管理员UID</td>
+ 
+  </tr>
+	  <tr>
+    <td align="right" valign="middle">系统E_mail</td>
+    <td>　</td>
+    <td> 
+						<input type="text" name="emailinfo" value="$SConfig[emailinfo]" class="t_input" style="width:195; height:22" /> 
+						用于系统接收订单信息</td>
+  </tr>  
+	  <tr>
+    <td align="right" valign="middle">插件开关设置</td>
+    <td>　</td>
+    <td> 
+						<select name="APP_OFF" id="APP_OFF">
+						<option value="0" <!--{if $SConfig[APP_OFF]=='0'}--> selected <!--{/if}-->>开放插件</option>
+						<option value="1" <!--{if $SConfig[APP_OFF]=='1'}--> selected <!--{/if}-->>关闭插件</option>
+						<option value="2" <!--{if $SConfig[APP_OFF]=='2'}--> selected <!--{/if}-->>自动开启</option>
+						</select>&nbsp;<span class="red"><!--{if $SConfig[APP_OFF]=='0'}--> 开放插件 (当前)<!--{/if}-->	<!--{if $SConfig[APP_OFF]=='1'}-->关闭插件  (当前)<!--{/if}--> <!--{if $SConfig[APP_OFF]=='2'}--> 每月根据“开放插件时段”内打勾日期自动开启或者关闭插件<!--{/if}--></span>
+	
+	</td>
+  </tr>  
+  	  <tr>
+
+    <td align="right" valign="middle">开放插件时段</td>
+    <td>　</td>
+    <td> 
+       $datelist	
+	   <br>
+     从<input type="text" name="OPENTIME" id="OPENTIME" value="$SConfig[OPENTIME]"  class="t_input" style="width:100px" />   至  <input type="text" name="CLOSETIME" id="CLOSETIME" value="$SConfig[CLOSETIME]"  class="t_input" style="width:100px" />  为开放时间
+	</td>
+  </tr>  
+
+
+  	  <tr>
+    <td align="right" valign="middle">游客浏览模式</td>
+    <td>　</td>
+    <td> 
+							<select name="VIEW_MOD" id="VIEW_MOD">
+						<option value="0" <!--{if $SConfig[VIEW_MOD]=='0'}--> selected <!--{/if}-->>关闭</option>
+						<option value="1" <!--{if $SConfig[VIEW_MOD]=='1'}--> selected <!--{/if}-->>开放</option>
+						</select>&nbsp;<span class="red"><!--{if $SConfig[VIEW_MOD]=='0'}--> 不允许游客浏览 (当前)<!--{/if}-->	<!--{if $SConfig[VIEW_MOD]=='1'}-->允许游客浏览  (当前)<!--{/if}--></span>
+	
+	</td>
+  </tr> 
+
+  	  <tr>
+    <td align="right" valign="middle">站外邮件通知</td>
+    <td>　</td>
+    <td> 
+						<select name="EMAIL_MOD" id="EMAIL_MOD">
+						<option value="0" <!--{if $SConfig[EMAIL_MOD]=='0'}--> selected <!--{/if}-->>关闭</option>
+						<option value="1" <!--{if $SConfig[EMAIL_MOD]=='1'}--> selected <!--{/if}-->>开启</option>
+						</select>&nbsp;<span class="red"><!--{if $SConfig[EMAIL_MOD]=='1'}--> 发送站外邮件通知 (当前)<!--{/if}-->	<!--{if $SConfig[EMAIL_MOD]=='0'}-->不发送站外邮件通知  (当前)<!--{/if}--></span>&nbsp; 请先设置好UCH邮件
+	
+	</td>
+  </tr> 
+
+  <tr>
+    <td align="right" valign="middle">前台奖品列表页</td>
+    <td>　</td>
+    <td><input type="text" name="PERPAGE" value="$SConfig[PERPAGE]" class="t_input" style="width:100px" /> &nbsp;条</td>
+  </tr>
+    <tr>
+    <td align="right" valign="middle">会员订单列表页</td>
+    <td>　</td>
+    <td><input type="text" name="PERPAGE_ODER" value="$SConfig[PERPAGE_ODER]" class="t_input" style="width:100px" /> &nbsp;条</td>
+  </tr>
+	  <tr>
+    <td align="right" valign="middle">后台奖品列表页</td>
+    <td>　</td>
+    <td><input type="text" name="PERPAGE_ADMIN" value="$SConfig[PERPAGE_ADMIN]" class="t_input" style="width:100px" /> &nbsp;条</td>
+  </tr>
+  	  <tr>
+    <td align="right" valign="middle">奖品属性列表页</td>
+    <td>　</td>
+    <td><input type="text" name="PERPAGE_KEYS" value="$SConfig[PERPAGE_KEYS]" class="t_input" style="width:100px" /> &nbsp;条</td>
+  </tr>
+  
+     <tr>
+    <td align="right" valign="middle">后台订单列表页</td>
+    <td>　</td>
+    <td><input type="text" name="PERPAGE_ORDERFORM" value="$SConfig[PERPAGE_ORDERFORM]" class="t_input" style="width:100px" /> &nbsp;条</td>
+  </tr>
+
+		  <tr>
+    <td align="right" valign="middle">奖品名称长度</td>
+    <td>　</td>
+    <td><input type="text" name="TITLE_LIMIT" value="$SConfig[TITLE_LIMIT]" class="t_input" style="width:100px" /> &nbsp;</td>
+  </tr>
+
+		  <tr>
+    <td align="right" valign="middle">奖品简介长度</td>
+    <td>　</td>
+    <td><input type="text" name="BODY_LIMIT" value="$SConfig[BODY_LIMIT]" class="t_input" style="width:100px" /> &nbsp;</td>
+  </tr>
+  <tr>
+
+    <td align="right" valign="middle">与我相伴缓存</td>
+    <td>　</td>
+    <td><input type="text" name="TIME_LIMIT" value="$SConfig[TIME_LIMIT]" class="t_input" style="width:100px" /> &nbsp;秒</td>
+  </tr>
+	  <tr>
+    <td align="right" valign="middle">群组ID</td>
+    <td>　</td>
+    <td><input type="text" name="APP_GROUPID" value="$SConfig[APP_GROUPID]" class="t_input" style="width:100px" /> &nbsp;应用在群组快捷按钮</td>
+  </tr>
+	  <tr>
+    <td align="right" valign="middle">插件名</td>
+    <td>　</td>
+    <td><input type="text" name="APP_TITLE" value="$SConfig[APP_TITLE]" class="t_input" style="width:100px" /> &nbsp;</td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="middle">帮助内容</td>
+    <td>　</td>
+    <td>
+		<textarea class="userData" name="HELP_BODY" id="uchome-ttHtmlEditor" style="height:100%;width:100%;display:none;border:0px">$SConfig[HELP_BODY]</textarea>
+				<iframe src="editor.php?charset=$_SC[charset]&allowhtml=$allowhtml" name="uchome-ifrHtmlEditor" id="uchome-ifrHtmlEditor" scrolling="no" border="0" frameborder="0" style="width:90%;border: 1px solid #C5C5C5;" height="200"></iframe>
+
+		
+  </tr>
+  <tr>
+    <td>　</td>
+    <td>　</td>
+   <td>	            
+
+		<input type="submit" name="configsubmit" value="确定修改"  onclick="getdate(this);"  class="submit" style="width:100px" />
+						
+						
+			</td>
+  </tr>
+</table>
+</form>
+
+</div>
+
+<div id="sidebar" style="width:250px;">
+<div class="sidebox">
+<h2 class="title">
+<p class="r_option"><a href="#">&nbsp;</a></p>
+说明
+</h2>
+<ul class="post_list line_list">
+<li>
+列表页:每页显示的记录数。
+ 
+		</li>
+		</ul>
+</div>
+</div>
+
+
+<!--{/if}-->
+
+
+
+<!--{if $op=="admin_edit"||$op=="admin_add"}-->
+<script language="javascript" src="image/editor/editor_function.js"></script>
+<script src="exchange/calendar/calendar.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function validate(obj) {
+
+			var subject = $('classid');
+	    if (subject) {
+	   
+	        if (subject.value <1) {
+	            alert("请选择分类");
+	            subject.focus();
+	            return false;
+	        }
+	    }
+
+	    var subject = $('subject');
+	    if (subject) {
+	    	var slen = strlen(subject.value);
+	        if (slen < 1 || slen > 80) {
+	            alert("标题长度(1~80字符)不符合要求");
+	            subject.focus();
+	            return false;
+	        }
+	    }
+
+			var subject = $('price');
+
+	    if (subject) {
+	         if (subject.value <1 || chk(subject.value)) {
+	            alert("请输入价格");
+	            subject.focus();
+	            return false;
+	        }
+<!--{if !$isAdmin}-->
+	         if (subject.value <100) {
+	            alert("别卖太便宜吧~至少100积分吧！");
+	            subject.focus();
+	            return false;
+	        }
+<!--{/if}-->
+	    }
+
+			var subject = $('num');
+	    if (subject && $('autokey').value<0) {	   
+		 
+	         if (subject.value <1 || chk(subject.value)) {	         
+				alert("请输入库存数量");
+	            subject.focus();
+	            return false;
+	        }
+	    }
+
+						var subject = $('buynum');
+	    if (subject) {
+	   
+	         if (chk(subject.value)) {
+	            alert("请输入允许兑换的最大数");
+	            subject.focus();
+	            return false;
+	        }
+	    }
+
+<!--{if !$isAdmin}-->
+						var subject = $('autokey');
+	    if (subject) {
+	         if (!subject.checked) {
+	            alert("商家赞助的礼品必须为自动发货品！\n也就是卡号，密码或商城优惠券等！");
+	            subject.focus();
+	            return false;
+	        }
+	    }
+<!--{/if}-->
+
+	    	uploadEdit(obj);
+	    	return true;
+	
+	}
+
+
+		function chk(intX)
+		{		
+			if(/^[0-9]\d*$/.test(intX))
+			{
+				return false;
+			}else{
+			 return true;
+			}
+		}
+
+	function edit_album_show(id) {
+		var obj = $('uchome-edit-'+id);
+		if(id == 'album') {
+			$('uchome-edit-pic').style.display = 'none';
+		}
+		if(id == 'pic') {
+			$('uchome-edit-album').style.display = 'none';
+		}
+		if(obj.style.display == '') {
+			obj.style.display = 'none';
+		} else {
+			obj.style.display = '';
+		}
+	}
+
+</script>
+<!--{if $op=="admin_edit"}-->
+<form method="post" action="?op=admin_edit&id=$gif[id]">
+<!--{else}-->
+<form method="post" action="?op=admin_add">
+<!--{/if}-->
+
+		<input type="hidden" name="blogsubmit" value="true" />
+		<input type="button" id="blogbutton" name="blogbutton" value="提交发布" onclick="validate(this);" style="display: none;" />
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+   
+    <div class="bdrcontent">
+        			
+
+        <table cellspacing="0" cellpadding="0" class="formtable">
+			<!--{if $op=="admin_edit"}-->
+			<input type="hidden" name="uid" value="$gif[uid]" />
+			<!--{else}-->
+			<input type="hidden" name="uid" value="$_SGLOBAL['supe_uid']" />
+			<!--{/if}-->
+            <tr><th width="80">品名：</th>
+						       <td>
+
+			<select name="classid" id="classid" onchange="addSort(this)">
+						<option value="0">选择分类</option>
+	<!--{loop $eclassarr $v}-->
+						<!--{if $v['classid'] == $gif['type']}-->
+						<option value="$v[classid]" selected>$v[classname] </option>
+						<!--{else}-->
+						<option value="$v[classid]">$v[classname] </option>
+						<!--{/if}-->
+<!--{/loop}-->
+						<!--{if $isAdmin}--><option value="addoption" style="color:red;">+新建分类</option><!--{/if}-->
+					</select>
+
+			<input type="text" name="subject" value="$gif[title]" class="t_input" style="width:400px"/></td>
+						</tr>
+						<tr><th>&nbsp;&nbsp;</th><td>
+            
+            <span class='red'><b>*</b></span>价格(积分)：<input type="text" name="price" value="$gif[price]" class="t_input" style="width:40px" />&nbsp;&nbsp;
+           <span class='red'><b>*</b></span> 库存：<input type="text" name="num" value="$gif[num]" class="t_input" style="width:40px" />&nbsp;&nbsp;
+<!--{if $isAdmin}-->
+					 已销：<input type="text" name="sale" value="$gif[sale]" class="t_input" style="width:40px" />&nbsp;&nbsp;
+					 显示顺序：<input type="text" name="rank" value="$gif[rank]" class="t_input" style="width:40px" />
+<!--{else}-->
+<input type="hidden" name="sale" value="$gif[sale]" />
+<input type="hidden" name="rank" value="$gif[rank]" />
+<!--{/if}-->
+					 </td>
+					 </tr>
+					 	 <tr><th>限量兑换：</th>
+						<td >
+						<input  type="text" name="buynum" id="buynum" value="$gif[buynum]" class="t_input" style="width:40px" />&nbsp;&nbsp;  (每位会员允许兑换此奖品的最大数量,输入0 为不限量。)
+						</td>
+            </tr>
+					 	 <tr><th>限次兑换：</th>
+						<td >
+						<input  type="text" name="robnumber" id="robnumber" value="$gif[robnumber]" class="t_input" style="width:40px" />&nbsp;&nbsp;  (每天允许兑换此奖品的最大数量,输入0 为不限量。)
+						</td>
+            </tr>
+						<tr><th>注册时间：</th>
+						<td >
+						<input  type="text" name="needregtime" id="needregtime" value="$gif[needregtime]" class="t_input" style="width:80px" />&nbsp;&nbsp;  (会员注册时间超过此方可兑换，0为不限定时间。单位为秒 3600秒=1小时；86400秒=1天)
+						</td>
+            </tr>
+
+
+					 	 <tr><th>派发期限：</th>
+						<td >
+						<input onclick="showcalendar(event, this, true)" type="text" name="begin" id="begin" size="25" value="$gif[begin]" tabindex="5" /> ~ <input onclick="showcalendar(event, this, true)" type="text" name="expiration" id="expiration"  size="25" value="$gif[expiration]" tabindex="5" />
+						</td>
+            </tr>
+
+						 <tr><th>网站链接：</th>
+						<td ><input type="text" name="url"  <!--{if $op=="admin_add"}-->value="http://"<!--{else}-->value="$gif[url]"<!--{/if}--> class="t_input" style="width:90%" /> </td>
+            </tr>
+            <tr><th>自动发货：</th>
+						<td ><label><input type="checkbox" name="autokey" id="autokey" value="1" <!--{if $gif[autokey]==1}--> checked="checked" <!--{/if}--> /> 是否自动发放 &nbsp;  </label> (<span class='green'>说明：勾选此项适用于游戏卡号或者帐号的自动发放，内容会以短消息形式通知</span>)	</td>
+            </tr>
+
+            <tr><th>卡号列表：<br>　　↓
+			<br><a href="http://shop.shenei.net/index.php?app=coupon" target="_blank">发放我的<br>商城优惠券</a><!--<br><br>优惠券？<br>如何开店？--></th>
+						<td>
+						<!--{if ($op=='admin_add')}-->
+						<input type="button" class="button" value="&nbsp;+&nbsp;" onclick="zoomtextarea('keys', 1)" /> <input type="button" class="button" value="&nbsp;-&nbsp;" onclick="zoomtextarea('keys', 0)" /> <input type="button" class="button" value="查看统计" onclick='document.getElementById("mycc").innerHTML=(keys.value.split("\n").length).toString();' />&nbsp; <!--{/if}--> [共有<b><span id="mycc" class="red">$count</span></b>项] &nbsp;		&nbsp;<span class='blue'><b>注意：</b></span>
+						
+						<!--{if ($op=='admin_edit')}-->
+						要编辑或者添加卡号列表，<a href="?op=admin_keys&id=$gif[id]"><span class='red'><b>请点这里</b></span></a>
+					<!--{else}-->		
+	        (每一行一个帐号信息,如果有帐号和密码在同一行, 请使用:(冒号)分割, 冒号左边是帐号,右边是密码.)
+					<!--{/if}-->
+	         <br>
+	<textarea class="userData" name="keys" id="keys" style="width:90%;border: 1px solid #C5C5C5;"  rows="10"  cols="100">$keylist</textarea>
+	</td>
+						      
+            </tr>
+
+<!--{if $isAdmin}-->
+            <tr><th width="60">状态：</th>
+						<td>
+						
+						<!--{if ($op=='admin_edit')}-->
+						<label><input type="checkbox" name="ac" value="1" <!--{if $gif[ac]==1}--> checked="checked" <!--{/if}--> /> 允许兑换 &nbsp;&nbsp;</label>
+						<!--{else}-->
+						<label><input type="checkbox" name="ac" value="1"  checked="checked"  /> 允许兑换 &nbsp;&nbsp;</label>				
+						<!--{/if}-->
+						</td>
+						</tr>
+<!--{else}-->
+<input type="hidden" name="ac" value="0" />
+<!--{/if}-->
+            <tr><th>图片：</th>
+						<td class="image"><!--{if $gif[pic]}--><a href="$gif[pic]" target="_blank"><img src="$gif[pic]" alt="$gif[title]" /></a><!--{else}-->将在下面描述中选用第一张插图作为礼品图片！<!--{/if}-->	</td>
+						      
+            </tr>
+            <tr><th valign="top">描述：</th><td>
+						
+										<textarea class="userData" name="message" id="uchome-ttHtmlEditor" style="height:100%;width:100%;display:none;border:0px">$gif[body]</textarea>
+				<iframe src="editor.php?charset=$_SC[charset]&allowhtml=$allowhtml" name="uchome-ifrHtmlEditor" id="uchome-ifrHtmlEditor" scrolling="no" border="0" frameborder="0" style="width:90%;border: 1px solid #C5C5C5;" height="200"></iframe>
+						
+						</td></tr>
+        </table>
+				
+</form>
+
+<script type="text/javascript">
+function zoomtextarea(objname, zoom) {
+	zoomsize = zoom ? 10 : -10;
+	obj = $(objname);
+	if(obj.rows + zoomsize > 0 && obj.cols + zoomsize * 3 > 0) {
+		obj.rows += zoomsize;		
+	}
+}
+</script>
+
+	<table cellspacing="4" cellpadding="4" width="100%" class="infotable">
+		<tr><th width="58">图片</th><td>
+		<input type="button" name="clickbutton[]" value="上传图片" class="button" onclick="edit_album_show('pic')">
+		<input type="button" name="clickbutton[]" value="插入图片" class="button" onclick="edit_album_show('album')">
+		</td></tr>
+	</table>
+
+	<table cellspacing="4" cellpadding="4" width="100%" id="uchome-edit-pic" class="infotable" style="display:none;">
+		<tr>
+			<th width="60">　</th>
+			<td>
+				<strong>选择图片</strong>: 
+				<table summary="Upload" cellspacing="2" cellpadding="0">
+					<tbody id="attachbodyhidden" style="display:none">
+						<tr>
+							<td>
+								<form method="post" id="upload" action="cp.php?ac=upload" enctype="multipart/form-data" target="uploadframe" style="background: transparent;">
+									<input type="file" name="attach" style="border: 1px solid #CCC;" />
+									<span id="localfile"></span>
+									<input type="hidden" name="uploadsubmit" id="uploadsubmit" value="true" />
+									<input type="hidden" name="albumid" id="albumid" value="0" />
+									<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+								</form>
+							</td>
+						</tr>
+					</tbody>
+					<tbody id="attachbody"></tbody>
+				</table>
+				<strong>存储相册</strong>: 
+				<table cellspacing="2" cellpadding="0">
+					<tr>
+						<td>
+							<select name="albumid" id="uploadalbum" onchange="addSort(this)">
+								<option value="0">请选择相册</option>
+								<!--{loop $albums $value}-->
+								<option value="$value[albumid]">$value[albumname]</option>
+								<!--{/loop}-->
+								<option value="addoption" style="color:red;">+新建相册</option>
+							</select>
+							<script src="source/script_upload.js" type="text/javascript"></script>
+							<iframe id="uploadframe" name="uploadframe" width="0" height="0" marginwidth="0" frameborder="0" src="about:blank"></iframe>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table cellspacing="4" cellpadding="4" width="100%" class="infotable" id="uchome-edit-album" style="display:none;">
+		<tr>
+			<th width="60">　</th>
+			<td>
+				选择相册: <select name="view_albumid" onchange="picView(this.value)">
+					<option value="none">选择一个相册</option>
+					<option value="0">默认相册</option>
+					<!--{loop $albums $value}-->
+					<option value="$value[albumid]">$value[albumname]</option>
+					<!--{/loop}-->
+				</select> (点击图片可以插入到内容中)
+				<div id="albumpic_body"></div>
+			</td>
+		</tr>
+	</table>
+	<table cellspacing="4" cellpadding="4" width="100%" class="infotable">
+		<tr>
+			<th width="60">　</th>
+			<td><input type="button" id="issuance" onclick="document.getElementById('blogbutton').click();" value="保存发布" class="submit" /></td>
+		</tr>
+	</table>
+  </div>
+<!--{/if}-->
+
+
+<!--{/if}-->
+
+<!--{if $_SGLOBAL['supe_uid']}-->
+<div class="f_status f_status_w s_clear"></div>
+<div class="sidebox">
+<h3 class="title">
+<a href="#" class="r_option">显示 <!--{eval echo count($listuid);}--> 名会员</a>
+与我相伴
+</h3>
+<ul class="avatar_list">
+<!--{loop $listuid $value}-->
+<li>
+<div class="avatar48"><a href="space.php?uid=$value"><!--{avatar($value,small)}--></a></div>
+<p class="online_icon_p"><a href="space.php?uid=$value" title="{$_SGLOBAL['exchange'][$value][username]}">{$_SGLOBAL['exchange'][$value][username]}</a></p>
+</li>
+<!--{/loop}-->
+</ul>
+</div>
+<!--{/if}-->
+<!--{template footer}-->

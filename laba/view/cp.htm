@@ -1,0 +1,62 @@
+<!--{template header}-->
+
+<div class="tabs_header">
+<ul class="tabs">
+<li class=active><a href="laba.php"><span>快速发布小喇叭</span></a></li><li><a href="space.php?do=home"><span>返回我的主页</span></a></li>
+</ul>
+</div>
+<div class="c_form">
+
+	<style type="text/css">
+		.userData {behavior:url(#default#userdata);}
+	</style>
+
+
+	<form action="laba.php?do=cp" method="post" onsubmit="return(chksub())">
+		<table cellspacing="4" cellpadding="4" width="100%" class="infotable">
+			<Tr>
+            	<th>发布动作：</th>
+                <td><select name="act" id="act">
+                      <option value="">请选择动作</option>
+                      <!--{loop $gacts $key $value}-->
+                      <option value="$key">$value</option>
+                      <!--{/loop}-->
+                      </select></td>
+                </tr>
+                <Tr>
+                <th>显示时间：</th>
+                <td><select name="dealy" id="dealy">
+                      <!--{loop $gtimes $value}-->
+                      <option value="$value">{$value}秒</option>
+                      <!--{/loop}-->
+                      </select> <span class="gray">显示越久，每秒将扣取您{$gcost}个积分</span></td>
+                </tr>
+                <Tr>
+                <th>内容( 限 100 字)：</th>
+                <td><textarea name="content" type="text" id="contents" style="font-weight:bold;width:350px;height:65px;border:1px solid #EDEDED;float:left;overflow:hidden;" class="userData" onclick="this.value=''"  onkeyup="textCounter(this, 'maxlimit', 100)"></textarea>
+                </td>
+                </Tr>
+              	<tr><td colspan="2" align="center">
+                <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+                <input type="hidden" name="labasubmit" value="true" />
+                <input type="submit" value="提交" class="submit" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script>
+function chksub(){
+	if($('contents').value==''){
+		alert('请输入您要发布的内容');
+		$('contents').focus();
+		return false;
+	}
+	if($('act').value==''){
+		alert('请选择发布动作');
+		$('act').focus();
+		return false;
+	}
+	return true;
+}
+</script>
+<!--{template footer}-->

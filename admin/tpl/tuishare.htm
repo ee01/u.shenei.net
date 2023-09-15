@@ -1,0 +1,121 @@
+<!--{eval 
+	$_TPL['type'] = array('0'=>'收藏', '1'=>'分享');
+}-->
+<!--{template admin/tpl/header}-->
+
+<div class="mainarea">
+<div class="maininner">
+
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[view]><a href="admincp.php?ac=tuishare"><span>推广管理</span></a></li>
+		<li class="null"><a href="admincp.php?ac=tuishare&op=add">添加推广</a></li>
+	</ul>
+</div>
+
+		
+<!--{if empty($_GET['op'])}-->
+
+	<form method="post" action="admincp.php?ac=tuishare">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	<div class="bdrcontent">
+		
+		<div class="title">
+			<h3>推广列表</h3>
+
+		</div>
+		
+		<table cellspacing="0" cellpadding="0" class="formtable">
+		<tr>
+			<th>名称</th>
+			<th width="10%">图标</th>
+			<th width="50%">接口</th>
+			<th width="5%">类别</th>
+			<th width="8%">排序</th>
+			<th width="8%">编辑</th>
+		</tr>
+		<!--{loop $listvalue $key $value}-->
+		<tr>
+			<td><input type="checkbox" name="adids[]" value="$value[tuid]"> $value[name]</td>
+            <td><img src="$value[icon]" width="20" height="20" border=0></td>
+			<td>$value[appurl]</td>
+			<td>$_TPL[type][$value[type]]</td>
+			<td>$value[sorder]</td>
+			<td><a href="admincp.php?ac=tuishare&op=edit&id=$value[tuid]">编辑</a></td>
+		</tr>
+		<!--{/loop}-->
+		</table>
+
+
+	</div>
+	
+	<div class="footactions">
+		<input type="checkbox" name="chkall" onclick="checkAll(this.form, 'adid')">全选
+		<input type="submit" name="delsubmit" value="批量删除" class="submit">
+	</div>
+	
+	</form>
+
+<!--{elseif $_GET['op'] == 'add' || $_GET['op'] == 'edit'}-->
+
+	<form method="post" action="admincp.php?ac=tuishare">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	
+	<div class="bdrcontent">
+		
+		<table cellspacing="0" cellpadding="0" class="formtable">
+
+		<tr><th style="width:12em;">推广名称</th>
+		<td><input name="name" value="$tuishare[name]" class="t_input" size="60"></td>
+		</tr>
+		
+		<tr><th>图标</th>
+		<td>
+        <!--{if $tuishare[icon]}-->
+        <input type="text" name="icon"  value="$tuishare[icon]" class="t_input" size="60"> 
+		<!--{else}-->
+        <input type="text" name="icon"  value="image/tui/" class="t_input" size="60"> 
+        <!--{/if}-->
+		</td>
+        </tr>	
+		<tr><th>接口链接</th>
+		<td>
+        <input type="text" name="appurl"  value="$tuishare[appurl]" class="t_input" size="80"> 
+		</td>
+        </tr>   
+           	
+		<tr>
+		<th>类型</th>
+		<td>
+		<input type="radio" name="type" value="1" $type[1]>分享
+		<input type="radio" name="type" value="0" $type[0]>收藏
+		</td></tr>
+
+		<tr><th>排序</th>
+		<td>
+        <input type="text" name="sorder"  value="$tuishare[sorder]" class="t_input" size="10"> 
+		</td>
+        </tr>  
+	
+		
+		</table>
+	</div>
+	
+	<div class="footactions">
+		<input type="hidden" name="id"  value="$tuishare[tuid]">
+		<input type="submit" name="tuisubmit" value="提交" class="submit">
+	</div>
+
+	</form>
+	
+
+	</div>
+<!--{/if}-->
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

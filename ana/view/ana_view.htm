@@ -1,0 +1,212 @@
+<!--{eval $_TPL['titles'] = array($ana['title'], '经典语录');}-->
+<!--{template header}-->
+<!--{template ana/view/ana_header}-->
+<script type="text/javascript">
+var arrids = [$str_ids];
+var total_score = {$ana[score]} ;
+	function closeSide() {
+		if ($('div_main').className == 'side_right') {
+			$('div_main').className = 'side_right side_right_close';
+			$('a_showSide').innerHTML = '&laquo; 打开侧边栏';
+			$('a_showSide').className = 'openside';
+		} else {
+			$('div_main').className = 'side_right';
+			$('a_showSide').innerHTML = '&raquo; 关闭侧边栏';
+			$('a_showSide').className = '';
+		}
+		$('a_showSide').blur();
+	}
+	function show_trace(id) {
+		ajaxget('do.php?ac=ajax&op=trace&blogid='+$id, 'trace_ul');
+		return false;
+	}
+	function show_trace_all() {
+		ajaxget('do.php?ac=ajax&op=traceall&blogid='+$id+'&ajaxdiv=trace_div', 'trace_div');
+		return false;
+	}
+	function reply_reload(cid, result) {
+		$("comment_message").value = "";
+		window.location.reload();
+	}
+	
+	function sum_score() {
+		var has_score = 0;
+		for( id in arrids ) {
+			has_score += parseInt( $("text_score_" + arrids[id]).value );
+		}
+		return has_score;
+	}
+	
+	function show_self(id) {
+		$("alt_msg_" + id ).innerHTML = "不能给自己加分";
+		$("alt_msg_" + id ).style.display = 'block';
+	}
+	function hide_it(id) {
+		$("alt_msg_" + id ).style.display = 'none';
+	}
+	function show_score(id) {
+		var has_score = sum_score();
+		var leave_score = {$ana[score]} - has_score;
+		var color = leave_score < 0 ? 'red' : 'blue';
+		$("alt_msg_" + id ).innerHTML = "悬赏积分： {$ana[score]} <br />已经给分： " + has_score + "<br />还剩: <font color="+color+">" + leave_score + "</font>";
+		$("alt_msg_" + id ).style.display = 'block';
+	}
+	function checkForm() {
+		var has_score = sum_score();
+		var leave_score = {$ana[score]} - has_score;
+		if( leave_score > 0 ) {
+			alert("您的悬赏分未分配完, 请重新分配");
+			return false;
+		} else if( leave_score < 0 ) {
+			alert("您给出的分值之和比您的悬赏分还多，请重新分配");
+			return false;			
+		}
+		if( !confirm("确定结束吗？结束后不能再次修改 ") ) {
+			return false;
+		}
+		return true;		
+	}
+</script>
+<div class=div_layout>
+
+<div class="h_status">
+
+</div>
+
+	<div class=left>
+			<div>
+				<div overflow="hidden" height="407" width="560">
+<div class="side_right">
+	<div class="wide">
+		<div class="post_list a_list">
+<table width="570" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="31"><div align="center"><strong>$ana[title]</strong></div></td>
+  </tr>
+  <tr>
+    <td height="1" background="ana/css/bg_line.gif"></td>
+  </tr>
+  <tr>
+    <td height="23"><div align="center">作者：<a href="space.php?uid=$ana['uid']">$ana[username]</a>
+			 <span class="pipe">|</span>
+			状态：<font color="#FF0000"><strong> $gEumsStatus[$ana[status]] </strong></font>
+			<span class="pipe">|</span>
+			$ana[view_count] 次阅读<span class="pipe">|</span>
+			分类：<a href="ana.php?do=ana&type=$ana['typeid']">{$gEumsType[$ana[typeid]]}</a></div></td>
+  </tr>
+  <tr>
+    <td><br>$ana[content]<br></td>
+  </tr>
+    <tr>
+    <td height="1" background="ana/css/bg_line.gif"></td>
+  </tr>
+    <tr>
+    <td><div align="right">	
+				  发布时间：<!--{date('Y-m-d H:i',$value[dateline])}--> &nbsp; &nbsp;<!--{if $_SGLOBAL[supe_uid] == $ana['uid']}-->
+				<a href="ana.php?do=ana&ac=post&id=$id&op=edit">编辑语录</a><span class="pipe">|</span>
+				<a href="ana.php?do=ana&ac=cp&id=$id&op=delete" id="blog_delete_$blog[blogid]" onclick="ajaxmenu(event, this.id, 99999)">删除</a>
+				<!--{elseif $_SGLOBAL[supe_uid] == ADMIN_ID }-->
+				<a href="ana.php?do=ana&ac=cp&id=$id&op=delete" id="blog_delete_$blog[blogid]" onclick="ajaxmenu(event, this.id, 99999)">删除</a>
+				<!--{/if}-->	</div> </td>
+  </tr>
+</table>
+		
+		</div>
+	</div>	
+</div>
+</div>			
+			</div>
+<div><br>
+				<div class=ana>
+	
+<form action="ana.php?do=ana&ac=cp&op=finish" onsubmit="return checkForm()" method="post">
+<!--{loop $reply $value}-->
+<div style="color:#999999; padding:4px; margin:0px; text-align:left; border:1px dotted #ccc">
+<table width="560" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100"><div align="center">
+    <div class="avatar48" align="left"><a href="space.php?uid=$value[uid]"><img src="<!--{avatar($value[uid],small)}-->" alt="$value[username]" class="avatar" /></a></div><a href="space.php?uid=$value[uid]" id="author_$value[id]">$value[username]</a><br> <span class="time"><!--{date('Y-m-d H:i',$value[dateline],1)}--></span>
+	<br>
+	<!--{if $value[uid]==$_SGLOBAL[supe_uid]  && false }-->
+			<a href="ana.php" id="c_$value[id]_edit" onclick="ajaxmenu(event, this.id, 99999, '', -1)">编辑</a>
+			<!--{/if}-->
+		</td>
+    <td <!--{if $value[score] > 0 }-->width="400"<!--{/if}--> valign="top"><br>$value[content]
+		</td>
+		<!--{if $value[score] > 0 }-->
+		    <td width="60" valign="top"><table width="60" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div align="center"><img src="ana/css/win.gif" width="50" height="43" /></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><font color="#006600"><strong>获分:$value[score]</strong></font></div></td>
+  </tr>
+</table>
+
+		</td>
+		<!--{/if}-->
+  </tr>
+</table>
+	</div>	<br>
+<!--{/loop}-->
+	<!--{if count($reply) > 0 }-->
+		
+		<!--{if  $ana[status] == 1 && $ana[uid]==$_SGLOBAL[supe_uid] }-->
+		<input type="submit" id="submit_btn" name="submit_btn" class="submit" value="结束" />
+		<!--{elseif $ana[status] == 2 }--> 
+		<span ></span>
+		<!--{/if}-->
+		
+	<!--{/if}-->	
+		<input type="hidden" name="ana_id" id="ana_id" value="$ana[id]"  />
+		<input type="hidden" name="theurl" value="$theurl"  />
+	</form>
+<br>
+		<form id="commentform" name="commentform" action="ana.php?do=ana&ac=cp&op=reply" method="post" class="quickpost">
+			
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td><textarea id="comment_message" name="content" rows="5" onkeydown="ctrlEnter(event, 'reply_submit_btn');"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="refer" value="$theurl" />
+						<input type="hidden" name="ana_id" value="$ana_id">
+						<input type="hidden" name="ana_title" value="$ana[title]"  />
+						<input type="hidden" name="ana_uid" value="$ana[uid]"  />
+						<input type="button" id="reply_submit_btn" name="reply_submit_btn" class="submit" value="回复" onclick="ajaxpost('commentform', 'comment_status', 'reply_reload')" />
+						<span id="comment_status"></span>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+
+
+				</div>
+
+			</div>
+
+	</div>
+
+<div id="wajinbar">
+
+<div class="sidebox">
+		<h2 class="title">
+			<p class="r_option">
+				
+			</p>
+			相关广告
+		</h2>
+		<ul class="wajin_list">
+Powered by <a href="http://www.jiekii.com/home/" target="_blank">Jiekii.com</a>
+<br>
+<a href="tencent://message/?uin=357754800">QQ：357754800</a>
+		</ul>
+  </div>
+
+	
+	
+  </div>
+	</div>	
+<!--{template footer}-->

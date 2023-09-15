@@ -1,0 +1,58 @@
+.divline{clear:both;overflow:hidden;height:10px;width:100%}
+.divline2{clear:both;overflow:hidden;height:0px;width:100%}
+.kongjianquan{width: 960px;height: auto;margin-right: auto;margin-left: auto;}
+.kongjianquan .c_mgs{background:#272727;margin:0 0 20px;padding:5px 10px 10px; color:#CCCCCC}
+.kongjianquan .c_mgs .gray{ background:#272727;}
+.kongjianquan .c_mgs .ye_l_b{padding:5px 10px 10px;}
+.kongjianquan .l_status { margin: 5px 0; padding-bottom: 5px; border-bottom: 1px solid #535353; }
+.kongjianquan .t_input { border: 1px solid #EBE6CA; }
+
+.kongjianquan caption, th { text-align: left; }
+.kongjianquan caption { font-size: 14px; font-weight: bold; }
+.kongjianquan caption p { font-weight: normal; }
+
+.kongjianquan .brbcontent {border: #272727 1px solid;padding-left: 5px;padding-top: 5px;height: auto;padding-right: 5px;background: #272727;}
+.kongjianquan2{width: 960px;height: 126px;background:#080808 url(image/huiyuan_top.gif) no-repeat 0px 0px; }
+.huiyuanneirong{height: auto;width: 960px; float:left; padding-bottom:10px;background: #080808 url(image/huiyuan_top2.gif) no-repeat 0px 0px; }
+.huiyuan{height: auto;width: 810px;margin-left: auto;margin-right: auto}
+.huiyuan .daohang{ float:right;height: auto;width:120px;overflow: hidden;}
+.huiyuan .zuo{float:left;height: auto;width:690px;}
+
+
+.huiyuan .formtable caption h2 { padding: 5px; border-bottom: 1px solid #787878; color: #FFF; font-size: 14px;background-color:#272727}
+.huiyuan .formtable caption p { margin-top: 8px; }
+.huiyuan .formtable td{ padding: 5px; background-color:#272727;}
+.huiyuan .formtable th { padding: 5px; background-color:#272727;}
+
+.huiyuan .daohang a{color:#484848;text-decoration: none;}	
+.huiyuan .daohang a:hover{color:#B3B3B3;text-decoration: none;}
+
+.huiyuan .daohang .active {background: url(image/daohang1.gif) no-repeat;font-weight: bold; margin-left:5px}
+.huiyuan .daohang .active a{ color:#B3B3B3;}
+.huiyuan .daohang h4{line-height:25px;height:25px;margin:0px;padding:0px;border:0px;color:#484848;padding-left:35px;background: url(image/daohang2.gif) no-repeat 0px 0px;margin-top:5px;font-weight: normal;}	
+
+.huiyuan .touxiang UL {list-style-type: none;}
+.huiyuan .touxiang LI {display: block; position: relative; FLOAT: left; margin-bottom: 1px; width: 110px; margin-right: 1px; list-style-type: none; height: 115px;text-ALIGN: center; margin-left:3px}
+
+.huiyuan .touxiang .yidong{background: url(image/crazy-tips.gif) no-repeat left top; display: block;width:162px;height:70px;padding:2px;text-align:left; position: absolute;cursor: pointer; top:-60px;left:-29px; padding-left:10px; padding-top:16px; +left:-28px; z-index:7;line-height: 20px; }
+.huiyuan .touxiang .yidong img{width: auto;height: auto;margin:0 0 0 -5px;padding:0px;display: inline;}
+.huiyuan .touxiang LI A {display: block; background-color:#590706; width: 110px; color: #FFF; height: 115px;text-decoration: none;margin-top:10px; margin-bottom:0px;overflow: hidden;}
+.huiyuan .touxiang LI A:visited{background-color:#815E5D; color: #fff;text-decoration: none;}
+.huiyuan .touxiang LI A:hover {background-color:#EEB800;margin-top:0px; margin-bottom:10px; color: #000;text-decoration: none;}
+.huiyuan .touxiang LI IMG {margin: 0px 30px 8px;display: block; height:48px; width:48px; padding-top:15px}
+
+.huiyuan .touxiang LI P {width:100px;margin-top: 3px;text-ALIGN: center;display: block;}
+.huiyuan .touxiang LI P .gray {font-weight: normal; background: none; text-ALIGN: left}
+.huiyuan .touxiang LI SPAN {font-size: 9px; }
+.touxiang LI {display: block; FLOAT: left; margin-bottom: 1px; width: 110px; margin-right: 1px; list-style-type: none; height: 115px;margin-top:5px; margin-bottom:15px;text-ALIGN: center; margin-left:3px}
+
+.touxiang LI A {display: block; background-color:#333; width: 110px; color: #FFF; height: 115px;text-decoration: none;overflow: hidden;}
+.touxiang LI A:visited{background-color:#CBCBCB; color: #333;text-decoration: none;}
+.touxiang LI A:hover {background-color:#EEB800; color: #000;text-decoration: none;}
+.touxiang LI IMG {margin: 0px 30px 8px;display: block; height:48px; width:48px; padding-top:15px}
+.touxiang LI P {width:100px;margin-top: 3px;text-ALIGN: center;display: block;}
+.touxiang LI P .gray {font-weight: normal; background: none; text-ALIGN: left}
+.touxiang LI SPAN {font-size: 9px; }
+
+.phobo {background: url(image/phobottom.gif) no-repeat top;	height:6px;}
+

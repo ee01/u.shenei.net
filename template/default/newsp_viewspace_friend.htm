@@ -1,0 +1,52 @@
+<!--{template viewspace_header}-->
+<div class="frame_1">
+<!--{template viewspace_profile}-->
+</div>
+<div class="frame_3">
+<div id="about" class="block">
+<div class="blocktitle">
+<!--{if $space[self]}--><em><a href="space.php?do=friend">管理好友</a></em><!--{/if}-->
+<h2>我的好友</h2>
+</div>
+<div class="blockcontent">
+<!--{if $list}-->
+	<div class="pagefriend">
+		<ul>
+		<!--{loop $list $key $value}-->
+			<li>
+			<a href="viewspace.php?uid=$value[uid]" class="avatar" target="_blank"><!--{avatar($value[uid],small)}--></a>
+            <p><a href="viewspace.php?uid=$value[uid]" class="friend_title">{$_SN[$value[uid]]}</a></p>
+            <p><!--{if $value[note]}-->$value[note]<!--{/if}--></p>
+				
+				
+				<!--{if $_GET['view']=='visitor' || $_GET['view'] == 'trace'}-->
+					<p><!--{date('n月j号',$value[dateline],1)}--></p>
+				<!--{elseif $_GET['view']=='online'}-->
+					<p><!--{date('H:i',$ols[$value[uid]],1)}--></p>
+				<!--{else}-->
+					<!--{if $ols[$value[uid]]}--><p><!--{date('H:i',$ols[$value[uid]],1)}--></p><!--{/if}-->
+					<p>
+					<!--{if $value['num']}-->热度($value[num])<span class="pipe">|</span><!--{/if}-->
+					<!--{if !$value['isfriend']}-->
+					<a href="cp.php?ac=friend&op=add&uid=$value[uid]" id="a_friend_$key" onclick="ajaxmenu(event, this.id, 99999, '', -1)">加为好友</a>
+					<!--{else}-->
+
+					<!--{/if}-->
+					</p>
+				<!--{/if}-->
+			</li>
+		<!--{/loop}-->
+		</ul>
+	</div>
+	<div class="pages">$multi</div>
+
+	<!--{else}-->
+	<div class="nomessage" >还没有相关的好友。</div>
+	<!--{/if}-->
+
+</div>
+</div>
+</div>
+
+
+<!--{template viewspace_footer}-->

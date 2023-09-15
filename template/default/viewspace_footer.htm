@@ -1,0 +1,172 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+
+<!--{if intval($_GET['styleidlian'])}-->
+<script>
+switchstyle({$_GET['styleidlian']}, 'sharestyle');
+</script>
+<!--{/if}-->
+
+<!--{if intval($_GET['styleiduser'])}-->
+<script>
+switchstyle({$_GET['styleiduser']}, 'userstyle');
+</script>
+<!--{/if}-->
+<div id="footer">
+<div class="copyright">
+<div class="f_status">
+<a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
+<a title="订阅 RSS" id="a_rss" href="rss.php?uid=$uid">订阅</a>
+<a href="cp.php?ac=common&op=report&idtype=uid&id=$space[uid]" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
+</div>
+<p>{$_SN[$space[uid]]}的个人博客由〖舍内网〗提供，版权所有 <a href="http://FS.shenei.net" target="_blank">【疯·神】工作室</a>(2009-2010)<!--{if checkperm('managespace')}--><a href="admincp.php?ac=space&op=manage&uid=$space[uid]" id="a_manage">管理用户</a><!--{/if}--></p>
+</div>
+</div>
+
+<ul id="setstyle_a_menu" class="stylemenu" style="display:none">
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="viewspace.php?op=diy">高级自定义</a></li></ul>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+<div class="toolbarbox1">
+<a class="logo" href="space.php?do=home">
+舍内
+</a>
+<div class="toolbaruser">
+<ul>
+<!--{if $_SGLOBAL[supe_uid]}-->
+<li class="txt">欢迎您：{$_SN[$_SGLOBAL[supe_uid]]} &nbsp;&nbsp;<a href="cp.php?ac=common&op=logout&uhash=$_SGLOBAL[uhash]">退出</a></li>
+<li><a href="viewspace.php?uid=$_SGLOBAL[supe_uid]">我的博客</a></li>
+<li><a href="cp.php" target="_blank">设置</a></li>
+<li>
+<!--{if $space[magicstar] && $space[magicexpire]>$_SGLOBAL[timestamp]}-->
+<a id="a_magic_superstar" href="cp.php?ac=magic&op=cancelsuperstar" onclick="ajaxmenu(event, this.id)">取消动画</a>
+<!--{else}-->
+<a id="a_magic_superstar" href="magic.php?mid=superstar" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
+<!--{/if}-->
+</li>
+<li><a href="space.php?do=pm<!--{if !empty($_SGLOBAL['member']['newpm'])}-->&filter=newpm<!--{/if}-->">消息<!--{if !empty($_SGLOBAL['member']['newpm'])}-->(新)<!--{/if}--></a></li>
+<!--{else}-->
+<form id="loginform" name="loginform" action="do.php?ac=$_SCONFIG[login_action]&$url_plus&ref" method="post">
+<li>用户名:
+<input type="text" name="username" id="username" class="t_input" value="$membername" size="10" style="height: 14px;width: 80px;" /></li>
+<li>密码:
+<input type="password" name="password" id="password" value="$password" class="t_input" size="10" style="height: 14px;width: 80px;" /></li>
+<input type="hidden" name="refer" value="space.php?do=home" />
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+<li>
+<input type="submit" id="loginsubmit" name="loginsubmit" value="登录" class="submit" style="padding: 0; width: 50px;" />
+<a href="do.php?ac=$_SCONFIG[register_action]" onmouseover="setintro('register');">注册</a>
+</li>
+</form>
+<!--{/if}-->
+
+</ul>
+</div>
+<div class="toolbarlink">
+<ul>
+<li class="home"><a href="space.php?do=home">网站首页</a></li>
+<li><a href="network.php">闲逛</a></li>
+<li><a href="randomuser.php">乱窜</a></li>
+</ul>
+</div>
+<div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
+<div id="annbody">
+<ul id="annbodylis">
+
+			<!--{block/sql/SELECT%20%2A%20FROM%20sn_doing%20ORDER%20BY%20dateline%20DESC%20LIMIT%200%2C10/cachename/doing/cachetime/100}-->
+<!--{loop $_SBLOCK[doing] $value}-->
+<li>
+<a href="space.php?uid=$value[uid]&do=doing" target="_blank">$value[username] </a>说：&nbsp;&nbsp;$value[message]&nbsp;&nbsp;<a href="space.php?uid=$value[uid]&do=doing&doid=$value[doid]&goto=yes" class="re">回复</a>
+</li>
+<!--{/loop}-->
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+var anndelay = 3000;
+var annst = 0;
+var annstop = 0;
+var annrowcount = 0;
+var anncount = 0;
+var annlis = $('annbody').getElementsByTagName("LI");
+var annrows = new Array();
+var annstatus;
+
+function announcementScroll() {
+if(annstop) {
+annst = setTimeout('announcementScroll()', anndelay);
+return;
+}
+if(!annst) {
+var lasttop = -1;
+for(i = 0;i < annlis.length;i++) {
+if(lasttop != annlis[i].offsetTop) {
+if(lasttop == -1) {
+lasttop = 0;
+}
+annrows[annrowcount] = annlis[i].offsetTop - lasttop;
+annrowcount++;
+}
+lasttop = annlis[i].offsetTop;
+}
+
+if(annrows.length == 1) {
+$('ann').onmouseover = $('ann').onmouseout = null;
+} else {
+annrows[annrowcount] = annrows[1];
+$('annbodylis').innerHTML += $('annbodylis').innerHTML;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+annrowcount = 1;
+return;
+}
+
+if(annrowcount >= annrows.length) {
+$('annbody').scrollTop = 0;
+annrowcount = 1;
+annst = setTimeout('announcementScroll()', anndelay);
+} else {
+anncount = 0;
+announcementScrollnext(annrows[annrowcount]);
+}
+}
+
+function announcementScrollnext(time) {
+$('annbody').scrollTop++;
+anncount++;
+if(anncount != time) {
+annst = setTimeout('announcementScrollnext(' + time + ')', 10);
+} else {
+annrowcount++;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+}
+announcementScroll();
+</script>
+
+</div>
+<div class="toolshadow">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+var fastdiy = new transfer('fastdiystyle', 'fastdiy', 'oksubmit', 'fastdiy_header');
+var mystylesdiy = new transfer('mystylelist_sw', 'mystyles', 'cancel', 'mystyles_header');
+var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'sharestyle_header');
+var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
+
+</script>
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
+
+</div>
+
+<!--{if $_SCOOKIE[reward_log]}-->
+<script type="text/javascript">
+showreward();
+</script>
+<!--{/if}-->
+
+</body>
+</html>
+<!--{/if}-->

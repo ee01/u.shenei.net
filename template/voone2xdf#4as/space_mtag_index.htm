@@ -1,0 +1,188 @@
+<!--{eval $_TPL['titles'] = array($mtag['tagname'], $mtag['title'], '首页');}-->
+<!--{eval $_TPL['nosidebar']=1;}-->
+<!--{template q_header}-->
+<DIV class="bodybox"><br>
+<DIV class="bodybox2">
+<DIV class=groupl style="width: 207px">
+<DIV class=groupl_bgt></DIV>
+<DIV class=groupl_bgm>
+<DIV class=grouplogo>
+<img src="$mtag[pic]" alt="$mtag[tagname]" width="180" /></DIV>
+
+<DIV class=groupicon></DIV>
+<DL>
+  <DD><B><a href="space.php?do=mtag&tagid=$mtag[tagid]">$mtag[tagname]</a></B> </DD>
+  <DD><B>分类：</B><a href="space.php?do=mtag&id=$mtag[fieldid]">$mtag[title]</a></DD></DL>
+<DIV class=groupexplain>
+			<p>话题：$mtag[threadnum] , 回帖：$mtag[postnum] , 成员：$mtag[membernum]</p>
+</DIV>
+
+<DIV class=clear></DIV></DIV>
+<DIV class=groupl_bgb></DIV>
+<!--{if $memberlist}-->
+<DIV class=groupm_tit>
+<H4 style="margin-top:-5px"><span style="color:#B1C600">NEMEMBER</span> 普通会员</H4></DIV>
+<DIV class=groupnewmenber>
+<UL>
+<!--{loop $memberlist $value}-->
+  <LI><a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}-->
+  <P><B>{$_SN[$value[uid]]}</B></P></A></LI>
+ 		<!--{/loop}-->
+</UL>
+</DIV>
+<!--{/if}-->
+</DIV>
+<DIV class=groupm>
+<div class="task">
+<div class="topbg"></div>
+<SPAN>公告：<font color="#666666">(本群组独立域名：</font><font color="#666666"><A title=复制地址 onclick="javascript:setCopy('http://{$mtag[tagid]}.q.shenei.net');" href="javascript:;">http://{$mtag[tagid]}.q.shenei.net</A>)</font></SPAN>
+<div class="txt"><!--{if $mtag[announcement]}-->$mtag[announcement]<!--{else}-->还没有公告<!--{/if}--></div>
+<div class="bottombg"></div>
+</div>
+<DIV class=groupm_tit>
+<DIV class=group_more><A 
+href="space.php?do=mtag&tagid=$mtag[tagid]&view=list"><IMG alt="" 
+src="template/voone/image/button_more.gif"></A></DIV>
+<H4><span style="color:#B1C600">NEWTOPIC</span> 圈子新帖</H4></DIV>
+	<!--{if $list}-->
+<DIV id=topicbox>
+
+	<!--{loop $list $key $value}-->
+
+<DIV class=topicbox<!--{if $key%2==1}-->2<!--{/if}-->>
+<DIV class=topichead><A class=font_yellow href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></A></DIV>
+
+<DL>
+	<!--{eval $magicegg = ""}-->							
+				<!--{eval if($value[magicegg]) for($i=0; $i<$value[magicegg]; $i++) $magicegg .= '<img src="image/magic/egg/'.mt_rand(1,6).'.gif" />';}-->
+  <DT><IMG src="template/voone/image/icon_blogct.gif"> 
+<!--{if $value[displayorder]}--><IMG src="template/voone/image/icon_blogctd.gif"> <!--{/if}-->
+					<!--{if $value[digest]}--><IMG src="template/voone/image/icon_bbselit.gif"> <!--{/if}-->
+					
+  $magicegg  <a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" <!--{if $value[magiccolor]}--> class="magiccolor$value[magiccolor]"<!--{/if}-->>$value[subject]</a> </DT>
+  <DD><IMG src="template/voone/image/icon_grouptopic.gif"><SMALL>$value[replynum] 
+  Replies | 
+  $value[viewnum] view</SMALL><SPAN> <a href="space.php?uid=$value[lastauthorid]" title="{$_SN[$value[lastauthorid]]}">{$_SN[$value[lastauthorid]]}</a> 最后回复：</SPAN><SMALL><!--{date('m-d H:i',$value[lastpost],1)}--></SMALL> </DD></DL>
+  
+<DIV class=topicview><SMALL>发布者：</SMALL><A class=font_yellow href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</A></DIV></DIV>
+	<!--{/loop}-->
+	<!--{else}-->
+
+
+	<div class="c_form">
+		<!--{if empty($mtag[allowview])}-->
+			本群组目前不是公开状态，只对内部成员开放。<br>
+		<!--{if $mtag['grade'] == -2}-->
+			您的加入申请审核中。请等候。
+		<!--{elseif $mtag[joinperm]==1}-->
+			您可以<a href="cp.php?ac=mtag&op=join&tagid=$mtag[tagid]" id="a_mtag_join_$mtag[tagid]" onclick="ajaxmenu(event, this.id, 99999)">选择加入该群组</a>，但你的申请需要经群主审核后才有效。
+		<!--{elseif $mtag[joinperm]==2}-->
+			您需要在收到群主的邀请后才能加入该群组。
+		<!--{else}-->
+			您可以立即<a href="cp.php?ac=mtag&op=join&tagid=$mtag[tagid]" id="a_mtag_join_$mtag[tagid]" onclick="ajaxmenu(event, this.id, 99999)">选择加入该群组</a>。
+		<!--{/if}-->
+		<!--{else}-->
+			还没有话题。
+		<!--{/if}-->
+
+	<!--{/if}-->
+
+
+
+</DIV>
+<DIV class=clear></DIV>
+<DIV class=groupm_tit 
+style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none">
+<DIV class=group_more><A 
+href="space.php?do=mtag&tagid=$mtag[tagid]&view=list"><IMG alt=更多 
+src="template/voone/image/button_more.gif"> </A></DIV></DIV></DIV>
+
+<DIV class=groupr>
+<!--{if empty($mtag['ismember']) && $mtag['joinperm'] < 2}-->
+<DIV class=groupjoin><a href="cp.php?ac=mtag&op=join&tagid=$mtag[tagid]" id="a_mtag_join_$mtag[tagid]" onclick="ajaxmenu(event, this.id, 99999)"><IMG height=57 alt="" 
+src="template/voone/image/button_groupjoin.gif" width=207></A></DIV>
+
+			<!--{elseif $mtag['allowpost']}-->
+<DIV id=groupmanageinfo>
+<DIV class=rbtop>
+<DIV></DIV></DIV>
+<DIV class=rbcontent>
+<DL>
+  <DT><!--{avatar($value[uid],small)}-->
+</DT>
+  <DD class=groupmanagename>Hi! <B><a href="space.php?do=home">{$_SN[$_SGLOBAL[supe_uid]]}</a></B> 
+  </DD>
+  <DD class=groupmanageinfo>我们已经恭候多时了！ </DD></DL></DIV></DIV>
+<DIV id=groupmanagebox>
+<DIV class=rbcontent>
+
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addtopic.gif" width=13></SPAN><a href="cp.php?ac=thread&tagid=$mtag[tagid]">发起话题</a></li>
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addfriend.gif" width=13></SPAN><a href="cp.php?ac=event&tagid=$mtag[tagid]">发起活动</a></li>
+	
+<!--{if $mtag['grade'] >= 8}-->
+<li><SPAN><IMG height=13 src="template/voone/image/icon_rewriteinfo.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=base">群组设置</a></li>
+<li><SPAN><IMG height=13 src="template/voone/image/icon_rewriteinfo.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=skin">风格设置</a></li>
+			<!--{/if}-->
+			<!--{if $mtag['grade'] >= 8}-->
+<li><SPAN><IMG height=13 src="template/voone/image/icon_addmessage.gif" width=13></SPAN><a href="admincp.php?ac=thread&&perpage=20&tagid=$mtag[tagid]&searchsubmit=1" target="_blank">话题管理</a></li>
+<li><SPAN><IMG height=13 src="template/voone/image/icon_grouptopic.gif" width=13></SPAN><a href="admincp.php?ac=post&&perpage=20&tagid=$mtag[tagid]&searchsubmit=1">回帖管理</a></li>
+
+<li><SPAN><IMG height=13 src="template/voone/image/icon_editmember.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=members">成员管理</a></li>
+		<!--{elseif $mtag['ismember'] && !$mtag['closeapply']}-->
+			<li><SPAN><IMG height=13 src="template/voone/image/icon_addlink.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=apply&tagid=$mtag[tagid]" id="a_apply" onclick="ajaxmenu(event, this.id, 99999)">群主申请</a></li>
+			<!--{/if}-->
+			<!--{if $mtag['allowinvite']}-->
+			<li><SPAN><IMG height=13 src="template/voone/image/icon_editmember.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=invite">邀请好友</a></li>
+			<!--{/if}-->
+			<!--{if $mtag['ismember']}-->
+			<li><SPAN><IMG height=13 src="template/voone/image/icon_rewriteinfo.gif" width=13></SPAN><a href="cp.php?ac=mtag&op=out&tagid=$mtag[tagid]" id="a_ignore_top" onclick="ajaxmenu(event, this.id, 99999)">退出群组</a></li>
+			<!--{/if}-->
+<DIV class=clear></DIV></DIV>
+<DIV class=rbbot>
+<DIV></DIV></DIV></DIV>
+
+			<!--{/if}-->
+
+	<!--{if $checklist}-->
+<DIV class=groupr_tit>
+<H4><img src="template/voone/image/icon_enter.gif"> 有新的待审核成员  <a style="color:#FF0000" href="cp.php?ac=mtag&op=manage&tagid=$mtag[tagid]&subop=members&grade=-2">立即处理</a></H4></DIV>
+<!--{/if}-->
+
+	<!--{if $modlist}-->
+
+<DIV class=groupr_tit>
+<H4><span style="color:#B1C600">ADMIN</span> 圈子管理</H4></DIV>
+<DIV class=groupmanager>
+<UL>
+
+<!--{loop $modlist $key $value}-->
+<!--{if $key==0}-->
+  <LI><DIV class=bg_groupmaster></DIV><A href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}-->
+  <P class=font_white><B>{$_SN[$value[uid]]} </B></P></A></LI>
+	<!--{else}-->
+    <LI><A href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}-->
+  <P class=font_white><B>{$_SN[$value[uid]]} </B></P></A></LI>
+  	<!--{/if}-->
+ 	<!--{/loop}-->
+</UL></DIV>
+	<!--{/if}-->
+
+	
+<DIV class=clear></DIV>
+<!--{if $starlist}-->
+<DIV class=groupm_tit>
+<H4 style="margin-top:"><span style="color:#B1C600">NEMEMBER</span> 圈子明星</H4></DIV>
+<DIV class=groupnewmenber>
+<UL>
+<!--{loop $starlist $value}-->
+  <LI><a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}-->
+  <P><B>{$_SN[$value[uid]]} </B></P></A></LI>
+ 		<!--{/loop}-->
+</UL>
+</DIV>
+<!--{/if}-->
+</div>
+
+</DIV>
+</DIV>
+<!--{template q_footer}-->

@@ -1,0 +1,80 @@
+<!--{template admin/tpl/header}-->
+
+<div class="mainarea">
+<div class="maininner">
+
+	
+	<form method="post" action="admincp.php?ac=ND_config">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+
+	<div class="bdrcontent">
+
+	<div class="title" id="register">
+		<h3>网盘配置信息</h3>
+	</div>
+	<table class="formtable">
+	<tr>
+		<th>只允许实名会员上传</th>
+		<td>
+			<input type="radio" name="realuserup" id="realuserup" value="1"<!--{if $value[realuserup] == '1'}--> checked<!--{/if}-->>是
+			<input type="radio" name="realuserup" id="realuserup" value="0"<!--{if $value[realuserup] != '1'}--> checked<!--{/if}-->>否
+		</td>
+	</tr>
+	<tr>
+		<th>只允许实名会员下载</th>
+		<td>
+			<input type="radio" name="realuserdown" id="realuserdown" value="1"<!--{if $value[realuserdown] == '1'}--> checked<!--{/if}-->>是
+			<input type="radio" name="realuserdown" id="realuserdown" value="0"<!--{if $value[realuserdown] != '1'}--> checked<!--{/if}-->>否
+		</td>
+	</tr>
+	<tr>
+		<th>积分大于多少的会员允许上传</th>
+		<td><input type="text" name="upjifen" id="upjifen" value="$value[upjifen]" />
+		</td>
+	</tr>
+	<tr>
+		<th>积分大于多少的会员允许下载</th>
+		<td><input type="text" name="downjifen" id="downjifen" value="$value[downjifen]" />
+		</td>
+	</tr>
+	<tr>
+		<th>允许会员删除编辑自己的资源</th>
+		<td>
+			<input type="radio" name="istwoup" id="istwoup" value="1"<!--{if $value[istwoup] == '1'}--> checked<!--{/if}-->>是
+			<input type="radio" name="istwoup" id="istwoup" value="0"<!--{if $value[istwoup] != '1'}--> checked<!--{/if}-->>否
+		</td>
+	</tr>
+	<tr>
+		<th style="width:15em;">上传文件大小：</th>
+		<td><input type="text" name="filesize" id="filesize" value="$value[filesize]" />MB</td>
+	</tr>
+	<tr>
+		<th>上传文件类型</th>
+		<td><input type="text" name="filetype" id="filetype" value="$value[filetype]" /></td>
+	</tr>
+	<tr>
+		<th>文件是否审核</th>
+		<td>
+			<input type="radio" name="isshenhe" id="isshenhe" value="1"<!--{if $value[isshenhe] == '1'}--> checked<!--{/if}-->>是
+			<input type="radio" name="isshenhe" id="isshenhe" value="0"<!--{if $value[isshenhe] != '1'}--> checked<!--{/if}-->>否
+		</td>
+	</tr>
+	</table>
+
+	
+
+	</div>
+
+	<div class="footactions">
+		<input type="submit" name="thevaluesubmit" value="提交" class="submit">
+	</div>
+
+	</form>
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

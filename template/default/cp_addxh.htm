@@ -1,0 +1,26 @@
+<!--{template header}-->
+<form id="xhform" name="xhform" method="post" action="cp.php?ac=addxh&op=send&touid=$touid" class="ajaxshowdiv">
+ 
+<h1>送鲜花</h1>
+<a href="javascript:hideMenu();" title="关闭" class="float_del">关闭</a>
+<div id="$touid" class="popupmenu_inner">
+  <table cellspacing="0" cellpadding="3">
+ 
+	<tr>
+		<th style="vertical-align: top;"><label for="message">送出鲜花数量：</label></th>
+		<td><input name="xhnum" type="text" id="xhnum" onKeyUp="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="1" size="4" maxlength="4" />
+		朵</td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td>
+ 	 
+		<input type="submit" name="xhsubmit_btn" id="xhsubmit_btn" value="送出" class="submit" />
+	 	</td>
+	</tr>
+</table>
+</div>
+</form>
+
+ 
+<!--{template footer}-->

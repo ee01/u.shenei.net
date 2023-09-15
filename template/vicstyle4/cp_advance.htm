@@ -1,0 +1,34 @@
+<!--{template header}-->
+<div id="vs4con_t"><p><img src="template/vicstyle4/image/con_t_l.gif" /></p></div>
+<div id="vs4_content" style="padding:0 25px 0 25px;width:855px;">
+<!--{template cp_header}-->
+
+<form method="post" action="admincp.php" class="c_form">
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+<table cellspacing="0" cellpadding="0" class="formtable">
+	<caption>
+		<h2>VicStyle4.0后台管理</h2>
+		<p>您现在使用的是VicStyle4.0后台管理</p>
+		<p>通过高级管理，您可以对自己的日志、图片、留言等进行批量删除管理。<br>为了保护您的数据安全，请再次输入您的账户密码以登录高级管理平台。</p>
+	</caption>
+	<tr>
+		<th width="120">用户名</th>
+		<td>$_SGLOBAL[username] (<a href="cp.php?ac=common&op=logout">退出</a>)</td>
+	</tr>
+	<tr>
+		<th>密码</th>
+		<td><input type="password" name="password" class="t_input" /></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<input type="hidden" name="loginsubmit" value="true" />
+			<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+			<input type="submit" name="btnsubmit" value="进入平台" class="submit" />
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+<div id="vs4con_b"><p><img src="template/vicstyle4/image/con_b_l.gif" /></p></div>
+<!--{template footer}-->

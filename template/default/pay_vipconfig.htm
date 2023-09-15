@@ -1,0 +1,57 @@
+<!--{template pay_header}-->
+
+<form method="post" action="" class="c_form">
+  <table class="formtable">
+  <tr><td>
+    <table width="700" border="0" align="left">
+	<caption>
+      <h2>VIP功能</h2>
+	  
+        <p>&nbsp;&nbsp&nbsp </p>
+        </caption>
+  <tr>
+    <th>VIP会员组</th>
+    <td width="500">
+	<input name="config[gid]" type="hidden" class="t_input" id="config[gid]" value="$approw[gid]" />
+	 $approw[grouptitle] <a href="pay.php?ac=config#vipfid">设置VIP会员组</a>
+    </select></td>
+  </tr>
+  <tr>
+    <th>最多好友数</th>
+    <td><input name="config[maxfriendnum]" type="text" class="t_input" id="config[maxfriendnum]" value="$approw[maxfriendnum]" /></td>
+  </tr>
+  <tr>
+    <th>个人空间大小</th>
+    <td><input name="config[maxattachsize]" type="text" id="config[maxattachsize]" class="t_input" value="$approw[maxattachsize]" /></td>
+  </tr>
+  <tr>
+    <th>二级域名长度</th>
+    <td><input name="config[domainlength]" type="text" id="config[domainlength]" class="t_input" value="$approw[domainlength]" /></td>
+  </tr>
+  <tr>
+    <th>两次搜索时间间隔</th>
+    <td><input name="config[searchinterval]" type="text" id="config[searchinterval]" class="t_input" value="$approw[searchinterval]" /></td>
+  </tr>
+  <tr>
+    <th>两次发布评论,话题等操作间隔</th>
+    <td><input name="config[postinterval]" type="text" id="config[postinterval]" class="t_input" value="$approw[postinterval]" /></td>
+  </tr>
+  <tr>
+    <th>禁止VIP会员搜索优先显示</th>
+    <td>
+	<input name="vipyx" type="checkbox" id="vipyx" value="1" <!--{if $_SCONFIG[vipyx] >= 1}-->checked="checked"<!--{/if}--> /></td>
+  </tr>
+  <tr>
+    <th>禁止非VIP会员查看联系信息</th>
+    <td>
+	<input name="viplookinfo" type="checkbox" id="viplookinfo" value="1" <!--{if $_SCONFIG[viplookinfo] >= 1}-->checked="checked"<!--{/if}--> /></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2" align="center"><input type="submit" name="Submit" value="保存配置" /></td>
+    </tr>
+    </table>
+  </td></tr>
+  </table>
+  
+</form>
+<!--{template footer}-->

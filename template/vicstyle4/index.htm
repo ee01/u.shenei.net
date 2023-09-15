@@ -1,0 +1,89 @@
+<!--{eval $_TPL['nosidebar']=1;}-->
+<!--{template header}-->
+<style type="text/css">
+.flash img {display:none;}
+.face {display:none;}
+html,body { color: #323232; margin:0; padding:0; background:#fff; }
+</style>
+<div class="wrap" >
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" name="home" width="100%" height="270" align="middle" id="home">
+<param name="allowScriptAccess" value="sameDohome" />
+<param name="movie" value="home.swf?msg=$doinglist" />
+<param name="loop" value="false" />
+<param name="menu" value="false" />
+<param name="quality" value="best" />
+<param name="scale" value="noscale" />
+<param name="wmode" value="transparent" />
+<param name="bgcolor" value="#cccccc" />
+<embed src='home.swf?msg=<%=msg%>' loop="false" menu="true" quality="best" scale="noscale" wmode="transparent" bgcolor="#cccccc" width="100%" height="270" swLiveConnect=true id="home" name="home" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+</object>
+<div style="clear:both"></div>
+<!--{if $_SGLOBAL[supe_uid]}-->
+<DIV class="indexloginbutt_11">
+<div class="fon">
+<p style="float:left;  overflow:hidden; margin-right:10px; padding-top: 12px;"><!--{avatar($_SGLOBAL[supe_uid],small)}--></p>
+<P style="color:#666;height:23px;">
+<span style="font-size:14px; margin-right:10px; font-weight:bold; color:#666">{$_SN[$_SGLOBAL[supe_uid]]}</span>
+<!--{if $_SGLOBAL[session][magichidden]}-->当前隐身<!--{else}-->当前在线<!--{/if}-->
+						<!--{if $_SGLOBAL[magic][invisible]}-->
+							<!--{if $_SGLOBAL[session][magichidden]}-->
+							<img src="image/magic/invisible.small.gif" class="magicicon"><a id="a_magic_appear" href="cp.php?ac=magic&op=appear" onclick="ajaxmenu(event,this.id)" class="gray" style="color:#7DB91E">我要在线</a>
+							<!--{else}-->
+							<img src="image/magic/invisible.small.gif" alt="{$_SGLOBAL[magic][invisible]}" class="magicicon"><a id="a_magic_invisible" href="magic.php?mid=invisible" onclick="ajaxmenu(event,this.id,1)" class="gray" style="color:#7DB91E">我要隐身</a>
+							<!--{/if}-->
+						<!--{/if}--></P>				
+<p style="height:23px;">			
+<a href="cp.php?ac=avatar">我的头像</a> | 
+<a href="cp.php">设置中心</a> | 
+<a href="cp.php?ac=theme">主页风格</a> | 
+<a href="cp.php?ac=credit">我的积分</a> | 
+<a href="cp.php?ac=privacy">隐私筛选</a> | 
+<a style="color:#FF0000" href="space.php?do=home">进入我的窝窝</a>  
+</p>
+<p style="height:23px;">			
+<a href="network.php">广场</a> | 
+<a href="space.php?do=thread">圈子</a> | 
+<a href="space.php?do=top">排行</a> | 
+<a href="sohovicstyle.php">潮人</a> | 
+<a href="space.php?do=sys">论坛</a> |
+<a style="color:#FF0000" href="floor.php">我要抢楼！</a>  
+</p>
+
+</div>
+<div class="fon" style="margin-left: 10px;width:380px;padding-left: 0px;">
+<div style=" height:23px;font-weight: bold; color: #1C5584;">最新更新用户</div>
+<!--{loop $netcache['spacelist'] $key $value}-->
+<a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">
+<!--{avatar($value[uid],small)}--></a>
+	<!--{/loop}-->
+</div>
+</div>
+<!--{else}-->
+<div style="border: 1px solid #D8D8D8; padding-bottom: 7px;">
+<div class="p_maintain"><a href="do.php?ac=65a6b6b1493695b68791f01fcc8d928b"><img src="template/vicstyle4/image/maintain.jpg" /></a></div>
+<form id="loginform" name="loginform" action="do.php?ac=$_SCONFIG[login_action]&$url_plus&ref" method="post">
+<div class="p_login">
+<div style="float:left; width:100px; line-height:33px; font-size:12px; font-weight:bold; color:#666"><span>MemberLogin:</span></div>
+<div class="kwidth">
+<div class="name"><label for="username"><input type="text" name="username" id="username" class="input" value="$membername" /></label></div>
+<div class="ps"><label for="password"><input type="password" name="password" id="password" class="input" value="$password" /></label></div>
+</div>
+<div class="loginan"><input type="hidden" name="refer" value="space.php?do=home" /><input name="loginsubmit" type="submit" id="loginsubmit" style="border:0px ; background:url(template/vicstyle4/image/ico_login.gif) no-repeat; width:126px; height:33px; cursor:pointer;" value=" " />
+  <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</div>
+<div style="float:left; width:180px; padding:0px 0px 0px 5px;"><div style=" float:left; padding-top:5px;"><input type="checkbox" id="cookietime" name="cookietime" value="315360000" tabindex="4"$cookiecheck style="margin-bottom: -2px;"></div><span style=" float:left; padding-top:7px;"><label for="cookietime">自动登录</label> | <a href="do.php?ac=lostpasswd">忘记密码</a> | <a href="do.php?ac=$_SCONFIG[register_action]">注册</a></span></div>
+</div>
+</form>
+
+<div class="vic_index">
+<ul>
+<!--{loop $favlists $key $value}-->
+<li><a href="space.php?uid=$value[uid]" title="$value[username]" target="_blank"><!--{avatar($value[uid],small)}--></a></li>
+<!--{/loop}-->
+</ul></div>
+</div>
+<!--{/if}-->
+
+
+<!--{template footer}--></div>
+

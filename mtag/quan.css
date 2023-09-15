@@ -1,0 +1,454 @@
+h4 {font-weight: bold; font-size: 12px; padding-bottom: 3px; border-bottom: #aaa 1px dashed}
+
+.bodybox{background-color: #FFF; width:960px; margin:0 auto; overflow:hidden}
+
+.bodybox2{background-color: #FFF; width:98%; margin:0 auto; overflow:hidden}
+
+.r_option {float: right; width:130px; font-size: 12px; font-weight: normal; margin-right:10px}
+
+.groupmenu {margin-bottom: 8px; }
+
+.groupmenu li {border-right: #ccc 1px solid; display: block; float: left; padding-left:10px; padding-right:10px; height: 12px; text-align: center}
+
+.groupmenu li a {font-weight: bold; font-size: 12px; color: #000}
+
+.groupmenu li a:hover {color: #ff0000}
+
+.groupmenu .active a{color:#999;}
+
+.groupmenu div {margin-top: -13px; float: right; width: 200px; height: 12px; text-align: right}
+
+.groupl {float: left; width: 226px;}
+
+.groupm {float: left; margin-left: 7px; overflow: hidden; width: 492px}
+
+.groupr {float: left; margin-left: 7px; width: 207px}
+
+.groupl_bgm {border-right: #d7d7d7 1px solid; padding-right: 7px; margin-top: -10px; padding-left: 7px; background: #fff; padding-bottom: 4px; border-left: #d7d7d7 1px solid; width: 180px; padding-top: 9px}
+
+.groupl_bgt {background: url(image/bg_groupltb.gif) no-repeat; width:207px; height:4px; }
+
+.groupl_bgb {background: url(image/bg_groupltb.gif) no-repeat 0px -4px; margin-bottom: -3px; width:207px; height:4px;}
+
+.grouplogo {margin-top: -4px;width: 190px;height: auto;text-align: center;background: url(image/bg_grouplogo.gif) no-repeat;}
+
+.groupicon {background: url(image/groupicon.gif) no-repeat; float: left; width: 35px; height: 50px}
+
+.groupl_bgm dl {margin-top:10px}
+
+.groupl_bgm dt {display: block; width: 130px; height: 12px; padding-left:5px}
+
+.groupl_bgm dd {margin-top: 2px; display: block; font-size: 11px; width: 150px; font-family: arial,pmingliu; height: 12px}
+
+.groupexplain {clear: both; border-top: #ccc 1px dotted; font-size: 12px; width: 180px; line-height: 16px; padding-top: 8px; font-family: pmingliu; color:#666}
+
+.group_more {float: right}
+
+.groupl_newphoto {clear: both; margin-top: 4px; width: 210px; height: auto}
+
+.groupl_news {padding-right: 5px; display: block; padding-left: 5px; padding-bottom: 0px; width: 200px; padding-top: 0px; list-style-type: none}.groupl_news li {padding-right: 0px; display: block; padding-left: 0px; font-size: 11px; background: url(image/bg_groupbbslidot.gif) repeat-x 0px 100%; padding-bottom: 14px; width: 200px; line-height: 16px; padding-top: 14px; font-family: arial,pmingliu; height: 32px}
+
+.groupl_news li span {padding-left: 10px; background: url(image/bg_groupbbsli.gif) no-repeat 2px 5px; width: 190px}
+
+.groupl_links {clear: both; padding-right: 5px; padding-left: 5px; padding-bottom: 5px; padding-top: 10px}
+
+.groupl_links ul {display: block; width: 200px; list-style-type: none}
+
+
+.groupmessages {float: left; margin-left: 8px}
+
+.groupmessages dl {display: block; float: left; width: 270px; height: 12px}
+
+ html .groupmessages dl {margin-top: 1px; display: block; float: left; width: 270px; height: 12px}
+
+unknown {margin-top: -2px; display: block; float: left; width: 270px; height: 12px}
+
+.groupmessages dl {position: relative}
+
+.groupmessages a:hover {background: none transparent scroll repeat 0% 0%}
+
+.groupmessages a dd {display: none}
+
+.groupmessages a:hover dd {display: block; left: -20px; width: 300px; position: absolute; top: 24px}
+
+.groupmessaget {font-size: 6px; background: url(image/bg_groupmessageinfot.gif) no-repeat 20px 0px; height: 8px}
+
+.groupmessagem {border-right: #7b0000 1px solid; padding-right: 15px; margin-top: -1px; padding-left: 15px; background: url(image/bg_groupmessageinfom.gif) repeat-y; padding-bottom: 15px; border-left: #ffaaaa 1px solid; width: 270px; line-height: 18px; padding-top: 15px; border-bottom: #7b0000 1px solid}
+
+.groupmdelete {padding-right: 4px; padding-left: 4px; padding-bottom: 4px; padding-top: 4px; height: 12px}
+
+.groupm_tit {margin-bottom:5px;padding-top: 15px; }
+
+.group_tit {padding-right: 0px; padding-left: 0px; padding-bottom: 20px; padding-top: 20px; height:20px; border-bottom: #aaa 1px dashed}
+
+.groupm_tit h4 {margin-top:1px; margin-bottom:0px}
+
+.groupm_titli {background: #efefef}
+
+.groupm_titli .rbcontent {font-size: 11px; line-height: 14px; font-family: arial,pmingliu}
+
+.groupm_titli .rbcontent p {padding-right: 8px; padding-left: 8px; padding-bottom: 0px; padding-top: 0px}
+
+.topicbox {padding-right: 5px; margin-top: -1px; padding-left: 5px; background:#E9E9E9; padding-bottom: 7px; width: 481px; padding-top: 7px; height: 47px;color: #636363; font-family: arial, verdana;}
+
+.topicbox2 {padding-right: 5px; margin-top: -1px; padding-left: 5px; background:#FFF; padding-bottom: 7px; width: 481px; padding-top: 7px; height: 47px;color: #636363; font-family: arial, verdana;}
+
+.topichead {border-right: #767676 1px solid; border-top: #767676 1px solid; float: right; border-left: #767676 1px solid; width: 32px; border-bottom: #767676 1px solid; height: 32px}
+
+.topichead img {display: block; width:32px;}
+
+#topicbox dl {display: block; float: left; width: 440px; height: 36px}
+
+#topicbox dt {padding-right: 0px; display: block; padding-left: 0px; font-weight: bold; padding-bottom: 0px; overflow: hidden; line-height: 20px; padding-top: 2px; height: 20px}
+
+#topicbox dt a:hover {color: #ff6600}
+
+#topicbox dt img {vertical-align: middle; margin-right: 3px}
+
+#topicbox dd img {vertical-align: middle; margin-right: 5px;}
+
+#topicbox dd {line-height: 12px; height: 12px; margin-left:0px}
+
+#topicbox dd span {font-size: 11px; font-family: pmingliu}
+
+.topicview {float: right; width: 400px; line-height: 14px; height: 14px; text-align: right}
+
+.topicview img {vertical-align: middle; margin-right: 6px}
+
+.groupm_blogtit {padding-right: 0px; padding-left: 0px; font-size: 14px; padding-bottom: 12px; width: 492px; line-height: 16px; padding-top: 12px; height: 16px}
+
+.groupm_head16 {float: left; width: 16px; margin-right: 8px; height: 16px}.groupm_blogcontent {margin-bottom: 10px; overflow: hidden}
+
+.groupm_blogcontent img {padding-right: 0px; padding-left: 0px; padding-bottom: 8px; padding-top: 8px}
+
+.groupjoin {width: 207px; height: 57px}
+
+.groupouto {padding-right: 0px; padding-left: 70px; background: url(image/button_groupout.gif) no-repeat; padding-bottom: 10px; width: 137px; padding-top: 10px; height: 37px}
+
+.groupouto a {display: block; font-weight: bold; width: 137px; color: #eee; line-height: 20px; height: 37px}
+
+.groupwait {padding-right: 0px; padding-left: 55px; background: url(image/button_groupwait.gif) no-repeat; padding-bottom: 10px; width: 152px; padding-top: 10px; height: 37px}
+
+.groupwait p {display: block; font-weight: bold; width: 152px; color: #eee; line-height: 20px; height: 37px}
+
+.groupr_tit {padding-right: 0px; padding-left: 0px; padding-bottom: 10px; width: 207px; padding-top: 10px;}
+
+.groupr_tit h4 {margin:0px}
+
+.groupmanager ul {list-style-type: none; }
+
+.groupmanager li {display: block; float: left; margin-bottom: 1px; width: 102px; margin-right: 1px; list-style-type: none; position: relative; height: 102px}.groupmanager li a {display: block; background: url(image/bg_managerhead.gif) no-repeat; width: 102px; height: 102px; color:#fff}
+
+.groupmanager li a:hover {background: url(image/bg_managerhead.gif) no-repeat 0px -102px}
+
+.groupmanager li img {margin: 20px 31px 0px; width:40px;}
+
+.groupmanager li p {margin-top: 6px; margin-left: auto; line-height: 18px; margin-right: auto; text-align: center}
+
+.groupnewmenber ul {list-style-type: none;}
+
+.groupnewmenber li {display: block; float: left; margin-bottom: 1px; width: 102px; margin-right: 1px; list-style-type: none; position: relative; height: 102px}
+
+.groupnewmenber li a {display: block; background: url(image/bg_menberhead.gif) no-repeat; width: 102px; color: #000; height: 102px}
+
+.groupnewmenber li a:hover {background: url(image/bg_menberhead.gif) no-repeat 0px -102px; color: #fff}
+
+.groupnewmenber li img {margin: 10px 20px 0px; width:60px;}
+
+.groupnewmenber li p {margin-top: 6px; margin-left: auto; line-height: 18px; margin-right: auto; text-align: center}
+
+#groupmanageinfo {background: #000; width: 207px}
+
+#groupmanageinfo .rbcontent {padding-right: 10px; padding-left: 10px; padding-bottom: 10px; width: 187px; padding-top: 6px}
+
+#groupmanageinfo dl {width: 187px; color: #d9cf9e; height: 34px}
+
+#groupmanageinfo dl a {color: #d9cf9e}
+
+#groupmanageinfo dl a:visited {color: #d9cf9e}
+
+#groupmanageinfo dl a:hover {color: #fff}
+
+#groupmanageinfo dt {border: #2f2f2f 1px solid;  float: left;width: 50px; margin-right: 6px; height: 32px}
+
+#groupmanageinfo dt img {display: block}
+
+.groupmanagename {font-size: 12px; line-height: 18px; height: 20px}
+
+.groupmanageinfo {font-size: 11px; line-height: 16px; font-family: pmingliu; height: 16px}
+
+#groupmanagebox {font-size: 11px; background: #2f2f2f; width: 207px; font-family: pmingliu}
+
+#groupmanagebox .rbcontent {padding-right: 10px; padding-left: 10px; padding-bottom: 10px; width: 187px; padding-top: 10px}
+
+#groupmanagebox .rbcontent li{font-size: 11px;line-height: 14px;color:#333333;display: block;float: left;width: 80px;}
+
+#groupmanagebox .rbcontent li a{line-height: 15px;color:#fff; margin-left:5px; font-family: "lucida grande",arial,"pmingliu","lucida sans unicode",verdana,sans-serif,tahoma,;}#groupmanagebox button span {float: left; width: 13px; margin-right: 3px; height: 13px}
+
+ html #groupmanagebox button span {margin-top: 3px; float: left; width: 13px; margin-right: 3px; height: 13px}
+
+unknown {margin-top: 3px; float: left; width: 13px; margin-right: 3px; height: 13px}
+
+#groupmanagebox p {float: left}
+
+.groupmenberbox {padding-right: 15px; padding-left: 45px; padding-bottom: 5px; width: 830px; padding-top: 20px}
+
+
+
+.groupmenberheadinfo {clear: both; width: 830px; height: 40px}
+
+.groupmenberheadinfo p {clear: both; line-height: 30px}
+
+.groupmenberhead {clear: both; width: 830px; height: 40px}
+
+.groupmenberjoin {margin-top: 10px; float: right}
+
+.groupmenberedit {left: 3px; width: 97px; position: absolute; top: 3px; height: 15px}
+
+.bg_groupmaster {background: url(image/bg_groupmaster.gif) no-repeat; left: 4px; width: 30px; position: absolute; top: 4px; height: 10px}
+
+.groupout {right: -27px; width: 14px; position: absolute; top: -16px; height: 14px}
+
+.groupmenbereditli {right: 6px; width: 100px; position: absolute; top: 20px}
+
+.groupmenbereditli .down_menu ul {margin: 2px 4px}
+
+.groupmenbereditli .down_menu li {width: 88px; height: 18px}
+
+.groupmenbereditli .down_menu li a {background: none transparent scroll repeat 0% 0%; width: 88px; height: 18px}
+
+.groupmenbereditli .down_menu li a:hover {background: #bbb; color: #fff}
+
+.managebar {border-right: #acb4a6 1px dashed; padding-right: 10px; border-top: #acb4a6 1px dashed; padding-left: 10px; background: #f3f8ef; padding-bottom: 5px; margin: 5px 0px; border-left: #acb4a6 1px dashed; color: #51594b; padding-top: 5px; border-bottom: #acb4a6 1px dashed}
+
+
+
+.select_menber li {clear: both; display: block; background: url(image/bg_groupnewmenber.gif) no-repeat; margin: 4px 0px; width: 760px; list-style-type: none; position: relative; height: 60px}
+
+.button_newmenber {right: 6px; position: absolute; top: 6px}
+
+.select_menber li dl {padding-right: 9px; display: block; padding-left: 9px; padding-bottom: 9px; width: 742px; padding-top: 9px; height: 48px}
+
+.select_menber li dt {border-right: #666 1px solid; border-top: #666 1px solid; display: block; float: left; border-left: #666 1px solid; width: 40px; margin-right: 14px; border-bottom: #666 1px solid; height: 40px}
+
+.newmenberinfodd1 {display: block; font-size: 11px; float: left; overflow: hidden; width: 180px; line-height: 24px; font-family: pmingliu; height: 48px}
+
+.newmenberinfodd2 {display: block; font-size: 11px; float: left; overflow: hidden; width: 300px; line-height: 24px; font-family: pmingliu; height: 48px}
+
+.newmenberinfo {float: left; width: 80px; line-height: 24px; height: 48px}
+
+.newmenberbutton {width: 760px; height: 36px; text-align: right}
+
+.groupbbsbox {float: left; overflow: hidden; width: 710px; margin-right: 16px}
+
+.groupbbshead {clear: both; height: 50px}
+
+.groupbbstit {margin-top: 15px; float: left; margin-left: 2px; height: 12px}
+
+.groupbbsbar {margin-top: 10px; float: right; width: 300px; height: 28px}
+
+.groupbbsbar ul {list-style-type: none}
+
+.groupbbsbar li {display: block; float: right; margin-left: 8px; height: 28px}
+
+.bbscontenttit {margin-top: 10px; font-weight: bold; font-size: 14px; float: left; margin-left: 4px; width: 400px; color: #000; line-height: 18px; height: 36px}
+
+.bbshotnum {font-weight: normal; font-size: 11px; width: 100px; color: #aaa; font-family: arial,pmingliu}
+
+.bbsheadbox {float: left; margin-left: 3px; width: 40px; height: 40px}
+
+.bbsheadbox img{margin-left: 3px; width:40px; height:40px}
+
+.groupbbstithead {padding-right: 0px; padding-left: 0px; background: #efefef; padding-bottom: 1px; width: 98%; padding-top: 1px; height: 40px}
+
+.groupbbstithead dl {display: block; float: left; margin-left: 10px; width: 200px; height: 40px}
+
+.groupbbstithead dt {display: block; font-weight: bold; line-height: 24px; height: 24px}
+
+.groupbbstithead dd {display: block; line-height: 16px; height: 20px; margin-left:0px}
+
+.hot {border: 1px solid #ff860e; padding: 0px 5px 0px 2px; color:#ff860e; margin-right:5px; overflow: hidden; }
+
+.hot em {font-size: 12px; font-style: normal; padding:1px; font-weight: normal; color:#ff860e; }
+
+	
+
+.bbscontentbar {float: right; width: 400px; margin-right: 5px; height: 24px; text-align: right}
+
+.bbstimebox {font-size: 11px; float: right; width: 300px; margin-right: 6px; font-family: arial,pmingliu; height: 16px; text-align: right; lineheight: 16px}
+
+.groupbbscontent {padding-right: 0px; padding-left: 0px; padding-bottom: 10px; width: 710px; padding-top: 10px; font-size:14px}
+
+.groupfeature {background: #000; width: 710px; position: relative}
+
+.groupfeaturetb {z-index: 400; background: url(image/bg_groupfeature.gif) no-repeat 0px -4px; left: 0px; width: 710px; position: absolute; top: 0px; height: 4px}
+
+.groupfeatureinfo {padding-right: 20px; padding-left: 20px; background: #000; padding-bottom: 25px; width: 670px; line-height: 22px; padding-top: 10px; position: relative}
+
+.groupfeatureinfobb {z-index: 500; background: url(image/bg_groupfeature.gif) no-repeat 0px 0px; left: 0px; width: 710px; bottom: -11px; position: absolute; height: 4px}
+
+.groupfeaturebt {right: 7px; width: 113px; bottom: 7px; position: absolute; height: 19px}
+
+.groupbbsqoute {border-right: #aaa 1px dotted; padding-right: 10px; border-top: #aaa 1px dotted; padding-left: 10px; background: #f9f9f9; margin-bottom: 10px; padding-bottom: 10px; margin-left: auto; border-left: #aaa 1px dotted; width: 95%; line-height: 26px; margin-right: auto; padding-top: 10px; border-bottom: #aaa 1px dotted}
+
+.bbscontenteditinfo {padding-right: 6px; padding-left: 6px; float: right; padding-bottom: 6px; line-height: 18px; padding-top: 6px; text-align: right}
+
+.groupbbslink {font-size: 11px; padding-bottom: 8px; margin-left: 8px; width: 700px; font-family: pmingliu; height: 12px}
+
+.bbsquickre {width: 710px; height: 200px}
+
+.groupbbsnewtit {width: 710px; line-height: 26px; height: 26px}
+
+.groupbbsnew {width: 710px; height: 400px}
+
+.groupnewstd {font-size: 11px; background: url(image/bg_groupbbslidot.gif) repeat-x 0px 100%; color: #888; font-family: arial,pmingliu; height: 40px}
+
+.groupnewsl {float: left; width: 492px; margin-right: 7px}
+
+.groupimgli {margin-top: 20px}
+
+.groupimgli td {width: 142px; text-align: center}
+
+.groupimgli td div {position: relative}
+
+.groupimgli td div span {background: none transparent scroll repeat 0% 0%; left: 0px; width: 142px; position: absolute; top: 0px}
+
+.groupimginfo {height: 65px}
+
+.groupimginfo span {line-height: 26px}
+
+.groupimginfo p {clear: both}
+
+.groupimginfo p span {font-size: 11px; line-height: 14px; font-family: pmingliu}
+
+.groupinfobox {padding-right: 52px; padding-left: 52px; padding-bottom: 30px; width: 830px; padding-top: 0px}
+
+.groupinfologobox {float: left; width: 220px}
+
+.groupinfologo {background: url(image/bg_grouplogo.gif) no-repeat; width: 210px; height: 210px}
+
+.groupinfo {float: left; width: 600px}
+
+.groupinfod11 {height: 28px}
+
+.groupinfod11 dt {display: block; float: left; width: 220px; height: 16px; text-align: right}
+
+.groupinfod11 dd {display: block; float: left; margin-left: 20px; width: 300px; line-height: 14px}
+
+.groupinfod12 {height: 84px}
+
+.groupinfod12 dt {margin-top: 20px; display: block; float: left; width: 220px; height: 16px; text-align: right}
+
+.groupinfod12 dd {margin-top: 19px; display: block; float: left; margin-left: 20px; width: 300px; line-height: 14px; height: 65px}
+
+.groupinfod13 dt {margin-top: 6px; display: block; float: left; width: 220px; height: 16px; text-align: right}
+
+.groupinfod13 dd {display: block; float: left; margin-left: 20px; width: 300px; line-height: 24px}
+
+.groupinfod14 {clear: both; display: block}
+
+.groupinfod14 dt {display: block; float: left; margin: 8px 20px 8px 8px; width: 220px; height: 16px; text-align: right}
+
+.groupinfod14 dd {display: block; float: left; width: 300px; line-height: 14px}
+
+.groupcreattit {padding-right: 0px; padding-left: 0px; background: url(image/bg_creategroup.gif) no-repeat 85% 100%; padding-bottom: 30px; width: 941px; padding-top: 30px; height: 36px}
+
+.groupcreatbox {padding-right: 50px; padding-left: 50px; padding-bottom: 50px; width: 841px; padding-top: 50px}
+
+.groupcreat_input {line-height: 16px; height: 20px}
+
+.groupcreattit1 {background: url(image/bg_groupcreat1.gif) no-repeat; margin-bottom: 10px; width: 220px; height: 22px}
+
+.groupcreattit2 {background: url(image/bg_groupcreat2.gif) no-repeat; margin-bottom: 10px; margin-left: 46px; width: 515px; height: 22px}
+
+.grouplinkedit {margin-left: 2px; height: 12px}
+
+.g_search {margin: 5px 0px}
+
+.g_search ul {list-style-type: none}
+
+.g_search li {padding-right: 5px; padding-left: 5px; float: left; padding-bottom: 5px; width: 140px; padding-top: 5px}
+
+.classes ul {list-style-type: none}
+
+.selectclass {border-right: #666 5px solid; border-top: #666 5px solid; border-left: #666 5px solid; width: 780px; border-bottom: #666 5px solid}
+
+.selectit {position: relative; height: 40px}
+
+.classbox {padding-right: 10px; padding-left: 10px; margin-bottom: -10px; padding-bottom: 0px; padding-top: 10px}
+
+.classtit {font-weight: bold; font-size: 12px; color: #333}
+
+.classes li {display: block; float: left; width: 80px; color: #666; line-height: 25px; height: 28px}
+
+
+
+.groupbbsbox blockquote {border-right: #aaa 1px dashed; padding-right: 10px; border-top: #aaa 1px dashed; display: block; padding-left: 10px; background: #f9f9f9; padding-bottom: 10px; margin: 5px 0px; border-left: #aaa 1px dashed; color: #979797; padding-top: 17px; border-bottom: #aaa 1px dashed}
+
+.groupbbsbox blockquote h6 {font-weight: normal; font-size: 12px; color: #636363}
+
+
+
+.task{width:492px; background-color:#ffd304}
+
+.task span{color:#333333;
+
+	margin-left:10px;
+
+	font-size: 14px;
+
+	font-weight: bold; margin-bottom:10px}
+
+.task .txt{padding: 0 10px 0}
+
+.task .txt a{color:#ff0000;font-size: 15px;}
+
+.task .topbg {background: url(image/taskbg.gif) no-repeat 0px 0px;height: 8px;width: 492px;overflow: hidden;}
+
+.task .bottombg {background: url(image/taskbg.gif) no-repeat 0px -8px;height: 8px;width: 492px;overflow: hidden;}
+
+.c_form {padding: 0.5em 3em; }
+
+
+
+.bbsli {width: 100%}
+
+.bbsli th {font-weight: normal; background: #efefef; text-align: left}
+
+.gray {font-weight: normal; text-align: left}
+
+.bbsli td {font-size: 11px; background: url(image/bg_groupbbslidot.gif) repeat-x 0px 100%; color: #888; font-family: arial,pmingliu; height: 32px}
+
+.bbsli span {padding-left: 12px; background: url(image/bg_groupbbsli.gif) no-repeat 3px 5px}
+
+.buttomwhite {width: 105px; line-height: 32px; height: 32px; text-align: center}
+
+.buttomwhite a {display: block; font-weight: bold; background: url(image/buttonwhite.gif) no-repeat; width: 105px; color: #444; height: 32px; text-align: center}
+
+
+
+.grouptop {margin:7px 0}
+
+.grouptop p {margin-top: 0px;}
+
+.groupbanner {background:#000000 url(image/quantop.gif) no-repeat 0px 0px; margin-bottom:0px;}
+
+.groupbanner .biaoti {padding-top:35px;padding-left:50px;font-size: 20px;font-weight: bold;color:#cccccc}
+
+	  
+
+.magiccolor1, .magiccolor1 a {color: red; }
+
+.magiccolor2, .magiccolor2 a {color: #f90; }
+
+.magiccolor3, .magiccolor3 a {color: green; }
+
+.magiccolor4, .magiccolor4 a {color: #3f0; }
+
+.magiccolor5, .magiccolor5 a {color: #00f; }
+
+.magiccolor6, .magiccolor6 a {color: #0d9fcf; }
+
+.magiccolor7, .magiccolor7 a {color: #cc3366; }
+
+.magiccolor8, .magiccolor8 a {color: #c0f; }

@@ -1,0 +1,627 @@
+<!--{if empty($_TPL['getmore'])}-->	
+<!--{eval $_TPL['titles'] = array('首页');}-->
+<!--{template header_x}-->
+
+<style>
+*html #mood_mystatus{height:1%;}
+	#mood_mystatus strong{font-size:14px;display:block; float:left;height:22px;line-height:22px;}
+	
+	#mood_mystatus #divMyDoingx{display:block;float:left;line-height:22px;}
+	.myprovideo{overflow:hidden;margin-left:0px;width:127px;padding-bottom:5px; position:relative; border:1px solid #BCD69A !important; color:#000; background-color:#FFFEEE;}
+		*html .myprovideo{height:1%;}
+	.myprovideo em{background:url(template/$_SCONFIG[template]/image/btn_v_special.jpg) no-repeat; width:38px; height:21px; display:block; position:absolute;right:8px; top:-1px;}	
+	.myprovideo em a{display:block;text-indent:-9999px; overflow:hiddenl;width:38px; height:21px;}
+</style>
+
+<div class="window_task" style="display:none" id="poptask">
+</div>
+<script>
+
+function SetCookie(name,value)//两个参数，一个是cookie的名子，一个是值
+{
+    var Days = 1; //此 cookie 将被保存 3天
+    var exp = new Date();    //new Date("December 31, 9998");
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+}
+function getCookie(name)//取cookies函数        
+{
+    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+     if(arr != null) return unescape(arr[2]); return null;
+
+}
+function gobyebye(){
+	SetCookie('ishow'+$space[uid],0);
+	closemenu();
+}
+function closemenu()
+{
+$('poptask').innerHTML = '';
+$('poptask').style.display = 'none';
+}
+function getattention(id) {
+	var obj = $('poptask');
+	if(id == 'none') {
+		obj.innerHTML = '';
+
+	} else {
+		ajaxget('do.php?ac=ajax&op=attention&id='+id+'&ajaxdiv=poptask', 'poptask');
+
+	}
+
+}
+<!--{if $aid}-->
+if( getCookie("ishow"+$space[uid])!=0){
+getattention($aid);
+}
+<!--{/if}-->
+</script>
+
+
+
+<DIV class="manage_m_r">
+<DIV class="brbtop_gray">
+<DIV>
+<P></P></DIV></DIV>
+<DIV class="brbcontent_gray">
+
+  
+  
+
+<DIV class="manage_contentl">
+<DIV class="managebox geren">
+<!--{if $space['uid'] && $space[self]}-->
+
+<div class="gerenimg"><!--{avatar($_SGLOBAL[supe_uid],middle)}--></div>
+<div class="gryouce">
+<P class="username">
+<span class="uidmin">{$_SN[$space[uid]]}</span><span class="uidmin">ID:$space[username]</span>
+<!--{if $_SGLOBAL[session][magichidden]}-->当前隐身<!--{else}-->当前在线<!--{/if}-->
+						<!--{if $_SGLOBAL[magic][invisible]}-->
+							<!--{if $_SGLOBAL[session][magichidden]}-->
+							<img src="image/magic/invisible.small.gif" class="magicicon"><a id="a_magic_appear" href="cp.php?ac=magic&op=appear" onclick="ajaxmenu(event,this.id)" class="gray" style="color:#7DB91E">我要在线</a>
+							<!--{else}-->
+							<img src="image/magic/invisible.small.gif" alt="{$_SGLOBAL[magic][invisible]}" class="magicicon"><a id="a_magic_invisible" href="magic.php?mid=invisible" onclick="ajaxmenu(event,this.id,1)" class="gray" style="color:#7DB91E">我要隐身</a>
+							<!--{/if}-->
+						<!--{/if}--></P>				
+<P class="coin"><!--{eval g_icon($space[groupid]);}--><a href="cp.php?ac=credit">$space[star]</a>　　已有 $space[viewnum] 人次访问, $space[credit] 个积分, $space[experience] 个经验</P>
+
+<P class="bianji"><!--已有 $space[viewnum] 人次访问, $space[credit] 个积分, $space[experience] 个经验--></P>
+<!--{eval $novip=1;$noedu=1;$notheme=1;}--><!--{template lightening}-->
+<p>			
+<a href="cp.php?ac=avatar">I'M头像</a> | 
+<a href="cp.php?ac=profile">个人资料</a> | 
+<a href="cp.php?ac=theme">主页风格</a> | 
+<a href="cp.php?ac=credit">我的积分</a> | 
+<a href="cp.php?ac=fetion&op=setuser"><b>手机绑定</b></a> | 
+<!--{if $space[groupid] == $_SCONFIG[vipapp]}-->
+	<a href="pay.php?ac=vip"><img src="image/pay/vip.gif" title="VIP会员:<!--{if $vips[ztime] > 0}-->$vips[day]天<!--{else}-->终身VIP<!--{/if}-->" border="0" align="absmiddle" /></a>
+<!--{else}-->
+	<a href="pay.php?ac=vip" target="_blank"><img src="image/pay/vip2.gif" title="未激活" border="0" align="absmiddle" /></a>
+<!--{/if}--> |
+<a style="color:#FF0000" id="usettingli" onmouseover="showMenu(this.id)" href="#">更多功能</a>
+<ul id="usettingli_menu" class="dropmenu_drop" style="display:none;">		
+					<!--{if $_SCONFIG[sendmailday]}-->
+					<li><a href="cp.php?ac=sendmail">邮件提醒</a></li>
+					<!--{/if}-->
+					<!--{if checkperm('admin')}-->
+					<li><a href="admincp.php">站点管理</a></li>
+					<!--{/if}-->
+					<!--{if checkperm('allowstat')}-->
+					<li><a href="do.php?ac=stat">趋势统计</a></li>
+					<!--{/if}-->
+				</ul>
+</p>
+
+</div>
+</DIV>
+<DIV class="managebox xix">
+<H3 class="grh3" style="border:none"><span class="you"><a href="space.php?do=doing">记录本</a></span>个人记录 <font style="color:#ff0000">RECORD</font></H3>
+<!--{template space_status}-->
+</DIV>
+
+	<!--{if $isnewer && $task}-->
+<DIV class="managebox" style="margin-top:5px">
+		<div class="task_notice">
+			<div class="task_notice_body">
+				<div class="notice">您好，{$_SN[$space[uid]]}，欢迎加入我们。有新任务等着您，挺简单的，赶快来参加吧</div>
+				<img src="$task[image]" alt="" class="icon" />
+				<h2 style="margin-top:10px"><a href="cp.php?ac=task&op=do&taskid=$task[taskid]">$task[name]</a></h2>
+				<p>可获得 <span class="num">$task[credit]</span> 积分</p>
+			</div>
+		</div></div>
+	<!--{/if}-->
+	<!--{if empty($_SCOOKIE['closefeedbox']) && $_SGLOBAL['ad']['feedbox']}-->
+	<div id="feed_box" class="managebox" style="margin-top:5px">
+		<div class="task_notice">
+			<a title="忽略" class="float_cancel" href="javascript:;" onclick="close_feedbox();">忽略</a>
+			<div class="task_notice_body">
+			<!--{ad/feedbox}-->
+			</div>
+		</div>
+</div>
+	<!--{/if}-->
+
+<!--最近更新↓-->
+<div class="wowo_content" style="position:absolute;">
+	<div class="wowo_block wowo_todaywowo">
+		<div class="wowo_blockcontent">
+			<h2>最近更新的博客<span>一直在用心经营自己的家。。。</span></h2>
+			<script>
+				function todayview(tag,n){
+					for(var i=0;i<7;i++){
+						var curB=$("tag_"+tag+"_"+i);
+						if(!curB)break;
+						if(n==i){
+							curB.className="current";
+						}else{
+							curB.className=" ";
+						}
+					}
+				}
+			</script>
+			<ul class="tag_female">
+			<!--{block/sql/SELECT * FROM `sn_space` AS `space` LEFT JOIN `sn_spacefield` AS `spacefield` on `space`.`uid`=`spacefield`.`uid` WHERE `space`.`avatar`='1' AND `spacefield`.`sex`='2' ORDER BY `space`.`updatetime` DESC LIMIT 0,7/cachename/girl/cachetime/60}-->
+<!--{loop $_SBLOCK['girl'] $key $value}-->
+				<li id="tag_female_<!--{eval echo ($start+$key+0);}-->" onmouseover="return todayview('female',<!--{eval echo ($start+$key+0);}-->)">
+					<a href="space.php?uid=$value[uid]" class="avatar" target="_blank"><!--{avatar($value[uid],small)}--></a>
+					<div class="info">
+						<p><a href="space.php?uid=$value[uid]" target="_blank">$value[username]</a></p>
+						<p class="tool">
+						<!--{if !$value[name]}-->
+<img border=0 src="image/lightening/name_g.gif" alt="未经过实名认证">
+<!--{else}-->
+<img border=0 src="image/lightening/name_l.gif" alt="$value['name']">
+<!--{/if}-->
+<!--{if !$value[birthprovince]}-->
+|<img border=0 src="image/lightening/home_g.gif" alt="家乡未填写"></a>
+<!--{else}-->
+|<img border=0 src="image/lightening/home_l.gif" alt="$value[birthprovince] $value[birthcity]">
+<!--{/if}-->
+<!--{if $value[mobile]}-->
+|<img border=0 src="image/lightening/mod_l.gif" alt="手机认证">
+<!--{else}-->
+|<img border=0 src="image/lightening/mod_g.gif" alt="手机未认证">
+<!--{/if}-->
+<!--{if $_SCONFIG[videophoto]}-->	
+<!--{if $value[videostatus]}-->
+|<img border=0 src="image/lightening/v_l.gif" alt="视频认证通过"></span>
+<!--{else}--><span class="sl">
+|<img border=0 src="image/lightening/v_g.gif" alt="未通过视频认证"></a>
+<!--{/if}-->
+<!--{/if}-->	
+						</p>
+						<p class="popularity">人气:$value[viewnum]</p>
+					</div>
+				</li>			
+			
+			<!--{/loop}-->
+			</ul>
+			<ul class="tag_male">
+			
+<!--{block/sql/SELECT * FROM `sn_space` AS `space` LEFT JOIN `sn_spacefield` AS `spacefield` on `space`.`uid`=`spacefield`.`uid` WHERE `space`.`avatar`='1' AND `spacefield`.`sex`='1' ORDER BY `space`.`updatetime` DESC LIMIT 0,7/cachename/boy/cachetime/60}-->
+<!--{loop  $_SBLOCK['boy'] $key $value}-->
+				<li id="tag_male_<!--{eval echo ($start+$key+0);}-->" onmouseover="return todayview('male',<!--{eval echo ($start+$key+0);}-->)">
+					<a href="space.php?uid=$value[uid]" class="avatar"><!--{avatar($value[uid],small)}--></a>
+					<div class="info">
+						<p><a href="space.php?uid=$value[uid]">$value[username]</a></p>
+						<p class="tool">
+<!--{if !$value[name]}-->
+<img border=0 src="image/lightening/name_g.gif" alt="未经过实名认证">
+<!--{else}-->
+<img border=0 src="image/lightening/name_l.gif" alt="$value['name']">
+<!--{/if}-->
+<!--{if !$value[birthprovince]}-->
+|<img border=0 src="image/lightening/home_g.gif" alt="家乡未填写"></a>
+<!--{else}-->
+|<img border=0 src="image/lightening/home_l.gif" alt="$value[birthprovince] $value[birthcity]">
+<!--{/if}-->
+<!--{if $value[mobile]}-->
+|<img border=0 src="image/lightening/mod_l.gif" alt="手机认证">
+<!--{else}-->
+|<img border=0 src="image/lightening/mod_g.gif" alt="手机未认证">
+<!--{/if}-->
+<!--{if $_SCONFIG[videophoto]}-->	
+<!--{if $value[videostatus]}-->
+|<img border=0 src="image/lightening/v_l.gif" alt="视频认证通过"></span>
+<!--{else}--><span class="sl">
+|<img border=0 src="image/lightening/v_g.gif" alt="未通过视频认证"></a>
+<!--{/if}-->
+<!--{/if}-->		
+						</p>
+						<p class="popularity">人气:$value[viewnum]</p>
+					</div>
+				</li>			
+			
+			<!--{/loop}-->
+			</ul>
+			<script>
+				todayview('female',0);
+				todayview('male',0);
+			</script>
+		</div>
+	</div>
+  
+	</div>
+<div style="height:200px;"></div>
+<!--最近更新↑-->
+	
+	
+<div class="tabs_header" style="padding-top:10px;">
+
+		<!--{if $_SGLOBAL[magic][thunder]}-->
+		<a id="a_magic_thunder" href="magic.php?mid=thunder" onclick="ajaxmenu(event,this.id, 1)" class="r_option gray"><img src="image/magic/thunder.small.gif" alt="{$_SGLOBAL[magic][thunder]}" class="magicicon">{$_SGLOBAL[magic][thunder]}</a>
+		<!--{/if}-->
+
+		<ul class="tabs">
+			<!--{if $space[friendnum]}--><li$actives[we]><a href="space.php?do=home&view=we"><span>好友动态</span></a></li><!--{/if}-->
+			<li$actives[hot]><a href="space.php?do=home&view=hot"><span>热门推荐</span></a></li>
+			<li$actives[me]><a href="space.php?do=home&view=me"><span>我的动态</span></a></li>
+			<li$actives[all]><a href="space.php?do=home&view=all"><span>全站动态</span></a></li>
+			<!--{if $space[groupid]!=3}--><li$actives[vip]><a href="pay.php?ac=vip"><span>VIP升级</span></a></li><!--{/if}-->
+			<li$actives[vip]><a href="admincp.php"><span>管理中心</span></a></li>
+
+		</ul>
+	</div>
+<DIV class="managebox">
+<!--{elseif $space[uid]}-->
+
+<!--{eval
+	$_TPL['spacetitle'] = "动态";
+	$_TPL['spacemenus'][] = "<a href=\"space.php?uid=$space[uid]&do=feed&view=me\">TA的近期动态</a>";
+}-->
+	<!--{template space_menu}-->
+<!--{/if}-->
+	
+	<div class="feed">
+	<div id="feed_div" class="enter-content">
+	
+	<!--{if $hotlist}-->
+		<a href="space.php?do=home&view=hot" class="r_option">&raquo; 查看更多热点</a>
+		<h4 class="feedtime" style="margin-top:5px;">近期热点推荐</h4>
+		<ul>
+		<!--{loop $hotlist $value}-->
+		<!--{eval $value = mkfeed($value);}-->
+		<!--{template space_feed_li}-->
+		<!--{/loop}-->
+		</ul>
+	<!--{/if}-->
+		
+<!--{/if}-->	
+
+	<!--{if $list}-->
+	<!--{loop $list $day $values}-->
+		<!--{if $_GET['view']!='hot'}-->
+		<h4 class="feedtime">
+			<!--{if $day=='yesterday'}-->昨天
+			<!--{elseif $day=='today'}-->今天
+			<!--{elseif $day=='app'}-->看看大家都在玩什么
+			<!--{else}-->$day
+			<!--{/if}-->
+		</h4>
+		<!--{/if}-->
+		<ul>
+		<!--{loop $values $value}-->
+			<!--{template space_feed_li}-->
+		<!--{/loop}-->
+		</ul>
+	<!--{/loop}-->
+	
+	<!--{else}-->
+		<ul>
+			<li>没有相关动态</li>
+		</ul>
+	<!--{/if}-->
+	
+	<!--{if $filtercount}-->
+	<div class="notice" id="feed_filter_notice_{$start}">
+		根据您的<a href="cp.php?ac=privacy&op=view">筛选设置</a>，有 $filtercount 条动态被屏蔽 (<a href="javascript:;" onclick="filter_more($start);" id="a_feed_privacy_more">点击查看</a>)
+	</div>
+	<div id="feed_filter_div_{$start}" class="enter-content" style="display:none;">
+		<h4 class="feedtime">以下是被屏蔽的动态</h4>
+		<ul>
+		<!--{loop $filter_list $value}-->
+		<!--{eval $value = mkfeed($value);}-->
+		<!--{template space_feed_li}-->
+		<!--{/loop}-->
+		<li><a href="javascript:;" onclick="filter_more($start);">&laquo; 收起</a></li>
+		</ul>
+	</div>
+	<!--{/if}-->
+	
+<!--{if empty($_TPL['getmore'])}-->	
+	</div>
+
+	<!--{if $count==$perpage}-->
+	<div class="page" style="padding-top:20px;">
+		<a href="javascript:;" onclick="feed_more();" id="a_feed_more">查看更多动态</a>
+	</div>
+	<!--{/if}-->
+
+	<div id="ajax_wait"></div>
+
+	</div>
+
+<!--/content-->
+
+</DIV></DIV>
+
+<DIV class="manage_contentr">
+
+<!--打卡领工资↓-->
+<DIV class="managebox" style="margin-bottom:5px">
+<div class="sidebox">
+<div class="taskBox">
+<div class="cashBox">
+<span class="txt"><img src="image/icon_money_b.gif"/>小金库：<a href="cp.php?ac=credit" id="mycredit" class="helpLink" target="_blank" title="我的积分数"><span id="mycredit"><!--{if $_SGLOBAL[supe_uid]}-->$space[credit]<!--{else}-->0<!--{/if}--></span></a></span>
+</div>
+<script language="javascript" type="text/javascript" src="source/script_task.js"></script>
+<div class="dwagesBox">
+<!--{if $_SGLOBAL[supe_uid] && $task_getreward}-->
+<!--注：getpunchclock('8');中的8为Taskid,请记住修改！-->
+<!--Powered By Comver-->
+<div id="div_getreward"><a href="javascript:getpunchclock('7');playmedia('div_cashMedia')" id="dwages" title="打卡领工资（9:30之前打卡，工资会翻倍哦~）"><span class="btn_getreward_true"><span>打卡领工资</span></span></a></div>
+<!--{else}-->
+<div id="div_getreward"><span class="btn_getreward_false" title="今日工资已领（9:30之前打卡，工资会翻倍哦~）"><span> </span></span></div>
+<!--{/if}--> 
+</div>
+<div class="level_box">
+<div class="level_info"><img src="image/icon_level_b.gif"/><span>等级：</span><em> <!--{eval echo getlevel($space[experience]);}--> 级</em></div>
+<div class="level_label" title="升级还需<!--{eval echo getlevel($space[experience],1);}-->经验">
+<div class="percent" style="width: <!--{eval echo getlevel($space[experience],2);}-->%;"></div>
+<div class="label">{$space[experience]}/<!--{eval echo getlevel($space[experience],3);}--></div>
+</div>
+</div>
+</div>
+<div id="div_cashMedia" class="cashMedia"></div> 
+</div>
+</div>
+<!--打卡领工资↑-->
+
+<DIV class="managebox" style="margin-bottom:5px">	
+	<H3 class="grh3"><span class="you"></span>南非世界杯<SPAN>WORLD CUP</SPAN></H3>
+<UL class="manageboxul">
+<div class="task_notice" style="width:230px;">
+			<div class="task_notice_body">
+				<div style="margin-bottom:20px;text-align:center;"><object width="190" height="282" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+					<param value="http://fifa.honglei.net/fifa.swf" name="movie">
+					<param value="always" name="AllowScriptAccess">
+					<embed width="190" height="282" AllowScriptAccess="always" pluginspage="http://www.macromedia.com/go/getflashplayer" src="http://fifa.honglei.net/fifa.swf">
+				</object></div>
+				<!--{eval $renao_cai=rand(0,2);}-->
+				<!--{if $renao_cai==0}-->
+				<a title="品一回“非”味世界杯" href="space.php?do=topic&topicid=2" style="color:red;font-weight:bold;margin-left:20px;">南非世界杯开始啦！去凑个热闹~<br><img src="attachment/201006/12/1_12763649342UjA.jpg" width="220" height="165" /></a>
+				<!--{else}-->
+				<a title="2010南非世界杯猜猜猜，赢取诺基亚N78大奖！" href="space.php?do=event&id=9" style="color:red;font-weight:bold;margin-left:20px;">猜 猜 获 胜 的 球 队 ~<br><img src="attachment/201006/12/1_127633555598sp.jpg" width="220" height="165" /></a>
+				<!--{/if}--> 
+			</div>
+		</div>
+</UL>
+</div>
+
+	<!--{if $space[allnum]}-->
+	
+	<div class="managebox" style=" float:left;margin-bottom:5px">	
+	<H3 class="grh3"><span class="gray"></span>最新通知<SPAN>NOTICE</SPAN></H3>
+<UL class="notices">
+<!--{if $space[notenum]}--><div><span><img src="image/icon/notice.gif"></span><a href="space.php?do=notice"><strong>$space[notenum]</strong> 条新通知</a></div><!--{/if}-->
+		<!--{if $space[addfriendnum]}--><div><span><img src="image/icon/friend.gif" alt="" /></span><a href="cp.php?ac=friend&op=request"><strong>$space[addfriendnum]</strong> 个好友请求</a></div><!--{/if}-->
+		<!--{if $space[mtaginvitenum]}--><div><span><img src="image/icon/mtag.gif" alt="" /></span><a href="cp.php?ac=mtag&op=mtaginvite"><strong>$space[mtaginvitenum]</strong> 个群组邀请</a></div><!--{/if}-->
+		<!--{if $space[eventinvitenum]}--><div><span><img src="image/icon/event.gif" alt="" /></span><a href="cp.php?ac=event&op=eventinvite"><strong>$space[eventinvitenum]</strong> 个活动邀请</a></div><!--{/if}-->
+		<!--{if $space[myinvitenum]}--><div><span><img src="image/icon/userapp.gif" alt="" /></span><a href="space.php?do=notice&view=userapp"><strong>$space[myinvitenum]</strong> 个应用消息</a></div><!--{/if}-->
+		<!--{if $space[pmnum]}--><div><span><img src="image/icon/pm.gif" alt="" /></span><a href="space.php?do=pm"><strong>$space[pmnum]</strong> 条新短消息</a></div><!--{/if}-->
+		<!--{if $space[pokenum]}--><div><span><img src="image/icon/poke.gif" alt="" /></span><a href="cp.php?ac=poke"><strong>$space[pokenum]</strong> 个新招呼</a></div><!--{/if}-->
+		<!--{if $space[reportnum]}--><div><span><img src="image/icon/report.gif" alt="" /></span><a href="admincp.php?ac=report"><strong>$space[reportnum]</strong> 个举报</a></div><!--{/if}-->
+		<!--{if $space[namestatusnum]}--><div><span><img src="image/icon/profile.gif" alt="" /></span><a href="admincp.php?ac=space&perpage=20&namestatus=0&searchsubmit=1"><strong>$space[namestatusnum]</strong> 个待认证用户</a></div><!--{/if}-->
+		<!--{if $space[eventverifynum]}--><div><span><img src="image/icon/event.gif" alt="" /></span><a href="admincp.php?ac=event&perpage=20&grade=0&searchsubmit=1"><strong>$space[eventverifynum]</strong> 个待审核活动</a></div><!--{/if}-->
+</UL>
+</div>
+<!--{/if}-->	
+
+
+<!--{if !$isnewer && $task}-->
+<DIV class="managebox" style="margin-bottom:5px">	
+	<H3 class="grh3"><span class="you"></span>空间任务<SPAN>TASK</SPAN></H3>
+<UL class="manageboxul">
+<div class="task_notice" style="width:230px;">
+			<a title="忽略" class="float_cancel" href="cp.php?ac=task&taskid=$task[taskid]&op=ignore">忽略</a>
+			<div class="task_notice_body">
+				<img src="$task[image]" alt="" class="icon" />
+				<h2><a href="cp.php?ac=task&op=do&taskid=$task[taskid]">$task[name]</a></h2>
+				<p>可获得 <span class="num">$task[credit]</span> 积分</p>
+			</div>
+		</div>
+</UL>
+</div>
+<!--{/if}-->
+
+	<!--{if $topiclist}-->
+<DIV class="managebox" style="margin-bottom:5px">
+		<H3 class="grh3"><span class="you"></span>凑个热闹<SPAN>ACTIVITIES</SPAN></H3>
+<UL class="manageboxul">
+		<div class="task_notice" style="width:230px;">
+			<!--{loop $topiclist $key $value}-->
+			<div class="task_notice_body">
+				<!--{if $value[pic]}-->
+				<a href="space.php?do=topic&topicid=$value[topicid]"><img src="$value[pic]" alt="" class="icon" /></a>
+				<!--{/if}-->
+				<h2>
+					<img src="image/app/topic.gif" align="absmiddle">
+					<a href="space.php?do=topic&topicid=$value[topicid]">$value[subject]</a>
+				</h2>
+				<div class="gray">已有 <span class="num">$value[joinnum]</span> 人参与</div>
+			</div>
+			<!--{/loop}-->
+		</div>
+</UL></div>
+	<!--{/if}-->
+	
+<!--{if $newspacelist}-->
+<DIV class="managebox" style="margin-bottom:5px">
+		<H3 class="grh3"><span class="you"><a href="space.php?do=top">排行</a></span>新成员<SPAN>NEW MEMBERS</SPAN></H3>
+
+		<ul class="avatar_list">
+			<!--{loop $newspacelist $key $value}-->
+			<li>
+				<div class="avatar48"><a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a></div>
+				<p<!--{if $ols[$value[uid]]}--> class="online_icon_p" title="在线"<!--{/if}-->><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></p>
+				<p class="gray"><!--{date('n月j日',$value[dateline],1)}--></p>
+
+			</li>
+			<!--{/loop}-->
+		</ul>
+	</div>
+	<!--{/if}-->
+	
+	<!--{if $visitorlist}-->
+<DIV class="managebox" style="margin-bottom:5px">
+
+<H3 class="grh3"><span class="you"><a href="space.php?uid=$space[uid]&do=friend&view=visitor">全部</a></span>	
+			最近来访<SPAN>VISIT</SPAN><!--{if $_SGLOBAL[magic][detector]}-->
+			<span class="gray"><a id="a_magic_detector" href="magic.php?mid=detector" onclick="ajaxmenu(event,this.id,1)">{$_SGLOBAL[magic][detector]}</a></span>	
+			<!--{/if}--></H3>
+<ul class="avatar_list">
+			<!--{loop $visitorlist $key $value}-->
+			<li>
+				<!--{if $value[vusername] == ''}-->
+				<div class="avatar48"><img src="image/magic/hidden.gif" alt="匿名" /></a></div>
+				<p>匿名</p>
+				<p class="gray"><!--{date('n月j日',$value[dateline],1)}--></p>
+				<!--{else}-->
+				<div class="avatar48"><a href="space.php?uid=$value[vuid]"><!--{avatar($value[vuid],small)}--></a></div>
+				<p<!--{if $ols[$value[vuid]]}--> class="online_icon_p" title="在线"<!--{/if}-->><a href="space.php?uid=$value[vuid]" title="{$_SN[$value[vuid]]}">{$_SN[$value[vuid]]}</a></p>
+				<p class="gray"><!--{date('n月j日',$value[dateline],1)}--></p>
+				<!--{/if}-->
+			</li>
+			<!--{/loop}-->
+		</ul></DIV>
+	<!--{/if}-->	
+		
+	<!--{if $olfriendlist}-->
+<DIV class="managebox" style="margin-bottom:5px">	
+
+<H3 class="grh3"><span class="you"><a href="space.php?uid=$space[uid]&do=friend">全部</a></span>我的好友<SPAN>MY F RIENDS</SPAN><!--{if $_SGLOBAL[magic][visit]}--><span class="gray"><a  id="a_magic_visit" href="magic.php?mid=visit" onclick="ajaxmenu(event,this.id,1)">{$_SGLOBAL[magic][visit]}</a></span>
+			<!--{/if}--></H3>
+	<ul class="avatar_list">
+			<!--{loop $olfriendlist $key $value}-->
+			<li>
+				<div class="avatar48"><a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a></div>
+				<p<!--{if $ols[$value[uid]]}--> class="online_icon_p" title="在线"<!--{/if}-->><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></p>
+				<p class="gray"><!--{if $value[lastactivity]}--><!--{date('H:i',$value[lastactivity],1)}--><!--{else}-->热度($value[num])<!--{/if}--></p>
+			</li>
+			<!--{/loop}-->
+		</ul>
+</DIV>
+	<!--{/if}-->
+
+ 
+<DIV class="managebox">
+ 	<!--{if $birthlist}-->
+
+	<div class="searchfirend">
+		
+			<H3 class="grh3"><span class="you"></span>好友生日提醒<SPAN>BIRTHDAY</SPAN></h3>
+			<div class="box">
+			<table cellpadding="2" cellspacing="4">
+			<!--{loop $birthlist $key $values}-->
+			<tr>
+				<td align="right" valign="top" style="padding-left:10px;">
+				<!--{if $values[0]['istoday']}-->今天<!--{else}-->{$values[0][birthmonth]}-{$values[0][birthday]}<!--{/if}-->
+				</td>
+				<td style="padding-left:10px;">
+				<ul>
+				<!--{loop $values $value}-->
+				<li><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></li>
+				<!--{/loop}-->
+				</ul>
+				</td>
+			</tr>
+			<!--{/loop}-->
+			</table>
+			</div>
+
+	</div>
+	<!--{/if}-->
+	
+
+<H3 class="grh3"><span class="you"></span>快速定位<SPAN>POSITIONING</SPAN></H3>
+
+<UL>
+<p style="margin-top:10px">
+
+<form method="get" action="cp.php" style="padding:5px;">
+				<input name="searchkey" value="" size="20" class="t_input" type="text">
+				<input name="searchsubmit" value="找人" class="submit" type="submit">
+				<input type="hidden" name="searchmode" value="1" />
+				<input type="hidden" name="ac" value="friend" />
+				<input type="hidden" name="op" value="search" />
+			</form>
+</p>
+<p style="padding-top:10px">
+<a href="cp.php?ac=friend&op=search">高级搜索</a><span class="pipe">|</span><a href="cp.php?ac=friend&op=find">可能认识的人</a><span class="pipe">|</span><a href="cp.php?ac=invite">邀请好友</a>
+</p>
+
+ </UL>
+ </DIV>
+</DIV>
+<DIV class=clear></DIV></DIV>
+<DIV class=brbbot_gray>
+<DIV>
+<P></P></DIV></DIV></DIV>
+
+
+
+<script type="text/javascript">
+
+	var next = $start;
+	function feed_more() {
+		var x = new Ajax('XML', 'ajax_wait');
+		var html = '';
+		next = next + $perpage;
+		x.get('cp.php?ac=feed&op=get&start='+next+'&view=$_GET[view]&appid=$_GET[appid]&icon=$_GET[icon]&filter=$_GET[filter]&day=$_GET[day]', function(s){
+			html = '<h4 class="feedtime">以下是新读取的动态</h4>' + s;
+			$('feed_div').innerHTML += html;
+		});
+	}
+
+	function filter_more(id) {
+		if($('feed_filter_div_'+id).style.display == '') {
+			$('feed_filter_div_'+id).style.display = 'none';
+			$('feed_filter_notice_'+id).style.display = '';
+		} else {
+			$('feed_filter_div_'+id).style.display = '';
+			$('feed_filter_notice_'+id).style.display = 'none';
+		}
+	}
+
+	function close_feedbox() {
+		var x = new Ajax();
+		x.get('cp.php?ac=common&op=closefeedbox', function(s){
+			$('feed_box').style.display = 'none';
+		});
+	}
+	
+	var elems = selector('li[class~=magicthunder]', $('feed_div')); 
+	for(var i=0; i<elems.length; i++){		
+		magicColor(elems[i]); 
+	}
+
+	//打卡领工资
+	function getpunchclock(tid) {
+	if(tid) {
+		var x = new Ajax();
+
+		var obj = $('div_getreward');
+		obj.innerHTML = '<span class="btn_getreward_false" title="今日工资已领（9:30之前打卡，工资会翻倍哦~）"><span> </span></span>'; 
+		x.get('do.php?ac=ajax&op=getpunchclock&tid='+tid, function(s){
+			$('mycredit').innerHTML = s;
+		});
+
+	}
+	}
+</script>
+
+<!--{eval my_checkupdate();}-->
+<!--{eval my_showgift();}-->
+<!--{template footer_x}-->
+<!--{/if}-->

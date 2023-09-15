@@ -1,0 +1,27 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=$_SC[charset]" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<title><!--{if $_TPL['titles']}--><!--{loop $_TPL['titles'] $value}--><!--{if $value}-->$value - <!--{/if}--><!--{/loop}--><!--{/if}--><!--{if $space}-->{$_SN[$space[uid]]} - <!--{/if}-->$_SCONFIG[sitename] - Powered by UCenter Home</title>
+<meta name="keywords" content="巴中,交友,生活,装扮,单身,都市,开心,窝窝" />
+<meta name="description" content=" 搭窝窝 这里是巴中人网上交友平台：我在搭窝窝 生活乐呵呵" />
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<link href="template/wowo/register.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="header">
+	<h1><a href="index.php"><img src="template/wowo/image/logo.gif" alt="$_SCONFIG[sitename]" /></a></h1>
+	<div class="clear"></div>
+	<h2><!--{if !empty($space[usernmae])}-->$space[username] 邀请你为窝友<!--{else}--><!--{if $ac == 'login'}-->登录<!--{else}-->注册<!--{/if}--><!--{/if}--></h2>
+	
+</div>

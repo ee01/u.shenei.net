@@ -1,0 +1,100 @@
+<!--{template admin/tpl/header}-->
+
+<div class="mainarea">
+<div class="maininner">
+	<div class="bdrcontent">
+	<div class="title">
+	<h3>分类列表</h3>
+	</div>
+	<script language="javascript">
+	function checkAll()
+	{
+		var   aa   =   document.getElementsByName("del[]"); 
+		for(var i=0; i<aa.length; i++)
+		{
+				if(aa[i].checked)
+				{
+					aa[i].checked=false;
+					document.getElementById("selectall").value='全选'; 
+				}
+				else
+				{
+					aa[i].checked=true;
+					document.getElementById("selectall").value='取消'; 
+				}
+		}
+	}
+	function updateAll()
+	{
+		document.typelist.action='admincp.php?ac=type&op=update';
+		document.typelist.submit();
+	}
+	</script>
+	<form method="post" name="typelist" id="typelist" action="admincp.php?ac=type&op=del">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	<table cellspacing="0" cellpadding="0" class="formtable">
+	<tr>
+	<td width="100" colspan="2">ID</td>
+	<td width="200">分类名称</td>
+	<td width="200">分类上级ID</td>
+	<td width="100">分类排序</td>
+	</tr>
+	<!--{loop $list $value}-->
+	<tr>
+	<td colspan="2"><input type="checkbox" name="del[]" id="del[]" value="$value[id]" /><input type="hidden" name="typeall[]" id="typeall[]" value="$value[id]" />$value[id]</td>
+	<td><input type="text" name="name_$value[id]" id="name_$value[id]" value="$value[name]" /></td>
+	<td><input type="text" name="parent_$value[id]" id="parent_$value[id]" value="$value[parent]" /></td>
+	<td><input type="text" name="sort_$value[id]" id="sort_$value[id]" value="$value[sort]" /></td>
+	</tr>
+	<!--{loop $value['child'] $value2}-->
+	<tr>
+	<td>|----></td>
+	<td><input type="checkbox" name="del[]" id="del[]" value="$value2[id]" /><input type="hidden" name="typeall[]" id="typeall[]" value="$value2[id]" />$value2[id]</td>
+	<td><input type="text" name="name_$value2[id]" id="name_$value2[id]" value="$value2[name]" /></td>
+	<td><input type="text" name="parent_$value2[id]" id="parent_$value2[id]" value="$value2[parent]" /></td>
+	<td><input type="text" name="sort_$value2[id]" id="sort_$value2[id]" value="$value2[sort]" /></td>
+	</tr>
+	<!--{/loop}-->
+	<!--{/loop}-->
+	</table>
+	</div>
+	<div class="footactions">
+		<input type="button" name="selectall" id="selectall" value="全选" class="submit" onclick="checkAll()">
+		<input type="button" name="updateall" id="updateall" value="批量更新" class="submit" onclick="updateAll()">
+		<input type="submit" name="delall" id="delall" value="批量删除" class="submit">
+	</div>
+	</form>
+
+	<div class="bdrcontent">
+	<br />
+	<div class="title">
+	<h3>添家分类</h3>
+	</div>
+	
+	<form method="post" action="admincp.php?ac=type&op=add">
+	<table cellspacing="0" cellpadding="0" class="formtable">
+	<tr>
+	<td>分类名称:<input type="text" name="name" id="name" /></td>
+	<td>分类上级:
+	<select name="parent" id="parent">
+	<option value="0">一级分类</option>
+	<!--{loop $list $value}-->
+	<option value="$value[id]">$value[name]</option>
+	<!--{/loop}-->
+	</select>
+	</td>
+	<td>分类排序:<input type="text" name="sort" id="sort" /></td>
+	<td><input type="submit" name="addsubmit" value="保存" class="submit"></td>
+	</tr>
+	</table>
+	</form>
+	</div>
+
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

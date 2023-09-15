@@ -1,0 +1,45 @@
+/*
+[name]Apple[/name]
+Powered by Baipaole.com
+*/
+body { background: #CFE1ED url(images/body_bg.gif); color: #666; }
+a { color: #4371A0; }
+#wrap { width: 990px; }
+#header { margin: 0; width: 100%; background: url(images/top_bg.jpg) repeat-x left top; color: #CCC; }
+#header a { color: #2C629E; }
+.headerwarp { width: 950px; height: 363px; background: url(images/header.jpg) repeat-x 0 40px; }
+#header .logo a { width: 82px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#space_page { padding: 10px; width: 970px; background: #271e00 url(images/ybg.jpg) no-repeat left top; }
+#ubar h2,
+#space_page .feed_header,
+.sidebox h2.title { padding: 0 21px; height: 30px; background-image: url(images/title.gif); color: #78cb02; line-height: 30px; }
+.tabs_header { position: absolute; margin: -50px 0 0 60px; width: 560px; border: none; }
+
+ #footer { border-color: #ECF1F3; }
+a#i_rss { color: #000000; }
+.tabs_header, #space_page .comments_list li, #footer { border-color: #222; }
+.tabs_header ul.tabs li a, .tabs_header ul.tabs li a span { background: none; color: #ffffff; }
+.tabs_header ul.tabs li.active a, .tabs_header ul.tabs li.active a span { background-image: url(images/tab_bg.gif); color: #FFF; }
+.line_list li { border-color: #4f4e4e; }
+.quote { background-image: url(images/q_start.gif); }
+.quote .q, .quote blockquote { background-image: url(images/q_end.gif); }
+.time { color: #666; }
+.avatar48 { padding: 1px; width: 48px; height: 48px; border: 1px solid #8cfc5b; background: none; overflow: hidden; }
+.t_input, textarea { border-color: #222; background: #111; color: #CCC; }
+.submit { border-color: #333; background: #222; }
+feed .entry-title { color: #444; }
+.feed a:visited { color: #666; }
+.feed .detail { color: #b5b7b7; }
+.feed li { border-color: #111; }
+.feed a img.summaryimg{ border-color:#333; }
+.feed a:hover img.summaryimg{ border-color:#666; }
+.feed .float_cancel { background: none; color: #333; }
+.entry_list .image_right img { border-color: #333; }
+.pipe { color: #333; }
+.ulist { border: 1px solid #222; background: #111; }
+#space_page .album_list { background: #111; }
+#space_page .album_list .album { border: 1px solid #222; background: #000; }
+#footer { padding: 20px 20px; border: none; background: url(images/ybg2.jpg) no-repeat 0 0; color: #fff; }
+#footer a { color: #fff; }

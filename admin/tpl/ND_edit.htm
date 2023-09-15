@@ -1,0 +1,311 @@
+<!--{template admin/tpl/header}-->
+
+<div class="mainarea">
+<div class="maininner">
+	<script language="javascript">
+function showlist()
+{
+	var obj			=	document.searchform.types;
+	var objValue	=	1;
+	for(var i=0;i<obj.length;i++) 
+	{ 
+		if(obj[i].checked) 
+			objValue=	obj[i].value;
+	}
+	if(objValue>1)
+	{
+		document.getElementById("typelist").style.display="block";
+	}
+	else
+	{
+		document.getElementById("typelist").style.display="none";
+	}
+}
+function checkAll()
+	{
+		var   aa   =   document.getElementsByName("del[]"); 
+		for(var i=0; i<aa.length; i++)
+		{
+				if(aa[i].checked)
+				{
+					aa[i].checked=false;
+					document.getElementById("selectall").value='全选'; 
+				}
+				else
+				{
+					aa[i].checked=true;
+					document.getElementById("selectall").value='取消'; 
+				}
+		}
+	}
+</script>
+	<form method="post" name="searchform" action="admincp.php?ac=list&op=ND_search">
+	<div class="block style4">
+		<table cellspacing="3" cellpadding="3">
+		<tr><td>关键字：<input name="keyword" value="" size="26" class="t_input" type="text"></td>
+			<td><input name="searchsubmit" value="搜索资源" class="submit" type="submit"></td>
+		</tr>
+		</table>
+
+	</div>
+	</form>
+	<script language="javascript" src="image/editor/editor_function.js"></script>
+<script language="javascript">
+function checkalbum()
+{
+	var title	=	document.getElementById("title");
+	if(title.value=="")
+	{
+		alert('请填写标题！');
+		title.focus();
+		return;
+	}
+	var type	=	document.getElementById("type");
+	var typeva	=	type.options[type.selectedIndex].value;
+	if(typeva=="")
+	{
+		alert('请选择分类！');
+		type.focus();
+		return;
+	}
+	var stwo	=	document.getElementById("stwo");
+	var stwova	=	stwo.options[stwo.selectedIndex].value;
+	if(stwova==""||stwo.options.length<=0)
+	{
+		alert('请选择子分类！');
+		stwo.focus();
+		return;
+	}
+	var jifen	=	document.getElementById("jifen");
+	var jifenva	=	jifen.value;
+	if(jifenva==""||jifenva.search(/^[0-9]+$/)==-1)
+	{
+		alert('请正确输入下载所需积分！注意只能填写数字');
+		jifen.focus();
+		return;
+	}
+	var author	=	document.getElementById("author");
+	if(author.value=="")
+	{
+		alert('请填写作者！');
+		author.focus();
+		return;
+	}
+	var datetime=	document.getElementById("datetime");
+	if(datetime.value=="")
+	{
+		alert('请填写时间！');
+		datetime.focus();
+		return;
+	}
+	var obj		=	document.getElementById("fsUploadProgress1");
+	if(obj.childNodes.length<=0)
+	{
+		alert('请点击浏览选择上传文件！');
+		return;
+	}
+	var num		=	parseInt(document.getElementById("filenum").value);
+	var n		=	obj.childNodes.length/4;
+	if(n>num)
+	{
+		upload.startUpload();
+	}
+	else
+	{
+		document.getElementById('submits').click();
+	}
+	
+}
+function validate(obj) 
+{
+	edit_save();
+	obj.form.submit();
+}
+</script>
+<style>
+body {font-size:12px;}
+ul li {list-style-type: none;}
+.upload div{ float:left; width:100%;}
+.upload li{ float:left; height:25px; line-height:25px; overflow:hidden;
+}
+.progressBarInProgress {background-color:#00FF00; text-align:center}
+.clear{clear:both}
+</style>
+<style>
+#calendar{padding:5px;text-align:left;border:1px solid #7FCAE2;background:#FFF;margin-bottom:0.8em;}#calendar td{padding:2px;font-weight:bold;}#calendar_week td{height:2em;line-height:2em;border-bottom:1px solid #E3EDF5;}#hourminute td{padding:4px 2px;border-top:1px solid #E3EDF5;}.calendar_expire,.calendar_expire a:link,.calendar_expire a:visited{color:#666;font-weight:normal;}.calendar_default,.calendar_default a:link,.calendar_default a:visited{color:#09C;}.calendar_checked,.calendar_checked a:link,.calendar_checked a:visited{color:#F60;font-weight:bold;}td.calendar_checked,span.calendar_checked{background:#E3EDF5;}.calendar_today,.calendar_today a:link,.calendar_today a:visited{color:#444;font-weight:bold;}#calendar_header td{width:30px;height:20px;border-bottom:1px solid #E3EDF5;font-weight:normal;}#calendar_year{display:none;line-height:130%;background:#FFF;position:absolute;z-index:10;}#calendar_year .col{float:left;background:#FFF;margin-left:1px;border:1px solid #E3EDF5;padding:4px;}#calendar_month{display:none;background:#FFF;line-height:130%;border:1px solid #DDD;padding:4px;position:absolute;z-index:11;}
+</style>
+<SCRIPT src="upload_js/js/calendar.js" type=text/javascript></SCRIPT>
+<div id="content">
+	<form id="form1" name="form1" action="admincp.php?ac=list&op=edit" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		<table cellspacing="0" cellpadding="0" class="formtable" width="100%">
+			<tr>
+			<td width="100" align="right">标题：</td>
+			<td><input type="text" name="title" id="title" value="$valueND[title]" style="width:200px;"  /></td>
+			</tr>
+			<tr>
+			<td align="right">分类：</td>
+			<td>
+			<select name="type" id="type" style="width:100px;" onchange=redirec(this.options.selectedIndex)>
+			<option value="">请选择分类</option>
+			<!--{loop $type $value}-->
+			<!--{if $value[id]==$valueND[type] }-->
+			<option value="$value[id]" selected="selected">$value[name]</option>
+			<!--{else}-->
+			<option value="$value[id]">$value[name]</option>
+			<!--{/if}-->
+			<!--{/loop}-->
+			</select>
+			<SELECT name="stwo" id="stwo" style="width:100px;"> 
+			 	<!--{if $valueND[stwo] }--> 
+				<OPTION value="$valueND[stwo]">$valueND[ntt]</OPTION>
+				<!--{else}-->
+				<OPTION value="">请选择子分类</OPTION>
+		 		<!--{/if}-->
+			</SELECT></td>
+			</tr>
+			<SCRIPT language=javascript>
+var select2 = new Array(<!--{eval echo count($type)+1;}-->);
+for (i=0; i<<!--{eval echo count($type)+1;}-->; i++) 
+{
+select2[i] = new Array();
+}
+//定义基本选项
+
+select2[0][0] = new Option("请选择子分类", " ");
+<!--{eval $j=1;}-->
+<!--{loop $type $value}-->
+<!--{eval $i=0;}-->
+<!--{loop $value['child'] $value2}-->
+select2[<!--{eval echo $j;}-->][<!--{eval echo $i;}-->] = new Option("<!--{eval echo $value2['name'];}-->", "<!--{eval echo $value2['id'];}-->",0,0);
+<!--{eval $i++;}-->
+<!--{/loop}-->
+<!--{eval $j++;}-->
+<!--{/loop}-->
+function redirec(x)
+{
+var temp = document.form1.stwo;
+for (m=temp.options.length-1;m>=0;m--)
+temp.options[m]=null;
+for (i=0;i<select2[x].length;i++)
+{
+//temp.options[i]=new Option(select2[x][i].text,select2[x][i].value);
+ var   oOption   =   document.createElement("OPTION");   
+ oOption.value=select2[x][i].value;  
+ oOption.text=select2[x][i].text;   
+ temp.options.add(oOption);
+
+}
+temp.options[0].selected=true;
+}
+</SCRIPT>
+			<tr>
+			<td align="right">所需积分：</td>
+			<td><input type="text" name="jifen" id="jifen" style="width:200px;" value="<!--{if $valueND[jifen] }-->$valueND[jifen]<!--{else}-->0<!--{/if}-->" /><br />用户下载所花费的积分，都会累加到发布者的总积分</td>
+			</tr>
+			<tr>
+			<td align="right">是否公布：</td>
+			<td>
+			<input type="radio" name="publicall" id="publicall" value="1" <!--{if $valueND[publicall] == '1'}--> checked<!--{/if}--> >全部会员可下载
+			<input type="radio" name="publicall" id="publicall" value="2" <!--{if $valueND[publicall] == '2'}--> checked<!--{/if}-->>只有好友可下载
+			<input type="radio" name="publicall" id="publicall" value="3" <!--{if $valueND[publicall] == '3'}--> checked<!--{/if}-->>只有自己可下载
+			</td>
+			</tr>
+			<tr>
+			<td align="right">作者：</td>
+			<td><input type="text" name="author" id="author" value="$spaces[username]" style="width:200px;" /></td>
+			</tr>
+			<tr>
+			<td align="right">匿名发布：</td>
+			<td><input type="radio" name="nouser" id="nouser" value="0" <!--{if $infond[nouser] == '0' || empty($infond[nouser])}--> checked<!--{/if}--> >否
+			<input type="radio" name="nouser" id="nouser" value="1" <!--{if $infond[nouser] == '1'}--> checked<!--{/if}-->>是</td>
+			</tr>
+			<tr>
+			<td align="right">日期：</td>
+			<td><input type="text" name="datetime" id="datetime" onclick="showcalendar(event, this)" value="$dates" style="width:200px;" /></td>
+			</tr>
+			<tr>
+			<td align="right">关键字：</td>
+			<td><input type="text" name="keyword" id="keyword" value="$tags" style="width:400px;" /><br />(关键字之间用逗号分开)</td>
+			</tr>
+			<tr>
+			<td align="right">简介:</td>
+			<td><textarea class="userData" name="message" id="uchome-ttHtmlEditor" style="height:100%;width:100%;display:none;border:0px">$valueND[jieshao]</textarea><iframe src="editor.php?charset=$_SC[charset]&allowhtml=$allowhtml" name="uchome-ifrHtmlEditor" id="uchome-ifrHtmlEditor" scrolling="no" border="0" frameborder="0" style="width:100%;border: 1px solid #C5C5C5;" height="200"></iframe></td>
+			</tr>
+			<tr>
+			<td align="right">文件上传:</td>
+			<td><span id="spanButtonPlaceholder1"></span></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td><div>
+						<div class="upload" style=" margin-top:5px; margin-bottom:5px;">
+						<ul style="background-color:#CCCCCC">
+						<li style="width:120px">文件</li>
+						<li style="width:100px">文件大小</li>
+						<li style="width:150px">上传进度</li>
+						<li style="width:50px">操作</li>
+						</ul>
+						<ul id="fsUploadProgress1">
+						<!--{eval for($i=0;$i<count($filesrc)-1;$i++) { }-->
+						<li style="width:120px"><a href="$filesrc[$i]" target="_blank">$filenn[$i]</a></li>
+						<li style="width:100px">
+						<!--{eval 
+							$size	=	filesize($filesrc[$i]);
+							$daxiao1=	$size/1024;
+							$daxiao1	=	sprintf("%.2f",$daxiao1);
+							if($daxiao1>1)
+							{
+								if($daxiao1>=1024)
+								{
+									$daxiao1=	$daxiao1/1024;
+									$daxiao1=	sprintf("%.2f",$daxiao1);
+									$size	=	$daxiao1." "."MB";
+								}
+								else
+								{
+									$size	=	$daxiao1." "."KB";
+								}
+			
+							}
+							else
+							{
+								$size	=	$daxiao1." "."Byte";
+							}
+							echo $size;
+						 }--></li>
+						<li style="width:150px;">已上传完成</li>
+						<li style="width:50px"><a href="admincp.php?ac=list&op=delfile&id=$valueND[id]&n=$i">删除</a></li>
+						<!--{eval } }-->
+						</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+			<td align="right">审核：</td>
+			<td><input type="radio" name="shenhe" id="shenhe" value="1" <!--{if  $valueND[state]==1 }--> checked="checked" <!--{/if}--> />通过&nbsp;&nbsp;&nbsp;<input type="radio" name="shenhe" id="shenhe" value="0" <!--{if  $valueND[state]==0 }--> checked="checked" <!--{/if}--> />未通过</td>
+			</tr>
+			<tr>
+			<td colspan="2" align="center"><br />
+			<input type="hidden" name="filesrc" id="filesrc" value="$valueND[datasrc]" />
+			<input type="hidden" name="fileuid" id="fileuid" value="$valueND[uid]" />
+			<input type="hidden" name="fileid" id="fileid" value="$valueND[id]" />
+			<input type="hidden" name="filenum" id="filenum" value="$i" />
+			<input type="hidden" name="filename" id="filename" value="$valueND[namesrc]" />
+			<input type="hidden" name="filesize" id="filesize" value="$valueND[size]" />
+			<input type="button" name="submits" id="submits" class="submit" onclick="validate(this);" style="display: none;">
+			<input id="btnCancel3" type="button" value="保存" onclick="checkalbum()" style="margin-left: 2px; height: 22px; font-size: 12px; width:100px" class="submit" />&nbsp;&nbsp;&nbsp;&nbsp;
+							</td>
+							</tr>
+		</table>
+	</form>
+</div>
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

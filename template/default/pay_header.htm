@@ -1,0 +1,207 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=$_SC[charset]" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title><!--{if $_TPL['titles']}--><!--{loop $_TPL['titles'] $value}--><!--{if $value}-->$value - <!--{/if}--><!--{/loop}--><!--{/if}--><!--{if $space}-->{$_SN[$space[uid]]} - <!--{/if}-->$_SCONFIG[sitename]</title>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<style type="text/css">
+<!--{if !empty($_SGLOBAL['space_theme'])}-->
+@import url(template/default/style.css);
+@import url(theme/$_SGLOBAL[space_theme]/style.css);
+<!--{else}-->
+@import url(template/$_SCONFIG[template]/style.css);
+<!--{/if}-->
+<!--{if !empty($_SGLOBAL['space_css'])}-->
+$_SGLOBAL[space_css]
+<!--{/if}-->
+</style>
+<style type="text/css">
+<!--
+#stk {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FF6600;
+	border-right-color: #FF6600;
+	border-bottom-color: #FF6600;
+	border-left-color: #FF6600;
+	height: 25px;
+	width: 65px;
+	line-height: 25px;
+	text-align: center;
+	background-color: #FF9900;
+	text-indent: 5px;
+	display: block;
+	color: #FFFFFF;
+}
+#stk a {
+	color: #FFFFFF;
+}
+.spaf {
+padding: 20px 0; color: #666; font-size: 12px;
+}
+.tts {
+	border: 1px solid #CCCCCC;
+	line-height: 15px;
+	height: 15px;
+	vertical-align: middle;
+	font-size: 13px;
+	text-align: center;
+}
+.STYLE1 {
+	color: #FF6600;
+	font-weight: bold;
+}
+.STYLE2 {padding: 20px 0; color: #666; font-size: 12px; font-weight: bold; }
+-->
+</style>
+<link rel="shortcut icon" href="image/favicon.ico" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=$space[uid]" />
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+
+
+	<div id="header">
+	<!--{if $_SGLOBAL['ad']['header']}--><div class="warp"><!--{ad/header}--></div><!--{/if}-->
+	<div class="headerwarp">
+		<h1 class="logo"><a href="index.php"><img src="$_SCONFIG[sitelogo]" alt="$_SCONFIG[sitename]" /></a></h1>
+		<ul class="menu">
+		<!--{if $_SGLOBAL[supe_uid]}-->
+			<li><a href="space.php?do=home">首页</a></li>
+			<li><a href="space.php">个人主页</a></li>
+			<li><a href="space.php?do=friend">好友</a></li>
+			<li><a href="network.php">随便看看</a></li>
+			
+		<!--{if $_SGLOBAL['appmenu']}-->
+			<!--{if $_SGLOBAL['appmenus']}-->
+			<li class="ucmenu" onmouseover="subop(this)" onmouseout="subop(this)" >
+				<a href="{$_SGLOBAL[appmenu][url]}" title="{$_SGLOBAL[appmenu][name]}" target="_blank">{$_SGLOBAL[appmenu][name]}</a>
+				<ul id="ucmenu" style="display:none;">
+				<!--{loop $_SGLOBAL['appmenus'] $value}-->
+				<li><a href="$value[url]" title="$value[name]" target="_blank">$value[name]</a></li>
+				<!--{/loop}-->
+				</ul>
+			</li>
+			<!--{else}-->
+			<li><a href="{$_SGLOBAL[appmenu][url]}" title="{$_SGLOBAL[appmenu][name]}" target="_blank">{$_SGLOBAL[appmenu][name]}</a></li>
+			<!--{/if}-->
+		<!--{/if}-->
+		
+			<li><a href="space.php?do=pm">消息<!--{if !empty($_SGLOBAL['member']['newpm'])}-->(新)<bgsound src="image/pm_0.wav" /><!--{/if}--></a></li>
+			<!--{if !empty($_SGLOBAL['member']['notenum'])}--><li class="notify"><a href="space.php?do=notice">{$_SGLOBAL['member']['notenum']}条新通知</a></li><!--{/if}-->
+		<!--{else}-->
+			<li><a href="index.php">首页</a></li>
+			<li><a href="network.php">随便看看</a></li>
+			<li><a href="help.php">帮助</a></li>
+		<!--{/if}-->
+		</ul>
+		
+		<div class="nav_account">
+		<!--{if $_SGLOBAL[supe_uid]}-->
+			<a href="space.php?uid=$_SGLOBAL[supe_uid]" class="login_thumb"><!--{avatar($_SGLOBAL[supe_uid],small)}--></a>
+			<a href="space.php?uid=$_SGLOBAL[supe_uid]" class="loginName">{$_SN[$_SGLOBAL[supe_uid]]}</a>
+			<!--{if $vips[ztime] > 0}-->
+		  <a href="pay.php?ac=vip"><img src="image/pay/vip.gif" alt="VIP会员:$vips[day]天" border="0" align="absmiddle" /></a>
+			<!--{else}-->
+			<a href="pay.php?ac=vip" target="_blank"><img src="image/pay/vip2.gif" alt="未激活" border="0" align="absmiddle" /></a>
+			<!--{/if}-->
+			<br />
+			<a href="cp.php?ac=invite">邀请</a> | <a href="cp.php">设置</a> | <a href="cp.php?ac=privacy">隐私</a> | <a href="cp.php?ac=common&op=logout">退出</a>
+		<!--{else}-->
+			<a href="do.php?ac=$_SCONFIG[register_action]" class="login_thumb"><img src="<!--{avatar($_SGLOBAL[supe_uid],small)}-->" width="20" height="20" /></a>
+			欢迎您<br>
+			<a href="do.php?ac=$_SCONFIG[login_action]">登录</a> | 
+			<a href="do.php?ac=$_SCONFIG[register_action]">注册</a>
+		<!--{/if}-->
+		</div>
+	  </div>
+	</div>
+			
+
+<script >
+<!--
+function subop(obj){
+
+	var tLeft = obj.offsetLeft;
+	var tTop = obj.offsetTop + 38;
+	while(obj=obj.offsetParent) {
+		tLeft+=obj.offsetLeft;
+		tTop+=obj.offsetTop;
+	}
+	if($('ucmenu').style.display == 'none'){
+		$('ucmenu').style.cssText = 'display:block; left:' + tLeft + 'px; top:' + tTop + 'px;';
+	}
+	else{
+		$('ucmenu').style.cssText = 'display:none;';
+	}
+}
+-->
+</script>
+
+<div id="wrap">
+
+	<!--{if empty($_TPL['nosidebar'])}-->
+	<div id="main">
+
+		<div id="app_sidebar">
+		<!--{if $_SGLOBAL[supe_uid]}-->
+			<ul class="app_list" id="default_userapp">
+				<li class="fs-12"><strong>支付中心</strong></li>
+				<li><img src="image/pay/jifen.gif" width="16" height="16"><a href="pay.php">积分充值</a></li>
+				<li><img src="image/pay/vip01.gif" width="16" height="16"><a href="pay.php?ac=vip">VIP特权</a></li>
+				<li><img src="image/app/supesite.gif" width="16" height="16"><a href="pay.php?ac=list">交易明细</a></li>
+				<li><img src="image/pay/radio.gif" width="16" height="16"><a href="$_SCONFIG[pay_help]" target="_blank">充值帮助</a></li>
+		
+		<!--{else}-->
+			<div class="bar_text">
+				<form id="loginform" name="loginform" action="do.php?ac=$_SCONFIG[login_action]&ref" method="post">
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+					<p class="title">登录站点</p>
+					<p>用户名</p>
+					<p><input type="text" name="username" id="username" class="t_input" size="15" value="" /></p>
+					<p>密码</p>
+					<p><input type="password" name="password" id="password" class="t_input" size="15" value="" /></p>
+					<p><input type="checkbox" id="cookietime" name="cookietime" value="315360000" checked /><label for="cookietime">记住我</label></p>
+					<p>
+						<input type="submit" id="loginsubmit" name="loginsubmit" value="登录" class="submit"  />
+						<a href="do.php?ac=$_SCONFIG[register_action]" class="button">注册</a>
+					</p>
+				</form>
+			</div>
+		<!--{/if}-->
+		</div>
+
+		<div id="mainarea">
+	<!--{/if}-->
+
+<!--{/if}-->
+<h2 class="title"><img src="image/credit.gif">支付中心</h2>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li$actives[index]><a href="pay.php?ac=index"><span>积分充值</span></a></li>
+		<li$actives[vip]><a href="pay.php?ac=vip"><span>VIP特权</span></a></li>
+		<li$actives[list]><a href="pay.php?ac=list"><span>交易明细</span></a></li>
+		<!--{if $adid}-->
+		<li$actives[userlist]><a href="pay.php?ac=userlist"><span>会员管理</span></a></li>
+		<li$actives[config]><a href="pay.php?ac=config"><span>充值配置</span></a></li>
+		<li$actives[vipconfig]><a href="pay.php?ac=vipconfig"><span>VIP功能配置</span></a></li>
+<!--
+		<li$actives[cfhelp]><a href="pay.php?ac=cfhelp"><font color="#0000ff"><span>系统帮助</span></font></a></li>
+		<li$actives[update]><a href="pay.php?ac=update"><font color="#cc00000"><span>版本升级</span></font></a></li>
+-->
+		<!--{/if}-->
+	</ul>
+</div>

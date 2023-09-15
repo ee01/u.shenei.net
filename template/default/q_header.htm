@@ -1,0 +1,170 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=$_SC[charset]" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<title><!--{if $_TPL['titles']}--><!--{loop $_TPL['titles'] $value}--><!--{if $value}-->$value - <!--{/if}--><!--{/loop}--><!--{/if}--><!--{if $space}-->{$_SN[$space[uid]]} - <!--{/if}-->【$_SCONFIG[sitename]】 - 福州大学城最火爆的时尚交友互动平台！交友、游戏、学习、时尚一个不漏！</title>
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="js/get.js"></SCRIPT>
+<script type="text/javascript" src="js/SuggestFramework.js"></script>
+<script type="text/javascript">window.onload = initializeSuggestFramework;</script>
+<style type="text/css">
+@import url(template/default/style.css);
+@import url(mtag/mtagstyle.css);
+@import url(template/default/musicboxstyle.css);
+<!--{if $_TPL['css']}-->
+@import url(template/default/{$_TPL[css]}.css);
+<!--{/if}-->
+<!--{if !empty($_SGLOBAL['space_theme'])}-->
+@import url(theme/$_SGLOBAL[space_theme]/style.css);
+<!--{elseif $_SCONFIG[template] != 'default'}-->
+@import url(mtag/style.css);
+<!--{/if}-->
+<!--{if !empty($_SGLOBAL['space_css'])}-->
+$_SGLOBAL[space_css]
+<!--{/if}-->
+
+</style>
+<link rel="shortcut icon" href="image/favicon.ico" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=$space[uid]" />
+</head>
+
+<body style="background:$row[3]">
+
+<!--{if $_SGLOBAL['ad']['header']}--><div id="ad_header"><!--{ad/header}--></div><!--{/if}-->
+	<div id="toolbar">
+<div class="toolbarbox">
+<div class="toolbarlink">
+<a class="toolbarlogo" href="index.php" target="_top"></a>
+<a href="network.php">大厅</a>
+<a href="space.php?do=event">活动</a>
+<a href="space.php?do=mtag&view=hot">圈子</a>
+<a href="space.php?do=top">排行</a>
+<!--{if $_SGLOBAL['appmenu']}-->
+			<!--{if $_SGLOBAL['appmenus']}-->
+
+				<a class="dropmenu" id="ucappmenu" onmouseover="showMenu(this.id)" href="{$_SGLOBAL[appmenu][url]}" title="{$_SGLOBAL[appmenu][name]}" target="_blank">{$_SGLOBAL[appmenu][name]}</a>
+
+			<!--{else}-->
+<a href="{$_SGLOBAL[appmenu][url]}" title="{$_SGLOBAL[appmenu][name]}" target="_blank">{$_SGLOBAL[appmenu][name]}</a>
+			<!--{/if}-->
+		<!--{/if}-->
+
+</div>
+
+<div class="toolbarboxl">
+<!--{if $_SGLOBAL[supe_uid]}-->
+<table cellpadding="0" cellspacing="0" class="toolbaruser"><tr><td id="toolbarShowName">
+<span class="smallimg"><!--{avatar($_SGLOBAL[supe_uid],small)}--></span>&nbsp;<a href="javascript:void(0);" onclick="toolbar.UserListShow(event);"><strong>{$_SN[$_SGLOBAL[supe_uid]]}</strong>
+</a><!--{if $_SN[$_SGLOBAL[supe_uid]]!=$_SGLOBAL['username']}-->($_SGLOBAL[supe_username])<!--{/if}-->
+</td>
+<td width="18" align="center"><a href="javascript:void(0);" onclick="toolbar.UserListShow(event);"><img src="mtag/image/icon_triangle_bottom_white.gif" alt="身份设置" /></a>
+
+
+<div style="display:none;" id="chageuser"><ul id="userList_ul" class="userchage_list"><li class="on"><a href="space.php" onclick="toolbar.ChangeUser();"><span class="img40"><!--{avatar($_SGLOBAL[supe_uid],small)}--></span>
+<small class="font_gray">MY Home </small><br /><strong>{$_SN[$_SGLOBAL[supe_uid]]}</strong> </a></li>
+
+</ul>
+<div class="setuser"><a href="cp.php?ac=profile"><strong>身份设置</strong></a></div>
+<div class="setuser"><a href="cp.php?ac=avatar"><strong>我的头像</strong></a></div>
+<div class="setuser"><a href="cp.php?ac=theme"><strong>引导动画</strong></a></div>
+<div class="setuser"><a href="cp.php?ac=privacy"><strong>隐私设置</strong></A></div>
+</div></td></tr></table>
+
+<div class="toolbarmenu"><a href="space.php">空间主页</a></div>
+<div class="toolbarmenu"><a href="space.php?do=home">个人中心</a></div>
+<div class="toolbarmenu">
+			<a href="space.php?do=pm<!--{if !empty($_SGLOBAL['member']['newpm'])}-->&filter=newpm<!--{/if}-->">消息<!--{if !empty($_SGLOBAL['member']['newpm'])}-->(新)<!--{/if}--></a></div>
+
+<!--{if $_SGLOBAL['member']['allnotenum']}-->
+<div class="toolbarmenu">
+<li class="notify" id="membernotemenu" onmouseover="showMenu(this.id)"><a href="space.php?do=notice">{$_SGLOBAL[member][allnotenum]}个提醒</a></li></div>  <!--{/if}-->
+
+		<!--{/if}-->
+<!--{if $_SGLOBAL[supe_uid]}-->
+<div class="toolbarmenu toolbarquick"><a href="javascript:void(0);" onclick="toolbar.KeyListShow(event);">&nbsp;&nbsp;&nbsp;快捷方式</a>
+<ul id="shortcutkey_ul" style="display: none;">
+<li><a href="space.php?do=doing" target="_top">写记录</a></li>
+<li><a href="space.php?do=blog" target="_top">写日志</a></li>
+<li><a href="space.php?do=album" target="_top">上传图片</a></li>
+<li><a href="space.php?do=poll" target="_top">发布投票</a></li>
+<li><a href="space.php?do=share" target="_top">我的分享</a></li>
+<li class="setquick"><a href="space.php?do=home" target="_top">进入个人中心</a></li></ul></div>
+
+<div class="toolbarmenu">		
+<a href="cp.php">设置</a></div>  
+
+<div class="toolbarmenu">		
+<a href="cp.php?ac=common&op=logout&uhash=$_SGLOBAL[uhash]">退出</a></div>
+		<!--{else}-->
+			<div class="toolbarmenu" style="margin-right:5px">您好！欢迎您的加入!  </div>
+			<div class="toolbarmenu"><a href="do.php?ac=$_SCONFIG[login_action]">登录</a></div>
+			<div class="toolbarmenu"><a href="do.php?ac=$_SCONFIG[register_action]">注册</a></div>
+			<div class="toolbarmenu"><a href="help.php">帮助</a></div>
+		<!--{/if}-->
+
+</div></div>
+
+</div>
+<!--LOGO头文件-->
+<DIV class="groupbanner" style="background:$row[2]; HEIGHT: 100px">
+
+<DIV class="grouptop">
+<P style="FLOAT: right">
+<B><A href="cp.php?ac=mtag">立即创建新圈子</A></B>
+</P>
+<font color="#FF0000"><b>舍内网</b></font> 大学城学生的网络城市 </DIV>
+<div style="padding-top:10px;padding-left:50px;font-size: 20px;font-weight: bold;color:#cccccc"><img src="$row[1]"></div>
+</DIV>
+
+<div class="tabs_header" style="padding-top:10px; background:$row[4]; height:25px">
+
+<div class="r_option">
+<a href="cp.php?ac=share&type=mtag&id=$mtag[tagid]" id="a_share" class="a_share" onclick="ajaxmenu(event, this.id, 1)">分享</a>
+<a href="admincp.php?ac=mtag&tagid=$mtag[tagid]" target="_blank">管理</a>
+	<a href="cp.php?ac=common&op=report&idtype=tagid&id=$mtag[tagid]" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+  </div>	
+	
+	<ul class="groupmenu">
+  <li><a href="space.php?do=mtag&tagid=$mtag[tagid]"><span>首页</span></a> </li>
+ 
+<li><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=list"><span>讨论区</span></a></li>
+<li><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=digest"><span>精华区</span></a></li>
+		<!--{if $eventnum}-->
+<li><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=event"><span>群组活动</span></a></li>
+		<!--{/if}-->
+<li><a href="space.php?do=mtag&tagid=$mtag[tagid]&view=member"><span>成员列表</span></a></li>  
+<!--{if $eventid}-->
+		<li class="active"><a href="space.php?do=event&id=$eventid&view=thread"><span>返回</span></a></li>
+		<!--{else}-->
+		<li class="active"><a href="space.php?do=mtag&tagid=$thread[tagid]&view=list"><span>返回</span></a></li>
+		<!--{/if}-->
+</LI>
+</UL>
+</div>
+<!--LOGO头文件-->
+<!--{if empty($_TPL['nosidebar'])}-->
+
+<!--{else}-->
+<div class="toolshadow">&nbsp;</div>
+<!--{/if}-->
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+
+
+        <!--{if $_SGLOBAL['ad']['contenttop']}-->
+        <!--{/if}-->
+        <!--{/if}-->
+        <!--{if $nd_add_module }-->
+        <!--{template nd_upload/template/add_module}-->
+        <!--{/if}-->
+<link href="mtag/quan.css" rel="stylesheet" type="text/css" />
+
+

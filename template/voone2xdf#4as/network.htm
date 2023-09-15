@@ -1,0 +1,607 @@
+<!--{eval $_TPL['titles'] = array('舍内广场');}-->
+<!--{eval $_TPL['nosidebar']=1;}-->
+<!--{template header_x}-->
+<style type="text/css">
+@import url(template/voone/network.css);
+</style>
+<!--{template x_header}-->
+
+<script language=javascript src="source/voone.js" type=text/javascript></script>
+<script language=javascript src="source/prototype.js" type=text/javascript></script>
+<div class="bodyall">
+<div class="bodybox">
+<!--{if $_sglobal['ad']['header']}--><div id="ad_header"><!--{ad/header}--></div><!--{/if}-->
+<!--mail left-->
+<!--mail left010-->
+
+<div id="member_left"><!--今日推荐-->
+<div id="today_commend">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray">
+<h3><img src="template/voone/image/huodong.jpg"></h3>
+<div class="managebox">
+  <!--{loop $showlist $key $value}-->
+<!--{if $key==0}-->
+
+<div class="today_user">
+<dl>
+  <dt><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}"  target=_blank>
+<!--{avatar($value[uid],middle)}--></a> 
+  <dd class="t_name"><span class="font_white"><b><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></b> <!--{eval g_icon($value[groupid]);}--></span> 
+  <dd class="t_city">登擂积分:$value[credit] 
+  <dd class="t_info">$value[note]</dd>
+   <dd class="t_infoimg"><a href="space.php?do=top"><img src="template/voone/image/pk.gif" align="absmiddle"></a></dd>
+  </dl></div>
+<ul>
+  	<!--{else}-->
+  <li><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" target=_blank><!--{avatar($value[uid],small)}--></a> </li>
+<!--{/if}-->
+<!--{/loop}-->
+</ul>
+
+</div>
+
+
+</div>
+<div class="zuotop3"></div>
+</div>
+
+
+<!--风向标-->
+<DIV id="direction">
+<DIV class="brbtop">
+<DIV>
+<P></P></DIV></DIV>
+<DIV class="brbcontent">
+<div class="font_white dates"><a href="space.php?do=home&view=all">更多</a></div>
+<h3 class="gogodao">居民风向标 <span>DIRECTION</span></h3>
+<DIV class="direction_list">
+<DIV id="scrollbody" style="DISPLAY: block; OVERFLOW: hidden; HEIGHT: 189px">
+<UL>
+<!--{loop $feedlist $value}-->
+  <li style="width: 380px">
+  <span class="img12"><!--{avatar($value[uid],small)}--></span> <span class=font_white><a href="space.php?uid=$value[uid]">$value[title_template]</span></li>
+  		<!--{/loop}-->
+  </ul>
+</div>
+  <script>startMarquee(186, 60, 0, 'scrollbody');</script>
+ 
+
+</div></div>
+<div class="brbbot">
+<div>
+<p></p></div></div></div><!--搜索-->
+<div id="member_search">
+<div class="msearchbox">
+
+<DIV class="s_type"><INPUT onclick=javascript:switchSearch(1); type=radio CHECKED 
+value=radiobutton name=radiobutton> <STRONG>昵称</STRONG> &nbsp; <INPUT 
+onclick=javascript:switchSearch(2); type=radio value=radiobutton 
+name=radiobutton> <STRONG>地区</STRONG> &nbsp; <INPUT 
+onclick=javascript:switchSearch(3); type=radio value=radiobutton 
+name=radiobutton> <STRONG>同生缘分</STRONG> </DIV>
+
+
+<DIV class="s_input" id="search_nickname">
+<form action="cp.php" method="get">
+昵称: 
+<input type="text" name="username" value="" style="width:330px">
+性别: <select id="sex" name="sex">
+					<option value="0">任意</option>
+					<option value="1"$sexarr[1]>男</option>
+					<option value="2"$sexarr[2]>女</option>
+				</select>
+				<input type="submit" name="searchsubmit" value="查找" class="submit">
+				
+	<input type="hidden" name="ac" value="friend">
+		<input type="hidden" name="op" value="search">
+		<input type="hidden" name="type" value="base">
+		</form>
+				</DIV>
+<DIV class="s_input" id="search_region" style="DISPLAY: none">
+<form action="cp.php" method="get">
+<div style="float:left; padding-top:8px">居住地：</div><div style="float:left;padding-top:6px" id="residecitybox"></div> <div style="float:left; margin-left:5px; padding-top:8px">出生地：</div><div style="float:left;padding-top:6px" id="birthcitybox"></div>
+		<input type="submit" name="searchsubmit" value="查找" class="submit">
+
+		<script type="text/javascript" src="source/script_city.js"></script>
+		<script type="text/javascript">
+		<!--
+		showprovince('resideprovince', 'residecity', '$space[resideprovince]', 'residecitybox');
+		showcity('residecity', '$space[residecity]', 'resideprovince', 'residecitybox');
+		//-->
+		</script>
+		<script type="text/javascript" src="source/script_city.js"></script>
+		<script type="text/javascript">
+		<!--
+		showprovince('birthprovince', 'birthcity', '$space[birthprovince]', 'birthcitybox');
+		showcity('birthcity', '$space[birthcity]', 'birthprovince', 'birthcitybox');
+		//-->
+		</script>
+		<input type="hidden" name="ac" value="friend">
+		<input type="hidden" name="op" value="search">
+		<input type="hidden" name="type" value="base">
+		</form>
+ </DIV>
+<DIV class="s_inpu" id="search_profile" style="DISPLAY: none">
+<div style="float:left;padding-top:3px">
+	<form action="cp.php" method="get">
+生日: 
+<select id="birthyear" name="birthyear" onchange="showbirthday();">
+				<option value="0">&nbsp;</option>
+				$birthyeayhtml
+			</select> 年 
+			<select id="birthmonth" name="birthmonth" onchange="showbirthday();">
+				<option value="0">&nbsp;</option>
+				$birthmonthhtml
+			</select> 月 
+			<select id="birthday" name="birthday">
+				<option value="0">&nbsp;</option>
+				$birthdayhtml
+			</select> 日
+			<input type="submit" name="searchsubmit" value="查找" class="submit">
+<input type="hidden" name="ac" value="friend">
+		<input type="hidden" name="op" value="search">
+		<input type="hidden" name="type" value="base">
+		</form>
+	</div>
+</DIV>
+
+</div>
+
+<p><!--{loop $star $value}-->
+<a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a> | 
+<!--{/loop}-->
+		</p>
+
+</div>
+
+<div id="m_star">
+<div class="zuotop1"></div>
+<div class="zuotop2">
+<h3 class="gogodao"><span>GAME</span> 推荐应用</h3>
+<div class="managebox">
+<ul>
+<!--{loop $myapplist $value}-->
+<li><a href="userapp.php?id=$value[appid]" target="_blank"><img src="http://appicon.manyou.com/logos/$value[appid]" alt="$value[appname]" /></a></li>
+	<!--{/loop}-->
+
+</ul>
+<div class="clear">
+ <a href="cp.php?ac=userapp&op=menu"><img src="template/voone/image/button_star.gif" /></a> </div>
+</div>
+ </div>
+  <div class="zuotop3"></div>
+ </div>
+<div id="m_interest">
+<div class="zuotop1"></div>
+<div class="zuotop2">
+
+<h3 class="gogodao"><div class="morebox"><a href="network.php?ac=album"></a></div><span>CIRCLE</span> 热门群组</h3>
+<div class="clear"></div>
+<div class="managebox" 
+style="margin: 0px auto; overflow: hidden; width: 408px; position: relative">
+	<!--{loop $netcache['mtaglist'] $value}-->
+			<li>
+				
+					<a href="space.php?do=mtag&tagid={$value[tagid]}">
+						<img style="width: 60px;height:60px" src="{$value[pic]}" alt="$value[tagname]" title="$value[tagname]"/>
+					</a>
+				<p><a href="space.php?do=mtag&tagid={$value[tagid]}" title="$value[tagname]">$value[tagname]</a></p>
+			
+			</li>
+			<!--{/loop}-->
+
+
+</div>
+ </div> 
+   <div class="zuotop3"></div>
+  </div>
+ </div>
+<div id="member_right"><!--创建空间-->
+<div id="create_spaces"><a href="space.php"><img 
+src="template/voone/image/home.gif"></a></div><!--居民排行榜-->
+<div class="streetm">
+<div id="membertopten">
+<div class="toptentit">
+<UL>
+   <LI class="redon" id="week_li"><A href="javascript:switchList(1);">UPDATE</A></LI>
+  <LI id="total_li"><A href="javascript:switchList(2);">PANK</A></LI></UL>
+<h3 class="gogodai">TOP TEN 居民排行</h3></div>
+<div class="toptenbox">
+<ul id="week_ul">
+
+<!--{loop $netcache['jfph'] $key $value}-->
+<!--{if $key==0}-->
+  <li class="toptenmred">
+  <dl>
+    <dt><!--{avatar($value[uid],small)}-->
+    <dd><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></dd>
+    <dd><img height=10 src="template/voone/image/icon_rendu.gif" width=11 
+    align=absmiddle>积分：<small>$value[credit]</small></dd></dl></li>
+	<!--{else}-->
+<!--{if $key==1}-->
+  <li class="toptenmgray" id="width_li<!--{eval echo ($start+$key+1);}-->">
+  <div class="t_value"><span><!--{eval echo ($start+$key+1);}--></span></div>
+  <dl>
+    <dt><!--{avatar($value[uid],small)}-->
+    <dd><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></dd>
+    <dd><img height=10 src="template/voone/image/icon_rendu.gif" width=11 
+    align=absmiddle>积分：<small>$value[credit]</small></dd></dl>
+  <li id="narrow_li<!--{eval echo ($start+$key+1);}-->" onmouseover=display(<!--{eval echo ($start+$key+1);}-->); style="display: none">
+  <div class="toptenli">
+   <table class="bbsli" cellspacing=0 cellpadding=0>
+    <tbody>
+    <tr class="<!--{if $key%2==1}-->   alt<!--{/if}-->">
+      <td width=33>
+        <p><!--{eval echo ($start+$key+1);}--></p></td>
+        <!--此为排行HOVER前显示的内容-->
+		 <td><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></td>
+	<td class="toptentd" width=40 style=" padding-left:10px"><small>$value[credit]</small></td> 
+	 
+   <td width=16 style="padding-right:5px"><span class="img16"><!--{avatar($value[uid],small)}--></span></td>
+  </tr></tbody></table></div></li>
+  	<!--{else}-->
+ <li class="toptenmgray" id=width_li<!--{eval echo ($start+$key+1);}--> style="display: none">
+  <div class="t_value"><span><!--{eval echo ($start+$key+1);}--></span></div>
+  <dl>
+    <dt><!--{avatar($value[uid],small)}-->
+    <dd><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></dd>
+    <dd><img height=10 src="template/voone/image/icon_rendu.gif" width=11 
+    align=absmiddle>积分：<small>$value[credit]</small></dd></dl>
+  <li id="narrow_li<!--{eval echo ($start+$key+1);}-->" onmouseover=display(<!--{eval echo ($start+$key+1);}-->);>
+  <div class="toptenli">
+
+   <table class="bbsli" cellspacing=0 cellpadding=0>
+    <tbody>
+    <tr class="<!--{if $key%2==1}-->   alt<!--{/if}-->">
+      <td width=33>
+        <p><!--{eval echo ($start+$key+1);}--></p></td>
+
+
+		 <td><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></td>
+	<td class="toptentd" width=40 style=" padding-left:10px"><small>$value[credit]</small></td> 
+	 
+   <td width=16 style="padding-right:5px"><span class="img16"><!--{avatar($value[uid],small)}--></span></td>
+  </tr></tbody></table></div></li>
+<!--{/if}--><!--{/if}-->
+<!--{/loop}-->
+
+</ul>
+
+
+<ul id="total_ul" style="display: none">
+<!--{loop $netcache['fwph'] $key $value}-->
+<!--{if $key==0}-->
+  <li class="toptenmred">
+  <dl>
+    <dt><!--{avatar($value[uid],small)}-->
+    <dd><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></dd>
+    <dd><img height=10 src="template/voone/image/icon_rendu.gif" width=11 
+    align=absmiddle>关注度：<small>$value[viewnum]</small></dd></dl></li>
+	<!--{else}-->
+<!--{if $key==1}-->
+  <li class="toptenmgray" id=width_li_b<!--{eval echo ($start+$key+1);}-->>
+  <div class="t_value"><span><!--{eval echo ($start+$key+1);}--></span></div>
+  <dl>
+    <dt><!--{avatar($value[uid],small)}-->
+    <dd><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></dd>
+    <dd><img height=10 src="template/voone/image/icon_rendu.gif" width=11 
+    align=absmiddle>关注度：<small>$value[viewnum]</small></dd></dl>
+  <li id="narrow_li_b<!--{eval echo ($start+$key+1);}-->" onmouseover=display1(<!--{eval echo ($start+$key+1);}-->); style="display: none">
+  <div class="toptenli">
+  <table class="bbsli" cellspacing=0 cellpadding=0>
+    <tbody>
+    <tr class="<!--{if $key%2==1}-->   alt<!--{/if}-->">
+      <td width=33>
+        <p><!--{eval echo ($start+$key+1);}--></p></td>
+
+
+		 <td><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></td>
+	<td class="toptentd" width=40 style=" padding-left:10px"><small>$value[viewnum]</small></td> 
+	 
+   <td width=16 style="padding-right:5px"><span class="img16"><!--{avatar($value[uid],small)}--></span></td>
+  </tr></tbody></table></div></li>
+  	<!--{else}-->
+ <li class="toptenmgray" id=width_li_b<!--{eval echo ($start+$key+1);}--> style="display: none">
+  <div class="t_value"><span><!--{eval echo ($start+$key+1);}--></span></div>
+  <dl>
+    <dt><!--{avatar($value[uid],small)}-->
+    <dd><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></dd>
+    <dd><img height=10 src="template/voone/image/icon_rendu.gif" width=11 
+    align=absmiddle>关注度：<small>$value[viewnum]</small></dd></dl>
+  <li id="narrow_li_b<!--{eval echo ($start+$key+1);}-->" onmouseover=display1(<!--{eval echo ($start+$key+1);}-->);>
+  <div class="toptenli">
+
+   <table class="bbsli" cellspacing=0 cellpadding=0>
+    <tbody>
+    <tr class="<!--{if $key%2==1}-->   alt<!--{/if}-->">
+      <td width=33>
+        <p><!--{eval echo ($start+$key+1);}--></p></td>
+
+
+		 <td><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></td>
+	<td class="toptentd" width=40 style=" padding-left:10px"><small>$value[viewnum]</small></td> 
+	 
+   <td width=16 style="padding-right:5px"><span class="img16"><!--{avatar($value[uid],small)}--></span></td>
+  </tr></tbody></table></div></li>
+<!--{/if}--><!--{/if}-->
+<!--{/loop}-->
+
+</ul>
+<div class="zuotop3"></div>
+</div></div></div></div></div>
+
+
+<div class="divline"></div> 
+
+<div class="bodybox">
+<!--{if $_sglobal['ad']['footer']}--><div id="ad_contentbottom"><!--{ad/footer}--></div><!--{/if}-->
+<div id="member_left">
+<div id="member_show">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray">
+
+
+<h3 class="gogodao"><span>SHOW</span> 居民秀</h3>
+
+<div class="member_list" id="systemRandomUser">
+<ul>
+<!--{loop $favlist $value}-->
+<li>
+<a href="space.php?uid=$value[uid]" title="$value[username]" target="_blank"><!--{avatar($value[uid],small)}--></a></li>
+<!--{/loop}-->
+</ul>
+</div>
+
+<div id="samebir_con" style="display:none">
+ <div class="samebir_con" id="samebirlist_con">
+正在搜索...
+</div>
+</div>
+
+</div>
+<div class="zuotop3"></div>
+</div>
+
+<div id="member_show">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray" style=" height:275px">
+<h3 class="gogodao" style="margin-bottom:5px; margin-top:-5px"><div class="r_option"><a href="space.php?do=blog&view=all&orderby=dateline">查看更多</a></div><span>UPDATE LOG</span> 更新日志</h3>
+<ul class="rzhi">
+<!--{loop $netcache['bloglist'] $key $value}-->
+<li class="wenzhang">
+<p class="zuotu"><!--{eval echo ($start+$key+1);}--></p>
+<h3 class="biaoti"><span><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]" title="$value[subject]" target="_blank" >$value[subject]</a></span></h3>
+<p class="youtu"><!--{date('m-d',$value[dateline],1)}--></p>
+<p class="zuozhe"><!--{avatar($value[uid],small)}--><a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a>	<!--{if $value[viewnum]}-->$value[viewnum]次<!--{/if}--></p>
+<span class="shijian"> <!--{if $value[replynum]}-->$value[replynum] 人评论<!--{/if}--></span>
+</li>
+<!--{/loop}-->
+</ul>
+</div>
+<div class="zuotop3"></div>
+</div>
+
+
+
+
+
+<div class="mem_article">
+<div class="brbtop_gray">
+<div>
+<p></p></div></div>
+<div class="brbcontent_gray">
+<div class=newbuttom_glidex>
+<ul>
+  <li class=on>热门日志</li>
+  <li><a href="space.php?do=blog&view=all">查看更多</a> </li></ul></div>
+<h3 class="gogodao"><span>BLOG</span> 热门日志</h3>
+<div class=managebox>
+<!--{loop $bloglist $key $value}-->
+<!--{if $key==0}-->
+<dl>
+ <dt><a href="space.php?uid=$value[uid]" target="_blank">
+ <!--{avatar($value[uid],middle)}--></a></dt>
+  <dd class="blogtitle"><span><b><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]" title="$value[subject]" target="_blank">$value[subject]</a></b></span> </dd>
+  <dd><small><!--{date('m-d h:i',$value[dateline],1)}--></small> </dd>
+  <dd class="bloginfo">$value[message]</dd></dl>
+
+<table class="bloglibox" cellspacing=0 cellpadding=0 width=323 border=0>
+  <tbody>
+  <tr class="blogli_title">
+    <td width=210 style="padding-left:48px">TITLE</td>
+    <td align=middle width=65>AUTHOR </td></tr>
+  	<!--{else}-->
+  <tr class="blogli">
+    <td class="li_icon"><li><a href="space.php?uid=$value[uid]&do=blog&id=$value[blogid]" title="$value[subject]" target="_blank">$value[subject]</a></li></td>
+    <td class="blog_author"><li><a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a></li></td></tr>
+ 	<!--{/if}-->	<!--{/loop}-->
+ </tbody></table>
+
+ </div></div>
+<div class="brbbot_gray">
+<div>
+<p></p></div></div></div>
+
+<div class="mem_articler">
+<div class="brbtop_gray">
+<div>
+<p></p></div></div>
+<div class="brbcontent_gray">
+<div class="newbuttom_glidex">
+<ul>
+  <li class=on>群组话题</li>
+  <li><a href="space.php?do=thread">更多话题</a> </li></ul></div>
+<h3 class="gogodao"><span>TOPICS</span> 热门话题</h3>
+<div class="managebox">
+<!--{loop $threadlist $key $value}-->
+<!--{if $key==0}-->
+<dl>
+ <dt><a href="space.php?uid=$value[uid]" target="_blank"> <!--{avatar($value[uid],middle)}--></a></dt>
+  <dd class="blogtitle"><span><b><a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" target="_blank">$value[subject]</a></b></span> </dd>
+  <dd><small><!--{date('m-d h:i',$value[dateline],1)}--></small> </dd>
+  <dd class="bloginfo">所属小组：<a href="space.php?do=mtag&tagid=$value[tagid]">$value[tagname]</a> &nbsp;推荐$value[hot]人</dd></dl>
+
+<table class="bloglibox" cellspacing=0 cellpadding=0 width=323 border=0>
+  <tbody>
+  <tr class="blogli_title">
+    <td width=210 style="padding-left:48px">TITLE</td>
+    <td align=middle width=65>AUTHOR </td></tr>
+  	<!--{else}-->
+  <tr class="blogli">
+    <td class="li_icon"><li><a href="space.php?uid=$value[uid]&do=thread&id=$value[tid]" target="_blank">$value[subject]</a></li></td>
+    <td class="blog_author"><li><a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a></li></td></tr>
+ 	<!--{/if}-->	<!--{/loop}-->
+ </tbody></table>
+
+
+ </div></div>
+<div class="brbbot_gray">
+<div>
+<p></p></div></div></div>
+
+
+
+
+
+<div id="member_show">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray">
+<h3 class="gogodao" style="margin-bottom:5px; margin-top:-5px"><div class="r_option"><a href="space.php?do=album">查看更多</a></div>
+<span>BLOG'S PHOTOGRAPH</span> 图片博客</h3>
+<ul class="photolist">
+
+	<div class="spics_wrap">
+	<ul class="spics" style="margin-left: 0;">
+	<!--{loop $piclist $key $value}-->
+		<a href="space.php?uid={$value[uid]}&do=album&picid={$value[picid]}">
+
+			<div class="spic_img"><img src="$value[pic]" alt="$value[albumname]" /></div>
+			<p>{$_SN[$value[uid]]}</p>
+
+	</a>
+	<!--{/loop}-->
+	</ul>
+	</div></ul>
+
+
+</div>
+<div class="zuotop3"></div>
+</div>
+
+
+</div>
+
+<div id="member_right">
+
+<div id="member_new">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray">
+
+<h3 class="gogodao" style="margin-bottom:5px; margin-top:-5px"><div class="morebox"><a href="space.php?do=doing"></a></div><span>RECORD</span> 更新记录</h3>
+
+
+<div class="managebox">
+<ul class="doinglist">
+<!--{loop $dolist $value}-->
+				<li>
+					<p>
+						<a href="space.php?uid=$value[uid]&do=doing&doid=$value[doid]" target="_blank" class="gray r_option dot" style="margin:0;background-position-y: 0;"><!--{date('H:i',$value[dateline],1)}--></a>
+						<a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" class="s_avatar"><!--{avatar($value[uid],small)}--></a>
+						<a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a>
+					</p>
+					<p class="message" title="$value[title]">$value[message]</p>
+				</li>
+			<!--{/loop}-->
+	</ul>
+	
+</div></div>
+<div class="zuotop3"></div>
+
+<div id="member_new">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray">
+
+<h3 class="gogodao" style="margin-bottom:5px; margin-top:-5px"><div class="morebox"><a href="space.php?do=poll"></a></div><span>VOTE</span> 投票</h3>
+
+
+<div class="managebox">
+<ul id="npoll">
+			<!--{loop $polllist $key $value}-->
+				<li class="poll_$key"><a href="space.php?uid=$value[uid]&do=poll&pid=$value[pid]" target="_blank">$value[subject]</a><!--{if $key == 0}--><p><a href="">已有 $value[voternum] 位会员投票</a></p><!--{/if}--></li>
+			<!--{/loop}-->
+	</ul>
+	
+</div></div>
+<div class="zuotop3"></div>
+</div>
+
+<div id="member_new">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray">
+<h3 class="gogodao" style="margin-bottom:5px; margin-top:-5px"><div class="morebox"><a href="space.php?do=share"></a></div><span>SHARE</span> 最新分享</h3>
+<div class="managebox">
+<ul class="line_list">
+<!--{loop $sharelist $key $value}-->
+			<li>
+			<div class="title">
+			<span class="fxbh"><!--{eval echo ($start+$key+1);}--></span> <a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a> <a href="space.php?uid=$value[uid]&do=share&view=me">$value[title_template]</a>
+			</div>
+			
+			<div class="quote"><span id="quote" class="q"><span class="fxjs">$value[body_general]</span></span></div>
+	
+			</li>
+		<!--{/loop}-->
+		</ul>
+</div></div>
+<div class="zuotop3"></div>
+</div>
+<div id="member_new">
+<div class="zuotop1"></div>
+<div class="brbcontent_gray">
+
+<h3 class="gogodao" style="margin-bottom:5px; margin-top:-5px"><div class="morebox"><a href="space.php?do=poll"></a></div><span>ACTIVITIES</span> 活动</h3>
+
+
+<div class="managebox">
+<ul class="hdongs">
+<div class="hdongsfl">
+	<!--{loop $_SGLOBAL[eventclass] $value}-->
+<a href="space.php?do=event&view=all&type=going&classid=$value[classid]">$value[classname]</a></li>
+	<!--{/loop}-->
+	</div>
+		<!--{loop $eventlist $value}-->
+		
+			<li>
+				<h3><a href="space.php?do=event&id=$value[eventid]" target="_blank">$value[title]</a></h3>				<p class="eimage"><a href="space.php?do=event&id=$value[eventid]" target="_blank"><img src="$value[pic]" alt=""/></a></p>
+				<p class="wenz"><span class="gray">地点:</span> $value[province] $value[city] $value[location]</p>
+				<p class="egz wenz">$value[membernum] 人参加<span class="pipe">|</span>$value[follownum] 人关注</p>
+			</li>
+		<!--{/loop}-->
+	</ul>
+	
+</div></div>
+<div class="zuotop3"></div>
+</div>
+</div></div></div>
+</div>
+<script language="javascript">
+function getSystemRandomUser() {
+aj = new Ajax();
+aj.get('js.php?id=3', function(s) {
+$('systemRandomUser').innerHTML = s;
+});
+}
+function linkChange(selectObj)
+{
+var value = selectObj.options[selectObj.selectedIndex].value;
+
+if (value != "")
+{
+window.open(value, "", "")
+}
+}
+</script>
+<script language="javascript" type="text/javascript" src="source/script_ajax.js"></script>
+
+<!--{template footer_x}-->

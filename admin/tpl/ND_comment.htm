@@ -1,0 +1,68 @@
+<!--{template admin/tpl/header}-->
+
+<div class="mainarea">
+<div class="maininner">
+<script language="javascript">
+function checkAll()
+	{
+		var   aa   =   document.getElementsByName("del[]"); 
+		for(var i=0; i<aa.length; i++)
+		{
+				if(aa[i].checked)
+				{
+					aa[i].checked=false;
+					document.getElementById("selectall").value='全选'; 
+				}
+				else
+				{
+					aa[i].checked=true;
+					document.getElementById("selectall").value='取消'; 
+				}
+		}
+	}
+</script>
+
+<!--{if $list}-->
+
+	<form method="post" action="admincp.php?ac=ND_comment&op=del">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	<div class="bdrcontent">
+
+	<table cellspacing="0" cellpadding="0" class="formtable">
+	<!--{loop $list $value}-->
+	<tr>
+		<td width="25"><input type="checkbox" name="del[]" value="$value[cid]"></td>
+		<td>
+		$value[message]
+		<p>
+		评论ID: <a href="ND_upload.php?do=info&id=$value[id]">$value[title]</a>
+		作者: <a href="space.php?uid=$value[uid]">$value[username]</a>
+		IP: $value[ip] 
+		时间：<!--{date('Y-m-d H:i',$value[dateline])}-->
+		</p>
+		</td>
+	</tr>
+	<!--{/loop}-->
+	</table>
+	</div>
+
+	<div class="footactions">
+		<input type="button" name="selectall" id="selectall" value="全选" class="submit" onclick="checkAll()">
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('本操作不可恢复，确认删除？');" class="submit">
+		<div class="pages">$multi</div>
+	</div>
+
+	</form>
+<!--{else}-->
+	<div class="bdrcontent">
+		<p>指定条件下还没有数据</p>
+	</div>
+<!--{/if}-->
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

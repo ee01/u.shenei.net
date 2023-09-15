@@ -1,0 +1,26 @@
+<!--{template header}-->
+
+<h2 class="title">虚拟在线</h2>
+
+<form id="registerform" name="registerform" action="?cp=rand" method="post" class="c_form">
+<table cellpadding="0" cellspacing="0" class="formtable">
+
+
+<tr><th width="240">会员开始ID:</th><td><input type="text"  name="minid" value="1" class="t_input" tabindex="2" /></td></tr>
+<tr><th width="240">会员结束ID:</th><td><input type="text"  name="maxid" value="1000" class="t_input"   tabindex="2" /></td></tr>
+
+<tr><th width="240">在线时长:</th><td><input type="text"  name="onlinetime" value="6" class="t_input"   tabindex="2" />分钟为单位</td></tr>
+<tr><th width="240">在线人数:</th><td><input type="text"  name="total" value="100" class="t_input"   tabindex="2" /></td></tr>
+
+	<tr><th>&nbsp;</th>
+		<td>
+		<input type="hidden" name="refer" value="space.php?do=home" />
+		<input type="submit" id="registersubmit" name="registersubmit" value="生成虚拟在线人数" class="submit"  tabindex="6" />
+		</td>
+	</tr>
+	<tr><th>&nbsp;</th><td id="registerstatus" style="color:red; font-weight:bold;"></td></tr>
+</table>
+</form>
+
+
+<!--{template footer}-->

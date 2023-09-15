@@ -1,0 +1,139 @@
+<!--{template header_x}-->
+
+<!--{if !$_SGLOBAL[inajax]}-->
+
+<DIV class="manage_m_r">
+<DIV class="brbtop_gray">
+<DIV>
+<P></P></DIV></DIV>
+<DIV class="brbcontent_gray">
+
+	<h2 class="title"><img src="image/icon/fetion.gif">飞信<span class="gray">（免费手机短信）</span></h2>
+	<div class="tabs_header">
+		<ul class="tabs">
+			<li$actives[websites]><a href='cp.php?ac=fetion'><span>站内飞信</span></a></li>
+            <li$actives[friend]><a href='cp.php?ac=fetion&op=friend'><span>站外飞信</span></a></li>
+            <li$actives[apply]><a href='cp.php?ac=fetion&op=apply'><span>应用设置</span></a></li>
+            <li$actives[setuser]><a href='cp.php?ac=fetion&op=setuser'><span>帐号设置</span></a></li>
+            <li$actives[help]><a href='cp.php?ac=fetion&op=help'><span>飞信帮助</span></a></li>
+            <li$actives[contact]><a href='cp.php?ac=fetion&op=contact'><span>联系我们</span></a></li>
+		</ul>
+	</div>
+
+<!--{elseif $_SGLOBAL[inajax] && $touid}-->
+
+	<h1>飞信短信</h1>
+	<a href="javascript:hideMenu();" title="关闭" class="float_del">关闭</a>
+
+<!--{/if}-->
+<!--{if empty($_GET[op])}-->
+<!--{if !$touid}--><div id="content"><!--{/if}-->
+<div class="popupmenu_inner" id="__fetion_sendform_{$fetion_sendid}">
+	<form id="fetion_sendform_{$fetion_sendid}" name="fetion_sendform_{$fetion_sendid}" method="post" action="cp.php?ac=fetion&touid=$touid&fetion_sendid=$fetion_sendid" class="ajaxshowdiv">
+	<table cellspacing="0" cellpadding="3">
+	<!--{if !$touid}-->
+	<tr>
+		<th><label for="username">接收用户：</label></th>
+		<td>
+			<script type="text/javascript" src="source/script_autocomplete.js"></script>
+			<input type="text" id="username" name="username" value="" style="width: 396px;" class="t_input" tabindex="1" <!--{if $friends}--> onclick="auc.handleEvent(this.value ,event);" onkeyup="auc.handleEvent(this.value ,event);" onkeydown="closeOpt(username,event);inputKeyDown(event);" autocomplete="off" <!--{/if}--> />
+			<!--{if $friends}-->
+			<div id="username_menu" class="ajax_selector" onclick="$('username_menu').style.display='none';" style="display:none">
+				<div class="ajax_selector_option" style="width: 396px; height: 100px;">
+					<a href="javascript:;" onclick="$('username_menu').style.display='none';" class="float_del" style="margin-right: 5px;">a</a>
+					<ul id="friendlist" class="blocklink">
+						<!--{loop $friends $key $value}-->
+							<!--{eval $fs[] = $value['username'];}-->
+							<li>$value[username]</li>
+						<!--{/loop}-->
+					</ul>
+				</div>
+			</div>
+			<!--{eval $friendstr = implode(',', $fs);}-->
+			<script type="text/javascript">
+				var close = true;
+				var auc = new sAutoComplete("auc", "username_menu", "friendlist", "username");
+				auc.addItem('$friendstr');
+				function closeOpt(key,evt) {
+					if(evt.keyCode==9) {
+						$('username_menu').style.display='none';
+					}
+				}
+				function inputKeyDown(event) {
+					if(event.keyCode == 13){
+						doane(event);
+					}
+				}
+			</script>
+
+			<!--{/if}-->
+		</td>
+	</tr>
+	<!--{/if}-->
+	<tr>
+		<th style="vertical-align: top; text-align:right"><label for="message">内容：</label></th>
+		<td><textarea id="message" name="message" cols="40" rows="4" style="width: 400px; height: 150px;" onkeydown="ctrlEnter(event, 'fetion_sendsubmit_btn');"></textarea></td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td>
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+		<input type="hidden" name="fetion_sendsubmit" value="true" />
+		<!--{if $_SGLOBAL[inajax]}-->
+		<input type="button" name="fetion_sendsubmit_btn" id="fetion_sendsubmit_btn" value="发送" class="submit" onclick="ajaxpost('fetion_sendform_{$fetion_sendid}','',2000)" />
+		<!--{else}-->
+		<input type="submit" name="fetion_sendsubmit_btn" id="fetion_sendsubmit_btn" value="发送" class="submit" />
+		<!--{/if}-->
+		</td>
+	</tr>
+	</table>
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+</div>
+<!--{if !$touid}--></div>
+
+<div id="sidebar">
+	<div class="sidebox" id="help">
+		<h2 class="title">站内飞信 与 站外飞信 有什么区别？</h2>
+		<p>站内飞信发送对象仅限于站内好友，您无须设置飞信信息，只要您的好友设置了飞信，您都也给他发送免费短信。这种方式发送的短信好友不能回复。</p>
+		<p>站外飞信发送对象是飞信好友，类似飞信客户端的短信发送。使用这种方式发送需要设置您的飞信信息，对方收到短信后，可以直接回复到您的手机上。</p>
+		<h2 class="title">如何发送 站内飞信 ？</h2>
+		<p>如果您的好友在本站设置了飞信，您可以再“接收用户”输入框中选择，或者直接输入他的用户名。</p>
+        <p>骚扰提示：对方不是您的好友也没关系，只要知道他的用户名，就可以骚扰他。</p>
+        <h2 class="title">站内飞信 可以群发吗？</h2>
+		<p>站内飞信不支持群发。</p>
+	</div>
+
+</div>
+<!--{/if}-->
+
+<!--{elseif $_GET[op]== friend}-->
+
+	<!--{template fetion_friend}-->
+
+<!--{elseif $_GET[op] == apply}-->
+
+	<!--{template fetion_apply}-->
+
+<!--{elseif $_GET[op] == setuser}-->
+
+	<!--{template fetion_setuser}-->
+
+<!--{elseif $_GET[op] == help}-->
+
+	<!--{template fetion_help}-->
+
+<!--{elseif $_GET[op] == contact}-->
+
+	<!--{template fetion_contact}-->
+
+<!--{/if}-->
+
+<!--{if !$_SGLOBAL[inajax]}-->
+<DIV class="clear"></DIV></DIV>
+<DIV class="brbbot_gray">
+<DIV>
+<P></P></DIV></DIV></DIV>
+<!--{/if}-->
+
+<!--{template footer_x}-->

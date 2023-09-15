@@ -1,0 +1,65 @@
+<!--{template header}-->
+
+<!--{if empty($op)}-->
+<form id="theform" action="do.php?ac=fetion_getpw&op=" method="POST" class="c_form">
+	<table cellpadding="0" cellspacing="0" class="formtable">
+		<caption>
+			<h2>取回密码</h2>
+			<p>第一步，请输入您在本站注册的用户名。</p>
+		</caption>
+		<tr><th width="120">用户名</th><td><input type="text" id="username" name="username" value="" class="t_input"> <span id="s_username"></span></td></tr>
+		<tr><th>&nbsp;</th><td><input type="submit" id="lostpwsubmit" name="lostpwsubmit" value="下一步" class="submit" /></td></tr>
+	</table>
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+
+<!--{elseif $op=='fetion'}-->
+
+<form id="theform" action="do.php?ac=fetion_getpw&op=fetion" method="POST" class="c_form">
+	<table cellpadding="0" cellspacing="0" class="formtable">
+		<caption>
+			<h2>取回密码</h2>
+			<p>第二步，请正确输入您在本站设置的飞信手机号码。</p>
+		</caption>
+		<tr><th width="120">手机号码</th><td><input type="text" id="mobile" name="mobile" value="" class="t_input"> <span id="s_mobile"></span></td></tr>
+		<tr><th>&nbsp;</th><td><input type="submit" id="sendcodesubmit" name="sendcodesubmit" value="发送验证码" class="submit" /></td></tr>
+	</table>
+	<input type="hidden" id="username" name="username" value="$username">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+
+<!--{elseif $op=='entercode'}-->
+
+<form id="theform" action="do.php?ac=fetion_getpw&op=entercode" method="POST" class="c_form">
+	<table cellpadding="0" cellspacing="0" class="formtable">
+		<caption>
+			<h2>取回密码</h2>
+			<p>第三步，填入短信验证码，验证码有效期为3分钟！如1分钟内没收到，请点击这里 <a href="do.php?ac=fetion_getpw">返回重试</a> 。</p>
+		</caption>
+		<tr><th width="120">验证码</th><td><input type="text" id="code" name="code" value="" class="t_input"> <span id="s_code"></span></td></tr>
+		<tr><th>&nbsp;</th><td><input type="submit" id="entercodesubmit" name="entercodesubmit" value="验证" class="submit" /></td></tr>
+	</table>
+	<input type="hidden" id="username" name="username" value="$username">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+
+<!--{elseif $op=='reset'}-->
+
+<form id="theform" action="do.php?ac=fetion_getpw&op=reset" method="POST" class="c_form">
+	<table cellpadding="0" cellspacing="0" class="formtable">
+		<caption>
+			<h2>重设密码</h2>
+		</caption>
+		<tr><th width="100">用户名</th><td><!--{eval echo stripslashes($space['username']);}--></td></tr>
+		<tr><th>新密码</th><td><input type="password" id="newpasswd1" name="newpasswd1" value="" class="t_input"> <span id="s_newpasswd1"></span></td></tr>
+		<tr><th>确认新密码</th><td><input type="password" id="newpasswd2" name="newpasswd2" value="" class="t_input"> <span id="s_newpasswd2"></span></td></tr>
+		<tr><th>&nbsp;</th><td><input type="submit" id="resetsubmit" name="resetsubmit" value="重设密码" class="submit" /></td></tr>
+	</table>
+	<input type="hidden" name="uid" value="$_GET[uid]" />
+	<input type="hidden" name="code" value="$_GET[code]" />
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+
+<!--{/if}-->
+
+<!--{template footer}-->

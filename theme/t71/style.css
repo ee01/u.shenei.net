@@ -1,0 +1,49 @@
+/*
+[name]ÔÂ¹âË¼Äî[/name]
+Powered by Ucenter Home
+*/
+
+body{ background: #FCFEFD url(image/bg.jpg) repeat-y  50% 0; color: #768D79; align:center;}
+a { color: #BB40B8; }
+#wrap {width: 100%; background: url(image/bottom.jpg) no-repeat  50% 100%; transparent; text-align: center; margin-right: auto; margin-left: auto;}
+
+#header { margin 0 auto; width: 100%; height: 370px; border: none; background:url(image/header.jpg) no-repeat  50% 0; transparent; text-align: left; position: relative; }
+
+#header h2 { width: 0px; height: 245px; background: url(image/logo.jpg) no-repeat 0 0; }
+
+#header h2 a { display: block; text-indent: -9999px; }
+
+#menu { position: absolute;  left: 450px; bottom: 13px; line-height: 30px; font-size: 14px;}
+
+#menu a { text-decoration: none; color:red;}
+#menu a:link { background: #FCFEFD url() no-repeat center 0 0; transparent; text-decoration: underline; color:red;}
+#menu a.edit { color: #070; }
+	#op a { color: #BB40B8; }
+	#op .pipe { color: #FFF; }
+
+#content { margin: 0 auto; width: 776px; text-align: left; }
+
+.r_content { padding-right: 0;}
+
+#side { margin: 0 auto;  width: 140px; border:thick double white; text-align: left; background: transparent; }
+	#side .app_list { padding: 20px 0 0 0; border: none; font-size: 12px; line-height: 28px; }
+		#side .app_list li { height: 28px; border-bottom: 1px solid #D0E0D7; }
+			#side .app_list li a { text-indent: 21px; }
+				#side .app_list li em a { color: #768D79; }
+
+#mainarea { margin: 0;  width: 625px; border: 0; background: url() no-repeat 100% 2.0%; transparent; border:thin solid white; }
+	.r_content { padding: 10px 0; }
+	.wide { width: 410px; }
+
+.box { background: url(image/box_title.gif) repeat-x 100% 0; }
+	#space_basicinfo, #space_action, #space_appicon { background: none; }
+	.box h3 { padding-left: 18px; border: none; background: transparent
+url(image/box_flower.gif) no-repeat 0 0; line-height: 28px; color: #BB40B8; }
+	.box_action, .box_action a { color: #768D79; }
+	.box_content { padding: 0; }
+
+.box_action, .i_header, .f_status, .space_wall_post { border: none; background: transparent; }
+
+.title { border-top: none; border-bottom-color: #D0E0D7; background: #FCEBF9; }
+
+#footer { margin: 0px; height: 125px; border: none; background:url() repeat-x 0 -10px; transparent; text-align: center; }

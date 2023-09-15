@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>活百宝箱</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/tools.js"></script>
+<script language=javascript src="../js/interest.js"></script>
+<script language="JavaScript">
+<!--
+/**
+ *  清空
+ */
+function fClearResult()
+{		
+	$("loansSpan").innerHTML = "0";
+	$("monthSpan").innerHTML = "0";
+	$("monthPay1").innerHTML = "0";
+	$("monthPay2").innerHTML = "0";
+	$("interest").innerHTML = "0";
+	$("totalPay").innerHTML = "0";
+	$("accfunds").value = "";
+	$("loans").value = "";
+	$("business").value = "";	
+	fChangeRate();
+}
+//-->
+</script>
+</head>
+<body lang="zh" class="BG_Lnav" onload="fChooseType();">
+<div class="Top"><a href="../index.htm" class="a_INDEX">生活百宝箱</a><b class="Top_B_arr"></b><span><strong>万能计算器</strong></span></div>
+
+<!--左侧标签 开始
+<div class="ZL_Left">
+
+</div>-->
+
+<table class="ZL_Cont_tab" cellpadding="0" cellspacing="0">
+<tbody>
+<form onsubmit="return false;">
+  <tr>
+    <td class="Cont_tbL">
+	<!--左侧导航 开始-->
+	<div class="NAV_L_Tit">计算器</div>
+	<a href="jsq_shuxue.htm">数学计算器</a>
+	<a href="jsq_shui.htm">个人所得税</a>
+	<a href="#" class="on">房贷计算器</a>
+	<a href="jsq_cunkuan.htm">存款计算器</a>
+	<a href="jsq_jiankang.htm">健康计算器</a>
+	<!--左侧导航 结束-->
+	</td>
+    <td style="vertical-align:top">
+	<!--右侧内容区 开始-->
+	<div class="Cont_tit">
+		<h1>房贷计算器</h1>
+		<span>简单明了，购房置业的贴心好帮手<a href="d"></a></span>	</div>
+	<!--题头结束-->
+	<div class="Cont">
+		<table class="table_jsq dk_tab_Wid" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="td_L">贷款类别：</td>
+    <td>
+		<select name="type" id="type" class="sel_wid2" onchange="fChooseType();">
+			<option value=1 selected>商业型贷款</option>
+			<option value=2 >公积金贷款</option>
+			<option value=3 >组合型贷款</option>
+		</select>
+	</td>
+  </tr>
+      <tr id="accfundsTr" style="display:none">
+        <td class="td_L">公积金贷款：</td>
+        <td><input id="accfunds" name="accfunds" maxlength="15" type="text" class="inp_jsq inp_wid2" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)"> 元<br>
+          <input id="accfundsRate" name="accfundsRate" type="text" class="inp_jsq inp_wids" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)">
+          ( % ) <a href="http://www.icbc.com.cn/other/housecredit.jsp" target="_blank">利率年表</a></td>
+      </tr>
+      <tr id="businessTr" style="display:none">
+        <td class="td_L">商业型贷款：</td>
+        <td><input id="business" name="business" maxlength="15" type="text"  class="inp_jsq inp_wid2" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)"> 元<br>
+          <input id="businessRate" name="businessRate" type="text" class="inp_jsq inp_wids" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)">
+          ( % ) <a href="http://www.icbc.com.cn/other/housecredit.jsp" target="_blank">利率年表</a>
+          </td>
+      </tr>
+      <tr id="loansTr">
+        <td class="td_L">贷款总额：</td>
+        <td><input id="loans" name="loans" maxlength="15" type="text" class="inp_jsq inp_wid2" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)">
+          元<br><input id="rate" name="rate" type="text" class="inp_jsq inp_wids" onFocus="fHelpFocus(this)" onBlur="fHelpBlue(this)">( % ) <a href="http://www.icbc.com.cn/other/housecredit.jsp" target="_blank">利率年表</a></td>
+      </tr>
+      <tr>
+        <td class="td_L">贷款年数：</td>
+        <td><select id="years" name="years" class="sel_wid2" onchange="fChangeRate();">
+            <option value="1">1年（12期）</option>
+            <option value="2">2年（24期）</option>
+            <option value="3">3年（36期）</option>
+            <option value="4">4年（48期）</option>
+            <option value="5">5年（60期）</option>
+            <option value="6">6年（72期）</option>
+            <option value="7">7年（84期）</option>
+            <option value="8">8年（96期）</option>
+            <option value="9">9年（108期）</option>
+            <option value="10">10年（120期）</option>
+            <option value="11">11年（132期）</option>
+            <option value="12">12年（144期）</option>
+            <option value="13">13年（156期）</option>
+            <option value="14">14年（168期）</option>
+            <option value="15">15年（180期）</option>
+            <option value="16">16年（192期）</option>
+            <option value="17">17年（204期）</option>
+            <option value="18">18年（216期）</option>
+            <option value="19">19年（228期）</option>
+            <option value="20" selected>20年（240期）</option>
+            <option value="25">25年（300期）</option>
+            <option value="30">30年（360期）</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="td_L">还款方式：</td>
+        <td><select id="paytype" name="paytype" class="sel_wid2">
+            <option value="1">等额本息还款</option>
+            <option value="2">等额本金还款</option>
+          </select>
+        </td>
+      </tr>
+     <tr>
+        <td class="td_L">贷款利率：</td>
+        <td>
+			<select id="ratetype" name="ratetype" class="sel_wid2" onchange="fChangeRate();">
+				<option value="22">07年12月21日第二套房</option>
+				<option value="21">07年12月21日利率上限</option>
+				<option value="20" selected >07年12月21日利率下限</option>
+				<option value="19">07年9月15日第二套房</option>
+				<option value="18">07年9月15日利率上限</option>
+				<option value="17">07年9月15日利率下限</option>
+				<option value="16">07年8月22日利率上限</option>
+				<option value="15">07年8月22日利率下限</option>
+				<option value="14">07年7月21日利率上限</option>
+				<option value="13">07年7月21日利率下限</option>
+				<option value="12">07年5月19日利率上限</option>
+				<option value="11">07年5月19日利率下限</option>
+				<option value="10">07年3月18日利率上限</option>
+				<option value="9">07年3月18日利率下限</option>
+				<option value="8">06年8月19日利率上限</option>
+				<option value="7">06年8月19日利率下限</option>
+				<option value="6">06年4月28日利率上限</option>
+				<option value="5">06年4月28日利率下限</option>
+				<option value="4">05年3月17日后利率上限</option>
+				<option value="3">05年3月17日后利率下限</option>
+				<option value="2">05年1月1日-3月17日利率</option>
+				<option value="1">05年1月1日前利率</option>
+			</select>
+          </td>
+      </tr>
+	  <tr>
+        <td class="td_L">&nbsp;</td>
+        <td style="height:60px"><input onclick="fGetResult();" type="submit" name="Submit" value=" 计算 " class="bot_line_btnB font_B">          &nbsp;&nbsp;&nbsp;&nbsp;          <input onclick="fClearResult();" type="button" name="button" value=" 清零 " class="bot_line_btnB"></td>
+      </tr>
+    </table>
+</form>
+<!--结果浮层 开始-->
+ <div id="resultDiv" class="sec_box_result" style="display:none">
+      <div class="sec_box_result_tit">计算结果</div>
+		  <table class="table_jsq_result" cellspacing="0" cellpadding="0">
+			<tr>
+			  <td class="td_L">贷款总额：</td>
+			  <td><span id="loansSpan"></span> 元</td>
+			</tr>
+			 <tr>
+			  <td class="td_L">贷款月数：</td>
+			  <td><span id="monthSpan"></span> 月</td>
+			</tr>
+			<tr id="monthPayTr1">
+			  <td class="td_L">月均还款：</td>
+			  <td><span id="monthPay1"></span> 元</td>
+			</tr>
+			<tr id="monthPayTr2" >
+			  <td class="td_L">月还款额：</td>
+			  <td><span id="monthPay2" class="hk_res_box">
+				</span></td>
+			</tr>
+			<tr>
+			  <td class="td_L">支付利息：</td>
+			  <td><span id="interest">0</span> 元</td>
+			</tr>
+			<tr>
+			  <td class="td_L">还款总额：</td>
+			  <td><span id="totalPay">0</span> 元</td>
+			</tr>
+		  </table>
+		</div>
+	</div>
+<!--结果浮层 结束-->
+
+	</div>
+	<!--右侧内容区 结束-->
+	</td>
+  </tr>
+</tbody>
+</table>
+
+<!--左侧标签 结束-->
+<div style='display:none'>
+<script type="text/javascript" src="http://www.26rc.com/js/26.js"></script>
+</body>
+</html>

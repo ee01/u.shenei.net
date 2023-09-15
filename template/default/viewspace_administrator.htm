@@ -1,0 +1,205 @@
+<!--{eval $_TPL['titles'] = array('模版素材管理');}-->
+<!--{template header}-->
+
+<script type="text/javascript" src="viewspace/js/base.js"></script>
+<script type="text/javascript">
+function curl(hash, change)
+{
+	var url = 'viewspace.php?do=admin&a=ajax';
+	AJAX.request(url,{method: 'post',parameters:'hash='+hash+'&change='+change,onComplete: function(resp){
+		base.bgChangeColor('id_'+hash, 'down', function(){if($('id_'+hash) != null) $('id_'+hash).parentNode.removeChild($('id_'+hash));});
+	}});
+	return false;
+};
+</script>
+<style>
+.img{background:#FFFFFF none repeat scroll 0 0;border:1px solid #CCCCCC;padding:3px;}
+.movie_play {background:transparent url('image/icon/video.gif') no-repeat scroll 0 1px;text-indent:15px;padding-left: 5px;}
+.review {background:transparent url('movie/view/img/quote-start.gif') no-repeat scroll 0 5px;padding:5px 0 0 18px;}
+.review q {background:transparent url('movie/view/img/quote-end.gif') no-repeat scroll 100% 100%;padding-right:18px;}
+#my_table{}
+#my_table tr td{background-color:#F5FAFE;height:31px;border-bottom:1px solid #CAD9EA;color:#666666;padding:5px;}
+.hidden{display:none;}
+#data_table tr td{background-color:#F5FAFE;height:31px;border-bottom:1px solid #CAD9EA;color:#666666;}
+#tv_ordering{color:green;font-weight:bold;}
+</style>
+<div id="show_pic" style="background:#FFFCCD none repeat scroll 0 0;position:absolute;top:0px;left:0px;visibility:visible;z-index:9999;padding:5px;display:none;"><img id="show_pic_img" src="about:blank;" alt="图片加载中" /></div>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li{$menus['a']}><a href="viewspace.php?do=admin&a=a"><span>图片管理</span></a></li>
+		<li{$menus['b']}><a href="viewspace.php?do=admin&a=b"><span>风格管理</span></a></li>
+                <li{$menus['e']}><a href="viewspace.php?do=admin&a=e"><span>用户风格</span></a></li>
+		<li{$menus['c']}><a href="viewspace.php?do=admin&a=c"><span>编辑图片</span></a></li>
+                <li{$menus['d']}><a href="viewspace.php?do=admin&a=d"><span>编辑风格</span></a></li>
+                <li{$menus['f']}><a href="viewspace.php?do=admin&a=f"><span>编辑用户风格</span></a></li>
+	</ul>
+</div>
+
+<div class="h_status">
+<!--{if $a == 'a'}-->
+<table width="100%" border="0"><form method="get" action="viewspace.php"><tr><td width=200></td>
+<td width=70><select name="type"><option value="0" >选择所属</option><option value="1"<!--{if $type == '1'}--> selected<!--{/if}-->>背景</option><option value="2"<!--{if $type == '2'}--> selected<!--{/if}-->>头部</option><option value="3"<!--{if $type == '3'}--> selected<!--{/if}-->>标题</option><option value="4"<!--{if $type == '4'}--> selected<!--{/if}-->>尾部</option><option value="6"<!--{if $type == '6'}--> selected<!--{/if}-->>鼠标</option><option value="7"<!--{if $type == '7'}--> selected<!--{/if}-->>播放器</option></select></td>
+<td width=70><select name="category"><option value="0" >选择类型</option><option value="1"<!--{if $category == '1'}--> selected<!--{/if}-->>简约</option><option value="2"<!--{if $category == '2'}--> selected<!--{/if}-->>可爱</option><option value="3"<!--{if $category == '3'}--> selected<!--{/if}-->>炫酷</option><option value="4"<!--{if $category == '4'}--> selected<!--{/if}-->>浪漫</option><option value="5"<!--{if $category == '5'}--> selected<!--{/if}-->>其它</option></select></td>
+<td width=70><select name="color"><option value="0" >选择颜色</option><option value="1"<!--{if $color == '1'}--> selected<!--{/if}-->>黑</option><option value="2"<!--{if $color == '2'}--> selected<!--{/if}-->>白</option><option value="3"<!--{if $color == '3'}--> selected<!--{/if}-->>粉</option><option value="4"<!--{if $color == '4'}--> selected<!--{/if}-->>黄</option><option value="5"<!--{if $color == '5'}--> selected<!--{/if}-->>绿</option><option value="6"<!--{if $color == '6'}--> selected<!--{/if}-->>蓝</option></select></td>
+<td><input type="submit" class="submit" value=" 查询 " /><input type="hidden" name="do" value="admin" /><input type="hidden" name="a" value="a" /></td></tr></form></table>
+	<!--{elseif $a == 'b'}-->
+		<table width="100%" border="0"><form method="get" action="viewspace.php"><tr><td width=200></td><td  width=70></td><td   width=130><input type="text" size=20 name='name'<!--{if $name != ''}--> value="{$name}"<!--{/if}--> /></td><td><input type="submit" class="submit" value=" 查询 " /><input type="hidden" name="do" value="admin" /><input type="hidden" name="a" value="b" /></td></tr></form></table>
+	<!--{elseif $a == 'c'}-->
+		添加，修改图片的。注意：尾部图片包括背景图和头部图和尾部图！
+	<!--{elseif $a == 'd'}-->
+		如果需要重新上传图片，请上传后把要修改的图片路径改为 viewspace/img/getshare/  图片名不变！
+<!--{elseif $a == 'e'}-->
+<table width="100%" border="0"><form method="get" action="viewspace.php"><tr><td width=200></td>
+<td width=190>用户ID:<input type="text" size=20 name='uid'<!--{if $uid != ''}--> value="{$uid}"<!--{/if}--> /></td><td   width=190>名称:<input type="text" size=20 name='name'<!--{if $name != ''}--> value="{$name}"<!--{/if}--> /></td>
+<td><input type="submit" class="submit" value=" 查询 " /><input type="hidden" name="do" value="admin" /><input type="hidden" name="a" value="e" /></td></tr></form></table>
+	<!--{/if}-->
+</div>
+<div class="side_right">
+	<div style='width:100%;margin:0px;'>
+		<div>
+			<ul>
+			<!--{if $a == 'a'}-->
+					<table width="100%" border="0" id='my_table' cellpadding=0 cellspacing=0>
+						<tr>
+							<td width=20>&nbsp;</td>
+							<td width=45>编号</td>
+							<td width=220>图片</td>
+							<td width=40  align=center>所属</td>
+							<td width=40  align=center>类别</td>
+							<td width=40  align=center>颜色</td>
+							<td width=260 align=center>管理</td>
+						</tr>
+					<!--{loop $list $val}-->
+						<tr id="id_{$val['id']}">
+							<td valign=middle></td>
+							<td align=center>{$val['id']}</td>
+							<td align=center><!--{if $val['type']!='播放器' }--><img src="viewspace/picfile/thumb/$val[photo]"  /><!--{/if}--><!--{if $val['type']=='播放器' }--><img src="viewspace/flash/$val[photo]"  /><!--{/if}--></td>
+							<td align=center>$val['type']</td>
+							<td align=center>$val['category']</td>
+							<td align=center>$val['color']</td>
+							<td align=center><a href="viewspace.php?do=admin&a=c&id={$val['id']}">编辑</a> | <a href='#' onclick="return curl('{$val['id']}','p_delete');">删除</a></td>
+						</tr>
+					<!--{/loop}-->
+					</table>
+			<!--{elseif $a == 'b'}-->
+					<table width="100%" border="0"  id='my_table'  cellpadding=0 cellspacing=0>
+						<tr>
+							<td>&nbsp;</td>
+							<td width=150 align=center>名称</td>
+							<td width=80 align=center>作者</td>
+							<td width=300 align=center>图片</td>
+							<td width=100 align=center>状态</td>
+							<td width=100 align=center>管理</td>
+						</tr>
+					<!--{loop $list $val}-->
+						<tr  id="id_{$val['id']}">
+							<td valign=middle></td>
+							<td align=center>{$val['name']}</td>
+							<td align=center><a href="viewspace.php?uid={$val['uid']}" target="_blank">{$val['uname']}</a></td>
+							<td align=center><img src="$val['img']" width=100px /></td>
+							<td align=center><!--{if $val['status'] == '1'}-->启用	<!--{else}-->未启用<!--{/if}--></td>
+							<td align=center><a href='viewspace.php?do=admin&a=d&id={$val[id]}' >编辑</a> | <a href='viewspace.php?styleidlian=$val['id']' target="_blank">预览</a> | <a href='#' onclick="return curl('{$val['id']}','get_delete');">删除</a></td>
+						</tr>
+					<!--{/loop}-->
+					</table>
+			<!--{elseif $a == 'c'}-->
+				<li style='border:none;'>
+					<table width="100%" border="0"  cellpadding=1 cellspacing=1>
+					<form action="viewspace.php?do=admin&a=c&id={$id}" method="post"  enctype="multipart/form-data">
+						<tr><td colspan=2 style="padding-left:20px;height:30px;"><H3><!--{if $id > 0}-->修改图片<!--{else}-->添加图片<!--{/if}--></H3></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">小图</td><td><!--{if $data[photo]!='' && $data[type]!='7' }--><img src="viewspace/picfile/thumb/$data[photo]"  /><br ><!--{/if}--><!--{if $data[photo]!=''&& $data[type]=='7' }--><img src="viewspace/flash/$data[photo]"  /><br ><!--{/if}--><input type="file" name="pic" style="width:300px;" size=47  /></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">大图</td><td><!--{if $data[photob]!='' && $data[type]!='7' }--><img src="viewspace/picfile/$data[photob]" style="max-width:650px; width: expression(this.width > 650 ? 650 : true);"   /><br ><!--{/if}-->
+<!--{if $data[photo]!=''&& $data[type]=='7' }-->
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="200" height="150">
+<param name="movie" value="viewspace/flash/$data[photob]" />
+<param name="quality" value="high" />
+<param name="wmode" value="transparent">
+<embed src="viewspace/flash/$data[photob]" width="200" height="150" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" transparent="wmode"></embed>
+</object><br >
+<!--{/if}--><input type="file" name="pic2" style="width:300px;" size=47  /></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">所属</td><td><select name="data[type]"><option value="0" >选择所属</option><option value="1"<!--{if {$data[type]} == '1'}--> selected<!--{/if}-->>背景</option><option value="2"<!--{if {$data[type]} == '2'}--> selected<!--{/if}-->>头部</option><option value="3"<!--{if {$data[type]} == '3'}--> selected<!--{/if}-->>标题</option><option value="4"<!--{if {$data[type]} == '4'}--> selected<!--{/if}-->>尾部</option><option value="6"<!--{if {$data[type]} == '6'}--> selected<!--{/if}-->>鼠标</option><option value="7"<!--{if {$data[type]} == '7'}--> selected<!--{/if}-->>播放器</option></select></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">类型</td><td><select name="data[category]"><option value="0" >选择类型</option><option value="1"<!--{if {$data[category]} == '1'}--> selected<!--{/if}-->>简约</option><option value="2"<!--{if {$data[category]} == '2'}--> selected<!--{/if}-->>可爱</option><option value="3"<!--{if {$data[category]} == '3'}--> selected<!--{/if}-->>炫酷</option><option value="4"<!--{if {$data[category]} == '4'}--> selected<!--{/if}-->>浪漫</option><option value="5"<!--{if {$data[category]} == '5'}--> selected<!--{/if}-->>其它</option></select></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">颜色</td><td><select name="data[color]"><option value="0" >选择颜色</option><option value="1"<!--{if {$data[color]} == '1'}--> selected<!--{/if}-->>黑</option><option value="2"<!--{if {$data[color]} == '2'}--> selected<!--{/if}-->>白</option><option value="3"<!--{if {$data[color]} == '3'}--> selected<!--{/if}-->>粉</option><option value="4"<!--{if {$data[color]} == '4'}--> selected<!--{/if}-->>黄</option><option value="5"<!--{if {$data[color]} == '5'}--> selected<!--{/if}-->>绿</option><option value="6"<!--{if {$data[color]} == '6'}--> selected<!--{/if}-->>蓝</option></select></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">排序号</td><td><input type="text" name="data[vorder]" value="{$data[vorder]}" style="width:50px;height:18px"/></td></tr>
+						<tr>
+							<td colspan=2 align=center style="padding-top: 20px;"><input type="hidden" name="myFormAc" value="update" /><input type="submit" class="submit" value=" 确定操作 " /></td>
+						</tr>
+					</form>
+					</table>
+				</li>
+			<!--{elseif $a == 'd'}-->
+					<li style='border:none;'>
+					<table width="100%" border="0"  cellpadding=1 cellspacing=1>
+					<form action="viewspace.php?do=admin&a=d&id={$id}" method="post"  enctype="multipart/form-data">
+                                                <tr><td width=20% align=right style="padding-right:15px;">素材上传</td><td><input type="file" name="photopic" style="width:300px;" size=47  /><input type="submit" class="submit" value=" 上传 " /></td></tr>
+						<tr><td colspan=2 style="padding-left:20px;height:30px;"><H3><!--{if $id > 0}-->修改风格<!--{else}-->添加风格<!--{/if}--></H3></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;color:red">用户id</td><td><input type="text" name="data[uid]" value="{$data[uid]}" style="width:150px;height:18px"/></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">风格名称</td><td><input type="text" name="data[name]" value="{$data[name]}" style="width:150px;height:18px"/></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">布局</td><td><input type="text" name="data[frame_set]" value="{$data[frame_set]}" style="width:550px;height:18px"/></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">排版</td><td><textarea style="width:550px;height:100px;" name="data[allframe]">{$data[allframe]}</textarea></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">全局CSS</td><td><textarea style="width:550px;height:250px;" name="data[effectall]">{$data[effectall]}</textarea></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">模块CSS</td><td><textarea style="width:550px;height:250px;" name="data[block]">{$data[block]}</textarea></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">鼠标CSS</td><td><textarea style="width:550px;height:50px;" name="data[cursor]">{$data[cursor]}</textarea></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">封面</td><td><!--{if $data[img]!='' }--><img src="$data[img]"  /><br ><!--{/if}--><input type="file" name="pic" style="width:300px;" size=47  /></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">类型</td><td><select name="data[category]"><option value="0" >选择类型</option><option value="1"<!--{if {$data[category]} == '1'}--> selected<!--{/if}-->>简约</option><option value="2"<!--{if {$data[category]} == '2'}--> selected<!--{/if}-->>可爱</option><option value="3"<!--{if {$data[category]} == '3'}--> selected<!--{/if}-->>炫酷</option><option value="4"<!--{if {$data[category]} == '4'}--> selected<!--{/if}-->>浪漫</option><option value="5"<!--{if {$data[category]} == '5'}--> selected<!--{/if}-->>其它</option></select></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">颜色</td><td><select name="data[color]"><option value="0" >选择颜色</option><option value="1"<!--{if {$data[color]} == '1'}--> selected<!--{/if}-->>黑</option><option value="2"<!--{if {$data[color]} == '2'}--> selected<!--{/if}-->>白</option><option value="3"<!--{if {$data[color]} == '3'}--> selected<!--{/if}-->>粉</option><option value="4"<!--{if {$data[color]} == '4'}--> selected<!--{/if}-->>黄</option><option value="5"<!--{if {$data[color]} == '5'}--> selected<!--{/if}-->>绿</option><option value="6"<!--{if {$data[color]} == '6'}--> selected<!--{/if}-->>蓝</option></select></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">状态</td><td><select name="data[status]"><option value="0" >禁用</option><option value="1"<!--{if {$data[status]} == '1'}--> selected<!--{/if}-->>启用</option></select></td></tr>
+						<tr>
+							<td colspan=2 align=center style="padding-top: 20px;"><input type="hidden" name="myFormAc" value="update" /><input type="submit" class="submit" value=" 确定操作 " /></td>
+						</tr>
+                                                
+					</form>
+					</table>
+				</li>
+                       <!--{elseif $a == 'e'}-->
+					<table width="100%" border="0"  id='my_table'  cellpadding=0 cellspacing=0>
+						<tr>
+							<td width=150 align=center>名称</td>
+							<td width=80 align=center>作者</td>
+							<td width=100 align=center>使用状态</td>
+							<td width=100 align=center>分享状态</td>
+							<td width=100 align=center>时间</td>
+							<td width=100 align=center>管理</td>
+						</tr>
+					<!--{loop $list $val}-->
+						<tr  id="id_{$val['id']}">
+							<td align=center><!--{if $val['name']==''}-->自定义{$val['id']}<!--{else}-->$val['name']<!--{/if}--></td>
+							<td align=center><a href="viewspace.php?uid={$val['uid']}" target="_blank">{$val['uname']}</a></td>
+		                                        <td align=center><!--{if $val['status'] == '1'}-->使用中<!--{else}-->未使用<!--{/if}--></td>
+							<td align=center><!--{if $val['share'] == '1'}-->申请中<!--{else}--><!--{/if}--></td>
+                                                        <td align=center><!--{date('Y-m-d H:i',$val['date'],1)}--></td>
+							<td align=center><a href='viewspace.php?do=admin&a=f&id={$val[id]}' >查看</a> | <a href='viewspace.php?styleiduser=$val['id']' target="_blank">预览</a> | <a href='#' onclick="return curl('{$val['id']}','s_delete');">删除</a></td>
+						</tr>
+					<!--{/loop}-->
+					</table>
+			<!--{elseif $a == 'f'}-->
+				<li style='border:none;'>
+					<table width="100%" border="0"  cellpadding=1 cellspacing=1>
+					<form action="viewspace.php?do=admin&a=f&id={$id}" method="post"  enctype="multipart/form-data">
+						<tr><td colspan=2 style="padding-left:20px;height:30px;"><H3><!--{if $id > 0}-->修改用户风格<!--{else}-->添加用户风格<!--{/if}--></H3></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;color:red">用户id</td><td><input type="text" name="data[uid]" value="{$data[uid]}" style="width:150px;height:18px"/></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">风格名称</td><td><input type="text" name="data[name]" value="{$data[name]}" style="width:150px;height:18px"/></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">布局</td><td><input type="text" name="data[frame_set]" value="{$data[frame_set]}" style="width:550px;height:18px"/></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">排版</td><td><textarea style="width:550px;height:100px;" name="data[allframe]">{$data[allframe]}</textarea></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">全局CSS</td><td><textarea style="width:550px;height:250px;" name="data[effectall]">{$data[effectall]}</textarea></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">模块CSS</td><td><textarea style="width:550px;height:250px;" name="data[block]">{$data[block]}</textarea></td></tr>
+						<tr><td width=20% align=right valign=top style="padding-right:15px;">鼠标CSS</td><td><textarea style="width:550px;height:50px;" name="data[cursor]">{$data[cursor]}</textarea></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">分享状态</td><td><select name="data[share]"><option value="0" >不分享</option><option value="1"<!--{if {$data[share]} == '1'}--> selected<!--{/if}-->>申请分享</option></select> <!--{if {$data[share]} == '1'}--> <a href='viewspace.php?do=admin&a=f&go=y&id={$id}' >通过审核</a> | <a href='viewspace.php?do=admin&a=f&go=n&id={$id}' >不通过</a><!--{/if}--></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">类型</td><td><select name="data[category]"><option value="0" >选择类型</option><option value="1"<!--{if {$data[category]} == '1'}--> selected<!--{/if}-->>简约</option><option value="2"<!--{if {$data[category]} == '2'}--> selected<!--{/if}-->>可爱</option><option value="3"<!--{if {$data[category]} == '3'}--> selected<!--{/if}-->>炫酷</option><option value="4"<!--{if {$data[category]} == '4'}--> selected<!--{/if}-->>浪漫</option><option value="5"<!--{if {$data[category]} == '5'}--> selected<!--{/if}-->>其它</option></select></td></tr>
+						<tr><td width=20% align=right style="padding-right:15px;">颜色</td><td><select name="data[color]"><option value="0" >选择颜色</option><option value="1"<!--{if {$data[color]} == '1'}--> selected<!--{/if}-->>黑</option><option value="2"<!--{if {$data[color]} == '2'}--> selected<!--{/if}-->>白</option><option value="3"<!--{if {$data[color]} == '3'}--> selected<!--{/if}-->>粉</option><option value="4"<!--{if {$data[color]} == '4'}--> selected<!--{/if}-->>黄</option><option value="5"<!--{if {$data[color]} == '5'}--> selected<!--{/if}-->>绿</option><option value="6"<!--{if {$data[color]} == '6'}--> selected<!--{/if}-->>蓝</option></select></td></tr>						
+                                                <tr><td width=20% align=right style="padding-right:15px;">使用状态</td><td><select name="data[status]"><option value="0" >禁用</option><option value="1"<!--{if {$data[status]} == '1'}--> selected<!--{/if}-->>启用</option></select></td></tr>
+						<tr>
+							<td colspan=2 align=center style="padding-top: 20px;"><input type="hidden" name="myFormAc" value="update" /><input type="submit" class="submit" value=" 确定操作 " /></td>
+						</tr>
+                                                
+					</form>
+					</table>
+				</li>
+			<!--{/if}-->
+			</ul>
+		</div>
+		<!--{if $multi['html']}--><div class="page" style="padding-top: 12px;">$multi['html']</div><!--{/if}-->
+	</div>
+</div>
+
+<!--{template footer}-->

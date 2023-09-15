@@ -1,0 +1,53 @@
+请准确无误的填入您的飞信信息。填写后，点击“发送验证码”，将输入收到的验证码，点击“验证”。
+<div class="h_status"></div>
+<form method="post" action="cp.php?ac=fetion&op=setuser" class="c_form">
+<table cellspacing="0" cellpadding="0" class="formtable">
+	<tr><th width="150">您的飞信号码:</th>
+		<td>
+<!--{if empty($space['mobile'])}-->
+您的 <b>联系方式</b> 中没有填写手机，<a href="cp.php?ac=profile&op=contact">现在就去填写吧</a>！
+<!--{else}-->
+		$space['mobile']
+		 <span class="gray">(<a href="cp.php?ac=profile&op=contact">更换手机</a>)　　→<a href="https://www.fetion.com.cn/account/register" target=_blank>注册飞信</a></span>
+<!--{/if}-->
+		</td>
+	</tr>
+
+<!--{if !empty($fetion['enable']) && empty($fetion['authstr']) && empty($_GET['do'])}-->
+	<tr><th>您的飞信密码:</th>
+		<td>
+*********** <span class="gray">(<a href="cp.php?ac=fetion&op=setuser&do=1">更改密码</a>)　　→<a href="http://my.fetion.com.cn/password/find" target=_blank>忘记密码</a></span>
+		</td>
+	</tr>
+<!--{/if}-->
+<!--{if empty($fetion['enable']) && empty($fetion['pw']) && empty($fetion['authstr']) || !empty($_GET['do'])}-->
+	<tr><th>您的飞信密码:</th>
+		<td>
+		<input type="password" id="fetion_pw" name="fetion_pw" value="" class="t_input" />　　&nbsp;<span class="gray">→<a href="http://my.fetion.com.cn/password/find" target=_blank>忘记密码</a></span>
+		</td>
+	</tr>
+	<tr><th></th>
+		<td>
+		<input type="submit" name="fetion_send_code" value="发送验证码" class="submit" />
+		</td>
+	</tr>
+
+<!--{/if}-->
+<!--{if empty($_GET['do'])}-->
+<!--{if !empty($fetion['authstr'])}-->
+	<tr><th>验证码:</th>
+		<td>
+		<input type="text" id="fetion_code" name="fetion_code" value="" class="t_input" />
+         如果3分钟内没收到验证码，<a href="cp.php?ac=fetion&op=setuser&do=1">重新发送验证码</a>!
+		</td>
+	</tr>
+	<tr><th></th>
+		<td>
+		<input type="submit" name="fetion_submit" value="验证" class="submit" />
+		</td>
+	</tr>
+<!--{/if}-->
+<!--{/if}-->
+</table>
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>

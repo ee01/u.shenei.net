@@ -1,0 +1,37 @@
+	选择需要开启的应用设置。
+<div class="h_status"></div>
+<form method="post" action="cp.php?ac=fetion&op=apply" class="c_form">
+<table cellspacing="0" cellpadding="0" class="formtable">
+	<tr><th width="150">登陆通知:</th>
+		<td>
+		<label for="login_sms1"><input id="set_login1" type="radio" value="1" name="set_login"<!--{if $fetion[set_login] == 1}--> checked<!--{/if}--> />开启</label> 
+		<label for="login_sms0"><input id="set_login0" type="radio" value="0" name="set_login"<!--{if $fetion[set_login] == 0}--> checked<!--{/if}--> />关闭</label>
+		<span class="gray">(每次登陆时，您都会收到一条登陆提醒短信，服务更贴心。)</span>
+		</td>
+	</tr>
+	<tr><th>短信密码:</th>
+		<td>
+		<label for="set_login_pw1"><input id="set_login_pw1" type="radio" value="1" name="set_login_pw"<!--{if $fetion[set_login_pw] == 1}--> checked<!--{/if}--> />开启</label> 
+		<label for="set_login_pw0"><input id="set_login_pw0" type="radio" value="0" name="set_login_pw"<!--{if $fetion[set_login_pw] == 0}--> checked<!--{/if}--> />关闭</label>
+		<span class="gray">(在公共场所时，使用手机接收短信密码登陆，帐号更安全。)</span>
+		</td>
+	</tr>
+    <tr><th>接收时段:</th>
+		<td>
+		<input type="text" id="set_receive_time" name="set_receive_time" value="$fetion[set_receive_time]" size="11" class="t_input" />
+		<span class="gray">(登陆通知和短信密码不受影响，留空为不限制。)</span>
+		</td>
+	</tr>
+    <tr><th></th>
+		<td>
+		例如:每日早5:05到晚23:25，可设置为: 5:05-23:25。“:”为英文冒号！
+		</td>
+	</tr>
+    <tr><th></th>
+		<td>
+		<input type="submit" name="fetion_setting_submit" value="保存" class="submit" />
+		</td>
+	</tr>
+</table>
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>

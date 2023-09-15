@@ -1,0 +1,24 @@
+.block  .blocktitle {background-position:left center; background-color:transparent; background-image:url(); } 
+.block  .blockcontent {background-image:url(); background-color:transparent; color:#FFFFFF; } 
+.block  .blockcontent a {color:#FFFFFF; } 
+.block  {border-color:transparent; } 
+body {background-image:url(http://u.shenei.net/attachment/201009/13/1001_12843790433LE1.jpg); } 
+#banner {height:125px; background-image:url(http://u.shenei.net/attachment/201009/13/1001_12843790433LE1.jpg); background-repeat:repeat-x; background-position:center top; left:NaNpx; } 
+#banner .title h1 {color:#FFFFFF; } 
+#banner .title p {color:#FFFFFF; } 
+#banner .title p a {color:#FFFFFF; } 
+#title {top:30px; left:22px; } 
+#footer {background-image:url(); } 
+#menu {background-image:url(); background-position:center center; height:54px; } 
+#menu .active a {color:transparent; } 
+#menu ul {padding-left:60px; margin-top:22px; } 
+#menu a {font-weight:bold; font-size:14px; } 
+#menu . em {font-size:14px; } 
+#blog .blockcontent {color:#FFFFFF; } 
+#blog .blockcontent a {color:#FFFFFF; } 
+#blog .blocktitle h2 {color:#FFFFFF; font-weight:bold; } 
+#blog .blocktitle em a {color:#FFFFFF; font-weight:bold; } 
+#blog .blockcontent h2 {font-weight:normal; } 
+#blog .blockcontent em a {font-weight:normal; } 
+#profile .blockcontent a {color:#0E0000; } 
+ body {cursor: }

@@ -1,0 +1,222 @@
+<!--{template viewspace_header}-->
+
+<div class="frame_1">
+<!--{template viewspace_profile}-->
+</div>
+<div class="frame_3">
+<div id="about" class="block">
+<div class="blocktitle">
+<!--{if $space[self]}--><em><a href="cp.php?ac=profile">修改个人资料</a></em><!--{/if}-->
+<h2>关于我</h2>
+</div>
+<div class="blockcontent">
+<div class="record">
+<div class="composer">
+
+				<strong class="index_name"<!--{eval g_color($space[groupid]);}-->><!--{if $_SCONFIG[realname] && $space[name] && $space[namestatus]}--><!--{eval echo stripslashes($space['name']);}--> <em>(用户名:<!--{eval echo stripslashes($space['username']);}-->)</em><!--{else}--><!--{eval echo stripslashes($space['username']);}--><!--{if $space[name]}--> <em>(姓名:<!--{eval echo stripslashes($space['name']);}-->)</em><!--{/if}--><!--{/if}--><!--{eval g_icon($space[groupid]);}--></strong>
+				<!--{if $isonline}--><span class="time">(当前在线)</span><!--{/if}-->
+				<p class="gray">
+					<a href="$space[domainurl]" onclick="javascript:setCopy('$space[domainurl]');return false;" class="spacelink domainurl">$space[domainurl]</a>
+				</p>
+				<p>
+				
+					<!--{if $space[self]}-->
+					已有 <a href="space.php?uid=$space[uid]&do=friend&view=visitor">$space[viewnum]</a> 人次访问, <a href="cp.php?ac=credit">$space[credit]</a>个积分 <a href="cp.php?ac=credit">$space[creditstar]</a>
+					<!--{else}-->
+					已有 $space[viewnum] 人次访问, $space[credit]个积分 <a href="do.php?ac=ajax&op=credit&uid=$space[uid]" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)">$space[creditstar]</a>
+					<!--{/if}-->
+				</p>
+<p>个性签名：<!--{if $space['signm'] }-->$space['signm']<!--{else}-->这家伙很懒，什么都没留下...<!--{/if}--></p>
+
+<!--{if empty($space[avatar])}-->
+<a href="cp.php?ac=avatar"><img border=0 src="image/lightening/avatar_g.gif" alt="头像未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/avatar_l.gif" alt="头像已填写"></span>
+<!--{/if}-->
+
+<!--{if $task}-->
+<a href="cp.php?ac=task"><img border=0 src="image/lightening/zuan_g.gif" alt="有未完成任务"></a></span>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/zuan_l.gif" alt="任务已全部完成">
+<!--{/if}-->
+
+
+<!--{if $space[namestatus]}-->
+<img border=0 src="image/lightening/name_l.gif" alt="已通过实名">
+<!--{else}--><span class="sl">
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/name_g.gif" alt="未通过实名"></a></span>
+<!--{/if}-->
+
+<!--{if empty($space[sex])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/sex_g.gif" alt="性别未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/sex_l.gif" alt="性别已填写"></span>
+<!--{/if}-->
+
+<!--{if empty($space[birthcity])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/birth_g.gif" alt="家乡未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/birth_l.gif" alt="家乡已填写"></span>
+<!--{/if}-->
+
+
+<!--{if empty($space[residecity])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/home_g.gif" alt="居住地未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/home_l.gif" alt="居住地已填写"></span>
+<!--{/if}-->
+
+<!--{if empty($space[birthday])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/birthday_g.gif" alt="生日未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/birthday_l.gif" alt="生日已填写"></span>
+<!--{/if}-->
+
+<!--{if empty($space[qq])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/qq_g.gif" alt="QQ未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/qq_l.gif" alt="QQ已填写"></span>
+<!--{/if}-->
+
+<!--{if empty($space[msn])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/msn_g.gif" alt="MSN未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/msn_l.gif" alt="MSN已填写"></span>
+<!--{/if}-->  
+
+<!--{if empty($space['emailcheck'])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/email_g.gif" alt="Email未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/email_l.gif" alt="Email已填写"></span>
+<!--{/if}-->
+
+<!--{if empty($space['mobile'])}-->
+<a href="cp.php?ac=profile"><img border=0 src="image/lightening/mod_g.gif" alt="手机未填写"></a>
+<!--{else}--><span class="sl">
+<img border=0 src="image/lightening/mod_l.gif" alt="手机已填写"></span>
+<!--{/if}-->
+
+
+
+				<div class="current_status" id="mystate">
+					<!--{if $space[mood]}--><a href="space.php?uid=$space[uid]&do=mood" title="同心情"><img src="image/face/{$space[mood]}.gif" alt="同心情" class="face" /></a> <!--{/if}-->
+					<!--{if $space[spacenote]}-->$space[spacenote]<!--{/if}-->
+					<!--{if $space[self]}-->
+					<!--{if empty($space[mood]) && empty($space[spacenote])}-->
+						您在做什么？
+					<!--{/if}-->
+					&nbsp;(<a id="a_doing_form" onclick="ajaxmenu(event, this.id, 99999, '', -1)" href="viewspace.php?do=doingf" title="更新状态">更新状态</a><span class="pipe">|</span><a href="space.php?uid=$space[uid]&do=mood">同心情</a>)
+					<!--{/if}-->
+				</div>
+				
+				<!--{if ( checkperm('managespace') or $space[uid] == $_SGLOBAL['supe_uid'] ) or ( $_SCONFIG[viplookinfo] == 1 and ($vips[day] > 0 or $_SGLOBAL[member][groupid] == $_SCONFIG[vipapp]) ) }-->
+					<!--{eval $cansee = 1;}-->
+				<!--{/if}-->
+				
+				<!--{if $space['showprofile']}-->
+				<ul class="profile">
+					<li>创建：<!--{date('Y-m-d',$space[dateline],1)}--></li>
+					<li>登录：<!--{if $space[lastlogin]}--><!--{date('Y-m-d',$space[lastlogin],1)}--><!--{/if}--></li>
+					<!--{if $isonline}-->
+						<li>活跃：<!--{date('Y-m-d',$isonline,1)}--> (当前在线)</li>
+					<!--{/if}-->
+					<!--{if $space[sex]}-->
+						<li>性别：$space[sex]</li>
+					<!--{/if}-->
+					<!--{if $space[birthday]}-->
+						<li>生日：$space[birthday]</li>
+					<!--{/if}-->
+					<!--{if $space[blood]}-->
+						<li>血型：$space[blood]</li>
+					<!--{/if}-->
+					<!--{if $space[marry]}-->
+						<li>婚恋：$space[marry]</li>
+					<!--{/if}-->
+					<!--{if $space[reside]}-->
+					<li>居住：$space[reside]</li>
+					<!--{/if}-->
+					<!--{if $space[birth]}-->
+					<li>家乡：$space[birth]</li>
+					<!--{/if}-->
+					<!--{if $space[qq]}-->
+					<li>QQ：<!--{if !$_SGLOBAL['supe_uid']}--><a href="do.php?ac=$_SCONFIG[login_action]" target="_blank"><font color=blue>请先登录后查看</font></a><!--{elseif $cansee}-->$space[qq]<!--{else}--><a href="pay.php?ac=vip" target="_blank"><font color=red>VIP会员可见</font></a><!--{/if}--></li>
+					<!--{/if}-->
+					<!--{if $space[msn]}-->
+					<li>MSN：<!--{if !$_SGLOBAL['supe_uid']}--><a href="do.php?ac=$_SCONFIG[login_action]" target="_blank"><font color=blue>请先登录后查看</font></a><!--{elseif $cansee}-->$space[msn]<!--{else}--><a href="pay.php?ac=vip" target="_blank"><font color=red>VIP会员可见</font></a><!--{/if}--></li>
+					<!--{/if}-->
+					<!--{if $space[mobile]}-->
+					<li>手机：<!--{if !$_SGLOBAL['supe_uid']}--><a href="do.php?ac=$_SCONFIG[login_action]" target="_blank"><font color=blue>请先登录后查看</font></a><!--{elseif $cansee}-->$space[mobile]<!--{else}--><a href="pay.php?ac=vip" target="_blank"><font color=red>VIP会员可见</font></a><!--{/if}--></li>
+					<!--{/if}-->
+					
+					<!--{loop $fields $fieldid $value}-->
+					<!--{if $space["field_$fieldid"] && empty($value['invisible'])}-->
+					<!--{eval $fieldvalue = $space["field_$fieldid"]; $urlvalue = rawurlencode($fieldvalue);}-->
+					    <!--{if $value[title]!='宿舍' && $value[title]!='背景音乐'}-->
+						<li>$value[title]：<!--{if $value[allowsearch]}-->
+						<a href="cp.php?ac=friend&op=search&field_$fieldid=$urlvalue&searchmode=1" target="_blank">$fieldvalue</a>
+						<!--{else}-->$fieldvalue<!--{/if}--></li>
+						<!--{/if}-->
+					<!--{/if}-->
+					<!--{/loop}-->
+					
+					<!--{if $space[edu]}-->
+					<li>学校：
+						<!--{loop $space[edu] $value}-->
+						<!--{eval $title_url = urlencode($value[title]);$subtitle_url = urlencode($value[subtitle]);}-->
+						<p><a href="space.php?do=mtag&tagname=$title_url" target="_blank">$value[title]</a> <a href="space.php?do=mtag&tagname=$subtitle_url" target="_blank">$value[subtitle]</a> <span class="gray">($value[startyear] 年)</span></p>
+						<!--{/loop}-->
+					</li>
+					<!--{/if}-->
+
+					<!--{loop $fields $fieldid $value}-->
+					<!--{if $space["field_$fieldid"] && empty($value['invisible'])}-->
+					<!--{eval $fieldvalue = $space["field_$fieldid"]; $urlvalue = rawurlencode($fieldvalue);}-->
+						<!--{if $value[title]=='宿舍'}-->
+						<li>$value[title]：<!--{if $value[allowsearch]}-->
+						<a href="cp.php?ac=friend&op=search&field_$fieldid=$urlvalue&searchmode=1" target="_blank">$fieldvalue</a>
+						<!--{else}-->$fieldvalue<!--{/if}--></li>
+						<!--{/if}-->
+					<!--{/if}-->
+					<!--{/loop}-->
+				
+				</ul>
+				<!--{/if}-->				
+				
+			</div>
+
+</div>
+</div>
+</div>
+<div id="profect" class="block">
+<div class="blocktitle">
+<!--{if $space[self]}--><em><a href="cp.php?ac=mtag" target="_blank">修改兴趣爱好</a></em><!--{/if}-->
+<h2>兴趣爱好</h2>
+</div>
+<div class="blockcontent">
+<div class="lovebody">
+<table class="ilove" cellspacing="0" cellpadding="0">
+<tr>
+<!--{loop $mtaglist $fieldid $values}-->
+<td class="love_{$_SGLOBAL[profield][$fieldid][fieldid]}">
+<div class="pic">{$_SGLOBAL[profield][$fieldid][title]}</div>
+<h4>{$_SGLOBAL[profield][$fieldid][title]}</h4>
+<p>
+<!--{loop $values $key $value}-->
+$dot<a href="space.php?do=mtag&tagid=$value[tagid] target="_blank"" title="$value[membernum]个人有同样的选择">$value[tagname]</a>
+<!--{eval $dot = '、';}-->
+<!--{/loop}-->
+</p>
+</td>
+
+<!--{if $mtaglist%2==1}--></tr><tr><!--{/if}-->
+<!--{/loop}-->
+</tr>	
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+<!--{template viewspace_footer}-->
+

@@ -1,0 +1,22 @@
+<div class="titles">
+<div class="titimg"><img src="template/voone/image/topic.gif"></div>
+<div class="titright">
+<p class="tit">热闹 - <a href="space.php?do=topic&topicid=$topicid">$topic[subject]</a>></p>
+<p class="nrtit">我是来凑热闹的...</p>
+</div>
+</div>
+<div class="tabs_header">
+	<ul class="tabs">
+		<li class="active"><a href="javascript:;"><span>凑个热闹</span></a></li>
+		<li><a href="space.php?do=topic&topicid=$topicid"><span>查看热闹</span></a></li>
+	</ul>
+	<!--{if checkperm('managetopic') || $topic['uid']==$_SGLOBAL[supe_uid]}-->
+	<div class="r_option">
+		<a href="cp.php?ac=topic&op=edit&topicid=$topic[topicid]">编辑</a> | 
+		<a href="cp.php?ac=topic&op=delete&topicid=$topic[topicid]" id="a_delete_$topic[topicid]" onclick="ajaxmenu(event,this.id);">删除</a>
+		</p>
+	</div>
+	<!--{/if}-->
+</div>
+
+<!--{template space_topic_inc}-->

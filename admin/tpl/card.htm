@@ -1,0 +1,166 @@
+<!--{eval $_TPL['titles'] = array('积分充值卡');}-->
+<!--{template admin/tpl/header}-->
+<div class="mainarea">
+<div class="maininner">
+<!--{if empty($_GET['op'])}-->
+
+<form method="get" action="admincp.php">
+	<div class="block style4">
+		
+		<table cellspacing="3" cellpadding="3">
+		<tr><th>卡号*</th>
+		<td><input type="text" name="cardnum" value="$_GET[cardnum]"></td>
+		</tr>
+
+		<tr><th>结果排序</th>
+		<td>
+		<select name="ordersc">
+		<option value="desc"$ordersc[desc]>递减</option>
+		<option value="asc"$ordersc[asc]>递增</option>
+		</select>
+		<select name="perpage">
+		<option value="20"$perpages[20]>每页显示20个</option>
+		<option value="50"$perpages[50]>每页显示50个</option>
+		<option value="100"$perpages[100]>每页显示100个</option>
+		<option value="1000"$perpages[1000]>一次处理1000个</option>
+		</select>
+		<input type="hidden" name="ac" value="card">
+		<input type="submit" name="searchsubmit" value="搜索" class="submit">
+		</td>
+		</tr>
+		</table>
+
+	</div>
+	</form>	<div class="topactions">
+			<a href="admincp.php?ac=card">浏览</a> | <a href="admincp.php?ac=card&op=add">添加新充值卡</a>
+		</div>
+<!--{if $list}-->
+	<form method="post" action="admincp.php?ac=card">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	<div class="bdrcontent">
+		<!--{if $perpage>100}-->
+		<p>总共有满足条件的数据 <strong>$count</strong> 个</p>
+		<!--{loop $list $value}-->
+		<input type="hidden" name="ids[]" value="$value[id]">
+		<!--{/loop}-->
+
+	<!--{else}-->
+
+		<table cellspacing="0" cellpadding="0" class="formtable">
+		<tr><td width="25">　</td><td><b>卡号</b></td>
+			<td align="center" width="175"><b>密码</b></td><td align="center" width="80">
+			<b>是否使用</b></td><td width="100" align="center"><b>积分</b></td><td width="120" align="center"><b>
+			过期时间</b></td><td width="100" align="center"><b>操作</b></td></tr>
+		<!--{loop $list $value}-->
+		<tr>
+			<td width="25">
+				<input type="checkbox" name="ids[]" value="$value[id]">
+			</td>
+			<td>$value[cardnum]（<!--{if $value[ztinfo]=="未"}--><a href="admincp.php?ac=card&op=clno&id=$value[id]"><font color ="#ff0000">未</font></a><!--{else}--><a href="admincp.php?ac=card&op=clyes&id=$value[id]">已</a><!--{/if}-->）</td>
+			<td align="center" width="175">$value[cardpsw]</td>
+			<td align="center" width="80"><!--{if $value[carduser]==""}-->未使用<!--{else}--><a href="space.php?uid=$value[carduser]" target =_blank >$value[cardusername]</a><!--{/if}--></td>
+			<td align="center" width="100">$value[money]</td>
+			<td align="center" width="120"><!--{eval echo date("Y年m月d日",$value[overtime]);}--></td>
+			<td align="center" width="100"><a href="admincp.php?ac=card&op=edit&id=$value[id]">编辑</a>
+			<!--{if $value[carduser]=="" and  $value[ztinfo]=="未" and $_GET[uid]!="" }--><a href="admincp.php?ac=card&op=fafang&uid=<!--{$_GET[uid]}-->&cardnum=<!--{$value[cardnum]}-->&cardpsw=<!--{$value[cardpsw]}-->&money=<!--{$value[money]}-->&overtime=<!--{eval echo date("Y年m月d日",$value[overtime]);}-->">发放</a><!--{/if}--></td>
+		</tr>
+		<!--{/loop}-->
+		</table>
+	<!--{/if}-->
+	</div>
+	<div class="footactions">
+		<!--{if $perpage<=100}--><input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'ids')">全选<!--{/if}-->
+		<input type="hidden" name="mpurl" value="$mpurl">
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('本操作不可恢复，确认删除？');" class="submit">
+
+		<div class="pages">$multi</div>
+	</div>
+
+	</form>
+<!--{else}-->
+	<div class="bdrcontent">
+		<p>指定条件下还没有数据</p>
+	</div>
+<!--{/if}-->
+
+<!--{elseif $_GET['op'] == 'add' || $_GET['op'] == 'edit'}-->
+<div class="topactions">
+			<a href="admincp.php?ac=card">浏览</a> | <a href="admincp.php?ac=card&op=add">添加新充值卡</a>
+		</div>
+	<form method="post" action="admincp.php?ac=card">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	
+	<div class="bdrcontent">
+		<table cellspacing="0" cellpadding="0" class="formtable">
+		<tr><th style="width:8em;">卡号</th>
+		<td><input name="cardnum" value="<!--{if $_GET['op'] == 'add'}-->$cardnum<!--{else}-->$advalue[cardnum]<!--{/if}-->" class="t_input"></td>
+		</tr><input type =hidden  name="ztinfo" value="<!--{if $_GET['op'] == 'add'}-->未<!--{else}-->$advalue[ztinfo]<!--{/if}-->" class="t_input">
+		<tr><th>密码</th>
+		<td><input name="cardpsw" value="<!--{if $_GET['op'] == 'add'}-->$cardpsw<!--{else}-->$advalue[cardpsw]<!--{/if}-->" class="t_input"></td>
+		</tr>
+		<tr><th>积分</th>
+		<td><input name="money" value="<!--{if $_GET['op'] == 'add'}-->$money<!--{else}-->$advalue[money]<!--{/if}-->" class="t_input"></td>
+		</tr>
+		<tr><th>过期时间</th>
+		<td><SELECT NAME="overtime"><!--{if $_GET['op'] == 'edit'}-->
+		<option value="$advalue[overtime]">$advalue[overtime]</option><!--{/if}-->
+		<option value="$oneyear">一年</option>
+		<option value="$onemonth">一个月</option>
+		<option value="$oneweek">一周</option>
+		<option value="$monthfive">五个月</option></td>
+		</tr>
+				
+		</table>
+	</div>
+	
+	<div class="footactions">
+		<input type="hidden" name="id" value="$advalue[id]">
+		<input type="submit" name="cardsubmit" value="提交" class="submit">
+	</div>
+
+	</form>
+	
+<!--{elseif $_GET['op'] == 'fafang'}-->
+<div class="topactions">
+			<a href="admincp.php?ac=card">浏览</a> | <a href="admincp.php?ac=card&op=add">添加新充值卡</a>
+		</div>
+	<form method="post" action="card_notice.php">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	
+	<div class="bdrcontent">
+		<table cellspacing="0" cellpadding="0" class="formtable">
+		<tr><th style="width:8em;">卡号</th>
+		<td><input type ="hidden" name="cardnum" value="$_GET[cardnum]" class="t_input">$_GET[cardnum]</td>
+		</tr>
+		<tr><th>密码</th>
+		<td><input type ="hidden"  name="cardpsw" value="$_GET[cardpsw]" class="t_input">$_GET[cardpsw]</td>
+		</tr>
+		<tr><th>积分</th>
+		<td><input type ="hidden" name="money" value="$_GET[money]" class="t_input">$_GET[money]个</td>
+		</tr>
+		<tr><th>过期时间</th>
+		<td><input type ="hidden" name="overtime" value="$_GET[overtime]" class="t_input">$_GET[overtime]</td>
+		</tr>
+		<tr><th>发放理由</th>
+		<td><textarea rows="6" name="liyong" cols="38" class="t_input"></textarea></td>
+		</tr>
+				
+		</table>
+	</div>
+	
+	<div class="footactions">
+		<input type="hidden" name="uid" value="$_GET[uid]">
+		<input type="submit" name="cardsubmit" value="现在发放" class="submit">
+	</div>
+
+	</form>
+	
+<!--{/if}-->
+</div>
+</div>
+
+<div class="side">
+	<!--{template admin/tpl/side}-->
+</div>
+
+<!--{template admin/tpl/footer}-->

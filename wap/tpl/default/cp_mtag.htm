@@ -1,0 +1,33 @@
+<!--{template header}-->
+
+<!--{if $_GET[op]=='join'}-->
+	
+	<div class="c">
+	<h3>加入群组</h3>
+	<form method="post" action="cp.php?ac=mtag&op=join&tagid=$tagid">
+		<p>确定加入该群组吗？</p>
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+		<input type="submit" name="joinsubmit" value="加入" class="submit" />
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+	</div>
+	<div class="nav">
+	<a href="$_SGLOBAL[refer]">返回上一级</a>
+	</div>
+<!--{elseif $_GET[op]=='out'}-->
+	
+	<div class="c">
+	<h3>退出群组</h3>
+	<form id="outform" name="outform" method="post" action="cp.php?ac=mtag&op=out&tagid=$mtag[tagid]">
+		<p>确定要退出该群组吗？</p>
+			<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+			<input type="submit" name="outsubmit" value="退出" class="submit" />
+		<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+	</div>
+	<div class="nav">
+	<a href="$_SGLOBAL[refer]">返回上一级</a>
+	</div>
+<!--{/if}-->
+	
+<!--{template footer}-->

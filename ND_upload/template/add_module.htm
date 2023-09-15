@@ -1,0 +1,46 @@
+<script type="text/javascript" src="upload_js/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="upload_js/js/swfupload.queue.js"></script>
+<script type="text/javascript" src="upload_js/js/fileprogress.js"></script>
+<script type="text/javascript" src="upload_js/js/handlers.js"></script>
+<script type="text/javascript">
+		var upload;
+		window.onload = function() {
+			upload = new SWFUpload({
+				upload_url: "ND_upload.php?do=add",
+				file_post_name : "Filedata",
+				file_size_limit : "{$ND_filesize}MB",
+				file_types : "{$ND_filetype}",
+				file_types_description : "资料上传",
+				file_upload_limit : "0",
+				file_queue_limit : "0",
+
+				file_dialog_start_handler : fileDialogStart,
+				file_queued_handler : fileQueued,
+				file_queue_error_handler : fileQueueError,
+				file_dialog_complete_handler : fileDialogComplete,
+				upload_start_handler : uploadStart,
+				upload_progress_handler : uploadProgress,
+				upload_error_handler : uploadError,
+				upload_success_handler : uploadSuccess,
+				upload_complete_handler : uploadComplete,
+
+				// Button Settings
+				button_image_url : "upload_js/forms/XPButtonUploadText_61x22.png",
+				button_placeholder_id : "spanButtonPlaceholder1",
+				button_width: 61,
+				button_height: 22,
+				button_cursor:SWFUpload.CURSOR.HAND,
+				
+				// Flash Settings
+				flash_url : "upload_js/swfupload/swfupload.swf",
+				
+
+				custom_settings : {
+					progressTarget : "fsUploadProgress1"
+				},
+				
+				// Debug Settings
+				debug: false
+			});
+	     }
+</script>

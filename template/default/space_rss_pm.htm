@@ -1,0 +1,28 @@
+{$tag}xml version="1.0" encoding="$_SC[charset]"?>
+<rss version="2.0">
+	<channel>
+		<!--{if $space[uid]}-->
+		<title>{$_SN[$space[uid]]}</title>
+		<link>$space[space_url]</link>
+		<description>{$_SN[$space[uid]]} 的短信箱</description>
+		<!--{else}-->
+		<title>【$_SCONFIG[sitename]】</title>
+		<link>$siteurl</link>
+		<description>消息阅读</description>
+		<!--{/if}-->
+		<copyright>〖疯·神〗工作室</copyright>
+		<generator>shenei.net</generator>
+		<lastBuildDate>$space[lastupdate]</lastBuildDate>
+		
+		<!--{loop $list $value}-->
+		<item>
+		<title><!--{if $value[new]}-->【新】<!--{/if}-->来自[{$_SN[$value[msgfromid]]}]的消息</title>
+		<link>{$siteurl}space.php?do=pm&amp;subop=view&amp;pmid=$value[pmid]&amp;touid=$value[msgfromid]&amp;daterange=5</link>
+		<description><![CDATA[{$value[message]}]]></description>
+		<author>{$_SN[$value[msgfromid]]}</author>
+		<pubDate>$value[dateline]</pubDate>
+		</item>
+		<!--{/loop}-->
+		
+	</channel>
+</rss>

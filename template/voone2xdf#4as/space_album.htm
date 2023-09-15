@@ -1,0 +1,74 @@
+<!--{eval $_TPL['titles'] = array('相册', '随便看看');}-->
+<!--{eval $_TPL['nosidebar']=1;}-->
+<!--{template TOP_header}-->
+<!--{template X_header}-->
+
+<div class=quan>
+
+<div class=sousuo><div id="m_search"<!--{if !empty($gets) || !empty($_GET['view'])}--> style="display:none;"<!--{/if}-->>	<form method="get" action="network.php">
+			<input type="text" name="key" value="$_GET[key]" size="26" class="t_input2" />
+			<input type="hidden" name="ac" value="$ac" />
+			<input type="hidden" name="searchmode" value="1" />
+			<input type="submit" name="searchsubmit" value="搜索相册" class="submit2" />
+			<a href="javascript:;" onclick="document.getElementById('m_search').style.display='none';document.getElementById('adv_search').style.display='block'">高级搜索</a>
+		</form>
+
+	</div>
+<form method="get" action="network.php">
+		<table cellspacing="0" cellpadding="0" class="phosou" id="adv_search"<!--{if empty($gets) && empty($_GET['view'])}--> style="display:none;"<!--{/if}-->>
+			<tr>
+				<th>相册名*</th>
+				<td>
+					<input type="text" name="key" value="$_GET[key]" size="26" class="t_input2" />
+				</td>
+			</tr>
+			<tr>
+				<th>相册作者</th>
+				<td>
+					<input type="text" name="username" value="$_GET[username]" size="26" class="t_input2" />
+				</td>
+			</tr>
+			<tr>
+				<th>时间范围</th>
+				<td>
+					<input type="text" name="starttime" value="$_GET[starttime]" size="10" class="t_input2" /> ~ <input type="text" name="endtime" value="$_GET[endtime]" size="10" class="t_input2" />
+					格式为 YYYY-MM-DD
+				</td>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+				<input type="hidden" name="ac" value="$ac" />
+				<input type="hidden" name="searchmode" value="1" />
+				<input type="submit" name="searchsubmit" value="搜索" class="submit" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+	<!--{if $list}-->
+<div class=neirong>
+	<!--{loop $list $key $value}-->
+<div class=tupian>
+<UL>
+ <LI><a href="space.php?uid=$value[uid]&do=album&id=$value[albumid]"><img src="$value[pic]" />
+  <P><B>$value[albumname]</B></P> <P><B>{$_SN[$value[uid]]}</B></P> <P>$value[picnum]张照片|更新:  <!--{date('Y-m-d H:i', $value[updatetime], 1)}--></P></A></LI>
+
+</UL>
+</div>
+
+			<!--{/loop}-->
+
+</div>
+<div class=divline></div>
+<div class="page">
+	<!--{if $multi=='networkpage'}-->仅显示最新更新的 $count 个相册<!--{else}-->$multi<!--{/if}-->
+	</div>
+	<!--{else}-->
+	<div class="c_form">没有相应的相册。</div>
+	<!--{/if}-->
+
+</div>
+<div class=phobo></div>
+<div class=divline></div>
+<!--{template footerbottom}-->

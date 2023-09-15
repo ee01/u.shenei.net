@@ -1,0 +1,143 @@
+<!--{if $_GET['do'] == 'delete'}-->
+<h1>删除好友</h1>
+<a href="javascript:hideMenu();" class="float_del" title="关闭">关闭</a>
+<div class="popupmenu_inner" id="__friendform_{$fid}">
+<form method="post" id="friendform_{$fid}" name="friendform" action="cp.php?ac=fetion&op=friend&type=friend&do=delete&fid=$_GET[fid]">
+	<p>确定删除该好友吗？</p>
+	<p class="btn_line">
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]">
+		<button name="deletesubmit" type="submit" class="submit" value="true">确定</button>
+	</p>
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>
+<!--{else}-->
+
+<div class="h_status">
+站外飞信选项：
+<a href="cp.php?ac=fetion&op=friend&type=send"$sub_actives[send]>站外飞信</a><span class="pipe">|</span>
+<a href="cp.php?ac=fetion&op=friend&type=friend"$sub_actives[friend]>好友管理</a>
+</div>
+<!--{if empty($_GET[type]) || $_GET[type] == send}-->
+<div id="content">
+	<form id="fetion_sendform" name="fetion_sendform" method="post" action="cp.php?ac=fetion&op=friend" >
+<table cellspacing="0" cellpadding="3">
+    <tr>
+		<th><label for="username">飞信好友：</label></th>
+		<td>
+			<script type="text/javascript" src="source/script_autocomplete.js"></script>
+			<input type="text" id="username" name="username" value="" style="width: 396px;" class="t_input" tabindex="1" <!--{if $friends}--> onclick="auc.handleEvent(this.value ,event);" onkeyup="auc.handleEvent(this.value ,event);" onkeydown="closeOpt(username,event);inputKeyDown(event);" autocomplete="off" <!--{/if}--> />
+			<!--{if $friends}-->
+			<div id="username_menu" class="ajax_selector" onclick="$('username_menu').style.display='none';" style="display:none">
+				<div class="ajax_selector_option" style="width: 396px; height: 100px;">
+					<a href="javascript:;" onclick="$('username_menu').style.display='none';" class="float_del" style="margin-right: 5px;">a</a>
+					<ul id="friendlist" class="blocklink">
+						<!--{loop $friends $key $value}-->
+							<!--{eval $fs[] = $value[name];}-->
+							<li>$value[name]</li>
+						<!--{/loop}-->
+					</ul>
+				</div>
+			</div>
+			<!--{eval $friendstr = implode(',', $fs);}-->
+			<script type="text/javascript">
+				var close = true;
+				var auc = new sAutoComplete("auc", "username_menu", "friendlist", "username");
+				auc.addItem('$friendstr');
+				function closeOpt(key,evt) {
+					if(evt.keyCode==9) {
+						$('username_menu').style.display='none';
+					}
+				}
+				function inputKeyDown(event) {
+					if(event.keyCode == 13){
+						doane(event);
+					}
+				}
+			</script>
+
+			<!--{/if}-->
+	</tr>
+    <tr>
+		<th style="vertical-align: top; text-align:right"><label for="message">内容：</label></th>
+		<td><textarea id="message" name="message" cols="40" rows="4" style="width: 400px; height: 150px;" onkeydown="ctrlEnter(event, 'fetion_sendsubmit_btn');"></textarea></td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td>
+		<input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+		<input type="hidden" name="friend_sendsubmit" value="true" />
+		<input type="submit" name="fetion_sendsubmit_btn" id="fetion_sendsubmit_btn" value="发送" class="submit" />
+		</td>
+	</tr>
+	</table>
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+    </div>
+    
+<div id="sidebar">
+	<div class="sidebox" id="help">
+		<h2 class="title">站内飞信 与 站外飞信 有什么区别？</h2>
+		<p>站内飞信发送对象仅限于站内好友，您无须设置飞信信息，只要您的好友设置了飞信，您都也给他发送免费短信。这种方式发送的短信好友不能回复。</p>
+		<p>站外飞信发送对象是飞信好友，类似飞信客户端的短信发送。使用这种方式发送需要设置您的飞信信息，对方收到短信后，可以直接回复到您的手机上。</p>
+		<h2 class="title">如何发送 站外飞信 ？</h2>
+		<p>如果您设置的添加了飞信好友，点击“电话号码”输入框就会出现好友列表。</p>
+        <p>如果您还没添加好友，那就只有辛苦点，直接输入对方的手机号码啦。</p>
+        <h2 class="title">站外飞信 可以群发吗？</h2>
+		<p>站外飞信不支持群发。</p>
+	</div>
+
+</div>
+<!--{elseif $_GET[type] == friend}-->
+<div id="content">
+	<table cellspacing="0" cellpadding="0" class="listtable">
+		<thead>
+		<tr class="title">
+			<td>好友姓名</td>
+			<td align="center">手机号码</td>
+            <td align="center">&nbsp;</td>
+		</tr>
+		</thead>
+		<!--{if $friendlist}-->
+			<!--{loop $friendlist $value}-->
+		<tr class="line">
+			<td>$value[name]</td>
+			<td align="center">$value[mobileno]</td>
+            <td align="center"><a href="cp.php?ac=fetion&op=friend&type=friend&do=delete&fid=$value[fid]" id="friend_delete_{$value[fid]}}" onclick="ajaxmenu(event, this.id)" class="re gray">删除</a></td>
+		</tr>
+			<!--{/loop}-->
+		<!--{else}-->
+		<tr>
+			<td colspan="4">您还没有添加好友呢！</td>
+		</tr>
+		<!--{/if}-->
+		<!--{if $multi}-->
+		<tr>
+			<td colspan="4"><div class="page">$multi</div></td>
+		</tr>
+		<!--{/if}-->
+	</table>
+</div>
+
+<div id="sidebar">
+	<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+	<form id="addform" name="addform" method="post" action="cp.php?ac=fetion&op=friend&type=friend">
+	<table cellspacing="2" cellpadding="2" width="100%">
+		<tr><td><strong>添加飞信好友</strong></td></tr>
+		<tr><td align="center">好友姓名: <input type="text" id="name" name="name" value="" class="t_input" /></td></tr>
+		<tr><td align="center">手机号码: <input type="text" id="mobileno" name="mobileno" value="" class="t_input" /></td></tr>
+		<tr><td align="center">
+		<input type="submit" name="addsubmit" value="添加" class="submit" />
+		</td></tr>
+	</table>
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /></form>
+	</div></div></div></div>
+
+	<div class="sidebox" id="help">
+		<h2 class="title">这里删除好友对飞信客户端有影响吗？</h2>
+		<p>没有。您在本站添加的好友与飞信客户端的好友不同步的，你可以任意添加或删除，不会影响飞信客户端。</p>
+	</div>
+
+</div>
+
+<!--{/if}--><!--{/if}-->

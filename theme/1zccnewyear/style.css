@@ -1,0 +1,18 @@
+/*
+[name]³Ç³ØÐÂÄê°æ[/name]
+Powered by Ucenter Home
+*/
+body {  background: #890001 url(images/body_bg.gif) repeat-x left top; color: #666; }
+#wrap { padding: 15px 10px; background: #FFF;} #header {margin-bottom:0;}
+.headerwarp { height: 237px; background: url(images/header_bg.jpg) no-repeat center 39px; }
+#header {background:none;}
+#header a { color: #E00000; }
+#header .logo a { width: 97px; height: 39px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+#space_mymenu h2 {background:url(images/title.gif) no-repeat 0 -30px;color:#870001;}
+#maincontent h3.feed_header {background:url(images/title.gif) no-repeat 0 0;height:25px;color:#870001;}
+#maincontent h3.feed_header a{color:#870001;}
+#comment h3.feed_header {background:url(images/title.gif) no-repeat 0 0;height:25px;color:#870001;}
+#comment h3.feed_header a{color:#870001;}
+#space_page .sidebox h2.title {background:url(images/title.gif) no-repeat -200px -30px;height:25px;color:#870001;}
+#space_page .sidebox h2.title a{color:#870001;}

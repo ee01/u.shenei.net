@@ -1,0 +1,191 @@
+<!--{template header}-->
+<style type="text/css">
+@import url(template/vicstyle4/sohovicstyle.css);
+</style>
+<div class="navbar">
+	<div class="vs4_tabs" >
+		<ul class="tabs">
+			<li><a href="space.php?do=home"><span>个人中心</span></a></li>
+			<li><a href="network.php"><span>社区广场</span></a></li>
+			<li class="active"><a href="sohovicstyle.php"><span style="font-weight: bold;">寻找soho潮人</span></a></li>
+			<li><a href="floor.php"><span>抢楼行动</span></a></li>
+			<li><a href="space.php?do=sys"><span>官方论坛</span></a></li>
+			<li><a href="space.php?do=thread"><span>社交圈子</span></a></li>
+			<li><a href="space.php"><span>我的BLOG</span></a></li>
+		</ul>
+	</div>
+</div>
+<div id="vs4con_t"><p><img src="template/vicstyle4/image/con_t_l.gif" /></p></div>
+<div id="vs4_content" style="padding:0 25px 0 25px;width:855px;overflow:hidden;">
+		<DIV class="vic_headmsg">
+			<DIV id="scroll11" style="DISPLAY: block; OVERFLOW: hidden; HEIGHT: 30px; ">
+				<ul> 
+				<!--{loop $dodolist $value}-->
+				<li>
+					<div>
+					<a href="space.php?uid=$value[uid]"><span style="font-weight: bold; color: #FF6600;">{$_SN[$value[uid]]}</span></a>&nbsp;<!--{date('- Y年m月d日 - D - H:i :',$value[dateline],1)}--> 
+					<span style="color:green;">$value[message]</span> <a href="space.php?uid=$value[uid]&do=doing&doid=$value[doid]" target="_blank" style="color:#ddd;"></a>
+					</div>
+				</li>
+				<!--{/loop}-->
+				</ul> 
+			</div>
+			<script>startMarquee(30, 60, 4000, 'scroll11');</script>
+		</div>
+
+	<div class="vic_headbox">
+		<div id="showuser" class="nbox">
+			<!--{loop $star $value}-->
+				<div id="headmast">
+					<div class="headusermsg">
+						<a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}"><!--{avatar($value[uid],middle)}--></a> 
+					</div>
+					<div class="headuserinfo">
+						<p><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a></p>
+						<p>昵称: $value[name]</p>
+						<p>访问: $value[viewnum]</p>
+						<p>积分: $value[credit]</p>
+						<p>好友: $value[friendnum]</p>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="headuserbut">
+						<ul><a href="cp.php?ac=friend&op=add&uid=$value[uid]" target="_blank">加为好友</a></ul>
+						<ul><a href="space.php?uid=$value[uid]&do=wall&view=me">给TA留言</a></ul>
+						<ul><a href="cp.php?ac=poke&op=send&uid=$value[uid]" target="_blank">打个招呼</a></ul>
+					</div>
+				</div>
+			<!--{/loop}-->
+		</div>
+	</div>
+
+	
+
+	<div id="searchbar" class="nbox s_clear" style="margin:5px 0 5px 5px;">
+		<div class="floatleft">
+			<form method="get" action="cp.php">
+				<input name="searchkey" value="" size="15" class="t_input" type="text" style="padding:5px;">
+				<input name="searchsubmit" value="找人" class="submit" type="submit"> &nbsp;
+					查找：<a href="cp.php?ac=friend&op=search&view=sex" target="_blank">男女朋友</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=reside" target="_blank">同城</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=birth" target="_blank">老乡</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=birthyear" target="_blank">同年月日</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=edu" target="_blank">同学</a><span class="pipe">|</span>
+					<a href="cp.php?ac=friend&op=search&view=work" target="_blank">同事</a><span class="pipe">|</span>
+					<a href="space.php?do=top&view=online" target="_blank">在线会员($olcount)</a>
+				<input type="hidden" name="searchmode" value="1" />
+				<input type="hidden" name="ac" value="friend" />
+				<input type="hidden" name="op" value="search" />
+			</form>
+		</div>
+		<div class="floatright">
+			<form method="get" action="space.php">
+				<input name="searchkey" value="" size="15" class="t_input" type="text" style="padding:5px;">
+				<select name="do">
+				<option value="blog">日志</option>
+				<option value="album">相册</option>
+				<option value="thread">话题</option>
+				<option value="poll">投票</option>
+				<option value="event">活动</option>
+				</select>
+				<input name="searchsubmit" value="搜索" class="submit" type="submit">
+				<input type="hidden" name="view" value="all" />
+				<input type="hidden" name="orderby" value="dateline" />
+			</form>
+		</div>
+	</div>
+
+	<div id="vs4_rand">
+		<!--{loop $viewinlist $key $value}-->
+		<!--{if $key==0}-->
+			<div class="randone" title="{$_SN[$value[uid]]} - 上榜热度：$value[viewnum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],middle)}--></a>
+			</div>
+		<!--{else}-->
+			<div class="randother" title="{$_SN[$value[uid]]} - 上榜热度：$value[viewnum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a>
+			</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+		<div class="vs4_randbottom"><span style="color:#ff6600;">热度</span><span>潮人TOP榜</span></div>
+	</div>
+
+	<div id="vs4_rand">
+		<!--{loop $ctoplist $key $value}-->
+		<!--{if $key==0}-->
+			<div class="randone" title="{$_SN[$value[uid]]} - 上榜积分：$value[credit]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],middle)}--></a>
+			</div>
+		<!--{else}-->
+			<div class="randother" title="{$_SN[$value[uid]]} - 上榜积分：$value[credit]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a>
+			</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+		<div class="vs4_randbottom"><span style="color:#ff6600;">积分</span><span>潮人TOP榜</span></div>
+	</div>
+
+	<div id="vs4_rand">
+		<!--{loop $exptoplist $key $value}-->
+		<!--{if $key==0}-->
+			<div class="randone" title="{$_SN[$value[uid]]} - 上榜经验：$value[experience]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],middle)}--></a>
+			</div>
+		<!--{else}-->
+			<div class="randother" title="{$_SN[$value[uid]]} - 上榜经验：$value[experience]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a>
+			</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+		<div class="vs4_randbottom"><span style="color:#ff6600;">经验</span><span>潮人TOP榜</span></div>
+	</div>
+
+	<div id="vs4_rand">
+		<!--{loop $myshowtoplist $key $value}-->
+		<!--{if $key==0}-->
+			<div class="randone" title="{$_SN[$value[uid]]} - 上榜图片数：$value[albumnum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],middle)}--></a>
+			</div>
+		<!--{else}-->
+			<div class="randother" title="{$_SN[$value[uid]]} - 上榜图片数：$value[albumnum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a>
+			</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+		<div class="vs4_randbottom"><span style="color:#ff6600;">我秀</span><span>潮人TOP榜</span></div>
+	</div>
+
+	<div id="vs4_rand">
+		<!--{loop $blogtoplist $key $value}-->
+		<!--{if $key==0}-->
+			<div class="randone" title="{$_SN[$value[uid]]} - 上榜日志数：$value[blognum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],middle)}--></a>
+			</div>
+		<!--{else}-->
+			<div class="randother" title="{$_SN[$value[uid]]} - 上榜日志数：$value[blognum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a>
+			</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+		<div class="vs4_randbottom"><span style="color:#ff6600;">日志</span><span>潮人TOP榜</span></div>
+	</div>
+
+	<div id="vs4_rand">
+		<!--{loop $threadtoplist $key $value}-->
+		<!--{if $key==0}-->
+			<div class="randone" title="{$_SN[$value[uid]]} - 上榜群组帖数：$value[threadnum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],middle)}--></a>
+			</div>
+		<!--{else}-->
+			<div class="randother" title="{$_SN[$value[uid]]} - 上榜群组帖数：$value[threadnum]">
+			<a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],small)}--></a>
+			</div>
+		<!--{/if}-->
+		<!--{/loop}-->
+		<div class="vs4_randbottom"><span style="color:#ff6600;">群组</span><span>潮人TOP榜</span></div>
+	</div>
+<div style="clear:both;height:10px;"></div>
+</div>
+<div id="vs4con_b"><p><img src="template/vicstyle4/image/con_b_l.gif" /></p></div>
+</div>
+
+<!--{template footer}-->

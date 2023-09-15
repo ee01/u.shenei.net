@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteBase /
+
+#RewriteRule ^(.*)space-([0-9]+)\.html$ $1viewspace.php?uid=$2 [L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(space|network)\-(.+)\.html$ $1.php?rewrite=$2 [L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(space|network)\.html$ $1.php [L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([0-9]+)$ viewspace.php?uid=$1 [L]
+
+RewriteCond %{HTTP_HOST} (?!www|u)^([a-z0-9\-]+).u.eexx.me$
+RewriteRule ^.*$ http://u.eexx.me/space.php?domain=%1$1 [L]

@@ -1,0 +1,931 @@
+<style>
+
+body{background-position:50% 65px;}
+#wrap{margin:65px auto 0 !important;}/*默认三列框架*/
+#wraptwo{margin:65px auto 0 !important;}/*默认两列框架*/
+
+.banner .title{border:2px dashed red;cursor:move;}
+/*toolbar*/
+.toolbar{background:url(./viewspace/img/tool/bg_toolbar.jpg) repeat-x;height:64px;}
+
+</style>
+
+
+<div class="floatwin" id="selectbg_div" style="display:none; z-index:3000;">
+<div class="floattitle" id="selectbg_header">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('selectbg_div').style.display='none';$('qwert').style.display = 'none'; 
+if(cur_transferdiv != '') {
+$(cur_transferdiv).style.display = '';
+cur_transferdiv='';
+}
+$('setfooter').style.display = 'none';$('setbannerheight').style.display = 'none';$('setbodybgstate').style.display = 'none';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2 id="selectbgtitle">选择背景</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+<ul>
+<li id="syspicli" class="on" onclick="showbgdiv('syspic', this.id);"><a href="javascript:void(0);">系统推荐</a></li>
+<li id="albumpicli" onclick="showbgdiv('albumpic', this.id);"><a href="javascript:void(0);">相册中的图片</a></li>
+<li id="uploadpicli" onclick="showbgdiv('uploadpic', this.id);"><a href="javascript:void(0);">上 传</a></li>
+<li id="urlpicli" onclick="showbgdiv('urlpic', this.id);"><a href="javascript:void(0);">网络上的图片</a></li>
+</ul>
+</div>
+
+<div class="floatmain" id="syspic">
+<div class="floatnav" id="syspicnav">
+<ul class="navcolor">
+<li  onclick="changesyspic(this, '&color=1');"><a href="javascript:void(0);">黑</a></li>
+<li  onclick="changesyspic(this, '&color=2');"><a href="javascript:void(0);">白</a></li>
+<li  onclick="changesyspic(this, '&color=3');"><a href="javascript:void(0);">粉</a></li>
+<li  onclick="changesyspic(this, '&color=4');"><a href="javascript:void(0);">黄</a></li>
+<li  onclick="changesyspic(this, '&color=5');"><a href="javascript:void(0);">绿</a></li>
+<li  onclick="changesyspic(this, '&color=6');"><a href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesyspic(this, '');"><a href="javascript:void(0);">全部</a></li>
+<li  onclick="changesyspic(this, '&category=1');"><a href="javascript:void(0);">简约</a></li>
+<li  onclick="changesyspic(this, '&category=2');"><a href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesyspic(this, '&category=3');"><a href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesyspic(this, '&category=4');"><a href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesyspic(this, '&category=5');"><a href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody imgheight" id="syspiclist">
+<img src="./viewspace/img/tool/loading.gif" class="imgloading">
+<div class="floatpage"></div>
+</div>
+</div>
+
+<div class="floatmain" id="albumpic" style="display:none">
+<div class="floatnav">
+<label>选择相册图片</label>
+<select name="photo" id="albums" onchange="changealbum(this);">
+<option value="" selected>请选择相册</option>
+<!--{loop $albums $value}-->
+<option value="$value[albumid]">$value[albumname]</option>
+<!--{/loop}-->
+</select>
+</div>
+<div class="floatbody imgheight" id="piclist">
+<p align="center">请选择相册</p>
+</div>
+</div>
+
+<div class="floatmain" id="uploadpic" style="display:none">
+<form method="post" id="albumform" action="cp.php?ac=uploadbg" class="global_wide" enctype="multipart/form-data">
+<div class="floatbody">
+<ul class="formupload">
+<li>
+<label for="">选择要上传的图片：</label>
+<input name="attach" type="file" id="attach" class="uploadtxt" />
+<input type="submit" name="uploadsubmit" id="btnupload" value="上传"  class="btnupload"  onclick="ajaxpostt('albumform', 'uploadresult', 'useuploadimg')" />
+<input type="hidden" name="albumsubmit" id="albumsubmit" value="true" />
+<input type="hidden" name="pic_title" id="pic_title" value="" />
+<script language="javascript">
+function useuploadimg() {
+$('attach').value = '';
+var imgsrc = $('newbg').src;
+imgsrc = imgsrc.replace(/(\.thumb\.(.){3,4})$/i, '');
+setblockstyle(imgsrc, cur_bclass, '', 'background-image');
+
+}
+</script>
+<p>图片要求：上传的背景图最大不要超过800k</p>
+</li>
+<li>
+<label for="">上传图片将保存在：</label>
+<select name="albumid" >
+<option value="" selected>请选择相册</option>
+<!--{loop $albums $value}-->
+<option value="$value[albumid]">$value[albumname]</option>
+<!--{/loop}-->
+</select>
+</li>
+</ul>
+<dl class="loadpic" id="uploadresult">
+</dl>
+</div>
+</form>
+</div>
+
+<div class="floatmain" id="urlpic" style="display:none">
+<div class="floatbody">
+<ul class="formupload uploadurl">
+<li>
+<label for="">请输入图片的网络地址：</label>
+</li>
+<li>
+<input name="newurlpic" id="newurlpic" type="text" class="txt" value="" /><input class="btnupload" name="" value="应用" type="button" onclick="setblockstyle($('newurlpic').value, cur_bclass, '', 'background-image');"/>
+</li>
+</ul>
+<div class="uploadurlmes">
+</div>
+</div>
+</div>
+
+<div class="floatsub" id="selectbg_sub" style="display:none">
+<div class="floatbody">
+<ul class="formlist">
+<li>
+<label for="">背景重复：</label>
+<select id='other_bgrepeat' onchange="setblockstyle(this.value, '', '', 'background-repeat');">
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+<option value="no-repeat">不重复</option>
+</select>
+</li>
+<li id="setbodybgstate" style="display:none">
+<label for="">背景状态：</label>
+<select id="bodybgstate" onchange="setblockstyle(this.value, '', '', 'background-attachment');">
+<option value="scroll">滚动</option>
+<option value="fixed">固定</option>
+</select>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="hidden" class="txt" id="other_oldbgimg" />
+<input type="text" class="txt" id="other_bgcolor" />
+<span class="control_color" id="other_bgcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'other_bgcolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('other_bgcolor').value; otherbg = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist" id="bgsetplace" style="display:">
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+<ul class="formlist" id="setbannerheight" style="display:none">
+<li>
+<label for="">头部高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverangebanner">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderHbanner"></div>
+<script language="javascript">
+var vmovebanner = new drag('sliderHbanner', '', 'hxmoverangebanner', 'horizontalbanner', changeheightbanner, 1);
+
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="bannerheight" value="" onKeyUp="if(parseInt(this.value) >= 70)changeheightbanner(this.value);">px
+</li>
+</ul>
+<ul class="formlist" id="setfooter" style="display:none">
+<li>
+<label for="">尾部高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverangefooter">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderHfooter"></div>
+<script language="javascript">
+var vmovefooter = new drag('sliderHfooter', '', 'hxmoverangefooter', 'horizontalfooter', changeheightfooter, 1);
+vmovefooter.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="footerheight" value="" onKeyUp="if(parseInt(this.value) >= 30)changeheightfooter(this.value);">px
+</li>
+<li>
+<label for="">字体颜色：</label>
+<input type="text" class="txt" name="footerfontcolor" id="footerfontcolor" />
+<span class="control_color" id="footerfontcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'footerfontcolor'; cur_colorclass = 'copyright'; cur_colortag = 'p'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('footerfontcolor').value; footerfont = new selectColor(getColor);"></span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="floatfun">
+<a id="cancel_bg" href="javascript:void(0);" class="cancel" style="display:none" onclick="cancelstyle(); $('selectbg_div').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv=''; $('setfooter').style.display = 'none';$('setbannerheight').style.display = 'none';$('setbodybgstate').style.display = 'none';$('bgsetplace').style.display = '';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+
+<div id="smusicp" class="floatwin" style="display:none; z-index:3000;">
+<div class="floattitle" id="smusicp_header">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="musicselected = false; $('smusicp').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置播放器样式</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatnav" id="smusicpnav">
+<ul class="navcolor">
+<li  onclick="changesyspic(this, '&color=1', 'smusicpnav');"><a href="javascript:void(0);">黑</a></li>
+<li  onclick="changesyspic(this, '&color=2', 'smusicpnav');"><a href="javascript:void(0);">白</a></li>
+<li  onclick="changesyspic(this, '&color=3', 'smusicpnav');"><a href="javascript:void(0);">粉</a></li>
+<li  onclick="changesyspic(this, '&color=4', 'smusicpnav');"><a href="javascript:void(0);">黄</a></li>
+<li  onclick="changesyspic(this, '&color=5', 'smusicpnav');"><a href="javascript:void(0);">绿</a></li>
+<li  onclick="changesyspic(this, '&color=6', 'smusicpnav');"><a href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesyspic(this, '', 'smusicpnav');"><a href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesyspic(this, '&category=1', 'smusicpnav');"><a href="javascript:void(0);">简约</a></li>
+<li  onclick="changesyspic(this, '&category=2', 'smusicpnav');"><a href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesyspic(this, '&category=3', 'smusicpnav');"><a href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesyspic(this, '&category=4', 'smusicpnav');"><a href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesyspic(this, '&category=5', 'smusicpnav');"><a href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody">
+<form id="smusicpform" method="post" id="musicpform" action="viewspace.php?do=getsharestyle" target="mainyinyue">
+<input type="hidden" name="smusicpid" id="smusicpid" value=''>
+<div id="smusicplist" class="sharelist">
+</div>
+</form>
+</div>
+</div>
+
+<div class="floatfun">
+<a  href="#" class="cancel" onclick="musicselected = false; $('smusicp').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a target="mainyinyue" href="#" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="setcursor" class="floatwin" style="display:none; z-index:3000;">
+<div class="floattitle" id="cursorheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('setcursor').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';contentdiv = 'syspiclist';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置鼠标样式</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain" id="cursorpic">
+<div class="floatnav" id="cursorpicnav">
+<ul class="navcolor">
+<li  onclick="changesyspic(this, '&color=1', 'cursorpicnav');"><a href="javascript:void(0);">黑</a></li>
+<li  onclick="changesyspic(this, '&color=2', 'cursorpicnav');"><a href="javascript:void(0);">白</a></li>
+<li  onclick="changesyspic(this, '&color=3', 'cursorpicnav');"><a href="javascript:void(0);">粉</a></li>
+<li  onclick="changesyspic(this, '&color=4', 'cursorpicnav');"><a href="javascript:void(0);">黄</a></li>
+<li  onclick="changesyspic(this, '&color=5', 'cursorpicnav');"><a href="javascript:void(0);">绿</a></li>
+<li  onclick="changesyspic(this, '&color=6', 'cursorpicnav');"><a href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesyspic(this, '', 'cursorpicnav');"><a href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesyspic(this, '&category=1', 'cursorpicnav');"><a href="javascript:void(0);">简约</a></li>
+<li  onclick="changesyspic(this, '&category=2', 'cursorpicnav');"><a href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesyspic(this, '&category=3', 'cursorpicnav');"><a href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesyspic(this, '&category=4', 'cursorpicnav');"><a href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesyspic(this, '&category=5', 'cursorpicnav');"><a href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody imgheight" id="cursorlist">
+<ul class="imglist">
+</ul>
+<div class="floatpage"></div>
+</div>
+</div>	
+<div class="floatfun">
+<a id="cancel_bg" href="javascript:void(0);" class="cancel" style="display:none" onclick="$('setcursor').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';contentdiv = 'syspiclist';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="setplayer" class="floatwin" style="display:none;">
+<div class="floattitle" id="playerheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('setplayer').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';contentdiv = 'syspiclist';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置播放音乐</h2>
+</div>
+
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="musicmes" align=right>
+<input type="button" name="continuousplay" value="同步音乐盒" class="submit" onclick="javascript:window.open('space.php?do=musicbox&mview=backgroundmusic','jjcutemusiclisten','').focus();" />&nbsp;
+</div>
+　以下是当前博客背景音乐的音乐列表，如果与您的音乐盒不同请点击“同步音乐盒”！
+<ul class="musiclist" id="musicUL">
+<!--{if $bgmusics[music_1][id] }-->
+<!--{loop $bgmusics $musics}-->
+<li>
+<strong>曲目$musics[i]</strong>
+<em><a href="space.php?uid=1&do=musicbox&mview=mpage&mid=$musics[id]" target="_blank">$musics[name]</a>(<a href="space.php?uid=1&do=musicbox&mview=mpage&mid=$musics[id]" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space.php?uid=$musics[uid]&do=musicbox&mview=malbum&albumid=$musics[albumid]&userspace=$musics[uid]" target="_blank">$musics[albumname]</a></em>
+<em>来自<a href="space.php?uid=$musics[uid]&do=musicbox&view=me" target="_blank">$musics[truename]</a>(<a href="space.php?uid=$musics[uid]&do=musicbox&view=me" target="_blank">$musics[username]</a>)的推荐</em>
+<!--<em>$musics[say]</em>-->
+</li>
+<!--{/loop}-->
+<!--{else}-->
+<center><font color=red>还没有添加任何音乐到音乐盒，<a href="space.php?do=musicbox&mview=mybox&thismenu=mymusicbox" target="_blank">这就去看看！</a></font><center>
+<!--{/if}-->
+</ul>
+</div>
+</div>
+<div class="floatfun"></div>
+</div>
+
+<!--
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="musicmes">
+请输入您要播放音乐的媒体文件地址，目前只支持MP3格式。
+</div>
+<ul class="musiclist" id="musicUL">
+<li>
+<strong>曲目1</strong><input class="txt" type="text" name="music_1" id="music_1" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_1'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目2</strong><input class="txt" type="text" name="music_2" id="music_2" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_2'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目3</strong><input class="txt" type="text" name="music_3" id="music_3" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_3'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目4</strong><input class="txt" type="text" name="music_4" id="music_4" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_4'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目5</strong><input class="txt" type="text" name="music_5" id="music_5" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_5'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目6</strong><input class="txt" type="text" name="music_6" id="music_6" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_6'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目7</strong><input class="txt" type="text" name="music_7" id="music_7" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_7'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目8</strong><input class="txt" type="text" name="music_8" id="music_8" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_8'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目9</strong><input class="txt" type="text" name="music_9" id="music_9" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_9'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目10</strong><input class="txt" type="text" name="music_10" id="music_10" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_10'), 1);">清除</a></em>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+-->
+</div>
+
+<div id="diy_frame" class="floatwin" style="display:none;" >
+<div class="floattitle" id="diy_frameheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('diy_frame').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>框架选择</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<ul class="webframe" id="selectframe_content">
+<li>
+<a href="javascript:void(0);" id="lc_f" class="frame13" title="1:3" onclick="changeframe('lc');">1:3</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="cl_f" class="frame31" title="3:1" onclick="changeframe('cl');">3:1</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="lcr_f" class="frame121" title="1:2:1" onclick="changeframe('lcr');">1:2:1</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="lrc_f" class="frame112" title="1:1:2" onclick="changeframe('lrc');">1:1:2</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="clr_f" class="frame211" title="2:1:1" onclick="changeframe('clr');">2:1:1</a>
+</li>
+</ul>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="selectblock" class="floatwin" style="display:none;" >
+<div class="floattitle" id="selectblockheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('selectblock').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>模块选择</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<ul class="floatmodule">
+<li><input type="checkbox" id="setfriendlist" onclick="diysetblock(this, 'friendlist');" <!--{if strpos($tempstyle,"friendlist") }-->checked<!--{/if}--> /> 好友列表 </li>
+<li><input type="checkbox" id="setdoing" onclick="diysetblock(this, 'doing');" <!--{if strpos($tempstyle,"doing") }-->checked<!--{/if}-->  /> 我的点滴 </li>
+<li><input type="checkbox" id="setalbumone" onclick="diysetblock(this, 'albumone');" <!--{if strpos($tempstyle,"albumone") }-->checked<!--{/if}-->  /> 动态相片 </li>
+<li><input type="checkbox" id="setalbumall" onclick="diysetblock(this, 'albumall');" <!--{if strpos($tempstyle,"albumall") }-->checked<!--{/if}-->  /> 我的相册 </li>
+<li><input type="checkbox" id="setfeed" onclick="diysetblock(this, 'feed');" <!--{if strpos($tempstyle,"feed") }-->checked<!--{/if}-->  /> 个人新鲜事 </li>
+<li><input type="checkbox" id="setblog" onclick="diysetblock(this, 'blog');" <!--{if strpos($tempstyle,"blog") }-->checked<!--{/if}-->  /> 我的博文 </li>
+<li><input type="checkbox" id="setshare" onclick="diysetblock(this, 'share');" <!--{if strpos($tempstyle,"share") }-->checked<!--{/if}-->  /> 我的分享 </li>
+<li><input type="checkbox" id="setmtag" onclick="diysetblock(this, 'mtag');" <!--{if strpos($tempstyle,"mtag") }-->checked<!--{/if}-->  /> 我的群组 </li>
+<li><input type="checkbox" id="setthread" onclick="diysetblock(this, 'thread');" <!--{if strpos($tempstyle,"thread") }-->checked<!--{/if}-->  /> 我的话题 </li>
+<li><input type="checkbox" id="setwall" onclick="diysetblock(this, 'wall');" <!--{if strpos($tempstyle,"wall") }-->checked<!--{/if}-->  /> 留言板 </li>
+<li><input type="checkbox" id="setforumstatus" onclick="diysetblock(this, 'forumstatus');" <!--{if strpos($tempstyle,"forumstatus") }-->checked<!--{/if}-->  /> 我的投票 </li>
+<li><input type="checkbox" id="setfootprint" onclick="diysetblock(this, 'footprint');" <!--{if strpos($tempstyle,"footprint") }-->checked<!--{/if}-->  /> 脚印 </li>
+<li><input type="checkbox" id="setplayer" onclick="diysetblock(this, 'player');" <!--{if strpos($tempstyle,"player") }-->checked<!--{/if}-->  /> 播放器 </li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>	
+
+<div id="menu_set" class="floatwin" style="display:none;" >
+<div class="floattitle" id="menu_setheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('menu_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置导航条</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+
+</div>
+<div class="floatmain">
+<div class="floatbody">
+<ul class="formlist">
+<li>
+<label for="">导航背景：</label>
+<a href="#" class="fbtn_select" id="menu_setbg">选图</a>
+<a href="javascript:void(0);" class="fbtn_cancel" onclick="setblockstyle('', '', '', 'background-image');"">不使用图片</a>
+<input type="hidden" value="" id="menu_oldbgimg">
+</li>
+<li>
+<label for="">背景重复：</label>
+<select id='menu_repeat' onchange="setblockstyle(this.value, '', '', 'background-repeat');">
+<option value="no-repeat">不重复</option>
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+</select>
+</li>
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="text" id="menu_bgcolor" class="txt"/>
+<span class="control_color" id="menu_bgcolor_ctrl" style="background-color:#000000"  onclick="cur_colortext = 'menu_bgcolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_bgcolor').value; menu_color = new selectColor(getColor);" ></span>
+</li>
+<li>
+<label for="">导航左边距：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_navleft">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_navleft"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_navleft', '', 'hxmoverange_navleft', 'horizontal', changeheight_navleft, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="navleft" value="" onKeyUp="if(parseInt(this.value) >= 20)changeheight_navleft(this.value);">px
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">字体：</label>
+<select onchange="setblockstyle(this.value, '', 'a', 'font-size');setblockstyle(this.value, '', 'em', 'font-size');" id="menu_size" name="text">
+<option value="12">12px</option>
+<option value="14">14px</option>
+<option value="16">16px</option>
+</select>
+<input type="checkbox" onclick="changebold(this, '');" value="" name="menu_weight" id="menu_weight"/>加粗
+</li>
+<li>
+<label for="">链接颜色：</label>
+<input type="text" id="menu_hrefcolor" class="txt"/>
+<span class="control_color" id="menu_hrefcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_hrefcolor'; cur_colorclass = ''; cur_colortag = 'a'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_hrefcolor').value; menuhref = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">划过颜色：</label>
+<input type="text" id="menu_hovercolor" class="txt"/>
+<span class="control_color" id="menu_hovercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_hovercolor'; cur_colorclass = ''; cur_colortag = 'a:hover'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_hovercolor').value; menuhover = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">当前链接：</label>
+<input type="text" id="menu_curcolor" class="txt"/>
+<span class="control_color" id="menu_curcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_curcolor'; cur_colorclass = 'active'; cur_colortag = 'a'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_color').value; menucur = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">导航外框：</label>
+<select onchange="setblockstyle(this.value, '', '', 'border-style');" name="text" id="menu_borderstyle">
+<option value=""></option>
+<option value="solid">实线</option>
+<option value="dashed">虚线</option>
+<option value="dotted">点划线</option>
+</select>
+<select onchange="setblockstyle(this.value, '', '', 'border-width');" name="size" id="menu_borderwidth">
+<option value="0">无边框</option>
+<option value="1">1px</option>
+<option value="2">2px</option>
+<option value="3">3px</option>
+</select>
+</li>
+<li>
+<label for="">外框颜色：</label>
+<input type="text" id="menu_bordercolor" class="txt"/>
+<span class="control_color" id="menu_bordercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_bordercolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'border-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_bordercolor').value; menuborder = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">导航高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_nav">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_nav"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_nav', '', 'hxmoverange_nav', 'horizontal', changeheight_nav, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="navheight" value="" onKeyUp="if(parseInt(this.value) >= 31)changeheight_nav(this.value);">px
+</li>
+<li>
+<label for="">链接位置：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_a">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_a"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_a', '', 'hxmoverange_a', 'horizontal', changeheight_a, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick="cancelstyle(); $('menu_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<div id="title_set" class="floatwin" style="display:none;" >
+<div class="floattitle" id="title_setheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('title_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置博客头信息</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+
+</div>
+<div class="floatmain">
+<div class="floatbody">
+<ul class="formlist">
+<li>
+<label for="">名称颜色：</label>
+<input type="text" id="title_color" class="txt"/>
+<span class="control_color" id="title_color_ctrl" style="background-color:#000000" onclick="cur_colortext = 'title_color'; cur_colorclass = 'title'; cur_colortag = 'h1'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('title_color').value; menu_titlecolor = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">签名颜色：</label>
+<input type="text" id="title_sigcolor" class="txt"/>
+<span class="control_color" id="title_sigcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'title_sigcolor'; cur_colorclass = 'title'; cur_colortag = 'p'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('title_sigcolor').value; titlesigchg = new selectColor(getColor);"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick="cancelstyle(); $('title_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<div id="tsetblock" class="floatwin" style="display:none;" >
+<div class="floattitle" id="testblockheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('tsetblock').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>定义模块样式 －－ <a id="blockname"></a></h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+<ul>
+<li class="on" id="menutitle"><a href="javascript:void(0);" onclick="bgtype='3';$('titleset').style.display='';$('contentset').style.display='none'; $('menutitle').className = 'on'; $('menucontent').className = ''; cur_bclass = 'blocktitle';">标题设置</a></li>
+
+<li id="menucontent"><a href="javascript:void(0);" onclick="bgtype='1';$('titleset').style.display='none';$('contentset').style.display=''; $('menutitle').className = ''; $('menucontent').className = 'on'; cur_bclass = 'blockcontent';">主体设置</a></li>
+</ul>
+</div>
+<div class="floatmain">
+<div class="floatbody" id="titleset">
+<ul class="formlist">
+<li>
+<label for="">标题背景：</label>
+<a href="javascript:void(0);" class="fbtn_select" id="selectbg_t">选图</a>
+<a href="javascript:void(0);" class="fbtn_cancel" onclick="setblockstyle('', 'blocktitle', '', 'background-image');">不使用图片</a>
+<input type="hidden" value="" id="oldbgimg_t">
+</li>
+<li>
+<label for="">背景重复：</label>
+<select id='bgrepeat_t' onchange="setblockstyle(this.value, 'blocktitle', '', 'background-repeat');">
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+<option value="no-repeat">不重复</option>
+</select>
+</li>
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="text" class="txt" id="titlebgcolor" />
+<span class="control_color" id="titlebgcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'titlebgcolor'; cur_colorclass = 'blocktitle'; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('titlebgcolor').value; titlebgcolor = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">标题字体：</label>
+<select name="text" id="titlefontsize" onchange="setblockstyle(this.value, 'blocktitle', 'h2', 'font-size');setblockstyle(this.value, 'blocktitle', 'em a', 'font-size');">
+<option value="12">12px</option>
+<option value="14">14px</option>
+<option value="16">16px</option>
+</select>
+<input id="titleweight" name="titleweight" type="checkbox" value="" onclick="changebold(this, 'blocktitle');"/>加粗
+</li>
+<li>
+<label for="">字体颜色：</label>
+<input type="text" class="txt" name="titlefontcolor" id="titlefontcolor" />
+<span class="control_color" id="titlefontcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'titlefontcolor'; cur_colorclass = 'blocktitle'; cur_colortag = 'h2'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('titlefontcolor').value; titlefont = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">标题高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH"></div>
+<script language="javascript">
+var vmove = new drag('sliderH', '', 'hxmoverange', 'horizontal', changeheight, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="titleheight" value="" onKeyUp="if(parseInt(this.value) >= 20)changeheight(this.value);">px
+</li>
+<li>
+<label for="">标题边距：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_left">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_left"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_left', '', 'hxmoverange_left', 'horizontal', changeheight_left, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="titleleft" value="" onKeyUp="if(parseInt(this.value) >= 18)changeheight_left(this.value);">px
+</li>
+<li>
+<label for="">分割线：</label>
+<select id="titleborderstyle" name="text" onchange="setblockstyle(this.value, 'blocktitle', '', 'border-bottom-style');" >
+<option value=""></option>
+<option value="solid">实线</option>
+<option value="dashed">虚线</option>
+<option value="dotted">点划线</option>
+</select>
+<select id="titleborderwidth" name="size" onchange="setblockstyle(this.value, 'blocktitle', '', 'border-bottom-width');">
+<option value="0">无分割线</option>
+<option value="1">1px</option>
+<option value="2">2px</option>
+<option value="3">3px</option>
+</select>
+</li>
+<li>
+<label for="">线颜色：</label>
+<input type="text" class="txt" id="titlebordercolor"/>
+<span class="control_color" id="titlebordercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'titlebordercolor'; cur_colorclass = 'blocktitle'; cur_colortag = ''; cur_colorproperty = 'border-bottom-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('titlebordercolor').value; borderchg = new selectColor(getColor);"></span>
+</li>
+</ul>
+</div>
+<div class="floatbody" id="contentset" style="display:none;">
+<ul class="formlist">
+<li>
+<label for="">主体背景：</label>						
+<a href="javascript:void(0);" class="fbtn_select" id="selectbg_c">选图</a>
+<a href="javascript:void(0);" class="fbtn_cancel" onclick="setblockstyle('', 'blockcontent', '', 'background-image');"">不使用图片</a>
+<input type="hidden" value="" id="bc_oldbgimg">
+</li>
+<li>
+<label for="">背景重复：</label>
+<select id='bc_bgrepeat' onchange="setblockstyle(this.value, 'blockcontent', '', 'background-repeat');">
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+<option value="no-repeat">不重复</option>
+</select>
+</li>
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace_c" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="text" class="txt" id="bc_bgcolor" />
+<span class="control_color" id="bc_bgcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_bgcolor'; cur_colorclass = 'blockcontent'; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_bgcolor').value; contentbgcolor = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">字体：</label>
+<select name="text" id="bc_size" onchange="setblockstyle(this.value, 'blockcontent', '', 'font-size');">
+<option value="12">12px</option>
+<option value="14">14px</option>
+<option value="16">16px</option>
+</select>
+<input id="bc_weight" name="bc_weight" type="checkbox" value="" onclick="changebold(this, 'blockcontent');"/>加粗
+</li>
+<li>
+<label for="">字体颜色：</label>
+<input type="text" class="txt" id="bc_color" />
+<span class="control_color" id="bc_color_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_color'; cur_colorclass = 'blockcontent'; cur_colortag = ''; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_color').value; borderchg = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">链接颜色：</label>
+<input type="text" class="txt" id="bc_hrefcolor" />
+<span class="control_color" id="bc_hrefcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_hrefcolor'; cur_colorclass = 'blockcontent'; cur_colortag = 'a'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_hrefcolor').value; bchrefchg = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">划过颜色：</label>
+<input type="text" class="txt" id="bc_hovercolor" />
+<span class="control_color" id="bc_hovercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_hovercolor'; cur_colorclass = 'blockcontent'; cur_colortag = 'a:hover'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_hovercolor').value; bchoverchg = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">主体外框：</label>
+<select id="bc_borderstyle" name="text" onchange="setblockstyle(this.value, '', '', 'border-style');" >
+<option value=""></option>
+<option value="solid">实线</option>
+<option value="dashed">虚线</option>
+<option value="dotted">点划线</option>
+</select>
+<select id="bc_borderwidth" name="size" onchange="setblockstyle(this.value, '', '', 'border-width');">
+<option value="0">无边框</option>
+<option value="1">1px</option>
+<option value="2">2px</option>
+<option value="3">3px</option>
+</select>
+</li>
+<li>
+<label for="">外框颜色：</label>
+<input type="text" class="txt" id="bc_bordercolor"/>
+<span class="control_color" id="bc_bordercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_bordercolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'border-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_bordercolor').value; bcborderchg = new selectColor(getColor);"></span>
+</li>
+<li id="playertop" style="display:none">
+<label for="">位置：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_player">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_player"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_player', '', 'hxmoverange_player', 'horizontal', changeheight_player, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick="cancelstyle(); $('tsetblock').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+<p>以上设置应用于：<input name="mo" type="radio" value="1" id="mo" checked /><label>仅此模块</label><input name="mo" type="radio" value="2" id="mo" /><label>所有模块</label></p>
+</div>
+</div>
+</div>
+<div id="transferReady" class="transfer" style="display:none;z-index:200;">
+<div class="transferbody"><a href="#" id="delblock" onmousedown="closeblock(event);" class="delblock">删除</a><a href="javascript:void(0);" id="editblock" class="editblock">编辑</a></div>
+</div>

@@ -1,0 +1,137 @@
+<!--{eval $_TPL['nosidebar']=1;}-->
+<!--{template index_header}-->
+<div class=kuangzhu>
+<div class=loginzuo>
+<form id="loginform" name="loginform" action="do.php?ac=$_SCONFIG[login_action]&$url_plus&ref" method="post" class="c_form">
+<table cellpadding="0" style=" margin: 10px 0 -30px 280px;" cellspacing="0" align="center" >
+
+
+	<!--{if $invitearr}-->
+	<tr>
+		<th width="100">好友邀请</th>
+		<td>
+			<a href="space.php?$url_plus" target="_blank"><!--{avatar($invitearr[uid],small)}--></a>
+			<a href="space.php?$url_plus" target="_blank">{$_SN[$invitearr[uid]]}</a>
+		</td>
+	</tr>
+	<!--{/if}-->
+
+	<!--{if $_SCONFIG['seccode_login']}-->
+	<!--{if $_SGLOBAL['input_seccode']}-->
+	<tr>
+		<th width="100">&nbsp;</th>
+		<td>
+		请通过下面的验证后，再提交登录
+		</td>
+	</tr>
+	<!--{/if}-->
+	<!--{if $_SCONFIG['questionmode']}-->
+	<tr>
+		<th width="100" style="vertical-align: top;">请先回答问题</th>
+		<td>
+			<p><!--{eval question();}--></p>
+			<input type="text" id="seccode" name="seccode" value="" tabindex="1" class="t_input"<!--{if empty($_SGLOBAL['input_seccode'])}--> onBlur="checkSeccode()"<!--{/if}--> />&nbsp;<span id="checkseccode">&nbsp;</span>
+		</td>
+	</tr>
+	<!--{else}-->
+	<tr>
+		<th width="100" style="vertical-align: top;">验证码</th>
+		<td>
+			<script>seccode();</script>
+			<p>请输入上面的4位字母或数字，看不清可<a href="javascript:updateseccode()">更换一张</a></p>
+			<input type="text" id="seccode" name="seccode" value="" tabindex="1" class="t_input"<!--{if empty($_SGLOBAL['input_seccode'])}--> onBlur="checkSeccode()"<!--{/if}--> />&nbsp;<span id="checkseccode">&nbsp;</span>
+		</td>
+	</tr>
+	<!--{/if}-->
+	<!--{/if}-->
+
+</table>
+
+<div class="juzhong">	
+<table  width="366" height="260" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" bgcolor="#FFFFFF"background="template/voone/image/dl_bj.gif">
+<td height="30" colspan="2" valign="bottom"></td>
+  <tr>
+    <td width="120" valign="middle"><div align="center"><img src="template/voone/image/logo1.gif" width="55" height="176" /></div></td>
+    <td>
+		<div align="left"><img src="template/voone/image/title_userlogin.gif" width="183" height="24"></div>
+		<br />
+			<p><label for="username"><strong>I&nbsp;D</strong><br />
+			</label>	<input type="text" name="username" id="username" class="t_input" value="$membername" tabindex="2" size="30" />
+			</p><br />
+
+			<p><label for="password"><strong>PASSWORD</strong></label>	
+			  <a href="do.php?ac=lostpasswd">(忘记密码?)</a><br />
+             
+           <input type="password" name="password" id="password" class="t_input" tabindex="3" value="$password" size="30" />
+			</p>
+			<p><input type="checkbox" id="cookietime" name="cookietime" value="315360000" $cookiecheck style="margin-bottom: -2px;"><label for="cookietime">下次自动登录</label></p>
+			<p><br />
+				
+<input type="hidden" name="refer" value="$refer" />
+		<input type="submit" id="loginsubmit" name="loginsubmit" value="." class="submit3"  tabindex="5" />
+				
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+               <a href="do.php?ac=$_SCONFIG[register_action]"><img src="template/voone/image/button_reg.gif"class="zcjuli" width="45" height="31" ></a></p>
+			</p>
+		</form></td>
+  </tr>
+ 
+  
+</table><br />
+
+
+
+</div>
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" /></form>
+
+<script type="text/javascript">
+	var lastSecCode = '';
+	function checkSeccode() {
+		var seccodeVerify = $('seccode').value;
+		if(seccodeVerify == lastSecCode) {
+			return;
+		} else {
+			lastSecCode = seccodeVerify;
+		}
+		ajaxresponse('checkseccode', 'op=checkseccode&seccode=' + (is_ie && document.charset == 'utf-8' ? encodeURIComponent(seccodeVerify) : seccodeVerify));
+	}
+	function ajaxresponse(objname, data) {
+		var x = new Ajax('XML', objname);
+		x.get('do.php?ac=$_SCONFIG[register_action]&' + data, function(s){
+			var obj = $(objname);
+			s = trim(s);
+			if(s.indexOf('succeed') > -1) {
+				obj.style.display = '';
+				obj.innerHTML = '<img src="template/voone/image/check_right.gif" width="13" height="13">';
+				obj.className = "warning";
+			} else {
+				warning(obj, s);
+			}
+		});
+	}
+	function warning(obj, msg) {
+		if((ton = obj.id.substr(5, obj.id.length)) != 'password2') {
+			$(ton).select();
+		}
+		obj.style.display = '';
+		obj.innerHTML = '<img src="template/voone/image/check_error.gif" width="13" height="13"> &nbsp; ' + msg;
+		obj.className = "warning";
+	}
+
+</script>
+
+<!--{if $_SGLOBAL['input_seccode']}-->
+<script>
+$('seccode').style.background = '#FFFFCC';
+$('seccode').focus();
+</script>
+<!--{/if}-->
+
+
+</div>
+</div>
+<div class=divline></div>
+<!--{template x_footer}-->
+</DIV>
+</html>
+

@@ -1,0 +1,348 @@
+<!--{eval $_TPL['titles'] = array('专题');}-->
+<!--{template header}-->
+
+
+<!--{if !empty($_SGLOBAL[inajax])}-->
+	<div id="space_subject">
+		<h3 class="feed_header">
+			<a href="cp.php?ac=subject" class="r_option" target="_blank">组织专题</a>
+			专题(共 $count 个)</h3>
+		<!--{if $subjectlist}-->
+		<ul class="line_list">
+		<!--{loop $subjectlist $subject}-->
+			<li>
+				<p class="r_option">
+					<!--{if $subject[grade] == 0}-->
+					<span class="event_state">待审核</span>
+					<!--{/if}-->
+					<!--{if $subject[endtime]<$_SGLOBAL[timestamp]}-->
+					<span class="event_state">已结束</span>
+					<!--{elseif $subject[deadline]<$_SGLOBAL[timestamp]}-->
+					<span class="event_state">报名截止</span>
+					<!--{/if}-->
+				</p>
+				<h4><a href="space.php?do=subject&id=$subject[subjectid]" target="_blank">$subject[title]</a><span class="gray">[<!--{$_SGLOBAL[subjectclass][$subject[classid]][classname]}-->]</span></h4>
+	
+				<p><span class="gray">专题时间:</span> 	<!--{eval echo sgmdate("m月d日 H:i", $subject[starttime])}--> - <!--{eval echo sgmdate("m月d日 H:i", $subject[endtime])}--></p>
+				<p><span class="gray">专题地点:</span> 	$subject[province] $subject[city] $subject[location]</p>
+			</li>
+		<!--{/loop}-->
+		</ul>
+		<div class="page">$multi</div>
+		
+		<!--{else}-->
+		<div class="c_form">还没有相关的专题。</div>
+		<!--{/if}-->
+	</div><br>
+<!--{else}-->
+
+<!--{if $space[self]}-->
+<div class="searchbar floatright">
+<form method="get" action="space.php">
+	<input name="searchkey" value="" size="15" class="t_input" type="text">
+	<input name="searchsubmit" value="搜索专题" class="submit" type="submit">
+	<input type="hidden" name="searchmode" value="1" />
+	<input type="hidden" name="do" value="subject" />
+	<input type="hidden" name="view" value="all" />
+</form>
+</div>
+<h2 class="title"><img src="image/app/subject.gif" />专题</h2>
+<div class="tabs_header">
+    <ul class="tabs">
+        <li $menu[all]><a href="space.php?do=subject"><span>所有专题列表</span></a></li>
+        <li $menu[me]><a href="space.php?do=subject&view=me"><span>我参与的专题</span></a></li>
+    </ul>
+</div>
+<!--{else}-->
+<!--{eval 
+	$_TPL['spacetitle'] = "专题";
+	$_TPL['spacemenus'][] = "<a href=\"space.php?uid=$space[uid]&do=subject&view=me\">TA的所有专题</a>";
+}-->
+<!--{template space_menu}-->
+<!--{/if}-->
+<div class="h_status">
+	<!--{if $menu[all]}-->
+	<a $submenus[going] href="space.php?do=subject&view=all&type=going">查看所有专题</a>
+	<span class="pipe">|</span><a $submenus[over] href="space.php?do=subject&view=all&type=over">网站精品专题</a>
+	<!--{elseif $menu[me]}-->
+	<a $submenus[all] href="space.php?uid=$space[uid]&do=subject&view=me&type=all">全部</a>
+	<span class="pipe">|</span><a $submenus[join] href="space.php?uid=$space[uid]&do=subject&view=me&type=join">创建管理的专题</a>
+	<span class="pipe">|</span><a $submenus[follow] href="space.php?uid=$space[uid]&do=subject&view=me&type=follow">参加编辑的专题</a>
+	<span class="pipe">|</span><a $submenus[org] href="space.php?uid=$space[uid]&do=subject&view=me&type=org">投稿支持的专题</a>
+	<!--{/if}-->
+</div>
+
+<!--{if $searchkey}-->
+<div class="h_status">以下是搜索专题 <span style="color:red;font-weight:bold;">$searchkey</span> 结果列表</div>
+<!--{/if}-->
+<div id="content">
+	<!--{if $view == "all" && !empty($recommendsubjects)}-->
+	<div class="rec_subject_list">
+		<h2>
+			<div class="r_option"><a href="space.php?do=subject&view=recommend&type=admin">更多</a></div>
+			站长推荐
+		</h2>
+		<ol>
+			<!--{loop $recommendsubjects $key $value}-->
+			<li>
+				<div class="event_icon">
+					<a href="space.php?do=subject&id=$value[subjectid]"><img class="poster_pre" src="$value[pic]" alt="$value[title]" width="200" height="150" onerror="this.src='$_SGLOBAL[subjectclass][$value[classid]][poster]'"></a>
+				</div>
+				<div class="event_content">
+					<h4><a href="space.php?do=subject&id=$value[subjectid]">$value[title]</a> <span class="gray">[<!--{$_SGLOBAL[subjectclass][$value[classid]][classname]}-->]</span></h4>
+					<p>专题时间: <!--{eval echo sgmdate("m月d日 H:i", $value[starttime])}--> - <!--{eval echo sgmdate("m月d日 H:i", $value[endtime])}--></p>
+				</div>
+			</li>
+			<!--{/loop}-->
+		</ol>
+	</div>
+	<!--{/if}-->
+	
+	<!--{if $view == "city"}-->
+	<div>
+		<!--{if $_GET[city]}-->
+			您现在浏览的是 <b>$_GET[province] - $_GET[city]</b> 的专题。
+			<a href="#" onclick="$('viewcitysubjects').style.display=''; this.blur(); return false;">浏览其他城市</a>
+		<!--{elseif $_GET[province]}-->
+			您现在浏览的是 $_GET[province] 的专题。
+			<!--{if $space[province] == $_GET[province] && $space[city]}-->
+			您还可以只浏览 <a href="space.php?do=subject&view=city&province=$space[province]&city=$space[city]">$space[city]</a> 的专题。
+			<!--{/if}-->
+			<a href="#" onclick="$('viewcitysubjects').style.display=''; this.blur(); return false;">浏览其他城市</a>
+		<!--{/if}-->
+		<script type="text/javascript" src="source/script_city.js"></script>
+		<form id="viewcitysubjects" action="space.php" method="GET" style="display:none;">
+			<input type="hidden" name="do" value="subject" />
+			<input type="hidden" name="view" value="city" />
+			<span id="subjectcitybox"></span>
+			 <script type="text/javascript">
+				showprovince('province', 'city', '$_GET[province]', 'subjectcitybox');
+                showcity('city', '$_GET[city]', 'province', 'subjectcitybox');
+            </script>
+			<input class="submit" type="submit" value="浏览" />
+		</form>
+		<!--{if !$space[resideprovince]}-->
+		<div class="c_form">
+			您还没有设置居住城市。<a href="cp.php?ac=profile" target="_blank">现在就去设置</a>
+		</div>
+		<!--{/if}-->
+	</div>
+	<!--{/if}-->
+
+	<!--{if !empty($subjectlist)}-->
+	<div class="event_list">
+		<ol>
+			<!--{eval $hiddecount = 0}-->
+			<!--{loop $subjectlist $key $subject}-->
+			<li>
+				<div class="event_icon">
+					<a href="$subject[siteurl]" target="_blank"><img class="poster_pre" src="$subject[pic]" alt="$subject[title]" width="200" height="150" onerror="this.src='$_SGLOBAL[subjectclass][$subject[classid]][poster]'"></a>
+				</div>
+				<div class="event_content">
+					<h4 class="subject_title"><a href="$subject[siteurl]" target="_blank">$subject[title]</a><span class="gray">[<!--{$subject[description]}-->]</span></h4>
+					<ul>
+						<li>
+							<span class="gray">创建时间:</span> 	$subject[createtime]
+						</li>
+						<li><span class="gray">专题类型:</span>
+							<a href="space.php?uid=$_GET[uid]&do=subject&view=$view&type=$type&classid=$_GET[classid]&province=$subject[province]&date=$_GET[date]">$subject[province]</a>
+							<a href="space.php?uid=$_GET[uid]&do=subject&view=$view&type=$type&classid=$_GET[classid]&province=$subject[province]&city=$subject[city]&date=$_GET[date]">$subject[city]</a>
+							$subject[location]
+				<div style="float:right"><a href="cp.php?ac=subject&do=attend&id=$subject[id]">加入此专题共同编辑</a></div>
+						</li>
+						<li><span class="gray">参与用户:</span> <a href="space.php?uid=$subject[uid]">$_SN[$subject[uid]]</a></li>
+						<!--{if $fsubjects[$subject[subjectid]]}-->
+						<li><span class="gray">好友:</span> 
+							<!--{loop $fsubjects[$subject[subjectid]] $value}-->
+							<a href="space.php?uid=$value[fuid]">$_SN[$value[fuid]]</a>
+							<!--{if $value[status] == 2}--><span class="gray">参加</span>
+							<!--{elseif $value[status] == 3}--><span class="gray">组织者</span>
+							<!--{elseif $value[status] == 4}--><span class="gray">发起者</span>
+							<!--{else}--><span class="gray">关注</span>
+							<!--{/if}-->
+							&nbsp;
+							<!--{/loop}-->
+						</li>
+						<!--{/if}-->
+						<li style="margin: 5px 0 0;"><!--$subject[viewnum] 次访问&nbsp; -->$subject[post_count] 篇专题&nbsp; $subject[comment_count] 条评论</li>
+					</ul>
+				</div>
+			</li>
+			<!--{/loop}-->
+		</ol>
+		<!--{if $hiddencount}-->
+		<div>本页有 $hiddencount 个活动因隐私设置而隐藏</div>
+		<!--{/if}-->
+		<div class="page">$multi</div>		
+	</div>
+	<!--{else}-->
+	<div class="c_form">
+		<!--{if $view == "me"}-->
+		还没有相关的专题。您可以 <a href="cp.php?ac=subject">创建一个新专题</a>
+		<!--{else}-->
+		<br/>
+		网站还没有相关的专题
+		<!--{/if}-->
+	</div>
+	<!--{/if}-->
+</div><!--//左侧内容结束//-->
+
+<div id="sidebar">
+
+	<!--{if $view == "all"}-->
+	<div class="sidebox">			
+		<h2 class="title">
+			<p class="r_option">
+				<a href="space.php?uid=$_GET[uid]&do=subject&view=$view&type=$type&classid=$_GET[classid]&province=$_GET[province]&city=$_GET[city]">全部</a>
+			</p>
+			专题排行
+		</h2>
+		<div class="calendarbox" id="subjectcalendar"></div>
+	</div>
+
+	<!--{/if}-->
+	
+	<!--{if $view != 'friend'}-->
+	<div class="sidebox">
+		<h2 class="title">
+			<p class="r_option">
+				<a href="space.php?uid=$_GET[uid]&do=subject&view=$view&type=$type&date=$_GET[date]&uid=$_GET[uid]">全部</a>
+			</p>
+			站长推荐
+		</h2>
+		<ul class="subject_cat">
+		<!--{loop $_SGLOBAL[subjectclass] $value}-->			
+			<li<!--{if $_GET[classid] == $value[classid]}--> class="on"<!--{/if}-->>
+			<a href="space.php?uid=$_GET[uid]&do=subject&view=$view&type=$type&classid=$value[classid]&province=$_GET[province]&city=$_GET[city]&date=$_GET[date]">$value[classname]</a></li>
+		<!--{/loop}-->
+		</ul>
+	</div>
+	<!--{/if}-->
+
+	<!--{if $followsubjects}-->
+	<div class="sidebox">
+		<h2 class="title">
+			<div class="r_option"><a href="space.php?do=subject&view=me&type=follow">更多</a></div>
+			我关注的专题
+		</h2>
+		<ul class="attention">
+			<!--{loop $followsubjects $value}-->
+			<li style="height: auto;">
+				<p>
+					<a href="space.php?do=subject&id=$value[subjectid]">$value[title]</a>					
+				</p>
+				<p class="gray" style="text-align:left">
+					<!--{if $_SGLOBAL[timestamp] > $value[endtime]}-->
+						已结束
+					<!--{else}-->
+						<!--{eval echo sgmdate("n月j日",$value[starttime])}-->
+					<!--{/if}-->&nbsp;		
+					$value[membernum] 人参加 /				
+					$value[follownum] 人关注
+				</p>
+				<p>
+					<!--{if $value[threadnum]}-->
+					<a href="space.php?do=subject&id=$value[subjectid]&view=thread">
+						$value[threadnum] 个话题
+					</a> &nbsp;
+					<!--{/if}-->
+					<!--{if $value[picnum]}-->
+					<a href="space.php?do=subject&id=$value[subjectid]&view=pic">
+						$value[picnum] 张照片
+					</a>
+					<!--{/if}-->
+				</p>
+			</li>
+			<!--{/loop}-->
+		</ul>
+	</div>
+	<!--{/if}-->
+
+	<!--{if $friendsubjects}-->
+	<div class="sidebox">
+		<h2 class="title">
+			<div class="r_option"><a href="space.php?do=subject&view=friend">更多</a></div>
+			好友最近参加的专题
+		</h2>
+		<ul class="attention">			
+			<!--{loop $friendsubjects $value}-->
+			<li style="height: auto;">
+				<p>
+					<a href="space.php?do=subject&id=$value[subjectid]">$value[title]</a>					
+				</p>
+				<p class="gray" style="text-align:left">
+					好友：
+					<!--{loop $value[friends] $fuid}-->
+					<a href="space.php?uid=$fuid" target="_blank">$_SN[$fuid]</a>&nbsp;
+					<!--{/loop}-->
+				</p>
+				<p class="gray" style="text-align:left">
+					<!--{if $_SGLOBAL[timestamp] > $value[endtime]}-->
+						已结束
+					<!--{else}-->
+						<!--{eval echo sgmdate("n月j日",$value[starttime])}-->
+					<!--{/if}-->&nbsp;		
+					$value[membernum] 人参加 /				
+					$value[follownum] 人关注
+				</p>
+				<p>
+					<!--{if $value[threadnum]}-->
+					<a href="space.php?do=subject&id=$value[subjectid]&view=thread">
+						$value[threadnum] 个话题
+					</a> &nbsp;
+					<!--{/if}-->
+					<!--{if $value[picnum]}-->
+					<a href="space.php?do=subject&id=$value[subjectid]&view=pic">
+						$value[picnum] 张照片
+					</a>
+					<!--{/if}-->
+				</p>
+			</li>
+			<!--{/loop}-->
+		</ul>
+	</div>
+	<!--{/if}-->
+	
+	<!--{if $hotsubjects}-->
+	<div class="sidebox">
+		<h2 class="title">
+			<div class="r_option"><a href="space.php?do=subject&view=recommend&type=hot">更多</a></div>
+			热门专题
+		</h2>
+		<ul class="attention">
+			<!--{loop $hotsubjects $value}-->
+			<li style="height: auto;">
+				<p>
+					<a href="space.php?do=subject&id=$value[subjectid]">$value[title]</a>					
+				</p>
+				<p class="gray" style="text-align:left">
+					<!--{if $_SGLOBAL[timestamp] > $value[endtime]}-->
+						已结束
+					<!--{else}-->
+						<!--{eval echo sgmdate("n月j日",$value[starttime])}-->
+					<!--{/if}-->&nbsp;		
+					$value[membernum] 人参加 /				
+					$value[follownum] 人关注
+				</p>
+				<p>
+					<!--{if $value[threadnum]}-->
+					<a href="space.php?do=subject&id=$value[subjectid]&view=thread">
+						$value[threadnum] 个话题
+					</a> &nbsp;
+					<!--{/if}-->
+					<!--{if $value[picnum]}-->
+					<a href="space.php?do=subject&id=$value[subjectid]&view=pic">
+						$value[picnum] 张照片
+					</a>
+					<!--{/if}-->
+				</p>
+			</li>
+			<!--{/loop}-->
+		</ul>
+	</div>
+	<!--{/if}-->
+	
+</div>
+<!--{/if}-->
+
+<!--{template footer}-->

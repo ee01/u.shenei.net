@@ -1,0 +1,36 @@
+<div class="menubody">
+<div id="menu" class="menu">
+<!--{if $uid==$_SGLOBAL['supe_uid'] && $_GET['op']!="diy" }-->
+<em>
+<a target="mainyinyue" href="javascript:void(0);" id="mystylelist_sw">我的风格</a> | 
+<a id="setstyle_a" target="mainyinyue" href="javascript:void(0);" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);">更换风格</a>
+</em>
+<!--{/if}-->
+<!--{if $uid==$_SGLOBAL['supe_uid'] && $_GET['op']=="diy" }-->
+<a target="mainyinyue" href="#" id="editmenu" class="editblock">编辑</a>
+<!--{/if}-->
+
+
+<ul>
+
+<!--{if $uid =='uid'}-->
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid', '');">主页</a></li>
+<!--{else}-->
+
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=default', '');">主页</a></li>
+<!--{/if}-->
+
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=aboutme', 'aboutme');">关于我</a></li>
+
+
+
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=blog&view=me', 'blog');">博文</a></li>
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=album&view=me', 'album');">相册</a></li>
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=friend&view=me', 'friend');">好友</a></li>
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=wall&view=me', 'wall');">留言板</a></li>
+<li ><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=applist', 'applist');">应用</a></li>
+</ul>
+
+
+</div>
+</div>

@@ -1,0 +1,69 @@
+<!--{eval $_TPL['titles'] = array($ana['title'], '经典语录');}-->
+<!--{template header}-->
+<!--{template ana/view/ana_header}-->
+
+<div id="content">
+	<!--{if $list}-->
+	<div class="topic_list">
+		<table cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<td class="subject">[语录] 列表</td>
+					<td class="author">分类/<!--{if $_GET[view]!='me'}-->来源<!--{/if}--><br>回复/阅读</td>
+					<td class="lastpost">状态/时间</td>
+				</tr>
+			</thead>
+			<tbody>
+			<!--{loop $list $value}-->
+				<tr<!--{if $key%2==1}--> class="alt"<!--{/if}-->>
+					<td class="subject"><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a> 说：<span class="quote"><span id="quote" class="q"><a href="ana.php?do=ana&ac=view&id=$value[id]">$value[content]</a></span></span></td>
+					<td class="author"><!--{if $value[typename]}--><a href="ana.php?do=ana&type=$value['typeid']">{$value[typename]}</a><!--{/if}-->/<a href="ana.php?do=ana&ac=view&id=$value[id]">$value[title]</a><br><!--{if $value[reply_count]}--><a href="ana.php?do=ana&ac=view&id=$value[id]"><em>$value[reply_count]个</em></a><!--{else}-->没有回复<!--{/if}-->/<!--{if $value[view_count]}--><a href="ana.php?do=ana&ac=view&id=$value[id]"><em>$value[view_count]次</em></a><!--{/if}--></td>
+					<td class="lastpost">$gEumsStatus[$value[status]]<br><!--{date('Y-m-d<!--H:i-->',$value[dateline])}--></td>
+				</tr>
+			<!--{/loop}-->
+			</tbody>
+		</table>
+		<div class="page">$multi</div>
+	</div>
+	<!--{else}-->
+	<div class="c_form">
+	<p>现在还没有语录。</p>
+	<p>每个人都是观点供应商！<!--{if $space[self]}--><a href="ana.php?do=ana&ac=post">发布</a><!--{/if}-->你认为有意义的一句话。</p>
+	</div>
+	<!--{/if}-->
+</div>
+
+
+
+
+<!--
+<div class=mycar>
+			<div class=title>
+			小提示：
+			</div>
+	<div class=ana>
+	<p>1、发布一条语录，将从您的积分中扣除<font color="#FF0000">0</font>积分。目前您的积分数<font color="#FF0000">$space[credit]</font></a>！</p>
+	<p>2、如果您的积分不够，可以通过<a href="cp.php?ac=task">参加活动</a>获取积分。</p>
+	<p>Powered by <a href="http://www.jiekii.com/home/" target="_blank">Jiekii.com</a>
+	<br>
+	<a href="tencent://message/?uin=357754800">QQ：357754800</a>
+	</p>
+	</div>
+</div>
+-->
+
+
+
+<div id="sidebar">
+	<div class="sidebox">
+		<h2 class="title">最新语录</h2>
+		<ul class="wajin_list">
+		<!--{loop $hotana $key $val}-->
+				<li><!--{eval echo $key +1 }-->、<a href="ana.php?do=ana&ac=view&id=$val[id]">$val[content]</a></li>
+		<!--{/loop}-->
+		</ul>
+	</div>
+		
+</div>
+
+<!--{template footer}-->

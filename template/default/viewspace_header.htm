@@ -1,0 +1,238 @@
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title><!--{if $space['signn'] }-->$space['signn'] <!--{else}-->{$_SN[$space[uid]]} 的博客 <!--{/if}--></title>
+
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="viewspace/css/template.css" />
+
+
+$scss
+<link rel="alternate" type="application/rss+xml" href="rss.php?uid=$uid" title="{$_SN[$space[uid]]}" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=$uid" />
+</head>
+
+<body <!--{if $space["smusicp"]}-->onLoad="playerinit();"<!--{/if}-->>
+
+
+<!--{if $uid==$_SGLOBAL['supe_uid'] }-->
+<!--{template viewspace_admin}-->
+<!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->	
+<!--{template viewspace_admindiy}-->
+<!--{/if}-->
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="$wrap">
+<div id="banner" class="banner">
+<!--{if $space[magicstar] && $space[magicexpire]>$_SGLOBAL[timestamp]}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+FLASH暂停
+<!--{else}-->
+		<object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,45,0" width="870" height="200">
+				<param name="movie" value="image/magic/star/{$space[magicstar]}.swf" />
+				<param name="quality" value="high" />
+				<param NAME="wmode" value="transparent">
+				<embed src="image/magic/star/{$space[magicstar]}.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash"  wmode="transparent" width="870" height="200"></embed>
+</object>
+<!--{/if}-->		
+<!--{/if}-->
+<div class="title" id="title">
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->	<a href="#" id="edittitle" class="editblock">编辑</a><!--{/if}-->
+<h1 id="myblogname"><!--{if $space['signn'] }-->$space['signn'] <!--{else}-->{$_SN[$space[uid]]} 的博客 <!--{/if}--> <em> $space[viewnum] 人次访问, $space[credit]个积分 <a href="do.php?ac=ajax&op=credit&uid=$space[uid]" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)">$space[creditstar]</a></em></h1>
+<p><!--{if $space['signm'] }-->$space['signm']<!--{else}-->这家伙很懒，什么都没留下...<!--{/if}--><!--{if $uid==$_SGLOBAL['supe_uid'] }--><a href="cp.php?ac=sign" id="a_sign" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[编辑]</a><!--{/if}--></p>
+<p><a href="$space[domainurl]" onclick="javascript:setCopy('$space[domainurl]');return false;" class="spacelink domainurl">$space[domainurl]</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<!--{if $space["smusicp"]}-->
+<script language="javascript" src="viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+$mlist
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+<!--{/if}-->
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+<!--{if $uid==$_SGLOBAL['supe_uid'] && $_GET['op']!="diy" }-->
+<em>
+<a href="javascript:void(0);" id="mystylelist_sw">我的风格</a> | 
+<!--<a id="setstyle_a" href="javascript:void(0);" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);">更换风格</a>-->
+<a class="setstyle" href="javascript:void(0);"><img id="setstyle_a" src="template/default/image/btn_style.gif" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);" align="absmiddle" alt="更换风格"/></a>
+</em>
+<!--{/if}-->
+<!--{if $uid==$_SGLOBAL['supe_uid'] && $_GET['op']=="diy" }-->
+<a href="#" id="editmenu" class="editblock">编辑</a>
+<!--{/if}-->
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid', '');">
+<!--{if $space['hometitle'] }-->$space['hometitle'] <!--{else}-->主页 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=hometitle" id="a_hometitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+-->
+
+<li>
+<a  href="viewspace.php?uid=$uid">
+<!--{if $space['hometitle'] }-->$space['hometitle'] <!--{else}-->主页 <!--{/if}-->
+</li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=aboutme', 'aboutme');">
+<!--{if $space['aboutmetitle'] }-->$space['aboutmetitle'] <!--{else}-->关于我 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=aboutmetitle" id="a_aboutmetitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=blog&view=me', 'blog');">
+<!--{if $space['blogtitle'] }-->$space['blogtitle'] <!--{else}-->博文 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=blogtitle" id="a_blogtitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=album&view=me', 'album');">
+<!--{if $space['albumtitle'] }-->$space['albumtitle'] <!--{else}-->相册 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=albumtitle" id="a_albumtitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=poll&view=me', 'poll');">
+<!--{if $space['polltitle'] }-->$space['polltitle'] <!--{else}-->投票 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=polltitle" id="a_polltitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=friend&view=me', 'friend');">
+<!--{if $space['friendtitle'] }-->$space['friendtitle'] <!--{else}-->好友 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=friendtitle" id="a_friendtitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=wall&view=me', 'wall');">
+<!--{if $space['walltitle'] }-->$space['walltitle'] <!--{else}-->留言板 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=walltitle" id="a_walltitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=$uid&do=applist', 'applist');">
+<!--{if $space['applisttitle'] }-->$space['applisttitle'] <!--{else}-->应用 <!--{/if}-->
+<!--{if 'diy'==$_GET['op'] &&  $uid==$_SGLOBAL['supe_uid']}-->
+<a href="cp.php?ac=applisttitle" id="a_applisttitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a><!--{/if}-->
+</a></li>
+</ul>
+</div>
+</div>
+<!--{/if}-->
+

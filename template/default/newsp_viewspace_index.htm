@@ -1,0 +1,28 @@
+
+<!--{if '1'==$_GET['inajax'] }-->
+
+<!--{else}-->
+<!--{template viewspace_header}-->
+<!--{/if}-->
+
+$allframe
+<!--{if '1'==$_GET['inajax'] }-->
+
+<!--{else}-->
+<!--{template viewspace_footer}-->
+<!--{/if}-->
+
+<script>
+function getindex(type) {
+	var plus = '';
+	if(type == 'event') plus = '&type=self';
+	ajaxget('space.php?uid=$space[uid]&do='+type+'&view=me'+plus+'&ajaxdiv=maincontent', 'maincontent');
+}
+
+//²ÊºçìÅ
+var elems = selector('div[class=detail magicflicker]'); 
+for(var i=0; i<elems.length; i++){
+	magicColor(elems[i]);
+}
+
+</script>

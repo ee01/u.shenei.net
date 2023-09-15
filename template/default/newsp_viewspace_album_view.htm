@@ -1,0 +1,80 @@
+<!--{template viewspace_header}-->
+
+
+<div class="frame_1">
+<!--{template viewspace_profile}-->
+</div>
+<div class="frame_3">
+<div id="blog" class="block">		
+<div class="blocktitle">
+<h2>我的相册 - </h2>
+</div>
+<div class="blockcontent">
+
+
+<div class="bloglist">
+<div class="h_status">
+	<a href="cp.php?ac=share&type=album&id=$album[albumid]" id="a_share" onclick="ajaxmenu(event, this.id, 99999,'' , -1)" class="a_share">分享</a>
+	<div class="r_option">
+		<!--{if $_SGLOBAL[supe_uid] == $album[uid] || checkperm('managealbum')}--><a href="cp.php?ac=common&op=manage&idtype=album&id=$album[albumid]" id="a_manage" onclick="ajaxmenu(event, this.id, 99999)">管理</a><span class="pipe">|</span><!--{/if}-->
+		<a href="cp.php?ac=common&op=report&idtype=album&id=$album[albumid]" id="a_report" onclick="ajaxmenu(event, this.id, 99999,'' , -1)">举报</a><span class="pipe">|</span>
+	</div>
+	$album[albumname] - 
+	<!--{if $album[picnum]}-->共 $album[picnum] 张图片<!--{/if}-->
+	<!--{if $album['friend']}-->
+	<span class="locked gray">
+	<!--{if $album['friend'] == 1}-->仅好友可见<!--{/if}-->
+	<!--{if $album['friend'] == 2}-->指定好友可见<!--{/if}-->
+	<!--{if $album['friend'] == 3}-->仅自己可见<!--{/if}-->
+	<!--{if $album['friend'] == 4}-->凭密码可见<!--{/if}-->
+	</span>
+	<!--{/if}-->
+</div>
+
+
+<!--{if $list}-->
+<div class="special">
+<table cellspacing="6" cellpadding="0" width="100%" class="photo_list">
+<tr>
+<!--{loop $list $key $value}-->
+<td>
+<table cellspacing="0" cellpadding="0"><tr>
+<td class="avatar"><a href="javascript:;" onclick="javascript:spaceView('viewspace.php?uid=$value[uid]&do=$do&picid=$value[picid]', '');"><img src="$value[pic]" alt="" /></a></td>
+</tr></table>
+</td>
+<!--{if $key%4==3}--></tr><tr><!--{/if}-->
+<!--{/loop}-->
+</tr>
+</table>
+<div class="pages">$multi</div>
+</div>
+<!--{else}-->
+<div class="nomessage" >该相册下还没有图片。</div>
+<!--{/if}-->
+</div>
+</div>
+</div>
+
+</div>
+<!--{if empty($_SGLOBAL['inajax'])}-->
+<object id="player1" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="0" height="0" codebase="nsmp2inf.cab#Version=5,1,52,701standby=Loading" tppabs="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701standby=Loading" type="application/x-oleobject">
+<param name="URL" value="">
+<param name="UIMode" value="invisible">
+<param name="AutoStart" value="true">
+<param name="Enabled" value="true">
+<param name="enableContextMenu" value="false">
+<param name="Volume" value="100">
+<param name="DisplayBackColor" value="100">
+<param name="DisplayForeColor" value="100">
+<param name="WindowlessVideo" value="true">
+</object>
+<object  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="200" height="110" id="musicSwf">
+<param name="movie" value="11.swf">
+<param name="quality" value="high">
+<param name="wmode" value="transparent">
+<param name="allowScriptAccess" value="always">
+</object>
+<!--{/if}-->
+
+<!--{template viewspace_footer}-->
+

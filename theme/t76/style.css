@@ -1,0 +1,51 @@
+/*
+[name]日记本·尘封记忆[/name]
+Powered by Ucenter Home
+*/
+
+body{ background: #FCFEFD url(image/bg.jpg) repeat-y  50% 0; color: #768D79; align:center;}
+a { color: #BB40B8; }
+#wrap {width: 100%; background: url(image/content.jpg) no-repeat  50% 100%; transparent; text-align: center; margin-right: auto; margin-left: auto;}
+
+#header { margin 0 auto; width: 100%; height: 260px; border: none; background:url(image/header.jpg) no-repeat  50% 0; transparent; text-align: left; position: relative; }
+
+#header h2 { width: 0px; height: 245px; background: url(image/logo.jpg) no-repeat 0 0; }
+
+#header h2 a { display: block; text-indent: -9999px;}
+
+#menu {margin-left: 10px; bottom: 1px; line-height: 25px; font-size: 14px;}
+
+#menu a { text-decoration: none; color:white;}
+#menu a:link { background: #FCFEFD url() no-repeat center 0 0; transparent; text-decoration: underline; color:white;}
+#menu a.edit { color: white; }
+	#op { position: absolute; margin-top:320px; right: 130px; bottom: 1px; line-height: 25px; font-size: 14px;}
+	#op a { color: #fff; }
+	#op .pipe { color: #FFF; }
+
+#content { margin:0 auto；padding-left: 0px; width: 776px; text-align: left; }
+
+.r_content { padding-right: 0;}
+
+#side { float:right; margin-top:10px;  position: absolute; right:30px;  padding-left:1px;  border:thick double #DE6210; width: 100px;text-align: left; background: transparent; }
+	#side .app_list { padding: 5px 0 0 0; border: none; font-size: 14px; line-height: 32px; }
+		#side .app_list li { height: 32px; border-bottom: 1px solid #D0E0D7; }
+			#side .app_list li a { text-indent: 21px; }
+				#side .app_list li em a { color: #768D79; }
+
+#mainarea { float:left; margin-top:10px;  margin-right:1px; width: 615px; border: 0; background: url() no-repeat 100% 2.0%; transparent; border:thin solid #DE6210; }
+	.r_content { padding: 5px 0; }
+	.wide { width: 410px; }
+
+.box { border-botton:thin solid deeppink; background: url(image/box_title.png) repeat-x 0 0; }
+	#space_basicinfo, #space_action, #space_appicon { background: none; }
+	.box h3 { padding-left: 24px; border: none; background: transparent 
+
+url(image/box_flower.png) no-repeat 0 0; line-height: 28px; color: #fff; }
+	.box_action, .box_action a { color: #768D79; }
+	.box_content { padding: 0; }
+
+.box_action, .i_header, .f_status, .space_wall_post { border: none; background: transparent; }
+
+.title { border-top: none; border-bottom-color: #D0E0D7; background: #FCEBF9; }
+
+#footer { margin: 0px; height: 78px; border: none; background:url(image/bottom.jpg) no-repeat 50% 100%; transparent; text-align: center; }

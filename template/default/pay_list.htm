@@ -1,0 +1,71 @@
+<!--{template pay_header}-->
+<table border="0" align="right">
+  <tr>
+    <td width="220" height="48" align="center">	
+	 <strong> <!--{if $space[groupid] == $_SCONFIG[vipapp]}-->
+      <font color="#666666">VIP状态:<!--{if $vips[ztime] > 0}-->$vips[day] 天<!--{else}-->终身VIP<!--{/if}--></font>		
+		  <img src="image/pay/vip.gif" alt="VIP会员:<!--{if $vips[ztime] > 0}-->$vips[day]天<!--{else}-->终身VIP<!--{/if}-->" border="0" align="absmiddle" />
+			<!--{else}-->
+      <font color="#666666">VIP状态:未激活</font>	<img src="image/pay/vip2.gif" alt="未激活" border="0" align="absmiddle" />
+			<!--{/if}--></strong><br />
+    用户:<strong> $space[username]</strong> 积分:<span style="color: #FF0000;font-weight: bold;">$space[credit]</span>   </font> </td>
+  </tr>
+</table>
+<br />
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+     <caption>
+      <h2>记录信息</h2>
+        </caption>  
+		<!--{if $adid > 0}-->
+		<tr>
+    <td width="350" height="48" align="center">	
+	  <form id="form1" name="form1" method="post" action="">
+	    用户名:<input name="pay_uid" type="text"  class="t_input" size="15"/>
+	    <input type="submit" name="Submit" value="查找用户记录" />
+      </form></td>
+  </tr>
+  <!--{/if}--><form method="POST" action="pay.php?ac=list">
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+  <tr>
+    <td bgcolor="#CCCCCC"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+      <tr>
+        <td align="center" bgcolor="#FFFFFF" colspan="2"><strong>用户名</strong></td>
+        <td width="120" height="25" align="center" bgcolor="#FFFFFF"><strong>订单号</strong></td>
+        <td align="center" bgcolor="#FFFFFF"><strong>类型</strong></td>
+        <td align="center" bgcolor="#FFFFFF"><strong>金额</strong></td>
+        <td align="center" bgcolor="#FFFFFF"><strong>时间</strong></td>
+        <td align="center" bgcolor="#FFFFFF"><strong>备注</strong></td>
+      </tr>
+      <!--{if $count >= 1}-->
+      <!--{loop $vlist $key $value}-->
+	  
+      <tr>
+        <td height="25" align="center" bgcolor="#FFFFFF">
+		<input type="checkbox" name="pids[]" value="$value[pid]"></td>
+        <td height="25" align="center" bgcolor="#FFFFFF">$value[puser]</td>
+        <td height="25" align="center" bgcolor="#FFFFFF">$value[payno]</td>
+        <td align="center" bgcolor="#FFFFFF">$value[paynote]</td>
+        <td align="center" bgcolor="#FFFFFF">
+	  $value[paymcard]
+		</td>
+        <td align="center" bgcolor="#FFFFFF">$value[paytime]</td>
+        <td align="center" bgcolor="#FFFFFF">$value[paytext]</td>
+      </tr>
+      <!--{/loop}-->	  
+      <tr>
+        <td height="25" align="center" bgcolor="#FFFFFF" colspan="7">
+		<input type="hidden" name="mpurl" value="$mpurl"><input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'pids')">全选
+		<input type="submit" name="deletesubmit" value="批量删除" onclick="return confirm('本操作不可恢复，确认删除？');" class="submit"></td>
+      </tr>
+      <!--{else}-->
+      <tr>
+        <td height="25" colspan="7" align="center" bgcolor="#FFFFFF">无记录</td>
+      </tr>
+      <!--{/if}-->
+      <tr>
+        <td height="25" colspan="7" align="center" bgcolor="#FFFFFF"><div class="page">$multi</div></td>
+        </tr>
+    </table></td>
+  </tr></form>
+</table>
+<!--{template footer}-->

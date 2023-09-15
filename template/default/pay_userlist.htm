@@ -1,0 +1,72 @@
+<!--{template pay_header}-->
+
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+
+		      <caption>
+      <h2>会员信息</h2>
+        </caption>
+  <tr>
+    <td width="350" height="48" align="center">	
+	  <form id="form1" name="form1" method="post" action="">
+	  类 型:
+	    <select name="s_class">
+	       <option value="2">所有会员</option>
+	       <option value="1"$cdl>VIP会员</option>
+          </select>
+	    用户名:<input name="s_users" type="text"  class="t_input" size="15"/>
+	    <input type="submit" name="Submit" value="搜索用户" />
+      </form></td>
+  </tr>
+</table><table width="98%" border="0">
+  <tr>
+    <td bgcolor="#999999">
+	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+      <tr>
+        <td width="80" align="center" bgcolor="#FFFFFF"><strong>用户名</strong></td>
+        <td width="80" height="25" align="center" bgcolor="#FFFFFF"><strong>用户级别</strong></td>
+        <td align="center" bgcolor="#FFFFFF"><strong>VIP状态</strong></td>
+        <td align="center" bgcolor="#FFFFFF"><strong>积 分</strong></td>
+        <td width="80" align="center" bgcolor="#FFFFFF"><strong>姓 名</strong></td>
+        <td width="80" align="center" bgcolor="#FFFFFF"><strong>性 别</strong></td>
+        <td align="center" bgcolor="#FFFFFF"><strong>Email</strong></td>
+        <td width="85" align="center" bgcolor="#FFFFFF"><strong>操 作</strong></td>
+      </tr>
+      <!--{loop $vlist $value}-->
+      <!--{if $value[uid]}-->
+	  
+      <tr>
+        <td width="65" height="25" align="center" bgcolor="#FFFFFF">$value[username]</td>
+        <td height="25" align="center" bgcolor="#FFFFFF">$value[grouptitle]</td>
+        <td align="center" bgcolor="#FFFFFF">
+      <!--{if $value[groupid] == $_SCONFIG[vipapp]}-->
+	  <img src="./image/pay/vip.gif" alt="$value[vday]"/>
+      <!--{else}-->
+	  <img src="./image/pay/vip2.gif" alt="$value[vday]" />
+      <!--{/if}-->	  </td>
+        <td align="center" bgcolor="#FFFFFF">$value[credit]</td>
+        <td align="center" bgcolor="#FFFFFF">$value[name]</td>
+        <td align="center" bgcolor="#FFFFFF">$value[sex]</td>
+        <td align="center" bgcolor="#FFFFFF">$value[email]</td>
+        <td align="center" bgcolor="#FFFFFF">
+      <!--{if $value[groupid] == $_SCONFIG[vipapp]}-->
+	  <a href="pay.php?pay=v&u=$value[uid]" style="color: #0000CC;font-weight: bold;">续 费</a>
+	   <a href="pay.php?pay=c&u=$value[uid]" style="color: #FF0000;font-weight: bold;">取 消</a>
+      <!--{else}-->
+	  <a href="pay.php?pay=v&u=$value[uid]" style="color: #0000CC;font-weight: bold;">激 活</a>
+      <!--{/if}-->      </td>
+      </tr>
+      <!--{/if}-->
+      <!--{/loop}-->
+      <!--{if $vlist[cout] < 1}-->
+      <tr>
+        <td height="25" colspan="8" align="center" bgcolor="#FFFFFF">无记录</td>
+      </tr>
+      <!--{/if}-->
+      <tr>
+        <td height="25" colspan="8" align="center" bgcolor="#FFFFFF"><a href="pay.php?ac=userlist">首 页</a> | <a href="pay.php?ac=userlist&amp;&amp;pid=$vlist[mid]">上一页</a> | <a href="pay.php?ac=userlist&amp;&amp;pid=$vlist[mad]">下一页</a> 当前页面记录数: <strong>$vlist[cout]</strong> </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+
+<!--{template footer}-->

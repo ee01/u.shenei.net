@@ -1,0 +1,143 @@
+body {background-image:url(/viewspace/image/t/176/1206696617_99645700.gif); background-repeat:repeat; background-attachment:scroll; background-color:#ffffff; } 
+#banner {height:142px; background-image:url(/viewspace/image/t/176/1206696617_98409800.jpg); background-repeat:repeat; background-color:transparent; background-position:left top; } 
+#banner .title h1 {color:#ffffff; } 
+#banner .title p {color:#ffffff; } 
+#banner .title p a {color:#ffffff; } 
+#title {top:12px; } 
+#footer {height:115px; background-image:none; background-repeat:norepeat; background-color:transparent; background-position:center center; } 
+#footer .copyright p {color:#ffffff; } 
+#footer .copyright p a {color:#ffffff; } 
+#menu {background-position:center center; background-repeat:repeat; background-image:none; background-color:#225491; border-style:none; border-width:0px; border-color:#FFF; height:30px; } 
+#menu .active {background-image:url(); } 
+#menu ul {padding-left:4px; margin-top:2px; } 
+#menu a {font-size:14px; font-weight:bold; color:#ffffff; } 
+#menu . em {font-size:12px; } 
+#menu . a:hover {color:#ffff00; } 
+#menu .active a {color:#ffffff; } 
+#profile .blocktitle {background-image:none; border-bottom-style:; } 
+#profile .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#profile .blocktitle h2 {color:#ffffff; } 
+#profile .blocktitle em a {color:#ffffff; } 
+#profile .blockcontent a {color:#000000; } 
+#profile .blockcontent a:hover {color:#000000; } 
+#profile {border-style:; border-width:; border-color:; } 
+#player .blocktitle {background-image:none; border-bottom-style:; } 
+#player .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#player .blocktitle h2 {color:#ffffff; } 
+#player .blocktitle em a {color:#ffffff; } 
+#player .blockcontent a {color:#000000; } 
+#player .blockcontent a:hover {color:#000000; } 
+#player {border-style:; border-width:; border-color:; } 
+#feed .blocktitle {background-image:none; border-bottom-style:; } 
+#feed .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#feed .blocktitle h2 {color:#ffffff; } 
+#feed .blocktitle em a {color:#ffffff; } 
+#feed .blockcontent a {color:#000000; } 
+#feed .blockcontent a:hover {color:#000000; } 
+#feed {border-style:; border-width:; border-color:; } 
+#blog .blocktitle {background-image:none; border-bottom-style:; } 
+#blog .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#blog .blocktitle h2 {color:#ffffff; } 
+#blog .blocktitle em a {color:#ffffff; } 
+#blog .blockcontent a {color:#000000; } 
+#blog .blockcontent a:hover {color:#000000; } 
+#blog {border-style:; border-width:; border-color:; } 
+#share .blocktitle {background-image:none; border-bottom-style:; } 
+#share .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#share .blocktitle h2 {color:#ffffff; } 
+#share .blocktitle em a {color:#ffffff; } 
+#share .blockcontent a {color:#000000; } 
+#share .blockcontent a:hover {color:#000000; } 
+#share {border-style:; border-width:; border-color:; } 
+#mtag .blocktitle {background-image:none; border-bottom-style:; } 
+#mtag .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#mtag .blocktitle h2 {color:#ffffff; } 
+#mtag .blocktitle em a {color:#ffffff; } 
+#mtag .blockcontent a {color:#000000; } 
+#mtag .blockcontent a:hover {color:#000000; } 
+#mtag {border-style:; border-width:; border-color:; } 
+#doing .blocktitle {background-image:none; border-bottom-style:; } 
+#doing .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#doing .blocktitle h2 {color:#ffffff; } 
+#doing .blocktitle em a {color:#ffffff; } 
+#doing .blockcontent a {color:#000000; } 
+#doing .blockcontent a:hover {color:#000000; } 
+#doing {border-style:; border-width:; border-color:; } 
+#footprint .blocktitle {background-image:none; border-bottom-style:; } 
+#footprint .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#footprint .blocktitle h2 {color:#ffffff; } 
+#footprint .blocktitle em a {color:#ffffff; } 
+#footprint .blockcontent a {color:#000000; } 
+#footprint .blockcontent a:hover {color:#000000; } 
+#footprint {border-style:; border-width:; border-color:; } 
+#friendlist .blocktitle {background-image:none; border-bottom-style:; } 
+#friendlist .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#friendlist .blocktitle h2 {color:#ffffff; } 
+#friendlist .blocktitle em a {color:#ffffff; } 
+#friendlist .blockcontent a {color:#000000; } 
+#friendlist .blockcontent a:hover {color:#000000; } 
+#friendlist {border-style:; border-width:; border-color:; } 
+#applist .blocktitle {background-image:none; border-bottom-style:; } 
+#applist .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#applist .blocktitle h2 {color:#ffffff; } 
+#applist .blocktitle em a {color:#ffffff; } 
+#applist .blockcontent a {color:#000000; } 
+#applist .blockcontent a:hover {color:#000000; } 
+#applist {border-style:; border-width:; border-color:; } 
+#wall .blocktitle {background-image:none; border-bottom-style:; } 
+#wall .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#wall .blocktitle h2 {color:#ffffff; } 
+#wall .blocktitle em a {color:#ffffff; } 
+#wall .blockcontent a {color:#000000; } 
+#wall .blockcontent a:hover {color:#000000; } 
+#wall {border-style:; border-width:; border-color:; } 
+#forumstatus .blocktitle {background-image:none; border-bottom-style:; } 
+#forumstatus .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#forumstatus .blocktitle h2 {color:#ffffff; } 
+#forumstatus .blocktitle em a {color:#ffffff; } 
+#forumstatus .blockcontent a {color:#000000; } 
+#forumstatus .blockcontent a:hover {color:#000000; } 
+#forumstatus {border-style:; border-width:; border-color:; } 
+#thread .blocktitle {background-image:none; border-bottom-style:; } 
+#thread .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#thread .blocktitle h2 {color:#ffffff; } 
+#thread .blocktitle em a {color:#ffffff; } 
+#thread .blockcontent a {color:#000000; } 
+#thread .blockcontent a:hover {color:#000000; } 
+#thread {border-style:; border-width:; border-color:; } 
+#albumall .blocktitle {background-image:none; border-bottom-style:; } 
+#albumall .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#albumall .blocktitle h2 {color:#ffffff; } 
+#albumall .blocktitle em a {color:#ffffff; } 
+#albumall .blockcontent a {color:#000000; } 
+#albumall .blockcontent a:hover {color:#000000; } 
+#albumall {border-style:; border-width:; border-color:; } 
+#album .blocktitle {background-image:none; border-bottom-style:; } 
+#album .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#album .blocktitle h2 {color:#ffffff; } 
+#album .blocktitle em a {color:#ffffff; } 
+#album .blockcontent a {color:#000000; } 
+#album .blockcontent a:hover {color:#000000; } 
+#album {border-style:; border-width:; border-color:; } 
+#profect .blocktitle {background-image:none; border-bottom-style:; } 
+#profect .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#profect .blocktitle h2 {color:#ffffff; } 
+#profect .blocktitle em a {color:#ffffff; } 
+#profect .blockcontent a {color:#000000; } 
+#profect .blockcontent a:hover {color:#000000; } 
+#profect {border-style:; border-width:; border-color:; } 
+#about .blocktitle {background-image:none; border-bottom-style:; } 
+#about .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#about .blocktitle h2 {color:#ffffff; } 
+#about .blocktitle em a {color:#ffffff; } 
+#about .blockcontent a {color:#000000; } 
+#about .blockcontent a:hover {color:#000000; } 
+#about {border-style:; border-width:; border-color:; } 
+#albumone .blocktitle {background-image:none; border-bottom-style:; } 
+#albumone .blockcontent {background-image:none; background-color:#ffffff; background-repeat:repeat; color:#000000; } 
+#albumone .blocktitle h2 {color:#ffffff; } 
+#albumone .blocktitle em a {color:#ffffff; } 
+#albumone .blockcontent a {color:#000000; } 
+#albumone .blockcontent a:hover {color:#000000; } 
+#albumone {border-style:; border-width:; border-color:; } 
+ body {cursor: }

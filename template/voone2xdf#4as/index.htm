@@ -1,0 +1,215 @@
+<!--{template index_header}-->
+    <div class="banner2">
+        <ul class="sub_nav">
+           <li><a href="space.php?do=home" class="btn_sub2"></a></li>
+            <li><a href="space.php?do=blog" class="btn_sub3"></a></li>
+            <li><a href="space.php?do=album"  class="btn_sub4"></a></li>
+            <li><a href="space.php?do=mtag" class="btn_sub5"></a></li>
+            <li><a href="space.php?do=top"  class="btn_sub6"></a></li>
+            <li><a href="space.php?do=event" class="btn_sub7"></a></li>
+	    <li><a href="space.php?do=share" class="btn_sub8"></a></li>
+        </ul>
+
+
+<style>
+.flash img {display:none;}
+.face {display:none;}
+</style>
+
+<DIV class=flash>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" name="home" width="100%" height="270" align="middle" id="home">
+<param name="allowScriptAccess" value="sameDohome" />
+<param name="movie" value="home.swf?msg=$doinglist" />
+<param name="loop" value="false" />
+<param name="menu" value="false" />
+<param name="quality" value="best" />
+<param name="scale" value="noscale" />
+<param name="wmode" value="transparent" />
+<param name="bgcolor" value="#cccccc" />
+<embed src='home.swf?msg=<%=msg%>' loop="false" menu="true" quality="best" scale="noscale" wmode="transparent" bgcolor="#cccccc" width="100%" height="270" swLiveConnect=true id="home" name="home" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+</object>
+</DIV></div>
+
+<DIV class="col1">
+<!--{if $_SGLOBAL[supe_uid]}-->
+<DIV class="login">
+ <h5><span class="activ"><a href="network.php">居民中心</a></span>已登录</h5>
+    <div class="xinxi">
+      <div class="touxiang"><a href="space.php"><!--{avatar($_SGLOBAL[supe_uid],middle)}--></a></div>
+      <div class="ziliao">
+        <h6><strong>{$_SN[$_SGLOBAL[supe_uid]]}</strong></h6>
+        欢迎你回来!<br />
+        <span class="mail"><a href="space.php?do=pm<!--{if !empty($_SGLOBAL['member']['newpm'])}-->&filter=newpm<!--{/if}-->"><!--{if !empty($_SGLOBAL['member']['newpm'])}-->您有新的<!--{/if}-->消息</a></span></div></div>
+    <div class="kongjian">
+    <a class="btn_space" title="空间主页" href="space.php"></a>
+    <a class="btn_mcenter" title="个人中心" href ="space.php?do=home"></a>
+    <a class="btn_out" title="退出" href ="cp.php?ac=common&op=logout&uhash=$_SGLOBAL[uhash]"></a></DIV>
+
+
+</DIV>
+
+
+<!--{else}-->
+
+<DIV class="login">
+	<form id="loginform" name="loginform" class="denglu_2_login" action="do.php?ac=$_SCONFIG[login_action]&$url_plus&ref" method="post">
+<H6>登录ID</H6>
+<DIV class=c>
+<DIV class=c_l><input type="text" name="username" id="username" class="i_un" value="$membername" onBlur="this.style.border = '1px solid #D7D7D7';" 
+onFocus="this.style.border = '1px solid #9EE409';" />密码<input type="password" name="password" id="password" class="i_un" value="$password" onBlur="this.style.border = '1px solid #D7D7D7';" 
+onFocus="this.style.border = '1px solid #9EE409';"/></DIV>
+
+<DIV class=c_r><input type="submit" id="loginsubmit" name="loginsubmit" value="登录" class=c_b >
+
+
+</DIV>
+
+<DIV class="clear"></DIV><SPAN class="f_p"><a href="do.php?ac=lostpasswd">忘记密码?</a></SPAN><SPAN class="rb"><LABEL class="labelCheckbox" 
+for="autoLogin"><input type="checkbox" id="cookietime" name="cookietime" value="315360000" $cookiecheck style="margin-bottom: -2px;"><label for="cookietime">下次自动登录</LABEL></SPAN>
+
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+
+</form>
+</DIV>
+
+<SPAN class="n_r"><a href="do.php?ac=$_SCONFIG[register_action]"><STRONG>新注册</STRONG></A></SPAN><SPAN 
+class=w_c>欢迎您的加入</SPAN></DIV>
+<!--{/if}-->
+
+<DIV class="y_belt">
+<H6></H6>
+<OL>
+  <LI class=no1>与百万年轻人分享生活</LI>
+  <LI class=no2>精彩个人空间</LI>
+  <LI class=no3>联络老同学,认识新朋友</LI>
+  <LI class=no4>多重身份玩转社区</LI>
+  <LI class=no5>玩活动,赚积分,换潮物</LI></OL>
+<DIV class="b_t"></DIV></DIV>
+
+<!--AD开始，两个图片187*70-->
+<DIV class="y_ad1"><SPAN><A href="do.php?ac=$_SCONFIG[register_action]" target=_blank><IMG height=70 src="template/voone/ad1.jpg" width=187 border=0></A></SPAN> </DIV>
+<DIV class="y_ad2"><SPAN><A href="http://sky.shenei.net" target=_blank><IMG height=70 src="template/voone/ad2.jpg" width=187 border=0></A></SPAN> </DIV></DIV>
+
+<!--AD结束-->
+<DIV class="col3">
+
+<DIV id="starblog">
+<DIV class="brbtop">
+<DIV>
+<P></P></DIV></DIV>
+<DIV class="brbcontent">
+<H3 class="gogodao"><span>STAR BLOG</span> 潮人名博</H3>
+	<!--{loop $showlist $value}-->		
+<DIV class="starpeople">
+<DIV class="starpic">
+<a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}"><!--{avatar($value[uid],middle)}--></a></DIV>	
+<DL>
+  <DT class="starname"><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">$value[username]</a>
+  <DD class="starfrom" style="margin-top:5px; margin-bottom:-3px">榜上有名</DD>
+   <DD class="starinfo">积分：$value[credit]</DD></DL></DIV><!--{/loop}-->
+			
+<H3 class="gogodao title_recomblog"><span>RECINNEBD</span> 最近更新</H3>
+<DIV class="recomblog">
+<UL>
+  
+	<!--{loop $netcache['spacelist'] $key $value}-->
+  <LI><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" target="_blank">
+<!--{avatar($value[uid],small)}--></a>
+  <DL>
+    <DT class="recomblog_name"><a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}">{$_SN[$value[uid]]}</a>
+    <DD class="recomblog_from">关注：$value[viewnum]</DD><br />
+    <DD class="recombloginfo">积分：$value[credit]</DD></DL></LI><!--{/loop}-->
+
+ </UL>
+<DIV class="clear"></DIV></DIV></DIV>
+<DIV class="brbbot">
+<DIV>
+<P></P></DIV></DIV></DIV>
+</DIV>
+<DIV class="col2">
+<DIV class="y_hotpic" style="POSITION: relative">
+<div id="ibanner">
+<div id="ibanner_pic">
+<a href="exchange.php"><img src="js/image/01.jpg" alt="积分兑奖" /></a>
+<a href="http://shop.shenei.net/"><img src="js/image/02.jpg" alt="舍内网店" /></a>
+<a href="do.php?ac=ereg"><img src="js/image/03.jpg" alt="注册博客" /></a>
+<a href="network.php"><img src="js/image/04.jpg" alt="随便看看" /></a>
+</div>
+</div><!--ibanner end-->
+<div style="height:20px; background:#EEE;"></div>
+</DIV>
+<DIV class="y_hot">
+<H6 class="bgtitle">
+<DIV class="title">
+<DIV style="OVERFLOW: hidden; WIDTH: 390px; HEIGHT: 25px">
+<DIV>
+<UL> 	
+  <LI><a href="network.php" title="进去逛逛">欢迎来到我的空间网购物生活社区，看看大家都在做什么</a></LI>
+
+ </UL></DIV>
+
+<DIV id="demo2"></DIV></DIV></DIV></H6>
+<DIV class="col2_2 y_x1">
+<DIV class="y_news">
+<H6><A href="network.php?ac=blog"><IMG src="template/voone/image/bg_hottoppic.gif"></A></H6>
+<DIV class="content">
+
+
+
+
+<!--{if $albumlist}-->	
+	
+	<DIV class="pic">
+	<!--{loop $albumlist $value}-->
+<SPAN><a href="space.php?uid={$value[uid]}&do=album&id={$value[albumid]}" title="$value[albumname]"><img src="attachment/$value[pic]" alt="$value[albumname]"  style="width: 64px;height:64px;" /></a></SPAN>
+	<!--{/loop}-->
+
+ </DIV>	<!--{/if}-->
+<UL class="pic_c">
+
+<!--{loop $bloglist $key $value}-->	
+<LI><a href="space.php?uid={$value[uid]}&do=blog&id={$value[blogid]}">$value[subject]</a></LI>
+<!--{/loop}-->
+ </UL>
+
+ </DIV>
+ 
+ 
+ </DIV>
+<DIV class="y_x2">
+<DIV class="y_group">
+<H6><A href="network.php?ac=mtag" target=_blank><IMG src="template/voone/image/bg_group.gif"></A></H6>
+<!--{loop $mtaglist $value}-->
+<DIV class="picbox"><a href="space.php?do=mtag&tagid={$value[tagid]}"><img style="width: 60px;height:60px;" src="{$value[pic]}"/></a></DIV>
+<H6 class="f_orange"><a href="space.php?do=mtag&tagid={$value[tagid]}">{$value[tagname]}</a></H6>
+<!--{loop $threadlist[$value[tagid]] $thread}-->				
+<P class="picbox_c"><a href="space.php?uid={$thread[uid]}&do=thread&id={$thread[tid]}">{$thread[subject]}</a></P>
+<!--{/loop}-->
+<!--{/loop}--></DIV>
+<DIV class="y_hgroup">
+<H6></H6>
+<DIV class="picbox"><!--{loop $myapplist $key $value}-->
+<a href="userapp.php?id=$value[appid]"><img src="http://appicon.manyou.com/logos/$value[appid]" alt="$value[appname]"width=64 /></a><!--{/loop}--></DIV></DIV></DIV></DIV>
+
+<DIV class="col2_1 y_people">
+<H6><A title="" href="network.php?ac=space"><IMG src="template/voone/image/bg_people.gif"></A></H6>
+
+<DIV class="content" id="CBPeople">
+<DIV style="LEFT: 0px; POSITION: absolute; TOP: 0px">
+<div class="tuo">
+
+<!--{loop $spacelist $value}--><li><a href="space.php?uid=$value[uid]"><!--{avatar($value[uid],middle)}--></a></li>	<!--{/loop}-->
+
+</div></DIV>
+<DIV class="drag">
+<DIV class="pointer"></DIV></DIV></DIV></DIV></DIV></DIV></DIV>
+<SCRIPT language=javascript src="source/index.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="source/flash.js" type=text/javascript></SCRIPT>
+<div class="divline"></div>
+
+<!--{template x_footer}-->
+
+</DIV>
+</body>
+</html>
+

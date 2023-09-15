@@ -1,0 +1,38 @@
+<!--{template header}-->
+<h1>分享</h1>
+<a href="javascript: hideMenu();" class="float_del" title="关闭">关闭</a>
+<div id="__shareform_{$id}" class="popupmenu_inner">
+<form method="post" id="shareform_{$id}" name="shareform_{$id}" action="ND_upload.php?do=share&type=$type&id=$id">
+<table>
+<tr>
+	<td>分享说明:
+	<img src="image/zoomin.gif" onmouseover="this.style.cursor='pointer'" onclick="zoomTextarea('general', 1)">
+	<img src="image/zoomout.gif" onmouseover="this.style.cursor='pointer'" onclick="zoomTextarea('general', 0)"><br />
+	<textarea id="general" name="general" style="width:380px;" rows="5" onkeydown="ctrlEnter(event, 'sharesubmit_btn')" onkeyup="showPreview(this.value, 'quote')"></textarea>
+	</td>
+</tr>
+<tr>
+	<td>
+	<input type="hidden" name="sharesubmit" value="true">
+	<input type="hidden" name="refer" value="$_SGLOBAL[refer]">
+	<!--{if $_SGLOBAL[inajax]}-->
+	<button name="sharesubmit_btn" id="sharesubmit_btn" type="button" class="submit" value="true" onclick="ajaxpost('shareform_{$id}', 'showreward', 2000);">确定</button>
+	<!--{else}-->
+	<button name="sharesubmit_btn" id="sharesubmit_btn" type="submit" class="submit" value="true">确定</button>
+	<!--{/if}-->
+	</td>
+	</tr>
+	</table>
+
+	<br />
+	<ul class="box">
+	<!--{eval $value = $arr;}-->
+	<!--{template space_share_li}-->
+	</ul>
+
+	<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+	
+	</div>
+
+<!--{template footer}-->

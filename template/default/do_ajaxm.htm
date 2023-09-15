@@ -1,0 +1,433 @@
+<!--{template header}-->
+
+
+
+
+<!--{if $op == 'albummusic'}-->
+	<table cellspacing="2" cellpadding="2">
+	<tr>
+	<!--{loop $piclist $key $value}-->
+	<td><img src="$value[pic]" width="60" onclick="musicinsertImage('$value[pic]');" style="cursor:hand;"></td>
+	<!--{if $key%5==4}--></tr><tr><!--{/if}-->
+	<!--{/loop}-->
+	</tr>
+	</table>
+	<div class="page">$multi</div>
+<!--{elseif $op == 'getmyalbumlist'}-->
+					<ul>
+								<!--{loop $mymusicalbumlist $key $value}-->
+								<li style="<!--{if $_GET['fengmian']!="no"}-->height:170px;<!--{else}-->text-align:left;<!--{/if}-->">
+									<!--{if $_GET['fengmian']!="no"}--><div class="albumbg"><a href="space.php?uid=$value['userid']&do=musicbox&mview=malbum&albumid=$value[albumid]&userspace=$value['userid']" style="cursor: pointer;"><div class="imgmid" style="background:url($value[albumfengmian]) center no-repeat;"></div></a></div><!--{/if}-->
+									<div>
+										<!--{if empty($_GET['myop']) && empty($_GET['myop1'])}--><input type="radio" name="albumid" id="albumid" value="$value[albumid]" <!--{if $_GET['editalbumid']==$value[albumid]}-->checked="true"<!--{elseif empty($_GET['editalbumid']) && $key=='0'}-->checked="true"<!--{/if}-->><!--{/if}--><a href="space.php?uid=$value['userid']&do=musicbox&mview=malbum&albumid=$value[albumid]&userspace=$value['userid']" title="$value[albumname]"><!--{eval echo getstr($value[albumname],30,-1,-1,-1)}--></a>(<span style="color:#FF0000;"><!--{if !empty($value[mcount])}-->$value[mcount]<!--{else}-->0<!--{/if}--></span>)
+									</div>
+									<!--{if $_GET['uid']==-1}-->
+										<div style="font-size:12px;">
+											<a href="space.php?uid=$value[uid]" title="{$_SN[$value[uid]]}" target="_blank" style="text-decoration:none;">{$_SN[$value[uid]]}</a>创建
+										</div>
+									<!--{/if}-->
+									<div><!--{if $_GET['fengmian']!="no"}--><!--{date('m-d',$value[dataline],1)}--><!--{/if}--><!--{if !empty($_GET['myop'])}--><!--{if $_SGLOBAL['supe_uid']==$_GET['uid']}--> <!--{if $value[defaultalbumid]!=1}--><a href="do.php?ac=ajaxm&op=deletemymusicalbum&albumid=$value[albumid]&spaceuid=$value[userid]" id="ca_$value[albumid]_delete" onclick="ajaxmenu(event, this.id)"><img src="images/web_icon_009.gif" align="absmiddle" alt="删除" /></a><!--{/if}--> <a href="do.php?ac=ajaxm&op=greatmyalbum&ctype=edit&albumid=$value[albumid]" id="ca_$value[albumid]_edit" onclick="ajaxmenu(event, this.id)"><img src="images/web_icon_018.gif" align="absmiddle" alt="编辑" /></a><!--{/if}--><!--{/if}--></div>
+								</li>
+								<!--{/loop}-->
+								
+								
+								<!--{if $_GET['uid']!=-1}-->
+									
+	  						<!--{/if}-->
+					</ul>
+<!--{elseif $op == 'greatmyalbum'}-->
+
+<div id="greatmyalbumdoajax0">
+				
+							<form method="post" id="addnewmusicalbum" name="addnewmusicalbum" action="space.php?do=musicbox&mview=newalbum" enctype="multipart/form-data">
+										<h1><!--{if $_GET['ctype']=="great"}-->新建自编专辑<!--{else}--><span style="color:#FF0000;">编辑专辑</span><!--{/if}--></h1>
+										<table border="0" cellpadding="0" cellspacing="0" class="infotable" id="uchome-edit-album" style="margin-top:5px; width:340px;">
+											<tr>
+												<td valign="top" align="center">
+														<table border="0" cellpadding="0" cellspacing="0" align="center">
+																<tr>
+																		<td valign="top"><span style="color:#FF0000;">*</span>专辑名称:<span class="it_s"><input type="text" name="mynewmusicalbum_albumname" id="mynewmusicalbum_albumname" onblur="this.className='it1';" onfocus="this.className='it2';" class="it1" style="width:180px;" value="$editalbum['albumname']"></span><input type="hidden" name="mynewmusicalbum_fengmian" id="mynewmusicalbum_fengmian" value="$editalbum['albumfengmian']"></td>
+																</tr>
+																<tr>
+																		<td valign="top"><span style="color:#FF0000;">*</span>设置封面 <input name="fengmianchoose" type="radio" value="photo" checked="checked" onclick="choosefmtype(1)" />相册 <input name="fengmianchoose" type="radio" value="up" onclick="choosefmtype(2)" />上传</td>
+																</tr>
+																<tr>
+																		<td valign="top">
+																			<div id="chooseidphoto"><select name="view_albumid" onchange="picView1(this.value)"><option value="none">选择一个相册</option><option value="0">默认相册</option><!--{loop $albums $value}--><option value="$value[albumid]">$value[albumname]</option><!--{/loop}--></select></div>
+																			<div id="chooseidup" style="display:none;"><input type="file" name="upalbumfengmian"></div>
+																		</td>
+																</tr>
+																<tr>
+																		<td align="center">
+																			<img id="mynewmusicalbum_fengmian_yl" src="<!--{if $_GET['ctype']=="great"}-->images/falbum.gif<!--{else}-->$editalbum['albumfengmian']<!--{/if}-->" />
+																		</td>
+																</tr>
+																<tr valign="top">
+																	  <td>
+																	  	<!--{if $_GET['ctype']=="great"}-->
+																		  	<input type="hidden" name="addalbum_commendsubmit" value="true" />
+																		  <!--{else}-->
+																		  	<input type="hidden" name="editalbumidvalue" id="editalbumidvalue" value="$editalbum['albumid']">
+																		  	<input type="hidden" name="editmyalbum_commendsubmit" value="true" />
+																		  <!--{/if}-->
+																			<input type="button" name="addalbumcommendmusic_btn" onclick="return sendaddmymusicalbum()" value="<!--{if $_GET['ctype']=="great"}-->创建<!--{else}-->编辑<!--{/if}-->" class="submit">
+																			<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="submit" />
+																			<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+																	  </td>
+																</tr>
+														</table>
+												</td>
+											</tr>
+										</table>
+										<div id="albumpic_body" style="display:none;"></div>
+									</form>
+					
+</div>
+
+<!--{elseif $op == 'editsingerphoto'}-->
+		<form method="post" id="editpostsingerphoto" name="editpostsingerphoto" action="space.php?do=musicbox&mop=editsingerphotoc&singerid=$_GET['singerid']" enctype="multipart/form-data">
+			<h1>修改歌手照片</h1>
+			<input type="file" name="upsingerphoto">
+			<input type="hidden" name="editphotovalue" id="editphotovalue" value="$_GET['singerid']">
+			<input type="hidden" name="editsingerp_commendsubmit" value="true" />
+			<input type="button" name="editsingerp_btn" value="编辑" class="submit" onclick="ajaxpost('editpostsingerphoto', 'editthephoto_send', 2000)">
+			<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="submit" />
+			<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		</form>
+<!--{elseif $op == 'jifenguize'}-->
+		<input type="button" name="btnclose" value="关闭" onclick="hideMenu();" class="submit" />
+		<div style="margin:5px 0 0 0; width:160px; height:18px; padding:2px 5px 2px 5px; background:#FCF8D5; border:solid 1px #CEB70D;">
+			+好音乐大家听，攒积分.<br/>
+			<span style="color:#AE4D18">上传音乐文件 <!--{$_SC['music_i_upload']}-->分</span><br/>
+			<span style="color:#AE4D18">删除上传文件 <!--{$_SC['music_i_upload_del']}-->分</span><br/>
+			<span style="color:#AE4D18">链接外部音乐链接 <!--{$_SC['music_i_addlink']}-->分</span><br/>
+			<span style="color:#AE4D18">链接外部链接 <!--{$_SC['music_i_addlink_del']}-->分</span><br/>
+			<span style="color:#AE4D18">添加自编专辑 <!--{$_SC['music_i_addzj']}-->分</span><br/>
+			<span style="color:#AE4D18">删除专辑 <!--{$_SC['music_i_addzj_del']}-->分</span><br/>
+			<span style="color:#AE4D18">评分音乐 <!--{$_SC['music_i_pingfen']}-->分</span><br/>
+			<span style="color:#AE4D18">评论音乐 <!--{$_SC['music_i_pinglun']}-->分</span><br/>
+			<span style="color:#AE4D18">评论被删除 <!--{$_SC['music_i_pinglun_del']}-->分</span><br/>
+			<span style="color:#AE4D18">分享音乐给好友 <!--{$_SC['music_i_share']}-->分</span>
+		</div>
+<!--{elseif $op == 'getmymusiclist'}-->
+				<!--{if $mymusiclist}-->
+							<ul id="share_ul">
+								<!--{loop $mymusiclist $key $value}-->
+									<li>
+										<div class="title" style="background:#FEFEFE;">
+											<div class="r_option"><a href="space.php?uid=$value[userid]&do=musicbox&mview=mpage&mid=$value[songid]<!--{if !empty($_GET['lastplay'])}-->&lastplay=true<!--{/if}-->" target="_blank"><img src="images/03584778.gif" align="absmiddle" /></a></div>
+											<!--{if $_SGLOBAL['supe_uid']==$_GET['uid'] && $_GET['uid']!="-1"}-->
+												<div class="r_option"><a href="do.php?ac=ajaxm&op=deletemymusic&mid=$value[songid]&isupload=$value[upload]" id="c_$value[songid]_delete" onclick="ajaxmenu(event, this.id)" style="font-size:10px;">删除<img src="images/web_icon_009.gif" align="absmiddle" /></a></div>
+												<!--{if $_SC['music_i_edit']=="1"}-->
+													<div class="r_option"><a href="space.php?do=musicbox&mview=commend&mid=$value[songid]" style="font-size:10px;" target="_blank">编辑<img src="images/web_icon_018.gif" align="absmiddle" /></a></div>
+												<!--{/if}-->
+											<!--{/if}-->
+											<span style="color:#00B4FF; font-size:10px; font-weight:bold;"><em><!--{eval echo $key+1}--></em></span>
+											<!--{if $_SGLOBAL['supe_uid']}--><label><input type="checkbox" name="musicsingle" value="$value[songid]" /></label><!--{else}-->&nbsp;<!--{/if}-->
+											<a href="space.php?uid=$value[userid]&do=musicbox&mview=mpage&mid=$value[songid]<!--{if !empty($_GET['lastplay'])}-->&lastplay=true<!--{/if}-->"><!--{eval echo getstr($value[songname],20,-1,-1,-1)}--></a>
+											<!--{if !empty($value['lsuid'])}-->
+														&nbsp;<img src="images/mini_icons_010.gif" /><a href="space.php?uid=$value['lsuid']&do=musicbox&view=me" class="msavatar"><!--{avatar($value['lsuid'],small)}--></a><a href="space.php?uid=$value[lsuid]" target="_blank">$value[lsusername]</a><span style="color:#B2B2B2; font-size:10px;">(<!--{date('m-d',$value[lastdateline],1)}-->-<!--{if !empty($value['mark'])}-->$value['mark']分<!--{else}-->0<!--{/if}-->/<!--{if !empty($value['pinglunc'])}-->$value['pinglunc']评论<!--{else}-->0<!--{/if}-->)</span>
+											<!--{/if}-->
+										</div>
+									</li>
+								<!--{/loop}-->
+							</ul>
+							<!--{if $multi}--><div class="page">$multi</div><!--{/if}-->
+				<!--{else}-->
+					<br />&nbsp;&nbsp;&nbsp;&nbsp;暂时没有推荐音乐!<br /><br />
+				<!--{/if}-->
+<!--{elseif $op == 'mycollectmusiclist'}-->
+			<!--{if $collectmusiclist}-->
+			<ul id="share_ul">
+				<!--{loop $collectmusiclist $key $value}-->
+					<li>
+						<div class="title" style="background:#FEFEFE;">
+							<div class="r_option"><a href="space.php?uid=$value[userid]&do=musicbox&mview=mpage&mid=$value[songid]" target="_blank"><img src="images/03584778.gif" align="absmiddle" /></a></div>
+							<!--{if $_SGLOBAL['supe_uid']==$_GET['uid']}-->
+							<div class="r_option"><a href="do.php?ac=ajaxm&op=tonotc&mid=$value[songid]" id="c_$value[songid]_notc" onclick="ajaxmenu(event, this.id)" style="font-size:10px;">取消<img src="images/045631763.gif" align="absmiddle" /></a>&nbsp;</div>
+							<!--{/if}-->
+							<span style="color:#00B4FF; font-size:10px; font-weight:bold;"><em><!--{eval echo $key+1}--></em></span>
+							<!--{if $_SGLOBAL['supe_uid']}--><label><input type="checkbox" name="musicsinglec" value="$value[songid]" /></label><!--{else}-->&nbsp;<!--{/if}-->
+							<a href="space.php?uid=$value[userid]&do=musicbox&mview=mpage&mid=$value[songid]"><!--{eval echo getstr($value[songname],20,-1,-1,-1)}--></a>
+							<span style="color:#B2B2B2; font-size:10px;">(<!--{if !empty($value['mark'])}-->$value['mark']分<!--{else}-->0<!--{/if}-->/<!--{if !empty($value['pinglunc'])}-->$value['pinglunc']评论<!--{else}-->0<!--{/if}-->)</span>
+						</div>
+					</li>
+				<!--{/loop}-->
+			</ul>
+			<!--{if $multi}--><div class="page">$multi</div><!--{/if}-->
+			<!--{else}-->
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;暂时没有收藏!<br /><br />
+			<!--{/if}-->
+			
+			
+<!--{elseif $op == 'selectmydiskfile'}-->
+								<h1>请选择网盘文件<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />&nbsp;&nbsp;<a href="space.php?do=musicbox&mview=disk" target="_blank">上传到网盘</a></h1>
+								<div class="topic_list" style="width:310px; padding:10px; margin-bottom:0px;">
+												<table cellspacing="0" cellpadding="0">
+												<thead>
+													<tr >
+														<td class="subject" style="font-size:14px; font-weight:bold; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">音乐文件描述</td>
+														<td class="subject" style="font-size:14px; font-weight:bold; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; background:#F8FDFF;">地址</td>
+													</tr>
+												</thead>
+												<tbody>
+												<!--{if $mydiskfilelist}-->
+												<!--{loop $mydiskfilelist $key $value}-->
+													<tr<!--{if $key%2==1}--> class="alt"<!--{/if}-->>
+														<td width="230" style="padding: 2px 10px;">
+															<div style="width: 220px; text-overflow: ellipsis; text-align: left; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;">
+																$value[filedescription]
+															</div>
+														</td>
+														<td style="padding: 2px 10px;">
+															<div><span style="font-weight:bold; color:#FF0000; cursor: pointer;" onclick="setdiskurlvalue('$value[fileurl]');hideMenu();">选择</span></div>
+														</td>
+													</tr>
+												<!--{/loop}-->
+												<!--{else}-->
+												<tr>
+													<td class="subject">暂时没有!<a href="space.php?do=musicbox&mview=disk" target="_blank">现在上传</a></td>
+													<td class="subject">&nbsp;</td>
+													<td class="subject">&nbsp;</td>
+												</tr>
+												<!--{/if}-->
+												</tbody>
+											</table>
+							</div>
+<!--{elseif $op == 'sharetomyfriend'}-->
+
+<div id="sharetomyfriend_$_GET[songid]">
+				<!--{if !$_SGLOBAL['supe_uid']}-->
+						<p class="alert">请你先登录!<input type="button" name="btnclose" value="关闭" onclick="hideMenu();" class="button" /></p>
+				<!--{else}-->
+							<form id="sharetomyfriendform" method="post" action="space.php?do=musicbox&mop=tosharetomyfriend&songid=$_GET[songid]">
+										<h1>分享音乐给我的好友</h1>
+										<input type="button" name="sharetomyfriendsubmit_btn" value="确定" class="submit" onclick="ajaxpost('sharetomyfriendform', 'sharetomyfriend_send', 2000)" />
+										<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />
+										<ul class="avatar_list" style="width:320px;">
+												<!--{loop $shareolfriendlist $key $value}-->
+													<li style="height:18px; width:70px; padding:3px;">
+														<p style="text-align:left;"><input type="checkbox" name="myfriends[]" value="$value[uid]" /><a href="space.php?uid=$value[uid]" target="_blank">{$_SN[$value[uid]]}</a></p>
+													</li>
+												<!--{/loop}-->
+										</ul>
+										<input type="hidden" name="sharetomyfriendsubmit" value="true" />
+										<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+							</form>
+				<!--{/if}-->
+							
+							
+</div>
+
+
+
+<!--{elseif $op == 'tonotc'}-->
+		<h1>取消收藏</h1>
+		<a href="javascript: hideMenu();" class="float_del" title="关闭">关闭</a>
+		<div id="tonotc_$_GET[mid]">
+			<form id="tonotcform" method="post" action="space.php?do=musicbox&mop=tonotc&mid=$_GET[mid]">
+							<p>确定要取消制定收藏吗？</p>
+							<p class="btn_line">
+								<input type="hidden" name="tonotcsubmit" value="true" />
+								<input type="button" name="tonotcsubmit_btn" value="确定" class="submit" onclick="ajaxpost('tonotcform', 'tonotc_send', 2000)" />
+							</p>
+						<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+			</form>
+		</div>
+		
+<!--{elseif $op == 'deletemusicpinglun'}-->
+		<h1>删除评论</h1>
+		<a href="javascript: hideMenu();" class="float_del" title="关闭">关闭</a>
+		<div class="popupmenu_inner" id="__deletemusicpinglunform">
+			<form id="deletemusicpinglunform" name="deletemusicpinglunform" method="post" action="space.php?do=musicbox&mop=deletemusicpinglun&plid=$_GET[plid]&puserid=$_GET[puserid]">
+							<p>确定删除指定的评论吗？</p>
+							<p class="btn_line">
+								<input type="hidden" name="deletemusicpinglunsubmit" value="true" />
+								<input type="button" name="deletemusicpinglunsubmit_btn" value="确定" class="submit" onclick="ajaxpost('deletemusicpinglunform', 'deletemusicpinglun_send', 2000)" />
+							</p>
+						<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+			</form>
+		</div>
+
+<!--{elseif $op == 'tomymusicbox'}-->
+			<!--{if !$_SGLOBAL['supe_uid']}-->
+						<p class="alert">请你先登录!<input type="button" name="btnclose" value="关闭" onclick="hideMenu();" class="button" /></p>
+			<!--{else}-->
+							<!--{if !empty($songexist)}-->
+								已经存在此音乐!<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />
+							<!--{else}-->
+									<div id="tomymusicbox_$_GET[songid]">
+										<form id="tomymusicboxform" method="post" action="space.php?do=musicbox&mop=tomymusicbox&songid=$_GET[songid]">
+														<h1>确定要添加到音乐盒吗？</h1>
+														<p class="btn_line">
+															<input type="hidden" name="tomymusicboxsubmit" value="true" />
+															<input type="button" name="tomymusicboxsubmit_btn" value="确定" class="submit" onclick="ajaxpost('tomymusicboxform', 'tomymusicbox_send', 2000)" />
+															<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />
+														</p>
+													<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+										</form>
+									</div>
+							<!--{/if}-->
+			<!--{/if}-->
+							
+
+<!--{elseif $op == 'tocollection'}-->
+
+
+			<!--{if !$_SGLOBAL['supe_uid']}-->
+						<p class="alert">请你先登录!<input type="button" name="btnclose" value="关闭" onclick="hideMenu();" class="button" /></p>
+			<!--{else}-->
+						<!--{if !empty($csongexist)}-->
+							你已经收藏了此音乐!<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />
+						<!--{else}-->
+								<a href="javascript: hideMenu();" class="float_del" title="关闭">关闭</a>
+								<div id="tocollection_$_GET[songid]">
+									<form id="tocollectionform" method="post" action="space.php?do=musicbox&mop=tocollection&songid=$_GET[songid]">
+													<h1>确定要收藏此音乐吗？</h1>
+													<p class="btn_line">
+														<input type="hidden" name="tocollectionsubmit" value="true" />
+														<input type="button" name="tocollectionsubmit_btn" value="确定" class="submit" onclick="ajaxpost('tocollectionform', 'tocollection_send', 2000)" />
+														<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />
+													</p>
+												<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+									</form>
+								</div>
+						<!--{/if}-->
+			<!--{/if}-->
+
+<!--{elseif $op == 'deletemymusic'}-->
+<div id="deletemusicformidn_$_GET[mid]">
+	<form id="deletemusicform" method="post" action="space.php?do=musicbox&mop=deletemusic&mid=$_GET[mid]&isupload=$_GET[isupload]">
+					<h1>确定要删除此音乐吗？</h1>
+					<p class="btn_line">
+						<input type="hidden" name="deletemusicsubmit" value="true" />
+						<input type="button" name="deletemusicsubmit_btn" value="确定" class="submit" onclick="ajaxpost('deletemusicform', 'musicdelete', 2000)" />
+						<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />
+					</p>
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+</div>
+<!--{elseif $op == 'deletemymusicalbum'}-->
+<div id="deletemusicalbumformidn_$_GET[albumid]">
+	<form id="deletemusicalbumform" method="post" action="space.php?do=musicbox&mop=deletemymusicalbum&albumid=$_GET[albumid]&spaceuid=$_GET[spaceuid]">
+					<h1>确定要删除此专辑吗？</h1>
+					<p class="btn_line">
+						<input type="hidden" name="deletemusicalbumsubmit" value="true" />
+						<input type="button" name="deletemusicalbumsubmit_btn" value="确定" class="submit" onclick="ajaxpost('deletemusicalbumform', 'musicalbumdelete', 2000)" />
+						<input type="button" name="btnclose" value="取消" onclick="hideMenu();" class="button" />
+					</p>
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+	</form>
+</div>
+<!--{elseif $op == 'getmusicpingfenuser'}-->
+			<!--{if $mymusicpingfen}-->
+				<ul class="avatar_list">
+					<!--{loop $mymusicpingfen $key $value}-->
+						<!--{if $value[puserid]==$_SGLOBAL['supe_uid']}--><!--{eval $iamdo=1}--><!--{/if}-->
+						<li style="padding: 0px 0px;">
+							<div class="avatar48"><a href="space.php?uid=$value[puserid]&do=musicbox&view=me" target="_blank"><!--{avatar($value[puserid],small)}--></a></div>
+							<p style="text-align:center;"><a href="space.php?uid=$value[puserid]" title="{$_SN[$value[puserid]]} $value[mark]分" target="_blank">{$_SN[$value[puserid]]}</a><em style="font-size:10px;">($value[mark]分)</em></p>
+						</li>
+					<!--{/loop}-->
+				</ul>
+			<!--{else}-->
+				&nbsp;&nbsp;暂时没有评分记录!
+			<!--{/if}-->
+			
+			<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b" style="background:#fff5b8">
+									
+						    			
+								    	<table width="100%" border="0" cellpadding="0" cellspacing="2">
+											  <tr>
+											    <td width="75"><input type="radio" name="pingfen" value="5">非常好听</td>
+											    <td><img src="images/star5.gif" /></td>
+											  </tr>
+											  <tr>
+											    <td><input type="radio" name="pingfen" value="4">还不错</td>
+											    <td><img src="images/star4.gif" /></td>
+											  </tr>
+											  <tr>
+											    <td><input type="radio" name="pingfen" value="3">一般吧</td>
+											    <td><img src="images/star3.gif" /></td>
+											  </tr>
+											  <tr>
+											    <td><input type="radio" name="pingfen" value="2">比较难听</td>
+											    <td><img src="images/star2.gif" /></td>
+											  </tr>
+											  <tr>
+											    <td><input type="radio" name="pingfen" value="1">太难听了</td>
+											    <td><img src="images/star1.gif" /></td>
+											  </tr>
+											  <tr>
+											    <td align="left" colspan="2">
+											    	<!--{if !$_SGLOBAL['supe_uid']}-->
+											    				<p class="alert">请登录后评分!</p>
+											    	<!--{else}-->
+														    	<!--{if $_GET['songuserid']==$_SGLOBAL['supe_uid']}-->
+														    		<p class="alert">不允许推荐者本人评分!</p>
+														    	<!--{else}-->
+														    		<!--{if $iamdo==1}-->
+														    			<p class="alert">你已经给此音乐评分了!</p>
+														    		<!--{else}-->
+														    			<input type="hidden" name="pingfensubmit" value="true" />
+														    			<input type="button" name="commendpingfen_btn" value="提交" class="submit" onclick="ajaxpost('musicpingfenform', 'musicpingfenget', 2000)">
+														    			<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+														    		<!--{/if}-->
+														    	<!--{/if}-->
+														<!--{/if}-->
+											    </td>
+											  </tr>
+											</table>
+									
+			</div></div></div></div>
+			
+<!--{elseif $op == 'getmusicpinglun'}-->
+			<!--{if $mymusicpinglun}-->
+				<table width="100%" border="0" cellpadding="3" cellspacing="5">
+					<!--{loop $mymusicpinglun $key $value}-->
+					  <tr>
+					    <td width="60" valign="top" style="border-right:solid 1px #ccc;">
+					    	<div class="avatar48"><a href="space.php?uid=$value[puserid]&do=musicbox&view=me" target="_blank"><!--{avatar($value[puserid],small)}--></a></div>
+								<p style="text-align:center;"><a href="space.php?uid=$value[puserid]" title="{$_SN[$value[puserid]]}" target="_blank">{$_SN[$value[puserid]]}</a></p>
+								<p class="time" style="text-align:center;"><!--{date('H:i',$value[dateline],1)}--></p>
+					    </td>
+					    <td valign="top" style='word-break:break-all'><pre style="width:150px;word-break: break-all; word-wrap:break-word;"><!--{if $_SGLOBAL['supe_uid']==$_GET['songuser'] || $_SGLOBAL['member']['groupid']==1}--><a href="do.php?ac=ajaxm&op=deletemusicpinglun&plid=$value[id]&puserid=$value[puserid]" id="cpl_$value[id]_delete" onclick="ajaxmenu(event, this.id)"><img src="images/web_icon_009.gif" align="right" /></a><!--{/if}-->$value[pltext]</pre></td>
+					  </tr>
+				  <!--{/loop}-->
+				</table>
+				<!--{if $multi}--><div class="page">$multi</div><!--{/if}-->
+			<!--{else}-->
+				&nbsp;&nbsp;&nbsp;&nbsp;暂时没有评论记录!
+			<!--{/if}-->
+<!--{elseif $op == 'getcollectionuser'}-->
+		<!--{if $collectionuserlist}-->
+				<ul class="avatar_list" style="padding-left:5px;">
+									<!--{loop $collectionuserlist $key $value}-->
+										<li style="padding: 0 5px 0 0;">
+											<div class="avatar48"><a href="space.php?uid=$value['uid']&do=musicbox&view=me" target="_blank"><!--{avatar($value['uid'],small)}--></a></div>
+											<p style="text-align:center;"><a href="space.php?uid=$value['uid']" title="{$_SN[$value['uid']]}" target="_blank">{$_SN[$value['uid']]}</a></p>
+										</li>
+									<!--{/loop}-->
+				</ul>
+		<!--{else}-->
+			&nbsp;&nbsp;暂时还没有
+		<!--{/if}-->
+		
+<!--{elseif $op == 'getmyboxlist'}-->
+
+			<ul id="share_ul">
+				<!--{loop $mymusicboxlist $key $value}-->
+					<li>
+						<div class="title" style="background:#FEFEFE;">
+							<div class="r_option"><!--{if $key==0}--><span style="cursor: pointer;" onclick="orderdown($key)"><img src="images/04563141.gif"/></span><!--{else}--><!--{if ($key+1)==$mymusicboxlisttc}--><span style="cursor: pointer;" onclick="orderup($key)"><img src="images/04563158.gif"/></span><!--{else}--><span style="cursor: pointer;" onclick="orderup($key)"><img src="images/04563158.gif"/></span><span style="cursor: pointer;" onclick="orderdown($key)"><img src="images/04563141.gif"/></span><!--{/if}--><!--{/if}--><img src="images/web_icon_009.gif" onclick="musicsboxsdel($value[boxid])" style="cursor: pointer;" /><!--<!--{if $value['page']==1}--><img src="images/mbi_016.gif" /><img src="images/mbi_016n.gif" onclick="musicsetbgnot($value[boxid])" style="cursor: pointer;" /><!--{else}--><img src="images/mbi_0160.gif" onclick="musicsetbg($value[boxid])" style="cursor: pointer;" /><img src="images/web_icon_009.gif" onclick="musicsboxsdel($value[boxid])" style="cursor: pointer;" /><!--{/if}-->--></div>
+								<div id="mlistid_<!--{eval echo $key+1}-->" style="padding:3px 3px 3px 10px; ">
+									<span style="color:#00B4FF; font-size:10px; font-weight:bold;"><em><!--{eval echo $key+1}--></em></span> <a href="space.php?uid=$value['userid']&do=musicbox&mview=mpage&mid=$value[songid]">$value['songname']</a>
+								</div>
+							</div>
+					</li>
+				<!--{/loop}-->
+			</ul>
+
+<!--{/if}-->
+
+<!--{template footer}-->

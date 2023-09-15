@@ -1,0 +1,12 @@
+
+	<ul id="spics" style="margin-left: 0;">
+	<!--{loop $piclist $key $value}-->
+		<li class="spic_$key">
+			<div class="spic_img"><a href="space.php?uid={$value[uid]}&do=album&picid={$value[picid]}" target="_blank">
+			<strong>$value[picnum]</strong>
+			<img src="attachment/$value[pic]" alt="$value[albumname]" /></a></div>
+			<p><a href="space.php?uid=$value[uid]">{$_SN[$value[uid]]}</a></p>
+			<p><!--{date('m-d H:i',$value[updatetime],1)}--></p>
+		</li>
+	<!--{/loop}-->
+	</ul>

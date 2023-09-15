@@ -1,0 +1,60 @@
+<!--{template header}-->
+<!--{template cp_header}-->
+
+<div id="content" class="c_form">
+<!--{if $_POST['rbinfo']=='check'}-->
+	<div class="c_mgs"><div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+	<table cellspacing="0" cellpadding="0" class="formtable"><form method="post" action="cp.php?ac=card">
+	<input type="hidden" name="rbinfo" value="in" size="32">
+		<caption>
+			<h2>积分充值卡，输入卡号与卡密码即可免费得到相应的积分数。</h2>
+		</caption>
+		<tr><th width="30%">目前您的积分数</th><td><span style="color:red;font-size:20px;font-weight:bold;">$space[credit]</span> <!--{eval echo getstar($space[credit]);}--> <br>(<a href="network.php?ac=space&view=credit">查看排名</a>)[<a href="pay.php" target="_blank">点击购买积分</a>]</td>
+		<tr><th width="30%">积分图标说明</th><td style="padding:0 0 10px 0;line-height:180%;">
+			积分每满 <strong>$_SCONFIG[starcredit]</strong> 个，就会拥有一个初级图标 <img src="image/star_level1.gif" align="absmiddle"><br>
+			每满 <strong>$_SCONFIG[starlevelnum]</strong> 个当前图标就升级为 <strong>1</strong> 个上级图标<br>
+			图标等级由高到低为：<!--{eval for($i=1;$i<11;$i++){}--><img src="image/star_level{$i}.gif"><!--{eval }}--></td></tr>
+		<tr><th>卡号</th><td><span>$cardnum<input type="hidden" name="cardnum" value="$cardnum" size="32"><input type="hidden" name="cardpsw" value="$cardpsw" size="32"></span></td></tr>
+		<tr><th>积分</th><td><font color ="#ff0000"><b>$card[money]</b></font>个</td></tr>
+		<tr><th>到期时间</th><td>$overtime</td></tr>
+		<tr><th>　</th><td><input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		<input type="submit" name="awardpsubmit" value="充值" class="submit">&nbsp;&nbsp;<input type="button" name="back" value="放弃返回" class="submit" onclick="history.back(-1);">
+</td></tr></form>
+	</table>
+	</div></div></div></div></div>
+<!--{else}-->
+	<div class="c_mgs"><div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b">
+	<table cellspacing="0" cellpadding="0" class="formtable"><form method="post" action="cp.php?ac=card">
+	<input type="hidden" name="rbinfo" value="check" size="32">
+		<caption>
+			<h2>积分充值卡，输入卡号与卡密码即可免费得到相应的积分数。</h2>
+		</caption>
+		<tr><th width="30%">目前您的积分数</th><td><span style="color:red;font-size:20px;font-weight:bold;">$space[credit]</span> <!--{eval echo getstar($space[credit]);}--> <br>(<a href="network.php?ac=space&view=credit">查看排名</a>)[<a href="pay.php" target="_blank">点击购买积分</a>]</td>
+		<tr><th width="30%">积分图标说明</th><td style="padding:0 0 10px 0;line-height:180%;">
+			积分每满 <strong>$_SCONFIG[starcredit]</strong> 个，就会拥有一个初级图标 <img src="image/star_level1.gif" align="absmiddle"><br>
+			每满 <strong>$_SCONFIG[starlevelnum]</strong> 个当前图标就升级为 <strong>1</strong> 个上级图标<br>
+			图标等级由高到低为：<!--{eval for($i=1;$i<11;$i++){}--><img src="image/star_level{$i}.gif"><!--{eval }}--></td></tr>
+		<tr><th>请输入卡号</th><td><span><input type="text" name="cardnum" value="" size="32"></span></td></tr>
+		<tr><th>请输入密码</th><td><input type="text" name="cardpsw" value="" size="32"></td></tr>
+		<tr><th>　</th><td><input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+		<input type="submit" name="awardpsubmit" value="提交" class="submit">&nbsp;&nbsp;<input type="button" name="back" value="放弃返回" class="submit" onclick="history.back(-1);">
+</td></tr></form>
+	</table>
+	</div></div></div></div></div>
+<!--{/if}-->
+	<table cellspacing="0" cellpadding="0" class="formtable">
+	<caption>
+		<h2>如何获取积分充值卡</h2>
+	</caption>
+	<tr><th width="30%"></td></tr>
+	</table>
+</div>
+<div id="sidebar" style="width:150px;">
+	<div class="cat">
+	<h3>积分充值卡简介</h3>
+	<ul class="post_list line_list">
+		<li>积分充值卡简介</li>
+	</ul>
+	</div>
+</div>
+<!--{template footer}-->

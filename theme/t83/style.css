@@ -1,0 +1,57 @@
+/*
+[name]³èÎï[/name]
+Powered by Ucenter Home
+*/
+
+
+body { background: #fff; color: #312E41; }
+	a { color: #000; }
+
+#wrap { width: 1000px; }
+
+#header { width: 1000px; height: 386px; border: none; background: url(image/header.jpg) no-repeat 100% 0; }
+	#header h2 { border: none; }
+		#header h2 a { position: absolute; left: 200px; top: 350px; display: block; width: 230px; height: 50px; text-indent: -9999px; overflow: hidden; }
+	#menu { left: 500px; top: 358px; }
+#menu a{ color:#12a0fa;font-size:14px;text-decoration:none;font-weight:bold; }
+		#menu a:hover { background-color: #eceff1; }
+	#op { right: 10px; top: 0px;}
+        #op a { color: #6474e8; }
+	#op .pipe { color: #2d3fc3; }
+
+#content { background: url(image/bg.jpg) repeat-y 100% 0; }
+
+
+#side { padding-bottom: 0px; height: 336px; width: 194px; background: #FFF url(image/lbg.jpg) no-repeat 0 100%; }
+	#side .app_list { padding: 70px 30px 0px 25px; border: none; }
+#side .app_list li { height: 31px; background: url(image/title.png) no-repeat 0 0; !important; }
+			#side .app_list li a { display: inline; padding-left: 0px; color: #fff; font-size: 12px; text-indent: 0;  }
+			#side .app_list li em { height: 0; right: 0px; }
+				#side .app_list li em a { padding-right: 0px; color: #fff; }
+
+
+#mainarea { width: 806px; border: none; background: transparent url(image/rbg.jpg) no-repeat 100% 0; }
+	.r_content { padding: 0 80px 0px 25px; }
+	.wide { width: 490px; }
+
+.box {}
+	.box h3, .title { border-top: none; border-bottom: 1px solid #ccc;  background: transparent url(); color: #990099; line-height: 26px; }
+	.box_action { border-top: none; background: transparent; }
+
+
+.i_header { padding-left: 243px; border: none; background: transparent; }
+	.i_header span { margin-right: 250px; display: inline; }
+.f_status { padding-bottom: 5px; padding-right: 90px; border: none; background: transparent url() no-repeat 0 100%; }
+
+#space_basicinfo { min-height: 120px; }
+	* html #space_basicinfo { height: 120px; overflow: visible; }
+
+.space_wall_post { background: transparent;  }
+
+#footer {width:1000px;height:35px;color:#e0dfdc;margin:0px;text-align:center;background:url(image/footer.jpg) no-repeat left  top; padding-top:25px; }
+
+	#footer a { color: #fff; }
+ textarea{padding:0 5px; border:1px solid #ccc; width:455px;height:120px;  background: transparent url();}
+.submit{height:28px;border: none;
+color:#fff; background:url(image/submit.gif)
+}

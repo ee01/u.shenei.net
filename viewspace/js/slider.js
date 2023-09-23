@@ -1,8 +1,8 @@
 /**
-* Ò»¸ö»¬Èë»¬³öµÄ¶¯Ì¬Ğ§¹û£»
-* @param:slide ĞèÒª»¬¶¯µÄ²ãID£»
-* @param:direction »¬¶¯·½Ïò(in/out)£»
-* @param:callback »Øµ÷º¯Êı£»
+* ä¸€ä¸ªæ»‘å…¥æ»‘å‡ºçš„åŠ¨æ€æ•ˆæœï¼›
+* @param:slide éœ€è¦æ»‘åŠ¨çš„å±‚IDï¼›
+* @param:direction æ»‘åŠ¨æ–¹å‘(in/out)ï¼›
+* @param:callback å›è°ƒå‡½æ•°ï¼›
 */
 function sliderEffect(slide, direction, callback) {
 	if('undefined' == typeof(slide) || '' == slide) {
@@ -18,9 +18,9 @@ function sliderEffect(slide, direction, callback) {
 	this.slide = $(slide);
 	this.direction = direction;
 	var __method = this;
-	// ±ä»¯µÄ¼ä¸ôÊÂ¼ş£¬µ¥Î»Îª ms
+	// å˜åŒ–çš„é—´éš”äº‹ä»¶ï¼Œå•ä½ä¸º ms
 	this.timer = 7;
-	// ´Ó×îĞ¡µ½×î´óµÄ×î´ó±ä»¯´ÎÊı
+	// ä»æœ€å°åˆ°æœ€å¤§çš„æœ€å¤§å˜åŒ–æ¬¡æ•°
 	this.steps = 20;
 	this.curstep = 0;
 	this.stepY = 0;

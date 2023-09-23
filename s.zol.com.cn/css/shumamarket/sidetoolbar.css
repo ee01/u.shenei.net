@@ -1,6 +1,6 @@
 /*
-@Description: ÉÌ³Ç²à±ßÀ¸
-@author: ÀîÔÂ
+@Description: å•†åŸä¾§è¾¹æ 
+@author: ææœˆ
 @update: 2015-06-29
 */ 
 
@@ -95,7 +95,7 @@
 .zc-attention-click .zc-attention-ico{ background-color:#f33; background-position:0 -259px;}
 .zc-attention-click .zc-attention-layer{ display:block;}
 
-/* ÉÌ³ÇµÇÂ¼µ¯²ã */
+/* å•†åŸç™»å½•å¼¹å±‚ */
 .zc-toolbar-tabbar .login-layer-box{ position:absolute; top:51px; left:-352px; display: none; margin:0; padding:0; border:1px solid #e6e5e4; background:none; filter:none; -wekit-box-shadow:-4px -1px 5px rgba(0,0,0,0.05); box-shadow:-4px -1px 5px rgba(0,0,0,0.05);}
 .zc-toolbar-tabbar .login-layer{ width:350px;}
 .zc-toolbar-tabbar .login-head{ padding:28px 30px; background:none; border:0 none;}
@@ -107,7 +107,7 @@
 .login-layer-box .triangle{ position:absolute; top:62px; right:-7px; width:7px; height:13px; background-position:-30px -496px; font:0/0 arial;}
 .zc-toolbar-tabbar .login-wrong-tips{ height:32px; font:12px/32px Arial; border:0 none; background-color:#fff2f2; background-position:-15px -603px;}
 
-/* ÓÒ²àÇĞ»»²ã */
+/* å³ä¾§åˆ‡æ¢å±‚ */
 .zc-toolbar-plugins{position: relative; width:240px; height:100%; background:#ededed; z-index: 10;}
 .zc-toolbar-plugin{position: absolute;left:0;top:100%; width: 240px; height:100%;}
 .zc-toolbar-plugin-hd{ position:relative; zoom:1; height:50px;}
@@ -118,7 +118,7 @@
 .zc-scroll-bd{ position:relative; overflow: hidden;padding:0 5px 0 0; *zoom:1; }
 .zc-empty-box{ position:absolute; top:200px; left:0; padding:0 20px; width:200px; font:12px/20px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; text-align:center; color:#666;}
 
-/* ÎÒµÄ¶©µ¥ */
+/* æˆ‘çš„è®¢å• */
 .zc-order-list{ position:relative; height:706px; overflow-y:hidden;}
 .zc-order-list li{ margin:0 0 15px; padding:0 0 4px; background:#fff;}
 .zc-shop-name{ padding:0 10px; font:12px/26px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; background:#f8f8f8;}
@@ -142,7 +142,7 @@
 .zc-view-all span{ font-family:"Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";}
 .zc-view-all p{ color:#999;}
 
-/* ÎÒµÄ¹Ø×¢ */
+/* æˆ‘çš„å…³æ³¨ */
 .zc-attention-box .zc-scroll-bd{ padding:0 15px;}
 .zc-tabbar{ position:relative; overflow:hidden; margin:0 15px; padding:5px 0; background:#fff;}
 .zc-tabbar li{ float:left; margin:0 0 0 -1px; width:69px; border-left:1px dotted #ededed; text-align:center; font:14px/22px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; cursor:pointer;}
@@ -150,7 +150,7 @@
 .zc-tabbar .zc-current{ color:#f33;}
 .zc-tabbar .zc-current em{ color:#999;}
 
-/* µêÆÌ */
+/* åº—é“º */
 .zc-store-list{ margin:15px 0 0; overflow-y:hidden;}
 .zc-store-list li{ padding:0 0 15px;}
 .zc-store-list a{ display:block; width:210px; height:128px; background:#fff; text-align:center;}
@@ -159,7 +159,7 @@
 .zc-store-list .zc-button{ display:block; margin:12px auto 0; width:86px; height:28px; background:#f33; color:#fff; font:12px/28px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
 .zc-store-list a:hover{ text-decoration:none;}
 
-/* »î¶¯ */
+/* æ´»åŠ¨ */
 .zc-activity-list{ margin:15px 0 0; overflow-y:hidden;}
 .zc-activity-list li{ margin:0 0 15px; padding:0 0 10px; background:#fff; text-align:center;}
 .zc-activity-list .zc-hd{ position:relative; zoom:1; padding:0 30px; height:30px; background-color:#01c675; background-position:-14px -516px; font:14px/30px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; color:#fff; text-align:left;}
@@ -183,7 +183,7 @@
 .zc-more-activity-box .zc-activity-times{ color:#ccc;}
 .zc-more-activity-box .zc-activity-button{ position:absolute; top:7px; right:0; margin:0; width:62px; height:24px; line-height:24px; text-align:center;}
 
-/* ÉÌÆ· */
+/* å•†å“ */
 .zc-goods-box .zc-scroll-bd{ height:793px; overflow-y:hidden;}
 .zc-goods-hd{ margin:27px 15px 5px; position:relative; zoom:1;}
 .zc-goods-number{ font:12px/18px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; color:#666;}
@@ -214,7 +214,7 @@
 .zc-goods-box .zc-view-all{ padding:0;}
 .zc-attention-goods li:hover .zc-delete{display: block;}
 
-/* ÎÒµÄ×ã¼£ */
+/* æˆ‘çš„è¶³è¿¹ */
 .zc-footprint-box .zc-scroll-bd{ padding:0 15px;}
 .zc-footprint-hd{ margin:-4px 15px 0; font:12px/20px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; text-align:center;}
 .zc-footprint-hd .zc-tips{ padding:0 0 10px; color:#999;}
@@ -235,7 +235,7 @@
 .zc-layerbox .ok:hover{ background:#ed2121; color:#fff; text-decoration:none;}
 .zc-layerbox .cancel:hover{ border-color:#d8d8d8; color:#666; text-decoration:none;}
 
-/* ¹ºÎï³µ */
+/* è´­ç‰©è½¦ */
 .zc-cart-list li{ position:relative; zoom:1; margin:0 0 15px; padding:0 0 15px; background:#fff;}
 .zc-cart-list .zc-shop-name input{ margin:0 8px 0 0; _margin: -3px 5px 0 -4px;}
 .zc-cart-list .zc-checkbox{ float:left; width:21px;}
@@ -285,7 +285,7 @@
 .ps-container:hover > .ps-scrollbar-y-rail:hover { background-color: #eee; opacity: 0.9 }
 .ps-container:hover > .ps-scrollbar-y-rail:hover>.ps-scrollbar-y { background-color: #999 } 
 
-/* Ë«Ê®Ò»»î¶¯ */
+/* åŒåä¸€æ´»åŠ¨ */
 .activity-bb{ top:0; margin:0; padding:330px 0 0;}
 .activity-entrance,.activity-entrance .corner-mark{ background:url(../../..//icon.zol-img.com.cn/newshop/shop/201606/side_toolbar_activity.png) no-repeat;}
 .activity-entrance{ position:absolute; top:0; right:0; width:77px; height:276px; background-position:0 0;}
@@ -294,7 +294,7 @@
 .activity-entrance .main-venue-links{ height:47px;}
 .activity-entrance .coupon-links{ height:46px;}
 
-/* ÎÒµÄÓÅ»İÈ¯ */
+/* æˆ‘çš„ä¼˜æƒ åˆ¸ */
 .zc-coupons-list{ padding:0 0 0 10px;}
 .zc-coupons-list li{ width:225px; padding:0 0 15px;}
 .zc-coupons-list .coupons{ width:225px; height:131px; background:url(../../..//icon.zol-img.com.cn/newshop/shop/marketingtool/setcoupon/bar_coupon.png) no-repeat; color:#fff485;}
@@ -306,5 +306,5 @@
 .zc-coupons-list .store-links{ padding:5px 0 0; font:12px/18px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; text-align:center;}
 .zc-coupons-list .store-links a{ color:#36c;}
 .zc-coupons-list .store-links a:hover{ color:#c00;}
-/* ÓÅ»İÈ¯Ğ¡ºìµã */
+/* ä¼˜æƒ åˆ¸å°çº¢ç‚¹ */
 .zc-tab-coupons .xhd {background:red;width:10px;height:10px;border-radius:10px;padding:1px 1px 0;top:-8px;right:3px;position:absolute;display: none}

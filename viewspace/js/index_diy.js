@@ -7,14 +7,14 @@
 	var twomod = new Array('lc','cl');
 	var divClass = [];
 	var allblock = [];
-	var cur_transferdiv = ''; //ÓÉtransfer¼ÇÂ¼µ±Ç°µ¯³öµÄDIV£¬µ±ÓĞĞÂµÄµ¯³öÊ±ÏÈ¹Ø±ÕËü
-	var cur_block = ''; //µ±Ç°±à¼­µÄÄ£¿é
-	var cur_bclass = 'blocktitle'; //µ±Ç°×÷ÓÃÑùÊ½,¸ÄÍ·²¿ºÍÖ÷Ìå±³¾°Ê±ÓÃ
-	var shareselected = false; //ÅĞ¶ÏÊÇ·ñÑ¡ÔñÁË·ç¸ñ
-	var musicselected = false; //ÅĞ¶ÏÊÇ·ñÑ¡ÔñÁË²¥·ÅÆ÷
+	var cur_transferdiv = ''; //ç”±transferè®°å½•å½“å‰å¼¹å‡ºçš„DIVï¼Œå½“æœ‰æ–°çš„å¼¹å‡ºæ—¶å…ˆå…³é—­å®ƒ
+	var cur_block = ''; //å½“å‰ç¼–è¾‘çš„æ¨¡å—
+	var cur_bclass = 'blocktitle'; //å½“å‰ä½œç”¨æ ·å¼,æ”¹å¤´éƒ¨å’Œä¸»ä½“èƒŒæ™¯æ—¶ç”¨
+	var shareselected = false; //åˆ¤æ–­æ˜¯å¦é€‰æ‹©äº†é£æ ¼
+	var musicselected = false; //åˆ¤æ–­æ˜¯å¦é€‰æ‹©äº†æ’­æ”¾å™¨
 	var clr,cur_colortext,cur_colorclass,cur_colortag,cur_colorproperty;
 
-	// RGBÑÕÉ«Öµ×ª»»ÎªÊ®Áù½øÖÆÖµ
+	// RGBé¢œè‰²å€¼è½¬æ¢ä¸ºåå…­è¿›åˆ¶å€¼
 	function rgb(r, g, b, includeHash) {
 	    if (includeHash == undefined) {
 	        includeHash = true;
@@ -77,18 +77,18 @@
 			footerdiv.id = 'footer';
 			footerdiv.innerHTML = footerinnerhtml;
 			
-			//±ä»¯½á¹¹
-			if(in_array(setframe, threemod)) {//ÈıÁĞ±ä»»
+			//å˜åŒ–ç»“æ„
+			if(in_array(setframe, threemod)) {//ä¸‰åˆ—å˜æ¢
 				var leftinnerhtml = rightinnerhtml = contentinnerhtml = '';
 				if(in_array(defaultset, twomod)) {
 					maindiv = $('wraptwo');
-					//Á½ÁĞ±äÈıÁĞ
+					//ä¸¤åˆ—å˜ä¸‰åˆ—
 					var divs = maindiv.getElementsByTagName("div");
 					divClass = [];
 					getByClass($('dleft'), 'block', 0);
 					contentinnerhtml = $('dcontent').innerHTML;
 					
-					var num = Math.round(divClass.length/2);//ÅĞ¶ÏÁ½ÁĞµÄ×ó²à¸Ã·Ö¼¸¸ö¸øÈıÁĞµÄÓÒ²à
+					var num = Math.round(divClass.length/2);//åˆ¤æ–­ä¸¤åˆ—çš„å·¦ä¾§è¯¥åˆ†å‡ ä¸ªç»™ä¸‰åˆ—çš„å³ä¾§
 					var leftdiv = document.createElement("div");
 					leftdiv.className='frame_1';
 					
@@ -148,11 +148,11 @@
 					maindiv.appendChild(rightdiv);
 				}
 				maindiv.id = 'wrap';
-			} else if(in_array(setframe, twomod)) {//Á½ÁĞ±ä»»
+			} else if(in_array(setframe, twomod)) {//ä¸¤åˆ—å˜æ¢
 				var leftinnerhtml = contentinnerhtml = '';
 				if(in_array(defaultset, threemod)) {
 					maindiv = $('wrap');
-					//ÈıÁĞ±äÁ½ÁĞ
+					//ä¸‰åˆ—å˜ä¸¤åˆ—
 					leftinnerhtml = $('dleft').innerHTML + $('dright').innerHTML;
 					contentinnerhtml = $('dcontent').innerHTML;
 					maindiv.removeChild($('dleft'));
@@ -170,7 +170,7 @@
 					contentdiv.innerHTML=contentinnerhtml;
 				} else {
 					maindiv = $('wraptwo');
-					//Á½ÁĞÖ®¼ä
+					//ä¸¤åˆ—ä¹‹é—´
 					leftinnerhtml = $('dleft').innerHTML;
 					contentinnerhtml = $('dcontent').innerHTML;
 					var l_classname = $('dleft').className;
@@ -202,12 +202,12 @@
 			defaultset = setframe;
 			chgselectframe(setframe);	
 		}
-		//¸üĞÂÍÏ¶¯Àà
+		//æ›´æ–°æ‹–åŠ¨ç±»
 		sort = new sortDrag('block', 'blocktitle', 'blockcontent');
 	}
 
 	function chgselectframe(setframe) {
-		//±ä»¯Ñ¡ÖĞ×´Ì¬
+		//å˜åŒ–é€‰ä¸­çŠ¶æ€
 		var framelink = $('selectframe_content').getElementsByTagName('a');
 		for(var fi in framelink) {
 			if(framelink[fi].id != setframe+'_f' && typeof(framelink[fi].className) != 'undefined') {
@@ -237,13 +237,13 @@
 	function diysetblock(chkblock, blockid) {
 		if(chkblock.checked == true) {
 			if($(blockid) == null) {
-				alert('»¹Ã»ÓĞÕâ¸öÄ£¿é£¬ÇëÓë¹ÜÀíÔ±ÁªÏµ...');
+				alert('è¿˜æ²¡æœ‰è¿™ä¸ªæ¨¡å—ï¼Œè¯·ä¸ç®¡ç†å‘˜è”ç³»...');
 			} else {
 				$(blockid).style.display = '';
 			}
 		} else {
 			if($(blockid) == null) {
-				alert('»¹Ã»ÓĞÕâ¸öÄ£¿é£¬ÇëÓë¹ÜÀíÔ±ÁªÏµ...');
+				alert('è¿˜æ²¡æœ‰è¿™ä¸ªæ¨¡å—ï¼Œè¯·ä¸ç®¡ç†å‘˜è”ç³»...');
 			} else {
 				$(blockid).style.display = 'none';
 			}
@@ -516,8 +516,8 @@
 	}
 	
 	function changeheight_nav(obj) {
-		var newa_top, a_top = getstyle('ul', 'marginTop');	//µ¼º½Íâ¿ò¸ß¶È
-		var oldheight = getstyle("", 'height');	//µ¼º½Íâ¿ò¸ß¶È
+		var newa_top, a_top = getstyle('ul', 'marginTop');	//å¯¼èˆªå¤–æ¡†é«˜åº¦
+		var oldheight = getstyle("", 'height');	//å¯¼èˆªå¤–æ¡†é«˜åº¦
 		var limit_min = 31;
 		var limit_max = 200;
 		
@@ -537,7 +537,7 @@
 	}
 	
 	function changeheight_a(obj) {
-		var limit_max = getstyle("", 'height');	//µ¼º½Íâ¿ò¸ß¶È
+		var limit_max = getstyle("", 'height');	//å¯¼èˆªå¤–æ¡†é«˜åº¦
 		if(limit_max < 30) limit_max = 30;
 		limit_max = limit_max - 30;
 		var newvalue = parseInt(obj.body.style.left);
@@ -546,7 +546,7 @@
 	}
 	
 	function changeheight_player(obj) {
-		var limit_max = 128;	//²¥·ÅÆ÷Î»ÖÃ
+		var limit_max = 128;	//æ’­æ”¾å™¨ä½ç½®
 		var newvalue = parseInt(obj.body.style.left);
 		newvalue = parseInt(limit_max * newvalue / 100);
 		setblockstyle(newvalue, 'musicbody .music', '', 'top');
@@ -572,7 +572,7 @@
 		var limit_min = 70;
 		var limit_max = 500;
 		var oldvalue = getstyle('', 'height');
-		cur_block = 'title';//È¡titleµÄ¶¥²¿¾àÀë
+		cur_block = 'title';//å–titleçš„é¡¶éƒ¨è·ç¦»
 		var titletop = getstyle('', 'top');
 		cur_block = 'banner';
 		if(typeof(obj) == 'object') {
@@ -613,7 +613,7 @@
 		var leftdivs = contentdivs = new Array();
 		divClass = [];
 		var i;
-		//¿ªÊ¼Í³¼Æ¿ò¼Ü¼°¶ÔÓ¦µÄÄ£¿éid
+		//å¼€å§‹ç»Ÿè®¡æ¡†æ¶åŠå¯¹åº”çš„æ¨¡å—id
 		diystyle['allframe'] = new Array();
 		diystyle['allframe']['dleft'] = new Array();
 		getByClass($('dleft'), 'block', 0);
@@ -627,7 +627,7 @@
 			diystyle['allframe']['dcontent'][i] = divClass[i].id;
 		}
 		
-		if(in_array(defaultset, threemod)) {//Èç¹ûÊÇÈıÁĞÔòÍ³¼Ædright
+		if(in_array(defaultset, threemod)) {//å¦‚æœæ˜¯ä¸‰åˆ—åˆ™ç»Ÿè®¡dright
 			divClass = new Array();
 			diystyle['allframe']['dright'] = new Array();
 			getByClass($('dright'), 'block', 0);
@@ -638,9 +638,9 @@
 		$('diystyle').value = phpserialize.serialize(diystyle);
 		$('diy_form').submit();
 	}
-	//»Ö¸´Ä¬ÈÏ
+	//æ¢å¤é»˜è®¤
 	function stylegetback() {
-		if(confirm('Ò»µ«»Ö¸´£¬±¾´Î×Ô¶¨ÒåÑùÊ½½«¶ªÊ§£¬È·ÈÏ»Ö¸´Ô­×´Âğ£¿') == false) {
+		if(confirm('ä¸€ä½†æ¢å¤ï¼Œæœ¬æ¬¡è‡ªå®šä¹‰æ ·å¼å°†ä¸¢å¤±ï¼Œç¡®è®¤æ¢å¤åŸçŠ¶å—ï¼Ÿ') == false) {
 			return false;
 		}
 		
@@ -688,7 +688,7 @@
 	function setselected(selectid, svalue) {
 		var obj = $(selectid);
 		if(obj == null || obj == 'undefined') {
-			alert('Ñ¡Ôñ¿òÃ»ÕÒµ½£¬ÇëÈ·ÈÏ¡£');
+			alert('é€‰æ‹©æ¡†æ²¡æ‰¾åˆ°ï¼Œè¯·ç¡®è®¤ã€‚');
 		}
 		for(var i = 0; i < obj.options.length; i++) {
 			if(obj.options[i].value == svalue) {
@@ -698,7 +698,7 @@
 	}
 	
 
-//Í¼Æ¬Ñ¡Ôñ
+//å›¾ç‰‡é€‰æ‹©
 		var contentdiv = 'syspiclist';
 		var bgtype = '1';
 		var bg_color = '';
@@ -805,7 +805,7 @@
 				}
 				//alert(obj.src+', '+cur_bclass+', '+ cur_block +', background-image');
 				if(cur_block == 'menu') {
-					//µ±¸ü¸Äµ¼º½±³¾°Ê±°Ñµ±Ç°Á´½ÓµÄ±³¾°È¥µô
+					//å½“æ›´æ”¹å¯¼èˆªèƒŒæ™¯æ—¶æŠŠå½“å‰é“¾æ¥çš„èƒŒæ™¯å»æ‰
 					setblockstyle('', 'active', '', 'background-image');
 				}
 	
@@ -830,7 +830,7 @@
 			var newimage = new Image();
 			var imgH = 0;
 				newimage.src = mysrc;
-				// Èç¹ûÍ¼Æ¬ÒÑ¾­´æÔÚÓÚä¯ÀÀÆ÷»º´æ£¬Ö±½Óµ÷ÓÃ»Øµ÷º¯Êı
+				// å¦‚æœå›¾ç‰‡å·²ç»å­˜åœ¨äºæµè§ˆå™¨ç¼“å­˜ï¼Œç›´æ¥è°ƒç”¨å›è°ƒå‡½æ•°
 				if(newimage.complete) {
 					imgH = newimage.height;
 					if(imgH > 0 && typeof(mymin) != 'undefined') {
@@ -848,7 +848,7 @@
 					setblockstyle(mysrc, cur_bclass, '', 'background-image');
 					delete newimage;
 				}
-				//Í¼Æ¬ÏÂÔØÍê±ÏÊ±Òì²½µ÷ÓÃcallbackº¯Êı¡£
+				//å›¾ç‰‡ä¸‹è½½å®Œæ¯•æ—¶å¼‚æ­¥è°ƒç”¨callbackå‡½æ•°ã€‚
 				newimage.onload = onloadimg;
 				function onloadimg() {
 					imgH = newimage.height;
@@ -954,7 +954,7 @@
 				}
 			}
 		}
-// ÒôÀÖµØÖ·
+// éŸ³ä¹åœ°å€
 function setMusic(obj, del) {
 	if('undefined' == typeof(diystyle['music']) || 'string' == typeof(diystyle['music'])) {
 		diystyle['music'] = new Array();
@@ -966,7 +966,7 @@ function setMusic(obj, del) {
 	}
 	diystyle['music'][obj.id] = obj.value;
 }
-// Êó±êÑùÊ½
+// é¼ æ ‡æ ·å¼
 function setCursor(obj) {
 	//var cursorHost = '../imgwowo.5d6d.net/diyimg/';
 	var cursorPath = '';
@@ -994,7 +994,7 @@ function setCursor(obj) {
 	dss.addrule('body', 'cursor:' + cursorPath);
 }
 
-//ÊµÊ±±ä»¯ÑùÊ½
+//å®æ—¶å˜åŒ–æ ·å¼
 function switchstyle(styleid, mytype) {
 		if(!$('qwertadsf')) {
 			var iframe = document.createElement('div');
@@ -1012,7 +1012,7 @@ function switchstyle(styleid, mytype) {
 		$('qwertadsf').style.width = document.body.clientWidth + 'px';
 		$('qwertadsf').style.height = document.body.clientHeight + 'px';
 		$('qwertadsf').style.display = 'block';
-	dss.removerule_all(1);//É¾³ıËùÓĞ×Ô¶¨ÒåÑùÊ½
+	dss.removerule_all(1);//åˆ é™¤æ‰€æœ‰è‡ªå®šä¹‰æ ·å¼
 	var csstext = '';
 	var getcss = new Ajax();
 	if(typeof(mytype) == 'undefined') {

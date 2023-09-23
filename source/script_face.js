@@ -1,4 +1,4 @@
-//显示表情菜单
+//鏄剧ず琛ㄦ儏鑿滃崟
 function showFace(showid, target) {
 	var div = $('uchome_face_bg');
 	if(div) {
@@ -37,11 +37,11 @@ function showFace(showid, target) {
 		faceDiv.appendChild(faceul);
 		$('append_parent').appendChild(faceDiv)
 	}
-	//定位菜单
+	//瀹氫綅鑿滃崟
 	setMenuPosition(showid, 0);
 	div.style.display = '';
 }
-//插入表情
+//鎻掑叆琛ㄦ儏
 function insertFace(showid, id, target) {
 	var faceText = '[em:'+id+':]';
 	if($(target) != null) {

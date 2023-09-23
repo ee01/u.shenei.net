@@ -8,7 +8,7 @@ function validate_ajax(obj) {
     if (subject) {
     	var slen = strlen(subject.value);
         if (slen < 1 || slen > 80) {
-            alert("±êÌâ³¤¶È(1~80×Ö·û)²»·ûºÏÒªÇó");
+            alert("æ ‡é¢˜é•¿åº¦(1~80å­—ç¬¦)ä¸ç¬¦åˆè¦æ±‚");
             subject.focus();
             return false;
         }
@@ -41,7 +41,7 @@ function validate(obj) {
     if (subject) {
     	var slen = strlen(subject.value);
         if (slen < 1 || slen > 80) {
-            alert("±êÌâ³¤¶È(1~80×Ö·û)²»·ûºÏÒªÇó");
+            alert("æ ‡é¢˜é•¿åº¦(1~80å­—ç¬¦)ä¸ç¬¦åˆè¦æ±‚");
             subject.focus();
             return false;
         }
@@ -50,7 +50,7 @@ function validate(obj) {
     var makefeed = $('makefeed');
     if(makefeed) {
     	if(makefeed.checked == false) {
-    		if(!confirm("ÓÑÇéÌáĞÑ£ºÄúÈ·¶¨´Ë´Î·¢²¼²»²úÉú¶¯Ì¬Âğ£¿\nÓĞÁË¶¯Ì¬£¬ºÃÓÑ²ÅÄÜ¼°Ê±¿´µ½ÄãµÄ¸üĞÂ¡£")) {
+    		if(!confirm("å‹æƒ…æé†’ï¼šæ‚¨ç¡®å®šæ­¤æ¬¡å‘å¸ƒä¸äº§ç”ŸåŠ¨æ€å—ï¼Ÿ\næœ‰äº†åŠ¨æ€ï¼Œå¥½å‹æ‰èƒ½åŠæ—¶çœ‹åˆ°ä½ çš„æ›´æ–°ã€‚")) {
     			return false;
     		}
     	}
@@ -93,6 +93,6 @@ function edit_album_show(id) {
 
 //Add By 01
 function nohiddenreply() {
-	alert("µÈ¼¶²»¹»²»ÔÊĞíÊ¹ÓÃ´Ë¹¦ÄÜ£¡\n±ØĞëÉı¼¶µ½¡°ÓÑºÃÁÚÉá¡±");
+	alert("ç­‰çº§ä¸å¤Ÿä¸å…è®¸ä½¿ç”¨æ­¤åŠŸèƒ½ï¼\nå¿…é¡»å‡çº§åˆ°â€œå‹å¥½é‚»èˆâ€");
 	return false;
 }

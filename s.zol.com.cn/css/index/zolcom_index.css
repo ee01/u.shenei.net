@@ -1,6 +1,6 @@
 /*
-@Description: ÉÌ³ÇÊ×Ò³
-@author: ÀîÔÂ
+@Description: å•†åŸé¦–é¡µ
+@author: ææœˆ
 @update: 2015-05-27
 */
 
@@ -8,11 +8,11 @@
 .section-title .title{ background:url(../../..//icon.zol-img.com.cn/newshop/shop/index/row_title.png) no-repeat;}
 .phone-recharge .select .ico,.flash-sale-list .countdown span{ background:url(../../..//icon.zol-img.com.cn/newshop/shop/index/select_ico.png) no-repeat;}
 
-/* ¶¥²¿Í¨À¸¹ã¸æ */
+/* é¡¶éƒ¨é€šæ å¹¿å‘Š */
 .ad-banner{ position:relative; margin:10px 0 0; width:100%; height:90px;}
 .ad-banner img{ position:absolute; top:0; left:50%; margin:0 0 0 -960px;}
 
-/* ½¹µãÍ¼ */
+/* ç„¦ç‚¹å›¾ */
 .focus-box{ float:right; position:relative; zoom:1; margin:10px 10px 0 0; width:740px; height:400px;}
 .focus-inner{ position:relative; zoom:1; width:740px; height:400px; overflow:hidden;}
 .focus-inner ul{ position:absolute; top:0; left:0; width:1000%; height:400px;}
@@ -35,7 +35,7 @@
 :root .focus-prev-btn:hover span,:root .focus-next-btn:hover span{ filter:none;}
 .focus-prev-btn:hover i,.focus-next-btn:hover i{ opacity:0.8; filter:alpha(opacity=80);}
 
-/* ÉÌ³Ç¹«¸æ */
+/* å•†åŸå…¬å‘Š */
 .side{ float:right; width:240px;}
 .module{ margin:10px 0 0; padding:15px 20px; border:1px solid #ededed;}
 .module-title{ font:14px/22px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";}
@@ -46,7 +46,7 @@
 .mall-notice li a{ color:#666;}
 .mall-notice li a:hover{ color:#c00;}
 
-/* »°·Ñ³äÖµ */
+/* è¯è´¹å……å€¼ */
 .phone-recharge{ margin:-1px 0 0;}
 .phone-recharge .module-title{ padding:0 0 5px;}
 .phone-recharge dl,.phone-recharge dd,.phone-recharge .select{}
@@ -90,7 +90,7 @@
 .jd-section .title{ background-position:0 -184px;}
 .diy-section .title{ background-position:0 -230px;}
 
-/* ÏŞÊ±ÇÀ¹º */
+/* é™æ—¶æŠ¢è´­ */
 .flash-sale-list{ border-top:1px solid #ededed; border-bottom:1px solid #ededed;}
 .flash-sale-list li{ position:relative; zoom:1; float:left; margin:0 -1px 0 0; padding:19px 19px 15px; width:201px; border-left:1px solid #e7e7e7; border-right:1px solid #e7e7e7;}
 .flash-sale-list .pic img{ display:block;}
@@ -107,7 +107,7 @@
 .flash-sale-list .countdown em{ padding:0 3px;}
 .flash-sale-list .hover .countdown{ display:block;} 
 
-/* zÍÅ */
+/* zå›¢ */
 .z-tuan-list{ width:1200px; overflow:hidden;}
 .z-tuan-list ul{ position:relative; margin:0 -13px 0 0; width:1213px;}
 .z-tuan-list li{ float:left; margin:0 13px 0 0; padding:0 0 13px; width:288px; border:1px solid #ededed;}
@@ -143,11 +143,11 @@
 .figure-list .item:hover .pic{ -webkit-transform:translateY(-5px); -moz-transform:translateY(-5px); -ms-transform:translateY(-5px); -o-transform:translateY(-5px); transform:translateY(-5px);}
 .figure-list .item .pic img{ display:block;}
 
-/* Æ·ÅÆlogo */
+/* å“ç‰Œlogo */
 .brands-list{ margin:-1px 0 0; padding:0 0 0 3px; border:1px solid #ededed;}
 .brands-list li{ float:left; margin:0 -1px 0 0; padding:3px 1px;}
 .brands-list li img{ display:block;}
 .brands-list .hover{ padding:3px 0; border-left:1px solid #ededed; border-right:1px solid #ededed;}
 
-/* Ê×Ò³µ÷ÑĞ */
+/* é¦–é¡µè°ƒç ” */
 .research-link{ position:fixed; _position:absolute; _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-55)); top:405px; left:50%; margin:0 0 0 -668px; display:block; width:58px; height:75px; background:url(../../..//icon.zol-img.com.cn/newshop/shop/index/research_ico.png) no-repeat; font:0/0 arial; text-indent:-9999em;}

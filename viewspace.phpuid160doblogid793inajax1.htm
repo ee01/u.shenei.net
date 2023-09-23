@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=gbk" />
 
-<title>���ڽ��벩��  ���Ժ�... </title>
+<title>正在进入博客  请稍后... </title>
 
 <script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
 <script language="javascript" type="text/javascript" src="source/script_common.js"></script>
@@ -17,7 +17,7 @@
 <link type="text/css" rel="stylesheet" href="viewspace/css/template.css" />
 
 
-<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/01/60_style.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid160.htm" title="��Ө��" />
+<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/01/60_style.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid160.htm" title="蔡莹冰" />
 <link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.phprsd160" />
 </head>
 
@@ -29,33 +29,33 @@
 <div id="wraptwo">
 <div id="banner" class="banner">
 <div class="title" id="title">
-<h1 id="myblogname">���ڽ��벩��  ���Ժ�...  <em> 7385 �˴η���, 460������ <a href="do.phpacajaxopcredituid160" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level3.gif" align="absmiddle" /><img src="image/star_level3.gif" align="absmiddle" /></a></em></h1>
-<p>̫ �� ǿ    �� �� �� ��</p>
+<h1 id="myblogname">正在进入博客  请稍后...  <em> 7385 人次访问, 460个积分 <a href="do.phpacajaxopcredituid160" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level3.gif" align="absmiddle" /><img src="image/star_level3.gif" align="absmiddle" /></a></em></h1>
+<p>太 坚 强    是 软 弱 。</p>
 <p><a href="../dovelove.shenei.net/default.htm" onclick="javascript:setCopy('../dovelove.shenei.net');return false;" class="spacelink domainurl">http://dovelove.shenei.net</a></p>
 <iframe name="mainyinyue" src="about:blank" width="0" height="0">
 </iframe>
 <script language="javascript" src="viewspace/js/player1.js"></script>
 <script language="javascript" for="player1" event="playstatechange(newstate)">
-//�������¼�����
+//播放器事件触发
 switch (newstate){
 
   case 1:
-   musicSwf.SetVariable("musicName", "ֹͣ");
-   //playerinfo.innerHTML = "ֹͣ";
-   if (!userstop){//�ж��Ƿ����û��Լ�ֹͣ�����û�ֹͣ�Ļ��پ�������ѭ��   
-   //�ж��Ƿ�ѭ�����ǵĻ�1��󲥷���һ��
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
    if (loop) {
    setTimeout("next();",1000); 
    }
    }
    break;
   case 2:
-   //playerinfo.innerHTML = "��ͣ";
-   musicSwf.SetVariable("musicName", "��ͣ");
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
    break;
   case 3:
    musicSwf.SetVariable("musicName", RadioList[NowId]);
-   //playerinfo.innerHTML = "���ڲ���";
+   //playerinfo.innerHTML = "正在播放";
    break;
   case 4:
    //playerinfo.innerHTML = "4";
@@ -64,8 +64,8 @@ switch (newstate){
    //playerinfo.innerHTML = "5";
    break;
   case 6:
-   musicSwf.SetVariable("musicName", "���ڻ��塭��");
-   //playerinfo.innerHTML = "���ڻ��塭��";
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
    break;
   case 7:
    //playerinfo.innerHTML = "7";
@@ -74,10 +74,10 @@ switch (newstate){
    //playerinfo.innerHTML = "8";
    break;
   case 9:
-  musicSwf.SetVariable("musicName", "�������ӡ���");
+  musicSwf.SetVariable("musicName", "正在连接……");
    break;
   case 10:
-  musicSwf.SetVariable("musicName", "׼������");
+  musicSwf.SetVariable("musicName", "准备就绪");
    break;
   case 11:
    //playerinfo.innerHTML = "11";
@@ -85,10 +85,10 @@ switch (newstate){
   default:
    //playerinfo.innerHTML = "";
 }
-//�������¼���������
+//播放器事件触发结束
 </script>
 <script language="javascript">
-//�����б�
+//歌曲列表
 function musicSwf_DOFSCommand(command,args){
 if (command=="lay"){
 play();
@@ -111,7 +111,7 @@ showmusiclist();
 }
 </script>
 <script language="javascript">
-//���ֳ�ʼ��
+//音乐初始化
 function playerinit()
 {
 loop=true;
@@ -134,11 +134,11 @@ RadioList[5]="music_6"
 NowId=0;
 musicSwf.SetVariable("musicName", RadioList[NowId]);
 player1.URL=listURL[NowId];
-//���ֳ�ʼ����
+//音乐初始结束
 }
 </script>
 <script language="vbscript">
-//���ֲ�������FSCommand
+//音乐播放器命FSCommand
 Sub musicSwf_FSCommand(ByVal command, ByVal args)
 call musicSwf_DOFSCommand(command, args)
 end sub
@@ -159,32 +159,32 @@ end sub
 <!--
 <li>
 <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=160', '');">
-��ҳ </a></li>
+主页 </a></li>
 -->
 
 <li>
 <a  href="viewspace.phpuid160.htm">
-��ҳ </li>
+主页 </li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doaboutme', 'aboutme');">
-�� </a></li>
+我 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doblogviewme', 'blog');">
-�������� </a></li>
+自言自语 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doalbumviewme', 'album');">
-ӳ�� </a></li>
+映像集 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160dopollviewme', 'poll');">
-ͶƱ </a></li>
+投票 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160dofriendviewme', 'friend');">
-��/�� </a></li>
+他/她 </a></li>
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160dowallviewme', 'wall');">
-�˵س��� </a></li>
+此地畅言 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doapplist', 'applist');">
-���� </a></li>
+无用 </a></li>
 </ul>
 </div>
 </div>
@@ -220,35 +220,35 @@ end sub
 <em>
 
 <a id="a_magic_viewmagiclog" href="magic.phpmidviewmagiclogidtypeuidid160.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="image/magic/viewmagiclog.small.gif" title="���Ծ�" alt="���Ծ�" style="vertical-align: middle;" />
+<img src="image/magic/viewmagiclog.small.gif" title="八卦镜" alt="八卦镜" style="vertical-align: middle;" />
 </a>
 <a id="a_magic_viewmagic" href="magic.phpmidviewmagicidtypeuidid160.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="image/magic/viewmagic.small.gif" title="͸�Ӿ�" alt="͸�Ӿ�" style="vertical-align: middle;" />
+<img src="image/magic/viewmagic.small.gif" title="透视镜" alt="透视镜" style="vertical-align: middle;" />
 </a>
 <a id="a_magic_viewvisitor" href="magic.phpmidviewvisitoridtypeuidid160.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="image/magic/viewvisitor.small.gif" title="͵����" alt="͵����" style="vertical-align: middle;" />
+<img src="image/magic/viewvisitor.small.gif" title="偷窥镜" alt="偷窥镜" style="vertical-align: middle;" />
 </a>
 </em>
-<h2>��������</h2>
+<h2>个人资料</h2>
 </div>
 <div class="blockcontent">
 <div class="userinfo">
 <a href="viewspace.phpuid160.htm" class="avatar"><img src="../uc.shenei.net/data/avatar/000/00/01/60_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_big.gif'"></a>
 <div class="username">
-<p >�ǳƣ�<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160.htm', '');">��Ө��</a></p>
-<p>�ȼ���<a href="do.phpacajaxopcredituid160" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level3.gif" align="absmiddle" /><img src="image/star_level3.gif" align="absmiddle" /></a></p>
-<p>������
-<img src="viewspace/img/tool/video_off.gif" align="absmiddle" title="δ��Ƶ��֤�û�" alt="δ��Ƶ��֤�û�"/>
-<a href="pay.phpacvip.htm"><img src="image/pay/vip.gif" title="VIP��Ա:����VIP" alt="VIP��Ա"  border="0" align="absmiddle" /></a>
+<p >昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160.htm', '');">蔡莹冰</a></p>
+<p>等级：<a href="do.phpacajaxopcredituid160" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level3.gif" align="absmiddle" /><img src="image/star_level3.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<img src="viewspace/img/tool/video_off.gif" align="absmiddle" title="未视频认证用户" alt="未视频认证用户"/>
+<a href="pay.phpacvip.htm"><img src="image/pay/vip.gif" title="VIP会员:终身VIP" alt="VIP会员"  border="0" align="absmiddle" /></a>
 </p>
 </div>
 <div class="tool">
-<a href="cp.phpacfetionuid160" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="�����ŵ�TA�ֻ�" class="fetion">���Ŷ���</a>
-<a href="cp.phpacpmuid160.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="����վ�ڶ���Ϣ" class="message">����Ϣ</a>
-<a href="cp.phpacpokeopsenduid160.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="����к�" class="hi">�ʺ�</a>
-<a href="cp.phpaccommonopreportidtypeuidid160.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="�ٱ�����" class="report">�ٱ�</a>
-<a href="userapp.phpid1027468my_suffixlw_253d_253d.htm" title="��������" class="sendgift" target="_blank">������</a>
-<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160dowallviewme', 'wall');" id="a_comment" title="��TA����" class="comment">���԰�</a>
+<a href="cp.phpacfetionuid160" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="发短信到TA手机" class="fetion">飞信短信</a>
+<a href="cp.phpacpmuid160.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="发送站内短消息" class="message">发消息</a>
+<a href="cp.phpacpokeopsenduid160.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="打个招呼" class="hi">问候</a>
+<a href="cp.phpaccommonopreportidtypeuidid160.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="举报此人" class="report">举报</a>
+<a href="userapp.phpid1027468my_suffixlw_253d_253d.htm" title="赠送礼物" class="sendgift" target="_blank">送礼物</a>
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160dowallviewme', 'wall');" id="a_comment" title="给TA留言" class="comment">留言板</a>
 </div>
 
 </div>
@@ -261,14 +261,14 @@ end sub
 
 <div class="block">		
 <div class="blocktitle">
-<h2>���ķ���</h2>
+<h2>博文分类</h2>
 </div>
 <div class="blockcontent">
 <div class="bloglist">
 <ul class="post_list line_list">
-<li class="current"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doblogviewme', '');">ȫ������</a></li>
+<li class="current"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doblogviewme', '');">全部博文</a></li>
 <li>
-<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doblogclassid56', '');">����б��</a>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid160doblogclassid56', '');">歪门斜理</a>
 </li>
 </ul>
 </div>
@@ -280,7 +280,7 @@ end sub
 <div class="frame_3">
 <div id="blog" class="block">		
 <div class="blocktitle">
-<h2>��Ө���Ĳ���</h2>
+<h2>蔡莹冰的博文</h2>
 </div>
 <div class="blockcontent">
 <div class="bloglist">
@@ -288,11 +288,11 @@ end sub
 <div>
 <div class="entry">
 <div class="title">
-<h1 >[<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuiddoblogclassid56', '');">����б��</a>]һ��ת��,һ���ӵĴ���.</h1>	<!--Modify By 01-->
-                         <a href="cp.phpacsharetypeblogid793.htm" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >����</a>
-                         <span class="hot"><em>��</em>2</span>                        1293 ���Ķ� | <span id="comment_replynum">2</span> ������
-<a href="space-160-do-tag.html">��ǩ</a>:&nbsp;
-<a href="space-160-do-tag-id-146.html">ת��ת��</a>&nbsp;
+<h1 >[<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuiddoblogclassid56', '');">歪门斜理</a>]一个转身,一辈子的错过.</h1>	<!--Modify By 01-->
+                         <a href="cp.phpacsharetypeblogid793.htm" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >分享</a>
+                         <span class="hot"><em>热</em>2</span>                        1293 次阅读 | <span id="comment_replynum">2</span> 个评论
+<a href="space-160-do-tag.html">标签</a>:&nbsp;
+<a href="space-160-do-tag-id-146.html">转了转了</a>&nbsp;
 <span class="time">2010-02-08 20:10</span>
 </div>
 
@@ -302,88 +302,88 @@ end sub
 <div class="resizeimg2">
 <div class="resizeimg3">
 <div class="resizeimg4">
-<DIV><SPAN style="COLOR: rgb(255,0,0)"><FONT face=����>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;������Ҫ����ˡ�</FONT></SPAN><FONT color=#0000ff> </FONT>
-<P align=center>��������¡�2��19�ա����������</P>
-<P align=center>֤����������ʢ�������Ǵ�����,�̽��š�</P>
-<P align=center>��ɯû���յ��������롣��˵������ȥ��&nbsp;</P>
-<P align=center>07��ġ���ݡ�</P>
-<P align=center>�����Ǹ���MV��޵�˺���ѷεľ���</P>
-<P align=center>�����׾������������</P>
-<P align=center>������ɯ��������ͬİ·�ˡ�</P>
+<DIV><SPAN style="COLOR: rgb(255,0,0)"><FONT face=黑体>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;梁静茹要结婚了。</FONT></SPAN><FONT color=#0000ff> </FONT>
+<P align=center>就是这个月。2月19日。大年初六。</P>
+<P align=center>证婚人是李宗盛。伴娘是戴佩妮,蔡健雅。</P>
+<P align=center>玛莎没有收到婚礼邀请。他说他不会去。&nbsp;</P>
+<P align=center>07年的《崇拜》</P>
+<P align=center>看见那个在MV里哭得撕心裂肺的静茹</P>
+<P align=center>不明白究竟是怎麽回事</P>
+<P align=center>她和玛莎就这样形同陌路了。</P>
 <P align=center>&nbsp;</P>
-<P align=center>����������Ҳû�к���ɯ��һ��</P>
+<P align=center>梁静茹最终也没有和玛莎在一起。</P>
 <P align=center><STRONG></STRONG>&nbsp;</P>
 <P align=center>&nbsp;</P>
-<P align=center><SPAN style="COLOR: rgb(255,0,0); FONT-FAMILY: ����"><STRONG>�����ӣ����ǽ���ˡ�</STRONG></SPAN></P>
-<P align=center><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><STRONG>���ڻ���ǰ�����Լ����������˺ó�ʱ�䡣</STRONG></SPAN></P>
-<P align=center><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><STRONG>����˵��"�Ⱳ�����Ҹ����£�����Ȣл�ȣ�ֻҪ��Ը��޸��ң������ھͿ���Ȣ��������</STRONG></SPAN></P>
-<P align=center><STRONG><SPAN style="FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,0)">������������һ��Ů�˽���ˡ�</SPAN> </SPAN></STRONG></P>
+<P align=center><SPAN style="COLOR: rgb(255,0,0); FONT-FAMILY: 黑体"><STRONG>那阵子，刘烨结婚了。</STRONG></SPAN></P>
+<P align=center><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><STRONG>他在婚礼前，把自己关起来哭了好长时间。</STRONG></SPAN></P>
+<P align=center><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><STRONG>曾经说着"这辈子最幸福的事，就是娶谢娜，只要她愿意嫁给我，我现在就可以娶她”的人</STRONG></SPAN></P>
+<P align=center><STRONG><SPAN style="FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,0)">就这样和另外一个女人结婚了。</SPAN> </SPAN></STRONG></P>
 <P>&nbsp;</P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">����˵��</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">��һ���Ӷ���������л�ȡ�</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">刘烨说，</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">他一辈子都不会忘了谢娜。</SPAN></STRONG></P>
 <P align=center>&nbsp;</P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">���������Ļ����Ŷ�������˸С�</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">可是这样的话听着都会觉得伤感。</SPAN></STRONG></P>
 <P align=center>&nbsp;</P>
-<P align=center><SPAN style="COLOR: rgb(0,0,0)">��������Ҳû�к�л����һ��</SPAN></P>
+<P align=center><SPAN style="COLOR: rgb(0,0,0)">刘烨最终也没有和谢娜在一起。</SPAN></P>
 <P>&nbsp;</P>
 <P align=center><STRONG></STRONG><SPAN style="COLOR: rgb(0,0,0)"></SPAN>&nbsp;</P>
 <P align=center><STRONG></STRONG><SPAN style="COLOR: rgb(0,0,0)"></SPAN>&nbsp;</P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">������������Ǿ�������ͬİ·���˴����</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">������</SPAN></STRONG><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">���ǲ����ǲ����Է��ˣ�</SPAN></STRONG><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">���ǲ��ܸ��Է�����Ҫ�����</SPAN></STRONG></P>
-<P align=center><SPAN style="COLOR: rgb(0,0,0)"><STRONG><SPAN style="FONT-FAMILY: ����">Ӧ�����ţ�</SPAN></STRONG><STRONG><SPAN style="FONT-FAMILY: ����">���ǻ�����Ȼ���ŶԷ���</SPAN></STRONG></SPAN></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">ֻ�ǣ�</SPAN></STRONG></P>
-<P align=center><SPAN style="COLOR: rgb(255,0,0)"><STRONG><SPAN style="FONT-FAMILY: ����">һ����������ôȥ����</SPAN></STRONG><STRONG><SPAN style="FONT-FAMILY: ����">һ���మȴ����Ϊ����</SPAN></STRONG></SPAN></P>
-<P align=center><STRONG></STRONG><SPAN style="COLOR: rgb(0,0,0)">&nbsp;</SPAN><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">�������������</SPAN></STRONG><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">�������ص��ϵ��ˣ�</SPAN></STRONG></P>
-<P align=center><SPAN style="COLOR: rgb(0,0,0)"><STRONG><SPAN style="FONT-FAMILY: ����">�������Ǹ�</SPAN></STRONG><STRONG><SPAN style="FONT-FAMILY: ����">��������ɽ�˺��ģ���ŵ��ͷ���ϣ�</SPAN></STRONG></SPAN><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">���Է����Ⱳ��ֻ����һ�����ˡ�</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">相恋多年的人们就这样形同陌路，彼此生活。</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">或许，</SPAN></STRONG><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">她们并不是不爱对方了，</SPAN></STRONG><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">而是不能给对方各自要的生活。</SPAN></STRONG></P>
+<P align=center><SPAN style="COLOR: rgb(0,0,0)"><STRONG><SPAN style="FONT-FAMILY: 黑体">应该相信，</SPAN></STRONG><STRONG><SPAN style="FONT-FAMILY: 黑体">他们或许依然爱着对方，</SPAN></STRONG></SPAN></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">只是，</SPAN></STRONG></P>
+<P align=center><SPAN style="COLOR: rgb(255,0,0)"><STRONG><SPAN style="FONT-FAMILY: 黑体">一个不懂得怎么去爱，</SPAN></STRONG><STRONG><SPAN style="FONT-FAMILY: 黑体">一个相爱却无能为力。</SPAN></STRONG></SPAN></P>
+<P align=center><STRONG></STRONG><SPAN style="COLOR: rgb(0,0,0)">&nbsp;</SPAN><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">生活就是这样，</SPAN></STRONG><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">最终相守到老的人，</SPAN></STRONG></P>
+<P align=center><SPAN style="COLOR: rgb(0,0,0)"><STRONG><SPAN style="FONT-FAMILY: 黑体">并不是那个</SPAN></STRONG><STRONG><SPAN style="FONT-FAMILY: 黑体">曾经许下山盟海誓，承诺白头偕老，</SPAN></STRONG></SPAN><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">暗自发誓这辈子只爱他一个的人。</SPAN></STRONG></P>
 <P align=center><STRONG></STRONG><SPAN style="COLOR: rgb(0,0,0)"></SPAN>&nbsp;</P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">�վ����վ�ʱ������һ�С�</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">������ʲô�������ɿ��˱˴˵��֣�</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">������ʲô�����Ƿ������Լ��������˶Է���</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">��һֱ˵���ûʲô��</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">Ȼ���ֶ��ű��˵Ĺ��³�Ĭ��</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">�����ջ����ƽ����ֻ�����ĵĲ�����ӿ��Ϊ��֪��</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">ֻ���Լ���֪����</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">˭���Լ����������Ǹ��ˣ�˭���������Լ����Ǹ��ˡ�</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����">�����������</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(255,0,0); FONT-FAMILY: ����">�����Ƕ����˱˴˵Ĺ�����</SPAN></STRONG></P>
-<P align=center><STRONG><SPAN style="COLOR: rgb(255,0,0); FONT-FAMILY: ����">��ֻ�����Ҽ�����ģ���ؼ�Ӱ���ѡ�</SPAN></STRONG></P>
-<P>һ��Ů��ͻȻ�����ĸ��మ��������ѷ����֣������������ˡ�</P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">��˵��Ҫ�����ʵ�ڵȲ����ˣ�������Ȼ������ȴ����û��һ���ⷽ�����˼��</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">���˼��꣬����Ҳ����ˡ�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�Ǹ�������ʵδ�ر�����ɫ���٣�������һ�����İ��ж�ô�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">ֻ���������ֵ�ʱ��ʵ��̫�ã��ոպ��������������밲��������ʱ��</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,102,255)"><SPAN style="COLOR: rgb(0,0,255)">���ǣ�����Ҫʲô���õ������ˣ�����������ʱ����ô����������</SPAN>��</SPAN></SPAN></SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><BR><SPAN style="COLOR: rgb(0,0,255)">��ʵ����ѰѰ��������ô�ã��鳢ÿһ�ΰ���������������</SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�����ѡ��İ��ˣ������������������⶯ʱ���������ߵ���һ����</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">ʲô��÷������ʲô������Ϭ��ʲôһ�����飬��������Щ���������Ľ�ڣ�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(255,0,0)">ʱ�����ڤڤ��һ�е����ס�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><BR><SPAN style="COLOR: rgb(0,0,255)">�������µ�ʱ��������Щ�����ǰ㻮�������İ��飬</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">���ǳ�����ѱ˴˵Ĵ������ΪԵ�֡�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">��ʵ˵���ף�Ե������ô��ó����һ������</SPAN>��</SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">����Ӱ�����ǵģ�����������һʱ�����������మ��ʱ����</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><BR><SPAN style="COLOR: rgb(0,0,255)">��Ů֮��Ľ��������������������Ĳ�ȷ����������ֹ����֣�</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">һ��СС�ı������Ϳ�����ȫ�ı�ѡ��ķ���</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�������ֵ���һ�㣬Ҳ�����Ͳ������һ����ʮָ���ۣ�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�ֻ�������������һ�㣬</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�����������ڸ��Եİ��龭��������ѧ���˰��ݺ����£��ƴ�����Э��</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">Ҳ���ߵ�һ���ʱ�򣬾Ͳ�����ô���׵ķ��������Ե�ת���������˰��顣</SPAN></SPAN></SPAN> </SPAN></P>
-<P><BR><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">������������ʱ����������˭�� </SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(204,153,255)"><BR></SPAN><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�����һ���˵�ʱ����������˭���ߣ� <BR>���������������ʱ������˭������ͬ�У�</SPAN> <BR><SPAN style="COLOR: rgb(255,0,0)">���鵽�׸��������ʱ�䣬ȥ�����ͷ��룬ȥѡ��ͺ�ڣ�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><BR><SPAN style="COLOR: rgb(0,0,255)">���¡������Ρ���</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">������ϼ����𱦵�ʱ�������������Ѱ�����İ׾�����</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">���������ڿ������������������һ���ᣬȴ�Ѿ�ʧȥ��ѡ���Ȩ����</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">ÿһ�ο�����Ǳ����һ���˵����壬ȥ����ǰ��Ƿ����һ���ŵ��</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�ٿ�����Ϧ���¹¶�����Զ�������鲻�Խ�����Ҫ���ᡣ</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">���ǲ��Ķ������ǲ���ڣ����Ѿ�û��ʱ�䣬��ȥ��ӵ��</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><BR><SPAN style="COLOR: rgb(0,0,255)">�����һ���˶��޷���һ��</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�మȴ�޷����ʵ���ʱ�������� <BR>����㰮�ˣ�ȴ������ʱ��;</SPAN></SPAN></SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">���������һ���ĵ׵��ᣬ���Ե���Զ����������ʲôѡ��</SPAN> <BR><SPAN style="COLOR: rgb(0,0,255)">ʱ��Ļ�Ұ��û����һ��Ҳû����һ����</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">��ǧ����֮�У�ȥ�����Լ��İ��ˣ�����̫�ѵõ�Ե�֣�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�����ʱ������ֻ���ڱ˴˲��ϵĴ������������Ʈ�ɵĴ����ִ����˷�Ҷɪ�����</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">ֱ�������ѩ���껪���٣���һ�δε������֮̾�󣬲��������˽⡪��</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">������ʹ��ֿ����ʹ���ܣ���ʹ�����˶������������ݣ�<SPAN style="COLOR: rgb(255,0,0)">���ǵİ�����Ȼ��Ҫʱ������ȫ�Ϳ���</SPAN>�� <BR><BR></SPAN><SPAN style="COLOR: rgb(0,0,255)">����������̫���������������������صĽ��ɣ�</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">����̫������Ԥ��ı�ʺ������ɼ�������Ϻϣ�</SPAN></SPAN></SPAN> </SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(255,0,0)">һ��ת����Ҳ�����Ѿ�һ���Ӵ�����</SPAN> <BR>�����Ժ󣬲Ż��͸���е���ȡ��Ŭ�������ֲ������˿���һ����Ц��</SPAN></SPAN></SPAN></SPAN></P>
-<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: ����"><SPAN style="COLOR: rgb(0,0,255)">�ϵ����ƶ�ֻգ��һգ�ۣ����еĽ�֣��Ͷ��Ѿ���ȫ�ı�</SPAN></SPAN></SPAN></SPAN></P></DIV></div>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">终究，终究时间会带走一切。</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">到底是什么让我们松开了彼此的手？</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">到底是什么让我们放弃了自己，放弃了对方？</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">会一直说真的没什么，</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">然后又对着别人的故事沉默。</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">表面终会归于平静，只是内心的波涛汹涌不为人知。</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">只有自己才知道，</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">谁是自己真正爱的那个人，谁又是伤了自己的那个人。</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体">所以最后的最后，</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(255,0,0); FONT-FAMILY: 黑体">当我们都有了彼此的归属，</SPAN></STRONG></P>
+<P align=center><STRONG><SPAN style="COLOR: rgb(255,0,0); FONT-FAMILY: 黑体">你只能是我记忆中模糊地剪影而已。</SPAN></STRONG></P>
+<P>一个女人突然决绝的跟相爱五年的男友分了手，闪电般嫁了他人。</P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">她说她要结婚她实在等不起了，而他虽然爱她，却根本没有一点这方面的意思。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">过了几年，男人也结婚了。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">那个新娘其实未必比她出色多少，或者这一次他的爱有多么深，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">只不过她出现的时机实在太好，刚刚好在他萌生倦意想安定下来的时候。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,102,255)"><SPAN style="COLOR: rgb(0,0,255)">于是，不需要什么更好的理由了，她来得正是时候，那么，就是她了</SPAN>。</SPAN></SPAN></SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><BR><SPAN style="COLOR: rgb(0,0,255)">其实我们寻寻觅觅了那么久，遍尝每一次爱情的甜蜜与艰辛，</SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">而最后选择的爱人，不过就是在我们心意动时，经过身边的那一个。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">什么青梅竹马，什么心有灵犀，什么一见钟情，都不过是些锦上添花的借口，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(255,0,0)">时间才是冥冥中一切的主宰。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><BR><SPAN style="COLOR: rgb(0,0,255)">回首往事的时候，想起那些如流星般划过生命的爱情，</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">我们常常会把彼此的错过归咎为缘分。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">其实说到底，缘分是那么虚幻抽象的一个概念</SPAN>，</SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">真正影响我们的，往往就是那一时三刻相遇与相爱的时机。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><BR><SPAN style="COLOR: rgb(0,0,255)">男女之间的交往，充满了犹疑忐忑的不确定与欲言又止的矜持，</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">一个小小的变数，就可以完全改变选择的方向。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">如果你出现的早一点，也许他就不会和另一个人十指紧扣；</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">又或者相遇的再晚一点，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">晚到两个人在各自的爱情经历中慢慢学会了包容和体谅，善待和妥协，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">也许走到一起的时候，就不会那么轻易的放弃，任性的转身，放走了爱情。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><BR><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">在你最美丽的时候，你遇见了谁？ </SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(204,153,255)"><BR></SPAN><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">在你深爱一个人的时候，他又陪在谁身边？ <BR>在你心灵最脆弱的时候，又是谁在与他同行？</SPAN> <BR><SPAN style="COLOR: rgb(255,0,0)">爱情到底给了你多少时间，去相遇和分离，去选择和后悔？</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><BR><SPAN style="COLOR: rgb(0,0,255)">重温《大话西游》，</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">看到紫霞深爱至尊宝的时候，他心心念念的寻找他的白晶晶，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">而当他终于看到了她留在心里的那一滴泪，却已经失去了选择的权利。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">每一次看到他潜入另一个人的身体，去偿还前世欠她的一句承诺，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">再看他在夕阳下孤独的走远，总是情不自禁的想要落泪。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">不是不心动，不是不后悔，但已经没有时间，再去相拥。</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><BR><SPAN style="COLOR: rgb(0,0,255)">如果爱一个人而无法在一起；</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">相爱却无法在适当的时间相遇； <BR>如果你爱了，却爱不对时间;</SPAN></SPAN></SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">除了珍藏那一滴心底的泪，无言的走远，你又能有什么选择？</SPAN> <BR><SPAN style="COLOR: rgb(0,0,255)">时间的荒野，没有早一步也没有晚一步，</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">于千万人之中，去邂逅自己的爱人，那是太难得的缘分，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">更多的时候，我们只是在彼此不断的错过，错过了杨花飘飞的春，又错过了枫叶瑟索的秋，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">直到漫天白雪，年华不再，在一次次的心酸感叹之后，才能终于了解——</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">——即使真挚，即使亲密，即使两个人都已是心有戚戚，<SPAN style="COLOR: rgb(255,0,0)">我们的爱，依然需要时间来成全和考验</SPAN>。 <BR><BR></SPAN><SPAN style="COLOR: rgb(0,0,255)">这世界有着太多这样那样的限制与隐秘的禁忌，</SPAN></SPAN></SPAN></SPAN><SPAN style="COLOR: rgb(0,0,255)"> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">又有太多难以预测的变故和身不由己的离离合合，</SPAN></SPAN></SPAN> </SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(255,0,0)">一个转身，也许就已经一辈子错过。</SPAN> <BR>多年以后，才会参透所有的争取和努力，都抵不过命运开的一个玩笑。</SPAN></SPAN></SPAN></SPAN></P>
+<P><SPAN style="COLOR: rgb(0,0,255)"><SPAN style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(0,0,0); FONT-FAMILY: 黑体"><SPAN style="COLOR: rgb(0,0,255)">上帝在云端只眨了一眨眼，所有的结局，就都已经完全改变</SPAN></SPAN></SPAN></SPAN></P></DIV></div>
 </div>
 </div>
 </div>
@@ -396,12 +396,12 @@ end sub
 
                         
 
-<a href="cp.phpactopicopjoinid793idtypeblogid" id="a_topicjoin_793" onclick="ajaxmenu(event, this.id)">������</a><span class="pipe">|</span>
-<a href="cp.phpacblogblogid793opedit">�༭</a><span class="pipe">|</span>
-<a href="cp.phpacblogblogid793opdelete" id="blog_delete_793" onclick="ajaxmenu(event, this.id)">ɾ��</a><span class="pipe">|</span>
+<a href="cp.phpactopicopjoinid793idtypeblogid" id="a_topicjoin_793" onclick="ajaxmenu(event, this.id)">凑热闹</a><span class="pipe">|</span>
+<a href="cp.phpacblogblogid793opedit">编辑</a><span class="pipe">|</span>
+<a href="cp.phpacblogblogid793opdelete" id="blog_delete_793" onclick="ajaxmenu(event, this.id)">删除</a><span class="pipe">|</span>
 
-<a href="cp.phpacblogblogid793opedithot" id="blog_hot_793" onclick="ajaxmenu(event, this.id)">�ȶ�</a><span class="pipe">|</span>
- <a href="cp.phpaccommonopreportidtypeblogidid793" id="a_report" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpacblogblogid793opedithot" id="blog_hot_793" onclick="ajaxmenu(event, this.id)">热度</a><span class="pipe">|</span>
+ <a href="cp.phpaccommonopreportidtypeblogidid793" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 
                 
 </div>
@@ -419,11 +419,11 @@ end sub
 <div class="digc">
 <table>
 <tr>
-<td valign="bottom"><a href="cp~382.phpac" id="click_blogid_793_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/luguo.gif" alt="" /><br />·��</div></a></td>
-<td valign="bottom"><a href="cp~383.phpac" id="click_blogid_793_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/jidan.gif" alt="" /><br />����</div></a></td>
-<td valign="bottom"><a href="cp~384.phpac" id="click_blogid_793_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/xianhua.gif" alt="" /><br />�ʻ�</div></a></td>
-<td valign="bottom"><a href="cp~385.phpac" id="click_blogid_793_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digcolumn"><div class="digchart dc4" style="height:50px;"><em>1</em></div></div><div class="digface"><img src="image/click/woshou.gif" alt="" /><br />����</div></a></td>
-<td valign="bottom"><a href="cp~386.phpac" id="click_blogid_793_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/leiren.gif" alt="" /><br />����</div></a></td>
+<td valign="bottom"><a href="cp~382.phpac" id="click_blogid_793_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/luguo.gif" alt="" /><br />路过</div></a></td>
+<td valign="bottom"><a href="cp~383.phpac" id="click_blogid_793_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/jidan.gif" alt="" /><br />鸡蛋</div></a></td>
+<td valign="bottom"><a href="cp~384.phpac" id="click_blogid_793_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/xianhua.gif" alt="" /><br />鲜花</div></a></td>
+<td valign="bottom"><a href="cp~385.phpac" id="click_blogid_793_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digcolumn"><div class="digchart dc4" style="height:50px;"><em>1</em></div></div><div class="digface"><img src="image/click/woshou.gif" alt="" /><br />握手</div></a></td>
+<td valign="bottom"><a href="cp~386.phpac" id="click_blogid_793_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/leiren.gif" alt="" /><br />雷人</div></a></td>
 </tr>
 </table>
 </div>
@@ -434,19 +434,19 @@ end sub
 
 <div class="tuishare">
 <ul>
-<li>������<a href="../www.douban.com/recommend/url{$url}title_25d2_25bb_25b8_25f6_25d7_25aa_25c9_25e~1.selv" title="����9��" target="_blank"><img src="image/tui/duo9.png" border=0 
+<li>分享：<a href="../www.douban.com/recommend/url{$url}title_25d2_25bb_25b8_25f6_25d7_25aa_25c9_25e~1.selv" title="豆瓣9点" target="_blank"><img src="image/tui/duo9.png" border=0 
 
-alt="����9��" align="absmiddle"></a><a href="../digg.com/submitphase2url{$url}title_25d2_25bb_25b8_25f6_25d7_2~1" title="Digg" target="_blank"><img src="image/tui/digg.png" border=0 
+alt="豆瓣9点" align="absmiddle"></a><a href="../digg.com/submitphase2url{$url}title_25d2_25bb_25b8_25f6_25d7_2~1" title="Digg" target="_blank"><img src="image/tui/digg.png" border=0 
 
-alt="Digg" align="absmiddle"></a><a href="../www.kaixin001.com/repaste/share~36.phprt" title="������" target="_blank"><img src="image/tui/kaixin001.gif" border=0 
+alt="Digg" align="absmiddle"></a><a href="../www.kaixin001.com/repaste/share~36.phprt" title="开心网" target="_blank"><img src="image/tui/kaixin001.gif" border=0 
 
-alt="������" align="absmiddle"></a><a href="../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net_25~2.php_" title="������" target="_blank"><img src="image/tui/renren.gif" border=0 
+alt="开心网" align="absmiddle"></a><a href="../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net_25~2.php_" title="人人网" target="_blank"><img src="image/tui/renren.gif" border=0 
 
-alt="������" align="absmiddle"></a><a href="../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fviewspace~2.php_" title="����" target="_blank"><img src="image/tui/duo.png" border=0 
+alt="人人网" align="absmiddle"></a><a href="../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fviewspace~2.php_" title="豆瓣" target="_blank"><img src="image/tui/duo.png" border=0 
 
-alt="����" align="absmiddle"></a></li>
-<ul>�ղأ�<a href="../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.shene~34.php_" title="Google��ǩ" target="_blank"><img src="image/tui/gg.jpg" border=0 alt="Google��ǩ"align="absmiddle"></a><a href="'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fviewspace~2.php_" title="Del.icio.us" target="_blank"><img src="image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252fvi~2.php_" title="�Ż��ղ�" target="_blank"><img src="image/tui/yahoo.jpg" border=0 alt="�Ż��ղ�"align="absmiddle"></a><a href="../vivi.sina.com.cn/collect/icollect~45.phppi" title="����VIVI" target="_blank"><img src="image/tui/sinavivi.gif" border=0 alt="����VIVI"align="absmiddle"></a><a href="../cang.baidu.com/do/addit_25d2_25bb_25b8_25f6_25d7_25aa_25c9_25ed_25d2_25~1#nw=1" title="�ٶ��ղ�" target="_blank"><img src="image/tui/baidushoucang.gif" border=0 alt="�ٶ��ղ�"align="absmiddle"></a><a href="../shuqian.qq.com/postfrom3title_25d2_25bb_25b8_25f6_25d7_25aa_25c9_25e~1" title="QQ��ǩ" target="_blank"><img src="image/tui/qqshuqian.gif" border=0 alt="QQ��ǩ"align="absmiddle"></a></li>
-<li>�ƹ㣺<input type="text" value="http://u.shenei.net/viewspace.php?uid=160&do=blog&id=793?inajax=1.html" size="60" name="theurl" id="theurl"> <input type="button" value="���Ƶ�ַ" 
+alt="豆瓣" align="absmiddle"></a></li>
+<ul>收藏：<a href="../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.shene~34.php_" title="Google书签" target="_blank"><img src="image/tui/gg.jpg" border=0 alt="Google书签"align="absmiddle"></a><a href="'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fviewspace~2.php_" title="Del.icio.us" target="_blank"><img src="image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252fvi~2.php_" title="雅虎收藏" target="_blank"><img src="image/tui/yahoo.jpg" border=0 alt="雅虎收藏"align="absmiddle"></a><a href="../vivi.sina.com.cn/collect/icollect~45.phppi" title="爱问VIVI" target="_blank"><img src="image/tui/sinavivi.gif" border=0 alt="爱问VIVI"align="absmiddle"></a><a href="../cang.baidu.com/do/addit_25d2_25bb_25b8_25f6_25d7_25aa_25c9_25ed_25d2_25~1#nw=1" title="百度收藏" target="_blank"><img src="image/tui/baidushoucang.gif" border=0 alt="百度收藏"align="absmiddle"></a><a href="../shuqian.qq.com/postfrom3title_25d2_25bb_25b8_25f6_25d7_25aa_25c9_25e~1" title="QQ书签" target="_blank"><img src="image/tui/qqshuqian.gif" border=0 alt="QQ书签"align="absmiddle"></a></li>
+<li>推广：<input type="text" value="http://u.shenei.net/viewspace.php?uid=160&do=blog&id=793?inajax=1.html" size="60" name="theurl" id="theurl"> <input type="button" value="复制地址" 
 
 onclick="javascript:setCopy('viewspace.phpuid160doblogid793inajax1.html');return false;">
 </li>
@@ -456,7 +456,7 @@ onclick="javascript:setCopy('viewspace.phpuid160doblogid793inajax1.html');return
 
 
 <div class="comments" id="div_main_content">
-<h2>���� (<span id="Span1">2</span> ������)</h2>
+<h2>评论 (<span id="Span1">2</span> 个评论)</h2>
 <div class="comments_list" id="comment">
 <ul id="comment_ul">
 <li id="comment_3555_li"><div class="avatar48"><a href="space-1153.html"><img src="../uc.shenei.net/data/avatar/000/00/11/53_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_04_small.gif'"></a></div>
@@ -464,32 +464,32 @@ onclick="javascript:setCopy('viewspace.phpuid160doblogid793inajax1.html');return
 <div class="r_option">
 
 
-<a href="cp.phpaccommentopdeletecid3555" id="c_3555_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommonopreportidtypecommentid3555" id="a_report_3555" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopdeletecid3555" id="c_3555_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommonopreportidtypecommentid3555" id="a_report_3555" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-1153.html" id="author_3555">�¶���</a> 
+<a href="space-1153.html" id="author_3555">陈东方</a> 
 <span class="gray">2011-03-20 01:52</span>
 
 </div>
 
-<div class="detail" id="comment_3555">�Һ�����&nbsp;&nbsp;��Ȼû�����ߵ���� ��������Ȼ����</div>
+<div class="detail" id="comment_3555">我很想她&nbsp;&nbsp;虽然没有能走到最后 但是我依然爱你</div>
 
 </li><li id="comment_3557_li"><div class="avatar48"><a href="space-1153.html"><img src="../uc.shenei.net/data/avatar/000/00/11/53_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_07_small.gif'"></a></div>
 <div class="title">
 <div class="r_option">
 
 
-<a href="cp.phpaccommentopdeletecid3557" id="c_3557_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommonopreportidtypecommentid3557" id="a_report_3557" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopdeletecid3557" id="c_3557_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommonopreportidtypecommentid3557" id="a_report_3557" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-1153.html" id="author_3557">�¶���</a> 
+<a href="space-1153.html" id="author_3557">陈东方</a> 
 <span class="gray">2011-03-20 02:07</span>
 
 </div>
 
-<div class="detail" id="comment_3557">��Ƿ���&nbsp;&nbsp;�һ��סһ���� <img src="image/face/9.gif" class="face"><img src="image/face/9.gif" class="face"><img src="image/face/9.gif" class="face"></div>
+<div class="detail" id="comment_3557">我欠你的&nbsp;&nbsp;我会记住一辈子 <img src="image/face/9.gif" class="face"><img src="image/face/9.gif" class="face"><img src="image/face/9.gif" class="face"></div>
 
 </li></ul>
 </div>
@@ -500,8 +500,8 @@ onclick="javascript:setCopy('viewspace.phpuid160doblogid793inajax1.html');return
 <table cellpadding="0" cellspacing="0">
 <tr>
 <td>
-<a href="###" id="comment_face" title="�������" onclick="showFace(this.id, 'comment_message');"><img src="image/facelist.gif" align="absmiddle" /></a>
-<a id="a_magic_doodle" href="magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />Ϳѻ��</a>
+<a href="###" id="comment_face" title="插入表情" onclick="showFace(this.id, 'comment_message');"><img src="image/facelist.gif" align="absmiddle" /></a>
+<a id="a_magic_doodle" href="magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
 <br />
 <textarea id="comment_message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" name="message" rows="5" style="width:500px;"></textarea>
 </td>
@@ -512,8 +512,8 @@ onclick="javascript:setCopy('viewspace.phpuid160doblogid793inajax1.html');return
 <input type="hidden" name="id" value="793">
 <input type="hidden" name="idtype" value="blogid">
 <input type="hidden" name="commentsubmit" value="true" />
-<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="����" onclick="ajaxpost('quickcommentform_793', 'comment_add')" />
-<input type="checkbox" name="hiddenreply" value="1"> ���۽����߿ɼ�
+<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论" onclick="ajaxpost('quickcommentform_793', 'comment_add')" />
+<input type="checkbox" name="hiddenreply" value="1"> 评论仅作者可见
 <div id="__quickcommentform_793"></div>
 </td>
 </tr>
@@ -540,42 +540,42 @@ onclick="javascript:setCopy('viewspace.phpuid160doblogid793inajax1.html');return
 <div class="copyright">
 <div class="f_status">
 <a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
-<a title="���� RSS" id="a_rss" href="rss.phpuid160.htm">����</a>
-<a href="cp.phpaccommonopreportidtypeuidid160.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">�ٱ����û�</a>
+<a title="订阅 RSS" id="a_rss" href="rss.phpuid160.htm">订阅</a>
+<a href="cp.phpaccommonopreportidtypeuidid160.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
 </div>
-<p>��Ө���ĸ��˲����ɡ����������ṩ����Ȩ���� <a href="../fs.shenei.net/default.htm" target="_blank">���衤�񡿹�����</a>(2009-2010)<a href="admincp.phpacspaceopmanageuid160.htm" id="a_manage">�����û�</a></p>
+<p>蔡莹冰的个人博客由〖舍内网〗提供，版权所有 <a href="../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)<a href="admincp.phpacspaceopmanageuid160.htm" id="a_manage">管理用户</a></p>
 </div>
 </div>
 
 <ul id="setstyle_a_menu" class="stylemenu" style="display:none">
-<li><a href="javascript:void(0);" id="selectshare_sw">ѡ����</a></li>
-<li><a href="javascript:void(0);" id="fastdiystyle">�����Զ���</a></li>
-<li><a href="viewspace.phpopdiy.htm">�߼��Զ���</a></li></ul>
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="viewspace.phpopdiy.htm">高级自定义</a></li></ul>
 
 </div>
 
 <div class="toolbar" id="toolbar">
 <div class="toolbarbox1">
 <a class="logo" href="space.phpdohome.htm">
-����
+舍内
 </a>
 <div class="toolbaruser">
 <ul>
-<li class="txt">��ӭ����СE������ܲ &nbsp;&nbsp;<a href="cp.phpaccommonoplogoutuhashf92365b40326bb769bdd7029bab744db">�˳�</a></li>
-<li><a href="viewspace.phpuid1.htm">�ҵĲ���</a></li>
-<li><a href="cp.php.htm" target="_blank">����</a></li>
+<li class="txt">欢迎您：小E←邱沼懿 &nbsp;&nbsp;<a href="cp.phpaccommonoplogoutuhashf92365b40326bb769bdd7029bab744db">退出</a></li>
+<li><a href="viewspace.phpuid1.htm">我的博客</a></li>
+<li><a href="cp.php.htm" target="_blank">设置</a></li>
 <li>
-<a id="a_magic_superstar" href="magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">��������</a>
+<a id="a_magic_superstar" href="magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
 </li>
-<li><a href="space-pm.html">��Ϣ</a></li>
+<li><a href="space-pm.html">消息</a></li>
 
 </ul>
 </div>
 <div class="toolbarlink">
 <ul>
-<li class="home"><a href="ovr1/space-home.html">��վ��ҳ</a></li>
-<li><a href="network.html">�й�</a></li>
-<li><a href="randomuser.php.htm">�Ҵ�</a></li>
+<li class="home"><a href="ovr1/space-home.html">网站首页</a></li>
+<li><a href="network.html">闲逛</a></li>
+<li><a href="randomuser.php.htm">乱窜</a></li>
 </ul>
 </div>
 <div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
@@ -583,34 +583,34 @@ onclick="javascript:setCopy('viewspace.phpuid160doblogid793inajax1.html');return
 <ul id="annbodylis">
 
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;<img src="image/face/32.gif" class="face">���ǲ��˽���~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5617-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;<img src="image/face/32.gif" class="face">还是不了解咩~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5617-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;���Ժ���~�о������Լ����Լ�����ʲô����Ȼ�䣬��ʶ����������������&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5616-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;迷迷糊糊~感觉不是自己的自己在做什么。焕然间，意识到不该这怎做。。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5616-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;˭��˭��˭���ں�������������һ��������޷������ҵ�˭��&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5615-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;谁是谁的谁，在乎了又能怎样。一般的心情无法理解我的谁。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5615-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;���鲻�Ǻܺã�Ƣ���Ͳ��ã�û�ط�����й���Ƴ�������~~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5614-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;心情不是很好，脾气就不好，没地方发发泄，闷出内伤了~~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5614-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1377-do-doing.html" target="_blank">xiaoya </a>˵��&nbsp;&nbsp;(��&#717;���� �롫��~��~~~&nbsp;&nbsp;<a href="space-1377-do-doing-doid-5613-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1377-do-doing.html" target="_blank">xiaoya </a>说：&nbsp;&nbsp;(ˇ&#717;ˇ） 想～你~了~~~&nbsp;&nbsp;<a href="space-1377-do-doing-doid-5613-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�з�С~С ˼������Ϊ��֪�� ˼��·&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5612-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5612-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�з�С~С ˼������Ϊ��֪�� ˼��·&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5611-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5611-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�����μ�#��������һ����#ʮ��΢����ȫ�ǳ������@���ž���������Ƶ� ������ȯ���ྫ��С�ԣ���㣬�������Ǽ��Ƶ�����ʵʩ�Ļ��������ܼ�����ʼ�����ྪϲ <a href="../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>��ȡӢ����Esone�����ĵ�E��Сܲ @cc��Ƣ�� @����_������Ƭ <div class="sub_doing_quote"><span>�������ţ���#��������һ����#����������NO.20��[΢��������]�Ƶ�������˫�˰棡��ע@���ž���������Ƶ� @�������� ��ת���˲���@ 3���ѣ����л�������ž���������Ƶ�˫�������ͣ������ף������츣��������(8-28����11:00�齱,��������ע@�������������� )���ร����<a href="../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5607-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;我正参加#新浪厦门一周年#十大微福利全城畅享活动！@厦门京闽北海湾酒店 自助餐券各类精致小吃，甜点，加上五星级酒店优雅实施的环境，享受即将开始！更多惊喜 <a href="../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>新取英文名Esone爆开心的E神小懿 @cc坏脾气 @绝望_的生鱼片 <div class="sub_doing_quote"><span>新浪厦门：【#新浪厦门一周年#福利大派送NO.20】[微博三岁啦]酒店自助餐双人版！关注@厦门京闽北海湾酒店 @新浪厦门 ，转发此博并@ 3好友，就有机会获厦门京闽北海湾酒店双人自助餐（共两套）！今天福利明天送(8-28上午11:00抽奖,获奖名单关注@新浪厦门周年庆 )更多福利：<a href="../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5607-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;��Ҫһ���ء���<div class="sub_doing_quote"><span>���ųԺ����ִ�ȫ��������5̨ƻ��4������ƽ������1������΢�š��������ѡ����ҡ�xmdcxs�����ӡ����Ŵ��С�¡�Ϊ���� 2��ת���������� ��������������ȱһ���ɣ�������ÿ����һ̨4������΢�ţ����Ŵ��С�� ������������@���Ŵ��С�� ��Ψһ�ٷ��ţ�ÿ�켰ʱ�������Ŵ�С�¼������Żݵ����ֻ���������������ð��֣�</span><div class="img"><a target="_blank" href="../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5606-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;想要一部呢。。<div class="sub_doing_quote"><span>厦门吃喝玩乐大全：【再送5台苹果4代，公平公正】1，请用微信“添加朋友”查找“xmdcxs”添加“厦门大城小事”为好友 2，转发本条即可 。以上两个条件缺一不可，明晚起每天抽出一台4代。（微信：厦门大城小事 ，是厦门名博@厦门大城小事 的唯一官方号，每天及时播报厦门大小事及其他优惠到你手机，是你厦门生活好帮手）</span><div class="img"><a target="_blank" href="../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5606-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;HOHO�����������Ǵ�������ķ����ޡ���<img src="image/face/42.gif" class="face">&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5605-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;HOHO～～坐等你们大男生煮的饭饭噢～～<img src="image/face/42.gif" class="face">&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5605-goto-yes.html" class="re">回复</a>
 </li>
 </ul>
 </div>
@@ -687,7 +687,7 @@ var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'shares
 var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
 
 </script>
-<div style="visibility: hidden;display:block;/*ͳһת��Ϊ�鼶Ԫ��*/ overflow: hidden; width: 0; height: 0; ">
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
 
 </div>
 

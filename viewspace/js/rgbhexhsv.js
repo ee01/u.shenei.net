@@ -1,10 +1,10 @@
 /**
- ÑÕÉ«µÄÏà»¥×ª»»
+ é¢œè‰²çš„ç›¸äº’è½¬æ¢
 */
 rgbHexHsv = function() {
 	// nothing
 }
-// Ê®Áù½øÖÆÑÕÉ«Öµ×ª»»ÎªRGBÑÕÉ«Öµ
+// åå…­è¿›åˆ¶é¢œè‰²å€¼è½¬æ¢ä¸ºRGBé¢œè‰²å€¼
 rgbHexHsv.prototype.hex2rgb = function(hex_string, default_) {
 	if (default_ == undefined) {
         default_ = null;
@@ -41,7 +41,7 @@ rgbHexHsv.prototype.hex2rgb = function(hex_string, default_) {
         return {r:r/255, g:g/255, b:b/255};
     }
 }
-// RGBÑÕÉ«Öµ×ª»»ÎªÊ®Áù½øÖÆÖµ
+// RGBé¢œè‰²å€¼è½¬æ¢ä¸ºåå…­è¿›åˆ¶å€¼
 rgbHexHsv.prototype.rgb2hex = function(r, g, b, includeHash) {
     r = Math.round(r * 255);
     g = Math.round(g * 255);
@@ -64,7 +64,7 @@ rgbHexHsv.prototype.rgb2hex = function(r, g, b, includeHash) {
     }
     return ((includeHash ? '#' : '') + r + g + b).toUpperCase();
 }
-// HSVÑÕÉ«Öµ×ª»»ÎªRGBÑÕÉ«Öµ
+// HSVé¢œè‰²å€¼è½¬æ¢ä¸ºRGBé¢œè‰²å€¼
 rgbHexHsv.prototype.hsv2rgb = function(hue, saturation, value) {
     var red;
     var green;
@@ -91,7 +91,7 @@ rgbHexHsv.prototype.hsv2rgb = function(hue, saturation, value) {
     }
     return {r:red, g:green, b:blue};
 }
-// RGBÑÕÉ«Öµ×ª»»ÎªHSVÑÕÉ«Öµ
+// RGBé¢œè‰²å€¼è½¬æ¢ä¸ºHSVé¢œè‰²å€¼
 rgbHexHsv.prototype.rgb2hsv = function(red, green, blue) {
     var max = Math.max(Math.max(red, green), blue);
     var min = Math.min(Math.min(red, green), blue);

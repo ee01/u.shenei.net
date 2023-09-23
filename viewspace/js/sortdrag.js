@@ -1,7 +1,7 @@
 /**
-* @param:body ¿ÉÒÆ¶¯Ä£¿éµÄCSSÑùÊ½ className Öµ£»
-* @param:head ¿ÉÍÏ¶¯µÄÎ»ÖÃ£¬Ò²ÊÇ className Öµ£»
-* @param:content Êó±êÒÆ¶¯¸Ã¶ÔÏóÉÏÊ±»áÏÔÊ¾Ò»¸öÕÚÕÖ²ã£¬Ò²ÊÇ className Öµ£»
+* @param:body å¯ç§»åŠ¨æ¨¡å—çš„CSSæ ·å¼ className å€¼ï¼›
+* @param:head å¯æ‹–åŠ¨çš„ä½ç½®ï¼Œä¹Ÿæ˜¯ className å€¼ï¼›
+* @param:content é¼ æ ‡ç§»åŠ¨è¯¥å¯¹è±¡ä¸Šæ—¶ä¼šæ˜¾ç¤ºä¸€ä¸ªé®ç½©å±‚ï¼Œä¹Ÿæ˜¯ className å€¼ï¼›
 */
 sortDrag = function(body, head, content) {
 	var __method = this;
@@ -14,47 +14,47 @@ sortDrag = function(body, head, content) {
 	if('undefined' == typeof(content) || '' == content) {
 		content = null;
 	}
-	// ÕÚÕÖ²ã¶ÔÏó
+	// é®ç½©å±‚å¯¹è±¡
 	this.transfer = $('transferReady');
 	this.body = body;
 	this.head = head;
 	this.content = content;
-	//  ÍÏ¶¯¶ÔÏóµÄÏà¹Ø¶ÔÏó¼¯ºÏ
+	//  æ‹–åŠ¨å¯¹è±¡çš„ç›¸å…³å¯¹è±¡é›†åˆ
 	this.bodyHead = {};
 	this.bodyHead[body] = [];
 	this.bodyHead[head] = [];
-	// ÊÇ·ñÕıÔÚÍÏ¶¯
+	// æ˜¯å¦æ­£åœ¨æ‹–åŠ¨
 	this.isDrag = false;
-	// ÁÙÊ±²ã¶ÔÏó
+	// ä¸´æ—¶å±‚å¯¹è±¡
 	// this.tmpDiv = false;
-	// ÒÆ¶¯Ê±£¬²åÈëÔÚ¸÷ÁĞµÄÁÙÊ±²ã
+	// ç§»åŠ¨æ—¶ï¼Œæ’å…¥åœ¨å„åˆ—çš„ä¸´æ—¶å±‚
 	this.goDiv = false;
 	var actionDiv = [body, head];
 	if(content) {
 		this.bodyHead[content] = [];
 		this.array_push(actionDiv, content);
 	}
-	// ÍÏ¶¯¶ÔÏóµÄÊı×é¼¯ºÏ
+	// æ‹–åŠ¨å¯¹è±¡çš„æ•°ç»„é›†åˆ
 	this.drags = [];
-	// ¸÷ÁĞ¶ÔÓ¦µÄÄ£¿é¶ÔÏó
+	// å„åˆ—å¯¹åº”çš„æ¨¡å—å¯¹è±¡
 	this.posObj = [];
-	// ¸÷ÁĞ¶ÔÏó
+	// å„åˆ—å¯¹è±¡
 	this.LCR = [];
-	// ¿ÉÍÏ¶¯Ä£¿é¶ÔÏóµ½¸÷ÁĞµÄ¶ÔÕÕÊı×é
+	// å¯æ‹–åŠ¨æ¨¡å—å¯¹è±¡åˆ°å„åˆ—çš„å¯¹ç…§æ•°ç»„
 	this.key2mod = [];
-	// µ±Ç°ËùÔÚÁĞ
+	// å½“å‰æ‰€åœ¨åˆ—
 	this.curLCR = null;
-	// ×î´ó×îĞ¡µÄÅĞ¶Ï±êÖ¾
+	// æœ€å¤§æœ€å°çš„åˆ¤æ–­æ ‡å¿—
 	this.smallMax = 'max';
-	// ´ÓÒ³ÃæÖĞËÑË÷·ûºÏÌõ¼şµÄ¶ÔÏó
+	// ä»é¡µé¢ä¸­æœç´¢ç¬¦åˆæ¡ä»¶çš„å¯¹è±¡
 	this.getByClass(document.body, actionDiv);
-	// ¶ÔËùÓĞ¿ÉÍÏ¶¯¶ÔÏó½øĞĞ³õÊ¼»¯
+	// å¯¹æ‰€æœ‰å¯æ‹–åŠ¨å¯¹è±¡è¿›è¡Œåˆå§‹åŒ–
 	for(var i in this.bodyHead[body]) {
 		this.drags[i] = new drag(this.bodyHead[body][i], '', '', '', function(obj) {
-			// ¸Ãº¯ÊıÎª»Øµ÷º¯Êı
+			// è¯¥å‡½æ•°ä¸ºå›è°ƒå‡½æ•°
 			if(false == obj.element) {
 				__method.isDrag = false;
-				// °ÑÍÏ¶¯µÄ²ã·Åµ½ÊÊºÏµÄÎ»ÖÃ
+				// æŠŠæ‹–åŠ¨çš„å±‚æ”¾åˆ°é€‚åˆçš„ä½ç½®
 				__method.back(obj);
 				return false;
 			}
@@ -62,23 +62,23 @@ sortDrag = function(body, head, content) {
 				//__method.transfer.style.display = 'none';
 			}
 			__method.isDrag = true;
-			// ¼ÆËãÔÚÍÏ¶¯Ê±µÄÎ»ÖÃ
+			// è®¡ç®—åœ¨æ‹–åŠ¨æ—¶çš„ä½ç½®
 			__method.go(obj);
 		});
-		// Êó±êÒÆµ½¸Ã²ãÊ±£¬¶¯Ì¬¼ÓÔØÒ»¸ö²ã£¬ÒÔ±ãÓÚĞŞ¸ÄÆäÑùÊ½
+		// é¼ æ ‡ç§»åˆ°è¯¥å±‚æ—¶ï¼ŒåŠ¨æ€åŠ è½½ä¸€ä¸ªå±‚ï¼Œä»¥ä¾¿äºä¿®æ”¹å…¶æ ·å¼
 		this.bodyHead[content][i].onmouseover = this.transferReady.bindAsEventListener(this, this.drags[i]);
 	}
 }
-// »ñÈ¡¸÷ÁĞµÄ¿ÉÍÏ¶¯Ä£¿é¶ÔÏóĞÅÏ¢
+// è·å–å„åˆ—çš„å¯æ‹–åŠ¨æ¨¡å—å¯¹è±¡ä¿¡æ¯
 sortDrag.prototype.getLCR = function() {
-	// ÅĞ¶Ï¸÷ÁĞ¼°Ä£¿é¶ÔÏóÊı¾İÊÇ·ñÒÑ¾­´æÔÚ
+	// åˆ¤æ–­å„åˆ—åŠæ¨¡å—å¯¹è±¡æ•°æ®æ˜¯å¦å·²ç»å­˜åœ¨
 	if(0 < this.LCR.length || 0 < this.posObj.length) {
 		return true;
 	}
 	for(var i in this.bodyHead[this.body]) {
 		_pObj = this.bodyHead[this.body][i].parentNode;
 		this.LCR[_pObj.id] = _pObj;
-		// Èç¹û¸÷ÁĞÄ£¿éÊı×é²»´æÔÚ£¬Ôò³õÊ¼»¯Ò»¸öÊı×é
+		// å¦‚æœå„åˆ—æ¨¡å—æ•°ç»„ä¸å­˜åœ¨ï¼Œåˆ™åˆå§‹åŒ–ä¸€ä¸ªæ•°ç»„
 		if("undefined" == typeof(this.posObj[_pObj.id])) {
 			this.posObj[_pObj.id] = new Array();
 		}
@@ -106,7 +106,7 @@ sortDrag.prototype.changeSize = function(smallMax, obj) {
 	}
 	this.smallMax = 'small';
 	this.transfer.style.display = 'none';
-	// °ÑĞèÒªÍÏ¶¯µÄ²ãµÄÖĞĞÄµãÒÆµ½Êó±êµ¥»÷µÄµãÉÏ
+	// æŠŠéœ€è¦æ‹–åŠ¨çš„å±‚çš„ä¸­å¿ƒç‚¹ç§»åˆ°é¼ æ ‡å•å‡»çš„ç‚¹ä¸Š
 	obj.windowInfo['scrollTop'] = document.documentElement.scrollTop;
 	obj.windowInfo['scrollLeft'] = document.documentElement.scrollLeft;
 	obj.leftTop['left'] = obj.mouseX + obj.windowInfo['scrollLeft'] - (obj.body.offsetWidth / 2);
@@ -114,24 +114,24 @@ sortDrag.prototype.changeSize = function(smallMax, obj) {
 	obj.body.style.left = obj.leftTop['left'] + 'px';
 	obj.body.style.top = obj.leftTop['top'] + 'px';
 }
-// ÍÏ¶¯Ä£¿é¶ÔÏó£¬¼ÆËãµ±Ç°Ä£¿éÓ¦¸Ã²åÈëÄÄ¸öÎ»ÖÃ
+// æ‹–åŠ¨æ¨¡å—å¯¹è±¡ï¼Œè®¡ç®—å½“å‰æ¨¡å—åº”è¯¥æ’å…¥å“ªä¸ªä½ç½®
 sortDrag.prototype.go = function(obj) {
-	// Ä£¿éËù´¦ÁĞÊı×éµÄË÷Òı
+	// æ¨¡å—æ‰€å¤„åˆ—æ•°ç»„çš„ç´¢å¼•
 	var _CL = null;
-	// µÚÒ»ÁĞË÷Òı
+	// ç¬¬ä¸€åˆ—ç´¢å¼•
 	var _CF = null;
-	// µ±Ç°Ä£¿é´¦ÔÚÄÄ¸öÄ£¿éÖ®Ç°
+	// å½“å‰æ¨¡å—å¤„åœ¨å“ªä¸ªæ¨¡å—ä¹‹å‰
 	var _CT = null;
-	// ¶ÔÏóµÄ left¡¢topÖµ
+	// å¯¹è±¡çš„ leftã€topå€¼
 	var _LT = null;
-	// ±»Òş²ØµÄ¸ß¶È
+	// è¢«éšè—çš„é«˜åº¦
 	var scrollTop = document.documentElement.scrollTop;
 	this.changeSize('small', obj);
 	
-	// »ñÈ¡¸÷ÁĞµÄ¿ÉÍÏ¶¯Ä£¿éĞÅÏ¢£¬¹æÀà
+	// è·å–å„åˆ—çš„å¯æ‹–åŠ¨æ¨¡å—ä¿¡æ¯ï¼Œè§„ç±»
 	this.getLCR();
 	
-	// Èç¹ûÊÇ´¦ÔÚÍÏ¶¯×´Ì¬ÖĞ£¬Ôò°ÑÁÙÊ±²ã·Åµ½±»ÍÏ¶¯²ãµÄÉÏÃæ
+	// å¦‚æœæ˜¯å¤„åœ¨æ‹–åŠ¨çŠ¶æ€ä¸­ï¼Œåˆ™æŠŠä¸´æ—¶å±‚æ”¾åˆ°è¢«æ‹–åŠ¨å±‚çš„ä¸Šé¢
 		/*
 	if('absolute' == this.transfer.style.position) {
 		this.insertAfter(this.transfer, obj.body);
@@ -140,7 +140,7 @@ sortDrag.prototype.go = function(obj) {
 		this.transfer.style.position = 'static';
 	}
 		*/
-	// »ñÈ¡¿ÉÍÏ¶¯Ä£¿éËù´¦µÄÁĞ
+	// è·å–å¯æ‹–åŠ¨æ¨¡å—æ‰€å¤„çš„åˆ—
 	if(null == this.curLCR) {
 		for(var i in this.bodyHead[this.body]) {
 			if(obj.body == this.bodyHead[this.body][i]) {
@@ -148,7 +148,7 @@ sortDrag.prototype.go = function(obj) {
 			}
 		}
 	}
-	// »ñÈ¡µ±Ç°Êó±êÎ»ÖÃ´¦ÔÚÄÄ¸öÀ¸Ä¿
+	// è·å–å½“å‰é¼ æ ‡ä½ç½®å¤„åœ¨å“ªä¸ªæ ç›®
 	for(var i in this.LCR) {
 		_LT = fetchOffset(this.LCR[i]);
 		if(null == _CF || _CF > _LT['left']) {
@@ -161,7 +161,7 @@ sortDrag.prototype.go = function(obj) {
 	if(null == _CL) {
 		_CL = _CF;
 	}
-	// »ñÈ¡ÓÃ»§µÄ´¹Ö±Î»ÖÃ
+	// è·å–ç”¨æˆ·çš„å‚ç›´ä½ç½®
 	var _minTop = null;
 	var _curTop = null;
 	var tmp = 0;
@@ -173,25 +173,25 @@ sortDrag.prototype.go = function(obj) {
 			_curTop = tmp;
 		}
 	}
-	// Èç¹ûÁÙÊ±²ã²»´æÔÚ
+	// å¦‚æœä¸´æ—¶å±‚ä¸å­˜åœ¨
 	if(false == this.goDiv) {
 		this.goDiv = document.createElement('div');
 		this.goDiv.className = 'transfer';
 		this.goDiv.style.display = '';
 		this.goDiv.style.height = obj.body.clientHeight + 'px';
 	}
-	// ²åÈëÁÙÊ±DIV
+	// æ’å…¥ä¸´æ—¶DIV
 	if(null != _CT) {
-		// Èç¹ûµ±Ç°Ä£¿é´¦ÔÚÄ³ÁĞÖ®Ç°
+		// å¦‚æœå½“å‰æ¨¡å—å¤„åœ¨æŸåˆ—ä¹‹å‰
 		this.bodyHead[this.body][_CT].parentNode.insertBefore(this.goDiv, this.bodyHead[this.body][_CT]);
 		this.goDiv.style.width = 'auto';
 	} else {
-		// Èç¹ûµ±Ç°Ä£¿é´¦ÔÚÄ³ÁĞ×îºó
+		// å¦‚æœå½“å‰æ¨¡å—å¤„åœ¨æŸåˆ—æœ€å
 		this.LCR[_CL].appendChild(this.goDiv);
 		this.goDiv.style.width = 'auto';
 	}
 }
-// ´ÓÒ»¸öÊı×éÖĞÒÆ³ıÄ³¸ö¼üÖµ¶ÔÓ¦µÄÊı×éµ¥Ôª
+// ä»ä¸€ä¸ªæ•°ç»„ä¸­ç§»é™¤æŸä¸ªé”®å€¼å¯¹åº”çš„æ•°ç»„å•å…ƒ
 sortDrag.prototype.remove = function(arr, key) {
 	if(isNaN(key) || "undefined" == typeof(key)) {
 		return arr;
@@ -204,36 +204,36 @@ sortDrag.prototype.remove = function(arr, key) {
 	}
 	return tmpArr;
 }
-// ´¦ÀíÓÃ»§ËÉ¿ªÊó±êºóµÄÊÂ¼ş£¬¼´°ÑÍÏ¶¯³öÀ´µÄÄ£¿é·Åµ½¶ÔÓ¦µÄÎ»ÖÃÖĞ
+// å¤„ç†ç”¨æˆ·æ¾å¼€é¼ æ ‡åçš„äº‹ä»¶ï¼Œå³æŠŠæ‹–åŠ¨å‡ºæ¥çš„æ¨¡å—æ”¾åˆ°å¯¹åº”çš„ä½ç½®ä¸­
 sortDrag.prototype.back = function(obj) {
-	// Èç¹ûÊó±êÊÍ·Å£¬ÔòÒş²ØÕÚÕÖ²ã
+	// å¦‚æœé¼ æ ‡é‡Šæ”¾ï¼Œåˆ™éšè—é®ç½©å±‚
 	this.transfer.style.display = 'none';
-	// ÔÚÁÙÊ±²ãÖ®Ç°²åÈë±»ÍÏ¶¯µÄÄ£¿é£¬Çå³ıÁÙÊ±²ã¶ÔÏó
+	// åœ¨ä¸´æ—¶å±‚ä¹‹å‰æ’å…¥è¢«æ‹–åŠ¨çš„æ¨¡å—ï¼Œæ¸…é™¤ä¸´æ—¶å±‚å¯¹è±¡
 	this.goDiv.parentNode.insertBefore(obj.body, this.goDiv);
 	this.goDiv.parentNode.removeChild(this.goDiv);
-	// ±»ÍÏ¶¯Ä£¿éµÄ¶¨Î»Îª×Ô¶¯¡¢¿í¶ÈÎª×Ô¶¯
+	// è¢«æ‹–åŠ¨æ¨¡å—çš„å®šä½ä¸ºè‡ªåŠ¨ã€å®½åº¦ä¸ºè‡ªåŠ¨
 	obj.body.style.position = 'static';
 	obj.body.style.width = 'auto';
 	obj.body.style.height = 'auto';
-	// »ñÈ¡Ä£¿éËù´¦µÄÁĞ
+	// è·å–æ¨¡å—æ‰€å¤„çš„åˆ—
 	_pObj = obj.body.parentNode;
-	// ¶ÁÈ¡ left¡¢top
+	// è¯»å– leftã€top
 	_pLT = fetchOffset(_pObj);
 	var key = null;
-	// »ñÈ¡±»ÍÏ¶¯Ä£¿éµÄĞòºÅ
+	// è·å–è¢«æ‹–åŠ¨æ¨¡å—çš„åºå·
 	for(var i in this.bodyHead[this.body]) {
 		if(obj.body == this.bodyHead[this.body][i]) {
 			key = i;
 		}
 	}
-	// ´ÓÄ£¿éºÍÁĞ¶ÔÓ¦µÄÊı×éÖĞ£¬ÌŞ³ıµ±Ç°Ä£¿é
+	// ä»æ¨¡å—å’Œåˆ—å¯¹åº”çš„æ•°ç»„ä¸­ï¼Œå‰”é™¤å½“å‰æ¨¡å—
 	this.posObj[this.curLCR] = this.remove(this.posObj[this.curLCR], key);
-	// ´ÓÄ£¿éºÍÁĞID¶ÔÓ¦Êı×éÖĞÌŞ³ıµ±Ç°Ä£¿é
+	// ä»æ¨¡å—å’Œåˆ—IDå¯¹åº”æ•°ç»„ä¸­å‰”é™¤å½“å‰æ¨¡å—
 	this.key2mod = this.remove(this.key2mod, key);
-	// °Ñµ±Ç°Ä£¿éÖØĞÂ¼ÓÈëµ½ÏàÓ¦Êı×éÖĞ
+	// æŠŠå½“å‰æ¨¡å—é‡æ–°åŠ å…¥åˆ°ç›¸åº”æ•°ç»„ä¸­
 	this.key2mod[key] = _pObj.id;
 	this.posObj[_pObj.id][key] = obj.body;
-	// ÖÃ¿Õµ±Ç°Ä£¿éËù´¦ÁĞ
+	// ç½®ç©ºå½“å‰æ¨¡å—æ‰€å¤„åˆ—
 	this.curLCR = null;
 	this.smallMax = 'max';
 	for(var i in this.bodyHead[this.content]) {
@@ -246,32 +246,32 @@ sortDrag.prototype.back = function(obj) {
 		document.documentElement.scrollTop = objLT['top'] - ((document.documentElement.clientHeight - obj.body.clientHeight) / 2);
 	}
 }
-// Èç¹ûÊó±êÒÆ³ıÄ£¿éÊ±´¥·¢
+// å¦‚æœé¼ æ ‡ç§»é™¤æ¨¡å—æ—¶è§¦å‘
 sortDrag.prototype.transferEnd = function(event, dragObj) {
 	var scrollTop = document.documentElement.scrollTop;
 	var scrollLeft = document.documentElement.scrollLeft;
 	var x = parseInt(event.clientX) + scrollLeft;
 	var y = parseInt(event.clientY) + scrollTop;
 	var _LT = fetchOffset(dragObj.body);
-	// ÅĞ¶ÏÊó±ê×ø±êÖµÊÇ·ñ´¦ÔÚµ±Ç°µÄÄ£¿éÖĞ£¬Èç¹û³öÁËµ±Ç°·¶Î§£¬ÔòÒş²Ø¸ÃÁÙÊ±²ã
+	// åˆ¤æ–­é¼ æ ‡åæ ‡å€¼æ˜¯å¦å¤„åœ¨å½“å‰çš„æ¨¡å—ä¸­ï¼Œå¦‚æœå‡ºäº†å½“å‰èŒƒå›´ï¼Œåˆ™éšè—è¯¥ä¸´æ—¶å±‚
 	if(_LT['left'] > x || _LT['top'] > y || _LT['left'] + dragObj.body.offsetWidth < x || _LT['top'] + dragObj.body.offsetHeight < y) {
 		this.transfer.style.display = 'none';
 	}
 }
-// µ¯³ö²ã½¥±ä×¼±¸
+// å¼¹å‡ºå±‚æ¸å˜å‡†å¤‡
 sortDrag.prototype.transferReady = function(event, dragObj) {
-	//µ±Ç°ËùÔÚµÄblockid£¬¹©µ¯³öµÄ±à¼­¿òÊ¹ÓÃ
+	//å½“å‰æ‰€åœ¨çš„blockidï¼Œä¾›å¼¹å‡ºçš„ç¼–è¾‘æ¡†ä½¿ç”¨
 	cur_block = dragObj.body.id;
 	if(cur_block == 'profile' || cur_block == 'applist') {
 		$('delblock').style.display='none';
 	} else {
 		$('delblock').style.display='';
 	}
-	// Èç¹ûµ±Ç°ÒÑ¾­ÔÚÍÏ¶¯Ä£¿é£¬Ôò·µ»Ø
+	// å¦‚æœå½“å‰å·²ç»åœ¨æ‹–åŠ¨æ¨¡å—ï¼Œåˆ™è¿”å›
 	if(true == this.isDrag) {
 		return false;
 	}
-	// ¼ÆËãÁÙÊ±½¥±ä²ãµÄÎ»ÖÃ£¬´óĞ¡µÈ
+	// è®¡ç®—ä¸´æ—¶æ¸å˜å±‚çš„ä½ç½®ï¼Œå¤§å°ç­‰
 	this.transfer.style.display = '';
 	this.transfer.style.position = 'absolute';
 	var _LT = fetchOffset(dragObj.body);
@@ -287,12 +287,12 @@ sortDrag.prototype.transferReady = function(event, dragObj) {
 	_BB = isNaN(_BB) ? 0 : _BB;
 	this.transfer.style.width = (dragObj.body.offsetWidth - _BL - _BR) + 'px';
 	this.transfer.style.height = (dragObj.body.offsetHeight - _BT - _BB) + 'px';
-	// ¼àÌıÁÙÊ±²ãµÄ onmouseout ÊÂ¼ş
+	// ç›‘å¬ä¸´æ—¶å±‚çš„ onmouseout äº‹ä»¶
 	this.transfer.onmouseout = this.transferEnd.bindAsEventListener(this, dragObj);
-	// ¼àÌıÁÙÊ±²ãµÄ onmousedown ÊÂ¼ş
+	// ç›‘å¬ä¸´æ—¶å±‚çš„ onmousedown äº‹ä»¶
 	this.transfer.onclick = dragObj.head.onmousedown;
 }
-// Ä£ÄâPHPµÄ in_array º¯Êı
+// æ¨¡æ‹ŸPHPçš„ in_array å‡½æ•°
 sortDrag.prototype.in_array = function(ineedle, haystack, caseinsensitive) {
 	var needle = new String(ineedle);
 	if(needle.Length == 0) return -1;
@@ -312,12 +312,12 @@ sortDrag.prototype.in_array = function(ineedle, haystack, caseinsensitive) {
 	}
 	return -1;
 }
-// Ä£Äâ array_push º¯Êı
+// æ¨¡æ‹Ÿ array_push å‡½æ•°
 sortDrag.prototype.array_push = function(arr, value) {
 	arr[arr.length] = value;
 	return arr.length;
 }
-// ¸ù¾İ className À´¶ÁÈ¡¶ÔÏó
+// æ ¹æ® className æ¥è¯»å–å¯¹è±¡
 sortDrag.prototype.getByClass = function(obj, className) {
 	if('undefined' == typeof(obj.tagName)) {
 		return false;

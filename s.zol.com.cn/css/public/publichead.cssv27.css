@@ -1,6 +1,6 @@
 /*
-@Description: ÊıÂë¼¯ÊĞ¹«¹²Í·
-@author: ÀîÔÂ
+@Description: æ•°ç é›†å¸‚å…¬å…±å¤´
+@author: ææœˆ
 @update: 2017-04-05
 */
 
@@ -53,13 +53,13 @@ a:hover{ color:#c00; text-decoration:underline;}
 /*.logo p{ float:left; margin:4px 0 0 10px; font:14px/20px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1"; color:#666;width:126px;}*/
 .logo .logo-text { float: left; display: block; width: 253px; height: 45px; background: url(../../..//icon.zol-img.com.cn/dealer/promotion/split.png) 0 -46px no-repeat; text-indent: -9999px; }
 
-/*¸öÈËÖĞĞÄÁ´½Ó*/
+/*ä¸ªäººä¸­å¿ƒé“¾æ¥*/
 .personage { float: left; width: 109px; height: 34px; background-color: #fff; border: 1px solid #dadaad; position: relative; top: 12px; left: 11px; text-align: center; line-height: 34px; font-size: 12px; color: #666; vertical-align: middle; cursor: pointer; }
 .personage a { display: block; width: 109px; height: 34px; font-family: "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1";}
 .personage a:hover{color:#c00;text-decoration:none;} 
 .personage i, .personage span { display: inline-block; vertical-align: middle; }
 .personage i.personage-icon { width: 11px; height: 14px; background: url(../../..//icon.zol-img.com.cn/dealer/promotion/split.png) 0 -91px no-repeat; position: relative;/* top: 2px; */ *margin-right: 3px; }
-.personage span em { font-size: 12px; font-family: 'ËÎÌå'; margin-left: 3px; }
+.personage span em { font-size: 12px; font-family: 'å®‹ä½“'; margin-left: 3px; }
 
 
 .search-box{ float:left; padding:12px 0 0 13px;}
@@ -80,7 +80,7 @@ a:hover{ color:#c00; text-decoration:underline;}
 .header .ad-div{ float:right; width:180px; height:60px;}
 .header .ad-div img{ display:block;}
 
-/* ·şÎñ±£ÕÏ */
+/* æœåŠ¡ä¿éšœ */
 .guarantee-box { float: left; font-size: 0; margin-left: 14px; padding-top: 12px;}
 .guarantee-box .guarantee-item { display: inline-block; *display: inline; *zoom: 1; width: 50px; text-align: center; margin-left: 20px;}
 .guarantee-box .guarantee-item .guarantee-icon { display: block; width: 22px; height: 25px; background-repeat: no-repeat; margin:0 auto;}
@@ -90,7 +90,7 @@ a:hover{ color:#c00; text-decoration:underline;}
 .guarantee-box .guarantee-item span { font-size: 12px; color: #666666; }
 .guarantee-box .guarantee-item a,.guarantee-box .guarantee-item a:hover{ color:#333; text-decoration:none;}
 
-/* µ¼º½ */
+/* å¯¼èˆª */
 .nav-box{ position:relative; z-index:2; zoom:1; margin:0 auto; padding:0 0 2px 200px; width:1000px; border-bottom:2px solid #ff6633;}
 .nav-box .nav li{ float:left; padding:0 20px; height:30px; font:16px/30px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1";}
 .nav-box .nav a{ display:inline-block; color:#333;}
@@ -139,14 +139,14 @@ a:hover{ color:#c00; text-decoration:underline;}
 .menu-nav-container .current .category-9{ top:-320px;}
 
 
-/*** ·´À¡ÖÃ¶¥ ***/
+/*** åé¦ˆç½®é¡¶ ***/
 .widget{ position:fixed; _position:absolute; bottom:40px; left:50%; margin:0 0 0 610px; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-55));}
 .backtop,.feedback{ display:block; margin:1px 0 0; padding:12px 15px; width:30px; height:36px; text-align:center; background-color:#d0625c; font:14px/18px "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1"; color:#fff;}
 .backtop{ background:url(../../..//icon.zol-img.com.cn/newshop/shop/index/backtop.png) no-repeat; background-color:#d0625c; text-indent:-9999em; overflow:hidden;}
 .backtop:hover,.feedback:hover{ background-color:#b10000; color:#fff; text-decoration:none;}
 
 .ad-banner img{ position:absolute; top:0; left:50%; margin:0 0 0 -600px;}
-/*·ÀÖ¹IE6¶¥²¿¹Ì¶¨µ¼º½ÉÁ¶¯Ëù¼ÓÑùÊ½*/
+/*é˜²æ­¢IE6é¡¶éƒ¨å›ºå®šå¯¼èˆªé—ªåŠ¨æ‰€åŠ æ ·å¼*/
 *html { background-image:url(about:blank); background-attachment:fixed; }
 .none { display: none; }
 .search-history-selected { background:#f5f5f5 }
@@ -160,7 +160,7 @@ a:hover{ color:#c00; text-decoration:underline;}
 .related-search-history .close span { cursor: pointer; text-decoration: underline; }
 .related-search-history .close { padding: 0 10px; font: 12px/24px "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1"; text-align: right; background: #f5f5f5; }
 .related-search-history .delete { display: none; position: absolute; top: 0; right: 8px; color: #c00; cursor: pointer; }
-/*** Îü¶¥ËÑË÷¿ò ***/
+/*** å¸é¡¶æœç´¢æ¡† ***/
 .search-layer{ position:fixed; top:0; left:0; _position:absolute;_top:expression(eval(document.documentElement.scrollTop)); z-index:1500; width:100%; height:50px; background:#fff; -wekit-box-shadow:0 1px 5px rgba(0, 0, 0, .1); box-shadow:0 1px 5px rgba(0, 0, 0, .1);border-bottom:1px solid #ededed;}
 .search-layer .logo{ float:left; margin:9px 0 0; padding:0;}
 .search-layer .search-box{ padding:7px 0 0 134px;}
@@ -172,7 +172,7 @@ a:hover{ color:#c00; text-decoration:underline;}
 .search-box-top .search-top { position: relative; width: 536px; height: 32px; border: 2px solid #ff6633; z-index: 3; } 
 
 
-/* ×ó²àµ¼º½ÏÂ±ê */
+/* å·¦ä¾§å¯¼èˆªä¸‹æ ‡ */
 .category-nav-title .ico {background: url(../../..//icon.zol-img.com.cn/newshop/shop/list/list_v2/zolcom_list_ico.png) no-repeat;}
 .category-nav-title .ico {position: absolute;top: 14px;right: 20px;width: 10px;height: 6px;background-position: 0 0;font: 0/0 arial;overflow: hidden;}
 

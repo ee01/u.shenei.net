@@ -3,13 +3,13 @@ function GoogleMap(objName, divID, typeval, func) {
 	this.divObj = divID;
 	this.type = isUndefined(typeval)? 1:typeval;
 	this.func = isUndefined(func) ? '': func;
-	this.mapObj;//google jsÎÄ¼şÃ»ÓĞ±»¶ÁÈ¡
+	this.mapObj;//google jsæ–‡ä»¶æ²¡æœ‰è¢«è¯»å–
 	this.icons = {};
 	this.markerarr = [];
 	this.htmlarr = [];
 	return this;
 };
-//¿ªÊ¼¼ÓÔØgoogle µØÍ¼
+//å¼€å§‹åŠ è½½google åœ°å›¾
 GoogleMap.prototype.Initialize = function(lat, lng)
 {
 	with(this) {
@@ -108,14 +108,14 @@ GoogleMap.prototype.getIcon = function(image) {
 	}
 };
 
-//´Ë´¦Îª°æÈ¨ÉùÃ÷ Ï£Íû´ó¼Ò²»ÒªÒÆ³ıÕâ¸öÁ´½Ó ÆäÊµÒ²²»»áÇÀ×ßÄúµÄÁ÷Á¿ Ğ»Ğ»ºÏ×÷
+//æ­¤å¤„ä¸ºç‰ˆæƒå£°æ˜ å¸Œæœ›å¤§å®¶ä¸è¦ç§»é™¤è¿™ä¸ªé“¾æ¥ å…¶å®ä¹Ÿä¸ä¼šæŠ¢èµ°æ‚¨çš„æµé‡ è°¢è°¢åˆä½œ
 
 GoogleMap.prototype.poweredby = function() {
 	var div = document.createElement('div');
 	div.style.position ="absolute";
 	div.style.left="180px"; 
 	div.style.bottom= "2px";
-	div.innerHTML = '<a href="../www.shenei.net" target="_blank" style="color:black">ÉáÄÚÍø</a>';
+	div.innerHTML = '<a href="../www.shenei.net" target="_blank" style="color:black">èˆå†…ç½‘</a>';
 	this.divObj.appendChild(div);
 }
 
@@ -164,16 +164,16 @@ GoogleMap.prototype.clear = function()
 GoogleMap.prototype.htmlfunc = function(arr) {
 	var str = '<table cellpadding="3" cellspacing="0"><tr><td width="55"><div class="avatar48"><a href="space.php?uid='+arr.uid;
 	str += '">'+arr.pic;
-	str += '</a></div></td><td><p>ÎÒÊÇ<a href="space.php?uid='+arr.uid;
+	str += '</a></div></td><td><p>æˆ‘æ˜¯<a href="space.php?uid='+arr.uid;
 	str += '">'+arr.username;
 	str += '</a>: '+arr.sex;
-	str += '</p><p>QQºÅ:'+arr.qq;
+	str += '</p><p>QQå·:'+arr.qq;
 	str += '</p><p>[<a href="cp.php?ac=poke&op=send&uid='+arr.uid;
 	str += '" id="a_poke_'+arr.uid;
-	str += '" onclick="ajaxmenu(event, this.id, 99999, \'\', -1)" title="´òÕĞºô">´òÕĞºô</a>]';
+	str += '" onclick="ajaxmenu(event, this.id, 99999, \'\', -1)" title="æ‰“æ‹›å‘¼">æ‰“æ‹›å‘¼</a>]';
 	str += '[<a href="cp.php?ac=pm&&uid='+arr.uid;
 	str += '" id="a_pm_'+arr.uid;
-	str += '" onclick="ajaxmenu(event, this.id, 99999, \'\', -1)" title="·¢ÏûÏ¢">·¢ÏûÏ¢</a>]';
+	str += '" onclick="ajaxmenu(event, this.id, 99999, \'\', -1)" title="å‘æ¶ˆæ¯">å‘æ¶ˆæ¯</a>]';
 	str += '</p><p>'+arr.node;
 	str += '</p></td></tr></table>';
 	return str;

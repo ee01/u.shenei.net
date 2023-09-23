@@ -1,80 +1,80 @@
-// ÑÕÉ«Ñ¡ÔñÀà
+// é¢œè‰²é€‰æ‹©ç±»
 /**
-* @param:callback »Øµ÷º¯Êı
+* @param:callback å›è°ƒå‡½æ•°
 */
 selectColor = function(callback) {
 	var __method = this;
 	if('undefined' == typeof(callback) || '' == callback) {
 		callback = null;
 	}
-	//»Øµ÷¿ª¹Ø
+	//å›è°ƒå¼€å…³
 	this.nocallback = 0;
-	// »Øµ÷º¯Êı
+	// å›è°ƒå‡½æ•°
 	this.callback = callback;
-	// ×ó±ßµÄÑÕÉ«Ñ¡Ôñ
+	// å·¦è¾¹çš„é¢œè‰²é€‰æ‹©
 	this.crossHairObj = $('clrCrosshairs');
-	// ÓÒ±ßµÄÉ«ÏµÑ¡Ôñ
+	// å³è¾¹çš„è‰²ç³»é€‰æ‹©
 	this.rangeArrowObj = $('clrRangeArrows');
-	// Ô¤ÀÀµÄ¶ÔÏó²ã
+	// é¢„è§ˆçš„å¯¹è±¡å±‚
 	this.previewObj = $('clrPreview');
-	// ×ó±ßµÄÑÕÉ«±³¾°²ã
+	// å·¦è¾¹çš„é¢œè‰²èƒŒæ™¯å±‚
 	this.saturationObj = $('clrColor');
-	// ÑÕÉ«ÖµÏÔÊ¾¿òµÄ¶ÔÏó
+	// é¢œè‰²å€¼æ˜¾ç¤ºæ¡†çš„å¯¹è±¡
 	this.iptObj = $('clrColorValue');
-	// ÓÒ±ßµÄÉ«Ïµ±³¾°²ã
+	// å³è¾¹çš„è‰²ç³»èƒŒæ™¯å±‚
 	this.hueObj = $('clrHue');
-	// ÑÕÉ«Ñ¡ÔñÊ±µÄÍÏ¶¯·¶Î§
+	// é¢œè‰²é€‰æ‹©æ—¶çš„æ‹–åŠ¨èŒƒå›´
 	this.hueColorObj = $('clrBGColor');
-	// RGBÑÕÉ«Öµ¶ÔÏó
+	// RGBé¢œè‰²å€¼å¯¹è±¡
 	this.rgb = {};
-	// HSVÑÕÉ«Öµ¶ÔÏó
+	// HSVé¢œè‰²å€¼å¯¹è±¡
 	this.hsv = {};
-	// ¼àÌıÊäÈë¿òµÄÖµÊÇ·ñÓĞ±ä»¯£¬ÓĞÔò½øĞĞ³õÊ¼»¯
+	// ç›‘å¬è¾“å…¥æ¡†çš„å€¼æ˜¯å¦æœ‰å˜åŒ–ï¼Œæœ‰åˆ™è¿›è¡Œåˆå§‹åŒ–
 	this.iptObj.onchange = this.init.bindAsEventListener(this);
-	// ³õÊ¼»¯É«ÏµÑ¡ÔñÍÏ¶¯²ã
+	// åˆå§‹åŒ–è‰²ç³»é€‰æ‹©æ‹–åŠ¨å±‚
 	this.rangeArrowDrag = new drag('clrRangeArrows', '', 'clrHue', 'vertical', function(obj) {
-		// ´Ëº¯ÊıÎª»Øµ÷º¯Êı
+		// æ­¤å‡½æ•°ä¸ºå›è°ƒå‡½æ•°
 		__method.hsv.h = Math.abs(parseInt(obj.body.style.top)) / 199;
 		__method.hsvChange();
 	}, 1);
-	// Êó±êÑùÊ½»Ö¸´ÎªÄ¬ÈÏ
+	// é¼ æ ‡æ ·å¼æ¢å¤ä¸ºé»˜è®¤
 	this.rangeArrowDrag.cursor = 'default';
-	// ³õÊ¼»¯ÑÕÉ«Ñ¡ÔñÍÏ¶¯²ã
+	// åˆå§‹åŒ–é¢œè‰²é€‰æ‹©æ‹–åŠ¨å±‚
 	this.crossHairDrag = new drag('clrCrosshairs', '', 'clrColor', '', function(obj) {
 		__method.hsv.s = 1 - (Math.abs(parseInt(obj.body.style.top)) / 199);
 		__method.hsv.v = (Math.abs(parseInt(obj.body.style.left)) / 199);
 		__method.hsvChange();
 	}, 1);
-	// Êó±êÑùÊ½»Ö¸´ÎªÄ¬ÈÏ
+	// é¼ æ ‡æ ·å¼æ¢å¤ä¸ºé»˜è®¤
 	this.crossHairDrag.cursor = 'default';
-	// ³õÊ¼»¯
+	// åˆå§‹åŒ–
 	this.init();
 }
-// Èç¹ûÉ«Ïµ±»¸Ä±äÁË
+// å¦‚æœè‰²ç³»è¢«æ”¹å˜äº†
 selectColor.prototype.hsvChange = function() {
-	// ¸ù¾İµ±Ç°µÄ×ø±ê¼ÆËãRGBµÄÑÕÉ«Öµ
+	// æ ¹æ®å½“å‰çš„åæ ‡è®¡ç®—RGBçš„é¢œè‰²å€¼
 	this.rgb = rgbHexHsv.prototype.hsv2rgb(this.hsv.h, this.hsv.s, this.hsv.v);
-	// ¸Ä±äÑÕÉ«
+	// æ”¹å˜é¢œè‰²
 	this.colorChanged();
 }
-// ³õÊ¼»¯
+// åˆå§‹åŒ–
 selectColor.prototype.init = function() {
-	// ³õÊ¼»¯¿ÉÍÏ¶¯Í¼±ê£¬ÎªÁË¼æÈİIE
+	// åˆå§‹åŒ–å¯æ‹–åŠ¨å›¾æ ‡ï¼Œä¸ºäº†å…¼å®¹IE
 	this.fixPNG('viewspace/img/tool/sv.png', 'clrSv', this.hueColorObj);
 	this.fixPNG('viewspace/img/tool/h.png', 'clrH', this.hueObj);
-	// ¶ÁÈ¡ÑÕÉ«Öµ
+	// è¯»å–é¢œè‰²å€¼
 	this.color = this.iptObj.value;
 	if('' == this.color) {
 		this.color = '#FFFF00';
 		this.iptObj.value = '#FFFF00';
 		this.nocallback = 1;
 	}
-	// 16½øÖÆÑÕÉ«Öµ×ª»»³ÉRGBÑÕÉ«Öµ
+	// 16è¿›åˆ¶é¢œè‰²å€¼è½¬æ¢æˆRGBé¢œè‰²å€¼
 	this.rgb = rgbHexHsv.prototype.hex2rgb(this.color, {r:0, g:0, b:0});
-	// RGBµÄÑÕÉ«¸Ä±ä
+	// RGBçš„é¢œè‰²æ”¹å˜
 	this.rgbChanged();
 }
-// ÎªÁË¼æÈİ±äÌ¬µÄIE
+// ä¸ºäº†å…¼å®¹å˜æ€çš„IE
 selectColor.prototype.fixPNG = function(imgsrc, curid, parentObj) {
 	if($(curid)) {
 		return false;
@@ -92,45 +92,45 @@ selectColor.prototype.fixPNG = function(imgsrc, curid, parentObj) {
 		parentObj.appendChild(tmpImg);
 	}
 }
-// RGBÑÕÉ«Öµ¸Ä±ä
+// RGBé¢œè‰²å€¼æ”¹å˜
 selectColor.prototype.rgbChanged = function() {
-	// ¸ù¾İRGBµÄÑÕÉ«¸Ä±ä£¬¼ÆËãHSVÑÕÉ«Öµ
+	// æ ¹æ®RGBçš„é¢œè‰²æ”¹å˜ï¼Œè®¡ç®—HSVé¢œè‰²å€¼
 	this.hsv = rgbHexHsv.prototype.rgb2hsv(this.rgb.r, this.rgb.g, this.rgb.b);
-	// ¸Ä±äÑÕÉ«
+	// æ”¹å˜é¢œè‰²
 	this.colorChanged();
 }
 selectColor.prototype.colorChanged = function() {
 	var __method = this;
-	// ¼ÆËãÊ®Áù½øÖÆÑÕÉ«Öµ
+	// è®¡ç®—åå…­è¿›åˆ¶é¢œè‰²å€¼
 	var hex = rgbHexHsv.prototype.rgb2hex(this.rgb.r, this.rgb.g, this.rgb.b);
-	// ¼ÆËãÉ«ÏµµÄRGBÑÕÉ«Öµ
+	// è®¡ç®—è‰²ç³»çš„RGBé¢œè‰²å€¼
 	var hueRgb = rgbHexHsv.prototype.hsv2rgb(this.hsv.h, 1, 1);
-	// ¼ÆËãÉ«ÏµµÄÊ®Áù½øÖÆÑÕÉ«Öµ
+	// è®¡ç®—è‰²ç³»çš„åå…­è¿›åˆ¶é¢œè‰²å€¼
 	var hueHex = rgbHexHsv.prototype.rgb2hex(hueRgb.r, hueRgb.g, hueRgb.b);
-	// ¸Ä±äÔ¤ÀÀ¶ÔÏóµÄ±³¾°ÑÕÉ«
+	// æ”¹å˜é¢„è§ˆå¯¹è±¡çš„èƒŒæ™¯é¢œè‰²
 	this.previewObj.style.background = hex;
-	// ¸Ä±äÊäÈë¿òµÄÑÕÉ«Öµ
+	// æ”¹å˜è¾“å…¥æ¡†çš„é¢œè‰²å€¼
 	this.iptObj.value = hex;
-	// ¸Ä±ä»ìÉ«Æ÷µÄ±³¾°ÑÕÉ«
+	// æ”¹å˜æ··è‰²å™¨çš„èƒŒæ™¯é¢œè‰²
 	this.hueColorObj.style.background = hueHex;
-	// ÑÕÉ«Ñ¡Ôñ×ø±ê
+	// é¢œè‰²é€‰æ‹©åæ ‡
 	this.crossHairObj.style.left = (this.hsv.v * 199).toString() + 'px';
 	this.crossHairObj.style.top = ((1 - this.hsv.s) * 199).toString() + 'px';
-	// É«ÏµÑ¡Ôñ×ø±ê
+	// è‰²ç³»é€‰æ‹©åæ ‡
 	this.rangeArrowObj.style.left = '-8px';
 	this.rangeArrowObj.style.top = (this.hsv.h * 199).toString() + 'px';
-	// ÏÔÊ¾
+	// æ˜¾ç¤º
 	if('none' == this.crossHairObj.style.display) {
 		this.crossHairObj.style.display = '';
 	}
 	if('none' == this.rangeArrowObj.style.display) {
 		this.rangeArrowObj.style.display = '';
 	}
-	// µ÷ÓÃ»Øµ÷º¯Êı
+	// è°ƒç”¨å›è°ƒå‡½æ•°
 	if(this.callback && this.nocallback == 0) {
 		this.callback(__method);
 	}
-	if(this.nocallback != 0) {//¿ª¹ØÖ»µÚÒ»´ÎÓĞĞ§
+	if(this.nocallback != 0) {//å¼€å…³åªç¬¬ä¸€æ¬¡æœ‰æ•ˆ
 		this.nocallback = 0;
 	}
 }

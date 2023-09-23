@@ -4,13 +4,13 @@
 */
 
 
-//iframe°üº¬
+//iframeåŒ…å«
 
 function $(id) {
 	return document.getElementById(id);
 }
 
-//Í·²¿²Ëµ¥ 
+//å¤´éƒ¨èœå• 
 function suboptwo(obj,id){
 
 	var tLeft = obj.offsetLeft;
@@ -29,7 +29,7 @@ function suboptwo(obj,id){
 
 
 /**
-*   Í·²¿µ¼º½¶ş¼¶²Ëµ¥¡£
+*   å¤´éƒ¨å¯¼èˆªäºŒçº§èœå•ã€‚
 */
 function openSub(obj, target, isclick) {
 	var tSub = $('sub' + target);
@@ -74,7 +74,7 @@ function openSub(obj, target, isclick) {
 }
 
 /**
-*   Í·²¿µ¼º½¶ş¼¶²Ëµ¥¹Ø±Õ¡£
+*   å¤´éƒ¨å¯¼èˆªäºŒçº§èœå•å…³é—­ã€‚
 */
 function closeSub() {
 	var evt = getEvent();

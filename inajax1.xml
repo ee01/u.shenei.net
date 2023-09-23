@@ -14,19 +14,19 @@ function setintro(type) {
 var intro = '';
 var bPosition = '';
 if(type == 'doing') {
-intro = '��һ�仰��¼�Լ������еĵ��ε�';
+intro = '用一句话记录自己生活中的点点滴滴';
 bPosition = '0';
 } else if(type == 'mtag') {
-intro = '�����Լ���СȦ�ӣ����ҽ�������Ȥ�Ļ���';
+intro = '创建自己的小圈子，与大家交流感兴趣的话题';
 bPosition = '175px';
 } else if(type == 'pic') {
-intro = '�ϴ���Ƭ�����������еľ���˲��';
+intro = '上传照片，分享生活中的精彩瞬间';
 bPosition = '55px';
 } else if(type == 'app') {
-intro = '�����һ����ת��Ϸ��Ӧ�ã����Ӻ��Ѹ���';
+intro = '与好友一起玩转游戏和应用，增加好友感情';
 bPosition = '118px';
 } else {
-intro = '����ע�ᣬ����ѷ�����־����Ƭ��һ����ת��Ϸ';
+intro = '马上注册，与好友分享日志、照片，一起玩转游戏';
 bPosition = '0';
 }
 $('guest_intro').innerHTML = intro + '......';
@@ -36,26 +36,26 @@ $('guest_intro').style.backgroundPosition = bPosition + ' 100%'
 
 <div id="guestbar" class="nbox">
 <div class="nbox_c">
-<p id="guest_intro">����ע�ᣬ����ѷ�����־����Ƭ��һ����ת��Ϸ......</p>
-<a href="do.php@ac=ereg" id="regbutton" onmouseover="setintro('register');">����ע��</a>
+<p id="guest_intro">马上注册，与好友分享日志、照片，一起玩转游戏......</p>
+<a href="do.php@ac=ereg" id="regbutton" onmouseover="setintro('register');">马上注册</a>
 <p id="guest_app">
-<a href="javascript:;" class="appdoing" onmouseover="setintro('doing');">��¼</a>
-<a href="javascript:;" class="appphotos" onmouseover="setintro('pic');">��Ƭ</a>
-<a href="javascript:;" class="appgames" onmouseover="setintro('app');">��Ϸ</a>
-<a href="javascript:;" class="appgroups" onmouseover="setintro('mtag');">Ⱥ��</a> 
+<a href="javascript:;" class="appdoing" onmouseover="setintro('doing');">记录</a>
+<a href="javascript:;" class="appphotos" onmouseover="setintro('pic');">照片</a>
+<a href="javascript:;" class="appgames" onmouseover="setintro('app');">游戏</a>
+<a href="javascript:;" class="appgroups" onmouseover="setintro('mtag');">群组</a> 
 </p>
 </div> 
 <div class="nbox_s side_rbox" id="nlogin_box">
-<h3 class="ntitle">���¼</h3>
+<h3 class="ntitle">请登录</h3>
 <div class="side_rbox_c">
 <form name="loginform" action="do.php?ac=elogin&&ref" method="post">
-<p><label for="username">�û���</label> <input type="text" name="username" id="username" class="t_input" value="01" /></p>
-<p><label for="password">�ܡ���</label> <input type="password" name="password" id="password" class="t_input" value="" /></p>
-<p class="checkrow"><input type="checkbox" id="cookietime" name="cookietime" value="315360000"  style="margin-bottom: -2px;" /><label for="cookietime">�´��Զ���¼</label></p>
+<p><label for="username">用户名</label> <input type="text" name="username" id="username" class="t_input" value="01" /></p>
+<p><label for="password">密　码</label> <input type="password" name="password" id="password" class="t_input" value="" /></p>
+<p class="checkrow"><input type="checkbox" id="cookietime" name="cookietime" value="315360000"  style="margin-bottom: -2px;" /><label for="cookietime">下次自动登录</label></p>
 <p class="submitrow">
 <input type="hidden" name="refer" value="space.php?do=home" />
-<input type="submit" id="loginsubmit" name="loginsubmit" value="��¼" class="submit" />
-<a href="do.php@ac=lostpasswd">��������?</a>
+<input type="submit" id="loginsubmit" name="loginsubmit" value="登录" class="submit" />
+<a href="do.php@ac=lostpasswd">忘记密码?</a>
 <input type="hidden" name="formhash" value="d5aa53ee" />
 </p>
 </form>
@@ -67,115 +67,115 @@ $('guest_intro').style.backgroundPosition = bPosition + ' 100%'
 
 <div id="radomuser" class="nbox">
 <div class="nbox_c">
-<h2 class="ntitle">��ӭ��������һ�����������</h2>
+<h2 class="ntitle">欢迎您，与大家一起交流与分享吧</h2>
 <ul class="s_clear">
 <li>
-<div class="d_avatar avatar48"><a href="space-1.html" title="СE������ܲ" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
-<p><a href="space-1.html" target="_blank">СE������ܲ</a></p>
+<div class="d_avatar avatar48"><a href="space-1.html" title="小E←邱沼懿" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<p><a href="space-1.html" target="_blank">小E←邱沼懿</a></p>
 <p> </p>
-<p>95 λ����</p>
+<p>95 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-9.html" title="��۵�" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_07_small.gif'"></a></div>
-<p><a href="space-9.html" target="_blank">��۵�</a></p>
+<div class="d_avatar avatar48"><a href="space-9.html" title="李慧丹" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_07_small.gif'"></a></div>
+<p><a href="space-9.html" target="_blank">李慧丹</a></p>
 <p> </p>
-<p>20 λ����</p>
+<p>20 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-2.html" title="��ӱ" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/02_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_02_small.gif'"></a></div>
-<p><a href="space-2.html" target="_blank">��ӱ</a></p>
+<div class="d_avatar avatar48"><a href="space-2.html" title="张颖" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/02_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_02_small.gif'"></a></div>
+<p><a href="space-2.html" target="_blank">张颖</a></p>
 <p> </p>
-<p>177 λ����</p>
+<p>177 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-4.html" title="Se��en" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/04_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
-<p><a href="space-4.html" target="_blank">Se��en</a></p>
+<div class="d_avatar avatar48"><a href="space-4.html" title="Se⒎en" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/04_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
+<p><a href="space-4.html" target="_blank">Se⒎en</a></p>
 <p> </p>
-<p>442 λ����</p>
+<p>442 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-27.html" title="������Milly" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/27_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
-<p><a href="space-27.html" target="_blank">������Milly</a></p>
+<div class="d_avatar avatar48"><a href="space-27.html" title="李敏利Milly" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/27_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<p><a href="space-27.html" target="_blank">李敏利Milly</a></p>
 <p> </p>
-<p>435 λ����</p>
+<p>435 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-23.html" title="Ҷ����" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/23_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
-<p><a href="space-23.html" target="_blank">Ҷ����</a></p>
+<div class="d_avatar avatar48"><a href="space-23.html" title="叶彬祥" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/23_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<p><a href="space-23.html" target="_blank">叶彬祥</a></p>
 <p> </p>
-<p>31 λ����</p>
+<p>31 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-11.html" title="�����" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/11_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
-<p><a href="space-11.html" target="_blank">�����</a></p>
+<div class="d_avatar avatar48"><a href="space-11.html" title="高雨娟" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/11_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
+<p><a href="space-11.html" target="_blank">高雨娟</a></p>
 <p> </p>
-<p>24 λ����</p>
+<p>24 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-194.html" title="��С��" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/94_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
-<p><a href="space-194.html" target="_blank">��С��</a></p>
+<div class="d_avatar avatar48"><a href="space-194.html" title="余小立" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/94_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<p><a href="space-194.html" target="_blank">余小立</a></p>
 <p> </p>
-<p>13 λ����</p>
+<p>13 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-13.html" title="����" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/13_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_06_small.gif'"></a></div>
-<p><a href="space-13.html" target="_blank">����</a></p>
+<div class="d_avatar avatar48"><a href="space-13.html" title="江振波" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/13_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_06_small.gif'"></a></div>
+<p><a href="space-13.html" target="_blank">江振波</a></p>
 <p> </p>
-<p>440 λ����</p>
+<p>440 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-40.html" title="��ΰ��" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/40_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
-<p><a href="space-40.html" target="_blank">��ΰ��</a></p>
+<div class="d_avatar avatar48"><a href="space-40.html" title="林伟彬" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/40_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<p><a href="space-40.html" target="_blank">林伟彬</a></p>
 <p> </p>
-<p>29 λ����</p>
+<p>29 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-258.html" title="������" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/02/58_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
-<p><a href="space-258.html" target="_blank">������</a></p>
+<div class="d_avatar avatar48"><a href="space-258.html" title="黄晓波" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/02/58_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<p><a href="space-258.html" target="_blank">黄晓波</a></p>
 <p> </p>
-<p>80 λ����</p>
+<p>80 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-445.html" title="�ŵ�Ƽ" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/04/45_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
-<p><a href="space-445.html" target="_blank">�ŵ�Ƽ</a></p>
+<div class="d_avatar avatar48"><a href="space-445.html" title="张丹萍" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/04/45_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
+<p><a href="space-445.html" target="_blank">张丹萍</a></p>
 <p> </p>
-<p>16 λ����</p>
+<p>16 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-3.html" title="��ͷ" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/03_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_06_small.gif'"></a></div>
-<p><a href="space-3.html" target="_blank">��ͷ</a></p>
+<div class="d_avatar avatar48"><a href="space-3.html" title="菜头" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/03_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_06_small.gif'"></a></div>
+<p><a href="space-3.html" target="_blank">菜头</a></p>
 <p> </p>
-<p>11 λ����</p>
+<p>11 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-111.html" title="Ӱ�Ӵ̿�" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/11_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_04_small.gif'"></a></div>
-<p><a href="space-111.html" target="_blank">Ӱ�Ӵ̿�</a></p>
+<div class="d_avatar avatar48"><a href="space-111.html" title="影子刺客" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/11_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_04_small.gif'"></a></div>
+<p><a href="space-111.html" target="_blank">影子刺客</a></p>
 <p> </p>
-<p>468 λ����</p>
+<p>468 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-10.html" title="��ͦͦ" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/10_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
-<p><a href="space-10.html" target="_blank">��ͦͦ</a></p>
+<div class="d_avatar avatar48"><a href="space-10.html" title="林挺挺" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/00/10_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<p><a href="space-10.html" target="_blank">林挺挺</a></p>
 <p> </p>
-<p>23 λ����</p>
+<p>23 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-113.html" title="�¿���" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/13_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_07_small.gif'"></a></div>
-<p><a href="space-113.html" target="_blank">�¿���</a></p>
+<div class="d_avatar avatar48"><a href="space-113.html" title="陈俊融" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/13_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_07_small.gif'"></a></div>
+<p><a href="space-113.html" target="_blank">陈俊融</a></p>
 <p> </p>
-<p>14 λ����</p>
+<p>14 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-116.html" title="����" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/16_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_05_small.gif'"></a></div>
-<p><a href="space-116.html" target="_blank">����</a></p>
+<div class="d_avatar avatar48"><a href="space-116.html" title="秦生" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/01/16_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_05_small.gif'"></a></div>
+<p><a href="space-116.html" target="_blank">秦生</a></p>
 <p> </p>
-<p>5 λ����</p>
+<p>5 位好友</p>
 </li>
 <li>
-<div class="d_avatar avatar48"><a href="space-1162.html" title="С�Ỷ" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/11/62_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_02_small.gif'"></a></div>
-<p><a href="space-1162.html" target="_blank">С�Ỷ</a></p>
+<div class="d_avatar avatar48"><a href="space-1162.html" title="小玲欢" target="_blank"><img src="../uc.shenei.net/data/avatar/000/00/11/62_real_avatar_small.jpg" onerror="this.onerror=null;this.src='../uc.shenei.net/images/avatar/l_02_small.gif'"></a></div>
+<p><a href="space-1162.html" target="_blank">小玲欢</a></p>
 <p> </p>
-<p>9 λ����</p>
+<p>9 位好友</p>
 </li>
 </ul>
 </div>

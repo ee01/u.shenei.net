@@ -1,7 +1,7 @@
 /*
-* ÃèÊö : Ìí¼ÓĞÂµÄÑùÊ½rule
-* ²ÎÊı : styleSheetsË÷Òı
-* ´úÂë : var ss = new styleSheet(0);
+* æè¿° : æ·»åŠ æ–°çš„æ ·å¼rule
+* å‚æ•° : styleSheetsç´¢å¼•
+* ä»£ç  : var ss = new styleSheet(0);
 */
 var stylecss = function(n) {
 	var ss;
@@ -13,13 +13,13 @@ var stylecss = function(n) {
 };
 
 /*
-* ÃèÊö : ²éÕÒÑùÊ½rule£¬³É¹¦·µ»Øindex,·ñÔò·µ»Ø-1
-* ²ÎÊı : nÎªruleÃû³Æ
-* ´úÂë : var ss = new styleSheet(0);
+* æè¿° : æŸ¥æ‰¾æ ·å¼ruleï¼ŒæˆåŠŸè¿”å›index,å¦åˆ™è¿”å›-1
+* å‚æ•° : nä¸ºruleåç§°
+* ä»£ç  : var ss = new styleSheet(0);
 *         ss.indexOf("className")
 */
 stylecss.prototype.indexof = function(selector) {
-	/*È¥µôÕıÔò»»¾ø¶ÔµÄ
+	/*å»æ‰æ­£åˆ™æ¢ç»å¯¹çš„
 	var tmpReg = new RegExp(selector, 'i');
 	for(var i=0; i<this.rules.length; i++) {
 		if(tmpReg.test(this.rules[i].selectorText)) {
@@ -42,9 +42,9 @@ stylecss.prototype.indexof = function(selector) {
 };
 
 /*
-* ÃèÊö : É¾³ıÑùÊ½rule
-* ²ÎÊı : nÎªruleË÷Òı»òÕßÃû³Æ
-* ´úÂë : var ss = new styleSheet(0);
+* æè¿° : åˆ é™¤æ ·å¼rule
+* å‚æ•° : nä¸ºruleç´¢å¼•æˆ–è€…åç§°
+* ä»£ç  : var ss = new styleSheet(0);
 *       ss.removeRule(0) || ss.removeRule("className")
 */
 stylecss.prototype.removerule = function(n) {
@@ -63,7 +63,7 @@ stylecss.prototype.removerule_all = function(nosearch) {
 	var j = 0;
 	for(i=0;i<num;i++) {
 		var selector = this.rules[this.rules.length - 1 - j].selectorText.toLowerCase();
-		//body #banner #title #menu #footer ÕâĞ©ÑùÊ½ÔÚÓ¦ÓÃËùÓĞÊ±²»É¾³ı
+		//body #banner #title #menu #footer è¿™äº›æ ·å¼åœ¨åº”ç”¨æ‰€æœ‰æ—¶ä¸åˆ é™¤
 		if(nosearch == 1 || selector.search(/^(body|#banner|#title|#menu|#footer)+?/) == -1) {
 			this.sheet.removeRule ? this.sheet.removeRule(this.rules.length - 1 - j) : this.sheet.deleteRule(this.rules.length - 1 - j);
 		}else{
@@ -73,11 +73,11 @@ stylecss.prototype.removerule_all = function(nosearch) {
 };
 
 /*
-* ÃèÊö : Ìí¼ÓĞÂµÄÑùÊ½rule
-* ²ÎÊı : selector      ÑùÊ½ruleÃû³Æ
-*       styles        ÑùÊ½ruleµÄstyle
-*       n             Î»ÖÃ
-* ´úÂë : var ss = new styleSheet(0);
+* æè¿° : æ·»åŠ æ–°çš„æ ·å¼rule
+* å‚æ•° : selector      æ ·å¼ruleåç§°
+*       styles        æ ·å¼ruleçš„style
+*       n             ä½ç½®
+* ä»£ç  : var ss = new styleSheet(0);
 *       ss.addRule("className","color:red",0);
 */
 stylecss.prototype.addrule = function(selector, styles, n) {
@@ -88,11 +88,11 @@ stylecss.prototype.addrule = function(selector, styles, n) {
 };
 
 /*
-* ÃèÊö : ÉèÖÃÑùÊ½rule¾ßÌåµÄÊôĞÔ
-* ²ÎÊı : selector      ÑùÊ½ruleÃû³Æ
-*       attribute     ÑùÊ½ruleµÄÊôĞÔ
-*       value        Ö¸¶¨valueÖµ
-* ´úÂë : ss.setrule("#logo", "color:", "green");
+* æè¿° : è®¾ç½®æ ·å¼ruleå…·ä½“çš„å±æ€§
+* å‚æ•° : selector      æ ·å¼ruleåç§°
+*       attribute     æ ·å¼ruleçš„å±æ€§
+*       value        æŒ‡å®švalueå€¼
+* ä»£ç  : ss.setrule("#logo", "color:", "green");
 */
 stylecss.prototype.setrule = function(selector, attribute, value) {
 	var i = this.indexof(selector);
@@ -103,10 +103,10 @@ stylecss.prototype.setrule = function(selector, attribute, value) {
 };
 
 /*
-* ÃèÊö : »ñµÃÑùÊ½rule¾ßÌåµÄÊôĞÔ
-* ²ÎÊı : selector      ÑùÊ½ruleÃû³Æ
-*       attribute      ÑùÊ½ruleµÄÊôĞÔ
-* ´úÂë : ss.getrule("#logo", "color");
+* æè¿° : è·å¾—æ ·å¼ruleå…·ä½“çš„å±æ€§
+* å‚æ•° : selector      æ ·å¼ruleåç§°
+*       attribute      æ ·å¼ruleçš„å±æ€§
+* ä»£ç  : ss.getrule("#logo", "color");
 */
 stylecss.prototype.getrule = function(selector, attribute) {
 	var i = this.indexof(selector);

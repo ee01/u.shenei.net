@@ -3,27 +3,27 @@
             this.init(o);
         }
         ZolCountDown.prototype = {
-            //³õÊ¼»¯
+            //åˆå§‹åŒ–
             init: function(o) {
-                this.callback       = o.callback; //µ¹¼ÆÊ±»Øµ÷º¯Êı
-                this.endCallback    = o.endCallback; //µ¹¼ÆÊ±½áÊøµÄ»Øµ÷º¯Êı
-                this.remainTime     = o.remainTime; //Ê£ÓàÃëÊı sec
+                this.callback       = o.callback; //å€’è®¡æ—¶å›è°ƒå‡½æ•°
+                this.endCallback    = o.endCallback; //å€’è®¡æ—¶ç»“æŸçš„å›è°ƒå‡½æ•°
+                this.remainTime     = o.remainTime; //å‰©ä½™ç§’æ•° sec
                 
-                //Ê±¼ä²ÎÊı
+                //æ—¶é—´å‚æ•°
                 this.oneDayTime     = 60 * 60 * 24; //sec
                 this.oneHourTime    = 60 * 60; //sec
                 this.oneMinuteTime  = 60; //sec
                 
-                //Ö´ĞĞµ¹¼ÆÊ±
+                //æ‰§è¡Œå€’è®¡æ—¶
                 this.exec();
             },
             
-            //Ö´ĞĞµ¹¼ÆÊ±
+            //æ‰§è¡Œå€’è®¡æ—¶
             exec: function() {
                 var me              = this,
-                    remainTimeObj   = {}; //Ê£ÓàÊ±¼äµÄĞÅÏ¢
+                    remainTimeObj   = {}; //å‰©ä½™æ—¶é—´çš„ä¿¡æ¯
 
-                this.timer && clearTimeout(this.timer); //ÏÈÈ¡Ïûµ¹¼ÆÊ±
+                this.timer && clearTimeout(this.timer); //å…ˆå–æ¶ˆå€’è®¡æ—¶
                 this.diffTime();
                 remainTimeObj.remainDays        = this.remainDays;
                 remainTimeObj.remainHours       = this.remainHours;
@@ -44,19 +44,19 @@
                 
                 this.timer = setTimeout(function(){
                     me.exec();
-                }, 1000); //½øĞĞµİ¹é»Øµ÷
+                }, 1000); //è¿›è¡Œé€’å½’å›è°ƒ
             },
             
-            //¼ÆËãÊ±¼ä²î
+            //è®¡ç®—æ—¶é—´å·®
             diffTime: function() {
-                var subtractTime = 0; //ÓÃÓÚ¼ÆËãÊ±¼äµÄ²îÖµ
+                var subtractTime = 0; //ç”¨äºè®¡ç®—æ—¶é—´çš„å·®å€¼
                 
-                this.remainDays     = Math.floor(this.remainTime / this.oneDayTime); //Ê£ÓàÌìÊı
+                this.remainDays     = Math.floor(this.remainTime / this.oneDayTime); //å‰©ä½™å¤©æ•°
                 subtractTime        = this.remainTime - this.remainDays * this.oneDayTime;
-                this.remainHours    = Math.floor(subtractTime / this.oneHourTime); //Ê£ÓàµÄĞ¡Ê±
+                this.remainHours    = Math.floor(subtractTime / this.oneHourTime); //å‰©ä½™çš„å°æ—¶
                 subtractTime        = subtractTime - this.remainHours * this.oneHourTime;
-                this.remainMinutes  = Math.floor(subtractTime / this.oneMinuteTime); //Ê£ÓàµÄ·ÖÖÓÊı
-                this.remainSecs     = subtractTime - this.remainMinutes * this.oneMinuteTime; //Ê£ÓàµÄÃëÊı
+                this.remainMinutes  = Math.floor(subtractTime / this.oneMinuteTime); //å‰©ä½™çš„åˆ†é’Ÿæ•°
+                this.remainSecs     = subtractTime - this.remainMinutes * this.oneMinuteTime; //å‰©ä½™çš„ç§’æ•°
             }
         };
         

@@ -1,6 +1,6 @@
 /*
-¹¦ÄÜ£ºĞŞ¸Ä window.setTimeout£¬Ê¹Ö®¿ÉÒÔ´«µİ²ÎÊıºÍ¶ÔÏó²ÎÊı
-Ê¹ÓÃ·½·¨£º setTimeout(»Øµ÷º¯Êı,Ê±¼ä,²ÎÊı1,,²ÎÊın)
+åŠŸèƒ½ï¼šä¿®æ”¹ window.setTimeoutï¼Œä½¿ä¹‹å¯ä»¥ä¼ é€’å‚æ•°å’Œå¯¹è±¡å‚æ•°
+ä½¿ç”¨æ–¹æ³•ï¼š setTimeout(å›è°ƒå‡½æ•°,æ—¶é—´,å‚æ•°1,,å‚æ•°n)
 */
 /*var __sto = setTimeout;
 window.setTimeout = function(callback, timeout, param) {
@@ -13,7 +13,7 @@ window.setTimeout = function(callback, timeout, param) {
 	}
 	return __sto(callback, timeout);
 }*/
-// ½«º¯Êı×÷ÎªÊÂ¼ş¼àÌıÆ÷
+// å°†å‡½æ•°ä½œä¸ºäº‹ä»¶ç›‘å¬å™¨
 Function.prototype.bindAsEventListener = function() {
 	var __method = this;
 	var args = Array.prototype.slice.call(arguments);
@@ -23,7 +23,7 @@ Function.prototype.bindAsEventListener = function() {
 		__method.apply(object, new Array(e).concat(args));
 	}
 }
-// ½«º¯Êı×÷ÎªÒ»¸ö¶ÔÏóµÄ·½·¨ÔËĞĞ
+// å°†å‡½æ•°ä½œä¸ºä¸€ä¸ªå¯¹è±¡çš„æ–¹æ³•è¿è¡Œ
 Function.prototype.bind = function() {
 	var __method = this;
 	var args = Array.prototype.slice.call(arguments);

@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=gbk" />
 
-<title>�������ε����� </title>
+<title>做白日梦的兔子 </title>
 
 <script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
 <script language="javascript" type="text/javascript" src="source/script_common.js"></script>
@@ -17,7 +17,7 @@
 <link type="text/css" rel="stylesheet" href="viewspace/css/template.css" />
 
 
-<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/00/09_style.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid9.htm" title="��۵�" />
+<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/00/09_style.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid9.htm" title="李慧丹" />
 <link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.phprsd9" />
 </head>
 
@@ -29,33 +29,33 @@
 <div id="wraptwo">
 <div id="banner" class="banner">
 <div class="title" id="title">
-<h1 id="myblogname">�������ε�����  <em> 236745 �˴η���, 6732������ <a href="do.phpacajaxopcredituid9" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></em></h1>
-<p>�ŷ��֣�������ֵ�������Ϊ�Ľ�������</p>
+<h1 id="myblogname">做白日梦的兔子  <em> 236745 人次访问, 6732个积分 <a href="do.phpacajaxopcredituid9" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></em></h1>
+<p>才发现，我所坚持的是自以为的骄傲……</p>
 <p><a href="9.htm" onclick="javascript:setCopy('9');return false;" class="spacelink domainurl">http://u.shenei.net/9</a></p>
 <iframe name="mainyinyue" src="about:blank" width="0" height="0">
 </iframe>
 <script language="javascript" src="viewspace/js/player1.js"></script>
 <script language="javascript" for="player1" event="playstatechange(newstate)">
-//�������¼�����
+//播放器事件触发
 switch (newstate){
 
   case 1:
-   musicSwf.SetVariable("musicName", "ֹͣ");
-   //playerinfo.innerHTML = "ֹͣ";
-   if (!userstop){//�ж��Ƿ����û��Լ�ֹͣ�����û�ֹͣ�Ļ��پ�������ѭ��   
-   //�ж��Ƿ�ѭ�����ǵĻ�1��󲥷���һ��
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
    if (loop) {
    setTimeout("next();",1000); 
    }
    }
    break;
   case 2:
-   //playerinfo.innerHTML = "��ͣ";
-   musicSwf.SetVariable("musicName", "��ͣ");
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
    break;
   case 3:
    musicSwf.SetVariable("musicName", RadioList[NowId]);
-   //playerinfo.innerHTML = "���ڲ���";
+   //playerinfo.innerHTML = "正在播放";
    break;
   case 4:
    //playerinfo.innerHTML = "4";
@@ -64,8 +64,8 @@ switch (newstate){
    //playerinfo.innerHTML = "5";
    break;
   case 6:
-   musicSwf.SetVariable("musicName", "���ڻ��塭��");
-   //playerinfo.innerHTML = "���ڻ��塭��";
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
    break;
   case 7:
    //playerinfo.innerHTML = "7";
@@ -74,10 +74,10 @@ switch (newstate){
    //playerinfo.innerHTML = "8";
    break;
   case 9:
-  musicSwf.SetVariable("musicName", "�������ӡ���");
+  musicSwf.SetVariable("musicName", "正在连接……");
    break;
   case 10:
-  musicSwf.SetVariable("musicName", "׼������");
+  musicSwf.SetVariable("musicName", "准备就绪");
    break;
   case 11:
    //playerinfo.innerHTML = "11";
@@ -85,10 +85,10 @@ switch (newstate){
   default:
    //playerinfo.innerHTML = "";
 }
-//�������¼���������
+//播放器事件触发结束
 </script>
 <script language="javascript">
-//�����б�
+//歌曲列表
 function musicSwf_DOFSCommand(command,args){
 if (command=="lay"){
 play();
@@ -111,7 +111,7 @@ showmusiclist();
 }
 </script>
 <script language="javascript">
-//���ֳ�ʼ��
+//音乐初始化
 function playerinit()
 {
 loop=true;
@@ -124,11 +124,11 @@ RadioList[0]="music_1"
 NowId=0;
 musicSwf.SetVariable("musicName", RadioList[NowId]);
 player1.URL=listURL[NowId];
-//���ֳ�ʼ����
+//音乐初始结束
 }
 </script>
 <script language="vbscript">
-//���ֲ�������FSCommand
+//音乐播放器命FSCommand
 Sub musicSwf_FSCommand(ByVal command, ByVal args)
 call musicSwf_DOFSCommand(command, args)
 end sub
@@ -149,32 +149,32 @@ end sub
 <!--
 <li>
 <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=9', '');">
-��ҳ </a></li>
+主页 </a></li>
 -->
 
 <li>
 <a  href="viewspace.phpuid9.htm">
-��ҳ </li>
+主页 </li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doaboutme', 'aboutme');">
-������ </a></li>
+关于我 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doblogviewme', 'blog');">
-���� </a></li>
+博文 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doalbumviewme', 'album');">
-���� </a></li>
+看看 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9dopollviewme', 'poll');">
-ͶƱ </a></li>
+投票 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9dofriendviewme', 'friend');">
-���� </a></li>
+好友 </a></li>
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9dowallviewme', 'wall');">
-���԰� </a></li>
+留言板 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doapplist', 'applist');">
-Ӧ�� </a></li>
+应用 </a></li>
 </ul>
 </div>
 </div>
@@ -210,35 +210,35 @@ end sub
 <em>
 
 <a id="a_magic_viewmagiclog" href="magic.phpmidviewmagiclogidtypeuidid9.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="image/magic/viewmagiclog.small.gif" title="���Ծ�" alt="���Ծ�" style="vertical-align: middle;" />
+<img src="image/magic/viewmagiclog.small.gif" title="八卦镜" alt="八卦镜" style="vertical-align: middle;" />
 </a>
 <a id="a_magic_viewmagic" href="magic.phpmidviewmagicidtypeuidid9.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="image/magic/viewmagic.small.gif" title="͸�Ӿ�" alt="͸�Ӿ�" style="vertical-align: middle;" />
+<img src="image/magic/viewmagic.small.gif" title="透视镜" alt="透视镜" style="vertical-align: middle;" />
 </a>
 <a id="a_magic_viewvisitor" href="magic.phpmidviewvisitoridtypeuidid9.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="image/magic/viewvisitor.small.gif" title="͵����" alt="͵����" style="vertical-align: middle;" />
+<img src="image/magic/viewvisitor.small.gif" title="偷窥镜" alt="偷窥镜" style="vertical-align: middle;" />
 </a>
 </em>
-<h2>��������</h2>
+<h2>个人资料</h2>
 </div>
 <div class="blockcontent">
 <div class="userinfo">
 <a href="viewspace.phpuid9.htm" class="avatar"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_big.gif'"></a>
 <div class="username">
-<p >�ǳƣ�<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9.htm', '');">��۵�</a></p>
-<p>�ȼ���<a href="do.phpacajaxopcredituid9" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></p>
-<p>������
-<img src="viewspace/img/tool/video_off.gif" align="absmiddle" title="δ��Ƶ��֤�û�" alt="δ��Ƶ��֤�û�"/>
-<a href="pay.phpacvip.htm"><img src="image/pay/vip.gif" title="VIP��Ա:����VIP" alt="VIP��Ա"  border="0" align="absmiddle" /></a>
+<p >昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9.htm', '');">李慧丹</a></p>
+<p>等级：<a href="do.phpacajaxopcredituid9" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<img src="viewspace/img/tool/video_off.gif" align="absmiddle" title="未视频认证用户" alt="未视频认证用户"/>
+<a href="pay.phpacvip.htm"><img src="image/pay/vip.gif" title="VIP会员:终身VIP" alt="VIP会员"  border="0" align="absmiddle" /></a>
 </p>
 </div>
 <div class="tool">
-<a href="cp.phpacfetionuid9" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="�����ŵ�TA�ֻ�" class="fetion">���Ŷ���</a>
-<a href="cp.phpacpmuid9.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="����վ�ڶ���Ϣ" class="message">����Ϣ</a>
-<a href="cp.phpacpokeopsenduid9.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="����к�" class="hi">�ʺ�</a>
-<a href="cp.phpaccommonopreportidtypeuidid9.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="�ٱ�����" class="report">�ٱ�</a>
-<a href="userapp.phpid1027468my_suffixlw_253d_253d.htm" title="��������" class="sendgift" target="_blank">������</a>
-<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9dowallviewme', 'wall');" id="a_comment" title="��TA����" class="comment">���԰�</a>
+<a href="cp.phpacfetionuid9" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="发短信到TA手机" class="fetion">飞信短信</a>
+<a href="cp.phpacpmuid9.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="发送站内短消息" class="message">发消息</a>
+<a href="cp.phpacpokeopsenduid9.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="打个招呼" class="hi">问候</a>
+<a href="cp.phpaccommonopreportidtypeuidid9.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="举报此人" class="report">举报</a>
+<a href="userapp.phpid1027468my_suffixlw_253d_253d.htm" title="赠送礼物" class="sendgift" target="_blank">送礼物</a>
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9dowallviewme', 'wall');" id="a_comment" title="给TA留言" class="comment">留言板</a>
 </div>
 
 </div>
@@ -251,17 +251,17 @@ end sub
 
 <div class="block">		
 <div class="blocktitle">
-<h2>���ķ���</h2>
+<h2>博文分类</h2>
 </div>
 <div class="blockcontent">
 <div class="bloglist">
 <ul class="post_list line_list">
-<li class="current"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doblogviewme', '');">ȫ������</a></li>
+<li class="current"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doblogviewme', '');">全部博文</a></li>
 <li>
-<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doblogclassid25', '');">�`�� ���show</a>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doblogclassid25', '');">靈魂 ★★show</a>
 </li>
 <li>
-<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doblogclassid26', '');">�� ����������</a>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid9doblogclassid26', '');">我 『扯』～～</a>
 </li>
 </ul>
 </div>
@@ -273,7 +273,7 @@ end sub
 <div class="frame_3">
 <div id="blog" class="block">		
 <div class="blocktitle">
-<h2>��۵��Ĳ���</h2>
+<h2>李慧丹的博文</h2>
 </div>
 <div class="blockcontent">
 <div class="bloglist">
@@ -281,9 +281,9 @@ end sub
 <div>
 <div class="entry">
 <div class="title">
-<h1 >��̸</h1>	<!--Modify By 01-->
-                         <a href="cp.phpacsharetypeblogid1347.htm" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >����</a>
-                         <span class="hot"><em>��</em>2</span>                        1453 ���Ķ� | <span id="comment_replynum">7</span> ������
+<h1 >杂谈</h1>	<!--Modify By 01-->
+                         <a href="cp.phpacsharetypeblogid1347.htm" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >分享</a>
+                         <span class="hot"><em>热</em>2</span>                        1453 次阅读 | <span id="comment_replynum">7</span> 个评论
 <span class="time">2011-05-13 00:09</span>
 </div>
 
@@ -293,8 +293,8 @@ end sub
 <div class="resizeimg2">
 <div class="resizeimg3">
 <div class="resizeimg4">
-<DIV>&nbsp;&nbsp;&nbsp;&nbsp; ����ܾ�ûд�����ˣ��о��кܶ����飬�ܶ���뵫��ȴ��֪������±ʡ��ܶ������޴��������ܶ�о��޷�����ܶ������޷���������ʲôʱ��һ���Ŀ�����ʼ�������ء�����ʱ����������������˺ܶ��У԰�ﲢ���������С��������ӵ����������ȴ�����ʴӣ��տյ���������ʱ�䵽��������ҩ����ɱ���������м��⡣���·�硸��ӣ������Ͳ����о��Ե��£�����̤��ʮ���Թ�һ�㣬��ȥ�ˣ�����ʧ�����Ҷ���תת��һֱ���ǻ���ʲôʱ��ʼ����������֪��ʼ��һ���ˣ������Сèһ���������ѧУ�յ��϶������ĵ���һ����Ϸ֮�󽫶Է��ɹ����ܣ�ѧ��������ϲ������ڷ�����Ϊѧ���÷���ú���������ƵĹ��ߡ���</DIV>
-<DIV>&nbsp;&nbsp;&nbsp;&nbsp;�һ���լ�ţ��ӱ��Ƶ�һ���˶��ڽ����˵���Լ��Ļ������Ҳ�ã���Ҳ�ա������ڵ��¡���</DIV></div>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp; 好像很久没写东西了，感觉有很多事情，很多感想但是却不知道如何下笔。很多情绪无从言喻，很多感觉无法表达，很多心情无法表述……什么时候一个文科生开始词穷了呢。。有时候，走在这个面积变大了很多的校园里并不会觉得渺小，但走在拥挤的人流中却无所适从，空空荡荡。。。时间到底是疗伤药还是杀猪刀，各有见解。世事纷纭复杂，从来就不会有绝对的事，就像踏入十字迷宫一般，进去了，就迷失方向。我兜兜转转，一直在徘徊，什么时候开始这个世界的认知开始不一样了，大的如小猫一般的老鼠在学校空地上对曾经的敌人一番调戏之后将对方成功吓跑；学长姐的尊严不复存在反而成为学弟妹蜂窝煤般得心眼算计的工具……</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;我还是宅着，逃避似的一个人躲在角落里，说着自己的话语。。对也好，错也罢。。活在当下……</DIV></div>
 </div>
 </div>
 </div>
@@ -307,12 +307,12 @@ end sub
 
                         
 
-<a href="cp.phpactopicopjoinid1347idtypeblogid" id="a_topicjoin_1347" onclick="ajaxmenu(event, this.id)">������</a><span class="pipe">|</span>
-<a href="cp.phpacblogblogid1347opedit">�༭</a><span class="pipe">|</span>
-<a href="cp.phpacblogblogid1347opdelete" id="blog_delete_1347" onclick="ajaxmenu(event, this.id)">ɾ��</a><span class="pipe">|</span>
+<a href="cp.phpactopicopjoinid1347idtypeblogid" id="a_topicjoin_1347" onclick="ajaxmenu(event, this.id)">凑热闹</a><span class="pipe">|</span>
+<a href="cp.phpacblogblogid1347opedit">编辑</a><span class="pipe">|</span>
+<a href="cp.phpacblogblogid1347opdelete" id="blog_delete_1347" onclick="ajaxmenu(event, this.id)">删除</a><span class="pipe">|</span>
 
-<a href="cp.phpacblogblogid1347opedithot" id="blog_hot_1347" onclick="ajaxmenu(event, this.id)">�ȶ�</a><span class="pipe">|</span>
- <a href="cp.phpaccommonopreportidtypeblogidid1347" id="a_report" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpacblogblogid1347opedithot" id="blog_hot_1347" onclick="ajaxmenu(event, this.id)">热度</a><span class="pipe">|</span>
+ <a href="cp.phpaccommonopreportidtypeblogidid1347" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 
                 
 </div>
@@ -330,11 +330,11 @@ end sub
 <div class="digc">
 <table>
 <tr>
-<td valign="bottom"><a href="cp~121.phpac" id="click_blogid_1347_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/luguo.gif" alt="" /><br />·��</div></a></td>
-<td valign="bottom"><a href="cp~122.phpac" id="click_blogid_1347_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/jidan.gif" alt="" /><br />����</div></a></td>
-<td valign="bottom"><a href="cp~123.phpac" id="click_blogid_1347_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/xianhua.gif" alt="" /><br />�ʻ�</div></a></td>
-<td valign="bottom"><a href="cp~124.phpac" id="click_blogid_1347_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/woshou.gif" alt="" /><br />����</div></a></td>
-<td valign="bottom"><a href="cp~125.phpac" id="click_blogid_1347_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/leiren.gif" alt="" /><br />����</div></a></td>
+<td valign="bottom"><a href="cp~121.phpac" id="click_blogid_1347_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/luguo.gif" alt="" /><br />路过</div></a></td>
+<td valign="bottom"><a href="cp~122.phpac" id="click_blogid_1347_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/jidan.gif" alt="" /><br />鸡蛋</div></a></td>
+<td valign="bottom"><a href="cp~123.phpac" id="click_blogid_1347_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/xianhua.gif" alt="" /><br />鲜花</div></a></td>
+<td valign="bottom"><a href="cp~124.phpac" id="click_blogid_1347_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/woshou.gif" alt="" /><br />握手</div></a></td>
+<td valign="bottom"><a href="cp~125.phpac" id="click_blogid_1347_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="image/click/leiren.gif" alt="" /><br />雷人</div></a></td>
 </tr>
 </table>
 </div>
@@ -345,19 +345,19 @@ end sub
 
 <div class="tuishare">
 <ul>
-<li>������<a href="../www.douban.com/recommend/url{$url}title_25d4_25d3_25cc_25b8selv1n1" title="����9��" target="_blank"><img src="image/tui/duo9.png" border=0 
+<li>分享：<a href="../www.douban.com/recommend/url{$url}title_25d4_25d3_25cc_25b8selv1n1" title="豆瓣9点" target="_blank"><img src="image/tui/duo9.png" border=0 
 
-alt="����9��" align="absmiddle"></a><a href="../digg.com/submitphase2url{$url}title_25d4_25d3_25cc_25b8" title="Digg" target="_blank"><img src="image/tui/digg.png" border=0 
+alt="豆瓣9点" align="absmiddle"></a><a href="../digg.com/submitphase2url{$url}title_25d4_25d3_25cc_25b8" title="Digg" target="_blank"><img src="image/tui/digg.png" border=0 
 
-alt="Digg" align="absmiddle"></a><a href="../www.kaixin001.com/repaste/share.phprtitle_25d4_25d3_25cc_25b8rurlhttp_253a_252~2.html" title="������" target="_blank"><img src="image/tui/kaixin001.gif" border=0 
+alt="Digg" align="absmiddle"></a><a href="../www.kaixin001.com/repaste/share.phprtitle_25d4_25d3_25cc_25b8rurlhttp_253a_252~2.html" title="开心网" target="_blank"><img src="image/tui/kaixin001.gif" border=0 
 
-alt="������" align="absmiddle"></a><a href="../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net_2~86.htmlt" title="������" target="_blank"><img src="image/tui/renren.gif" border=0 
+alt="开心网" align="absmiddle"></a><a href="../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net_2~86.htmlt" title="人人网" target="_blank"><img src="image/tui/renren.gif" border=0 
 
-alt="������" align="absmiddle"></a><a href="../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fviewspace.ph~16.htmlt" title="����" target="_blank"><img src="image/tui/duo.png" border=0 
+alt="人人网" align="absmiddle"></a><a href="../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fviewspace.ph~16.htmlt" title="豆瓣" target="_blank"><img src="image/tui/duo.png" border=0 
 
-alt="����" align="absmiddle"></a></li>
-<ul>�ղأ�<a href="../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.shene~60.htmlt" title="Google��ǩ" target="_blank"><img src="image/tui/gg.jpg" border=0 alt="Google��ǩ"align="absmiddle"></a><a href="'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fviewspac~16.htmlt" title="Del.icio.us" target="_blank"><img src="image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252fv~16.htmlt" title="�Ż��ղ�" target="_blank"><img src="image/tui/yahoo.jpg" border=0 alt="�Ż��ղ�"align="absmiddle"></a><a href="../vivi.sina.com.cn/collect/icollect.phppid2008title_25d4_25d3_25cc_25b8urlhttp_~2.htmld" title="����VIVI" target="_blank"><img src="image/tui/sinavivi.gif" border=0 alt="����VIVI"align="absmiddle"></a><a href="../cang.baidu.com/do/addit_25d4_25d3_25cc_25b8iuhttp_253a_252f_252fu.shen~2.htmlf#nw=1" title="�ٶ��ղ�" target="_blank"><img src="image/tui/baidushoucang.gif" border=0 alt="�ٶ��ղ�"align="absmiddle"></a><a href="../shuqian.qq.com/postfrom3title_25d4_25d3_25cc_25b8urihttp_253a_252f_~2.htmlj" title="QQ��ǩ" target="_blank"><img src="image/tui/qqshuqian.gif" border=0 alt="QQ��ǩ"align="absmiddle"></a></li>
-<li>�ƹ㣺<input type="text" value="http://u.shenei.net/viewspace.php?uid=9&do=blog&id=1347.html" size="60" name="theurl" id="theurl"> <input type="button" value="���Ƶ�ַ" 
+alt="豆瓣" align="absmiddle"></a></li>
+<ul>收藏：<a href="../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.shene~60.htmlt" title="Google书签" target="_blank"><img src="image/tui/gg.jpg" border=0 alt="Google书签"align="absmiddle"></a><a href="'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fviewspac~16.htmlt" title="Del.icio.us" target="_blank"><img src="image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252fv~16.htmlt" title="雅虎收藏" target="_blank"><img src="image/tui/yahoo.jpg" border=0 alt="雅虎收藏"align="absmiddle"></a><a href="../vivi.sina.com.cn/collect/icollect.phppid2008title_25d4_25d3_25cc_25b8urlhttp_~2.htmld" title="爱问VIVI" target="_blank"><img src="image/tui/sinavivi.gif" border=0 alt="爱问VIVI"align="absmiddle"></a><a href="../cang.baidu.com/do/addit_25d4_25d3_25cc_25b8iuhttp_253a_252f_252fu.shen~2.htmlf#nw=1" title="百度收藏" target="_blank"><img src="image/tui/baidushoucang.gif" border=0 alt="百度收藏"align="absmiddle"></a><a href="../shuqian.qq.com/postfrom3title_25d4_25d3_25cc_25b8urihttp_253a_252f_~2.htmlj" title="QQ书签" target="_blank"><img src="image/tui/qqshuqian.gif" border=0 alt="QQ书签"align="absmiddle"></a></li>
+<li>推广：<input type="text" value="http://u.shenei.net/viewspace.php?uid=9&do=blog&id=1347.html" size="60" name="theurl" id="theurl"> <input type="button" value="复制地址" 
 
 onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;">
 </li>
@@ -367,7 +367,7 @@ onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;"
 
 
 <div class="comments" id="div_main_content">
-<h2>���� (<span id="Span1">7</span> ������)</h2>
+<h2>评论 (<span id="Span1">7</span> 个评论)</h2>
 <div class="comments_list" id="comment">
 <ul id="comment_ul">
 <li id="comment_3652_li"><div class="avatar48"><a href="space-1.html"><img src="../uc.shenei.net/data/avatar/000/00/00/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
@@ -376,90 +376,90 @@ onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;"
 
 
 <img src="image/magic/anonymous.small.gif" class="magicicon">
-<a id="a_magic_anonymous_3652" href="magic.phpmidanonymousidtypecidid3652" onclick="ajaxmenu(event,this.id, 1)">������</a>
+<a id="a_magic_anonymous_3652" href="magic.phpmidanonymousidtypecidid3652" onclick="ajaxmenu(event,this.id, 1)">匿名卡</a>
 <span class="pipe">|</span>
 <img src="image/magic/flicker.small.gif" class="magicicon">
-<a id="a_magic_flicker_3652" href="magic.phpmidflickeridtypecidid3652" onclick="ajaxmenu(event,this.id, 1)">�ʺ���</a>
+<a id="a_magic_flicker_3652" href="magic.phpmidflickeridtypecidid3652" onclick="ajaxmenu(event,this.id, 1)">彩虹炫</a>
 <span class="pipe">|</span>
 
-<a href="cp.phpaccommentopeditcid3652" id="c_3652_edit" onclick="ajaxmenu(event, this.id, 1)">�༭</a>
-<a href="cp.phpaccommentopdeletecid3652" id="c_3652_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommonopreportidtypecommentid3652" id="a_report_3652" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopeditcid3652" id="c_3652_edit" onclick="ajaxmenu(event, this.id, 1)">编辑</a>
+<a href="cp.phpaccommentopdeletecid3652" id="c_3652_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommonopreportidtypecommentid3652" id="a_report_3652" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-1.html" id="author_3652">СE������ܲ</a> 
+<a href="space-1.html" id="author_3652">小E←邱沼懿</a> 
 <span class="gray">2011-05-14 04:54</span>
 
 </div>
 
-<div class="detail" id="comment_3652">����Ů��<img src="image/face/27.gif" class="face"></div>
+<div class="detail" id="comment_3652">干物女…<img src="image/face/27.gif" class="face"></div>
 
 </li><li id="comment_3653_li"><div class="avatar48"><a href="space-9.html"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
 <div class="title">
 <div class="r_option">
 
 
-<a href="cp.phpaccommentopdeletecid3653" id="c_3653_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommentopreplycid3653feedid" id="c_3653_reply" onclick="ajaxmenu(event, this.id, 1)">�ظ�</a>
-<a href="cp.phpaccommonopreportidtypecommentid3653" id="a_report_3653" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopdeletecid3653" id="c_3653_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3653feedid" id="c_3653_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3653" id="a_report_3653" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-9.html" id="author_3653">��۵�</a> 
+<a href="space-9.html" id="author_3653">李慧丹</a> 
 <span class="gray">2011-05-14 12:26</span>
 
 </div>
 
-<div class="detail" id="comment_3653"><div class="quote"><span class="q"><b>СE������ܲ</b>: ����Ů��<img src="image/face/27.gif" class="face"></span></div>��Ȼ�����ҵı��⣬������״ò��������</div>
+<div class="detail" id="comment_3653"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 干物女…<img src="image/face/27.gif" class="face"></span></div>虽然不是我的本意，但是现状貌似是这样</div>
 
 </li><li id="comment_3655_li"><div class="avatar48"><a href="space-564.html"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_05_small.gif'"></a></div>
 <div class="title">
 <div class="r_option">
 
 
-<a href="cp.phpaccommentopdeletecid3655" id="c_3655_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommonopreportidtypecommentid3655" id="a_report_3655" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopdeletecid3655" id="c_3655_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommonopreportidtypecommentid3655" id="a_report_3655" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-564.html" id="author_3655">����</a> 
+<a href="space-564.html" id="author_3655">清阳</a> 
 <span class="gray">2011-05-15 21:59</span>
 
 </div>
 
-<div class="detail" id="comment_3655">���ǳ�ȥ���ߵĺá����ǲ��ܱ�����Ե��</div>
+<div class="detail" id="comment_3655">还是出去走走的好。我们不能被社会边缘化</div>
 
 </li><li id="comment_3657_li"><div class="avatar48"><a href="space-9.html"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_05_small.gif'"></a></div>
 <div class="title">
 <div class="r_option">
 
 
-<a href="cp.phpaccommentopdeletecid3657" id="c_3657_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommentopreplycid3657feedid" id="c_3657_reply" onclick="ajaxmenu(event, this.id, 1)">�ظ�</a>
-<a href="cp.phpaccommonopreportidtypecommentid3657" id="a_report_3657" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopdeletecid3657" id="c_3657_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3657feedid" id="c_3657_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3657" id="a_report_3657" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-9.html" id="author_3657">��۵�</a> 
+<a href="space-9.html" id="author_3657">李慧丹</a> 
 <span class="gray">2011-05-16 12:00</span>
 
 </div>
 
-<div class="detail" id="comment_3657"><div class="quote"><span class="q"><b>����</b>: ���ǳ�ȥ���ߵĺá����ǲ��ܱ�����Ե��</span></div>��ʵ��֪����ֻ����������У����ȥ�Ķ��൱�����㣬�ڵ����Ͼ��Ѿ��������˵ĸо����Ǻǣ����Ծ͸�լ�ˡ����һ�ע���</div>
+<div class="detail" id="comment_3657"><div class="quote"><span class="q"><b>清阳</b>: 还是出去走走的好。我们不能被社会边缘化</span></div>其实我知道，只是现在在新校区，去哪都相当不方便，在地理上就已经被隔绝了的感觉。呵呵，所以就更宅了。。我会注意的</div>
 
 </li><li id="comment_3660_li"><div class="avatar48"><a href="space-564.html"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_02_small.gif'"></a></div>
 <div class="title">
 <div class="r_option">
 
 
-<a href="cp.phpaccommentopdeletecid3660" id="c_3660_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommentopreplycid3660feedid" id="c_3660_reply" onclick="ajaxmenu(event, this.id, 1)">�ظ�</a>
-<a href="cp.phpaccommonopreportidtypecommentid3660" id="a_report_3660" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopdeletecid3660" id="c_3660_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3660feedid" id="c_3660_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3660" id="a_report_3660" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-564.html" id="author_3660">����</a> 
+<a href="space-564.html" id="author_3660">清阳</a> 
 <span class="gray">2011-05-17 22:57</span>
 
 </div>
 
-<div class="detail" id="comment_3660"><div class="quote"><span class="q"><b>��۵�</b>: ��ʵ��֪����ֻ����������У����ȥ�Ķ��൱�����㣬�ڵ����Ͼ��Ѿ��������˵ĸо����Ǻǣ����Ծ͸�լ�ˡ����һ�ע���</span></div>��ʵ���Ҿ������Ǵ�ѧ���Ǳ߹�������ͦ��ģ����ڳ�����÷�ʲô��</div>
+<div class="detail" id="comment_3660"><div class="quote"><span class="q"><b>李慧丹</b>: 其实我知道，只是现在在新校区，去哪都相当不方便，在地理上就已经被隔绝了的感觉。呵呵，所以就更宅了。。我会注意的</span></div>其实，我觉得你们大学城那边公交还是挺多的，坐在车里，不用烦什么的</div>
 
 </li><li id="comment_3662_li"><div class="avatar48"><a href="space-1.html"><img src="../uc.shenei.net/data/avatar/000/00/00/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
 <div class="title">
@@ -467,40 +467,40 @@ onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;"
 
 
 <img src="image/magic/anonymous.small.gif" class="magicicon">
-<a id="a_magic_anonymous_3662" href="magic.phpmidanonymousidtypecidid3662" onclick="ajaxmenu(event,this.id, 1)">������</a>
+<a id="a_magic_anonymous_3662" href="magic.phpmidanonymousidtypecidid3662" onclick="ajaxmenu(event,this.id, 1)">匿名卡</a>
 <span class="pipe">|</span>
 <img src="image/magic/flicker.small.gif" class="magicicon">
-<a id="a_magic_flicker_3662" href="magic.phpmidflickeridtypecidid3662" onclick="ajaxmenu(event,this.id, 1)">�ʺ���</a>
+<a id="a_magic_flicker_3662" href="magic.phpmidflickeridtypecidid3662" onclick="ajaxmenu(event,this.id, 1)">彩虹炫</a>
 <span class="pipe">|</span>
 
-<a href="cp.phpaccommentopeditcid3662" id="c_3662_edit" onclick="ajaxmenu(event, this.id, 1)">�༭</a>
-<a href="cp.phpaccommentopdeletecid3662" id="c_3662_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommonopreportidtypecommentid3662" id="a_report_3662" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopeditcid3662" id="c_3662_edit" onclick="ajaxmenu(event, this.id, 1)">编辑</a>
+<a href="cp.phpaccommentopdeletecid3662" id="c_3662_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommonopreportidtypecommentid3662" id="a_report_3662" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-1.html" id="author_3662">СE������ܲ</a> 
+<a href="space-1.html" id="author_3662">小E←邱沼懿</a> 
 <span class="gray">2011-05-19 03:09</span>
 
 </div>
 
-<div class="detail" id="comment_3662"><div class="quote"><span class="q"><b>����</b>: ��ʵ���Ҿ������Ǵ�ѧ���Ǳ߹�������ͦ��ģ����ڳ�����÷�ʲô��</span></div>�����Ķ��ģ���</div>
+<div class="detail" id="comment_3662"><div class="quote"><span class="q"><b>清阳</b>: 其实，我觉得你们大学城那边公交还是挺多的，坐在车里，不用烦什么的</span></div>你是哪儿的？？</div>
 
 </li><li id="comment_3665_li"><div class="avatar48"><a href="space-564.html"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
 <div class="title">
 <div class="r_option">
 
 
-<a href="cp.phpaccommentopdeletecid3665" id="c_3665_delete" onclick="ajaxmenu(event, this.id)">ɾ��</a>
-<a href="cp.phpaccommentopreplycid3665feedid" id="c_3665_reply" onclick="ajaxmenu(event, this.id, 1)">�ظ�</a>
-<a href="cp.phpaccommonopreportidtypecommentid3665" id="a_report_3665" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="cp.phpaccommentopdeletecid3665" id="c_3665_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3665feedid" id="c_3665_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3665" id="a_report_3665" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 </div>
 
-<a href="space-564.html" id="author_3665">����</a> 
+<a href="space-564.html" id="author_3665">清阳</a> 
 <span class="gray">2011-05-27 11:12</span>
 
 </div>
 
-<div class="detail" id="comment_3665"><div class="quote"><span class="q"><b>СE������ܲ</b>: �����Ķ��ģ���</span></div>����</div>
+<div class="detail" id="comment_3665"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 你是哪儿的？？</span></div>厦门</div>
 
 </li></ul>
 </div>
@@ -511,8 +511,8 @@ onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;"
 <table cellpadding="0" cellspacing="0">
 <tr>
 <td>
-<a href="###" id="comment_face" title="�������" onclick="showFace(this.id, 'comment_message');"><img src="image/facelist.gif" align="absmiddle" /></a>
-<a id="a_magic_doodle" href="magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />Ϳѻ��</a>
+<a href="###" id="comment_face" title="插入表情" onclick="showFace(this.id, 'comment_message');"><img src="image/facelist.gif" align="absmiddle" /></a>
+<a id="a_magic_doodle" href="magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
 <br />
 <textarea id="comment_message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" name="message" rows="5" style="width:500px;"></textarea>
 </td>
@@ -523,8 +523,8 @@ onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;"
 <input type="hidden" name="id" value="1347">
 <input type="hidden" name="idtype" value="blogid">
 <input type="hidden" name="commentsubmit" value="true" />
-<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="����" onclick="ajaxpost('quickcommentform_1347', 'comment_add')" />
-<input type="checkbox" name="hiddenreply" value="1"> ���۽����߿ɼ�
+<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论" onclick="ajaxpost('quickcommentform_1347', 'comment_add')" />
+<input type="checkbox" name="hiddenreply" value="1"> 评论仅作者可见
 <div id="__quickcommentform_1347"></div>
 </td>
 </tr>
@@ -551,42 +551,42 @@ onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;"
 <div class="copyright">
 <div class="f_status">
 <a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
-<a title="���� RSS" id="a_rss" href="rss.phpuid9.htm">����</a>
-<a href="cp.phpaccommonopreportidtypeuidid9.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">�ٱ����û�</a>
+<a title="订阅 RSS" id="a_rss" href="rss.phpuid9.htm">订阅</a>
+<a href="cp.phpaccommonopreportidtypeuidid9.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
 </div>
-<p>��۵��ĸ��˲����ɡ����������ṩ����Ȩ���� <a href="../fs.shenei.net/default.htm" target="_blank">���衤�񡿹�����</a>(2009-2010)<a href="admincp.phpacspaceopmanageuid9.htm" id="a_manage">�����û�</a></p>
+<p>李慧丹的个人博客由〖舍内网〗提供，版权所有 <a href="../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)<a href="admincp.phpacspaceopmanageuid9.htm" id="a_manage">管理用户</a></p>
 </div>
 </div>
 
 <ul id="setstyle_a_menu" class="stylemenu" style="display:none">
-<li><a href="javascript:void(0);" id="selectshare_sw">ѡ����</a></li>
-<li><a href="javascript:void(0);" id="fastdiystyle">�����Զ���</a></li>
-<li><a href="viewspace.phpopdiy.htm">�߼��Զ���</a></li></ul>
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="viewspace.phpopdiy.htm">高级自定义</a></li></ul>
 
 </div>
 
 <div class="toolbar" id="toolbar">
 <div class="toolbarbox1">
 <a class="logo" href="space.phpdohome.htm">
-����
+舍内
 </a>
 <div class="toolbaruser">
 <ul>
-<li class="txt">��ӭ����СE������ܲ &nbsp;&nbsp;<a href="cp.phpaccommonoplogoutuhashf92365b40326bb769bdd7029bab744db">�˳�</a></li>
-<li><a href="viewspace.phpuid1.htm">�ҵĲ���</a></li>
-<li><a href="cp.php.htm" target="_blank">����</a></li>
+<li class="txt">欢迎您：小E←邱沼懿 &nbsp;&nbsp;<a href="cp.phpaccommonoplogoutuhashf92365b40326bb769bdd7029bab744db">退出</a></li>
+<li><a href="viewspace.phpuid1.htm">我的博客</a></li>
+<li><a href="cp.php.htm" target="_blank">设置</a></li>
 <li>
-<a id="a_magic_superstar" href="magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">��������</a>
+<a id="a_magic_superstar" href="magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
 </li>
-<li><a href="space-pm.html">��Ϣ</a></li>
+<li><a href="space-pm.html">消息</a></li>
 
 </ul>
 </div>
 <div class="toolbarlink">
 <ul>
-<li class="home"><a href="ovr1/space-home.html">��վ��ҳ</a></li>
-<li><a href="network.html">�й�</a></li>
-<li><a href="randomuser.php.htm">�Ҵ�</a></li>
+<li class="home"><a href="ovr1/space-home.html">网站首页</a></li>
+<li><a href="network.html">闲逛</a></li>
+<li><a href="randomuser.php.htm">乱窜</a></li>
 </ul>
 </div>
 <div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
@@ -594,34 +594,34 @@ onclick="javascript:setCopy('viewspace.phpuid9doblogid1347.html');return false;"
 <ul id="annbodylis">
 
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;<img src="image/face/32.gif" class="face">���ǲ��˽���~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5617-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;<img src="image/face/32.gif" class="face">还是不了解咩~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5617-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;���Ժ���~�о������Լ����Լ�����ʲô����Ȼ�䣬��ʶ����������������&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5616-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;迷迷糊糊~感觉不是自己的自己在做什么。焕然间，意识到不该这怎做。。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5616-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;˭��˭��˭���ں�������������һ��������޷������ҵ�˭��&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5615-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;谁是谁的谁，在乎了又能怎样。一般的心情无法理解我的谁。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5615-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;���鲻�Ǻܺã�Ƣ���Ͳ��ã�û�ط�����й���Ƴ�������~~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5614-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;心情不是很好，脾气就不好，没地方发发泄，闷出内伤了~~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5614-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1377-do-doing.html" target="_blank">xiaoya </a>˵��&nbsp;&nbsp;(��&#717;���� �롫��~��~~~&nbsp;&nbsp;<a href="space-1377-do-doing-doid-5613-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1377-do-doing.html" target="_blank">xiaoya </a>说：&nbsp;&nbsp;(ˇ&#717;ˇ） 想～你~了~~~&nbsp;&nbsp;<a href="space-1377-do-doing-doid-5613-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�з�С~С ˼������Ϊ��֪�� ˼��·&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5612-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5612-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�з�С~С ˼������Ϊ��֪�� ˼��·&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5611-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5611-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�����μ�#��������һ����#ʮ��΢����ȫ�ǳ������@���ž���������Ƶ� ������ȯ���ྫ��С�ԣ���㣬�������Ǽ��Ƶ�����ʵʩ�Ļ��������ܼ�����ʼ�����ྪϲ <a href="../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>��ȡӢ����Esone�����ĵ�E��Сܲ @cc��Ƣ�� @����_������Ƭ <div class="sub_doing_quote"><span>�������ţ���#��������һ����#����������NO.20��[΢��������]�Ƶ�������˫�˰棡��ע@���ž���������Ƶ� @�������� ��ת���˲���@ 3���ѣ����л�������ž���������Ƶ�˫�������ͣ������ף������츣��������(8-28����11:00�齱,��������ע@�������������� )���ร����<a href="../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5607-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;我正参加#新浪厦门一周年#十大微福利全城畅享活动！@厦门京闽北海湾酒店 自助餐券各类精致小吃，甜点，加上五星级酒店优雅实施的环境，享受即将开始！更多惊喜 <a href="../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>新取英文名Esone爆开心的E神小懿 @cc坏脾气 @绝望_的生鱼片 <div class="sub_doing_quote"><span>新浪厦门：【#新浪厦门一周年#福利大派送NO.20】[微博三岁啦]酒店自助餐双人版！关注@厦门京闽北海湾酒店 @新浪厦门 ，转发此博并@ 3好友，就有机会获厦门京闽北海湾酒店双人自助餐（共两套）！今天福利明天送(8-28上午11:00抽奖,获奖名单关注@新浪厦门周年庆 )更多福利：<a href="../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5607-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;��Ҫһ���ء���<div class="sub_doing_quote"><span>���ųԺ����ִ�ȫ��������5̨ƻ��4������ƽ������1������΢�š��������ѡ����ҡ�xmdcxs�����ӡ����Ŵ��С�¡�Ϊ���� 2��ת���������� ��������������ȱһ���ɣ�������ÿ����һ̨4������΢�ţ����Ŵ��С�� ������������@���Ŵ��С�� ��Ψһ�ٷ��ţ�ÿ�켰ʱ�������Ŵ�С�¼������Żݵ����ֻ���������������ð��֣�</span><div class="img"><a target="_blank" href="../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5606-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;想要一部呢。。<div class="sub_doing_quote"><span>厦门吃喝玩乐大全：【再送5台苹果4代，公平公正】1，请用微信“添加朋友”查找“xmdcxs”添加“厦门大城小事”为好友 2，转发本条即可 。以上两个条件缺一不可，明晚起每天抽出一台4代。（微信：厦门大城小事 ，是厦门名博@厦门大城小事 的唯一官方号，每天及时播报厦门大小事及其他优惠到你手机，是你厦门生活好帮手）</span><div class="img"><a target="_blank" href="../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5606-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;HOHO�����������Ǵ�������ķ����ޡ���<img src="image/face/42.gif" class="face">&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5605-goto-yes.html" class="re">�ظ�</a>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;HOHO～～坐等你们大男生煮的饭饭噢～～<img src="image/face/42.gif" class="face">&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5605-goto-yes.html" class="re">回复</a>
 </li>
 </ul>
 </div>
@@ -698,7 +698,7 @@ var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'shares
 var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
 
 </script>
-<div style="visibility: hidden;display:block;/*ͳһת��Ϊ�鼶Ԫ��*/ overflow: hidden; width: 0; height: 0; ">
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
 
 </div>
 

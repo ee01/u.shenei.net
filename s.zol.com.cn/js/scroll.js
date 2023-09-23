@@ -1,5 +1,5 @@
 
-// ¹ö¶¯ÌØĞ§
+// æ»šåŠ¨ç‰¹æ•ˆ
 $.fn.Scroll = function(option){  
     var defaults  = {
            'line'  :6,
@@ -9,13 +9,13 @@ $.fn.Scroll = function(option){
     var pt     = $.extend(defaults,option);
     var timerID;   
     var _this=$(this);
-    var lineH = _this.find("li:first").height(), //»ñÈ¡ĞĞ¸ß   
-    line = pt.line?parseInt(_this.find("li:first").height()/lineH):parseInt(_this.find("li:first").height()/lineH,1), //Ã¿´Î¹ö¶¯µÄĞĞÊı£¬Ä¬ÈÏÎªÒ»ÆÁ£¬¼´¸¸ÈİÆ÷¸ß¶È
-    speed = pt.speed?parseInt(pt.speed):1000, //¾í¶¯ËÙ¶È£¬ÊıÖµÔ½´ó£¬ËÙ¶ÈÔ½Âı£¨ºÁÃë£© 
-    timer = pt.timer ? parseInt(pt.timer):3000; //¹ö¶¯µÄÊ±¼ä¼ä¸ô£¨ºÁÃë£©
+    var lineH = _this.find("li:first").height(), //è·å–è¡Œé«˜   
+    line = pt.line?parseInt(_this.find("li:first").height()/lineH):parseInt(_this.find("li:first").height()/lineH,1), //æ¯æ¬¡æ»šåŠ¨çš„è¡Œæ•°ï¼Œé»˜è®¤ä¸ºä¸€å±ï¼Œå³çˆ¶å®¹å™¨é«˜åº¦
+    speed = pt.speed?parseInt(pt.speed):1000, //å·åŠ¨é€Ÿåº¦ï¼Œæ•°å€¼è¶Šå¤§ï¼Œé€Ÿåº¦è¶Šæ…¢ï¼ˆæ¯«ç§’ï¼‰ 
+    timer = pt.timer ? parseInt(pt.timer):3000; //æ»šåŠ¨çš„æ—¶é—´é—´éš”ï¼ˆæ¯«ç§’ï¼‰
     if(line==0) line=1;   
     var upHeight=0-lineH*line;
-    //¹ö¶¯º¯Êı   
+    //æ»šåŠ¨å‡½æ•°   
     var scrollUp=function(){   
         _this.animate({   
                 marginTop:upHeight   
@@ -29,7 +29,7 @@ $.fn.Scroll = function(option){
 
     }   
                
-    //Shawphy:×Ô¶¯²¥·Å   
+    //Shawphy:è‡ªåŠ¨æ’­æ”¾   
      var autoPlay = function(){  
              if(timer){
                  timerID = window.setInterval(scrollUp,timer);

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>Éú»î°Ù±¦Ïä</title>
+<title>ç”Ÿæ´»ç™¾å®ç®±</title>
 <link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../js/tools.js"></script>
 <script language="javascript">
@@ -56,11 +56,11 @@
 			switch(opr)
 			{
 				case '+' :
-				case '£­' :			
-					prompt.innerHTML = sLastPrompt+opr;	//×Ö·û´®Ïà¼Ó	
+				case 'ï¼' :			
+					prompt.innerHTML = sLastPrompt+opr;	//å­—ç¬¦ä¸²ç›¸åŠ 	
 					break;
-				case '¡Á' :
-				case '¡Â' :		
+				case 'Ã—' :
+				case 'Ã·' :		
 					prompt.innerHTML = "("+sLastPrompt+")"+opr;
 					break;
 				default :
@@ -74,13 +74,13 @@
 				case '+' :
 					nLast += parseFloat(Readout);
 					break;
-				case '£­' :
+				case 'ï¼' :
 					nLast -= parseFloat(Readout);
 					break;
-				case '¡Á' :
+				case 'Ã—' :
 					nLast *= parseFloat(Readout);
 					break;
-				case '¡Â' :
+				case 'Ã·' :
 					nLast /= parseFloat(Readout);
 					break;
 				default :
@@ -90,12 +90,12 @@
 			switch(opr)
 			{
 				case '+' :
-				case '£­' :
+				case 'ï¼' :
 					prompt.innerHTML += opr;
 					break;
-				case '¡Á' :
-				case '¡Â' :		
-					if(sLastOpr == '¡Á' || sLastOpr == '¡Â' || sLastOpr == ""){
+				case 'Ã—' :
+				case 'Ã·' :		
+					if(sLastOpr == 'Ã—' || sLastOpr == 'Ã·' || sLastOpr == ""){
 						prompt.innerHTML += opr;
 					}else{
 						prompt.innerHTML = "("+prompt.innerHTML+")"+opr;
@@ -149,9 +149,9 @@
 </script>
 </head>
 <body lang="zh" class="BG_Lnav" onload="fInit();">
-<div class="Top"><a href="../index.htm" class="a_INDEX">Éú»î°Ù±¦Ïä</a><b class="Top_B_arr"></b><span><strong>ÍòÄÜ¼ÆËãÆ÷</strong></span></div>
+<div class="Top"><a href="../index.htm" class="a_INDEX">ç”Ÿæ´»ç™¾å®ç®±</a><b class="Top_B_arr"></b><span><strong>ä¸‡èƒ½è®¡ç®—å™¨</strong></span></div>
 
-<!--×ó²à±êÇ© ¿ªÊ¼
+<!--å·¦ä¾§æ ‡ç­¾ å¼€å§‹
 <div class="ZL_Left">
 
 </div>-->
@@ -160,22 +160,22 @@
 <tbody>
   <tr>
     <td class="Cont_tbL">
-	<!--×ó²àµ¼º½ ¿ªÊ¼-->
-	<div class="NAV_L_Tit">¼ÆËãÆ÷</div>
-	<a href="#" class="on">ÊıÑ§¼ÆËãÆ÷</a>
-	<a href="jsq_shui.htm">¸öÈËËùµÃË°</a>
-	<a href="jsq_daikuan.htm">·¿´û¼ÆËãÆ÷</a>
-	<a href="jsq_cunkuan.htm">´æ¿î¼ÆËãÆ÷</a>
-	<a href="jsq_jiankang.htm">½¡¿µ¼ÆËãÆ÷</a>
-	<!--×ó²àµ¼º½ ½áÊø-->
+	<!--å·¦ä¾§å¯¼èˆª å¼€å§‹-->
+	<div class="NAV_L_Tit">è®¡ç®—å™¨</div>
+	<a href="#" class="on">æ•°å­¦è®¡ç®—å™¨</a>
+	<a href="jsq_shui.htm">ä¸ªäººæ‰€å¾—ç¨</a>
+	<a href="jsq_daikuan.htm">æˆ¿è´·è®¡ç®—å™¨</a>
+	<a href="jsq_cunkuan.htm">å­˜æ¬¾è®¡ç®—å™¨</a>
+	<a href="jsq_jiankang.htm">å¥åº·è®¡ç®—å™¨</a>
+	<!--å·¦ä¾§å¯¼èˆª ç»“æŸ-->
 	</td>
     <td style="vertical-align:top">
-	<!--ÓÒ²àÄÚÈİÇø ¿ªÊ¼-->
+	<!--å³ä¾§å†…å®¹åŒº å¼€å§‹-->
 	<div class="Cont_tit">
-		<h1>ÊıÑ§¼ÆËãÆ÷</h1>
-		<span>¼Ó¼õ³Ë³ı£¬¿ÚËãĞÄËã±ÊËã½Ô²»Èç»úËã</span>
+		<h1>æ•°å­¦è®¡ç®—å™¨</h1>
+		<span>åŠ å‡ä¹˜é™¤ï¼Œå£ç®—å¿ƒç®—ç¬”ç®—çš†ä¸å¦‚æœºç®—</span>
 	</div>
-	<!--ÌâÍ·½áÊø-->
+	<!--é¢˜å¤´ç»“æŸ-->
 	<div class="Cont">
 	<table class="sxjsq_tab" cellspacing="0" cellpadding="0">
   <tr style="height:30px">
@@ -183,9 +183,9 @@
     <td class="sx_J_12">
 		<div class="sec_box_NOS">
     <input type="text" id="jsqResult" value="0" size="13" maxLength="13" readonly="true" style="text-align:right">
-    <!--ÏÂÃæÒş²ØµÄ²ã£¬µ±ÊäÈëËãÊ½Ê±³öÏÖ-->
+    <!--ä¸‹é¢éšè—çš„å±‚ï¼Œå½“è¾“å…¥ç®—å¼æ—¶å‡ºç°-->
     <div class="tips_p" >
-      <div class="sec_box_NON"><strong>ËãÊ½ÌáÊ¾£º</strong><span id="jsqPrompt"></span></div>
+      <div class="sec_box_NON"><strong>ç®—å¼æç¤ºï¼š</strong><span id="jsqPrompt"></span></div>
     </div>
   </div>
 	
@@ -199,25 +199,25 @@
         <td><input type="button"  value="7"  onclick="inputNum(this.value)"></td>
         <td><input type="button"  value="8"  onclick="inputNum(this.value)"></td>
         <td><input type="button"  value="9"  onclick="inputNum(this.value)"></td>
-        <td><input type="button"  value="¡Â" onclick="operate(this.value)"></td>
-        <td rowspan="2"><input type="button"   value="ÇåÁã" onclick="clearAll()" class="jsq_btn_B"></td>
+        <td><input type="button"  value="Ã·" onclick="operate(this.value)"></td>
+        <td rowspan="2"><input type="button"   value="æ¸…é›¶" onclick="clearAll()" class="jsq_btn_B"></td>
       </tr>
       <tr>
         <td><input type="button"  value="4"  onclick="inputNum(this.value)"></td>
         <td><input type="button"  value="5"  onclick="inputNum(this.value)"></td>
         <td><input type="button"  value="6"  onclick="inputNum(this.value)"></td>
-        <td><input type="button"  value="¡Á" onclick="operate(this.value)"></td>
+        <td><input type="button"  value="Ã—" onclick="operate(this.value)"></td>
       </tr>
       <tr>
         <td><input type="button"  value="1"  onclick="inputNum(this.value)"></td>
         <td><input type="button"  value="2"  onclick="inputNum(this.value)"></td>
         <td><input type="button"  value="3"  onclick="inputNum(this.value)"></td>
-        <td><input type="button"  value="£­" onclick="operate(this.value)"></td>
+        <td><input type="button"  value="ï¼" onclick="operate(this.value)"></td>
         <td rowspan="2"><input type="button"   value="="  onclick="operate(this.value)" class="jsq_btn_B fsize18"></td>
       </tr>
       <tr>
         <td><input type="button"  value="0" onclick="inputNum(this.value)"></td>
-        <td><input type="button"  value="¡À" onclick="negative()"></td>
+        <td><input type="button"  value="Â±" onclick="negative()"></td>
         <td><input type="button"  value="." onclick="inputDecimal()"></td>
         <td><input type="button"  value="+" onclick="operate(this.value)"></td>
       </tr>
@@ -231,12 +231,12 @@
 
 	
 	</div>
-	<!--ÓÒ²àÄÚÈİÇø ½áÊø-->
+	<!--å³ä¾§å†…å®¹åŒº ç»“æŸ-->
 	</td>
   </tr>
 </tbody>
 </table>
-<!--×ó²à±êÇ© ½áÊø-->
+<!--å·¦ä¾§æ ‡ç­¾ ç»“æŸ-->
 <script language="JavaScript">
 <!--
 	var from = "f";

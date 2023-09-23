@@ -7,9 +7,9 @@ h1, h2, h3, h4, h5, h6 { font-size: 1em; }
 ul li { list-style: none; }
 select { margin-right: 2px; }
 a:hover { text-decoration: none;}	
-a { color: #333333; text-decoration: none;	font-family: "Î¢ÈíÑÅºÚ"; }
+a { color: #333333; text-decoration: none;	font-family: "å¾®è½¯é›…é»‘"; }
 a img { border: none; }
-span { text-decoration: none;	font-family: "Î¢ÈíÑÅºÚ"; }
+span { text-decoration: none;	font-family: "å¾®è½¯é›…é»‘"; }
 .blocklink a { padding-left: 0.5em; line-height: 2em; display: block; }
   .blocklink a:hover { background: #2C629E; color: #FFF; text-decoration: none; }
   .blocklink .active a { color: #333; font-weight: bold; }
@@ -634,13 +634,13 @@ ins.modify { padding-top: 5px; color: #666; text-decoration: none; text-align: r
 #vicmtag_show .shownum{ font-size: 10px; font-weight: bold; color: #FF6600; cursor: crosshair; }
 
 
-/*ÍÆ¹ãÊÕ²Ø·ÖÏí Add By 01*/
+/*æ¨å¹¿æ”¶è—åˆ†äº« Add By 01*/
 .tuishare{border:3px solid #eee;line-height:25px;padding:5px;margin-top:5px;margin-bottom:12px;}
 .tuishare li{ list-style:none;}
 .tuishare img{padding:3px; }
 
 
-/*Ê×Ò³¼ÓÈë×î½ü¸üĞÂ Add By 01*/
+/*é¦–é¡µåŠ å…¥æœ€è¿‘æ›´æ–° Add By 01*/
 .wowo_todaywowo{width:660px; float:left;margin-right:10px;overflow:hidden;}
 	.wowo_todaywowo .wowo_blockcontent{padding:10px;height:180px;}
 	.wowo_todaywowo .wowo_blockcontent h2{font-size:14px; color: #000;}
@@ -666,7 +666,7 @@ ins.modify { padding-top: 5px; color: #666; text-decoration: none; text-align: r
 		.wowo_todaywowo .tag_male{ background-position:0 -81px;}
 
 
-/***************ÎÂÜ°ÌáĞÑCSS**************/
+/***************æ¸©é¦¨æé†’CSS**************/
 .window_task {
 height:326px;
 left:40%;
@@ -742,7 +742,7 @@ height:200px;
 }
 
 
-/*By Comver!UCH²å¼şÖÆ×÷¡¢Ä£°å·ÂÖÆ:QQ136468936 ; 136468936@qq.com*/
+/*By Comver!UCHæ’ä»¶åˆ¶ä½œã€æ¨¡æ¿ä»¿åˆ¶:QQ136468936 ; 136468936@qq.com*/
 /* taskBox */
 .sidebox{clear:both;border:1;}
 .sidebox_r_top{height:1px;clear:both;overflow:hidden;border-top:1px solid #f4f4f4; }
@@ -764,7 +764,7 @@ height:200px;
 
 .cashMedia{display:none;}
 
-/******** space_feed µÈ¼¶ ******/
+/******** space_feed ç­‰çº§ ******/
 .level_info{float:left;margin-right:5px;}
 .level_box{clear:both;width:100%;margin:5px 0 0px 0;height:20px;}
 .level_box{float:left;margin-right:5px;}

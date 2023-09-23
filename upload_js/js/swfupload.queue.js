@@ -1,4 +1,4 @@
-﻿
+
 var SWFUpload;
 if (typeof(SWFUpload) === "function") {
 	SWFUpload.queue = {};

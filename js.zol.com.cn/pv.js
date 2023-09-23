@@ -146,7 +146,7 @@ if(typeof(pvhitimgview)=="undefined"){
 		}
 		var datestr=escape(now*1000+Math.round(Math.random()*1000));
 
-		//Ôö¼Ó²úÆ·ÏßÍ³¼Æ
+		//å¢åŠ äº§å“çº¿ç»Ÿè®¡
 		if(typeof(pv_subcatid)=="undefined")
 			pv_subcatid=0;
 
@@ -158,7 +158,7 @@ if(typeof(pvhitimgview)=="undefined"){
 			var f=location.href;
 			if(f.indexOf("xiyuit.com")>0 || f.indexOf("westd.net")>0 || f.indexOf("westd.com")>0 || f.indexOf("idvd.com.cn")>0 || f.indexOf("51flash.com")>0 || f.indexOf("xiaoshuoku.com.cn")>0 || f.indexOf("5down.com")>0){
 				imgsrc='../pvsite.zol.com.cn/images/pvhit0001.gif@t='+datestr+'&vuserid='+pv_userid+'&'+refer_str;
-			// wapÕ¾ÌØÊâ´¦Àí
+			// wapç«™ç‰¹æ®Šå¤„ç†
 			} else if (f.indexOf("../m.zol.com.cn/default.htm")>=0 || f.indexOf("../m.zol.com/default.htm")>=0 || f.indexOf("../wap.zol.com.cn/default.htm")>=0 || f.indexOf("../m.abab.com/default.htm")>=0 || f.indexOf("../app.zol.com.cn/default.htm")>=0){
 				imgsrc='../wappv.zol.com.cn/images/wap3g.gif@t='+datestr+'&vuserid='+pv_userid+'&url='+f+'&ref='+refer_str;
 			}
@@ -176,7 +176,7 @@ if(typeof(pvhitimgview)=="undefined"){
 			refer_str=refer_str.replace(/\>/g,"");
 			if(d.substr(d.length-10)=='zol.com.cn' || d.substr(d.length-12)=='fengniao.com' || d.substr(d.length-10)=='google.com' || d.substr(d.length-9)=='qihoo.com' || d.substr(d.length-9)=='baidu.com'|| d.substr(d.length-8)=='3721.com' || d.substr(d.length-8)=='1sou.com' || d.substr(d.length-10)=='pku.edu.cn' || d.substr(d.length-16)=='sanhaostreet.com' || d.substr(d.length-11)=='ibox.com.cn' || d.substr(d.length-6)=='360.cn'){
 				imgsrc='../pv.zol.com.cn/images/pvhit0001.gif@t='+datestr+'&subcat='+pv_subcatid+'&vuserid='+pv_userid+'&'+refer_str;
-				//ÌØÊâ´¦Àí20170306
+				//ç‰¹æ®Šå¤„ç†20170306
 				if(self_location_href == '../www.zol.com/index.php@c=ZolShopIndex'){
 					imgsrc='';
 				}

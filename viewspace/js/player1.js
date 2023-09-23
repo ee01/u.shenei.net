@@ -2,38 +2,38 @@ window.onerror = function()
 {
 return true;
 }
-//播放
+//鎾斁
 function play()
 {
  if (player1.controls.isavailable('play'))
  {
-  userstop=false; //用户停止取消
+  userstop=false; //鐢ㄦ埛鍋滄鍙栨秷
   player1.controls.play();
   musicSwf.SetVariable("musicName", RadioList[NowId]);
  }
 }
-//暂停
+//鏆傚仠
 function pause()
 {
  if (player1.controls.isavailable('pause'))
  {
   player1.controls.pause();
   clearInterval(state);
-  musicSwf.SetVariable("musicName", "暂停");
+  musicSwf.SetVariable("musicName", "鏆傚仠");
  }
 }
-//停止
+//鍋滄
 function stop()
 {
  if (player1.controls.isavailable('stop'))
  {
-  userstop=true; //确认用户停止
+  userstop=true; //纭鐢ㄦ埛鍋滄
   player1.controls.stop();
   clearInterval(state);
-  musicSwf.SetVariable("musicName", "停止");
+  musicSwf.SetVariable("musicName", "鍋滄");
  }
 }
-//前首
+//鍓嶉
 function previous()
 {
 NowId--;
@@ -41,9 +41,9 @@ if( NowId<0) NowId=count-1;
 player1.URL=listURL[NowId];
 musicSwf.SetVariable("musicName", RadioList[NowId]);
 play();
-userstop=false; //用户停止取消
+userstop=false; //鐢ㄦ埛鍋滄鍙栨秷
 }
-//后首
+//鍚庨
 function next()
 {
 NowId++;
@@ -51,5 +51,5 @@ if( NowId>=count) NowId=0;
 player1.URL=listURL[NowId];
 musicSwf.SetVariable("musicName", RadioList[NowId]);
 play();	
-userstop=false; //用户停止取消
+userstop=false; //鐢ㄦ埛鍋滄鍙栨秷
 }

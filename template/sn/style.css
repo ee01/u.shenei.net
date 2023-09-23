@@ -116,7 +116,7 @@ a.c_link { background-position: 0 -64px; }
 .h_nav ul li.fgx { background:url(image/h_navbg2.gif) no-repeat; width:7px; height:41px; overflow:hidden}
 .h_nav ul li.right { background:url(image/h_nav_right.gif) no-repeat;width:13px; height:41px; overflow:hidden}
 
-/*ĞÂ¶ÌÏûÏ¢ÌáÊ¾*/
+/*æ–°çŸ­æ¶ˆæ¯æç¤º*/
 .h_nav ul li .new_xx img { BACKGROUND: none; position: absolute;_position: relative;margin:-12px 0px 0px -10px; *margin:-25px 0px 0px -10px;_margin:-3px -80px 0px 0px;display:inline;}
 
 
@@ -641,13 +641,13 @@ a.button { padding: 5px; }
 	.search_table td { padding:0 0 10px 5px; }
 
 ins.modify { padding-top: 5px; color: #666; text-decoration: none; text-align: right; display: block; }
-/*Í·²¿¸öÈËĞÅÏ¢ÌáÊ¾*/
+/*å¤´éƒ¨ä¸ªäººä¿¡æ¯æç¤º*/
 .gr_xx { BACKGROUND: url(image/grxxs.gif) no-repeat;MARGIN:25px 0px 0px -190px;*MARGIN: 15px 0px 0px -190px; WIDTH: 200px; POSITION: absolute; HEIGHT:70px }
 .gr_xx2_img {width:60px; height:20px; overflow:hidden; float:right; margin-top:50px; }
 
 .in_title { height:26px; line-height:26px; color:#FFFFFF; width: auto; background:url(image/in_title.gif) center no-repeat; text-align:center; margin-bottom:10px;}
 
-/*»áÔ±ÁĞ±í*/
+/*ä¼šå‘˜åˆ—è¡¨*/
 .c_form {  }
 .cylb { width: auto; overflow:hidden; font-size:12px; text-align:center; margin-top:10px;}
 .cy_avas { width:133px; height:200px; overflow:hidden; float:left; margin:0px 4px 10px 5px; border:#cccccc 1px solid; padding-top:5px;}
@@ -680,7 +680,7 @@ div.tanchu p { height:auto; color:#666666; text-align:left}
 .sosou1 { margin-top:10px;}
 .sosou1 a img { float:left; width:80px;}
 
-		/*ÂşÓÎÍÆ¹ã*/
+		/*æ¼«æ¸¸æ¨å¹¿*/
 .myys { width:auto; height:265px; margin-bottom:10px; overflow:hidden;color:#006600;  font-size: 14px;}
 .myys a { color:#FFFFFF}
 
@@ -700,7 +700,7 @@ div.tanchu p { height:auto; color:#666666; text-align:left}
 	.myykx ul { width:auto; height:105px; padding:10px 0px 10px 10px; overflow:hidden; border:#ACD98C 1px solid}
 	.myykx ul li { width:610px; margin-right:10px; height:22px; line-height:22px; overflow:hidden; float:left}
 	.myykx ul li a { color:#006600}
-/*¾º¼Û»ı·Ö*/
+/*ç«ä»·ç§¯åˆ†*/
 .feed_in { width: auto; height: auto; overflow:hidden; font-size:12px; border:#060 1px solid; padding:1px; }
 .feed_in img { border:#CCC 1px solid; margin-bottom:5px;}
 #class1content { height:200px;}
@@ -708,13 +708,13 @@ div.tanchu p { height:auto; color:#666666; text-align:left}
 .feed_in ul li p { height:15px; line-height:15px; overflow:hidden;}
 .feed_h1 { height:26px; line-height:26px; font-size:12px; color:#FFF; font-weight:bold; padding-left:15px;background:url(image/index_ti.gif) ; margin-bottom:5px;}
 .feed_h1 a { color:#FF0; margin-right:10px;}
-/*Òş²Ø¸öÈË¿Õ¼äÍ·²¿*/
+/*éšè—ä¸ªäººç©ºé—´å¤´éƒ¨*/
 #space_pages { display:none}
-/*Ïà²áÆµµÀ*/
+/*ç›¸å†Œé¢‘é“*/
 #playid {padding:0px 15px 0px 15px; font-weight:bold; font-size:14px}
 #displayNum { margin-right:20px;}
 .stoppicplay {background:url(image/stoppicplay.gif) no-repeat; padding:0px 35px 0px 35px; text-decoration:none}
-/*µ¼º½*/
+/*å¯¼èˆª*/
 span.nav_in { width:200px;_width:210px; overflow:hidden; border:#CCC 1px solid;position:absolute; background:#FFF;  font-size:12px; font-weight:normal; text-align:center; padding-bottom:10px;z-index: 300; margin-left:-50px; margin-top:5px;}
 .nav_in p { background:#FFF; float:left; margin:0px 5px 0px 5px; width:90px; height:26px; line-height:26px; overflow:hidden; border-bottom:#CCC 1px solid;  text-align:left; margin-bottom:10px;}
 .nav_in p a { color: #060; margin:0px; padding-left:5px;}
@@ -723,13 +723,13 @@ span.nav_in { width:200px;_width:210px; overflow:hidden; border:#CCC 1px solid;p
 .nav_in p em a { padding:0px;}
 
 
-/*ÍÆ¹ãÊÕ²Ø·ÖÏí Add By 01*/
+/*æ¨å¹¿æ”¶è—åˆ†äº« Add By 01*/
 .tuishare{border:3px solid #eee;line-height:25px;padding:5px;margin-top:5px;margin-bottom:12px;}
 .tuishare li{ list-style:none;}
 .tuishare img{padding:3px; }
 
 
-/*Ê×Ò³¼ÓÈë×î½ü¸üĞÂ Add By 01*/
+/*é¦–é¡µåŠ å…¥æœ€è¿‘æ›´æ–° Add By 01*/
 .wowo_todaywowo{width:660px; float:left;margin-right:10px;overflow:hidden;}
 	.wowo_todaywowo .wowo_blockcontent{padding:10px;height:180px;}
 	.wowo_todaywowo .wowo_blockcontent h2{font-size:14px; color: #000;}
@@ -755,7 +755,7 @@ span.nav_in { width:200px;_width:210px; overflow:hidden; border:#CCC 1px solid;p
 		.wowo_todaywowo .tag_male{ background-position:0 -81px;}
 
 
-/***************ÎÂÜ°ÌáĞÑCSS**************/
+/***************æ¸©é¦¨æé†’CSS**************/
 .window_task {
 height:326px;
 left:40%;
@@ -831,7 +831,7 @@ height:200px;
 }
 
 
-/*By Comver!UCH²å¼şÖÆ×÷¡¢Ä£°å·ÂÖÆ:QQ136468936 ; 136468936@qq.com*/
+/*By Comver!UCHæ’ä»¶åˆ¶ä½œã€æ¨¡æ¿ä»¿åˆ¶:QQ136468936 ; 136468936@qq.com*/
 /* taskBox */
 .sidebox{clear:both;border:1;}
 .sidebox_r_top{height:1px;clear:both;overflow:hidden;border-top:1px solid #f4f4f4; }
@@ -853,7 +853,7 @@ height:200px;
 
 .cashMedia{display:none;}
 
-/******** space_feed µÈ¼¶ ******/
+/******** space_feed ç­‰çº§ ******/
 .level_info{float:left;margin-right:5px;}
 .level_box{clear:both;width:100%;margin:5px 0 0px 0;height:20px;}
 .level_box{float:left;margin-right:5px;}

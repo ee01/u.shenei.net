@@ -4,7 +4,7 @@ function playmedia(strID) {
 	var objDiv=document.getElementById(strID);
 	objDiv.innerHTML=makemedia();
 	objDiv.style.display='block';
-	setTimeout("playmediaa()",500)//1000Îª1Ãë
+	setTimeout("playmediaa()",500)//1000ä¸º1ç§’
 }
 
 function playmediaa() {

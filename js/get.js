@@ -1,4 +1,4 @@
-﻿var toolbar = {
+var toolbar = {
 	cookie:new Object(),
 	Init:function(){
 //		toolbar.afficheTotal = arguments[0];

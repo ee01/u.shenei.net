@@ -12,7 +12,7 @@ var note_step = 0;
 var note_oldtitle = document.title;
 var note_timer;
 
-//iframe°üº¬	Modify By 01
+//iframeåŒ…å«	Modify By 01
 /*
 if (top.location != location) {
 	top.location.href = location.href;
@@ -27,7 +27,7 @@ function addSort(obj) {
 	if (obj.value == 'addoption') {
  	var newOptDiv = document.createElement('div')
  	newOptDiv.id = obj.id+'_menu';
- 	newOptDiv.innerHTML = '<h1>Ìí¼Ó</h1><a href="javascript:;" onclick="addOption(\'newsort\', \''+obj.id+'\')" class="float_del">É¾³ı</a><div class="popupmenu_inner" style="text-align: center;">Ãû³Æ£º<input type="text" name="newsort" size="10" id="newsort" class="t_input" /><input type="button" name="addSubmit" value="´´½¨" onclick="addOption(\'newsort\', \''+obj.id+'\')" class="button" /></div>';
+ 	newOptDiv.innerHTML = '<h1>æ·»åŠ </h1><a href="javascript:;" onclick="addOption(\'newsort\', \''+obj.id+'\')" class="float_del">åˆ é™¤</a><div class="popupmenu_inner" style="text-align: center;">åç§°ï¼š<input type="text" name="newsort" size="10" id="newsort" class="t_input" /><input type="button" name="addSubmit" value="åˆ›å»º" onclick="addOption(\'newsort\', \''+obj.id+'\')" class="button" /></div>';
  	newOptDiv.className = 'popupmenu_centerbox';
  	newOptDiv.style.cssText = 'position: absolute; left: 50%; top: 200px; width: 400px; margin-left: -200px;';
  	document.body.appendChild(newOptDiv);
@@ -105,7 +105,7 @@ function doane(event) {
 	}
 }
 
-//ÑéÖ¤Âë
+//éªŒè¯ç 
 function seccode() {
 	var img = 'do.php@ac=seccode&rand='+Math.random();
 	document.writeln('<img id="img_seccode" src="'+img+'" align="absmiddle">');
@@ -117,7 +117,7 @@ function updateseccode() {
 	}
 }
 
-//ËõĞ¡Í¼Æ¬²¢Ìí¼ÓÁ´½Ó
+//ç¼©å°å›¾ç‰‡å¹¶æ·»åŠ é“¾æ¥
 function resizeImg(id,size) {
 	var theImages = $(id).getElementsByTagName('img');
 	for (i=0; i<theImages.length; i++) {
@@ -131,7 +131,7 @@ function resizeImg(id,size) {
 					zoomDiv.style.position = 'relative';
 					zoomDiv.style.cursor = 'pointer';
 					
-					this.title = 'µã»÷Í¼Æ¬£¬ÔÚĞÂ´°¿ÚÏÔÊ¾Ô­Ê¼³ß´ç';
+					this.title = 'ç‚¹å‡»å›¾ç‰‡ï¼Œåœ¨æ–°çª—å£æ˜¾ç¤ºåŸå§‹å°ºå¯¸';
 					
 					var zoom = document.createElement('img');
 					zoom.src = 'image/zoom.gif';
@@ -155,7 +155,7 @@ function resizeImg(id,size) {
 	}
 }
 
-//Ctrl+Enter ·¢²¼
+//Ctrl+Enter å‘å¸ƒ
 function ctrlEnter(event, btnId, onlyEnter) {
 	if(isUndefined(onlyEnter)) onlyEnter = 0;
 	if((event.ctrlKey || onlyEnter) && event.keyCode == 13) {
@@ -164,7 +164,7 @@ function ctrlEnter(event, btnId, onlyEnter) {
 	}
 	return true;
 }
-//Ëõ·ÅTextarea
+//ç¼©æ”¾Textarea
 function zoomTextarea(id, zoom) {
 	zoomSize = zoom ? 10 : -10;
 	obj = $(id);
@@ -174,30 +174,30 @@ function zoomTextarea(id, zoom) {
 	}
 }
 
-//¸´ÖÆURLµØÖ·
+//å¤åˆ¶URLåœ°å€
 function setCopy(_sTxt){
 	if(is_ie) {
 		clipboardData.setData('Text',_sTxt);
-		alert ("ÍøÖ·¡°"+_sTxt+"¡±\nÒÑ¾­¸´ÖÆµ½ÄúµÄ¼ôÌù°åÖĞ\nÄú¿ÉÒÔÊ¹ÓÃCtrl+V¿ì½İ¼üÕ³Ìùµ½ĞèÒªµÄµØ·½");
+		alert ("ç½‘å€â€œ"+_sTxt+"â€\nå·²ç»å¤åˆ¶åˆ°æ‚¨çš„å‰ªè´´æ¿ä¸­\næ‚¨å¯ä»¥ä½¿ç”¨Ctrl+Vå¿«æ·é”®ç²˜è´´åˆ°éœ€è¦çš„åœ°æ–¹");
 	} else {
-		prompt("Çë¸´ÖÆÍøÕ¾µØÖ·:",_sTxt); 
+		prompt("è¯·å¤åˆ¶ç½‘ç«™åœ°å€:",_sTxt); 
 	}
 }
 
-//ÑéÖ¤ÊÇ·ñÓĞÑ¡Ôñ¼ÇÂ¼
+//éªŒè¯æ˜¯å¦æœ‰é€‰æ‹©è®°å½•
 function ischeck(id, prefix) {
 	form = document.getElementById(id);
 	for(var i = 0; i < form.elements.length; i++) {
 		var e = form.elements[i];
 		if(e.name.match(prefix) && e.checked) {
-			if(confirm("ÄúÈ·¶¨ÒªÖ´ĞĞ±¾²Ù×÷Âğ£¿")) {
+			if(confirm("æ‚¨ç¡®å®šè¦æ‰§è¡Œæœ¬æ“ä½œå—ï¼Ÿ")) {
 				return true;
 			} else {
 				return false;
 			}
 		}
 	}
-	alert('ÇëÑ¡ÔñÒª²Ù×÷µÄ¶ÔÏó');
+	alert('è¯·é€‰æ‹©è¦æ“ä½œçš„å¯¹è±¡');
 	return false;
 }
 function showPreview(val, id) {
@@ -263,7 +263,7 @@ function insertWebImg(obj) {
 		insertImage(obj.value);
 		obj.value = 'http://';
 	} else {
-		alert('Í¼Æ¬µØÖ·²»ÕıÈ·');
+		alert('å›¾ç‰‡åœ°å€ä¸æ­£ç¡®');
 	}
 }
 
@@ -325,14 +325,14 @@ function trim(str) {
 	re.exec(str); 
 	return RegExp.$1; 
 }
-// Í£Ö¹ÒôÀÖflash
+// åœæ­¢éŸ³ä¹flash
 function stopMusic(preID, playerID) {
 	var musicFlash = preID.toString() + '_' + playerID.toString();
 	if($(musicFlash)) {
 		$(musicFlash).SetVariable('closePlayer', 1);
 	}
 }
-// ÏÔÊ¾Ó°ÊÓ¡¢ÒôÀÖflash
+// æ˜¾ç¤ºå½±è§†ã€éŸ³ä¹flash
 function showFlash(host, flashvar, obj, shareid) {
 	var flashAddr = {
 		'youku.com' : '../player.youku.com/player.php/sid/FLASHVAR=/v.swf',
@@ -342,10 +342,10 @@ function showFlash(host, flashvar, obj, shareid) {
 		'sina.com.cn' : '../vhead.blog.sina.com.cn/player/outer_player.swf@vid=FLASHVAR',
 		'sohu.com' : '../v.blog.sohu.com/fo/v4/FLASHVAR',
 		'mofile.com' : '../tv.mofile.com/cn/xplayer.swf@v=FLASHVAR',
-//Add By 01¡ı
+//Add By 01â†“
 		'tudou.com' : '../www.tudou.com/v/FLASHVAR',
 		'qq.com' : '../cache.tv.qq.com/qqplayerout.swf@vid=FLASHVAR',
-//Add By 01¡ü
+//Add By 01â†‘
 		'music' : 'FLASHVAR',
 		'flash' : 'FLASHVAR'
 	};
@@ -375,7 +375,7 @@ function showFlash(host, flashvar, obj, shareid) {
 	var flashHtml = videoFlash;
 	var videoMp3 = true;
 	if('' == flashvar) {
-		alert('ÒôÀÖµØÖ·´íÎó£¬²»ÄÜÎª¿Õ');
+		alert('éŸ³ä¹åœ°å€é”™è¯¯ï¼Œä¸èƒ½ä¸ºç©º');
 		return false;
 	}
 	if('music' == host) {
@@ -416,7 +416,7 @@ function showFlash(host, flashvar, obj, shareid) {
 		obj.style.display = 'none';
 		var hideObj = document.createElement('div');
 		hideObj.id = 'flash_hide_' + shareid;
-		var nodetxt = document.createTextNode("ÊÕÆğ");
+		var nodetxt = document.createTextNode("æ”¶èµ·");
 		hideObj.appendChild(nodetxt);
 		obj.parentNode.insertBefore(hideObj, obj);
 		hideObj.style.cursor = 'pointer';
@@ -434,33 +434,33 @@ function showFlash(host, flashvar, obj, shareid) {
 	}
 }
 
-//ÏÔÊ¾È«²¿Ó¦ÓÃ
+//æ˜¾ç¤ºå…¨éƒ¨åº”ç”¨
 function userapp_open() {
 	var x = new Ajax();
 	x.get('cp.php@ac=common&op=getuserapp', function(s){
 		$('my_userapp').innerHTML = s;
 		$('a_app_more').className = 'on';
-		$('a_app_more').innerHTML = 'ÊÕÆğ';
+		$('a_app_more').innerHTML = 'æ”¶èµ·';
 		$('a_app_more').onclick = function() {
 			userapp_close();
 		}
 	});
 }
 
-//¹Ø±ÕÈ«²¿Ó¦ÓÃ
+//å…³é—­å…¨éƒ¨åº”ç”¨
 function userapp_close() {
 	var x = new Ajax();
 	x.get('cp.php@ac=common&op=getuserapp&subop=off', function(s){
 		$('my_userapp').innerHTML = s;
 		$('a_app_more').className = 'off';
-		$('a_app_more').innerHTML = 'Õ¹¿ª';
+		$('a_app_more').innerHTML = 'å±•å¼€';
 		$('a_app_more').onclick = function() {
 			userapp_open();
 		}
 	});
 }
 
-//¹ö¶¯
+//æ»šåŠ¨
 function startMarquee(h, speed, delay, sid) {
 	var t = null;
 	var p = false;

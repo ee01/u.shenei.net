@@ -45,7 +45,7 @@
  
 	var aaa = new Array();
 	var php = new PHP_Serializer('utf8');
-	aaa['222'] = 'serialize:ÉèÖÃÊÇ·ñĞòÁĞ»¯¸ÃÊôĞÔ deserialize:ÉèÖÃÊÇ·ñ·´ĞòÁĞ»¯¸ÃÊôĞÔ¡£ format:ÉèÖÃÓÃÓÚ¸ñÊ½»¯Êä³ö¡¢½âÎöÈÕ';
+	aaa['222'] = 'serialize:è®¾ç½®æ˜¯å¦åºåˆ—åŒ–è¯¥å±æ€§ deserialize:è®¾ç½®æ˜¯å¦ååºåˆ—åŒ–è¯¥å±æ€§ã€‚ format:è®¾ç½®ç”¨äºæ ¼å¼åŒ–è¾“å‡ºã€è§£ææ—¥';
 	aaa['lksdf'] = '12345';
 	var bbb = php.serialize(aaa);
 	var ccc = php.unserialize(bbb);

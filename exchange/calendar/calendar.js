@@ -36,15 +36,15 @@ function loadcalendar() {
 	s = '';
 	s += '<div id="calendar" style="display:none; position:absolute; z-index:9;" onclick="doane(event)">';
 	s += '<div style="width: 210px; border: 1px solid #FFF;"><table cellspacing="0" cellpadding="0" width="100%" style="text-align: center;">';
-	s += '<tr align="center" id="calendar_week"><td><a href="###" onclick="refreshcalendar(yy, mm-1)" title="ÉÏÒ»ÔÂ">¡¶</a></td><td colspan="5" style="text-align: center"><a href="###" onclick="showdiv(\'year\');doane(event)" class="dropmenu" title="µã»÷Ñ¡ÔñÄê·Ý" id="year"></a>&nbsp; - &nbsp;<a id="month" class="dropmenu" title="µã»÷Ñ¡ÔñÔÂ·Ý" href="###" onclick="showdiv(\'month\');doane(event)"></a></td><td><A href="###" onclick="refreshcalendar(yy, mm+1)" title="ÏÂÒ»ÔÂ">¡·</A></td></tr>';
-	s += '<tr id="calendar_header"><td>ÈÕ</td><td>Ò»</td><td>¶þ</td><td>Èý</td><td>ËÄ</td><td>Îå</td><td>Áù</td></tr>';
+	s += '<tr align="center" id="calendar_week"><td><a href="###" onclick="refreshcalendar(yy, mm-1)" title="ä¸Šä¸€æœˆ">ã€Š</a></td><td colspan="5" style="text-align: center"><a href="###" onclick="showdiv(\'year\');doane(event)" class="dropmenu" title="ç‚¹å‡»é€‰æ‹©å¹´ä»½" id="year"></a>&nbsp; - &nbsp;<a id="month" class="dropmenu" title="ç‚¹å‡»é€‰æ‹©æœˆä»½" href="###" onclick="showdiv(\'month\');doane(event)"></a></td><td><A href="###" onclick="refreshcalendar(yy, mm+1)" title="ä¸‹ä¸€æœˆ">ã€‹</A></td></tr>';
+	s += '<tr id="calendar_header"><td>æ—¥</td><td>ä¸€</td><td>äºŒ</td><td>ä¸‰</td><td>å››</td><td>äº”</td><td>å…­</td></tr>';
 	for(var i = 0; i < 6; i++) {
 		s += '<tr>';
 		for(var j = 1; j <= 7; j++)
 			s += "<td id=d" + (i * 7 + j) + " height=\"19\">0</td>";
 		s += "</tr>";
 	}
-	s += '<tr id="hourminute"><td colspan="7" align="center"><input type="text" size="2" value="" id="hour" onKeyUp=\'this.value=this.value > 23 ? 23 : zerofill(this.value);controlid.value=controlid.value.replace(/\\d+(\:\\d+)/ig, this.value+"$1")\'> µã <input type="text" size="2" value="" id="minute" onKeyUp=\'this.value=this.value > 59 ? 59 : zerofill(this.value);controlid.value=controlid.value.replace(/(\\d+\:)\\d+/ig, "$1"+this.value)\'> ·Ö</td></tr>';
+	s += '<tr id="hourminute"><td colspan="7" align="center"><input type="text" size="2" value="" id="hour" onKeyUp=\'this.value=this.value > 23 ? 23 : zerofill(this.value);controlid.value=controlid.value.replace(/\\d+(\:\\d+)/ig, this.value+"$1")\'> ç‚¹ <input type="text" size="2" value="" id="minute" onKeyUp=\'this.value=this.value > 59 ? 59 : zerofill(this.value);controlid.value=controlid.value.replace(/(\\d+\:)\\d+/ig, "$1"+this.value)\'> åˆ†</td></tr>';
 	s += '</table></div></div>';
 	s += '<div id="calendar_year" onclick="doane(event)" style="display: none"><div class="col">';
 	for(var k = 1930; k <= 2019; k++) {
@@ -54,7 +54,7 @@ function loadcalendar() {
 	s += '</div></div>';
 	s += '<div id="calendar_month" onclick="doane(event)" style="display: none">';
 	for(var k = 1; k <= 12; k++) {
-		s += '<a href="###" onclick="refreshcalendar(yy, ' + (k - 1) + ');$(\'calendar_month\').style.display=\'none\'"><span' + (today.getMonth()+1 == k ? ' class="calendar_today"' : '') + ' id="calendar_month_' + k + '">' + k + ( k < 10 ? '&nbsp;' : '') + ' ÔÂ</span></a><br />';
+		s += '<a href="###" onclick="refreshcalendar(yy, ' + (k - 1) + ');$(\'calendar_month\').style.display=\'none\'"><span' + (today.getMonth()+1 == k ? ' class="calendar_today"' : '') + ' id="calendar_month_' + k + '">' + k + ( k < 10 ? '&nbsp;' : '') + ' æœˆ</span></a><br />';
 	}
 	s += '</div>';
 	if(is_ie && is_ie < 7) {
@@ -170,7 +170,7 @@ function refreshcalendar(y, m) {
 		}
 		if(x.getFullYear() == today.getFullYear() && x.getMonth() == today.getMonth() && x.getDate() == today.getDate()) {
 			dd.className = 'calendar_today';
-			dd.firstChild.title = '½ñÌì';
+			dd.firstChild.title = 'ä»Šå¤©';
 		}
 		if(x.getFullYear() == currday.getFullYear() && x.getMonth() == currday.getMonth() && x.getDate() == currday.getDate()) {
 			dd.className = 'calendar_checked';

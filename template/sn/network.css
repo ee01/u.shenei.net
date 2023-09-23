@@ -52,7 +52,7 @@
 .side_rbox { background:none }
 		.side_rbox .ntitle { height: 34px; background: url(image/index_ti.gif) no-repeat 0 0; line-height: 34px; }
 
-/*ÈÈÃÅ»áÔ±*/
+/*çƒ­é—¨ä¼šå‘˜*/
 #radomusers { width:968px; height:286px; overflow:hidden; border:#0066cc 1px solid; margin-bottom:10px; }
 #radomusers ul { margin:10px 0px 10px 20px;}
 #radomusers ul li { width:180px; float: left}
@@ -79,7 +79,7 @@
 	.d_avatar{ float: left; margin: 0 10px 0 0;}
 	.d_avatar img{ width: 48px; height: 48px; }
 	
-	/*Ïà²á*/
+	/*ç›¸å†Œ*/
 	#photolist { padding-bottom: 8px; border: 1px solid #0066cc; w\idth: 966px; background: #F7F7F7; }
 		#photolist .ntitle { border-bottom: 1px solid #0066cc; height:30px; color:#FFFFFF ;background: url(image/index_ti.gif) repeat-x; }
 		#spics_wrap { margin: 10px 32px; width: 904px; overflow: hidden; position: relative; }
@@ -101,7 +101,7 @@
 				#spics_next.disable { background-position: 0 -120px !important; }
 		#p_control_pages { display: none; }
 
-/*Õ¾³¤ÍÆ¼ö*/
+/*ç«™é•¿æ¨è*/
 	#showuser { padding-bottom: 1px; border:#0066cc 1px solid;width:968px; }
 	
 		#user_recomm { position: relative; float: left; margin: 2px 1px 0 0; width: 313px; height: 151px; background: #F7F7F7; overflow: hidden; }
@@ -127,7 +127,7 @@
 			#user_wall hr { margin: 1px 0 0 0; display: block; clear: both; }
 		#usertip_box { position: absolute; z-index: 999; margin-left: -2px; width: 200px; visibility: hidden; }
 			#usertip_box div { position: absolute; padding: 3px 6px; background: #000; color: #FFF; }
-/*ËÑË÷Ìõ*/
+/*æœç´¢æ¡*/
 #searchbar { line-height: 30px; vertical-align: middle; font-family: Tahoma, "sans-serif"; background: #E8F3FD; border:#0066cc 1px solid; padding:1px; height:32px; width:966px; overflow:hidden }
 #searchbar * { vertical-align: middle; }
 #sch_user { float: left; }

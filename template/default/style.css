@@ -636,13 +636,13 @@ ins.modify { padding-top: 5px; color: #666; text-decoration: none; text-align: r
     .event_cat li.on { padding: 0 0 0 15px;  width: 95px; background:transparent url(image/d.gif) no-repeat scroll 5px 10px; font-weight: bold; }
 
 
-/*ÍÆ¹ãÊÕ²Ø·ÖÏí Add By 01*/
+/*æ¨å¹¿æ”¶è—åˆ†äº« Add By 01*/
 .tuishare{border:3px solid #eee;line-height:25px;padding:5px;margin-top:5px;margin-bottom:12px;}
 .tuishare li{ list-style:none;}
 .tuishare img{padding:3px; }
 
 
-/*Ê×Ò³¼ÓÈë×î½ü¸üĞÂ Add By 01*/
+/*é¦–é¡µåŠ å…¥æœ€è¿‘æ›´æ–° Add By 01*/
 .wowo_todaywowo{width:660px; float:left;margin-right:10px;overflow:hidden;}
 	.wowo_todaywowo .wowo_blockcontent{padding:10px;height:180px;}
 	.wowo_todaywowo .wowo_blockcontent h2{font-size:14px; color: #000;}
@@ -668,7 +668,7 @@ ins.modify { padding-top: 5px; color: #666; text-decoration: none; text-align: r
 		.wowo_todaywowo .tag_male{ background-position:0 -81px;}
 
 
-/***************ÎÂÜ°ÌáĞÑCSS**************/
+/***************æ¸©é¦¨æé†’CSS**************/
 .window_task {
 height:326px;
 left:40%;
@@ -744,7 +744,7 @@ height:200px;
 }
 
 
-/*By Comver!UCH²å¼şÖÆ×÷¡¢Ä£°å·ÂÖÆ:QQ136468936 ; 136468936@qq.com*/
+/*By Comver!UCHæ’ä»¶åˆ¶ä½œã€æ¨¡æ¿ä»¿åˆ¶:QQ136468936 ; 136468936@qq.com*/
 /* taskBox */
 .sidebox{clear:both;border:1;}
 .sidebox_r_top{height:1px;clear:both;overflow:hidden;border-top:1px solid #f4f4f4; }
@@ -766,7 +766,7 @@ height:200px;
 
 .cashMedia{display:none;}
 
-/******** space_feed µÈ¼¶ ******/
+/******** space_feed ç­‰çº§ ******/
 .level_info{float:left;margin-right:5px;}
 .level_box{clear:both;width:100%;margin:5px 0 0px 0;height:20px;}
 .level_box{float:left;margin-right:5px;}
@@ -778,7 +778,7 @@ height:200px;
 .level_box .level_label .label { position: relative; margin: -13px 0 0; line-height: 13px; font-size:9px; font-family:Verdana; text-align: center; }
 
 
-/*ÂşÓÎÓ¦ÓÃÏÔÊ¾Íæ¼ÒÌÖÂÛ Add By 01*/
+/*æ¼«æ¸¸åº”ç”¨æ˜¾ç¤ºç©å®¶è®¨è®º Add By 01*/
 .myykx { width:auto}
 .myykx h1.title { height:22px; line-height:22px; overflow:hidden; color:#555555; background:url(image/index_ti.gif) ; border: #006600 0px solid;  padding-left:5px;}
 .myykx h1.title span { float:right; margin-right:10px; font-size:12px;}

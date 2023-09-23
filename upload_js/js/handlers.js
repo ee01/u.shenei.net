@@ -1,4 +1,4 @@
-﻿
+
 function cancelQueue(instance) {
 	document.getElementById(instance.customSettings.cancelButtonId).disabled = true;
 	instance.stopUpload();

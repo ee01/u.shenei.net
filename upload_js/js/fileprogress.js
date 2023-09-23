@@ -1,4 +1,4 @@
-﻿
+
 function FileProgress(file, targetID) {
 	this.fileProgressID = file.id;
 	this.opacity = 100;

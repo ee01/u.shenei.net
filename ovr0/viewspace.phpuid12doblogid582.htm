@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=gbk" />
 
-<title>������ �Ĳ��� </title>
+<title>董克润 的博客 </title>
 
 <script language="javascript" type="text/javascript" src="../source/script_cookie.js"></script>
 <script language="javascript" type="text/javascript" src="../source/script_common.js"></script>
@@ -17,7 +17,7 @@
 <link type="text/css" rel="stylesheet" href="../viewspace/css/template.css" />
 
 
-<link type="text/css" rel="stylesheet" href="../viewspace/css/000/00/00/12_style.css" /><link rel="alternate" type="application/rss+xml" href="../rss.phpuid12" title="������" />
+<link type="text/css" rel="stylesheet" href="../viewspace/css/000/00/00/12_style.css" /><link rel="alternate" type="application/rss+xml" href="../rss.phpuid12" title="董克润" />
 <link rel="edituri" type="application/rsd+xml" title="rsd" href="../xmlrpc.phprsd12" />
 </head>
 
@@ -29,33 +29,33 @@
 <div id="wraptwo">
 <div id="banner" class="banner">
 <div class="title" id="title">
-<h1 id="myblogname">������ �Ĳ���  <em> 10895 �˴η���, 361������ <a href="do.phpacajaxopcredituid12.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level3.gif" align="absmiddle" /><img src="../image/star_level3.gif" align="absmiddle" /></a></em></h1>
-<p>��һ������ʲô��û����...</p>
+<h1 id="myblogname">董克润 的博客  <em> 10895 人次访问, 361个积分 <a href="do.phpacajaxopcredituid12.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level3.gif" align="absmiddle" /><img src="../image/star_level3.gif" align="absmiddle" /></a></em></h1>
+<p>这家伙很懒，什么都没留下...</p>
 <p><a href="../12.htm" onclick="javascript:setCopy('12');return false;" class="spacelink domainurl">http://u.shenei.net/12</a></p>
 <iframe name="mainyinyue" src="about:blank" width="0" height="0">
 </iframe>
 <script language="javascript" src="../viewspace/js/player1.js"></script>
 <script language="javascript" for="player1" event="playstatechange(newstate)">
-//�������¼�����
+//播放器事件触发
 switch (newstate){
 
   case 1:
-   musicSwf.SetVariable("musicName", "ֹͣ");
-   //playerinfo.innerHTML = "ֹͣ";
-   if (!userstop){//�ж��Ƿ����û��Լ�ֹͣ�����û�ֹͣ�Ļ��پ�������ѭ��   
-   //�ж��Ƿ�ѭ�����ǵĻ�1��󲥷���һ��
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
    if (loop) {
    setTimeout("next();",1000); 
    }
    }
    break;
   case 2:
-   //playerinfo.innerHTML = "��ͣ";
-   musicSwf.SetVariable("musicName", "��ͣ");
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
    break;
   case 3:
    musicSwf.SetVariable("musicName", RadioList[NowId]);
-   //playerinfo.innerHTML = "���ڲ���";
+   //playerinfo.innerHTML = "正在播放";
    break;
   case 4:
    //playerinfo.innerHTML = "4";
@@ -64,8 +64,8 @@ switch (newstate){
    //playerinfo.innerHTML = "5";
    break;
   case 6:
-   musicSwf.SetVariable("musicName", "���ڻ��塭��");
-   //playerinfo.innerHTML = "���ڻ��塭��";
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
    break;
   case 7:
    //playerinfo.innerHTML = "7";
@@ -74,10 +74,10 @@ switch (newstate){
    //playerinfo.innerHTML = "8";
    break;
   case 9:
-  musicSwf.SetVariable("musicName", "�������ӡ���");
+  musicSwf.SetVariable("musicName", "正在连接……");
    break;
   case 10:
-  musicSwf.SetVariable("musicName", "׼������");
+  musicSwf.SetVariable("musicName", "准备就绪");
    break;
   case 11:
    //playerinfo.innerHTML = "11";
@@ -85,10 +85,10 @@ switch (newstate){
   default:
    //playerinfo.innerHTML = "";
 }
-//�������¼���������
+//播放器事件触发结束
 </script>
 <script language="javascript">
-//�����б�
+//歌曲列表
 function musicSwf_DOFSCommand(command,args){
 if (command=="lay"){
 play();
@@ -111,7 +111,7 @@ showmusiclist();
 }
 </script>
 <script language="javascript">
-//���ֳ�ʼ��
+//音乐初始化
 function playerinit()
 {
 loop=true;
@@ -122,11 +122,11 @@ RadioList = new Array(count);
 NowId=0;
 musicSwf.SetVariable("musicName", RadioList[NowId]);
 player1.URL=listURL[NowId];
-//���ֳ�ʼ����
+//音乐初始结束
 }
 </script>
 <script language="vbscript">
-//���ֲ�������FSCommand
+//音乐播放器命FSCommand
 Sub musicSwf_FSCommand(ByVal command, ByVal args)
 call musicSwf_DOFSCommand(command, args)
 end sub
@@ -147,32 +147,32 @@ end sub
 <!--
 <li>
 <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=12', '');">
-��ҳ </a></li>
+主页 </a></li>
 -->
 
 <li>
 <a  href="../viewspace.phpuid12.htm">
-��ҳ </li>
+主页 </li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12doaboutme.htm', 'aboutme');">
-������ </a></li>
+关于我 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12doblogviewme.htm', 'blog');">
-���� </a></li>
+博文 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12doalbumviewme.htm', 'album');">
-��� </a></li>
+相册 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12dopollviewme.htm', 'poll');">
-ͶƱ </a></li>
+投票 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12dofriendviewme.htm', 'friend');">
-���� </a></li>
+好友 </a></li>
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12dowallviewme.htm', 'wall');">
-���԰� </a></li>
+留言板 </a></li>
 
 <li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12doapplist.htm', 'applist');">
-Ӧ�� </a></li>
+应用 </a></li>
 </ul>
 </div>
 </div>
@@ -208,35 +208,35 @@ end sub
 <em>
 
 <a id="a_magic_viewmagiclog" href="../magic.phpmidviewmagiclogidtypeuidid12.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="../image/magic/viewmagiclog.small.gif" title="���Ծ�" alt="���Ծ�" style="vertical-align: middle;" />
+<img src="../image/magic/viewmagiclog.small.gif" title="八卦镜" alt="八卦镜" style="vertical-align: middle;" />
 </a>
 <a id="a_magic_viewmagic" href="../magic.phpmidviewmagicidtypeuidid12.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="../image/magic/viewmagic.small.gif" title="͸�Ӿ�" alt="͸�Ӿ�" style="vertical-align: middle;" />
+<img src="../image/magic/viewmagic.small.gif" title="透视镜" alt="透视镜" style="vertical-align: middle;" />
 </a>
 <a id="a_magic_viewvisitor" href="../magic.phpmidviewvisitoridtypeuidid12.htm" onclick="ajaxmenu(event,this.id,1)">
-<img src="../image/magic/viewvisitor.small.gif" title="͵����" alt="͵����" style="vertical-align: middle;" />
+<img src="../image/magic/viewvisitor.small.gif" title="偷窥镜" alt="偷窥镜" style="vertical-align: middle;" />
 </a>
 </em>
-<h2>��������</h2>
+<h2>个人资料</h2>
 </div>
 <div class="blockcontent">
 <div class="userinfo">
 <a href="../viewspace.phpuid12.htm" class="avatar"><img src="../..//uc.shenei.net/data/avatar/000/00/00/12_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_07_big.gif'"></a>
 <div class="username">
-<p >�ǳƣ�<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid12.htm', '');">������</a></p>
-<p>�ȼ���<a href="do.phpacajaxopcredituid12.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level3.gif" align="absmiddle" /><img src="../image/star_level3.gif" align="absmiddle" /></a></p>
-<p>������
-<img src="../viewspace/img/tool/video_off.gif" align="absmiddle" title="δ��Ƶ��֤�û�" alt="δ��Ƶ��֤�û�"/>
-<a href="../pay.phpacvip.htm" target="_blank"><img src="../image/pay/vip2.gif" title="δ����" alt="δ����" border="0" align="absmiddle" /></a>
+<p >昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid12.htm', '');">董克润</a></p>
+<p>等级：<a href="do.phpacajaxopcredituid12.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level3.gif" align="absmiddle" /><img src="../image/star_level3.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<img src="../viewspace/img/tool/video_off.gif" align="absmiddle" title="未视频认证用户" alt="未视频认证用户"/>
+<a href="../pay.phpacvip.htm" target="_blank"><img src="../image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
 </p>
 </div>
 <div class="tool">
-<a href="cp.phpacfetionuid12.htm" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="�����ŵ�TA�ֻ�" class="fetion">���Ŷ���</a>
-<a href="../cp.phpacpmuid12.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="����վ�ڶ���Ϣ" class="message">����Ϣ</a>
-<a href="../cp.phpacpokeopsenduid12.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="����к�" class="hi">�ʺ�</a>
-<a href="../cp.phpaccommonopreportidtypeuidid12.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="�ٱ�����" class="report">�ٱ�</a>
-<a href="../userapp.phpid1027468my_suffixlw_253d_253d.htm" title="��������" class="sendgift" target="_blank">������</a>
-<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12dowallviewme.htm', 'wall');" id="a_comment" title="��TA����" class="comment">���԰�</a>
+<a href="cp.phpacfetionuid12.htm" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="发短信到TA手机" class="fetion">飞信短信</a>
+<a href="../cp.phpacpmuid12.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="发送站内短消息" class="message">发消息</a>
+<a href="../cp.phpacpokeopsenduid12.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="打个招呼" class="hi">问候</a>
+<a href="../cp.phpaccommonopreportidtypeuidid12.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="举报此人" class="report">举报</a>
+<a href="../userapp.phpid1027468my_suffixlw_253d_253d.htm" title="赠送礼物" class="sendgift" target="_blank">送礼物</a>
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12dowallviewme.htm', 'wall');" id="a_comment" title="给TA留言" class="comment">留言板</a>
 </div>
 
 </div>
@@ -249,12 +249,12 @@ end sub
 
 <div class="block">		
 <div class="blocktitle">
-<h2>���ķ���</h2>
+<h2>博文分类</h2>
 </div>
 <div class="blockcontent">
 <div class="bloglist">
 <ul class="post_list line_list">
-<li class="current"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12doblogviewme.htm', '');">ȫ������</a></li>
+<li class="current"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid12doblogviewme.htm', '');">全部博文</a></li>
 </ul>
 </div>
 
@@ -265,7 +265,7 @@ end sub
 <div class="frame_3">
 <div id="blog" class="block">		
 <div class="blocktitle">
-<h2>������Ĳ���</h2>
+<h2>董克润的博文</h2>
 </div>
 <div class="blockcontent">
 <div class="bloglist">
@@ -273,9 +273,9 @@ end sub
 <div>
 <div class="entry">
 <div class="title">
-<h1 >����ûʲô��ţB��</h1>	<!--Modify By 01-->
-                         <a href="../cp.phpacsharetypeblogid582.htm" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >����</a>
-                                                 1445 ���Ķ� | <span id="comment_replynum">0</span> ������
+<h1 >江苏没什么好牛B的</h1>	<!--Modify By 01-->
+                         <a href="../cp.phpacsharetypeblogid582.htm" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >分享</a>
+                                                 1445 次阅读 | <span id="comment_replynum">0</span> 个评论
 <span class="time">2008-12-04 20:04</span>
 </div>
 
@@ -285,7 +285,7 @@ end sub
 <div class="resizeimg2">
 <div class="resizeimg3">
 <div class="resizeimg4">
-<SPAN style="COLOR: #98fb98">����ûʲô��ţB�ģ����ǳ���һ�����������ѣ������� <BR>����ûʲô��ţB�ģ����ǰ˴��ϵ����һ������˶��� <BR>����ûʲô��ţB�ģ����ǳ���һ������ϯ���ѣ����ݣ� <BR>����ûʲô��ţB�ģ����������й�һ���ֺ���ǳ����ڽ��ն��ѣ�̩�ݣ� <BR>����ûʲô��ţB�ģ�������ŷ��½�ŵ������ѣ����Ƹۣ� <BR>����ûʲô��ţB�ģ������������ǿ��470���ڽ��������ѣ����ݣ� <BR>����ûʲô��ţB�ģ����ǳ���һ�����Ŷ��ѣ������� <BR>����ûʲô��ţB�ģ�������Ԫ�������ĵط����ѣ��Ͼ��� <BR>����ûʲô��ţB�ģ���������ɽ������ͳ���ĵط����ѣ��Ͼ���&nbsp;&nbsp; <BR>����ûʲô��ţB�ģ������Ĵ�������������������ڽ��ն��ѣ�ʩ���֡���ж��� <BR>����ûʲô��ţB�ģ����ǳ���һ������Ӣ�۶��ѣ������� <BR>����ûʲô��ţB�ģ�����ȫ�����ʲ���ռȫ����55%���ѣ����Ƹۣ� <BR>����ûʲô��ţB�ģ���������ս���мߵ����Ļ���ս�����Ǵ�Ķ��ѣ����ݣ� <BR>����ûʲô��ţB�ģ������и������Ŷ����ѣ��Ͼ��� <BR>����ûʲô��ţB�ģ�����������˾������ʡ֮��������һ���� <BR>����ûʲô��ţB�ģ������п鰼��ȥ�ĵط���̫�����ѣ������� <BR>����ûʲô��ţB�ģ������п�͹��ȥ�ĵط��л���ɽ���ѣ����Ƹۣ�&nbsp;&nbsp; <BR>����ûʲô��ţB�ģ������й���ʷ�Ļ���������ʡ�ݶ��ѣ��Ͼ������ݡ����ݡ����ݡ��򽭡����졢����) <BR>����ûʲô��ţB�ģ���������20�������ص㹫԰ռ��11������ <BR>����ûʲô��ţB�ģ����ǳ��˸�������������ѣ����ݣ� <BR>����ûʲô��ţB�ģ����ǳ��˸�����������ѣ���Ǩ�� <BR>����ûʲô��ţB�ģ����ǳ��˸������Ͷ��ѣ������� <BR>����ûʲô��ţB�ģ����ǳ��˸��й���һ�廪������� <BR>����ûʲô��ţB�ģ�����ˮ������ȫ����һ��ΰ������ë��ϯ��ˮ����ԭ�ϲ��ض��� <BR>����ûʲô��ţB�ģ������и����ֽС�����֮�硱���� <BR>����ûʲô��ţB�ģ����ǳ��˸������ʶ��ѣ������� <BR>����ûʲô��ţB�ģ������Ʋ�������������ף֦ɽ�����ĳ��Ĵ���Ӷ�û�ڱ��ʡ���� <BR>����ûʲô��ţB�ģ����Ǻӱ����Ժ������֮��ʵ�ǽ����˶��ѣ���ɽ�� <BR>����ûʲô��ţB�ģ����ǳ��˸�������һ�������������� <BR>����ûʲô��ţB�ģ����ǳ��˸�����Ӣ�۹�������ѣ������� <BR>����ûʲô��ţB�ģ������и���������ˮ���ܴպϣ������������һ�����ѣ����ݣ� <BR>����ûʲô��ţB�ģ����ǵ�����������ѧ�ڽ��ն��� <BR>����ûʲô��ţB�ģ�����û�Ϲ�У�Ĵ�ѧ���Ͼ���ѧ�ŵ�һ���� <BR>����ûʲô��ţB�ģ����ǽ��վ��ڵ��й���ҵ��ѧ���׶����˸���У���� <BR>����ûʲô��ţB�ģ����������˵Ľ�����ñȵڶ����õ���� <BR>����ûʲô��ţB�ģ������칤���ź�άά�����ܲ������Ƕ��ѣ����ݣ� <BR>����ûʲô��ţB�ģ�����ʮ�˻�����õñȵڶ����༸����� <BR>����ûʲô��ţB�ģ����ǻ��ľ���i����ռ���������ѣ����ݡ����ݣ� <BR>����ûʲô��ţB�ģ����ǿ�ѧԺԺʿ���ռ���104��ռȫ�������� <BR>����ûʲô��ţB�ģ����ǹ���ԺԺʿ���ռ���202��վȫ�������� <BR>����ûʲô��ţB�ģ�ֻ���������쵼��ֻ������֮һ�ǽ��յĶ��� <BR>����ûʲô��ţB�ģ�ֻ����ǿ�����س��Ǳ�һȺ�����˸�����(����������) <BR>����ûʲô��ţB�ģ�ֻ������ν�����ǽ���Ҳ��һ������(����) <BR>����ûʲô��ţB�ģ�ֻ����һ��֮�в���״Ԫ��������ʡ������Ľ��ն��� <BR>����ûʲô��ţB�ģ�ֻ�����й���ʷ��һ��֮�в���״Ԫ�������ĸ�����������ݸ�����&nbsp;&nbsp; <BR>����ûʲô��ţB�ģ�ֻ�������˺�����ϵ�һ���ڽ��ն���(������) <BR>����ûʲô��ţB�ģ�ֻ�������˺�����쾵�Ϊ�������ݿ������������Ķ��� <BR>����ûʲô��ţB�ģ�ֻ�����й���ʷ��еĳ��д󲿷ֶ��ǽ��յĶ���(��������) <BR>����ûʲô��ţB�ģ�ֻ������ν�����ý���Ҳ��һ������ �����ݣ� <BR>����ûʲô��ţB�ģ�ֻ����������й���һ������Ϻ��Ǵӽ��շֳ���ȥ���� <BR>����ûʲô��ţB�ģ�ֻ�����Ͼ�����ǽ��������ı����������Ķ��� <BR>����ûʲô��ţB�ģ�ֻ���������Ĺʹ��������Ͼ����ʹ������ֲ��˰����� <BR>����ûʲô��ţB�ģ�ֻ�����й�5��ˮ������ռ��������(̫�� ����) <BR>����ûʲô��ţB�ģ�ֻ�������մ󲿷ֳ��ж��ǹ���԰�ֳ��ж��� <BR>����ûʲô��ţB�ģ�ֻ�����й��Ĵ���԰ռһ����ѣ������ú�԰ �е±���ɽׯ ����׾��԰ ���ݸ�԰�� <BR>����ûʲô��ţB�ģ�ֻ����С�������ݵ�������ϳ��ڽ������Ƹۻ���ɽ����&nbsp;&nbsp; <BR>����ûʲô��ţB�ģ�ֻ�����ǹ�������ɽ���˶�Ҫ���ĵط�����&nbsp;&nbsp; <BR>����ûʲô��ţB�ģ�ֻ���������Ĺ�ҵ�������ڽ��շ����Ķ��� <BR>����ûʲô��ţB�ģ�ֻ�����й��Ĵɶ��ڽ��ն��ѣ����ˣ� <BR>����ûʲô��ţB�ģ�ֻ�����й���ǿ��ǰʮ��6���ǽ��յĶ��� <BR>����ûʲô��ţB�ģ�ֻ���������˳������ܳԳ������Ļ����� <BR>����ûʲô��ţB�ģ�ֻ�������֡���Ȫӳ�¡��������򻨡����ǳ��Խ��ն��� <BR>����ûʲô��ţB�ģ�ֻ���������㡢�����͡��⾴����é�����������塢���޸���Ҷʥ�ա��챯�衢÷�������ǽ����˶��� <BR>����ûʲô��ţB��:�������Ҷ���<IMG id=paperPicArea1 style="DISPLAY: none; POSITION: relative" src="../..//imgcache.qq.com/ac/b.gif"></SPAN></div>
+<SPAN style="COLOR: #98fb98">江苏没什么可牛B的：就是出了一个周总理而已（淮安） <BR>江苏没什么可牛B的：就是八大菜系里有一个淮扬菜而已 <BR>江苏没什么可牛B的：就是出了一个江主席而已（扬州） <BR>江苏没什么可牛B的：就是现任中国一把手胡书记出生在江苏而已（泰州） <BR>江苏没什么可牛B的：就是亚欧大陆桥的起点而已（连云港） <BR>江苏没什么可牛B的：就是世界五百强有470个在江苏设点而已（苏州） <BR>江苏没什么可牛B的：就是出了一个韩信而已（淮安） <BR>江苏没什么可牛B的：就是朱元樟建都的地方而已（南京） <BR>江苏没什么可牛B的：就是孙中山成立总统府的地方而已（南京）&nbsp;&nbsp; <BR>江苏没什么可牛B的：就是四大名著里的作者有两个在江苏而已（施耐庵、吴承恩） <BR>江苏没什么可牛B的：就是出了一个巾帼英雄而已（梁红玉） <BR>江苏没什么可牛B的：就是全国海鲜产量占全国的55%而已（连云港） <BR>江苏没什么可牛B的：就是三大战役中歼敌最多的淮海战役在那打的而已（徐州） <BR>江苏没什么可牛B的：就是有个六朝古都而已（南京） <BR>江苏没什么可牛B的：就是年财政人均收入各省之间排名第一而已 <BR>江苏没什么可牛B的：就是有块凹下去的地方叫太湖而已（无锡） <BR>江苏没什么可牛B的：就是有块凸上去的地方叫花果山而已（连云港）&nbsp;&nbsp; <BR>江苏没什么可牛B的：就是中国历史文化名城最多的省份而已（南京、徐州、苏州、扬州、镇江、常熟、淮安) <BR>江苏没什么可牛B的：就是首批20个国家重点公园占了11个而已 <BR>江苏没什么可牛B的：就是出了个汉高祖刘邦而已（徐州） <BR>江苏没什么可牛B的：就是出了个霸王项羽而已（宿迁） <BR>江苏没什么可牛B的：就是出了个徐侠客而已（江阴） <BR>江苏没什么可牛B的：就是出了个中国第一村华西村而已 <BR>江苏没什么可牛B的：就是水晶产量全国第一，伟大领袖毛主席的水晶棺原料产地而已 <BR>江苏没什么可牛B的：就是有个名字叫“鱼米之乡”而已 <BR>江苏没什么可牛B的：就是出了个荣毅仁而已（无锡） <BR>江苏没什么可牛B的：就是唐伯虎、文征明、祝枝山、徐文长四大才子都没在别的省而已 <BR>江苏没什么可牛B的：就是河北人自豪的祖冲之其实是江苏人而已（昆山） <BR>江苏没什么可牛B的：就是出了个明朝第一富豪沈万三而已 <BR>江苏没什么可牛B的：就是出了个民族英雄关天培而已（淮安） <BR>江苏没什么可牛B的：就是有个云龙湖的水质能凑合，面积比西湖大一倍而已（徐州） <BR>江苏没什么可牛B的：就是当年国立中央大学在江苏而已 <BR>江苏没什么可牛B的：就是没合过校的大学里南京大学排第一而已 <BR>江苏没什么可牛B的：就是江苏境内的中国矿业大学在首都建了个分校而已 <BR>江苏没什么可牛B的：就是启东人的教育搞得比第二名好点而已 <BR>江苏没什么可牛B的：就是徐工集团和维维集团总部都在那而已（徐州） <BR>江苏没什么可牛B的：就是十运会金牌拿得比第二名多几块而已 <BR>江苏没什么可牛B的：就是华夏九州i江苏占了两个而已（徐州、扬州） <BR>江苏没什么可牛B的：就是科学院院士江苏籍有104人占全国最多而已 <BR>江苏没什么可牛B的：就是工程院院士江苏籍有202人站全国最多而已 <BR>江苏没什么好牛B的：只不过中央领导人只有三分之一是江苏的而已 <BR>江苏没什么好牛B的：只不过强悍的秦朝是被一群江苏人搞跨而已(刘邦项羽韩信) <BR>江苏没什么好牛B的：只不过所谓的龙城江苏也有一个而已(常州) <BR>江苏没什么好牛B的：只不过一朝之中产生状元人数最多的省是清代的江苏而已 <BR>江苏没什么好牛B的：只不过中国历史上一朝之中产生状元人数最多的府是清代的苏州府而已&nbsp;&nbsp; <BR>江苏没什么好牛B的：只不过古运河最古老的一段在江苏而已(古邗沟) <BR>江苏没什么好牛B的：只不过古运河是隋炀帝为了来扬州看琼花而开建的而已 <BR>江苏没什么好牛B的：只不过中国历史最富有的城市大部分都是江苏的而已(扬州苏州) <BR>江苏没什么好牛B的：只不过所谓的天堂江苏也有一个而已 （苏州） <BR>江苏没什么好牛B的：只不过今天的中国第一大城市上海是从江苏分出的去而已 <BR>江苏没什么好牛B的：只不过南京明城墙是世界最长的保存最完整的而已 <BR>江苏没什么好牛B的：只不过北京的故宫是照着南京明故宫建好又拆了半间而已 <BR>江苏没什么好牛B的：只不过中国5大淡水湖江苏占两个而已(太湖 巢湖) <BR>江苏没什么好牛B的：只不过江苏大部分城市都是国家园林城市而已 <BR>江苏没什么好牛B的：只不过中国四大名园占一半而已（北京颐和园 承德避暑山庄 苏州拙政园 扬州个园） <BR>江苏没什么好牛B的：只不过小孩子最崇拜的孙悟空老巢在江苏连云港花果山而已&nbsp;&nbsp; <BR>江苏没什么好牛B的：只不过是国父孙中山死了都要呆的地方而已&nbsp;&nbsp; <BR>江苏没什么好牛B的：只不过近代的工业革命是在江苏发生的而已 <BR>江苏没什么好牛B的：只不过中国的瓷都在江苏而已（宜兴） <BR>江苏没什么好牛B的：只不过中国百强县前十有6个是江苏的而已 <BR>江苏没什么好牛B的：只不过徐州人吃羊肉能吃出伏羊文化而已 <BR>江苏没什么好牛B的：只不过国乐《二泉映月》、《茉莉花》都是出自江苏而已 <BR>江苏没什么可牛B的：只不过伍子胥、范仲淹、吴敬梓、茅以升、朱自清、华罗庚、叶圣陶、徐悲鸿、梅兰芳都是江苏人而已 <BR>江苏没什么可牛B的:就是有我而已<IMG id=paperPicArea1 style="DISPLAY: none; POSITION: relative" src="../..//imgcache.qq.com/ac/b.gif"></SPAN></div>
 </div>
 </div>
 </div>
@@ -298,12 +298,12 @@ end sub
 
                         
 
-<a href="../cp.phpactopicopjoinid582idtypeblogid" id="a_topicjoin_582" onclick="ajaxmenu(event, this.id)">������</a><span class="pipe">|</span>
-<a href="../cp.phpacblogblogid582opedit">�༭</a><span class="pipe">|</span>
-<a href="../cp.phpacblogblogid582opdelete" id="blog_delete_582" onclick="ajaxmenu(event, this.id)">ɾ��</a><span class="pipe">|</span>
+<a href="../cp.phpactopicopjoinid582idtypeblogid" id="a_topicjoin_582" onclick="ajaxmenu(event, this.id)">凑热闹</a><span class="pipe">|</span>
+<a href="../cp.phpacblogblogid582opedit">编辑</a><span class="pipe">|</span>
+<a href="../cp.phpacblogblogid582opdelete" id="blog_delete_582" onclick="ajaxmenu(event, this.id)">删除</a><span class="pipe">|</span>
 
-<a href="../cp.phpacblogblogid582opedithot" id="blog_hot_582" onclick="ajaxmenu(event, this.id)">�ȶ�</a><span class="pipe">|</span>
- <a href="../cp.phpaccommonopreportidtypeblogidid582" id="a_report" onclick="ajaxmenu(event, this.id, 1)">�ٱ�</a>
+<a href="../cp.phpacblogblogid582opedithot" id="blog_hot_582" onclick="ajaxmenu(event, this.id)">热度</a><span class="pipe">|</span>
+ <a href="../cp.phpaccommonopreportidtypeblogidid582" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
 
                 
 </div>
@@ -321,11 +321,11 @@ end sub
 <div class="digc">
 <table>
 <tr>
-<td valign="bottom"><a href="../cp~1017.phpac" id="click_blogid_582_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/luguo.gif" alt="" /><br />·��</div></a></td>
-<td valign="bottom"><a href="../cp~1018.phpac" id="click_blogid_582_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/jidan.gif" alt="" /><br />����</div></a></td>
-<td valign="bottom"><a href="../cp~1019.phpac" id="click_blogid_582_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/xianhua.gif" alt="" /><br />�ʻ�</div></a></td>
-<td valign="bottom"><a href="../cp~1020.phpac" id="click_blogid_582_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/woshou.gif" alt="" /><br />����</div></a></td>
-<td valign="bottom"><a href="../cp~1021.phpac" id="click_blogid_582_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/leiren.gif" alt="" /><br />����</div></a></td>
+<td valign="bottom"><a href="../cp~1017.phpac" id="click_blogid_582_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/luguo.gif" alt="" /><br />路过</div></a></td>
+<td valign="bottom"><a href="../cp~1018.phpac" id="click_blogid_582_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/jidan.gif" alt="" /><br />鸡蛋</div></a></td>
+<td valign="bottom"><a href="../cp~1019.phpac" id="click_blogid_582_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/xianhua.gif" alt="" /><br />鲜花</div></a></td>
+<td valign="bottom"><a href="../cp~1020.phpac" id="click_blogid_582_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/woshou.gif" alt="" /><br />握手</div></a></td>
+<td valign="bottom"><a href="../cp~1021.phpac" id="click_blogid_582_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/leiren.gif" alt="" /><br />雷人</div></a></td>
 </tr>
 </table>
 </div>
@@ -336,19 +336,19 @@ end sub
 
 <div class="tuishare">
 <ul>
-<li>������<a href="../../www.douban.com/recommend/url{$url}title_25bd_25ad_25cb_25d5_25c3_25bb_25ca_25b~1" title="����9��" target="_blank"><img src="../image/tui/duo9.png" border=0 
+<li>分享：<a href="../../www.douban.com/recommend/url{$url}title_25bd_25ad_25cb_25d5_25c3_25bb_25ca_25b~1" title="豆瓣9点" target="_blank"><img src="../image/tui/duo9.png" border=0 
 
-alt="����9��" align="absmiddle"></a><a href="../../digg.com/submitphase2url{$url}title_25bd_25ad_25cb_25d5_25c3_2~1" title="Digg" target="_blank"><img src="../image/tui/digg.png" border=0 
+alt="豆瓣9点" align="absmiddle"></a><a href="../../digg.com/submitphase2url{$url}title_25bd_25ad_25cb_25d5_25c3_2~1" title="Digg" target="_blank"><img src="../image/tui/digg.png" border=0 
 
-alt="Digg" align="absmiddle"></a><a href="../../www.kaixin001.com/repaste/share~342.phprt" title="������" target="_blank"><img src="../image/tui/kaixin001.gif" border=0 
+alt="Digg" align="absmiddle"></a><a href="../../www.kaixin001.com/repaste/share~342.phprt" title="开心网" target="_blank"><img src="../image/tui/kaixin001.gif" border=0 
 
-alt="������" align="absmiddle"></a><a href="../../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net_~968.htmlt" title="������" target="_blank"><img src="../image/tui/renren.gif" border=0 
+alt="开心网" align="absmiddle"></a><a href="../../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net_~968.htmlt" title="人人网" target="_blank"><img src="../image/tui/renren.gif" border=0 
 
-alt="������" align="absmiddle"></a><a href="../../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fviewspace.p~145.htmlt" title="����" target="_blank"><img src="../image/tui/duo.png" border=0 
+alt="人人网" align="absmiddle"></a><a href="../../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fviewspace.p~145.htmlt" title="豆瓣" target="_blank"><img src="../image/tui/duo.png" border=0 
 
-alt="����" align="absmiddle"></a></li>
-<ul>�ղأ�<a href="../../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.shen~332.php_" title="Google��ǩ" target="_blank"><img src="../image/tui/gg.jpg" border=0 alt="Google��ǩ"align="absmiddle"></a><a href="../'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fviewspa~152.htmlt" title="Del.icio.us" target="_blank"><img src="../image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252f~868.htmlt" title="�Ż��ղ�" target="_blank"><img src="../image/tui/yahoo.jpg" border=0 alt="�Ż��ղ�"align="absmiddle"></a><a href="../../vivi.sina.com.cn/collect/icollect~507.phppi" title="����VIVI" target="_blank"><img src="../image/tui/sinavivi.gif" border=0 alt="����VIVI"align="absmiddle"></a><a href="../../cang.baidu.com/do/addit_25bd_25ad_25cb_25d5_25c3_25bb_25ca_25b2_25c3_25~1#nw=1" title="�ٶ��ղ�" target="_blank"><img src="../image/tui/baidushoucang.gif" border=0 alt="�ٶ��ղ�"align="absmiddle"></a><a href="../../shuqian.qq.com/postfrom3title_25bd_25ad_25cb_25d5_25c3_25bb_25ca_25~2" title="QQ��ǩ" target="_blank"><img src="../image/tui/qqshuqian.gif" border=0 alt="QQ��ǩ"align="absmiddle"></a></li>
-<li>�ƹ㣺<input type="text" value="http://u.shenei.net/viewspace.php?uid=12&do=blog&id=582.html" size="60" name="theurl" id="theurl"> <input type="button" value="���Ƶ�ַ" 
+alt="豆瓣" align="absmiddle"></a></li>
+<ul>收藏：<a href="../../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.shen~332.php_" title="Google书签" target="_blank"><img src="../image/tui/gg.jpg" border=0 alt="Google书签"align="absmiddle"></a><a href="../'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fviewspa~152.htmlt" title="Del.icio.us" target="_blank"><img src="../image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252f~868.htmlt" title="雅虎收藏" target="_blank"><img src="../image/tui/yahoo.jpg" border=0 alt="雅虎收藏"align="absmiddle"></a><a href="../../vivi.sina.com.cn/collect/icollect~507.phppi" title="爱问VIVI" target="_blank"><img src="../image/tui/sinavivi.gif" border=0 alt="爱问VIVI"align="absmiddle"></a><a href="../../cang.baidu.com/do/addit_25bd_25ad_25cb_25d5_25c3_25bb_25ca_25b2_25c3_25~1#nw=1" title="百度收藏" target="_blank"><img src="../image/tui/baidushoucang.gif" border=0 alt="百度收藏"align="absmiddle"></a><a href="../../shuqian.qq.com/postfrom3title_25bd_25ad_25cb_25d5_25c3_25bb_25ca_25~2" title="QQ书签" target="_blank"><img src="../image/tui/qqshuqian.gif" border=0 alt="QQ书签"align="absmiddle"></a></li>
+<li>推广：<input type="text" value="http://u.shenei.net/viewspace.php?uid=12&do=blog&id=582.html" size="60" name="theurl" id="theurl"> <input type="button" value="复制地址" 
 
 onclick="javascript:setCopy('../viewspace.phpuid12doblogid582.html');return false;">
 </li>
@@ -358,7 +358,7 @@ onclick="javascript:setCopy('../viewspace.phpuid12doblogid582.html');return fals
 
 
 <div class="comments" id="div_main_content">
-<h2>���� (<span id="Span1">0</span> ������)</h2>
+<h2>评论 (<span id="Span1">0</span> 个评论)</h2>
 <div class="comments_list" id="comment">
 <ul id="comment_ul">
 </ul>
@@ -370,8 +370,8 @@ onclick="javascript:setCopy('../viewspace.phpuid12doblogid582.html');return fals
 <table cellpadding="0" cellspacing="0">
 <tr>
 <td>
-<a href="###" id="comment_face" title="�������" onclick="showFace(this.id, 'comment_message');"><img src="../image/facelist.gif" align="absmiddle" /></a>
-<a id="a_magic_doodle" href="../magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="../image/magic/doodle.small.gif" class="magicicon" />Ϳѻ��</a>
+<a href="###" id="comment_face" title="插入表情" onclick="showFace(this.id, 'comment_message');"><img src="../image/facelist.gif" align="absmiddle" /></a>
+<a id="a_magic_doodle" href="../magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="../image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
 <br />
 <textarea id="comment_message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" name="message" rows="5" style="width:500px;"></textarea>
 </td>
@@ -382,8 +382,8 @@ onclick="javascript:setCopy('../viewspace.phpuid12doblogid582.html');return fals
 <input type="hidden" name="id" value="582">
 <input type="hidden" name="idtype" value="blogid">
 <input type="hidden" name="commentsubmit" value="true" />
-<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="����" onclick="ajaxpost('quickcommentform_582', 'comment_add')" />
-<input type="checkbox" name="hiddenreply" value="1"> ���۽����߿ɼ�
+<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论" onclick="ajaxpost('quickcommentform_582', 'comment_add')" />
+<input type="checkbox" name="hiddenreply" value="1"> 评论仅作者可见
 <div id="__quickcommentform_582"></div>
 </td>
 </tr>
@@ -410,42 +410,42 @@ onclick="javascript:setCopy('../viewspace.phpuid12doblogid582.html');return fals
 <div class="copyright">
 <div class="f_status">
 <a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
-<a title="���� RSS" id="a_rss" href="../rss.phpuid12">����</a>
-<a href="../cp.phpaccommonopreportidtypeuidid12.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">�ٱ����û�</a>
+<a title="订阅 RSS" id="a_rss" href="../rss.phpuid12">订阅</a>
+<a href="../cp.phpaccommonopreportidtypeuidid12.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
 </div>
-<p>������ĸ��˲����ɡ����������ṩ����Ȩ���� <a href="../../fs.shenei.net/default.htm" target="_blank">���衤�񡿹�����</a>(2009-2010)<a href="../admincp.phpacspaceopmanageuid12.htm" id="a_manage">�����û�</a></p>
+<p>董克润的个人博客由〖舍内网〗提供，版权所有 <a href="../../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)<a href="../admincp.phpacspaceopmanageuid12.htm" id="a_manage">管理用户</a></p>
 </div>
 </div>
 
 <ul id="setstyle_a_menu" class="stylemenu" style="display:none">
-<li><a href="javascript:void(0);" id="selectshare_sw">ѡ����</a></li>
-<li><a href="javascript:void(0);" id="fastdiystyle">�����Զ���</a></li>
-<li><a href="../viewspace.phpopdiy.htm">�߼��Զ���</a></li></ul>
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="../viewspace.phpopdiy.htm">高级自定义</a></li></ul>
 
 </div>
 
 <div class="toolbar" id="toolbar">
 <div class="toolbarbox1">
 <a class="logo" href="../space.phpdohome.htm">
-����
+舍内
 </a>
 <div class="toolbaruser">
 <ul>
-<li class="txt">��ӭ����СE������ܲ &nbsp;&nbsp;<a href="../cp.phpaccommonoplogoutuhash88e30fdf50da701748a7f76c40b44df3">�˳�</a></li>
-<li><a href="../viewspace.phpuid1.htm">�ҵĲ���</a></li>
-<li><a href="../cp.php.htm" target="_blank">����</a></li>
+<li class="txt">欢迎您：小E←邱沼懿 &nbsp;&nbsp;<a href="../cp.phpaccommonoplogoutuhash88e30fdf50da701748a7f76c40b44df3">退出</a></li>
+<li><a href="../viewspace.phpuid1.htm">我的博客</a></li>
+<li><a href="../cp.php.htm" target="_blank">设置</a></li>
 <li>
-<a id="a_magic_superstar" href="../magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">��������</a>
+<a id="a_magic_superstar" href="../magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
 </li>
-<li><a href="../space-pm.html">��Ϣ</a></li>
+<li><a href="../space-pm.html">消息</a></li>
 
 </ul>
 </div>
 <div class="toolbarlink">
 <ul>
-<li class="home"><a href="../ovr1/space-home.html">��վ��ҳ</a></li>
-<li><a href="../network.html">�й�</a></li>
-<li><a href="../randomuser.php.htm">�Ҵ�</a></li>
+<li class="home"><a href="../ovr1/space-home.html">网站首页</a></li>
+<li><a href="../network.html">闲逛</a></li>
+<li><a href="../randomuser.php.htm">乱窜</a></li>
 </ul>
 </div>
 <div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
@@ -453,34 +453,34 @@ onclick="javascript:setCopy('../viewspace.phpuid12doblogid582.html');return fals
 <ul id="annbodylis">
 
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;<img src="../image/face/32.gif" class="face">���ǲ��˽���~&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5617-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;<img src="../image/face/32.gif" class="face">还是不了解咩~&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5617-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;���Ժ���~�о������Լ����Լ�����ʲô����Ȼ�䣬��ʶ����������������&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5616-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;迷迷糊糊~感觉不是自己的自己在做什么。焕然间，意识到不该这怎做。。&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5616-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;˭��˭��˭���ں�������������һ��������޷������ҵ�˭��&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5615-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;谁是谁的谁，在乎了又能怎样。一般的心情无法理解我的谁。&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5615-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;���鲻�Ǻܺã�Ƣ���Ͳ��ã�û�ط�����й���Ƴ�������~~&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5614-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;心情不是很好，脾气就不好，没地方发发泄，闷出内伤了~~&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5614-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1377-do-doing.html" target="_blank">xiaoya </a>˵��&nbsp;&nbsp;(��&#717;���� �롫��~��~~~&nbsp;&nbsp;<a href="../space-1377-do-doing-doid-5613-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1377-do-doing.html" target="_blank">xiaoya </a>说：&nbsp;&nbsp;(ˇ&#717;ˇ） 想～你~了~~~&nbsp;&nbsp;<a href="../space-1377-do-doing-doid-5613-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�з�С~С ˼������Ϊ��֪�� ˼��·&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5612-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5612-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�з�С~С ˼������Ϊ��֪�� ˼��·&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5611-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5611-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;�����μ�#��������һ����#ʮ��΢����ȫ�ǳ������@���ž���������Ƶ� ������ȯ���ྫ��С�ԣ���㣬�������Ǽ��Ƶ�����ʵʩ�Ļ��������ܼ�����ʼ�����ྪϲ <a href="../../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>��ȡӢ����Esone�����ĵ�E��Сܲ @cc��Ƣ�� @����_������Ƭ <div class="sub_doing_quote"><span>�������ţ���#��������һ����#����������NO.20��[΢��������]�Ƶ�������˫�˰棡��ע@���ž���������Ƶ� @�������� ��ת���˲���@ 3���ѣ����л�������ž���������Ƶ�˫�������ͣ������ף������츣��������(8-28����11:00�齱,��������ע@�������������� )���ร����<a href="../../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../..//ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5607-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;我正参加#新浪厦门一周年#十大微福利全城畅享活动！@厦门京闽北海湾酒店 自助餐券各类精致小吃，甜点，加上五星级酒店优雅实施的环境，享受即将开始！更多惊喜 <a href="../../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>新取英文名Esone爆开心的E神小懿 @cc坏脾气 @绝望_的生鱼片 <div class="sub_doing_quote"><span>新浪厦门：【#新浪厦门一周年#福利大派送NO.20】[微博三岁啦]酒店自助餐双人版！关注@厦门京闽北海湾酒店 @新浪厦门 ，转发此博并@ 3好友，就有机会获厦门京闽北海湾酒店双人自助餐（共两套）！今天福利明天送(8-28上午11:00抽奖,获奖名单关注@新浪厦门周年庆 )更多福利：<a href="../../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../..//ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5607-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;��Ҫһ���ء���<div class="sub_doing_quote"><span>���ųԺ����ִ�ȫ��������5̨ƻ��4������ƽ������1������΢�š��������ѡ����ҡ�xmdcxs�����ӡ����Ŵ��С�¡�Ϊ���� 2��ת���������� ��������������ȱһ���ɣ�������ÿ����һ̨4������΢�ţ����Ŵ��С�� ������������@���Ŵ��С�� ��Ψһ�ٷ��ţ�ÿ�켰ʱ�������Ŵ�С�¼������Żݵ����ֻ���������������ð��֣�</span><div class="img"><a target="_blank" href="../../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../..//ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5606-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;想要一部呢。。<div class="sub_doing_quote"><span>厦门吃喝玩乐大全：【再送5台苹果4代，公平公正】1，请用微信“添加朋友”查找“xmdcxs”添加“厦门大城小事”为好友 2，转发本条即可 。以上两个条件缺一不可，明晚起每天抽出一台4代。（微信：厦门大城小事 ，是厦门名博@厦门大城小事 的唯一官方号，每天及时播报厦门大小事及其他优惠到你手机，是你厦门生活好帮手）</span><div class="img"><a target="_blank" href="../../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../..//ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5606-goto-yes.html" class="re">回复</a>
 </li>
 <li>
-<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>˵��&nbsp;&nbsp;HOHO�����������Ǵ�������ķ����ޡ���<img src="../image/face/42.gif" class="face">&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5605-goto-yes.html" class="re">�ظ�</a>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;HOHO～～坐等你们大男生煮的饭饭噢～～<img src="../image/face/42.gif" class="face">&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5605-goto-yes.html" class="re">回复</a>
 </li>
 </ul>
 </div>
@@ -557,7 +557,7 @@ var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'shares
 var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
 
 </script>
-<div style="visibility: hidden;display:block;/*ͳһת��Ϊ�鼶Ԫ��*/ overflow: hidden; width: 0; height: 0; ">
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
 
 </div>
 

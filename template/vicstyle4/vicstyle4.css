@@ -15,7 +15,7 @@
 #main { margin: 0 0 20px; width: 100%; overflow: hidden; }
 #vs4_headmain{ height: 70px; width: 100%; background-image: url(image/logohead.gif); background-repeat: no-repeat; background-position: center top; }
 .vs4_account { float: right; padding:4px; width: 300px; white-space:nowrap; overflow: hidden; }
-.vs4_account a { color: #333; font-family: "Î¢ÈíÑÅºÚ"; }
+.vs4_account a { color: #333; font-family: "å¾®è½¯é›…é»‘"; }
 	.login_thumb { float: left; margin: 6px 6px 0 0; padding: 3px 0 0 3px; width: 24px; height: 24px; background: url(image/thumb20bg.gif) no-repeat; display: block; }
     .login_thumb img{ width: 20px; height: 20px; }
     li.notify { margin: 9px 0 0; padding: 0 0 0 18px; width: 72px; height: 20px; background: url(image/notify_bg.gif); color: #FFF; font-size: 12px; font-weight: normal; }
@@ -34,7 +34,7 @@
 	.vs4_toollist em { position: absolute; font-size: 12px; font-style: normal; font-weight: normal; left: 5px; bottom: 1px}
 #vs4_toolsbar li .hidemsg{ display:none; }
 #vs4_toolsbar li:hover .hidemsg{ display:block; height: 48px; width: 100px; position: absolute; z-index: 2; top: 0px; left: 0px; padding-left: 42px; background-image: url(image/sidebarhide.gif); background-repeat: no-repeat; background-position: right center; }
-.hidemsg span{ font-family: "Î¢ÈíÑÅºÚ"; font-size: 12px; line-height: 15px; font-weight: bold; color: #006600;}
+.hidemsg span{ font-family: "å¾®è½¯é›…é»‘"; font-size: 12px; line-height: 15px; font-weight: bold; color: #006600;}
 .hidemsg a{ font-size: 15px;}
 .hidemain{ height: 30px; width: 75px; margin:8px 0 10px 25px; }
 .vs4_gamelist { overflow: hidden; font-size: 6px; height: auto; width: 48px; background-color: #FFF;padding: 4px; margin: 0 5px 0 0; }
@@ -56,7 +56,7 @@
 #vs4_content { width: 885px; margin:0 0 0 4px; padding:0 10px; background-image: url(image/con_bg.gif); background-repeat: repeat-y; overflow:auto; min-height: 500px; }
 #vs4_contentwrap{ width:885px; overflow:hiden;}
 	#vs4_content .user{ width:420px; height: 18px; margin: 0 0 0 10px; float:left; }
-	#vs4_content span { color: #666666; text-decoration: none; font-family: "Î¢ÈíÑÅºÚ"; }
+	#vs4_content span { color: #666666; text-decoration: none; font-family: "å¾®è½¯é›…é»‘"; }
 	#vs4_content .userinfo{ float:left; padding:5px 2px 0 2px; width: 455px; height:85px; }
 	#vs4_content .usermsgbox{ float:left; width: 420px; height:86px;padding:2px 3px; }
 		#vs4_content .usermsgbox li{ height: 23px; width: 75px; float:left;margin:2px 3px; vertical-align: middle;}

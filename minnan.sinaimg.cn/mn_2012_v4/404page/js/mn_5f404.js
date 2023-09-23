@@ -7,7 +7,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
 
 $(function(){
 	
-	$('.wrap p').append('<span id="totalSecond" style="margin-left:12px;">5</span>秒后自动跳回首页');
+	$('.wrap p').append('<span id="totalSecond" style="margin-left:12px;">5</span>绉掑悗鑷姩璺冲洖棣栭〉');
 	
 	setInterval(function(){
 		var second = parseInt($('#totalSecond').html());

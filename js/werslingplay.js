@@ -108,7 +108,7 @@ function cc(objname){
 		}
 		
 		if(ms2 == 0) {
-			alert("Äã»¹Ã»ÓĞÑ¡ÔñÈÎºÎÒôÀÖ!");
+			alert("ä½ è¿˜æ²¡æœ‰é€‰æ‹©ä»»ä½•éŸ³ä¹!");
 			return false;
 		} else{
 			var ss = "scrollbars=no,resizable=no,width=380,height=450,left=255,top=200"   
@@ -131,7 +131,7 @@ function delcc(objname){
 		}
 		
 		if(ms2 == 0) {
-			alert("Äã»¹Ã»ÓĞÑ¡ÔñÈÎºÎÏî!");
+			alert("ä½ è¿˜æ²¡æœ‰é€‰æ‹©ä»»ä½•é¡¹!");
 			return false;
 		}
 		
@@ -173,7 +173,7 @@ function hs_ca(objname){
 		}
 }
 
-//×¨¼­Ñ¡ÔñÍ¼Æ¬
+//ä¸“è¾‘é€‰æ‹©å›¾ç‰‡
 function musicpicView(albumid) {
 	if(albumid == 'none') {
 		$('albumpic_body').innerHTML = '';

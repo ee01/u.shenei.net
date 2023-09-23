@@ -32,19 +32,19 @@
 			this.model = null;
 			this.wrapper.animate({right:-237},300);
 		},
-		addStorage:function(key,value){ 	// Ìí¼Ó/¸üĞÂ»º´æÊı¾İ
+		addStorage:function(key,value){ 	// æ·»åŠ /æ›´æ–°ç¼“å­˜æ•°æ®
 			try{
 				sessionStorage.setItem(key,value);
 			}catch(error){}
 		},
-		removeStorage:function(key){		// É¾³ı»º´æÊı¾İ
+		removeStorage:function(key){		// åˆ é™¤ç¼“å­˜æ•°æ®
 			try{
 				var storage = sessionStorage.getItem(key);
 				if(storage)
 				sessionStorage.removeItem(key);
 			}catch(error){}
 		},
-		change:function(m){ // ÇĞ»»£¬±¾Ò³ÃæÊı¾İ±»ÇëÇó¹ıºó½«È«²¿»º´æÔÚ±¾µØsessionStorage
+		change:function(m){ // åˆ‡æ¢ï¼Œæœ¬é¡µé¢æ•°æ®è¢«è¯·æ±‚è¿‡åå°†å…¨éƒ¨ç¼“å­˜åœ¨æœ¬åœ°sessionStorage
 			var that = this;
 /*			try{
 				var storageData = sessionStorage.getItem(m);
@@ -62,7 +62,7 @@
 					if(response)
 					that.render(m,response);
 /*					try{
-						if(JSON && JSON.stringify){ // ½«Êı¾İ»º´æÔÚ±¾µØ´æ´¢ÖĞ£¬IE8ÒÔÏÂä¯ÀÀÆ÷²»½øĞĞ»º´æ
+						if(JSON && JSON.stringify){ // å°†æ•°æ®ç¼“å­˜åœ¨æœ¬åœ°å­˜å‚¨ä¸­ï¼ŒIE8ä»¥ä¸‹æµè§ˆå™¨ä¸è¿›è¡Œç¼“å­˜
 							var data = JSON.stringify(response);
 							that.addStorage(m,data);	
 						}
@@ -71,7 +71,7 @@
 				error:function(){that.render(m,null);}
 			});	
 		},
-		template:{	// Ä£°å¶ÔÓ¦µÄÊÇ½Ó¿Ú·µ»ØµÄ×Ö¶ÎÃû
+		template:{	// æ¨¡æ¿å¯¹åº”çš„æ˜¯æ¥å£è¿”å›çš„å­—æ®µå
 			ShopCart : function(data){  
 				if(data && jQuery.isArray(data)){
 					var complete = '';
@@ -163,13 +163,13 @@
 					jQuery.each(data,function(index,item){
 						var currentTime = (+new Date(item.time) - (+new Date))/36E5;
 						switch(!0){
-							case currentTime <= 24: 						// µ±Ìì
+							case currentTime <= 24: 						// å½“å¤©
 								todayList += same(item);
 							break;
-							case currentTime > 24 && currentTime <= 168: 	// ×î½üÒ»ÖÜ
+							case currentTime > 24 && currentTime <= 168: 	// æœ€è¿‘ä¸€å‘¨
 								lastWeekList += same(item);
 							break;
-							case currentTime > 168: 						// Ò»ÖÜÇ°
+							case currentTime > 168: 						// ä¸€å‘¨å‰
 								weekAgoList += same(item);
 							break;
 						}
@@ -187,7 +187,7 @@
 				}
 			}
 		},
-		empty:{	// Êı¾İÎª¿ÕÊ±ºòµÄ»Øµ÷
+		empty:{	// æ•°æ®ä¸ºç©ºæ—¶å€™çš„å›è°ƒ
 			ShopCart:function(){
 				return '<p>\u8d2d\u7269\u8f66\u7a7a\u7a7a\u7684</p>\
 				<p>\u8d76\u5feb\u53bb\u6311\u9009\u5fc3\u4eea\u7684\u5546\u54c1\u5427~</p>'
@@ -200,19 +200,19 @@
 				return '\u60a8\u7684\u8db3\u8ff9\u7a7a\u7a7a\u5982\u4e5f~'
 			}	
 		},
-		render:function(m,data){ // Êı¾İäÖÈ¾£¬´ıÌí¼ÓLoading
+		render:function(m,data){ // æ•°æ®æ¸²æŸ“ï¼Œå¾…æ·»åŠ Loading
 			if(!m)	return;
-			var $content = jQuery('[data-contains="'+ m +'"]'); // ÕÒµ½¶ÔÓ¦ÔªËØµÄjQuery¶ÔÏó
+			var $content = jQuery('[data-contains="'+ m +'"]'); // æ‰¾åˆ°å¯¹åº”å…ƒç´ çš„jQueryå¯¹è±¡
 				content =  $content && $content[0]; 
 			var $parent = $content.parent(),
 				$parents = $content.parents('.zc-toolbar-plugin'),
 				parent = $parent[0];
 			var that = this,
 				s = '',
-				$current = jQuery('[data-change="current"]'), // µ±Ç°ÏÔÊ¾Ä£¿é
+				$current = jQuery('[data-change="current"]'), // å½“å‰æ˜¾ç¤ºæ¨¡å—
 				h = jQuery(window).height();
 
-			/* ¼ÓÔØÇĞ»»£¬ÒÑĞŞÕı */
+			/* åŠ è½½åˆ‡æ¢ï¼Œå·²ä¿®æ­£ */
 			if($current && $current[0] && $current[0] !== $parents[0]){
 				$current.removeAttr('data-change').animate({opacity:0,transform:'scale(0)'},500,function(){
 					$current.css({top:h});	

@@ -4,7 +4,7 @@
     }
 
     /**
-     * MD5¼ÓÃÜ
+     * MD5åŠ å¯†
      *
     */
     var CryptoJS=CryptoJS||function(o,q){var l={},m=l.lib={},n=m.Base=function(){function a(){}return{extend:function(e){a.prototype=this;var c=new a;e&&c.mixIn(e);c.$super=this;return c},create:function(){var a=this.extend();a.init.apply(a,arguments);return a},init:function(){},mixIn:function(a){for(var c in a)a.hasOwnProperty(c)&&(this[c]=a[c]);a.hasOwnProperty("toString")&&(this.toString=a.toString)},clone:function(){return this.$super.extend(this)}}}(),j=m.WordArray=n.extend({init:function(a,e){a=
@@ -21,16 +21,16 @@
     window.ZsLogin = {};
 
     /**
-     * »ù±¾²ÎÊıÉèÖÃ
-     * ZsLoginType ´¦·£ÀàĞÍ 1 Ìø×ªµ½Ö¸¶¨ÍøÖ· 2 Ìá½»±íµ¥ÊÂ¼ş
+     * åŸºæœ¬å‚æ•°è®¾ç½®
+     * ZsLoginType å¤„ç½šç±»å‹ 1 è·³è½¬åˆ°æŒ‡å®šç½‘å€ 2 æäº¤è¡¨å•äº‹ä»¶
      *
      *
      */
     var baseUrl     = "../login.zol.com";
     var locationUrl = {
-        'shop' : {'name':'\u005a\u004f\u004c\u5546\u57ce','url':'../www.zol.com','regUrl':'../https@login.zol.com/index.php@c=Default&a=Register'}, //ÉÌ³Ç
-        'dealer':{'name':'\u005a\u004f\u004c\u7ecf\u9500\u5546','url':'./','regUrl':'register.html'}, //¾­ÏúÉÌ
-        'qyg':{'name':'\u005a\u004f\u004c\u4f01\u4e1a\u8d2d','url':'qyg/default.htm','regUrl':'../q.zol.com.cn/index.php@c=UserRegister'} //ÆóÒµ¹º
+        'shop' : {'name':'\u005a\u004f\u004c\u5546\u57ce','url':'../www.zol.com','regUrl':'../https@login.zol.com/index.php@c=Default&a=Register'}, //å•†åŸ
+        'dealer':{'name':'\u005a\u004f\u004c\u7ecf\u9500\u5546','url':'./','regUrl':'register.html'}, //ç»é”€å•†
+        'qyg':{'name':'\u005a\u004f\u004c\u4f01\u4e1a\u8d2d','url':'qyg/default.htm','regUrl':'../q.zol.com.cn/index.php@c=UserRegister'} //ä¼ä¸šè´­
     };
     var loginParams = {'ZsLoginBoxType' : 1, 'ZsLoginType':1, 'ZsLoginUrl' : '../www.zol.com', 'showType':'shop','ZsLoginSubmitId' : '', 'backUrl' : ''};
     ZsLogin.set = function (params){
@@ -48,19 +48,19 @@
             boxStr += '<div class="login-layer">';
 
             boxStr += '<div class="login-head">';
-            boxStr += '<h3>µÇÂ¼'+locationUrl[loginParams.showType].name +'</h3>';
+            boxStr += '<h3>ç™»å½•'+locationUrl[loginParams.showType].name +'</h3>';
             boxStr += '<i class="close" id="zolShopLoginBoxClose"></i>';
             boxStr += '</div>';
 
             boxStr += '<div class="login-content">';
             boxStr += '<div class="login-hd">';
-            boxStr += '<h3>ÕËºÅµÇÂ¼</h3>';
+            boxStr += '<h3>è´¦å·ç™»å½•</h3>';
 
             var typeTipClass = 'phone-login';
-            var typeTipsStr  = 'ÊÖ»ú¶¯Ì¬µÇÂ¼';
+            var typeTipsStr  = 'æ‰‹æœºåŠ¨æ€ç™»å½•';
             if (2 == loginParams.ZsLoginBoxType){
                 typeTipClass = 'common-login';
-                typeTipsStr  = 'ÆÕÍ¨·½Ê½µÇÂ¼';
+                typeTipsStr  = 'æ™®é€šæ–¹å¼ç™»å½•';
             }
 
             //boxStr += '<a href="javascript:;" class="' + typeTipClass + '" id="zolShopLoginTypeTips">' + typeTipsStr + '</a>';
@@ -76,58 +76,58 @@
                 loginType = 2;
             }
 
-            // ÆÕÍ¨µÇÂ½
+            // æ™®é€šç™»é™†
             boxStr += '<div class="form-item username" id="zolShopUserNameDive" style="display:' + userDivStyle + '">';
-            boxStr += '<label for="zolShopUserName" class="label" style="display: none;">ÊÖ»úºÅ/ÓÊÏä/ÓÃ»§Ãû</label>';
-            boxStr += '<input type="text" value="" autocomplete="off" placeholder="ÊÖ»úºÅ/ÓÊÏä/ÓÃ»§Ãû" class="text" id="zolShopUserName">';
+            boxStr += '<label for="zolShopUserName" class="label" style="display: none;">æ‰‹æœºå·/é‚®ç®±/ç”¨æˆ·å</label>';
+            boxStr += '<input type="text" value="" autocomplete="off" placeholder="æ‰‹æœºå·/é‚®ç®±/ç”¨æˆ·å" class="text" id="zolShopUserName">';
             boxStr += '<ul style="display:none;" class="account-list" id="zolShopEmailList"></ul>';
             boxStr += '</div>';
 
             boxStr += '<div class="form-item" id="zolShopPasswordDiv" style="display:' + userDivStyle + '">';
-            //boxStr += '<label for="" class="label">ÃÜÂë</label>';
-            boxStr += '<input type="password" autocomplete="off" placeholder="ÃÜÂë" class="text" id="zolShopUserPassword">';
-            boxStr += '<span class="case-tips" id="zolShopCapsLock">´óĞ¡Ğ´Ëø¶¨ÒÑ´ò¿ª<i class="ico"></i></span>';
+            //boxStr += '<label for="" class="label">å¯†ç </label>';
+            boxStr += '<input type="password" autocomplete="off" placeholder="å¯†ç " class="text" id="zolShopUserPassword">';
+            boxStr += '<span class="case-tips" id="zolShopCapsLock">å¤§å°å†™é”å®šå·²æ‰“å¼€<i class="ico"></i></span>';
             boxStr += '</div>';
 
-            // ÊÖ»úºÅ
+            // æ‰‹æœºå·
             boxStr += '<div class="form-item phone-number" id="zolShopUserPhoneDiv" style="display:' + phoneDiveStyle + '">';
-            //boxStr += '<label for="" class="label">ÊÖ»úºÅ</label>';
-            boxStr += '<input type="text" autocomplete="off" placeholder="ÊÖ»úºÅ" class="text" id="zolShopUserPhone" name="zolShopUserPhone" value£½¡°15911050684¡±>';
-            boxStr += '<input name="zolShopUserSendButton" type="button" value="·¢ËÍÑéÖ¤Âë" class="btn" id="zolShopUserSendButton">';
-            boxStr += '<span class="captcha-loading" style="display:none" id="zolShopUserSendLoading">100ÃëºóÖØĞÂ»ñÈ¡</span>';
+            //boxStr += '<label for="" class="label">æ‰‹æœºå·</label>';
+            boxStr += '<input type="text" autocomplete="off" placeholder="æ‰‹æœºå·" class="text" id="zolShopUserPhone" name="zolShopUserPhone" valueï¼â€œ15911050684â€>';
+            boxStr += '<input name="zolShopUserSendButton" type="button" value="å‘é€éªŒè¯ç " class="btn" id="zolShopUserSendButton">';
+            boxStr += '<span class="captcha-loading" style="display:none" id="zolShopUserSendLoading">100ç§’åé‡æ–°è·å–</span>';
             boxStr += '</div>';
 
             boxStr += '<div class="form-item" id="zolShopUserCodeDiv" style="display:' + phoneDiveStyle + '">';
-            //boxStr += '<label for="" class="label">ÑéÖ¤Âë</label>';
-            boxStr += '<input type="text" autocomplete="off" placeholder="ÑéÖ¤Âë" class="text" id="zolShopUserCode" name="zolShopUserCode" value="">';
+            //boxStr += '<label for="" class="label">éªŒè¯ç </label>';
+            boxStr += '<input type="text" autocomplete="off" placeholder="éªŒè¯ç " class="text" id="zolShopUserCode" name="zolShopUserCode" value="">';
             boxStr += '</div>';
 
-            // Í¼Æ¬ÑéÖ¤Âë
+            // å›¾ç‰‡éªŒè¯ç 
             boxStr += '<div class="form-item captcha-item" id="zolShopUserPicCodeDiv" style="display:' + phoneDiveStyle + '">';
-            boxStr += '<input type="text" value="" autocomplete="off" placeholder="Í¼Æ¬ÑéÖ¤Âë" class="text" id="zolShopUserPicCode" name="zolShopUserPicCode" maxlength="100">';
+            boxStr += '<input type="text" value="" autocomplete="off" placeholder="å›¾ç‰‡éªŒè¯ç " class="text" id="zolShopUserPicCode" name="zolShopUserPicCode" maxlength="100">';
             boxStr += '<input type="hidden" value="" id="zolShopUserPicCodeToken" name="J_zolShopUserPicCodeToken">';
-            boxStr += '<img width="98" height="38" src="" alt="µã»÷Ë¢ĞÂÑéÖ¤Âë" id="J_zolShopUserPicCodeImg">';
+            boxStr += '<img width="98" height="38" src="" alt="ç‚¹å‡»åˆ·æ–°éªŒè¯ç " id="J_zolShopUserPicCodeImg">';
             boxStr += '</div>';
 
             boxStr += '<div class="form-other">';
-            boxStr += '<label class="autologon"><input type="checkbox" name="" value="">¼Ç×¡µÇÂ¼×´Ì¬</label>';
-            boxStr += '<a target="_blank" href="../my.zol.com.cn/index.php@c=getPassword">Íü¼ÇÃÜÂë£¿</a>';
+            boxStr += '<label class="autologon"><input type="checkbox" name="" value="">è®°ä½ç™»å½•çŠ¶æ€</label>';
+            boxStr += '<a target="_blank" href="../my.zol.com.cn/index.php@c=getPassword">å¿˜è®°å¯†ç ï¼Ÿ</a>';
             boxStr += '</div>';
 
             boxStr += '<input type="hidden" name="zolShopUserLoginType" id="zolShopUserLoginType" value="' + loginType + '">';
 
-            boxStr += '<input type="button" value="µÇ Â¼" class="login-layer-btn" id="zolShopSubmit">';
-            //boxStr += '<span style="display:none;" class="submit-loading" id="zolShopSubmitLoading">ÕıÔÚ½øÈë...(<b>3</b>)</span>';
-            boxStr += '<span style="display:none;" class="submit-loading" id="zolShopSubmitLoading">ÕıÔÚµÇÂ¼...</span>';
-            boxStr += '<div class="form-other"><a target="_blank" href="'+locationUrl[loginParams.showType].regUrl +'" class="register-btn">Á¢¼´×¢²á</a></div>';
+            boxStr += '<input type="button" value="ç™» å½•" class="login-layer-btn" id="zolShopSubmit">';
+            //boxStr += '<span style="display:none;" class="submit-loading" id="zolShopSubmitLoading">æ­£åœ¨è¿›å…¥...(<b>3</b>)</span>';
+            boxStr += '<span style="display:none;" class="submit-loading" id="zolShopSubmitLoading">æ­£åœ¨ç™»å½•...</span>';
+            boxStr += '<div class="form-other"><a target="_blank" href="'+locationUrl[loginParams.showType].regUrl +'" class="register-btn">ç«‹å³æ³¨å†Œ</a></div>';
 
             boxStr += '</div>';
 
 
-            // ºÏ×÷ÕËºÅ
+            // åˆä½œè´¦å·
             var backUrl = loginParams.backUrl ? escape(loginParams.backUrl) : escape(window.location.href);
             if(loginParams.showType != 'qyg'){
-                boxStr += '<div class="login-foot clearfix"><span>ºÏ×÷ÕËºÅµÇÂ¼£º</span><a target="_blank" class="sina" href="../service.zol.com.cn/user/api/sina/jump.php@comeshop=1&backurl=' + backUrl + '">ÓÃÎ¢²©ÕËºÅµÇÂ¼</a><a target="_blank" class="qq" href="../service.zol.com.cn/user/api/qq/libs/oauth/redirect_to_login.php@comeshop=1&backurl=' + backUrl + '">ÓÃQQÕËºÅµÇÂ¼</a><a target="_blank" class="alipay" href="../tuan.zol.com/userBinding/alipay/alipay.auth.authorize_php_gb/alipay_auth_authorize.php@fromUrl='+backUrl+'">ÓÃÖ§¸¶±¦ÕËºÅµÇÂ¼</a><a target="_blank" class="baidu" href="../service.zol.com.cn/user/api/baidu/jump.php@comeshop=1&backurl='+backUrl+'">ÓÃ°Ù¶ÈÕËºÅ</a></div>';
+                boxStr += '<div class="login-foot clearfix"><span>åˆä½œè´¦å·ç™»å½•ï¼š</span><a target="_blank" class="sina" href="../service.zol.com.cn/user/api/sina/jump.php@comeshop=1&backurl=' + backUrl + '">ç”¨å¾®åšè´¦å·ç™»å½•</a><a target="_blank" class="qq" href="../service.zol.com.cn/user/api/qq/libs/oauth/redirect_to_login.php@comeshop=1&backurl=' + backUrl + '">ç”¨QQè´¦å·ç™»å½•</a><a target="_blank" class="alipay" href="../tuan.zol.com/userBinding/alipay/alipay.auth.authorize_php_gb/alipay_auth_authorize.php@fromUrl='+backUrl+'">ç”¨æ”¯ä»˜å®è´¦å·ç™»å½•</a><a target="_blank" class="baidu" href="../service.zol.com.cn/user/api/baidu/jump.php@comeshop=1&backurl='+backUrl+'">ç”¨ç™¾åº¦è´¦å·</a></div>';
             }
 
             boxStr += '</div>';
@@ -151,35 +151,35 @@
                 document.getElementById('zolShopUserNameDive').style.border = "1px solid #FF3333";
             }
 
-            // µã»÷Í¼Æ¬»ñÈ¡ÑéÖ¤Âë
+            // ç‚¹å‡»å›¾ç‰‡è·å–éªŒè¯ç 
 
             addEvent(document.getElementById('J_zolShopUserPicCodeImg'), 'click', function (event){
                 ZsLogin.zsPicode();
             });
             ZsLogin.zsPicode();
 
-            // Ìí¼ÓÆÕÍ¨µÇÂ½ ºÍÊÖ»úÑéÖ¤ÂëµÇÂ¼ÇĞ»»
+            // æ·»åŠ æ™®é€šç™»é™† å’Œæ‰‹æœºéªŒè¯ç ç™»å½•åˆ‡æ¢
 //            addEvent(document.getElementById('zolShopLoginTypeTips'), 'click', function (event){
 //
 //                var typeTipsObj = document.getElementById('zolShopLoginTypeTips');
 //                var isIE = navigator.userAgent.indexOf("MSIE 6.0") === -1 ? 0 : 1;
 //                if (isIE){
 //                    var className   = typeTipsObj.getAttribute('className');
-//                    if ('common-login' == className){ // ÆÕÍ¨µÇÂ¼
+//                    if ('common-login' == className){ // æ™®é€šç™»å½•
 //                        typeTipsObj.setAttribute('className', 'phone-login');
-//                        typeTipsObj.innerHTML = 'ÊÖ»ú¶¯Ì¬µÇÂ¼';
+//                        typeTipsObj.innerHTML = 'æ‰‹æœºåŠ¨æ€ç™»å½•';
 //                    }else{
 //                        typeTipsObj.setAttribute('className', 'common-login');
-//                        typeTipsObj.innerHTML = 'ÆÕÍ¨·½Ê½µÇÂ¼';
+//                        typeTipsObj.innerHTML = 'æ™®é€šæ–¹å¼ç™»å½•';
 //                    }
 //                }else{
 //                    var className   = typeTipsObj.getAttribute('class');
-//                    if ('common-login' == className){ // ÆÕÍ¨µÇÂ¼
+//                    if ('common-login' == className){ // æ™®é€šç™»å½•
 //                        typeTipsObj.setAttribute('class', 'phone-login');
-//                        typeTipsObj.innerHTML = 'ÊÖ»ú¶¯Ì¬µÇÂ¼';
+//                        typeTipsObj.innerHTML = 'æ‰‹æœºåŠ¨æ€ç™»å½•';
 //                    }else{
 //                        typeTipsObj.setAttribute('class', 'common-login');
-//                        typeTipsObj.innerHTML = 'ÆÕÍ¨·½Ê½µÇÂ¼';
+//                        typeTipsObj.innerHTML = 'æ™®é€šæ–¹å¼ç™»å½•';
 //                    }
 //                }
 //
@@ -216,24 +216,24 @@
 //
 //            });
 
-            // »ñÈ¡ÊÖ»úÑéÖ¤Âë
+            // è·å–æ‰‹æœºéªŒè¯ç 
             var sendCodeObj = document.getElementById('zolShopUserSendButton');
             if (sendCodeObj){
                 addEvent(sendCodeObj, 'click', ZsLogin.sendPhoneCode);
             }
 
-            // ¹Ø±ÕµÇÂ½¿ò
+            // å…³é—­ç™»é™†æ¡†
             var closeObj = document.getElementById('zolShopLoginBoxClose');
             addEvent(closeObj, 'click', ZsLogin.closeLoginBox);
 
-            // Ìá½»µÇÂ¼
+            // æäº¤ç™»å½•
             var submitObj = document.getElementById('zolShopSubmit');
             addEvent(submitObj, 'click', ZsLogin.submitLogin);
 
-            // email×Ô¶¯Ìî³ä
+            // emailè‡ªåŠ¨å¡«å……
             addEvent(document.getElementById('zolShopUserName'), 'keyup', checkEmail);
 
-            // ÓÃ»§°´ÏÂ»Ø³µÌá½»µÇÂ¼
+            // ç”¨æˆ·æŒ‰ä¸‹å›è½¦æäº¤ç™»å½•
             document.getElementById('zolShopLayBox').onkeypress = function (e){
                 if (window.event){
                     e = window.event;
@@ -245,13 +245,13 @@
                 }
             }
 
-            // ²é¿´¼üÅÌÊÇ·ñËø¶¨´óĞ¡Ğ´
+            // æŸ¥çœ‹é”®ç›˜æ˜¯å¦é”å®šå¤§å°å†™
             document.getElementById('zolShopUserPassword').onkeypress = function (e){
                 if (window.event){
                     e = window.event;
                 }
                 var keyNumber = e.keyCode;
-                var isShift = e.shiftKey || (e.keyCode == 16) || false; // shift¼üÊÇ·ñ°´×¡
+                var isShift = e.shiftKey || (e.keyCode == 16) || false; // shifté”®æ˜¯å¦æŒ‰ä½
                 if (((e.keyCode >= 65 && e.keyCode <= 90) && !isShift) || ((e.keyCode >= 97 && e.keyCode <= 122) && isShift)) {
                     document.getElementById('zolShopCapsLock').style.display = "block";
                 } else {
@@ -259,7 +259,7 @@
                 }
             }
 
-            // ×Ô¶¯¼Ó±ß¿ò
+            // è‡ªåŠ¨åŠ è¾¹æ¡†
             var inputArr = new Array('zolShopUserName', 'zolShopUserPassword', 'zolShopUserPhone', 'zolShopUserCode');
             for (var i = 0; i < 4; i++){
                 document.getElementById(inputArr[i]).onfocus = function(e){
@@ -274,12 +274,12 @@
     }
 
     ZsLogin.zsPicode = function(){
-        // »ñÈ¡Í¼Æ¬ÑéÖ¤Âë
+        // è·å–å›¾ç‰‡éªŒè¯ç 
         var url = baseUrl + "/index.php?a=AjaxPicCode&t="+Math.random();
         getJSONP(url, ZsLogin.zsPicCodeCallback);
     }
 
-    // ÊÖ»úºÅÑéÖ¤³É¹¦µ÷ÓÃjsopµ÷ÓÃÂÛÌ³½Ó¿ÚµÇÂ¼zol
+    // æ‰‹æœºå·éªŒè¯æˆåŠŸè°ƒç”¨jsopè°ƒç”¨è®ºå›æ¥å£ç™»å½•zol
     ZsLogin.zsPicCodeCallback = function (jsonData){
         document.getElementById('J_zolShopUserPicCodeImg').src     = jsonData.url;
         if(document.getElementById('J_zolShopUserPicCodeToken')){
@@ -289,25 +289,25 @@
         return false;
     }
 
-    // µ÷ÓÃ·¢ËÍÑéÖ¤Âë
+    // è°ƒç”¨å‘é€éªŒè¯ç 
     ZsLogin.sendPhoneCode = function (){
         var mobile = document.getElementById('zolShopUserPhone').value;
         if ('' == mobile){
-            ZsLogin.errorTips('ÇëÌîĞ´ÊÖ»úºÅ');
+            ZsLogin.errorTips('è¯·å¡«å†™æ‰‹æœºå·');
             return false;
         }
 
         if (!checkMobile(mobile)){
-            ZsLogin.errorTips('ÇëÌîĞ´ÕıÈ·µÄÊÖ»úºÅ');
+            ZsLogin.errorTips('è¯·å¡«å†™æ­£ç¡®çš„æ‰‹æœºå·');
             return false;
         }
 
-        // ÇëÇóÑéÖ¤Âë
+        // è¯·æ±‚éªŒè¯ç 
         var url = baseUrl + "/index.php?a=SendPhoneCode&mobile=" + mobile;
         getJSONP(url, ZsLogin.userPhoneSendCodeCallback);
     }
 
-    // ¹Ø±ÕµÇÂ¼´°¿Ú
+    // å…³é—­ç™»å½•çª—å£
     ZsLogin.closeLoginBox = function (){
         var layBoxObj  = document.getElementById('zolShopLayBox');
         if (layBoxObj){
@@ -320,16 +320,16 @@
         }
     }
 
-    // ´íÎóÌáÊ¾
+    // é”™è¯¯æç¤º
     ZsLogin.errorTips = function (msg){
-        var wrongTips   = document.getElementById('zolShopUserWrongTips'); // ´íÎóÌáÊ¾
+        var wrongTips   = document.getElementById('zolShopUserWrongTips'); // é”™è¯¯æç¤º
         if (msg){
             wrongTips.style.display = "block";
             wrongTips.innerHTML = msg;
         }
     }
 
-    // µÇÂ¼°´Å¥±ä»¯
+    // ç™»å½•æŒ‰é’®å˜åŒ–
     ZsLogin.loginButton = function (displayName){
         if ('none' == displayName){
             document.getElementById('zolShopSubmitLoading').style.display = 'block';
@@ -341,14 +341,14 @@
 
     }
 
-    // µÇÂ¼³É¹¦´¦ÀíºóĞø
+    // ç™»å½•æˆåŠŸå¤„ç†åç»­
     ZsLogin.loginSucessCallback = function (jsonData){
         switch(loginParams.ZsLoginType){
             case 1:
                 window.location = locationUrl[loginParams.showType].url;
                 break;
             case 2:
-                if(document.getElementById(loginParams.ZsLoginSubmitId)){ // ´¥·¢Ìá½»ÊÂ¼ş
+                if(document.getElementById(loginParams.ZsLoginSubmitId)){ // è§¦å‘æäº¤äº‹ä»¶
                     ZsLogin.closeLoginBox();
                     if (document.all){
                         document.getElementById(loginParams.ZsLoginSubmitId).click();
@@ -357,7 +357,7 @@
                         e.initEvent("click", true, true);
                         document.getElementById(loginParams.ZsLoginSubmitId).dispatchEvent(e);
                     }
-                }else{ // Ã»ÓĞ´¥·¢ÊÂ¼ş¹Ø±Õ´°¿Ú
+                }else{ // æ²¡æœ‰è§¦å‘äº‹ä»¶å…³é—­çª—å£
                     ZsLogin.closeLoginBox();
                 }
                 break;
@@ -365,7 +365,7 @@
                 window.location.reload();
                 break;
 			 case 4:
-                if(document.getElementById(loginParams.ZsLoginSubmitId)){ // ´¥·¢Ìá½»ÊÂ¼ş
+                if(document.getElementById(loginParams.ZsLoginSubmitId)){ // è§¦å‘æäº¤äº‹ä»¶
                     ZsLogin.closeLoginBox();
                     document.getElementById(loginParams.ZsLoginSubmitId).submit();
                 }
@@ -376,74 +376,74 @@
     }
 
 
-    // Ìá½»µÇÂ¼
+    // æäº¤ç™»å½•
     ZsLogin.submitLogin = function (){
         var loginType = document.getElementById('zolShopUserLoginType').value;
 
-        // ÆÕÍ¨µÇÂ¼
+        // æ™®é€šç™»å½•
         if (1 == loginType){
-            ZsLogin.userLogin();   // µÇÂ¼´¦Àí³ÌĞò
+            ZsLogin.userLogin();   // ç™»å½•å¤„ç†ç¨‹åº
         }
 
-        // ÊÖ»úºÅ·¢ÑéÖ¤ÂëµÇÂ¼
+        // æ‰‹æœºå·å‘éªŒè¯ç ç™»å½•
         if (2 == loginType){
-            ZsLogin.userPhoneLogin(); // ÊÖ»úºÅ·¢ÑéÖ¤Âë³ÌĞò
-            ZsLogin.loginButton(); // »Ö¸´µÇÂ¼°´Å¥Îª¿ÉÌá½»×´Ì¬
+            ZsLogin.userPhoneLogin(); // æ‰‹æœºå·å‘éªŒè¯ç ç¨‹åº
+            ZsLogin.loginButton(); // æ¢å¤ç™»å½•æŒ‰é’®ä¸ºå¯æäº¤çŠ¶æ€
         }
     }
 
-    // ÆÕÍ¨µÇÂ¼
+    // æ™®é€šç™»å½•
     ZsLogin.userLogin = function (){
-        var username = document.getElementById('zolShopUserName').value;      // µÇÂ½Ãû³Æ
+        var username = document.getElementById('zolShopUserName').value;      // ç™»é™†åç§°
         if ('' == username){
-            ZsLogin.errorTips("ÇëÌîĞ´ÊÖ»úºÅ/ÓÊÏä/ÓÃ»§Ãû");
+            ZsLogin.errorTips("è¯·å¡«å†™æ‰‹æœºå·/é‚®ç®±/ç”¨æˆ·å");
             return false;
         }
 
-        var password = document.getElementById('zolShopUserPassword').value; // µÇÂ¼ÃÜÂë
+        var password = document.getElementById('zolShopUserPassword').value; // ç™»å½•å¯†ç 
         if ('' == password){
-            ZsLogin.errorTips("ÇëÌîĞ´ÕıÈ·µÄÃÜÂë");
+            ZsLogin.errorTips("è¯·å¡«å†™æ­£ç¡®çš„å¯†ç ");
             return false;
         }
         password = CryptoJS.MD5(password+"zol");
 
-        ZsLogin.loginButton('none'); // ÉèÖÃµÇÂ¼°´Å¥Îª²»¿ÉÌá½»×´Ì¬
+        ZsLogin.loginButton('none'); // è®¾ç½®ç™»å½•æŒ‰é’®ä¸ºä¸å¯æäº¤çŠ¶æ€
         var url = baseUrl + "/index.php?a=AjaxLogin&username=" + username + "&password="+password;
         getJSONP(url, ZsLogin.userLoginCallback);
     }
 
-    // ÆÕÍ¨µÇÂ¼»Øµ÷
+    // æ™®é€šç™»å½•å›è°ƒ
     ZsLogin.userLoginCallback = function (jsonData){
         var jsonData = jsonData;
         if (jsonData.flag){
             var url = "../service.zol.com.cn/user/api/login_zol_new.php@act=signin&username="+jsonData.userName + "&checkCode=" + jsonData.checkCode + "&sid=" + jsonData.userId + "&check=" + jsonData.check;
-            getJSONP(url); // Í¬²½µÇÂ¼zol
-            setTimeout(ZsLogin.loginSucessCallback, 1200); // µ÷ÓÃ¹«ÓÃ´¦Àí
+            getJSONP(url); // åŒæ­¥ç™»å½•zol
+            setTimeout(ZsLogin.loginSucessCallback, 1200); // è°ƒç”¨å…¬ç”¨å¤„ç†
             return false;
         }else{
             ZsLogin.errorTips(jsonData.msg);
-            ZsLogin.loginButton(); // »Ö¸´µÇÂ¼°´Å¥Îª¿ÉÌá½»×´Ì¬
+            ZsLogin.loginButton(); // æ¢å¤ç™»å½•æŒ‰é’®ä¸ºå¯æäº¤çŠ¶æ€
             return false;
         }
     }
 
 
-    // ÊÖ»úºÅÑéÖ¤ÂëµÇÂ¼
+    // æ‰‹æœºå·éªŒè¯ç ç™»å½•
     ZsLogin.userPhoneLogin = function (){
         var mobile      = document.getElementById('zolShopUserPhone').value;
         if ('' == mobile){
-            ZsLogin.errorTips("ÇëÌîĞ´ÊÖ»úºÅ");
+            ZsLogin.errorTips("è¯·å¡«å†™æ‰‹æœºå·");
             return false;
         }
 
         if (!checkMobile(mobile)){
-            ZsLogin.errorTips('ÇëÌîĞ´ÕıÈ·µÄÊÖ»úºÅ');
+            ZsLogin.errorTips('è¯·å¡«å†™æ­£ç¡®çš„æ‰‹æœºå·');
             return false;
         }
 
         var mobieCode   = document.getElementById('zolShopUserCode').value;
         if ('' == mobieCode){
-            ZsLogin.errorTips("ÇëÌîĞ´ÊÖ»úÑéÖ¤Âë");
+            ZsLogin.errorTips("è¯·å¡«å†™æ‰‹æœºéªŒè¯ç ");
             return false;
         }
 
@@ -451,12 +451,12 @@
         var picToken = document.getElementById('zolShopUserPicCodeToken').value;
 
 
-        ZsLogin.loginButton('none'); // ÉèÖÃµÇÂ¼°´Å¥Îª²»¿ÉÌá½»×´Ì¬
+        ZsLogin.loginButton('none'); // è®¾ç½®ç™»å½•æŒ‰é’®ä¸ºä¸å¯æäº¤çŠ¶æ€
         var url = baseUrl + "/index.php?a=AjaxLoginPhone&mobile=" + mobile + "&mobieCode=" + mobieCode + "&picCode="+picCode+"&picToken="+picToken;
         getJSONP(url, ZsLogin.userPhoneLoginCallback);
     }
 
-    // ÊÖ»úºÅÑéÖ¤³É¹¦µ÷ÓÃjsopµ÷ÓÃÂÛÌ³½Ó¿ÚµÇÂ¼zol
+    // æ‰‹æœºå·éªŒè¯æˆåŠŸè°ƒç”¨jsopè°ƒç”¨è®ºå›æ¥å£ç™»å½•zol
     ZsLogin.userPhoneLoginCallback = function (jsonData){
         var jsonData = jsonData;
         if (jsonData.flag){
@@ -469,11 +469,11 @@
     }
 
 
-    // zol³É¹¦µ÷ÓÃÉÌ³Ç½Ó¿Ú ÊµÏÖÉÌ³ÇµÇÂ¼
+    // zolæˆåŠŸè°ƒç”¨å•†åŸæ¥å£ å®ç°å•†åŸç™»å½•
     ZsLogin.userPhoneCallback = function (jsonData){
         var jsonData = jsonData;
         if (jsonData.code){
-            ZsLogin.errorTips("ÍøÂ··±Ã¦£¬ÇëÉÔºóÔÙÊÔ");
+            ZsLogin.errorTips("ç½‘è·¯ç¹å¿™ï¼Œè¯·ç¨åå†è¯•");
             return false;
         }else{
             var url = baseUrl + "/index.php?a=AjaxLoginPhoneSucess&userId=" + jsonData.zol_sid + "&userName=" + jsonData.zol_userid + "&checkCode=" + jsonData.zol_check + "&cipher="+jsonData.zol_cipher;
@@ -481,13 +481,13 @@
         }
     }
 
-    // ·¢ËÍÑéÖ¤Âë»Øµ÷
+    // å‘é€éªŒè¯ç å›è°ƒ
     ZsLogin.userPhoneSendCodeCallback = function(jsonData){
         var wrongTips   = document.getElementById('zolShopUserWrongTips');
         if (jsonData.flag){
             document.getElementById('zolShopUserSendButton').style.display = "none";
             document.getElementById('zolShopUserSendLoading').style.display = "block";
-            // ÉèÖÃµ¹¼ÆÊ±Ê±¼ä
+            // è®¾ç½®å€’è®¡æ—¶æ—¶é—´
             setTimeout("ZsLogin.userPhoneCountDown('100')", 1000);
             if ('block' == wrongTips.style.display){
                 wrongTips.style.display = "none";
@@ -498,9 +498,9 @@
         }
     }
 
-    // ·¢ËÍÑéÖ¤Âëµ¹¼ÆÊ±Ê±¼ä
+    // å‘é€éªŒè¯ç å€’è®¡æ—¶æ—¶é—´
     ZsLogin.userPhoneCountDown = function (countDownNumber){
-        document.getElementById('zolShopUserSendLoading').innerHTML = countDownNumber + 'ÃëºóÖØĞÂ»ñÈ¡';
+        document.getElementById('zolShopUserSendLoading').innerHTML = countDownNumber + 'ç§’åé‡æ–°è·å–';
         countDownNumber = parseInt(countDownNumber);
         countDownNumber--;
         if (!countDownNumber){
@@ -550,7 +550,7 @@
         }
     }
 
-    // ÑéÖ¤ÊÖ»úºÅ
+    // éªŒè¯æ‰‹æœºå·
     var checkMobile = function (mobile){
         var flag = false;
         if (mobile){
@@ -563,7 +563,7 @@
         return flag;
 
     }
-    // ¸ñÊ½»¯²ÎÊı
+    // æ ¼å¼åŒ–å‚æ•°
     function encodeFormData(data){
         if (!data){
             return "";
@@ -602,7 +602,7 @@
         return xmlHttpRequest;
     }
 
-    // postÇëÇó
+    // postè¯·æ±‚
     var postData = function (url, data, callback){
         var xmlHttpRequest = getXmlHttpRequest();
         if (xmlHttpRequest && url){
@@ -619,15 +619,15 @@
     }
 
     /**
-     * ¿çÓòHTTPÇëÇó JSONP
-     * ¸ù¾İÖ¸¶¨URL·¢ËÍÒ»¸öJSONPÇëÇó
-     * È»ºó°Ñ½âÎöµÃµ½µÄÏìÓ¦Êı´«µİ¸ø»Øµ÷º¯Êı
-     * ÔÚURLÖĞÌí¼ÓÒ»¸öÃûÎªJSOPµÄ²éÑ¯²ÎÊıÓÃÓÚÖ¸¶¨¸ÃÇëÇóµÄ»Øµ÷º¯ÊıµÄÃû³Æ
+     * è·¨åŸŸHTTPè¯·æ±‚ JSONP
+     * æ ¹æ®æŒ‡å®šURLå‘é€ä¸€ä¸ªJSONPè¯·æ±‚
+     * ç„¶åæŠŠè§£æå¾—åˆ°çš„å“åº”æ•°ä¼ é€’ç»™å›è°ƒå‡½æ•°
+     * åœ¨URLä¸­æ·»åŠ ä¸€ä¸ªåä¸ºJSOPçš„æŸ¥è¯¢å‚æ•°ç”¨äºæŒ‡å®šè¯¥è¯·æ±‚çš„å›è°ƒå‡½æ•°çš„åç§°
      *
      */
     var getJSONP = function(url, callback){
 
-        // Îª±¾´ÎÇëÇó´´½¨Ò»¸öÎ¨Ò»µÄ»Øµ÷º¯ÊıÃû³Æ
+        // ä¸ºæœ¬æ¬¡è¯·æ±‚åˆ›å»ºä¸€ä¸ªå”¯ä¸€çš„å›è°ƒå‡½æ•°åç§°
         var ts     = Date.parse(new Date());
         var cbnum  = "cb" + ts + getJSONP.counter++;
 
@@ -639,7 +639,7 @@
                 url += "&callback=" + cbname;
         }
 
-        // ¶¨Òå½«±»½Å±¾Ö´ĞĞµÄ»Øµ÷º¯Êı
+        // å®šä¹‰å°†è¢«è„šæœ¬æ‰§è¡Œçš„å›è°ƒå‡½æ•°
         window[cbname] = function(response){
           try{
               if (callback){
@@ -658,7 +658,7 @@
     }
     getJSONP.counter = 0;
 
-    // ÊÂ¼ş¼àÌı
+    // äº‹ä»¶ç›‘å¬
     var addEvent = function (obj, eventType, eventData){
         if ('object' !== typeof(obj)){
             return;
@@ -666,7 +666,7 @@
         if ('' == eventType){
             return;
         }
-        // ¼æÈİIE11È¡ÏûMSIEÅĞ¶Ï
+        // å…¼å®¹IE11å–æ¶ˆMSIEåˆ¤æ–­
 //        var isEvent = navigator.userAgent.indexOf("MSIE") == -1 ? 1 : 0;
         if (obj.addEventListener){
             obj.addEventListener(eventType, eventData);
@@ -675,7 +675,7 @@
         }
     }
 
-    // ÉèÖÃcookieÖµ
+    // è®¾ç½®cookieå€¼
     function setcookie(name, value, daysToLive){
         var cookie = name + '=' + encodeURIComponent(value);
             cookie += '; path=/';
@@ -685,7 +685,7 @@
         }
     }
 
-    // »ñÈ¡cookieÖµ
+    // è·å–cookieå€¼
     ZsLogin.getCookie = function(cookieName){
         var cookieObj = {};
         var all = document.cookie;
@@ -712,7 +712,7 @@
 
 
     var isIE   = navigator.userAgent.indexOf("MSIE") == -1 ? 1 : 0;
-    if (!isIE){ // Èç¹ûÊÇIEÒıÈëjson²å¼ş
+    if (!isIE){ // å¦‚æœæ˜¯IEå¼•å…¥jsonæ’ä»¶
 
         if (typeof JSON !== 'object') {
             JSON = {};

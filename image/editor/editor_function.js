@@ -6,7 +6,7 @@ function uploadEdit(obj) {
 	upload();
 }
 
-//Ìá½»±£´æ
+//æäº¤ä¿å­˜
 function edit_save() {
 	var p = window.frames['uchome-ifrHtmlEditor'];
 	var obj = p.window.frames['HtmlEditor'];
@@ -28,7 +28,7 @@ function edit_save() {
 	backupContent($('uchome-ttHtmlEditor').value);
 }
 
-//»ñÈ¡¹Ø¼ü×Ö
+//è·å–å…³é”®å­—
 function relatekw() {
 	edit_save();
 	var subject = cnCode($('subject').value);
@@ -89,13 +89,13 @@ function backupContent(sHTML) {
 	}
 }
 
-//Ïò±à¼­Æ÷²åÈë´úÂë
+//å‘ç¼–è¾‘å™¨æ’å…¥ä»£ç 
 function edit_insert(html) {
 	var p = window.frames['uchome-ifrHtmlEditor'];
 	var obj = p.window.frames['HtmlEditor'];
 	var status = p.document.getElementById('uchome-editstatus').value;
 	if(status != 'html') {
-		alert('±¾²Ù×÷Ö»ÔÚ¶àÃ½Ìå±à¼­Ä£Ê½ÏÂ²ÅÓĞĞ§');
+		alert('æœ¬æ“ä½œåªåœ¨å¤šåª’ä½“ç¼–è¾‘æ¨¡å¼ä¸‹æ‰æœ‰æ•ˆ');
 		return;
 	}
 	obj.focus();
@@ -110,7 +110,7 @@ function edit_insert(html) {
 	}
 }
 
-//²åÈëÍ¼Æ¬
+//æ’å…¥å›¾ç‰‡
 function insertImage(image) {
 	edit_insert('<p><img src="'+image+'"></p>');
 }

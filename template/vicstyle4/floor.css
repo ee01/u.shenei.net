@@ -6,7 +6,7 @@
 .vic_qlfirstpage{ height: 158px; width: 435px; float:left; }
 .vic_qlf_l{list-style-type: none; border: 1px solid #E8E8E8; height: 148px; width: 136px; float:left; }
 .vic_qlf_l_top{ float:left; list-style-type: none; height: 196px; width: 60px; background-image: url(image/48_avatar_bg.gif); background-repeat: no-repeat; background-position: top; color: #FFFFFF; }
-.vic_qlf_l_top SPAN{ font-family: "ºÚÌå"; font-size: 12px; line-height: 12px; font-weight: bold; color: #FF6600; }
+.vic_qlf_l_top SPAN{ font-family: "é»‘ä½“"; font-size: 12px; line-height: 12px; font-weight: bold; color: #FF6600; }
 .vic_qlf_l_top img{ float:left;height: 48px ; width: 48px; margin:5px;}
 .vic_qlf_l_but{ float:right; height: 140px; width: 70px; margin: 2px; border: 1px dashed #E4E4E4; overflow: hidden; }
 .vic_qlf_l_but img{height: 33px ; width: 33px;}
@@ -15,9 +15,9 @@
 .vic_qlf_r{ border:1px solid #E8E8E8; height:125px; width: 290px; background-color: #FFFFFF; float:right; background-image: url(image/tag_bg.gif); background-repeat: repeat-x; background-position: top; list-style-type: none; padding-top:22px; }
 .vic_qlf_r li{ float:left; width:272px; margin:2px 10px; line-height: 14px; border-bottom: 1px dashed #E6E6E6; height: 14px; }
 .vic_qlf_r li:hover{ background-color: #F6F6F6; }
-.vic_qlf_r li span{ font-family: "ºÚÌå"; font-weight: bold; color: #006699; font-size: 14px; }
+.vic_qlf_r li span{ font-family: "é»‘ä½“"; font-weight: bold; color: #006699; font-size: 14px; }
 .vic_nn_t{ background-color: #F7f7f7; border: 1px solid #EBEBEB; height: 17px; width: 353px; float:right; padding:4px 20px; }
-.vic_nn_t span{ font-family: "ºÚÌå"; font-size: 14px; line-height: 18px; font-weight: bold; }
+.vic_nn_t span{ font-family: "é»‘ä½“"; font-size: 14px; line-height: 18px; font-weight: bold; }
 .vic_nnfirstpage{ background-color: #F7f7f7; border: 1px solid #EBEBEB; height: 108px; width: 385px; float:right; margin:2px 0 0 0; padding:5px 4px; }
 .vic_nnfirstpage ul{ margin:0px;}
 .vic_nnfirstpage li{width:35px;height:35px;float:left;}

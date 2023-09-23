@@ -1,6 +1,6 @@
 $(function(){
 
-	// µÇÂ¼
+	// ç™»å½•
 	var useid = document.cookie.match(/zol_userid=([^;$]+)/);
 	if(useid && useid[1])
 	window.useid = useid[1]; 
@@ -10,7 +10,7 @@ $(function(){
 		$toast_login.show().animate({left:-352,top:y},200);	
 	};*/
 
-	// µÇÂ¼ÑéÖ¤
+	// ç™»å½•éªŒè¯
 	function validateSignin(y,h){
 		if(!useid){
                         ZsLogin.set({ZsLoginBoxType:1, showType:"dealer"});
@@ -21,25 +21,25 @@ $(function(){
 		}	
 	};
 
-	var $operation_region 			= $('#operation_region'),				// ¹¦ÄÜÇø
-		$show_region 				= $('#show_region'),					// Õ¹Ê¾Çø
-		$toast_login				= $('#toast_login'), 					// µÇÂ¼²ã
-		$hoverTips 					= $('#hover_tips'),						// hover²ã
+	var $operation_region 			= $('#operation_region'),				// åŠŸèƒ½åŒº
+		$show_region 				= $('#show_region'),					// å±•ç¤ºåŒº
+		$toast_login				= $('#toast_login'), 					// ç™»å½•å±‚
+		$hoverTips 					= $('#hover_tips'),						// hoverå±‚
 		$plugins 					= $('.zc-toolbar-plugins'),
 		$cartTotal 					= $('#cart-total'),
 		ajaxBaseUrl 				= $('#side-toolbar-wrapper').data('url');
 
-	// ¹Ø±Õµ¯²ã
+	// å…³é—­å¼¹å±‚
 	$toast_login.on('click','.close',function(){
 		$toast_login.hide();	
 	});
 
-	// ´ò¿ª/¹Ø±Õ·ÖÏí
+	// æ‰“å¼€/å…³é—­åˆ†äº«
 	$show_region.on('click','.zc-share-ico',function(){
 		onToggleClass($(this));
 	});
 
-	// ´ò¿ª/¹Ø±Õ¶şÎ¬Âë
+	// æ‰“å¼€/å…³é—­äºŒç»´ç 
 	$show_region.on('click','.zc-ico',function(){
 		onToggleClass($(this));
 	});
@@ -52,7 +52,7 @@ $(function(){
 		$wrap.toggleClass(c);	
 	};
 
-	// ÊµÀı»¯Ò»¸ö³éÌë²ã
+	// å®ä¾‹åŒ–ä¸€ä¸ªæŠ½å±‰å±‚
 	var sideToolbar = new $.drawer('#side-toolbar-wrapper');
 
 	if($operation_region){
@@ -68,12 +68,12 @@ $(function(){
 		});
 	};
 
-	// ¹Ø±ÕÓÒ²àÄÚÈİ²ã
+	// å…³é—­å³ä¾§å†…å®¹å±‚
 	$('.zc-toolbar-plugin-close').on('click',function(){
 		sideToolbar.close();	
 	});
 
-	// Êó±ê»¬Èë²Ù×÷ 
+	// é¼ æ ‡æ»‘å…¥æ“ä½œ 
 	function operationOnMousEenter(){
 		var $this = $(this),$tips = $this.data('tips');
 		$this[0].inTimeStamp = +new Date();
@@ -88,9 +88,9 @@ $(function(){
 	};
 
 	/*
-		Êó±ê»¬³ö²Ù×÷
-		Îªµ±Ç°ÔªËØÏÂÔö¼ÓÒ»¸öÊ±¼ä²î
-		»¬Èë»¬³öËÙ¶È¹ı¿ì£¬½«Ö»Ö´ĞĞ×îºóÒ»¸ö
+		é¼ æ ‡æ»‘å‡ºæ“ä½œ
+		ä¸ºå½“å‰å…ƒç´ ä¸‹å¢åŠ ä¸€ä¸ªæ—¶é—´å·®
+		æ»‘å…¥æ»‘å‡ºé€Ÿåº¦è¿‡å¿«ï¼Œå°†åªæ‰§è¡Œæœ€åä¸€ä¸ª
 	*/
 	if($hoverTips)
 	var hideWidth = -$hoverTips.width();	
@@ -109,7 +109,7 @@ $(function(){
 		$clear_confirm = $('#clear_confirm'),
 		$browseHistroy = $('div[data-contains="BrowseHistroy"]').parent();
 
-	// É¾³ı×ã¼££¬Çå¿Õ´ıĞŞ¸´
+	// åˆ é™¤è¶³è¿¹ï¼Œæ¸…ç©ºå¾…ä¿®å¤
 	function deleteTimeLine(total){
 		var $this = $(this),$elements;
 		if(typeof total !== 'string' && total !== 'all'){
@@ -132,20 +132,20 @@ $(function(){
 				if(res && res.flag){
 					deleteTimeLine.success($item);
 				}else{
-					defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01'); // É¾³ıÊ§°Ü£¬ÇëÖØÊÔ£¡
+					defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01'); // åˆ é™¤å¤±è´¥ï¼Œè¯·é‡è¯•ï¼
 				}
 			},
 			error:function(){
-				defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01'); // É¾³ıÊ§°Ü£¬ÇëÖØÊÔ£¡
+				defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01'); // åˆ é™¤å¤±è´¥ï¼Œè¯·é‡è¯•ï¼
 			}
 		});	
 	};
 
-	// É¾³ı×ã¼£³É¹¦
+	// åˆ é™¤è¶³è¿¹æˆåŠŸ
 	deleteTimeLine.success = function($item){
-		//sideToolbar.removeStorage('BrowseHistroy'); 	// Çå¿Õ±¾µØ»º´æµÄ×ã¼£Êı¾İ
-		sideToolbar.change('BrowseHistroy'); 			// ¸üĞÂĞÅÏ¢ÁĞ±í*/
-		$browseHistroy.perfectScrollbar('update');      // ¸üĞÂ¹ö¶¯Ìõ
+		//sideToolbar.removeStorage('BrowseHistroy'); 	// æ¸…ç©ºæœ¬åœ°ç¼“å­˜çš„è¶³è¿¹æ•°æ®
+		sideToolbar.change('BrowseHistroy'); 			// æ›´æ–°ä¿¡æ¯åˆ—è¡¨*/
+		$browseHistroy.perfectScrollbar('update');      // æ›´æ–°æ»šåŠ¨æ¡
 	};
 
 	function comfirm(total){
@@ -164,7 +164,7 @@ $(function(){
 		return;
 	};
 
-	// Ä¬ÈÏajaxÊ§°ÜµÄ»Øµ÷
+	// é»˜è®¤ajaxå¤±è´¥çš„å›è°ƒ
 	function defaultAjaxErrorCallback(s){
 		alert(s); 
 		return;
@@ -175,7 +175,7 @@ $(function(){
 		deleteTimeLine.call($(this),'all');	
 	});
 
-	// ´Ó¹ºÎï³µÖĞÉ¾³ıÉÌÆ·
+	// ä»è´­ç‰©è½¦ä¸­åˆ é™¤å•†å“
 	function removeProductsItem(){
 		var $this = $(this),
 			$item = $this.parent(),
@@ -192,11 +192,11 @@ $(function(){
 				if(res && res.flag){
 					removeProductsItem.success($item,total,$wrap);	
 				}else{
-					defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01') // É¾³ıÊ§°Ü£¬ÇëÖØÊÔ£¡
+					defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01') // åˆ é™¤å¤±è´¥ï¼Œè¯·é‡è¯•ï¼
 				}
 			},
 			error:function(){
-				defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01') // É¾³ıÊ§°Ü£¬ÇëÖØÊÔ£¡
+				defaultAjaxErrorCallback('\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01') // åˆ é™¤å¤±è´¥ï¼Œè¯·é‡è¯•ï¼
 			}
 		});
 	};
@@ -208,11 +208,11 @@ $(function(){
 		var $shopCheckbox = $wrap.find('.zc-shop-name > input[type="checkbox"]');
 		var cartTotal = +$cartTotal.html();
 		total -= 1;
-		$wrap.parents('.zc-scroll-bd').perfectScrollbar('update'); // ¸üĞÂ¹ö¶¯Ìõ
+		$wrap.parents('.zc-scroll-bd').perfectScrollbar('update'); // æ›´æ–°æ»šåŠ¨æ¡
 
 		/*
-			*** ¸üĞÂÒÑÑ¡ÊıÁ¿Óë×Ü¼Û
-			*** Èç¹ûÊÇÉ¾³ıÉÌÆ·ÎªÒÑ¹´Ñ¡ÉÌÆ·£¬½«´Ó×Ü¼ÛÖĞ½«Æä¼õµô
+			*** æ›´æ–°å·²é€‰æ•°é‡ä¸æ€»ä»·
+			*** å¦‚æœæ˜¯åˆ é™¤å•†å“ä¸ºå·²å‹¾é€‰å•†å“ï¼Œå°†ä»æ€»ä»·ä¸­å°†å…¶å‡æ‰
 		*/
 		if(checked){
 			checkedTotal -= 1;
@@ -222,8 +222,8 @@ $(function(){
 		};
 
 		/*
-			*** ¸üĞÂÌá½»°´Å¥×´Ì¬
-			*** Èç¹ûÌá½»°´Å¥Îª¼¤»î×´Ì¬£¬Ñ¡ÖĞÏîÎª0£¬½«°´Å¥¹Ø±Õ
+			*** æ›´æ–°æäº¤æŒ‰é’®çŠ¶æ€
+			*** å¦‚æœæäº¤æŒ‰é’®ä¸ºæ¿€æ´»çŠ¶æ€ï¼Œé€‰ä¸­é¡¹ä¸º0ï¼Œå°†æŒ‰é’®å…³é—­
 		*/
 		if(total > 0){
 			var $submit = $wrap.find('input[type="submit"]');
@@ -233,15 +233,15 @@ $(function(){
 			}	
 		};
 		/*
-			*** ¸üĞÂµêÆÌÑ¡Ôñ×´Ì¬
-			*** Èç¹ûµ±Ç°µêÆÌËùÓĞÎ´±»Ñ¡ÖĞÏîÄ¿±»É¾³ı£¬Ê£ÏÂÈ«²¿ÎªÑ¡ÖĞÏîÄ¿Ê±£¬µ±Ç°µêÆÌ½«±»Ñ¡ÖĞ
+			*** æ›´æ–°åº—é“ºé€‰æ‹©çŠ¶æ€
+			*** å¦‚æœå½“å‰åº—é“ºæ‰€æœ‰æœªè¢«é€‰ä¸­é¡¹ç›®è¢«åˆ é™¤ï¼Œå‰©ä¸‹å…¨éƒ¨ä¸ºé€‰ä¸­é¡¹ç›®æ—¶ï¼Œå½“å‰åº—é“ºå°†è¢«é€‰ä¸­
 			*** 
 		*/
 		if(checkedTotal > 0 && checkedTotal === total && $shopCheckbox[0])
 		$shopCheckbox[0].checked = true;
 
 		total === 0 ? $wrap.remove() : $item.remove();
-		//sideToolbar.removeStorage('ShopCart'); 	// Çå¿Õ±¾µØ»º´æµÄ¹ºÎï³µÊı¾İ
+		//sideToolbar.removeStorage('ShopCart'); 	// æ¸…ç©ºæœ¬åœ°ç¼“å­˜çš„è´­ç‰©è½¦æ•°æ®
 		
 		cartTotal -= 1;
 		$cartTotal.html(cartTotal);	
@@ -249,7 +249,7 @@ $(function(){
 		$cartTotal.hide();
 	};
 
-	// Ôö¼õ²úÆ·ÊıÁ¿£¬±¾´Î½«²»Ìá½»
+	// å¢å‡äº§å“æ•°é‡ï¼Œæœ¬æ¬¡å°†ä¸æäº¤
 	function changeAmount($count,i){
 		var $wrap 		= $count.parent(),
 			$amount 	= $wrap.find('span'),
@@ -292,7 +292,7 @@ $(function(){
 	};
 
 
-	// ¼¤»î°´Å¥
+	// æ¿€æ´»æŒ‰é’®
 	function chanegSubmitStatus($submit,checked){
 		if(!$submit) return;
 		var submit = $submit[0];
@@ -301,7 +301,7 @@ $(function(){
 		$submit[fn]('zc-no-settlement');
 	};
 
-	// ¸üĞÂÒÑÑ¡ÊıÁ¿Óë×Ü¼Û
+	// æ›´æ–°å·²é€‰æ•°é‡ä¸æ€»ä»·
 	function updateSelectedTotal(total,price,$form){
 		if(!$form) return;
 		var $number = $form.find('.zc-selected-number > span'),
@@ -311,26 +311,26 @@ $(function(){
 	 	$form.data('totalprice',price);
 	};
 
-	// ´Ó¹ºÎï³µÖĞÑ¡ÔñÉÌÆ·
+	// ä»è´­ç‰©è½¦ä¸­é€‰æ‹©å•†å“
 	function checkedProducts(s){
 		var $checkbox = $(this),checkbox = $checkbox[0];
 		var $form = $checkbox.parents('form');
 		var $submit = $form.find('input[type="submit"]');
 		var price = +$form.data('totalprice');
-		if(typeof s === 'string' && s === 'shop'){ // Ñ¡ÔñµêÆÌ
+		if(typeof s === 'string' && s === 'shop'){ // é€‰æ‹©åº—é“º
 			var merid = checkbox.value;	
 			var $all = $form.find('input[data-shopid="'+ merid +'"]');
 			price = 0;
-			$all.each(function(index,item){ // ¸Ä±äÈ«²¿Ñ¡ÖĞ×´Ì¬
+			$all.each(function(index,item){ // æ”¹å˜å…¨éƒ¨é€‰ä¸­çŠ¶æ€
 				item.checked = checkbox.checked ? true : false;
 				item.setAttribute('data-checked', checkbox.checked ? 'checked' : '');
 				price += (+$(item).data('price'));
 			});
 			price = checkbox.checked ? price : 0;
-			chanegSubmitStatus($submit,checkbox.checked); // ¸Ä±ä°´Å¥×´Ì¬
+			chanegSubmitStatus($submit,checkbox.checked); // æ”¹å˜æŒ‰é’®çŠ¶æ€
 			updateSelectedTotal(checkbox.checked ? $all.length : 0,price,$form);
 		}else{
-			var total = $form.find('.zc-order-detail').length; // µ±Ç°µêÆÌËùÓĞÉÌÆ·×ÜÊı
+			var total = $form.find('.zc-order-detail').length; // å½“å‰åº—é“ºæ‰€æœ‰å•†å“æ€»æ•°
 			checkbox.price = +$checkbox.data('price');
 			$checkbox.attr('data-checked',checkbox.checked ? 'checked' : '');
 			price = checkbox.checked ? (price + checkbox.price) : (price - checkbox.price);
@@ -351,7 +351,7 @@ $(function(){
 	};
 
 	$plugins.on('click','.zc-checkbox > input[type="checkbox"]',checkedProducts);
-	$plugins.on('click','.zc-shop-name > input[type="checkbox"]',function(){	 // Ñ¡Ôñµ±Ç°µêÆÌÖĞµÄËùÓĞÉÌÆ·
+	$plugins.on('click','.zc-shop-name > input[type="checkbox"]',function(){	 // é€‰æ‹©å½“å‰åº—é“ºä¸­çš„æ‰€æœ‰å•†å“
 		checkedProducts.call($(this),'shop');
 	});
 	$plugins.on('click','.zc-delete-btn',removeProductsItem);

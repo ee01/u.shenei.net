@@ -78,7 +78,7 @@ function insertAttach(id) {
 		return;
 	}
 	if(extensions != '' && (re.exec(extensions) == null || ext == '')) {
-		alert('¶Ô²»Æğ£¬²»Ö§³ÖÉÏ´«´ËÀàÀ©Õ¹ÃûµÄÎÄ¼ş');
+		alert('å¯¹ä¸èµ·ï¼Œä¸æ”¯æŒä¸Šä¼ æ­¤ç±»æ‰©å±•åçš„æ–‡ä»¶');
 		return;
 	}
 	attachexts[id] = inArray(ext, ['gif', 'jpg', 'jpeg', 'png']) ? 2 : 1;
@@ -91,11 +91,11 @@ function insertAttach(id) {
 		inhtml += '<td><img src="' + picPath +'" width="60" height="80">&nbsp;</td>';
 	}
 	if(is_ie && typeof no_insert=='undefined' || insertType==0) {
-		localfile += '&nbsp;<a href="javascript:;" title="µã»÷ÕâÀï²åÈëÄÚÈİÖĞµ±Ç°¹â±êµÄÎ»ÖÃ" onclick="insertAttachimgTag(' + id + ');return false;">[²åÈë]</a>';
+		localfile += '&nbsp;<a href="javascript:;" title="ç‚¹å‡»è¿™é‡Œæ’å…¥å†…å®¹ä¸­å½“å‰å…‰æ ‡çš„ä½ç½®" onclick="insertAttachimgTag(' + id + ');return false;">[æ’å…¥]</a>';
 	}
-	localfile += '&nbsp;<span id="showmsg' + id + '"><a href="javascript:;" onclick="delAttach(' + id + ')">[É¾³ı]</a></span>';
+	localfile += '&nbsp;<span id="showmsg' + id + '"><a href="javascript:;" onclick="delAttach(' + id + ')">[åˆ é™¤]</a></span>';
 	inhtml += '<td>' + localfile +'<br/>';
-	inhtml += 'Í¼Æ¬ÃèÊö:<br/><textarea name="pic_title" cols="40" rows="2"></textarea>';
+	inhtml += 'å›¾ç‰‡æè¿°:<br/><textarea name="pic_title" cols="40" rows="2"></textarea>';
 	inhtml += '</td></tr></table></div>';
 	
 	$('localfile_' + id).innerHTML = inhtml;
@@ -108,12 +108,12 @@ function getPath(obj){
 	if (obj) {
 		if (is_ie) {
 			obj.select();
-			// IEÏÂÈ¡µÃÍ¼Æ¬µÄ±¾µØÂ·¾¶
+			// IEä¸‹å–å¾—å›¾ç‰‡çš„æœ¬åœ°è·¯å¾„
 			return document.selection.createRange().text;
 			
 		} else if(is_moz) {
 				if (obj.files) {
-					// FirefoxÏÂÈ¡µÃµÄÊÇÍ¼Æ¬µÄÊı¾İ
+					// Firefoxä¸‹å–å¾—çš„æ˜¯å›¾ç‰‡çš„æ•°æ®
 					return obj.files.item(0).getAsDataURL();
 				}
 				return obj.value;
@@ -141,7 +141,7 @@ function insertAttachimgTag(id) {
 		imgCache.src = picPath;
 		edit_insert('<img id="_uchome_localimg_' + id + '" src="' + picPath + '">');
 	} else {
-		alert('¶Ô²»Æğ£¬ÇëÔÚIEä¯ÀÀÆ÷ÏÂÃæÊ¹ÓÃ±¾¹¦ÄÜ');
+		alert('å¯¹ä¸èµ·ï¼Œè¯·åœ¨IEæµè§ˆå™¨ä¸‹é¢ä½¿ç”¨æœ¬åŠŸèƒ½');
 	}
 }
 
@@ -153,7 +153,7 @@ function uploadSubmit(obj) {
 	upload();
 }
 
-//ÉÏ´«Ò³Ãæ
+//ä¸Šä¼ é¡µé¢
 function start_upload() {
 	$('btnupload').disabled = true;
 	mainForm = $('albumresultform');
@@ -168,15 +168,15 @@ function upload() {
 	if(nowUid>0) {
 		var upobj = $('showmsg'+aid);
 		if(uploadStat==1) {
-			upobj.innerHTML = 'ÉÏ´«³É¹¦';
+			upobj.innerHTML = 'ä¸Šä¼ æˆåŠŸ';
 			successState = true;
 			var InputNode;
-			//Á½ÖÖÉú³É·½Ê½£¬½â¾öä¯ÀÀÆ÷Ö®¼äµÄ¼æÈİĞÔÎÊÌâ
+			//ä¸¤ç§ç”Ÿæˆæ–¹å¼ï¼Œè§£å†³æµè§ˆå™¨ä¹‹é—´çš„å…¼å®¹æ€§é—®é¢˜
 			try {
-				//IEÄ£Ê½ÏÂµÄ´´½¨·½Ê½,½â¾ö³£¹æsetAttributeÉèÖÃÊôĞÔ´øÀ´µÄÒ»Ğ©Î´ÖªµÄ´íÎó
+				//IEæ¨¡å¼ä¸‹çš„åˆ›å»ºæ–¹å¼,è§£å†³å¸¸è§„setAttributeè®¾ç½®å±æ€§å¸¦æ¥çš„ä¸€äº›æœªçŸ¥çš„é”™è¯¯
 				var InputNode = document.createElement("<input type=\"hidden\" id=\"picid_" + picid + "\" value=\""+ aid +"\" name=\"picids["+picid+"]\">");
 			} catch(e) {
-				//·ÇIEÄ£Ê½ÔòĞëÒªÓÃÏÂÁĞµÄ³£¹æsetAttributeÉèÖÃÊôĞÔ£¬·ñÔòÉú³ÉµÄ½á¹û²»ÄÜÕı³£³õÊ¼»¯
+				//éIEæ¨¡å¼åˆ™é¡»è¦ç”¨ä¸‹åˆ—çš„å¸¸è§„setAttributeè®¾ç½®å±æ€§ï¼Œå¦åˆ™ç”Ÿæˆçš„ç»“æœä¸èƒ½æ­£å¸¸åˆå§‹åŒ–
 				var InputNode = document.createElement("input");
 				InputNode.setAttribute("name", "picids["+picid+"]");
 				InputNode.setAttribute("type", "hidden");
@@ -187,11 +187,11 @@ function upload() {
 
 		} else {
 			upobj.style.color = "#f00";
-			upobj.innerHTML = 'ÉÏ´«Ê§°Ü '+uploadStat;
+			upobj.innerHTML = 'ä¸Šä¼ å¤±è´¥ '+uploadStat;
 		}
 	}
 	if($('showmsg'+nid) != null) {
-		$('showmsg'+nid).innerHTML = 'ÉÏ´«ÖĞ£¬ÇëµÈ´ı(<a href="javascript:;" onclick="forms[nowUid].submit();">ÖØÊÔ</a>)';
+		$('showmsg'+nid).innerHTML = 'ä¸Šä¼ ä¸­ï¼Œè¯·ç­‰å¾…(<a href="javascript:;" onclick="forms[nowUid].submit();">é‡è¯•</a>)';
 		$('albumid_'+nid).value = albumid;
 		if($('topicid_'+nid)) $('topicid_'+nid).value = topicid;
 		forms[nowUid].submit();

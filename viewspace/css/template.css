@@ -47,14 +47,14 @@
 		.toolbartxt li a:hover{background-color:#BED755; color:#000;}
 	
 
-/*±à¼­*/
+/*ç¼–è¾‘*/
 a.editblock{background:url(../img/tool/floatbtn_editblock.gif) no-repeat 0 0; display:block; width:21px; height:21px; overflow:hidden; float:right;margin:4px 6px 0 0; text-indent: -99999px;}
 	a.editblock:hover{background:url(../img/tool/floatbtn_editblock.gif) no-repeat 0 -21px; }
 a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; display:block; width:21px; height:21px; overflow:hidden; float:right;margin:4px 6px 0 0; text-indent: -99999px;}
 	a.delblock:hover{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 -21px; }
 
 
-/*µ¯´°*/
+/*å¼¹çª—*/
 .floatwin{width:570px; margin:0px auto;z-index: 999; background-color:#FFF;}
 	.floatwin .txtnum{ width:25px; text-align:center;padding: 1px 2px; border-style: solid; border-width: 1px; border-color: #7C7C7C #C3C3C3 #DDD;margin-right:3px;}
 	.floatwin .hxdiv{ float:left;width:110px;}
@@ -77,7 +77,7 @@ a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; disp
 .floatcontent{border:2px solid #666; border-top:none; background:url(../img/tool/floatmain.jpg) repeat-y center center; overflow:hidden;}
 
 .floatmain{ overflow:hidden;padding:8px 8px 2px 8px;}
-	.imgheight {height:186px !important; overflow:hidden;}/*Ä¬ÈÏ¸ß¶È*/
+	.imgheight {height:186px !important; overflow:hidden;}/*é»˜è®¤é«˜åº¦*/
 	.imgloading{ margin:120px auto 0; display:block;}
 	.sharelist{ height:336px; overflow:hidden; text-align:center;}
 	.imglist li{ float:left;margin:0 0 4px 10px; display:inline; width:80px;height:80px; overflow:hidden; position:relative;}
@@ -117,7 +117,7 @@ a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; disp
 	.mystyle .time{color:#999; font-size:10px; text-align:center; }
 	.mystyle .operation{}
 
-/*ÑùÊ½ÏÂÀ­²Ëµ¥*/
+/*æ ·å¼ä¸‹æ‹‰èœå•*/
 .stylemenu{ background-color:#5B5B5B; width:86px; position:absolute; right:2px; top:100px; z-index:999999;}
 	.stylemenu li{ border-bottom:1px solid #454545; line-height:26px; height:26px;padding-left:10px;}
 	.stylemenu li a{ color:#FFF; font-weight:bold;}
@@ -185,7 +185,7 @@ a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; disp
 
 
 .btnupload{ border:1px solid #990000; background-color:#FF9900; color:#990000; font-weight:bold;cursor:pointer;}
-/*Ö÷Ò³É«Ïµ*/
+/*ä¸»é¡µè‰²ç³»*/
 
 .webcolormes{ line-height:16px; border-bottom:1px solid #E7E7E7;padding:0 0 4px 10px;margin-bottom:12px;}
 	.webcolormes span{ font-weight:bold; color:#717171;}
@@ -204,7 +204,7 @@ a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; disp
 		.webcolor li a.webcolor_blue{ background-position:0 -140px;}
 		.webcolor li a.webcolor_yellow{background-position:0 -175px;}
 
-/*Ò³Ãæ²¼¾ÖÑùÊ½*/
+/*é¡µé¢å¸ƒå±€æ ·å¼*/
 	.webframe{padding:50px 0; overflow:hidden;}
 		.webframe li{overflow:hidden;width:58px; height:41px; float:left; margin-left:40px; display:inline;}
 		.webframe li a{background:url(../img/tool/webframe.gif) no-repeat 0 0;display:block;width:58px; height:41px; text-indent:-99999px;}
@@ -228,7 +228,7 @@ a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; disp
 		.webframe li a.frame211:hover{background-position:-58px -164px;}
 		.webframe li .onframe211{background-position:-58px -164px !important;}
 
-/*²¥·ÅÆ÷*/
+/*æ’­æ”¾å™¨*/
 
 .musicmes{padding-left:30px; line-height:30px; height:30px;}
 .musiclist{padding-left:30px;}
@@ -239,7 +239,7 @@ a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; disp
 .musiclist em a{color:#F00;}
 
 
-/* ºáÏòÍÏ¶¯ */
+/* æ¨ªå‘æ‹–åŠ¨ */
 .hxdiv {height:20px; line-height:20px; float:left; width:100px;}
 	.hxmoverange {width:100px;padding:5px;position:relative;}
 	.hxmovebg {margin:0px auto;width:100px;height:20px;line-height:25px;background:transparent url(../img/tool/diystyle.gif) no-repeat scroll 0 8px;}
@@ -256,6 +256,6 @@ a.delblock{background:url(../img/tool/floatbtn_delblock.gif) no-repeat 0 0; disp
 .iw0{border:1px solid #D3D1D1; height:20px; width:20px;}
 
 
-/*ÑÕÉ«¿é*/
+/*é¢œè‰²å—*/
 .control_color{background:#FF0000 url(../img/tool/color.gif) no-repeat 0 0; width:21px; height:18px;display:block; float:left; margin-left:8px;}
 .control_nocolor{background:#FF0000 url(../img/tool/nocolor.gif) no-repeat 0 0; width:21px; height:18px;display:block; float:left; margin-left:8px;}

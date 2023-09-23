@@ -578,7 +578,7 @@ jQuery("#loadingtext").fadeOut(500);
 
 <script>
 function fuidgoto(fuid) {
-var folder = new Set([186,189,194,208,209,223,229,361,386,423,445,507,593,920,923,1001,1004,1009,1054,1075,1089,1094,1121,1162,1164]).has(fuid) ? 'ovr1/' : ''
+var folder = new Set([186,189,194,208,209,223,229,361,386,423,445,507,593,920,923,1001,1004,1009,1054,1075,1089,1094,1121,1162,1164]).has(parseInt(fuid)) ? 'ovr1/' : ''
 window.location.href = folder + "space.phpdoblogviewwefuid"+fuid+".htm";
 }
 </script>

@@ -1,0 +1,50 @@
+/*
+[name]°µºÚ3[/name]
+Powered by bolizha.com
+*/
+body, th, td, input, select, textarea, button { font: 12px/1.5em Verdana, "Lucida Grande", Arial, Helvetica, sans-serif; color:#666666 }
+body { padding: 360px 0 0 0;background: #000 url(images/d3.jpg) no-repeat center top; }
+a { color: #0a6eb6; }
+
+.line_list li { border-color: #111; }
+.quote { background-image: url(images/q_start.gif); }
+.quote .q, .quote blockquote { background-image: url(images/q_end.gif); }
+.time { color: #333; }
+.avatar48 { padding: 1px; width: 48px; height: 48px; border: 1px solid #333; background: none; overflow: hidden; }
+#header { width: 100%; margin: 0; }
+.headerwai{ margin: 0; width: 100%; height: 92px; background: url(images/top_bg.gif) repeat-x left top; color: #000; }
+.headerwarp { background: none; }
+#header a { color: #2C629E; }
+#header .logo a { width: 84px; height: 62px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+.nav_account { position: relative; margin: 0 30px; float: right; width: 210px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#space_page { float: left;margin: 0;  padding: 0px;width: 100%; overflow: hidden;}
+#ubar h2 { padding: 8px 30px 0 30px; height: 40px;background: url(images/title.gif) no-repeat 0 -100px; color: #0a6eb6;}
+.tabs_header, #space_page .comments_list li { border-color: #222; }
+.tabs_header ul.tabs li a, .tabs_header ul.tabs li a span { background: none; }
+.tabs_header ul.tabs li.active a, .tabs_header ul.tabs li.active a span { background-image: url(images/tab_bg.gif); color: #0a6eb6; }
+a#i_rss { background-image: url(images/rss_icon.gif); }
+.index_name { color: #FFF; }
+.online_icon { background-image: url(images/online_icon.gif); }
+.setting_status { background-image: url(images/spanner_icon.gif); }
+#space_page .feed_header { background: url(images/title.gif) no-repeat 0 0; color: #0a6eb6; height: 50px;}
+.t_input, textarea { border-color: #222; background: #111; color: #CCC; }
+.submit { border-color: #333; background: #222; }
+.feed .entry-title { color: #444; }
+.feed a:visited { color: #666; }
+.feed .detail { color: #333; }
+.feed li { border-color: #111; }
+.feed a img.summaryimg{ border-color:#333; }
+.feed a:hover img.summaryimg{ border-color:#666; }
+.feed .float_cancel { background: none; color: #333; }
+.entry_list .image_right img { border-color: #333; }
+.pipe { color: #333; }
+.ulist { border: 1px solid #222; background: #111; }
+#space_page .album_list { background: #111; }
+#space_page .album_list .album { border: 1px solid #222; background: #000; }
+#space_page .sidebox h2.title  { padding: 8px 30px 0 30px;background: url(images/title.gif) no-repeat 0 -185px; color: #0a6eb6;height: 50px;}
+
+#footer { float: left;margin: 0px; width: 100%; height: 289px;background: #000 url(images/d3foot.jpg) no-repeat center top; padding: 0px; border-top: 0px solid #333; color: #333; text-align: center; }
+.wenzizi { position: relative; padding: 250px 0 0 0; }
+.feed_header { position: relative; padding: 13px 50px 0 55px;  line-height: 20px;}
+.feed_header .entry-title { color: #0a6eb6; }

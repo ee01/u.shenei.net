@@ -1,0 +1,905 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0055)http://u.shenei.net/viewspace.php?uid=1&do=blog&id=1296 --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>哇吐！~~ </title>
+
+<script language="javascript" type="text/javascript" src="../source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="../viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="../viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="../viewspace/css/000/00/00/01_style.css1296911438.css" /><link rel="alternate" type="application/rss+xml" href="../rss.phpuid1.htm" title="小E←邱沼懿" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="../xmlrpc.phprsd1" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+
+<style>
+
+#diy_content {color:#fff; font-size:14px; padding:2px; text-align:center; width:100%; height:120px; background-color:#342}
+#diy_header {margin:0 auto; height:30px; background-color:#456}
+#diy_main {margin:0 auto; height:90px;background-color:#789;}
+#selectblock {margin:0 auto;}
+
+/* 弹出层时的渐变层的样式 */
+.transfer {border:1px dashed red;margin:0px auto;cursor:move;background: url(../viewspace/img/tool/bg_transfer.png) !important;background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src='viewspace/img/tool/bg_transfer.png');}
+
+.transfer .transferbody{overflow:hidden;}
+.transfer .transferbody a{display:block; width:21px; height:21px; overflow:hidden; float:right;margin-right:6px; text-indent: -99999px;}
+.transfer .transferbody a.editblock{background:url(../viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.editblock:hover{background:url(../viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 -21px; }
+.transfer .transferbody a.delblock{background:url(../viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.delblock:hover{background:url(../viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 -21px; }
+
+.transfer h1{background:#ECF9FF;height:18px;margin:1px;padding:3px;text-align:right;}
+.transfer h1 a{background-color:#F00;padding:4px;}
+
+/* 颜色选择器的样式 */
+#clrMain {background-color:#FFF;height:255px;width:254px;border:1px solid #000;position:absolute;left:80px;top:100px;}
+#clrMain input {width:70px;left:80px;top:225px;padding:4px;position:absolute;}
+#clrColor {background-repeat:no-repeat;height:200px;left:3px;top:3px;width:200px;padding:7px;position:absolute;}
+#clrBGColor {background-repeat:no-repeat;height:200px;width:200px;}
+#clrHue {height:200px;width:24px;left:220px;top:7px;padding:4px 0px 4px 0px;position:absolute;}
+#clrSv {width:200px;height:200px;}
+#clrCrosshairs {position:absolute;}
+#clrH {height:200px;width:24px;}
+#clrRangeArrows {height:9px;width:40px;position:absolute;}
+#clrPreview {border:1px solid #000;background-color:#999;height:22px;width:60px;position:absolute;top:225px;left:9px;}
+
+/*临时控制某个模块的样式*/
+#mytest .blocktitle{
+background:url(../images/bg_blocktitle.jpg) repeat-x;
+height:26px;
+line-height:26px;
+border-bottom:1px solid red;
+}
+#mytest .blocktitle h2{color:#1D1B1C;font-size:14px;font-weight:bold;}
+#mytest .blocktitle em a{color:#006697;}
+
+#mytest .blockcontent{
+color:#fff;
+background: #FFF url(../images/1.jpg) no-repeat left left;
+}
+#mytest .blockcontent a{color:#006697;}
+
+</style>
+<script language="javascript" type="text/javascript" src="../viewspace/js/bindbase.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/drageffect.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/transfer.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/selectcolor.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/rgbhexhsv.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/sortdrag.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/slider.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/phpserialize.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/stylecss.js"></script>
+<script language="javascript">
+var tempstyle = 'a:6:{s:9:"frame_set";s:2:"lc";s:8:"allframe";a:2:{s:5:"dleft";a:6:{i:0;s:7:"profile";i:1;s:5:"doing";i:2;s:6:"player";i:3;s:10:"friendlist";i:4;s:9:"footprint";i:5;s:7:"applist";}s:8:"dcontent";a:6:{i:0;s:4:"feed";i:1;s:8:"albumone";i:2;s:4:"blog";i:3;s:8:"albumall";i:4;s:11:"forumstatus";i:5;s:4:"wall";}}s:9:"effectall";a:7:{s:10:"blocktitle";a:2:{s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609381_01401200.jpg)";s:19:"border-bottom-style";s:25:"border-bottom-style:solid";}s:12:"blockcontent";a:4:{s:16:"background-image";s:21:"background-image:none";s:16:"background-color";s:28:"background-color:transparent";s:17:"background-repeat";s:24:"background-repeat:repeat";s:5:"color";s:13:"color:#FFFFFF";}s:13:"blocktitle|h2";a:1:{s:5:"color";s:13:"color:#ffffff";}s:15:"blocktitle|em a";a:1:{s:5:"color";s:13:"color:#ffffff";}s:14:"blockcontent|a";a:1:{s:5:"color";s:13:"color:#00AEFF";}s:20:"blockcontent|a:hover";a:1:{s:5:"color";s:13:"color:#00DCFF";}s:0:"";a:3:{s:12:"border-style";s:18:"border-style:solid";s:12:"border-width";s:16:"border-width:1px";s:12:"border-color";s:20:"border-color:#bbbbbb";}}s:9:"blockname";a:0:{}s:5:"music";a:0:{}s:5:"block";a:23:{s:4:"body";a:1:{s:0:"";a:4:{s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609431_44348200.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-y";s:21:"background-attachment";s:27:"background-attachment:fixed";s:16:"background-color";s:24:"background-color:#000000";}}s:6:"banner";a:4:{s:0:"";a:5:{s:6:"height";s:12:"height:330px";s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609195_34450800.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:28:"background-position:left top";}s:8:"title|h1";a:1:{s:5:"color";s:13:"color:#ffffff";}s:7:"title|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:9:"title|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:5:"title";a:1:{s:0:"";a:1:{s:3:"top";s:8:"top:12px";}}s:6:"footer";a:3:{s:0:"";a:5:{s:6:"height";s:12:"height:115px";s:16:"background-image";s:21:"background-image:none";s:17:"background-repeat";s:26:"background-repeat:norepeat";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:33:"background-position:center center";}s:11:"copyright|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:13:"copyright|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:4:"menu";a:7:{s:0:"";a:8:{s:19:"background-position";s:33:"background-position:center center";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609260_39675600.jpg)";s:16:"background-color";s:28:"background-color:transparent";s:12:"border-style";s:17:"border-style:none";s:12:"border-width";s:16:"border-width:0px";s:12:"border-color";s:17:"border-color:#FFF";s:6:"height";s:11:"height:30px";}s:6:"active";a:1:{s:16:"background-image";s:22:"background-image:url()";}s:3:"|ul";a:2:{s:12:"padding-left";s:16:"padding-left:4px";s:10:"margin-top";s:14:"margin-top:2px";}s:2:"|a";a:3:{s:9:"font-size";s:14:"font-size:14px";s:11:"font-weight";s:16:"font-weight:bold";s:5:"color";s:13:"color:#ffffff";}s:3:"|em";a:1:{s:9:"font-size";s:14:"font-size:12px";}s:8:"|a:hover";a:1:{s:5:"color";s:13:"color:#ffff00";}s:8:"active|a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:7:"profile";a:0:{}s:6:"player";a:0:{}s:4:"feed";a:0:{}s:4:"blog";a:0:{}s:5:"share";a:0:{}s:4:"mtag";a:0:{}s:5:"doing";a:0:{}s:9:"footprint";a:0:{}s:10:"friendlist";a:0:{}s:7:"applist";a:0:{}s:4:"wall";a:0:{}s:11:"forumstatus";a:0:{}s:6:"thread";a:0:{}s:8:"albumall";a:0:{}s:5:"album";a:0:{}s:7:"profect";a:0:{}s:5:"about";a:0:{}s:8:"albumone";a:0:{}}}';//数据库里取出来的diystyle,如果有就反序列化后赋值给diystyle
+var defaultset = 'lc';
+var stylenum = '7';
+var supe_uid = 1;
+var blocklist = new Array();
+var oldblockstyle = new Array();// value|bclass|tag|property|1 or 0这前是否是自定义过的
+blocklist['profile'] = '个人设置';
+blocklist['friendlist'] = '好友列表';
+blocklist['doing'] = '我的点滴';
+blocklist['albumone'] = '动态相片';
+blocklist['albumall'] = '我的相册';
+blocklist['feed'] = '个人新鲜事';
+blocklist['blog'] = '我的博文';
+blocklist['share'] = '我的分享';
+blocklist['mtag'] = '我的群组';
+blocklist['thread'] = '我的话题';
+blocklist['applist'] = '小应用';
+blocklist['wall'] = '留言板';
+blocklist['forumstatus'] = '我的投票';
+blocklist['footprint'] = '脚印';
+blocklist['player'] = '播放器';
+</script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/index_diy.js"></script>
+<div id="sharestyle" class="floatwin" style="display:none;" >
+<div class="floattitle" id="sharestyle_header">
+<h2>分享我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<form id="sharestyle_form" action="viewspace.php?do=mystyle&op=share" method="post">
+<div class="floatbody">
+风格在审核完毕后才能进行编辑修改。<br>
+<label for="">风格名称：</label>
+<input type="text" name="stylename" id="stylename" class="txt"/>
+<input type="hidden" name="styleid" id="styleid">
+<label for="">色系：</label>
+<select id="stylecolor" name="stylecolor">
+<option value="">选择</option>
+<option value="1">黑</option>
+<option value="2">白</option>
+<option value="3">粉</option>
+<option value="4">黄</option>
+<option value="5">绿</option>
+<option value="6">蓝</option>
+</select>
+<label for="">类别：</label>
+<select id='stylecategory' name='stylecategory'>
+<option value="">选择</option>
+<option value="1">简约</option>
+<option value="2">可爱</option>
+<option value="3">炫酷</option>
+<option value="4">浪漫</option>
+<option value="5">其它</option>
+</select>
+</div>
+</form>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="$('sharestyle').style.display='none';$('mystyles').style.display='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<a target="mainyinyue"  href="javascript:void(0);" id="sharestyle_sw"></a>
+<div class="floatwin" id="fastdiy" style="display:none; z-index:3000;">
+<div class="floattitle" id="fastdiy_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>快速自定义模板</h2>
+</div>
+<div class="floatcontent">
+<form id="fastdiyform" method="post" id="albumform" action="viewspace.php" >
+<input type="hidden" name="faststyle" id="faststyle" value=""/>
+<input type="hidden" name="fastbg" id="fastbg" value=""/>
+<input type="hidden" name="fastbgheight" id="fastbgheight" value=""/>
+</form>
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="webcolormes">
+选择你喜欢的主页色系：
+</div>
+<ul class="webcolor">
+<li>
+<a href="#" id="black" class="webcolor_black" title="黑色" onclick="fastchangesyspic(this, '1');">黑色</a>
+</li>
+<li>
+<a href="#" id="white" class="webcolor_white" title="白色" onclick="fastchangesyspic(this, '2');">白色</a>
+</li>
+<li>
+<a href="#" id="pink" class="webcolor_pink" title="粉色" onclick="fastchangesyspic(this, '3');">粉色</a>
+</li>
+<li>
+<a href="#" id="yellow" class="webcolor_yellow" title="黄色" onclick="fastchangesyspic(this, '4');">黄色</a>
+</li>
+<li>
+<a href="#" id="green" class="webcolor_green" title="绿色" onclick="fastchangesyspic(this, '5');">绿色</a>
+</li>
+<li>
+<a href="#" id="blue" class="webcolor_blue" title="蓝色" onclick="fastchangesyspic(this, '6');">蓝色</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatsub" id="fastdiysub" style="display:none">
+<div class="floatbody">
+<div class="webcolormes" id="fastpicnav">
+选择该色系下主页的头部图片：
+<span>
+<a class="on" target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '', 'fastpicnav');" id="alltype">全部</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=1', 'fastpicnav');">简约</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=2', 'fastpicnav');">可爱</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=3', 'fastpicnav');">炫酷</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=4', 'fastpicnav');">浪漫</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=5', 'fastpicnav');">其它</a>
+</span>
+</div>
+<div id="fastheaderbg">
+</div>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick=" $('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="#" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="mystyles" style="display:none; z-index:3000;">
+<div class="floattitle" id="mystyles_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="$('selectmystyle').value=''; switchstyle('', 'mystyle');$('mystyles').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a target="mainyinyue"  href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain mainnotop">
+<div class="floatbody" id="mystylelist">
+</div>
+</div>
+<div class="floatfun">
+<a target="mainyinyue"  href="javascript:void(0);" class="cancel">取消</a>
+<input type="hidden" name="selectmystyle" id="selectmystyle" value="">
+<a href="#" onclick="if($('selectmystyle').value > 0){window.location.href='viewspace.php?do=mystyle&op=use&styleid='+$('selectmystyle').value;}else{window.location.href='viewspace.php';}" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="selectshare" style="display:none; z-index:3000;">
+<div class="floattitle" id="selectshare_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>选择风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatnav" id="sharepicnav">
+<ul class="navcolor">
+<li  onclick="changesysshare(this, '&color=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黑</a></li>
+<li  onclick="changesysshare(this, '&color=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">白</a></li>
+<li  onclick="changesysshare(this, '&color=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">粉</a></li>
+<li  onclick="changesysshare(this, '&color=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黄</a></li>
+<li  onclick="changesysshare(this, '&color=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">绿</a></li>
+<li  onclick="changesysshare(this, '&color=6', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesysshare(this, '', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesysshare(this, '&category=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">简约</a></li>
+<li  onclick="changesysshare(this, '&category=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesysshare(this, '&category=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesysshare(this, '&category=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesysshare(this, '&category=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody">
+
+
+<form id="selectshareform" method="post" id="albumform" action="viewspace.php?do=getsharestyle" target="mainyinyue" >
+<input type="hidden" name="sharestyleid" id="sharestyleid" value=''>
+<div id="sharelist" class="sharelist">
+</div>
+</form>
+</div>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="clrMain" style="display:none;z-index:99999;">
+<iframe scrolling="no" frameborder="0" style="background-color:transparent;position:absolute;width:252px; height:253px;"></iframe>
+<div id="clrColor"><div id="clrBGColor"><img id="clrCrosshairs" galleryimg="false" src="../viewspace/img/mappoint.gif" style="display:none;" /></div></div>
+<div id="clrHue"><img id="clrRangeArrows" galleryimg="false" src="../space/indeximages/rangearrows.gif" style="display:none;" /></div>
+<div id="clrPreview"></div>
+<input type="text" name="clrColorValue" id="clrColorValue" value=""/>
+<img src="../viewspace/img/nocolor.gif" style="left:165px;position:absolute;top:225px;" onclick="getColor('transparent');"/>
+<a target="mainyinyue"  href="javascript:void(0);" class="fbtn_cancel" onclick="$('clrMain').style.display='none';"
+style="width:50px;left:190px;position:absolute;top:225px;">确定</a>
+</div>
+<div id="dstdiv" style="width:400px;height:250px;background-color:#999;border:1px solid #123456;display:none;">
+cccc<a target="mainyinyue"  href="javascript:void(0);" class="closeDiv">close</a>
+</div>
+<div id="showData"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wraptwo">
+<div id="banner" class="banner">
+<div class="title" id="title">
+<h1 id="myblogname">哇吐！~~  <em> 605643 人次访问, 7183个积分 <a href="../do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level5.gif" align="absmiddle" /><img src="../image/star_level5.gif" align="absmiddle" /></a></em></h1>
+<p>哇吐！~~狂吐中ing...<a href="../cp.phpacsign.htm" id="a_sign" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[编辑]</a></p>
+<p><a href="../../e.shenei.net/default.htm" onclick="javascript:setCopy('../../e.shenei.net/default.htm');return false;" class="spacelink domainurl">http://E.shenei.net</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="../viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+listURL[0]="../../leishop.e.bname.us/qzone.mp3.htm"
+RadioList[0]="music_1"
+listURL[1]="../../www.fjjlyz.net/disk/mp3/_25d0_25c2_25b9_25c8_25c1_25bc_25d7_25d3_25b5_25c4par~1.htm"
+RadioList[1]="music_2"
+listURL[2]="../../www.fjjlyz.net/disk/mp3/_25c5_25d1_25c4_25e6_25b5_25c4_25c2_25b3_25c2_25b3_25~1.htm"
+RadioList[2]="music_3"
+listURL[3]="../../mfile.home.news.cn/music/public/vdm7/200912/30/20/mufs072009123012272652209d7b.mp3"
+RadioList[3]="music_4"
+listURL[4]="../../www.fjjlyz.net/disk/mp3/_25e7_258a_25ac_25e5_25a4_259c_25e5_258f_2589.mp3.htm"
+RadioList[4]="music_5"
+listURL[5]="../../www.hugedomains.com/domain_profile.cfmddivast.com.htm"
+RadioList[5]="music_6"
+listURL[6]="../../mfile.home.news.cn/music/public/vdm7/200909/06/3b/mufs0720090906160325503b0d8c.mp3"
+RadioList[6]="music_7"
+listURL[7]="../../www.91zyzz.com/dodo/257.mp3"
+RadioList[7]="music_8"
+listURL[8]="../../home.wsxz.cn/music/2010/01/28/70312500.mp3"
+RadioList[8]="music_9"
+listURL[9]="../../www.firstfeeling.cn/xueyoulan/mp3/c.k.mp3"
+RadioList[9]="music_10"
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+<em>
+<a href="javascript:void(0);" id="mystylelist_sw">我的风格</a> | 
+<!--<a id="setstyle_a" href="javascript:void(0);" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);">更换风格</a>-->
+<a class="setstyle" href="javascript:void(0);"><img id="setstyle_a" src="../template/default/image/btn_style.gif" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);" align="absmiddle" alt="更换风格"/></a>
+</em>
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=1', '');">
+主页 </a></li>
+-->
+
+<li>
+<a  href="../viewspace.phpuid1.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doaboutme.htm', 'aboutme');">
+这谁~ </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doblogviewme.htm', 'blog');">
+点滴 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doalbumviewme.htm', 'album');">
+瞬间 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollviewme.htm', 'poll');">
+告诉我 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dofriendviewme.htm', 'friend');">
+三铁 </a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dowallviewme.htm', 'wall');">
+骂两句 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doapplist.htm', 'applist');">
+好玩 </a></li>
+</ul>
+</div>
+</div>
+
+
+
+<style>
+.entry .magicpaper1{ padding: 30px; width: 630px; background:#F7F5E9 url(../image/magic/paper/1.bg.gif) repeat-y; }
+.entry .magicpaper2{ background: url(../image/magic/paper/2.top.gif) repeat-x; }
+.entry .magicpaper2 .resizeimg{ padding: 50px 0 0;background: url(../image/magic/paper/2.gif) no-repeat 0 0; }
+.entry .magicpaper2 .resizeimg2{ padding: 10px; }
+.entry .magicpaper3{ background: url(../image/magic/paper/3.bg.gif) repeat ; }
+.entry .magicpaper3 .resizeimg{ padding: 0; background: url(../image/magic/paper/3.topbg.gif) repeat-x 0 0; }
+.entry .magicpaper3 .resizeimg2{ padding: 50px 10px 10px; background: url(../image/magic/paper/3.logo.gif) no-repeat 100% 0; }
+.entry .magicpaper4{ padding: 30px; width: 630px; background: #F0E9DA; }
+.entry .magicpaper4 .resizeimg{ padding: 20px; background: #fff url(../image/magic/paper/4.bottom.gif) no-repeat 100% 100%; border: 1px solid #EDD8CD; }
+.entry .magicpaper4 .resizeimg2{ padding: 50px 0 0; background: url(../image/magic/paper/4.top.gif) no-repeat; }	
+.entry .magicpaper5{ padding: 30px; width: 630px; background: url(../image/magic/paper/5.bg.gif); }
+.entry .magicpaper5 .resizeimg{ padding: 20px; background: #FCFFEA; border: 1px dashed #DDDDCC; }	
+.entry .magicpaper6{ padding: 0; background: #F1FCFE url(../image/magic/paper/6.bg.gif) repeat-x; }
+.entry .magicpaper6 .resizeimg{ padding: 100px 20px 20px; background: url(../image/magic/paper/6.topbg.gif) no-repeat;}
+.entry .magicpaper7{ padding: 0; background: #FBF7ED url(../image/magic/paper/7.bg.gif) repeat-x; }
+.entry .magicpaper7 .resizeimg{ padding: 100px 20px 20px; background: url(../image/magic/paper/7.toplogo.gif) no-repeat;}	
+.entry .magicpaper8{ padding: 30px; width: 630px; background: #F9F9F9; line-height:31px; }
+.entry .magicpaper8 .resizeimg{ padding: 9px 20px 9px 40px; background: #FFF url(../image/magic/paper/8.bg.gif) repeat-y; border: 1px solid #E9E9E9; }
+
+</style>
+
+
+<div class="frame_1">
+<div id="profile" class="block" >
+<div class="blocktitle">
+<em>
+
+
+		
+<a id="a_magic_gift" href="../magic.phpmidgift.htm" onclick="ajaxmenu(event,this.id,1)"><img src="../viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />埋个红包</a>
+				
+</em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a href="../viewspace.phpuid1.htm" class="avatar"><img src="../..//uc.shenei.net/data/avatar/000/00/00/01_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_04_big.gif'"></a>
+<div class="username">
+<p class="avatar_op"><a href="../cp.phpacavatar.htm">上传头像</a></p><p class="onlineU" title="在线">昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1.htm', '');">小E←邱沼懿</a></p>
+<p>等级：<a href="../do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level5.gif" align="absmiddle" /><img src="../image/star_level5.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<a id="a_space_videophoto" href="../space.phpuid1dovideophoto.htm" onClick="ajaxmenu(event, this.id, 1)"><img src="../viewspace/img/tool/video.gif" align="absmiddle" title="已通过视频认证" alt="已通过视频认证" /></a>
+<a href="../pay.phpacvip.htm" target="_blank"><img src="../image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
+</p>
+</div>
+<div class="tool">
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="block">		
+<div class="blocktitle">
+<h2>博文分类</h2>
+</div>
+<div class="blockcontent">
+<div class="bloglist">
+<ul class="post_list line_list">
+<li class="current"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doblogviewme.htm', '');">全部博文</a></li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid1.htm', '');">回忆の画面</a>
+<a href="../cp.phpacclassopeditclassid1.htm" id="c_edit_1" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid1" id="c_delete_1" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid2.htm', '');">记录の语言</a>
+<a href="../ovr1/cp.phpacclassopeditclassid2.htm" id="c_edit_2" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid2" id="c_delete_2" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid3.htm', '');">谁记得&谁忘了</a>
+<a href="../cp.phpacclassopeditclassid3.htm" id="c_edit_3" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid3" id="c_delete_3" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid4.htm', '');">【黑】·〖红〗</a>
+<a href="../cp.phpacclassopeditclassid4.htm" id="c_edit_4" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid4" id="c_delete_4" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid5.htm', '');">PLAY 歌词</a>
+<a href="../cp.phpacclassopeditclassid5.htm" id="c_edit_5" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid5" id="c_delete_5" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid6.htm', '');">我转</a>
+<a href="../cp.phpacclassopeditclassid6.htm" id="c_edit_6" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid6" id="c_delete_6" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid14.htm', '');">浪漫手机</a>
+<a href="../cp.phpacclassopeditclassid14.htm" id="c_edit_14" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid14" id="c_delete_14" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid81.htm', '');">PLAY 桥段</a>
+<a href="../cp.phpacclassopeditclassid81.htm" id="c_edit_81" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid81" id="c_delete_81" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+<li>
+<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogclassid82.htm', '');">哼两句~</a>
+<a href="../ovr1/cp.phpacclassopeditclassid82.htm" id="c_edit_82" onclick="ajaxmenu(event, this.id, 99999)" class="c_edit">编辑</a>
+<a href="../cp.phpacclassopdeleteclassid82" id="c_delete_82" onclick="ajaxmenu(event, this.id, 99999)" class="c_delete">删除</a>
+</li>
+</ul>
+</div>
+
+
+</div>
+</div>
+</div>
+<div class="frame_3">
+<div id="blog" class="block">		
+<div class="blocktitle">
+<h2>小E←邱沼懿的博文</h2>
+</div>
+<div class="blockcontent">
+<div class="bloglist">
+
+<div>
+<div class="entry">
+<div class="title">
+<h1 >[<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuiddoblogclassid6.htm', '');">我转</a>]Adobe Audition录音简单混音教程</h1>	<!--Modify By 01-->
+                         <a href="../cp.phpacsharetypeblogid1296" id="a_share" onclick="ajaxmenu(event, this.id, 1)" >分享</a>
+                                                 638 次阅读 | <span id="comment_replynum">0</span> 个评论
+<a href="../space-1-do-tag.html">标签</a>:&nbsp;
+<a href="space-1-do-tag-id-203.html">Adobe</a>&nbsp;
+<a href="space-1-do-tag-id-204.html">Audition</a>&nbsp;
+<span class="time">2011-04-14 22:35</span>
+</div>
+
+
+<div id="blog_article" class="article ">
+<div class="resizeimg">
+<div class="resizeimg2">
+<div class="resizeimg3">
+<div class="resizeimg4">
+一、简介： <br> Adobe推出Adobe Audition软件，这是一个完整的、应用于运行Windows系统的PC机上的多音轨唱片工作室。该产品此前叫做Cool Edit Pro 2.1，在2003年5月从Syntrillium Software公司成功购买。 <br> Adobe Audition提供了高级混音、编辑、控制和特效处理能力，是一个专业级的音频工具，允许用户编辑个性化的音频文件、创建循环、引进了45个以上的DSP特效以及高达128 个音轨。 <br> Adobe Audition拥有集成的多音轨和编辑视图、实时特效、环绕支持、分析工具、恢复特性和视频支持等功能，为音乐、视频、音频和声音设计专业人员提供全面集成的音频编辑和混音解决方案。用户可以从允许他们听到即时的变化和跟踪EQ的实时音频特效中获益匪浅。它包括了灵活的循环工具和数千个高质量、免除专利使用费(royalty-free)的音乐循环，有助于音乐跟踪和音乐创作。 <br> 作为Adobe数码视频产品的新成员，Adobe Audition既可以单独购买，也可以在新的Adobe Video Collection中获得。 <br> Adobe Audition提供了直觉的、客户化的界面，允许用户删减和调整窗口的大小，创建一个高效率的音频工作范围。一个窗口管理器能够利用跳跃跟踪打开的文件、特效和各种爱好，批处理工具可以高效率处理诸如对多个文件的所有声音进行匹配、把它们转化为标准文件格式之类的日常工作。 <br> Adobe Audition为视频项目提供了高品质的音频，允许用户对能够观看影片重放的AVI声音音轨进行编辑、混合和增加特效。广泛支持工业标准音频文件格式，包括WAV,、AIFF、MP3、MP3PRO和WMA，还能够利用达32位的位深度来处理文件，取样速度超过192 kHz，从而能够以最高品质的声音输出磁带、CD、DVD或DVD音频。 <br> 二、Audition 1.5 英文版安装以及汉化FLASH动画演示(欧阳轩辕制作) <br> 关于汉化,注明一点.自行更改目录安装的朋友, 安装后打开发现仍是英文的,是因为汉化路径不对.可重进安装目录. <br> Adobe Audition V1.5 简体汉化程序文件之下,把en_us文件夹复盖根目录下的en_us文件夹.再次打开软件便是中文版了. <br> 三、概览 <br> Adobe Audition v1.5中文版的多轨界面图 <br><br><br> 四、入门 <br> 1、用Adobe Audition 1.5录制歌曲操作流程 <br> 第一步：麦克调试 <br> 就是把你的耳机作为唯一监听器，此步的意义就是用耳机来听伴奏音乐，如果你在录歌时开着音箱录歌，那么录入的是音乐和人声的混合声音，那样效果会很差。 <br> 把录音项打勾，选中麦克（MIC）一栏，其它的都关闭，因为我们要录的只是自己的声音。 <br> 第二步：噪音采样 <br> 打开Adobe Audition 1.5，点亮任意一音轨前的“R”，然后点击录音键，此时不要出声，先录下一段空白的噪音文件，不需要很长（10-30秒左右即可），再次点击录音键关闭录音，然后双击录音音轨进入单音轨模式，选择“效果器--噪音降低--噪音降低--从选区获取配置文件--关闭”（也可“效果器--噪音降低--噪音降低--保存配置文件--保存--关闭”这样以后录音时就不要再采样噪音了，以后降噪时就点击“效果器--噪音降低--噪音降低--载入配置文件--确定”）。点击“多音轨与单音轨切换按键”回到多音轨模式下删除此音轨。 <br> 第三步：插入伴奏 <br> 右键单击第一音轨，插入音频文件（MP3、WAV等），选择“插入--波形来自文件--找到你的伴奏--打开”，也可插入视频文件（MTV）选择“插入--视频来自文件--找到你的伴奏--打开”，好了伴奏已经插入。注意，音乐伴奏文件可以是MP3、WAV或MTV等其它音乐文件的格式。 <br> 第四步：录取人声 <br> 在第二音轨点亮R键，点击下面的红色录音键就可以开始跟唱了。录制完成后，点击“两轴完全缩小”也就是图中标注的“显示全部轨道”，然后点击“播放”键听听你录下的声音，是不是觉的声音很干很难听或者是有噪音？在没有降噪和加任何效果前都这样的。 <br> 第五步：降低噪音 <br> 点击“效果器--噪音降低--噪音降低--确定”，这时降噪器会自动消除你录制声音中的环境噪音，你也可以打开“预览”自己拖动直线来进行调整直到满意为止。过多的降噪会对声音有一定的损失。 <br> 第六步：效果处理 <br> 先刷新一下效果器（以后做效果时就不需要刷新了）点击“效果器--刷新效果器列表”好了，效果插件都出现了。 <br> 1.现在先来给你的声音进行高音激励，点击“效果器--Directx--BBE SonicMaxizer”进入界面后选择“Vocal”（我自认为这是最佳效果，当然你也可以选择别的或手动调试来选择更适合你声音的方法），然后点击“Preview”试听效果，满意后点击“OK”。 <br> 2.压限，就是把你的声音通过处理后变的更加均衡，来保持一致连贯，声音不会忽大忽小。点击“DirectX--Waves—C4”。用Utlrafunkfx中的compressor插件也可以起到压限的作用，这里就不讲了。和上面的润色一样在预置中已经有很多种选项可供你选择，也可以自己调，个人认为最合适处理人声的是预设中的pop vocal。选完后可以试听一下，满意后点击“OK”完成这一步。 <br> 3.加混响，没有一点混响的声音是很干巴的，点击“效果器－DirectX－Utlrafunkfx--ReverbR3”进入混响效果界面，然后“预置--Aux bus--Snare Drum”点完后“原始干声”处的“静音”是黄颜色的，把它点成白色。试听一下效果如果感觉不满意还可以选择“Aux bus”里其它效果，直到满意后点击“OK”，混响效果完毕。这里提醒一下，如果混响加的太多的话会使人声显得模糊过于假，加的少又会使声音显得很干很涩，大家慢慢摸索，多录几次后就有经验了。 <br> 第七步：伴奏人声合并 <br> 在合并之前再听一听效果，如果觉的人声和伴奏音量不匹配，可以在第二音轨（人声音轨）处“右键--调整波形块音量”在弹出的音量调整器里你可以上下调试，直到你觉的匹配为止。 <br> 右击第三音轨（其它音轨也行，只要是空白音轨），选择“混合到音轨--全部波形”，合并后你会看到在第三音轨里有了音频波形，这就是伴奏和人声合成的音频波形。 <br> 第八步：保存合并后的音乐 <br> 双击第三音轨（伴奏和人声合成的音轨）进入单音轨道保存文件，保存类型可以是MP3也可WAV等，看你的需要了。 <br><br> 技巧:Audition（CEP）的定时录音 <br><br><br> 该对话框中可以设置自动录音的长度，单位是“分：秒：毫秒”，也可以设置录音开始的时间，精确到整数分钟。确定后，可以看到录音按钮开始闪烁，到时间后，AA即自动开始录音。 <br> 2、用adobe audition 1.5自制卡拉OK伴奏带 <br> 你是否曾经遇到过自己十分喜欢的歌，但是又找不到卡拉OK伴奏带呢？现在有了dobe audition 1.5帮你，你就不会再为找不到伴奏带而烦恼了！我们可以自制伴奏带。 <br> 在dobe audition 1.5多轨窗中选中第一轨点右键，在弹出菜单中选“插入”—-“音频”，在对话框中选择你要制作的MP3或WAV文件，确定以后它就会在第一轨出现。 <br> 然后双击第一轨音频，进入“音频编辑模式”， 选择菜单“效果”项中的“振幅”里“通道混合器”项,在弹出的对话框中选择原厂预设参数中的“声音消除”一项 <br> 然后听一下效果，这时你会觉得人声几乎没了，但听一会儿你会发觉似乎缺少了什么。没错，一些乐器的声音也被消掉了。那么只有从原曲中抽取这部分内容了。 <br> 将刚才的文件重新插入第二轨，双击进入“音频编辑模式”，选择菜单“效果”项中的“滤波器”项里的“图示均衡器”，为了更精确的调节频段，请将视窗切换为30段均衡视窗。 <br> 然后调整增益范围，图中正负45dB，中间的10个增益控制基本上就是人声的频率范围。我们将人声覆盖的频段衰减至最小，边调节，边监听，直到人声几乎没有就可以了，处理好后回到多轨编辑视窗，把两轨混缩成一轨。最后保存混缩的音频。 <br> 播放听一下，是不是还可以？不过用这种方法，不可能完全的消除人声，若是完全的消除人声，所付出的也是音乐失真的代价。不过你在演唱时，你的声音完全可以盖住没消干净的原声，也就没问题了！ <br> 如果你用的是Cool edit pro 的话，也不要紧，因为两者操作相差不大，好了，尽快自己试试吧！ <br><br> 技巧1：缩混的20个决窍 <br><br> 1、删去不用的轨、参数设为平直、关掉每轨的效果发送。 <br><br> 2、增益控制不过载，不用删去气口。 <br><br> 3、编组控制，效果返回的编者按一定要进入该编组。 <br><br> 4、明确音乐各部分的音量变化，在轨单上作出记录，作Automation时听着音乐而不是看着电平。 <br><br> 5、在同样的监听环境下多听一些成功的商业音乐。 <br><br> 6、不要作过份的效果处理，特别是混响。越干的声音就越靠前，如果非得把主唱的声音加入大混响彻云霄，可以用Pre-Delay调节干湿比例，使歌声更加自然。 <br><br> 7、不要把低音乐器如Bass、大鼓的声相位置放偏，因为这种高能量的声音平均分配到两个喇叭才能达到最好 <br> 的效果。而且低音只包含少量甚至没有声音的指向信息。 <br><br> 8、EQ和一些效果器应该在多轨整体播放时加入，因为单独播放某一乐器音色合放不一样。EQ不要加得过份，这样才能使声音更自然，没有失去原来的韵味。 <br><br> 9、不要把太多的乐器放在一个频段里，尤其是中频。声源要好。这时再用EQ来调节器整乐器在频谱上的分布，争取能分给每一乐器一定的频谱空间。如摇滚乐中的声学吉它，如果你拉下低频，声音的定位会更加清晰，但缩得太干净。噪声门上的滤波器是一个很好的工具，它使界线不那样清楚。 <br><br> 10、EQ不要提升或衰减得过份，当你做明显的音调改变时，外接的均衡器要比调音台上的好。 <br><br> 11、使用EQ时，尽量衰减而不是提升，人类听觉系统对衰减有较少的敏感。 <br><br> 12、对人声进行压缩使之在最终混音里音量的统一，很少有歌手不用压缩器能够保持音量的平稳。“Soft-Knee”让你觉得效果不是太突兀。但是如果压缩时考虑温暖和激励效果时，可以用“Opto-compress”和“Hard-Knee”，并加以高的压缩比。压缩会增加背景噪声。高压缩比还会夸大齿音。 <br><br> 13、不时的在控制室外听整曲的感觉，这样可以检测各声部的平衡，太近可能会听不准。 <br><br> 14、总音量不要太大，这样会使音乐听起来很好，并且降低你的听力。不时开大，但在一般缩混时，要以听众聆听音乐的音量来作缩混。（不包括Disco） <br><br> 15、确保耳机听到的与喇叭一样，因为耳机更能辨析出大扬声器无法听到的轻微失真和爆音。但也不能光听耳机，因为它与扬声器立体声表现方式不一样。 <br><br> 16、如无必要，低音豉和Bass的音量不要变来变去，它们是整曲中节奏的骨干。 <br><br> 17、在声部较多的音乐中，中频乐器如失真吉它、Pad一定要给歌声让出频谱空间，歌声出来后，与之频段相近的乐器声需降下-3dB，这样整曲才有清晰度和层次感。使用门限器和压缩器中特别快的Attack和Release值，Release值如果太小可能会造成增益抽吸效果。但在摇滚乐中？？？？？？ <br><br> 18、如果你缩MIDI，不要总看音序器的显示，它会扰乱你的听觉，硬件音序器 <br><br> 19、如果你使用近距离拾音，声音没有生命力。又不愿加入混响，可以用一些环境模拟或早期反射模拟设备来做出声学空间，越短的混响时间，越容易把声音放到前面。 <br><br> 20、缩完以后，第二天，耳朵休息了一夜，再听一遍，与昨天的感觉有何变化，放到不不同的监听系统、WalkMan、DiscMan和汽车音响上多听听。 <br><br> 技巧2：EQ（均衡器）黄金定律 <br> 易记的EQ黄金定律(翻译) <br> 1.如果声音浑浊，请衰减250hz附近的频段。 <br><br> 2.如果声音听起来有喇叭音，请衰减500hz附近的频段 <br><br> 3.当你试图让声音听起来更好，请考虑用衰减 <br><br> 4.当你试图让声音听起来与众不同，请考虑用提升 <br><br> 5.you can't boost something that's not there in the first place.（这一句我翻不来，谁会翻？） <br><br> 这里有一张表，它反映了一些倍频程点在听觉上造成的联想。 <br><br> 31hz 隆隆声，闷雷在远处隆隆作响。感觉胸口发闷。 <br><br> 65hz 有深度，所谓“潜的很深” <br><br> 125hz 隆隆声，低沉的，心砰砰直跳。温暖。 <br><br> 250hz 饱满或浑浊 <br><br> 500hz 汽车喇叭声 <br><br> 1khz whack（打击声？！这样翻译不妥吧！） <br><br> 2khz 咬碎东西的声音，踩的嘎啦啦作响。 <br><br> 4khz 镶边，锋锐感 <br><br> 8khz 高频哨声或齿音，轮廓清晰，“ouch!” <br><br> 16khz 空气感 <br><br> 五、高级 <br> 1、插件 <br> 1.音频插件—UltraFunk简介 <br><br> Ultrafunk的压缩器： <br> 先让我们来看看Ultrafunk的压缩器的界面。 <br> 看上去还是蛮顺眼的。 <br> 点左边的fx:和compressor两个按钮，都会弹出上面Ultrafunk的标志。只需在标志上再点击一次就可以将其取消。 <br> 界面中的方形蓝色的LED中有一条白线，调整左边的Input和右边的Output的值，以及中间的Gain(增益）滑块，就可以实时看到白线的变化。 <br> 有些数值的调整与前一节中介绍的与压缩有关的内容类似，比如阀值、比率、拐点、起音、释放、增益等。一般调整压缩的阀值、比率即可实现压缩的功能，再调整增益的值可以将波形的音量适当提升。 <br> Limiter触发器用于峰值限制，状态有on和off，当 Limiter 打开时，一但灯亮，限制功能就发生作用，保证不会溢出。那么下面的TCR又是什么呢？原来是Transient Controlled Release (瞬时控制释放）触发器，状态有on和off，用于实时地自动调整释放时间，它是一种特殊的算法。 <br> 如果你对调整具体数值不甚在行的话，还可以直接使用Presets里厂家已经设置好的一些参数方案，点一下Presets即可弹出预置菜单。 <br><br> (第一个个是做压限的THRESHOLD 这个是选择从哪个分贝开始压缩，图中的-20 的意思是 处理-20分贝以上的声音 <br> RATIO; 这个是压缩比列的意思 一般人声用2_4 :1就行了 <br> KNEE: 用英文解释是膝盖的意思 这个参数越大 就越缓和 越小就越锋利 这个如果是快歌选10 慢歌选30 <br> GAIN:增益的意思 就是如果压缩只有感觉人声很小,就可以用这个来提升压缩只有的波形的音量`` <br> ATTCK:是反应时间 一般我用 6 <br> release:是恢复时间下面是一些比较常用的参数数值。 <br> 注意我没有给出 threshold ，这是因为 threshold 要根据具体情况来设置。 <br> 特别注意：下面的数字决非定论！ <br> （注：“2 - 5”之类的字眼表示“从2到5”；时间的单位是毫秒ms） <br> 对鼓的压限： ratio : 2 - 10 attack time : 4 - 12 release time : 120 - 200 hard knee <br> 木吉他 ratio : 8 attack time : 5 - 12 release time : 100 soft knee <br> 电吉他（不带失真） ratio : 4 attack time : 20 release time : 20 hard knee <br> 失真节奏吉他（重金属、朋客等） ratio : 8 attack time : 2 - 6 release time : 70 hard knee <br> 电贝司 ratio : 4 attack time : 50 release time : 50 hard knee <br> 人声（歌唱） ratio : 2.5 - 4 attack time : 5 - 8 release time : 50 - 80 soft knee <br> （注意：人声的设置参数不能定论，因为人声的可塑性非常大，有男声、女声、童声、中国话、英语、恩雅声、崔健声等等） <br> 人声（说话） ratio : 2.5 attack time : 15 release time : 50 soft knee 9、) <br> 再来看看EQ均衡器。 <br> Ultrafunk的EQ均衡器有6档频段可选择，而且你还可以点击黄色的按钮来取消某一个或某几个频段。 在你取消后，蓝色的LED中的相应的黄色的数字标记也会变成灰色并失去功能。 <br> 在Filter中可以选择不同的曲线方案，一般选预置即可。在Freq中可以设定频率点。 <br> Q值用于设置曲线的外形与宽度，一个低的值给予过滤波段一个高的频带宽度。调整方式是：点中Q框后上下移动就可以增加或减少它的值。 <br> 调整增益的方式是： <br> 1.直接在白色框中输入具体值。 <br> 2.拖动右面的滑块。 <br> 每一种调整都会看到曲线的实时变化。 <br> 如果你对已经做的EQ处理不满意，还可以把目前已处理的结果推翻，点一下Flat按钮就可以了。 <br> Modulator（调制器） <br><br> 可调制的内容有： <br> 比率、相位、深度、延时、反馈、交叉混音、混音、输出。 <br> 在Rate的右面是LFO－－Low Frenquency Oscillator(低频振荡器），共有六种波形可供选择。 <br> 在Depth（深度---用于控制延迟时间变化的区域）的右面是Tape(磁带），用于制造一个近似于模拟磁带的Flanger效果。 <br> Feedback右面的Invert可以用以制造一个有点“空”的声音，但也会在贝司内容上有抵消效果。 <br><br> 相位效果器： <br> 在Mode(模式）中有： <br> LR phase（左右声道相位）、MS phase（中间和两边／单声道和立体声相位）、CS encode（用于编码成左声道为中央信息，右声道为环绕信息）、SC encode（与前一种效果的左右相位相反）五种。 <br> 在Filter过滤循环按钮中有两种选项：IIR（无限脉冲响应）和FIR（有限脉冲响应）。IIR速度快，相位效果好，但将引入一个恒定的相位移。FIR速度慢，能提供高频一个精确的相位差，但在低频稍差一些，不会引入一个恒定的相位移，仅仅在两人声道上有一点轻微的延时。 <br> Meter(计量器）有Pre(预览）和Post(后览）两种。 <br><br> Reverb（混响） <br> 下图是Reverb（混响）的界面。 <br> 你可以调整Input（输入）电平或是关闭它； <br> 可以输入数值或是在右面的LED中直接拖动句柄来调整低切和高切的频率，或是双击句柄来恢复它的缺省值； <br> 调整Predelay可以在直接输入信号和第一混响反射之间控制延时时间； <br> 可以设置虚拟房间的大小； <br> 调整Diffusion(扩散）的值，小的时候可以让反射声有更多不同，大的时候会产生一种类似白噪声的声音，不能区别回声； <br> 下面的四个值也是既可以输入数值又可以拖动句柄来调整，它们分别是： <br> 低音倍增（用于调整在Crossover交迭频率之下的信号的衰减时间）、 <br> Crossover(交迭，用于低音信号倍增的交迭频率)、 <br> Decay Time(混响的衰减时间）、 <br> High Damping(高频阻尼，允许你调整在混响信号超过时间时的高频信号的阻尼）。 <br> Dry,设置干声的输出电平， <br> E.R,设置早期反射输出电平， <br> Reverb,设置混响（湿的）效果信号电平， <br> 通常情况下，Dry电平大而Reverb电平小，声音听起来比较清晰，效果回声较小；而相反情况下，声音较模糊，效果回声大； <br> 在Width(宽度）中有Normal（正常的）、Wide（宽的）、Ultra-Wide（过度宽的）、Mono(单的)、Narrow（窄的）五种选项； <br> Output有两种输出选择：立体声和单声道； <br> 如果你选中了Tail(尾部），可以给一个较短的样本加上一个较长的衰减时间，以扩展它们的长度。 <br><br> (刚开始学的朋友会产生误区认为混响多了好听其实不然 加上伴奏的人声 混响应该听不怎么出来加了混响 而单独听人声的时候会感觉人声很舒服 不是那么干`圆润` `如果是快歌的话混响少点 慢歌就稍微多一点我先解释一下里面的东西低频切点的意思是: <br> 低频切点旁边哪个小框里填的 300 就是300HZ以下的声音全部栓掉 <br> 如果你要问HZ是什么意思 是声音频率的单位.就是声音每秒震动300次,这个是低音 <br> 高频切点 的意思和上面的一样 <br> 如果人声里面的高频的声音过多 会刺耳朵 感觉人声很脏这样就可以通过高频切点来解决 <br> 早期反射时间: 这个是人声发出去 然后撞墙之后反射回来到达你耳朵的时间 <br> 空间广度 :这个不用解释了吧 <br> 往左边调 感觉象很宽阔 好象在大的音乐会里面 往右边调感觉就很塌实 没那么空旷 (抒情的慢歌歌我会调的大一点 反之) <br> 扩散程度: 这个没怎么研究 用50% 吧 嘿嘿 <br> 低混比率:这个我一般用 1.0 <br> 分频点;500 <br> 残响时间:1.0或着 1.1 <br> 高频衰点:5.0 <br> 原始干声: 这个越大人声就*前 这个我用 0 <br> 早反射声:这个我感觉调大了有中 湿润的意思 如果声音很干 那就把这个调大吧 <br> 混响音量:这个不用解释吧. 少人声很干.多了人声会模糊 <br> 我用-8_-1010、) <br> Surround（环绕）效果器: <br> 下图是Surround（环绕）效果器的界面。 <br> 你可以手动调整环绕声像的范围（Zoom 1、3、5）； <br> 输入方式（立体声、单声道）； <br> Focal point(焦点，打开时会出现一个黄色的十字形，用于处理衰减和多普勒效果）； <br> 调整Attenuation(衰减），焦点周围会出现一个黄色的圆圈，点击Zoom 1、3、5中可以切换观察； <br> Doppler(多普勒）效应，又叫多普勒现象 这是物理学中的名词，它最早由奥地利物理学家 Christian Doppler 在 1842 年发现，此现象适用于所有的波，不仅仅是声波。 一个普通的例子是：当你站在公路上，一辆汽车由远而近，你会听到音调会增加，远去则下降，你可以以此例来设置Doppler移动的数值； <br> 要实现如上图的路径设置，需要将Path（路径）打在“On”上，然后按Ctrl,点击鼠标，即可在黄色句柄的下一步增加一个新的句柄，同时两句柄之间的路线也会出现在蓝色的LED上； <br> 点击Closed path并打在“Yes”上，你所设置的路径将是封闭的；点击Path time 来设置路径的时间； <br> Joystick允许你使用游戏控制器来手动调整路径； <br> Test noise用于触发测试噪声发生器的打开／关闭； <br><br> Ultrafunk中的最后一种效果：WahWah(哇哇音） <br> wahwah 是吉他 wahwah 效果器。 whawh 最早出现在 1966 年，是一种经典的电吉他效果器。 <br> Mode 选项，选择三种不同的 wah 控制方式。 <br> Manual(手动)，使用 Wah 滑块制造 wah 音，就象使用传统的脚踏一样。 <br> Auto（自动）根据一定的速度（ BPM ）自动制造 wah 。 <br> Triggered（触发）当声音超过右面的threshold 值，就启动 wah 效果。要使用这种方式，需要设置 threshold（界限）和 attack（起音） / release time（释放时间）。 <br> “Wah 参数”，用来控制 wah 包络的状态（也就是类似于吉他手用脚来控制 wah 效果脚踏一样）。 这个参数在三种模式下有不同的作用。 在手动模式下，你必须使用这个参数来控制 wah 效果。在自动模式下，此参数用来设置 wah 效果的起始点。在Triggered模式下，此参数表示 wah 效果的最高值，也就是 wah 的范围。 <br> Tempo（速度） 只在自动模式下有效，设置 wah modulation 的速度。 范围：1 到 300 BPM <br> Attack, 只在触发模式下有效，就是起音时间，它表示，当 wah 被触发后，经过多长时间效果到达最高值。 <br> Release, 只在触发模式下有效，就是释放时间，它表示，当触发结束后（也就是输入电平低于界限时），经过多少时间效果回到最低值。 <br> Threshold（阀值） 只在触发模式下有效，表示输入电平超过多少时， wah 效果开始启动。 <br><br><br> 2.音频插件（Wave3.0）效果各种简介！(上) <br><br><br> 第一种效果：AudioTrack(音频轨） <br> 它是针对通常我们见到的普通的音轨的，综合了4段EQ均衡、压缩、噪声门三种效果器。如果你用过T－racks(母带处理软件），你会发觉它与AudioTrack的功能非常相像。只不过T-racks的界面要漂亮得多了。下图是AudioTrack(音频轨）的界面： <br> 使用它之后，你的整个混音作品就可以站立在坚实的基础之上了。 <br> 在均衡方面，具体操作和参数设置可以参照Ultrafunk--EQ效果器。 <br> 在压缩方面可以参照Ultrafunk的压缩效果器。 <br> 在Gate（噪声门）的几个参数中，只有Floor(基底）是我们不熟悉的，不熟悉怎么办，试试就知道了。 <br> 1。Rel为Release(释放）的缩写。 <br> 2。将鼠标放在按钮上，鼠标会变化成一个双向的箭头，照此方向拖动，可以直接调整按钮相应的值。 <br> 3。如果你觉得某一步操作错误，可以点击左上方的UNDO按钮，将这一步取消。 <br> 4。如果你在Output(输出）的设置上调得过大，右面的No Clip(没有削波）会变成Out Clip（溢出，削波），同时在下面显示出已超过多少。如果你将此时的设置处理成波形，则会看到被放大的电平信号和被削去的“刺儿头”。 <br> 5。你可以在Setup A中选择一种预置方案，点击Setup A之后再显示出来的Setup B中再调入一种方案，然后进行两种方案的对比。再点一下 A-&gt;B 或是 B-&gt;A 都会让两种方案统一。 <br><br><br> 第二种效果器：C1 Compressor（C1 压缩器）  <br> 左面为压缩／扩展电平表。 <br> 中间的按钮分别是： <br> Low Ref,低反射，点击之后改变为峰值反射； <br> Makeup,电平弥补； <br> Threshold,阀值； <br> Ratio,压缩比率； <br> Attack,起音时间； <br> Release,释放时间； <br><br><br> 第三种效果器C1 Gate(噪声门） <br> 除了有些按钮的功能与C1 compressor不同之外，基本界面都很相似。 <br> 这里没有了阀值、比率，而是成了Floor(基底）、GateOpen(门限开）、GateClose(门限关）分别用来设定噪声门的启动和关闭的值。 <br><br><br> 第四种效果:C1效果器, ： <br> 其实已经不需再多介绍了，C1不过是集成了前面压缩/扩展器、噪声门/扩展器、侧链滤波器等几个效果器的功能罢了。当我们把压缩率设为负值时，压缩器就变为了扩展器。这个扩展器可以强化节奏乐段，当压缩率设定为0.5：1时，节奏乐段中的军鼓声就被突出出来了。 <br> C1提供了一个独特的“Key Mode(调节模式）”，可以以立体声信号中的一路信号为参照来触发或哑音另一路信号。这个功能可以很方便地制作出那种在电子音乐中十分流行的“结结巴巴”的节奏。 <br> 侧链滤波器：压缩器和噪声门中的一个或两个都可以配合侧链滤波器来使用。这样，C1就可以只对特定频段的信号做出反应，以完成一种特殊的用法，如嘶声消除、低音压缩和增强等。 <br> 稍有不同的是下面有个EQ模式：Widebnd(宽档）；Sidechain(边缘电路）；Split(分开）。在你选中之后，两种模式会用红、蓝两种颜色表示，可以分别调整下面LED中的频率线，也可以将二者关联使用。 <br><br><br> 第五种效果器：C1-comp： <br> 与上一种效果器C1类似，所以不再做介绍了。它预置的效果方案与C1的一样。 <br><br><br> 第六种效果器：Waves的C4多段多维效果器: <br><p> 一款出色的音频插件Waves 3.0<br></p><p><br></p><p><font color="#c0c0c0">转自：http://jiangxuexuan.5d6d.com/thread-436-1-1.html</font></p></div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="padding:0 0 10px;">
+
+<div style="text-align: right; padding-top:10px; ">
+                              
+
+                        
+<img src="../image/magic/bgimage.small.gif" class="magicicon">
+<a href="../magic.phpmidbgimageidtypeblogidid1296" id="a_magic_bgimage" onclick="ajaxmenu(event,this.id, 1)">信纸</a>	
+<img src="../image/magic/call.small.gif" class="magicicon">
+<a href="../magic.phpmidcallidtypeblogidid1296" id="a_magic_call" onclick="ajaxmenu(event,this.id, 1)">点名卡</a>
+<img src="../image/magic/updateline.small.gif" class="magicicon">
+<a href="../magic.phpmidupdatelineidtypeblogidid1296" id="a_magic_updateline" onclick="ajaxmenu(event,this.id, 1)">救生圈</a>
+<img src="../image/magic/downdateline.small.gif" class="magicicon">
+<a href="../magic.phpmiddowndatelineidtypeblogidid1296" id="a_magic_downdateline" onclick="ajaxmenu(event,this.id, 1)">时空机</a>
+<img src="../image/magic/color.small.gif" class="magicicon">
+<a href="../magic.phpmidcoloridtypeblogidid1296" id="a_magic_color" onclick="ajaxmenu(event,this.id, 1)">彩色灯</a>
+<img src="../image/magic/hot.small.gif" class="magicicon">
+<a href="../magic.phpmidhotidtypeblogidid1296" id="a_magic_hot" onclick="ajaxmenu(event,this.id, 1)">热点灯</a>
+<span class="pipe">|</span>
+
+<a href="../cp.phpactopicopjoinid1296idtypeblogid" id="a_topicjoin_1296" onclick="ajaxmenu(event, this.id)">凑热闹</a><span class="pipe">|</span>
+<a href="../cp.phpacblogblogid1296opedit">编辑</a><span class="pipe">|</span>
+<a href="../cp.phpacblogblogid1296opdelete" id="blog_delete_1296" onclick="ajaxmenu(event, this.id)">删除</a><span class="pipe">|</span>
+
+<a href="../cp.phpacblogblogid1296opedithot" id="blog_hot_1296" onclick="ajaxmenu(event, this.id)">热度</a><span class="pipe">|</span>
+ <a href="../cp.phpaccommonopreportidtypeblogidid1296" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+
+                
+</div>
+
+</div>
+
+</div>
+
+
+
+<div id="content">
+
+<div id="click_div">
+
+<div class="digc">
+<table>
+<tr>
+<td valign="bottom"><a href="../cp~2855.phpac" id="click_blogid_1296_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/luguo.gif" alt="" /><br />路过</div></a></td>
+<td valign="bottom"><a href="../cp~2856.phpac" id="click_blogid_1296_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/jidan.gif" alt="" /><br />鸡蛋</div></a></td>
+<td valign="bottom"><a href="../cp~2857.phpac" id="click_blogid_1296_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/xianhua.gif" alt="" /><br />鲜花</div></a></td>
+<td valign="bottom"><a href="../cp~2858.phpac" id="click_blogid_1296_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/woshou.gif" alt="" /><br />握手</div></a></td>
+<td valign="bottom"><a href="../cp~2859.phpac" id="click_blogid_1296_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/leiren.gif" alt="" /><br />雷人</div></a></td>
+</tr>
+</table>
+</div>
+
+
+
+</div>
+
+<div class="tuishare">
+<ul>
+<li>分享：<a href="../../www.douban.com/recommend/url{$url}titleadobeaudition_25c2_25bc_25d2_25f4_25bc_~1" title="豆瓣9点" target="_blank"><img src="../image/tui/duo9.png" border=0 
+
+alt="豆瓣9点" align="absmiddle"></a><a href="../../digg.com/submitphase2url{$url}titleadobeaudition_25c2_25bc_25d~1" title="Digg" target="_blank"><img src="../image/tui/digg.png" border=0 
+
+alt="Digg" align="absmiddle"></a><a href="../../www.kaixin001.com/repaste/share~272.phprt" title="开心网" target="_blank"><img src="../image/tui/kaixin001.gif" border=0 
+
+alt="开心网" align="absmiddle"></a><a href="../../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net_~805.htmlt" title="人人网" target="_blank"><img src="../image/tui/renren.gif" border=0 
+
+alt="人人网" align="absmiddle"></a><a href="../../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fviewspace.ph~79.htmlt" title="豆瓣" target="_blank"><img src="../image/tui/duo.png" border=0 
+
+alt="豆瓣" align="absmiddle"></a></li>
+<ul>收藏：<a href="../../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.shen~260.php_" title="Google书签" target="_blank"><img src="../image/tui/gg.jpg" border=0 alt="Google书签"align="absmiddle"></a><a href="../'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fviewspac~84.htmlt" title="Del.icio.us" target="_blank"><img src="../image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252fv~80.htmlt" title="雅虎收藏" target="_blank"><img src="../image/tui/yahoo.jpg" border=0 alt="雅虎收藏"align="absmiddle"></a><a href="../../vivi.sina.com.cn/collect/icollect~419.phppi" title="爱问VIVI" target="_blank"><img src="../image/tui/sinavivi.gif" border=0 alt="爱问VIVI"align="absmiddle"></a><a href="../../cang.baidu.com/do/additadobeaudition_25c2_25bc_25d2_25f4_25bc_25f2_25b5~1#nw=1" title="百度收藏" target="_blank"><img src="../image/tui/baidushoucang.gif" border=0 alt="百度收藏"align="absmiddle"></a><a href="../../shuqian.qq.com/postfrom3titleadobeaudition_25c2_25bc_25d2_25f4_25bc_~1" title="QQ书签" target="_blank"><img src="../image/tui/qqshuqian.gif" border=0 alt="QQ书签"align="absmiddle"></a></li>
+<li>推广：<input type="text" value="http://u.shenei.net/viewspace.php?uid=1&do=blog&id=1296.html" size="60" name="theurl" id="theurl"> <input type="button" value="复制地址" 
+
+onclick="javascript:setCopy('../viewspace.phpuid1doblogid1296.html');return false;">
+</li>
+</ul>
+</div>
+<!--Add By 01-->
+
+
+<div class="comments" id="div_main_content">
+<h2>评论 (<span id="Span1">0</span> 个评论)</h2>
+<div class="comments_list" id="comment">
+<ul id="comment_ul">
+</ul>
+</div>
+<div class="page"></div>
+
+<form id="quickcommentform_1296" name="quickcommentform_1296" action="cp.php?ac=comment" method="post" class="quickpost">
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<a href="###" id="comment_face" title="插入表情" onclick="showFace(this.id, 'comment_message');"><img src="../image/facelist.gif" align="absmiddle" /></a>
+<a id="a_magic_doodle" href="../magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="../image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
+<br />
+<textarea id="comment_message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" name="message" rows="5" style="width:500px;"></textarea>
+</td>
+</tr>
+<tr>
+<td>
+<input type="hidden" name="refer" value="space.php?uid=1&do=blog&id=1296" />
+<input type="hidden" name="id" value="1296">
+<input type="hidden" name="idtype" value="blogid">
+<input type="hidden" name="commentsubmit" value="true" />
+<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论" onclick="ajaxpost('quickcommentform_1296', 'comment_add')" />
+<input type="checkbox" name="hiddenreply" value="1"> 评论仅作者可见
+<div id="__quickcommentform_1296"></div>
+</td>
+</tr>
+</table>
+<input type="hidden" name="formhash" value="d5aa53ee" /></form>
+<br />
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div id="footer">
+<div class="copyright">
+<div class="f_status">
+<a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
+<a title="订阅 RSS" id="a_rss" href="../rss.phpuid1.htm">订阅</a>
+<a href="cp.phpaccommonopreportidtypeuidid1.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
+</div>
+<p>小E←邱沼懿的个人博客由〖舍内网〗提供，版权所有 <a href="../../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)<a href="admincp.phpacspaceopmanageuid1.htm" id="a_manage">管理用户</a></p>
+</div>
+</div>
+
+<ul id="setstyle_a_menu" class="stylemenu" style="display:none">
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="../viewspace.phpopdiy.htm">高级自定义</a></li></ul>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+<div class="toolbarbox1">
+<a class="logo" href="../space.phpdohome.htm">
+舍内
+</a>
+<div class="toolbaruser">
+<ul>
+<li class="txt">欢迎您：小E←邱沼懿 &nbsp;&nbsp;<a href="../cp.phpaccommonoplogoutuhash88e30fdf50da701748a7f76c40b44df3">退出</a></li>
+<li><a href="../viewspace.phpuid1.htm">我的博客</a></li>
+<li><a href="../cp.php.htm" target="_blank">设置</a></li>
+<li>
+<a id="a_magic_superstar" href="../magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
+</li>
+<li><a href="../space-pm.html">消息</a></li>
+
+</ul>
+</div>
+<div class="toolbarlink">
+<ul>
+<li class="home"><a href="../ovr1/space-home.html">网站首页</a></li>
+<li><a href="../network.html">闲逛</a></li>
+<li><a href="../randomuser.php.htm">乱窜</a></li>
+</ul>
+</div>
+<div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
+<div id="annbody">
+<ul id="annbodylis">
+
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;<img src="../image/face/32.gif" class="face">还是不了解咩~&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5617-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;迷迷糊糊~感觉不是自己的自己在做什么。焕然间，意识到不该这怎做。。&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5616-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;谁是谁的谁，在乎了又能怎样。一般的心情无法理解我的谁。&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5615-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;心情不是很好，脾气就不好，没地方发发泄，闷出内伤了~~&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5614-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1377-do-doing.html" target="_blank">xiaoya </a>说：&nbsp;&nbsp;(ˇ&#717;ˇ） 想～你~了~~~&nbsp;&nbsp;<a href="../space-1377-do-doing-doid-5613-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5612-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5611-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;我正参加#新浪厦门一周年#十大微福利全城畅享活动！@厦门京闽北海湾酒店 自助餐券各类精致小吃，甜点，加上五星级酒店优雅实施的环境，享受即将开始！更多惊喜 <a href="../../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>新取英文名Esone爆开心的E神小懿 @cc坏脾气 @绝望_的生鱼片 <div class="sub_doing_quote"><span>新浪厦门：【#新浪厦门一周年#福利大派送NO.20】[微博三岁啦]酒店自助餐双人版！关注@厦门京闽北海湾酒店 @新浪厦门 ，转发此博并@ 3好友，就有机会获厦门京闽北海湾酒店双人自助餐（共两套）！今天福利明天送(8-28上午11:00抽奖,获奖名单关注@新浪厦门周年庆 )更多福利：<a href="../../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../..//ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5607-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;想要一部呢。。<div class="sub_doing_quote"><span>厦门吃喝玩乐大全：【再送5台苹果4代，公平公正】1，请用微信“添加朋友”查找“xmdcxs”添加“厦门大城小事”为好友 2，转发本条即可 。以上两个条件缺一不可，明晚起每天抽出一台4代。（微信：厦门大城小事 ，是厦门名博@厦门大城小事 的唯一官方号，每天及时播报厦门大小事及其他优惠到你手机，是你厦门生活好帮手）</span><div class="img"><a target="_blank" href="../../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../..//ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5606-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="../space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;HOHO～～坐等你们大男生煮的饭饭噢～～<img src="../image/face/42.gif" class="face">&nbsp;&nbsp;<a href="../space-1162-do-doing-doid-5605-goto-yes.html" class="re">回复</a>
+</li>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+var anndelay = 3000;
+var annst = 0;
+var annstop = 0;
+var annrowcount = 0;
+var anncount = 0;
+var annlis = $('annbody').getElementsByTagName("LI");
+var annrows = new Array();
+var annstatus;
+
+function announcementScroll() {
+if(annstop) {
+annst = setTimeout('announcementScroll()', anndelay);
+return;
+}
+if(!annst) {
+var lasttop = -1;
+for(i = 0;i < annlis.length;i++) {
+if(lasttop != annlis[i].offsetTop) {
+if(lasttop == -1) {
+lasttop = 0;
+}
+annrows[annrowcount] = annlis[i].offsetTop - lasttop;
+annrowcount++;
+}
+lasttop = annlis[i].offsetTop;
+}
+
+if(annrows.length == 1) {
+$('ann').onmouseover = $('ann').onmouseout = null;
+} else {
+annrows[annrowcount] = annrows[1];
+$('annbodylis').innerHTML += $('annbodylis').innerHTML;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+annrowcount = 1;
+return;
+}
+
+if(annrowcount >= annrows.length) {
+$('annbody').scrollTop = 0;
+annrowcount = 1;
+annst = setTimeout('announcementScroll()', anndelay);
+} else {
+anncount = 0;
+announcementScrollnext(annrows[annrowcount]);
+}
+}
+
+function announcementScrollnext(time) {
+$('annbody').scrollTop++;
+anncount++;
+if(anncount != time) {
+annst = setTimeout('announcementScrollnext(' + time + ')', 10);
+} else {
+annrowcount++;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+}
+announcementScroll();
+</script>
+
+</div>
+<div class="toolshadow">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+var fastdiy = new transfer('fastdiystyle', 'fastdiy', 'oksubmit', 'fastdiy_header');
+var mystylesdiy = new transfer('mystylelist_sw', 'mystyles', 'cancel', 'mystyles_header');
+var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'sharestyle_header');
+var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
+
+</script>
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
+
+</div>
+
+
+</body>
+</html>

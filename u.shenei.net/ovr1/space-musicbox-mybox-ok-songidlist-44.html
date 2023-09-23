@@ -1,0 +1,260 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd"><HTML>
+<!-- saved from url=(0062)http://u.shenei.net/space-musicbox-mybox-ok-songidlist-44.html --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<!--header start-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<title>音乐盒 - 小E←邱沼懿 - 舍内网</title>
+<script language="javascript" type="text/javascript" src="../source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_manage.js"></script>
+
+<style type="text/css">
+@import url(../template/sn/style.css);
+@import url(../template/default/musicboxstyle.css);
+</style>
+<link rel="shortcut icon" href="../image/favicon.ico" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="../xmlrpc.phprsd1" />
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<!--header end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+var nowmusickey=1;
+var totalnowmusickey=0;
+var musicPlayer;
+var oldcolor;
+var songisloop=0;
+var nowplaymusiclist = new Array();
+var nowplaymusiclistname = new Array();
+var nowplayalubmname = new Array();
+var nowplayommendname = new Array();
+totalnowmusickey++;
+nowplaymusiclist[1] = "../../res.winupon.com/image/blog/20070907/4028818d14d35aad0114e015473902c6.mp3";
+nowplaymusiclistname[1] = new Array("保护色","../space.phpuid.htm"+"1"+"&do=musicbox&mview=mpage&mid="+"44");
+nowplayalubmname[1] = new Array("以前喜欢听","../space.phpuid.htm"+"1"+"&do=musicbox&mview=malbum&albumid="+"1"+"&userspace="+"1");
+nowplayommendname[1] = new Array("01","../space.phpuid.htm"+"1"+"&do=musicbox&mview=mybox");
+
+function el(objname)
+{
+return document.getElementById(objname);
+}
+
+function changecolor(objname)
+{
+var dobj = document.getElementById("musicid_"+objname);
+oldcolor = dobj.className;
+//alert(oldcolor);
+//dobj.style.background = "#F6E882";
+dobj.style.border = "dashed 2px #FF0000";
+}
+
+function changecolor1(objname1,objname2)
+{
+var dobj1 = document.getElementById("musicid_"+objname1);
+var dobj2 = document.getElementById("musicid_"+objname2);
+dobj1.className = oldcolor;
+//dobj1.style.background = "";
+dobj1.style.border = "";
+oldcolor = dobj2.className;
+//dobj2.style.background = "#F6E882";
+dobj2.style.border = "dashed 2px #FF0000";
+}
+
+function changmusic(key0){
+el("thismusicname").innerHTML = nowplaymusiclistname[key0][0];
+el("thismusicname").href = nowplaymusiclistname[key0][1];
+el("thismusicalbumname").innerHTML = nowplayalubmname[key0][0];
+el("thismusicalbumname").href = nowplayalubmname[key0][1];
+el("thismusiccommendname").innerHTML = nowplayommendname[key0][0];
+el("thismusiccommendname").href = nowplayommendname[key0][1];
+changecolor1(nowmusickey,key0);
+nowmusickey=key0;
+el("playerhtml").innerHTML = greatnewhtml(nowplaymusiclist[key0]);
+}
+  
+function greatnewhtml(musicfileName){
+return '<object ID="boxPlayer" width="350" height="69" classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" codebase="../activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715/#Version=6,4,5,715/default.htm/#Version=6,4,5,715/#Version=6,4,5,715/default.htm/default.htm" standby="Loading Microsoft Windows Media Player components..." type="application/x-oleobject">'
++'<param name="FileName" value="'+musicfileName+'">'
++'<param name="ShowControls" value="-1">'
++'<param name="SendPlayStateChangeEvents" value="-1">'
++'<param name="ShowPositionControls" value="0">'
++'<param name="ShowAudioControls" value="-1">'
++'<param name="ShowTracker" value="-1">'
++'<param name="ShowStatusBar" value="-1">'
++'<param name="Autostart" value="-1">'
++'<param name="Volume" value="80">'
++'<param name="TransparentAtStart" value="-1">'
++'<param name="AllowScan" value="-1">'
++'<param name="EnableContextMenu" value="-1">'
++'</object>';
+}
+
+function nextsong(){
+if(nowmusickey<totalnowmusickey){
+changecolor1(nowmusickey,nowmusickey+1);
+}else{
+nowmusickey=0;
+changecolor1(totalnowmusickey,nowmusickey+1);
+}
+nowmusickey++;
+el("thismusicname").innerHTML = nowplaymusiclistname[nowmusickey][0];
+el("thismusicname").href = nowplaymusiclistname[nowmusickey][1];
+el("thismusicalbumname").innerHTML = nowplayalubmname[nowmusickey][0];
+el("thismusicalbumname").href = nowplayalubmname[nowmusickey][1];
+el("thismusiccommendname").innerHTML = nowplayommendname[nowmusickey][0];
+el("thismusiccommendname").href = nowplayommendname[nowmusickey][1];
+el("playerhtml").innerHTML = greatnewhtml(nowplaymusiclist[nowmusickey]);
+}
+
+function persong(){
+changecolor1(nowmusickey,nowmusickey-1);
+nowmusickey--;
+el("thismusicname").innerHTML = nowplaymusiclistname[nowmusickey][0];
+el("thismusicname").href = nowplaymusiclistname[nowmusickey][1];
+el("thismusicalbumname").innerHTML = nowplayalubmname[nowmusickey][0];
+el("thismusicalbumname").href = nowplayalubmname[nowmusickey][1];
+el("thismusiccommendname").innerHTML = nowplayommendname[nowmusickey][0];
+el("thismusiccommendname").href = nowplayommendname[nowmusickey][1];
+el("playerhtml").innerHTML = greatnewhtml(nowplaymusiclist[nowmusickey]);
+}
+
+function replaythissong(){
+el("playerhtml").innerHTML = greatnewhtml(nowplaymusiclist[nowmusickey]);
+}
+
+function changeloop(obj){
+if(songisloop==0){
+songisloop=1;
+obj.src = '../activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715/#Version=6,4,5,715/default.htm/activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715/images/songloopis.gif';
+}else{
+songisloop=0;
+obj.src = '../images/songloop.gif';
+}
+}
+
+function changestyle(stylename){
+el("playerstylec").className = stylename;
+}
+
+
+</script>
+
+<div id="playerstylec" class="greenstyle">
+<table border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div style="width:100%; padding:0px 0px 5px 5px;">
+<div class="voidPerbg0" onmouseover="this.className='voidPerbg1'" onmouseout="this.className='voidPerbg0'" onclick="persong()" style="cursor: pointer;"></div>
+<div class="voidNextbg0" onmouseover="this.className='voidNextbg1'" onmouseout="this.className='voidNextbg0'" onclick="nextsong()" style="cursor: pointer;"></div>
+<div class="rightdiv left5"><img src="../images/style-blue.gif" style="cursor: pointer;" onclick="changestyle('blueskinstyle')" /></div>
+<div class="rightdiv left5"><img src="../images/style-red.gif" style="cursor: pointer;" onclick="changestyle('redskinstyle')" /></div>
+<div class="rightdiv left5"><img src="../images/style-yellow.gif" style="cursor: pointer;" onclick="changestyle('yellowstyle')" /></div>
+<div class="rightdiv left5"><img src="../images/style-green.gif" style="cursor: pointer;" onclick="changestyle('greenstyle')" /></div>
+<div class="rightdiv right20"><img src="../images/songloop.gif" style="cursor:pointer;" onclick="changeloop(this)"/></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="boxuititle">
+歌曲:<span><a id="thismusicname" style="width:70px; text-overflow: ellipsis; text-align: left; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;" href="#" target="_blank">木头人</a></span>
+专辑:<span><a id="thismusicalbumname" style="width:70px; text-overflow: ellipsis; text-align: left; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;" href="#" target="_blank">流行中文</a></span>
+推荐:<span><a id="thismusiccommendname" style="width:50px; text-overflow: ellipsis; text-align: left; white-space: nowrap; overflow: hidden; -moz-text-overflow: ellipsis;" href="#" target="_blank">liuhao2046xp</a></span></div>
+</td>
+</tr>
+<tr>
+<td>
+<div id="playerhtml">
+<object ID="boxPlayer" width="350" height="69" classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" codebase="../activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715" standby="Loading Microsoft Windows Media Player components..." type="application/x-oleobject">
+<param name="FileName" value="../../res.winupon.com/image/blog/20070907/4028818d14d35aad0114e015473902c6.mp3">
+<param name="ShowControls" value="-1">
+<param name="SendPlayStateChangeEvents" value="-1">
+<param name="ShowPositionControls" value="0">
+<param name="ShowAudioControls" value="-1">
+<param name="ShowTracker" value="-1">
+<param name="ShowStatusBar" value="-1">
+<param name="Autostart" value="-1">
+<param name="Volume" value="80">
+<param name="TransparentAtStart" value="-1">
+<param name="AllowScan" value="-1">
+<param name="EnableContextMenu" value="-1">
+</object>
+</div>
+<SCRIPT LANGUAGE="JScript" for="boxPlayer" EVENT="endofstream">
+<!--
+if(songisloop==0){
+nextsong();
+}else{
+replaythissong();
+}
+//-->
+</SCRIPT>
+</td>
+</tr>
+<tr>
+<td>
+<div class="boxpagesonglist">
+<div class="boxpagelistitem " id="musicid_1">1.&nbsp;<span style="cursor: pointer;" onclick="changmusic(1)">保护色</span></div>
+</div>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+</div>
+
+
+<script type="text/javascript">
+changecolor(1);
+el("thismusicname").innerHTML = nowplaymusiclistname[1][0];
+el("thismusicname").href = nowplaymusiclistname[1][1];
+el("thismusicalbumname").innerHTML = nowplayalubmname[1][0];
+el("thismusicalbumname").href = nowplayalubmname[1][1];
+el("thismusiccommendname").innerHTML = nowplayommendname[1][0];
+el("thismusiccommendname").href = nowplayommendname[1][1];
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--foot start-->
+<ul id="ucappmenu_menu" class="dropmenu_drop" style="display:none;">
+<li><a href="../../buy.shenei.net/default.htm" title="舍内团秒" target="_blank">舍内团秒</a></li>
+<li><a href="../../shop.shenei.net/default.htm" title="免费开店" target="_blank">免费开店</a></li>
+<li><a href="../../xx.shenei.net/default.htm" title="舍内知天下" target="_blank">舍内知天下</a></li>
+</ul>
+
+
+<!--foot end-->

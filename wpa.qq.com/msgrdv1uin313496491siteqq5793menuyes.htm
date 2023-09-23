@@ -1,0 +1,156 @@
+<!DOCTYPE html><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- saved from url=(0062)http://wpa.qq.com/msgrd?V=1&Uin=313496491&Site=qq5793&Menu=yes --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+  <head>
+    <title>正在跳转</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"
+    />
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: 微软雅黑;
+        background: #f2f2f2;
+        height: 100%;
+      }
+      .box {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #030a26a6;
+      }
+      .title {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+      }
+      .text {
+        padding-top: 6px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      .img {
+        display: block;
+        margin: 0 auto 16px;
+      }
+      .img1 {
+        width: 125px;
+        height: 60px;
+      }
+      a {
+        color: #4a70ff;
+      }
+      iframe {
+        position: absolute;
+        left: -9999px;
+      }
+    </style>
+    <div id="main" class="box">
+      <img
+        class="img img1"
+        src="../httpsbqq.gtimg.com/cdn/source/images/wpa/wpa-qq.png"
+      />
+      <div class="title">抱歉，无法发起临时会话</div>
+      <div class="text">您可以先添加对方为好友，再发送消息</div>
+    </div>
+    <script src="../httpstam.cdn-go.cn/aegis-sdk/latest/aegis.min.js"></script>
+    <script>
+      window._getUrlParam = function (name, href, noDecode) {
+        var re = new RegExp("(?:\\?|#|&)" + name + "=([^&]*)(?:$|&|#)", "i"),
+          m = re.exec(href || location.href);
+        var ret = m ? m[1] : "";
+        return !noDecode ? decodeURIComponent(ret) : ret;
+      };
+      window.__uin = window._getUrlParam("uin");
+      window.aegis = new Aegis({
+        id: "PJo86c1JyqVv9bqW6e", // 上报 id
+        uin: window.__uin, // 用户唯一 ID（可选）
+        reportApiSpeed: false, // 接口测速
+        reportAssetSpeed: false, // 静态资源测速
+        spa: true, // spa 应用页面跳转的时候开启 pv 计算
+        hostUrl: "../https@rumt-zh.com",
+        version: "1.0.0",
+      });
+      aegis.reportEvent({
+        name: "wpa-server-noauth", // 必填
+        ext1: window.__uin,
+      });
+    </script>
+    <script>
+      var ua = navigator.userAgent.toLowerCase();
+      var ie = /msie/.test(ua) && !/opera/.test(ua);
+      var mob = /iphone/.test(ua) || /ipad/.test(ua) || /android/.test(ua);
+      var g = {
+        checkActiveX: function () {
+          var kXmlHttp = null;
+          try {
+            if (typeof XMLHttpRequest != "undefined") {
+              kXmlHttp = new XMLHttpRequest();
+              return true;
+            }
+          } catch (e) {}
+          var aVersionhs = [
+            "MSXML2.XMLHttp.3.0",
+            "MSXML2.XMLHttp.6.0",
+            "MSXML2.XMLHttp",
+            "Microsoft.XMLHttp",
+            "MSXML2.XMLHttp.5.0",
+            "MSXML2.XMLHttp.4.0",
+          ];
+          for (var i = 0; i < aVersionhs.length; i++) {
+            try {
+              kXmlHttp = new ActiveXObject(aVersionhs[i]);
+              return true;
+            } catch (e) {}
+          }
+          return false;
+        },
+      };
+      window.onload = function () {
+        var tencentSeries = "tencent_3a/message/uin313496491siteqqmenuyes";
+        var sigt = "";
+
+        if (mob) {
+          var domainRegExp = new RegExp(
+            "^(http|https)://(.*?[^/\\?#])($|default.htm|\\?|#(.*))"
+          );
+          var host = domainRegExp.exec(document.referrer);
+          if (host) host = host[2];
+          var scheme =
+            "mqqwpa_3a/im/chatchat_typewpauin" +
+            window.__uin +
+            "&version=1&src_type=web&web_src=" +
+            host;
+          location.href = scheme;
+          return;
+        }
+
+        if (!ie) {
+          var iframe = document.createElement("iframe");
+          iframe.setAttribute("frameborder", "0", 0);
+          iframe.src = tencentSeries;
+          document.body.appendChild(iframe);
+        } else {
+          if (!g.checkActiveX()) {
+            window.location = tencentSeries;
+            return;
+          }
+          try {
+            var cpTimwp = new ActiveXObject("TimwpDll.TimwpCheck");
+            if (cpTimwp) {
+              window.location = tencentSeries;
+              return;
+            }
+          } catch (e) {}
+        }
+      };
+    </script>
+  </body>
+</html>

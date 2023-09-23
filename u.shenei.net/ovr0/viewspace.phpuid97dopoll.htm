@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0048)http://u.shenei.net/viewspace.php?uid=97&do=poll --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>林梅丽 的博客 </title>
+
+<script language="javascript" type="text/javascript" src="../source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="../viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="../viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="../viewspace/css/000/00/00/97_style.css" /><link rel="alternate" type="application/rss+xml" href="../rss.phpuid97" title="林梅丽" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="../xmlrpc.phprsd97" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wrap">
+<div id="banner" class="banner">
+<div class="title" id="title">
+<h1 id="myblogname">林梅丽 的博客  <em> 50 人次访问, 136个积分 <a href="do.phpacajaxopcredituid97.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level2.gif" align="absmiddle" /><img src="../image/star_level2.gif" align="absmiddle" /><img src="../image/star_level2.gif" align="absmiddle" /></a></em></h1>
+<p>这家伙很懒，什么都没留下...</p>
+<p><a href="../97.htm" onclick="javascript:setCopy('97');return false;" class="spacelink domainurl">http://u.shenei.net/97</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="../viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=97', '');">
+主页 </a></li>
+-->
+
+<li>
+<a  href="../viewspace.phpuid97.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97doaboutme.htm', 'aboutme');">
+关于我 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97doblogviewme.htm', 'blog');">
+博文 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97doalbumviewme.htm', 'album');">
+相册 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97dopollviewme.htm', 'poll');">
+投票 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97dofriendviewme.htm', 'friend');">
+好友 </a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97dowallviewme.htm', 'wall');">
+留言板 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97doapplist.htm', 'applist');">
+应用 </a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="frame_1">
+<div id="profile" class="block" >
+<div class="blocktitle">
+<em>
+
+<a id="a_magic_viewmagiclog" href="../magic.phpmidviewmagiclogidtypeuidid97.htm" onclick="ajaxmenu(event,this.id,1)">
+<img src="../image/magic/viewmagiclog.small.gif" title="八卦镜" alt="八卦镜" style="vertical-align: middle;" />
+</a>
+<a id="a_magic_viewmagic" href="../magic.phpmidviewmagicidtypeuidid97.htm" onclick="ajaxmenu(event,this.id,1)">
+<img src="../image/magic/viewmagic.small.gif" title="透视镜" alt="透视镜" style="vertical-align: middle;" />
+</a>
+<a id="a_magic_viewvisitor" href="../magic.phpmidviewvisitoridtypeuidid97.htm" onclick="ajaxmenu(event,this.id,1)">
+<img src="../image/magic/viewvisitor.small.gif" title="偷窥镜" alt="偷窥镜" style="vertical-align: middle;" />
+</a>
+</em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a href="../viewspace.phpuid97.htm" class="avatar"><img src="../..//uc.shenei.net/data/avatar/000/00/00/97_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_01_big.gif'"></a>
+<div class="username">
+<p >昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid97.htm', '');">林梅丽</a></p>
+<p>等级：<a href="do.phpacajaxopcredituid97.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level2.gif" align="absmiddle" /><img src="../image/star_level2.gif" align="absmiddle" /><img src="../image/star_level2.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<img src="../viewspace/img/tool/video_off.gif" align="absmiddle" title="未视频认证用户" alt="未视频认证用户"/>
+<a href="../pay.phpacvip.htm" target="_blank"><img src="../image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
+</p>
+</div>
+<div class="tool">
+<a href="cp.phpacfetionuid97.htm" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="发短信到TA手机" class="fetion">飞信短信</a>
+<a href="../cp.phpacpmuid97.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="发送站内短消息" class="message">发消息</a>
+<a href="../cp.phpacpokeopsenduid97.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="打个招呼" class="hi">问候</a>
+<a href="../cp.phpaccommonopreportidtypeuidid97.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="举报此人" class="report">举报</a>
+<a href="../cp.phpacfriendopadduid97" id="a_friend" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="加为好友" class="friend">加好友</a>
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid97dowallviewme.htm', 'wall');" id="a_comment" title="给TA留言" class="comment">留言板</a>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+<div class="frame_3">
+<div id="forumstatus" class="block">		
+<div class="blocktitle">
+<h2>林梅丽的投票</h2>
+</div>
+<div class="blockcontent"style="padding:20px;">
+
+
+<div class="c_form">还没有相关的投票。</div>
+
+</div>
+
+
+<script type="text/javascript">jQuery("#loading div").animate({width:"73%"}).text("73%");</script>	<!--Add By 01	载入进度条-->
+</div>
+
+<!--/mainarea-->
+<div id="bottom"></div>
+</div>
+<!--/main-->
+
+<div id="footer" title="">
+<div class="footer_t"><b><a>舍内网</a> ┊ <a  href="../../fs.shenei.net/default.htm" target="_blank">关于我们</a> ┊ <a href="mailto:service@shenei.net">联系我们</a> ┊ <a href="mailto:service@shenei.net">网站合作</a></b></div>
+
+<div class="footer_b">
+
+<p class="r_option">
+<a href="javascript:;" onclick="window.scrollTo(0,0);" id="a_top" title="TOP"><img src="../image/top.gif" alt="" style="padding: 5px 6px 6px;" /></a>
+</p>
+
+
+<p>
+友情链接 -> 
+<a href="../../www.shenei.net/default.htm" target="_blank"><font color=black>舍内网</font></a> -
+<a href="../../shop.shenei.net/default.htm" target="_blank"><font color=black>舍内网店</font></a> -
+<a href="../../buy.shenei.net/default.htm" target="_blank"><font color=black>舍内团秒</font></a> -
+<a href="../../me.shenei.net/default.htm" target="_blank"><font color=black>舍内博客</font></a> -
+<a href="../../www.fjut.edu.cn/main.htm" target="_blank">工院官方</a> -
+<a href="../../caizijiaren.book.topzj.com/default.htm" target="_blank">琴声网</a> -
+<span id="count_online"></span>
+</p>
+<!--
+<p>
+舍内网 - 
+<a href="mailto:service@shenei.net">联系我们</a>
+ - <span id="count_online"></span>
+</p>
+-->
+<p>
+Powered by <a  href="../../fs.shenei.net/default.htm" target="_blank"><strong>【疯·神】工作室</strong></a> <span title="2.02">2.02</span>
+&copy; 2008-2009
+</p>
+</div>
+</div>
+</div>
+<!--/wrap-->
+
+<ul id="ucappmenu_menu" class="dropmenu_drop" style="display:none;">
+<li><a href="../../buy.shenei.net/default.htm" title="舍内团秒" target="_blank">舍内团秒</a></li>
+<li><a href="../../shop.shenei.net/default.htm" title="免费开店" target="_blank">免费开店</a></li>
+<li><a href="../../xx.shenei.net/default.htm" title="舍内知天下" target="_blank">舍内知天下</a></li>
+</ul>
+
+<ul id="membernotemenu_menu" class="dropmenu_drop" style="display:none;">
+</ul>
+
+
+<script type="text/javascript">jQuery("#loading div").animate({width:"87%"}).text("87%");jQuery("#preview").fadeOut(2000);</script>	<!--Add By 01	载入进度条-->
+<span id="countonline" style="display:none;"><script src="../../s9.cnzz.com/stat.phpid2162321web_id2162321" language="JavaScript"></script></span>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="../../v2.jiathis.com/code/jiathis_r.jsmove0btnr1.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<script type="text/javascript">document.getElementById("count_online").innerHTML = document.getElementById("countonline").innerHTML; jQuery("#loading div").animate({width:"99%"}).text("99%");</script>	<!--Add By 01	载入进度条-->
+</body>
+</html>

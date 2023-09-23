@@ -1,0 +1,19 @@
+.block  .blocktitle {background-image:url(); border-bottom-color:#D2D2D2; background-color:#FFFFFF; border-bottom-style:dashed; } 
+.block  .blocktitle h2 {color:#101010; font-size:12px; } 
+.block  .blocktitle em a {color:#101010; font-size:12px; } 
+.block  {border-color:#D2D2D2; border-width:1px; background-image:url(../../../../img/webcolor/pink_title.jpg); } 
+.block  .blockcontent {background-color:#FFFFFF; color:#000000; background-image:url(); } 
+.block  .blockcontent a {color:#106B32; } 
+.block  .blockcontent a:hover {color:#106B32; } 
+#banner {height:209px; background-image:url(../../../../picfile/dcd1df3df3d9c81f02ba3a4d3ccd0ba4_b.gif); background-repeat:repeat; background-color:#FFFFFF; background-position:left top; } 
+#banner .title h1 {color:#4DEE0E; } 
+#banner .title p {color:#F014F0; } 
+#banner .title p a {color:#F014F0; } 
+#title {top:43px; left:0px; } 
+body {background-image:url(); background-color:#FFFFFF; background-repeat:repeat; } 
+#menu .active a {color:#CC6700; } 
+#menu a {color:#484848; } 
+#menu {background-image:url(../../../../img/webcolor/white_menu.jpg); height:32px; background-color:#C7C735; } 
+#menu ul {margin-top:0px; } 
+#menu . a:hover {color:#CC6700; } 
+ body {cursor:Array }

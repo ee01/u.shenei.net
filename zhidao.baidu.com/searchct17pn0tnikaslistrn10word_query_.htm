@@ -1,0 +1,936 @@
+<!DOCTYPE html><!-- saved from url=(0072)http://zhidao.baidu.com/search?ct=17&pn=0&tn=ikaslist&rn=10&word=_QUERY_ --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<!--STATUS OK-->
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta property="wb:webmaster" content="3aababe5ed22e23c" />
+<meta name="referrer" content="always" />
+<title>
+百度知道搜索__QUERY_
+</title>
+<link rel="shortcut icon" href="../www.baidu.com/favicon.icot20171027" type="image/x-icon" />
+<link rel="icon" sizes="any" mask href="../www.baidu.com/img/baidu.svg" />
+
+<script>
+    window.alogObjectConfig = {
+        product: '102',
+        page: '102_5', 
+        monkey_page: 'zhidao-search',
+        speed_page: '5',
+        speed: {
+            sample: '0.05'
+        },
+        monkey: {
+            sample: '0.025'
+        },
+        exception: { 
+            sample: '0.025'
+        },
+        feature: {
+            sample: '0.025'
+        },
+        cus: {
+            sample: '0.025',
+            custom_metrics: ['c_sbox', 'c_menu']
+        },
+        csp: {
+            sample: '0.05',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"../https@fex.bdstatic.com"+d:"../fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>
+
+<script>
+	!function(document, window){
+		var log = {
+			list: [],
+			host: '../https_2f/' + location.host + '/api/httpscheck',
+			log: function(param) {
+				var a = [];
+		    	for(var k in param) {
+		    		a.push(k + '=' + param[k]);
+		    	}
+		    	var msg = a.join('&');
+		    	if(~this.list.indexOf(msg)){
+		    		return;
+		    	}
+		    	this.list.push(msg);
+		  		var img = new Image();
+		    	var key = '_ik_log_' + (Math.random()*2147483648 ^ 0).toString(36);
+		    	window[key] = img;
+		    		img.onload = img.onerror = img.onabort = function() {
+		        		img.onload = img.onerror = img.onabort = null;
+		        		window[key] = null;
+			    		img = null;
+		    	};
+		  		img.src = this.host + '?' + msg;
+			}
+		};
+
+		function HTTPSWarningLog(){
+			this.selector = [
+				'link',
+				'script',
+				'img',
+				'embed',
+				'iframe'
+			];
+			this.warningCounter = 0;
+			this.init();
+		};
+
+		HTTPSWarningLog.prototype = {
+			init: function(){
+				this.fetch();
+			},
+
+			fetch: function(){
+				for(var tags = this.selector, i =0, len = tags.length; i < len;i++) {
+					this.getTag(tags[i]);
+				}
+			},
+
+			getTag: function(tag) {
+				var domList = document.getElementsByTagName(tag);
+				if(!domList.length) {
+					return;
+				}
+				for(var i = 0,len = domList.length;i<len;i++) {
+					var el = domList[i];
+					var url = el.getAttribute(el.tagName==='LINK' ? 'href' : 'src');
+                    if(el.getAttribute('rel') === 'canonical') {
+                        continue;
+                    }
+					if(url && 'https:' === location.protocol && !url.indexOf('http:')){
+						this.sendLog(el, el.tagName.toLowerCase(),url);
+						this.warningCounter++;
+					}
+				}
+			},
+			
+			sendLog: function(el, type, url){
+				log.log({
+					url: location.href,
+					wtype: type,
+					wurl: url
+				});
+			}
+		};
+
+		function domReady(fn){
+		    if(document.addEventListener) {
+		        document.addEventListener('DOMContentLoaded', function() {
+		            document.removeEventListener('DOMContentLoaded',arguments.callee, false);
+		            fn();
+		        }, false);
+		    }else if(document.attachEvent) {
+		        document.attachEvent('onreadystatechange', function() {
+		            if(document.readyState == 'complete') {
+		                document.detachEvent('onreadystatechange', arguments.callee);
+		                fn();
+		            }
+		        });
+		    }
+		};
+
+		domReady(function(){
+			new HTTPSWarningLog();
+			for(var i=1; i<6; i++) {
+				!function(i){
+					setTimeout(function(){
+						new HTTPSWarningLog();
+					}, i*i*i*1000);
+				}(i);
+			}
+		});
+	}(document, window);
+</script>
+
+<link rel="canonical" href="searchword_query_" />
+
+<script type="text/javascript">
+			!function(){var n={},t={};n.context=function(n,e){var i=arguments.length;if(i>1)t[n]=e;else if(1==i){if("object"!=typeof n)return t[n];for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])}},"F"in window||(window.F=n)}();;
+			
+            
+																																	
+			F.context('user', {"isLogin":"","isRealName":"","stoken":"","name":"","imId":"","id":"","euid":"","wealth":"","gradeIndex":"","isMavin":""});
+			F.context('user')['internalAdmin'] = null;
+
+			
+			            F.context('now', 1694664517);
+		</script>
+<script>F.context('sysTaskAutoInit', 1);</script>
+<!--[if lte IE 8]>
+<script>
+                (function(){
+                    var e="abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+                    i=e.length;
+                    while(i--){document.createElement(e[i])}
+                 })();
+            </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/common-new/pkg/common.3bafcae.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/search/pkg/module.be65ecd.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/common-new/widget/header-metis/header.b69cf0b.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/common-new/widget/help-team-navigation/popup.f8765a3.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/common-new/widget/set-tag/set-tag.904b909.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/common-new/widget/task/task-last.15d9e13.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/search/widget/bottom-search-box/bottom-search-box.dfc8652.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/search/widget/lead-ps/lead-ps.38c447f.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/search/widget/billboard/billboard.1b5acee.css" /><link rel="stylesheet" type="text/css" href="../httpsiknow-zhidao.bdimg.com/static/common-new/widget/aria/aria.7124e7d.css" /><style type="text/css">.channel-item-ps::before {                            font-family: cIconfont !important;                            content: "\e608";                            margin-right: 2px;                        }.channel-item-news::before {                            font-family: cIconfont !important;                            content: "\e606";                            margin-right: 2px;                        }.channel-item-video::before {                            font-family: cIconfont !important;                            content: "\e604";                            margin-right: 2px;                        }.channel-item-pic::before {                            font-family: cIconfont !important;                            content: "\e607";                            margin-right: 2px;                        }.channel-item-zhidao::before {                            font-family: cIconfont !important;                            content: "\e633";                            margin-right: 2px;                        }.channel-item-wenku::before {                            font-family: cIconfont !important;                            content: "\e605";                            margin-right: 2px;                        }.channel-item-tieba::before {                            font-family: cIconfont !important;                            content: "\e609";                            margin-right: 2px;                        }.channel-item-b2b::before {                            font-family: cIconfont !important;                            content: "\e603";                            margin-right: 2px;                        }.channel-item-map::before {                            font-family: cIconfont !important;                            content: "\e630";                            margin-right: 2px;                        }</style></head>
+
+<script> window.iPerformance && window.iPerformance.mark('ht', +new Date); </script>
+
+<body class="newsearch">
+
+
+
+<div class="head-wrap">
+<hr class="divider">
+<header id="header" class="container">
+
+<div id="search-box" class="search-box-new line  ">
+<ul class="channel grid">
+<li>
+<a
+                            class="channel-item-ps"
+                            log="sc_pos:c_ps"
+                            data-type='ps'
+                            rel="nofollow"
+                            href="../www.baidu.com/sieutf-8wd_query_cl3"
+                        >网页</a>
+</li>
+<li>
+<a
+                            class="channel-item-news"
+                            log="sc_pos:c_news"
+                            data-type='news'
+                            rel="nofollow"
+                            href="../www.baidu.com/srtt1bsst1cl2tnnewsieutf-8word_query_frzhidao"
+                        >资讯</a>
+</li>
+<li>
+<a
+                            class="channel-item-video"
+                            log="sc_pos:c_video"
+                            data-type='video'
+                            rel="nofollow"
+                            href="../www.baidu.com/sf/vsearchpdvideotnvsearchieutf-8wd_query_rsv_spt16"
+                        >视频</a>
+</li>
+<li>
+<a
+                            class="channel-item-pic"
+                            log="sc_pos:c_pic"
+                            data-type='pic'
+                            rel="nofollow"
+                            href="../image.baidu.com/search/indextnbaiduimagect201326592lm-1cl2word_query_t3dytabstr"
+                        >图片</a>
+</li>
+<li><strong class="channel-item-zhidao">知道</strong></li>
+<li>
+<a
+                            class="channel-item-wenku"
+                            log="sc_pos:c_wenku"
+                            data-type='wenku'
+                            rel="nofollow"
+                            href="../wenku.baidu.com/searchlm0od0word_query_dytabstr"
+                        >文库</a>
+</li>
+<li>
+<a
+                            class="channel-item-tieba"
+                            log="sc_pos:c_tieba"
+                            data-type='tieba'
+                            rel="nofollow"
+                            href="../tieba.baidu.com/fkw_query_t4dytabstr"
+                        >贴吧</a>
+</li>
+<li>
+<a
+                            class="channel-item-b2b"
+                            log="sc_pos:c_b2b"
+                            data-type='b2b'
+                            rel="nofollow"
+                            href="../b2b.baidu.com/sq_query_frwww"
+                        >采购</a>
+</li>
+<li>
+<a
+                            class="channel-item-map"
+                            log="sc_pos:c_map"
+                            data-type='map'
+                            rel="nofollow"
+                            href="../map.baidu.com/newmap1ieutf-8sswd_query_frmap007"
+                        >地图</a>
+</li>
+<li>
+<a
+                            class="channel-item-more"
+                            log="sc_pos:c_more"
+                            data-type='more'
+                            rel="nofollow"
+                            href="../www.baidu.com/more/default.htm"
+                        >更多</a>
+</li>
+</ul>
+<div class="search-block clearfix">
+<div class="search-cont clearfix">
+<a class="logo" href="default.htm" title="百度知道"></a>
+<form action="/search" name="search-form" method="get" id="search-form-new" class="search-form">
+<input class="hdi" id="kw" maxlength="256" tabindex="1" size="46" name="word" value="_QUERY_" autocomplete="off" placeholder=""/>
+<button alog-action="g-search-anwser" type="submit" id="search-btn" hidefocus="true"  tabindex="2" class="btn-global">百度一下</button>
+<a href="#" alog-action="g-i-ask" class="i-ask-link" id="ask-btn-new">我要提问</a>
+</form>
+</div>
+
+<div id="userbar" left-width="900" win-min-width="1100" width="" class="userbar userbar-renew  sfrom-search " data="">
+<ul class="aside-list">
+<li>
+<a href="../www.baidu.com/default.htm" class="toindex">百度首页</a>
+</li>
+<li class="shop-entrance">
+<a href="shop" title="知道商城" log="type:2026,pos:top-right,target:shop-entrance">商城<i class="i-house" style="display: none;"></i></a>
+<span class="lucky-try" style="display: none"></span>
+</li>
+<li><a rel="nofollow" alog-alias="usrbar-reg" id="userbar-reg" href="../httpspassport.baidu.com/v2/regtplikcolorgreenu" target="_blank">注册</a></li>
+<li><a rel="nofollow" alog-alias="usrbar-login" href="javascript:;" id="userbar-login" log="type:2026,pname:account,mod:login,action:show,pos:pop">登录</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+<script>
+                    // 搜索框可用时间打点
+                    alog && alog('speed.set', 'c_sbox', +new Date); alog.fire && alog.fire("mark");
+                </script>
+
+</header>
+</div>
+<div id="body" class="container">
+
+<section id="page-main" class="page-main line">
+<div class="page-main-inner">
+
+
+<div class="line">
+<div class="list-wraper">
+<div class="list-header">
+
+<div id="wgt-picker" class="wgt-picker">
+<div class="picker-header">
+<span class="f-lighter lh-22">共4,489,799条结果</span>
+<div class="picker-date-search">
+<div class="picker-date-selected f-lighter" id="picker-btn">
+<span class="selected-text">
+全部</span>
+<i class="selected-icon"></i>
+</div>
+<ul class="picker-data-list">
+<li class="p-item"><a href="searchword_query_lm0site-1sites0date0" data-log="pos:date,dt:0" class="p-item-active">全部</a></li>
+<li class="p-item"><a href="searchword_query_lm0site-1sites0date2" data-log="pos:date,dt:2" class="">最近一周</a></li>
+<li class="p-item"><a href="searchword_query_lm0site-1sites0date3" data-log="pos:date,dt:3" class="">最近一月</a></li>
+<li class="p-item"><a href="searchword_query_lm0site-1sites0date4" data-log="pos:date,dt:4" class="">最近一年</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="check-wrapper">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="list-inner">
+
+
+<div class="list" id="wgt-list" data-log-area="list">
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="640:1862106482000826627">
+<dt class="dt mb-3 line" alog-alias="result-title-0">
+<a href="question/1862106482000826627.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:1,st:0"
+                   target="_blank" class="ti">软件开发中经常说的<em>Query</em>是什么意思呢</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i><em>query</em>查询请求的意思，为了在数据库中寻找某一特定文件、网站、记录或一系列记录，由搜索引擎或数据库送出的消息。在SAP实施过程中经常会出现，对于用户的部分报表需求，标准报表无法实现，通过查询后台表就可以导出其想要的信息。</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2020-03-29</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruidd3044069236f25705e795ed0" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:1">风翼残念</a>
+</span>
+<span class="mr-8">
+<a href="question/1862106482000826627.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:1">3个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>5
+</span>
+</dd>
+</dl>
+<dl
+            class="dl ec-oad"
+            data-href="https://sp0.baidu.com/9q9JcDHa2gU2pMbgoY3K/km.php?t=wmTauf0000apvDZc6x1DhAf000000rsj4i4e0hXca6000000GN350F0bMSXr0000owQmcs000000000000000AGlL3CK0207.uHdCIZwsT1CEQvF1QhF9pywdQhPEUiqsIyF_pynsnzqsmz4Mpym0THdxRNN7R--x0APo5HbYPj6zfHD1nRuKnWfkPH97PHKDnHTzf1ndwHf4fWFa0ADqUWYK0hdY5HfsnjcaIvYqn0Fzu1Ydg1Ts0MwY5HDaTAPYTWYsQW01PHfknsFhT1Ys0huY5H0auhmqn0FBujY1n0Fkpyfqn0c0mLFW5HDknjnd00"
+            data-pz-sign="47"
+            data-oadpos="0"
+            data-url="http://www.baidu.com/baidu.php?url=K600000IgvA6zKPsDQbj386mKuGxA-ZmFvCRaSyRVF735MbLlvm6ACFE5jPnia-FcGzqWR9LUrzwjm-6S0IykLT8hgu2SjyN760nWTn2r-WMUvxxxY6BV8vCZuDoIQUhOzQj5A5kBaIVzlTIXeA0EnRN1sADxSttKNzMZEvUhviQO2XeAgjovax-HJbvow5eVQRfKMc49qfhqAvj7s-iR8ZZH9HP.DD_NR2Ar5Od663mqZw4g_3_acPrQA1JHKePZKILqhFB8Eu83SPhl1W34PLW_34PSOo7Gk_xhOU_emJqPTgeOzOgdBY3Sg0kSUQtECBOUOfoOPSLOoltnXWCmBOxSRTygG3m_EzWBOUB8OP-SRx4JqTx4JSjCBOx_Wlq8-tyV17xHdd3hcELO-Z7-lXAQQtC3Ev3oE1ux-ZSpEgZSpE6lcEL3xdOhtpZUdqbUqRHAJekOQsx-S8jNZdHYmtHA1oqauhnMgHfhH7ThuBEoYwYA5EgISGS9OcSEMOsPZWzs_OqWGOdOo355qaJegS9Nerr5wSy81NOoqM4_EzSBQqEqaEtLexSEOspxClxuGOBxgxO_dpOOKS9SLSE5SLOVxe5lhXWYOSjZSOOvrvQQGvwxEst54Ov3XAQ93q_NxHO35SK-OeZuPemESk6JB3kpc854_EWxP-1eqNxzecELOzqZ4Everv2EHg7SOtEdvpCEu7SOtC3_EHskux-Z7SL7ISUQtCO1Nl3O1NtZw7SOjSEtLWfW_OxSgl3JeOCBzq5jSp8qmhZq_H8KmuCyn-XHIER.U1Yk0ZDqFHNARNN7R-b-PRm0IjY0pyYqnHcLP0KdpHY0TA-b5HR0mv-b5HTs0AFG5H00uMfqn0KspjYs0Aq15H00mMTqn0K8IjYs0ZPl5fKzuLw9u1Ys0A4vTjYsQW0snj0snj0s0ANzu1Ys0Zwzmyw-5H00mhwGujY4Pjf3nbDkn17AfHcYnHR3wHRswjDLnbn1PRRYrRczf6KbmvPb5fK9TdqGuAnqTZnVUhC0UvnqnfKM5gI1UMn0TMfqn1mz0Z7spyfqn0Kkmv-b5H00mycqn7ts0ZKs5H00Ugws5H00uAwETjYs0ZFJ5H00IZN15HfYPWfdnWcvnHf4nj01PHnzPjD0mynqnfKsUWYs0ZK9I7qhUA7M5H00ugPY5H00ugwGujYVnfK9TLKWm1Ys0ZNspy4Wm1Ys0AuWIgfqn0K9uAu_myTqnHm1rjf0IvuzUvYq0AFY5H00XZPYIHYYnHmzP1nvPfKzug7Y5HDvrHfvPWfdnHTsnHf0Tv-b5Hb3m1whm16km16Ynyf3ryD0ULfqn0KETMKY5iY0TMw9pyfq0AVG5H00UgfqrjnsPfKVm1Ys0AdWgvuzUvYqn0Kbmy4dmhNxTAk9Uh-bT1Ys0A-1mvsqn0KGuAN9pyfqP1R4nHnkPWTsP160UhNLgLK_my3qnWb4nWfLn1cY0A4-IdqdUh-Y5H61nHmznHc3P1b0UhNLgv-buyDqP1R4nHnkPWTsP160TA71TLKETMfqn0KBmy-bIy-b5HbYPj6zfHD1nRuKnWfkPH97PHKDnHTzf1ndwHf4fWFa0Aq1pyfqn0K9u7q1ULNzmvRqnanW0APzm1YdnWbzn6&us=newvui&xst=m1YKmWY4Pjf3nbDkn17AfHcYnHR3wHRswjDLnbn1PRRYrRczf6715HDknj03nW0knjc1PHfknjTYnjTYg1DzP1wxn07L5f7k5NqkIyNzXNtKIHYYnHmzP1nvPf7Y5HDvrHfvPWfdnHTKUgDqnfcs0BYKmv6quhPxTAnKTMfqn0DzrH0sPjmLn1D4&word="
+            data-expid="1"
+            data-qid="1185370503725783299"
+            data-zsyx="nHDsnj6znjDsnWndPjDsP1fsP1wxnH0s"
+            data-qsign="gd7NwNFugs"
+            data-midexpid="8"
+            data-sign="1694664517069"
+            data-log="fm:oad,pos:oad-ti,si:0,relv:,st:2"
+        >
+<dt class="dt mb-3 line" alog-alias="result-title-oad">
+<a href="default.htm" class="ti">iproyal - StormProxies</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">企业回答：</i>IPROYAL和StormProxies都是海外HTTP代理商，以下是它们各自的特点：1. IPROYAL：
+StormProxies是全球大数据IP资源服务商，其住宅代理网络由真实的家庭住宅IP组成，可为企业或个人提供满足各种场景的代理产品。点击免费测试（注册即送1G流量）StormProxies有哪些优势？1、IP+端口提取形式，不限带宽，IP纯净高匿；2、覆盖全球20...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2023-07-25</span>
+<span class="mr-8">回答者：<a href="default.htm" class="f-lighter nod">Storm代理</a>
+</span>
+<span class="v-trust" data-key="U_85978ffaf75edz903=7N7cje0acaa698c8Ue8j66D72M3aENb8f8cd77_1681531590"></span>
+<span class="ml-10 f-grey"><i class="i-agree"></i>10</span>
+</dd>
+</dl>
+<script>
+                !function(t){"use strict";function n(t,n){return t(n={exports:{}},n.exports),n.exports}var e=n((function(t){var n=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=n)})),r=n((function(t){var n=t.exports={version:"2.6.11"};"number"==typeof __e&&(__e=n)})),o=(r.version,function(t){return"object"==typeof t?null!==t:"function"==typeof t}),i=function(t){if(!o(t))throw TypeError(t+" is not an object!");return t},c=function(t){try{return!!t()}catch(t){return!0}},u=!c((function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})),a=e.document,l=o(a)&&o(a.createElement),f=!u&&!c((function(){return 7!=Object.defineProperty((t="div",l?a.createElement(t):{}),"a",{get:function(){return 7}}).a;var t})),s=Object.defineProperty,p={f:u?Object.defineProperty:function(t,n,e){if(i(t),n=function(t,n){if(!o(t))return t;var e,r;if(n&&"function"==typeof(e=t.toString)&&!o(r=e.call(t)))return r;if("function"==typeof(e=t.valueOf)&&!o(r=e.call(t)))return r;if(!n&&"function"==typeof(e=t.toString)&&!o(r=e.call(t)))return r;throw TypeError("Can't convert object to primitive value")}(n,!0),i(e),f)try{return s(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},v=u?function(t,n,e){return p.f(t,n,function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}(1,e))}:function(t,n,e){return t[n]=e,t},h={}.hasOwnProperty,d=function(t,n){return h.call(t,n)},g=0,y=Math.random(),m=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++g+y).toString(36))},b=n((function(t){var n=e["__core-js_shared__"]||(e["__core-js_shared__"]={});(t.exports=function(t,e){return n[t]||(n[t]=void 0!==e?e:{})})("versions",[]).push({version:r.version,mode:"global",copyright:"\xa9 2019 Denis Pushkarev (zloirock.ru)"})})),w=b("native-function-to-string",Function.toString),x=n((function(t){var n=m("src"),o=(""+w).split("toString");r.inspectSource=function(t){return w.call(t)},(t.exports=function(t,r,i,c){var u="function"==typeof i;u&&(d(i,"name")||v(i,"name",r)),t[r]!==i&&(u&&(d(i,n)||v(i,n,t[r]?""+t[r]:o.join(String(r)))),t===e?t[r]=i:c?t[r]?t[r]=i:v(t,r,i):(delete t[r],v(t,r,i)))})(Function.prototype,"toString",(function(){return"function"==typeof this&&this[n]||w.call(this)}))})),_=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t},S=function(t,n,e){if(_(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}},O=function(t,n,o){var i,c,u,a,l=t&O.F,f=t&O.G,s=t&O.S,p=t&O.P,h=t&O.B,d=f?e:s?e[n]||(e[n]={}):(e[n]||{}).prototype,g=f?r:r[n]||(r[n]={}),y=g.prototype||(g.prototype={});for(i in f&&(o=n),o)u=((c=!l&&d&&void 0!==d[i])?d:o)[i],a=h&&c?S(u,e):p&&"function"==typeof u?S(Function.call,u):u,d&&x(d,i,u,t&O.U),g[i]!=u&&v(g,i,a),p&&y[i]!=u&&(y[i]=u)};e.core=r,O.F=1,O.G=2,O.S=4,O.P=8,O.B=16,O.W=32,O.U=64,O.R=128;var k=O,E={}.toString,j=function(t){return E.call(t).slice(8,-1)},A=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==j(t)?t.split(""):Object(t)},P=function(t){if(null==t)throw TypeError("Can't call method on  "+t);return t},R=function(t){return A(P(t))},I=Math.ceil,M=Math.floor,T=function(t){return isNaN(t=+t)?0:(t>0?M:I)(t)},C=Math.min,z=function(t){return t>0?C(T(t),9007199254740991):0},L=Math.max,q=Math.min,D=function(t){return function(n,e,r){var o,i=R(n),c=z(i.length),u=function(t,n){return(t=T(t))<0?L(t+n,0):q(t,n)}(r,c);if(t&&e!=e){for(;c>u;)if((o=i[u++])!=o)return!0}else for(;c>u;u++)if((t||u in i)&&i[u]===e)return t||u||0;return!t&&-1}},F=n((function(t){var n=b("wks"),r=e.Symbol,o="function"==typeof r;(t.exports=function(t){return n[t]||(n[t]=o&&r[t]||(o?r:m)("Symbol."+t))}).store=n})),$=F("unscopables"),N=Array.prototype;null==N[$]&&v(N,$,{});var U,B=D(!0);k(k.P,"Array",{includes:function(t){return B(this,t,arguments.length>1?arguments[1]:void 0)}}),U="includes",N[$][U]=!0;var G=F("match"),V=function(t){var n;return o(t)&&(void 0!==(n=t[G])?!!n:"RegExp"==j(t))},W=function(t,n,e){if(V(n))throw TypeError("String#"+e+" doesn't accept regex!");return String(P(t))},X=F("match");k(k.P+k.F*function(t){var n=/./;try{"default.htm"[t](n)}catch(e){try{return n[X]=!1,!"default.htm"[t](n)}catch(t){}}return!0}("includes"),"String",{includes:function(t){return!!~W(this,t,"includes").indexOf(t,arguments.length>1?arguments[1]:void 0)}});var Y,H,J=function(t){return Object(P(t))},K=function(t){return function(n,e){var r,o,i=String(P(n)),c=T(e),u=i.length;return c<0||c>=u?t?"":void 0:(r=i.charCodeAt(c))<55296||r>56319||c+1===u||(o=i.charCodeAt(c+1))<56320||o>57343?t?i.charAt(c):r:t?i.slice(c,c+2):o-56320+(r-55296<<10)+65536}}(!0),Q=function(t,n,e){return n+(e?K(t,n).length:1)},Z=F("toStringTag"),tt="Arguments"==j(function(){return arguments}()),nt=function(t){var n,e,r;return void 0===t?"Undefined":null===t?"Null":"string"==typeof(e=function(t,n){try{return t[n]}catch(t){}}(n=Object(t),Z))?e:tt?j(n):"Object"==(r=j(n))&&"function"==typeof n.callee?"Arguments":r},et=RegExp.prototype.exec,rt=function(t,n){var e=t.exec;if("function"==typeof e){var r=e.call(t,n);if("object"!=typeof r)throw new TypeError("RegExp exec method returned something other than an Object or null");return r}if("RegExp"!==nt(t))throw new TypeError("RegExp#exec called on incompatible receiver");return et.call(t,n)},ot=function(){var t=i(this),n="";return t.global&&(n+="g"),t.ignoreCase&&(n+="i"),t.multiline&&(n+="m"),t.unicode&&(n+="u"),t.sticky&&(n+="y"),n},it=RegExp.prototype.exec,ct=String.prototype.replace,ut=it,at=(Y=/a/,H=/b*/g,it.call(Y,"a"),it.call(H,"a"),0!==Y.lastIndex||0!==H.lastIndex),lt=void 0!==/()??/.exec("")[1];(at||lt)&&(ut=function(t){var n,e,r,o,i=this;return lt&&(e=new RegExp("^"+i.source+"$(?!\\s)",ot.call(i))),at&&(n=i.lastIndex),r=it.call(i,t),at&&r&&(i.lastIndex=i.global?r.index+r[0].length:n),lt&&r&&r.length>1&&ct.call(r[0],e,(function(){for(o=1;o<arguments.length-2;o++)void 0===arguments[o]&&(r[o]=void 0)})),r});var ft=ut;k({target:"RegExp",proto:!0,forced:ft!==/./.exec},{exec:ft});var st=F("species"),pt=!c((function(){var t=/./;return t.exec=function(){var t=[];return t.groups={a:"7"},t},"7"!=="".replace(t,"$<a>")})),vt=function(){var t=/(?:)/,n=t.exec;t.exec=function(){return n.apply(this,arguments)};var e="ab".split(t);return 2===e.length&&"a"===e[0]&&"b"===e[1]}(),ht=function(t,n,e){var r=F(t),o=!c((function(){var n={};return n[r]=function(){return 7},7!=""[t](n)})),i=o?!c((function(){var n=!1,e=/a/;return e.exec=function(){return n=!0,null},"split"===t&&(e.constructor={},e.constructor[st]=function(){return e}),e[r](""),!n})):void 0;if(!o||!i||"replace"===t&&!pt||"split"===t&&!vt){var u=/./[r],a=e(P,r,""[t],(function(t,n,e,r,i){return n.exec===ft?o&&!i?{done:!0,value:u.call(n,e,r)}:{done:!0,value:t.call(e,n,r)}:{done:!1}})),l=a[0],f=a[1];x(String.prototype,t,l),v(RegExp.prototype,r,2==n?function(t,n){return f.call(t,this,n)}:function(t){return f.call(t,this)})}},dt=Math.max,gt=Math.min,yt=Math.floor,mt=/\$([$&`']|\d\d?|<[^>]*>)/g,bt=/\$([$&`']|\d\d?)/g;ht("replace",2,(function(t,n,e,r){return[function(r,o){var i=t(this),c=null==r?void 0:r[n];return void 0!==c?c.call(r,i,o):e.call(String(i),r,o)},function(t,n){var c=r(e,t,this,n);if(c.done)return c.value;var u=i(t),a=String(this),l="function"==typeof n;l||(n=String(n));var f=u.global;if(f){var s=u.unicode;u.lastIndex=0}for(var p=[];;){var v=rt(u,a);if(null===v)break;if(p.push(v),!f)break;""===String(v[0])&&(u.lastIndex=Q(a,z(u.lastIndex),s))}for(var h,d="",g=0,y=0;y<p.length;y++){v=p[y];for(var m=String(v[0]),b=dt(gt(T(v.index),a.length),0),w=[],x=1;x<v.length;x++)w.push(void 0===(h=v[x])?h:String(h));var _=v.groups;if(l){var S=[m].concat(w,b,a);void 0!==_&&S.push(_);var O=String(n.apply(void 0,S))}else O=o(m,a,b,w,_,n);b>=g&&(d+=a.slice(g,b)+O,g=b+m.length)}return d+a.slice(g)}];function o(t,n,r,o,i,c){var u=r+t.length,a=o.length,l=bt;return void 0!==i&&(i=J(i),l=mt),e.call(c,l,(function(e,c){var l;switch(c.charAt(0)){case"$":return"$";case"&":return t;case"`":return n.slice(0,r);case"'":return n.slice(u);case"<":l=i[c.slice(1,-1)];break;default:var f=+c;if(0===f)return e;if(f>a){var s=yt(f/10);return 0===s?e:s<=a?void 0===o[s-1]?c.charAt(1):o[s-1]+c.charAt(1):e}l=o[f-1]}return void 0===l?"":l}))}})),ht("match",1,(function(t,n,e,r){return[function(e){var r=t(this),o=null==e?void 0:e[n];return void 0!==o?o.call(e,r):new RegExp(e)[n](String(r))},function(t){var n=r(e,t,this);if(n.done)return n.value;var o=i(t),c=String(this);if(!o.global)return rt(o,c);var u=o.unicode;o.lastIndex=0;for(var a,l=[],f=0;null!==(a=rt(o,c));){var s=String(a[0]);l[f]=s,""===s&&(o.lastIndex=Q(c,z(o.lastIndex),u)),f++}return 0===f?null:l}]}));var wt,xt=function(){var t,n,e,r=0,o=0,i=0,c=0,u=0,a=0,l=0,f=0,s=0,p=/link\?url\=([^\&]+)/,v=/\?url\=([^\.]+)\./,h=/[?&]tn=([^&]*)/;function d(t){if(!t)return!1;var n=p.exec(t)||v.exec(t);return!!n&&(p.exec(t)?n[1].length<20?n[1]:n[1].substr(0,20):n[1])}function g(e){var c,u,a=(c=s.href,u=s.getAttribute("data-cklink"),d(c)||d(u));!1!==a&&function(e){var c="&ck="+[e,i,f,Math.round(r),Math.round(o),Math.round(t),Math.round(n),l].join("."),u=s.href,a=s.getAttribute("data-cklink");u&&d(u)&&(s.href=m(u,c)+y(u));a&&d(a)&&s.setAttribute("data-cklink",m(a,c)+y(a))}(function(t,n){for(var e=0,r=0;r<i*n%99+9;r++)e+=t.charCodeAt(f*r%t.length);return e}(a,e))}function y(t){var n="";if(-1===t.indexOf("&shh=")&&-1===t.indexOf("?shh=")&&(n="&shh="+location.hostname),-1===t.indexOf("&sht=")&&-1===t.indexOf("?sht=")){var e=location.href.match(h);e&&(n+="&sht="+e[1])}return n}function m(t,n){return d(t)&&(-1===t.indexOf("&ck=")?t+=n:t=t.replace(/&ck=[\d.]*/,n)),t}function b(t,n,e){for(var r,o,i=n.length,c=0;c<i;c++)r=n[c],o=e[c],window.attachEvent?t.attachEvent("on"+r,o):t.addEventListener(r,o,!1)}function w(e){return[function(u){!function(e,u){e=e||window.event,s=e.target||e.srcElement,i++,void 0===t&&(t=e.clientX),void 0===n&&(n=e.clientY),r=0,o=0,f=0,l=0,c=(new Date).getTime(),g(u)}(u,e)},function(t){!function(t,n){for(t=t||window.event,s=t.target||t.srcElement;s&&"A"!==s.tagName;)s=s.parentNode;u=(new Date).getTime(),f=9999,r=t.clientX,o=t.clientY,l=0===c?0:u-c,g(n)}(t,e)},function(t){!function(t,n){a=(new Date).getTime(),f=a-u,g(n)}(0,e)}]}function x(t){var n=t.href;if(d(n)){var e="&ck="+[0,i,f,Math.round(r),Math.round(o),0,0,l].join("."),c=t.getAttribute("data-cklink");n&&(t.href=m(n,e)+y(n)),c&&t.setAttribute("data-cklink",m(c,e)+y(c))}}function _(t,n,e){void 0===t.length&&(t=[t]);for(var r=t.length,o=0,i=w(n);o<r;o++)e||x(t[o]),b(t[o],["mouseover","mousedown","mouseup"],i)}return{getInstance:function(t){return e||(e={addAdsCk:_}),e}}},_t={init:function(t,n,e){var r=xt().getInstance(t);wt=r;for(var o=document.querySelectorAll(t),i=0;i<o.length;i++){var c=o[i],u=c.getAttribute("data-ecimtimesign")||c.getAttribute("data-pz-sign"),a=u||n,l=c.getElementsByTagName("A");r.addAdsCk(l,a,e)}return r},getInstance:function(){return wt}};u&&"g"!=/./g.flags&&p.f(RegExp.prototype,"flags",{configurable:!0,get:ot});var St=/./.toString,Ot=function(t){x(RegExp.prototype,"toString",t,!0)};c((function(){return"/a/b"!=St.call({source:"a",flags:"b"})}))?Ot((function(){var t=i(this);return"/".concat(t.source,"/","flags"in t?t.flags:!u&&t instanceof RegExp?ot.call(t):void 0)})):"toString"!=St.name&&Ot((function(){return St.call(this)}));var kt={};function Et(t,n){if(t){var e=(new Date).getTime(),r=new Image;t+="&rand="+(e+Math.random()),window.ecomLogImage||(window.ecomLogImage={}),window.ecomLogImage["--IMAGE"+e]=r,n=n||{};var o=!1;r.onload=r.onerror=r.onabort=function(i){if(!n.charge)if(i&&"load"!==i.type){if(!o)return r.src=t,void(o=!0);"error"in n&&n.error()}else"load"in n&&n.load();r.onload=r.onerror=r.onabort=null,window.ecomLogImage["--IMAGE"+e]=null,r=null},r.src=t}}kt[F("toStringTag")]="z",kt+""!="[object z]"&&x(Object.prototype,"toString",(function(){return"[object "+nt(this)+"]"}),!0);var jt=b("keys"),At=D(!1),Pt=function(t){return jt[t]||(jt[t]=m(t))}("IE_PROTO"),Rt="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(","),It=Object.keys||function(t){return function(t,n){var e,r=R(t),o=0,i=[];for(e in r)e!=Pt&&d(r,e)&&i.push(e);for(;n.length>o;)d(r,e=n[o++])&&(~At(i,e)||i.push(e));return i}(t,Rt)},Mt={f:Object.getOwnPropertySymbols},Tt={f:{}.propertyIsEnumerable},Ct=Object.assign,zt=!Ct||c((function(){var t={},n={},e=Symbol(),r="abcdefghijklmnopqrst";return t[e]=7,r.split("").forEach((function(t){n[t]=t})),7!=Ct({},t)[e]||Object.keys(Ct({},n)).join("")!=r}))?function(t,n){for(var e=J(t),r=arguments.length,o=1,i=Mt.f,c=Tt.f;r>o;)for(var a,l=A(arguments[o++]),f=i?It(l).concat(i(l)):It(l),s=f.length,p=0;s>p;)a=f[p++],u&&!c.call(l,a)||(e[a]=l[a]);return e}:Ct;k(k.S+k.F,"Object",{assign:zt});var Lt=F("species"),qt=Math.min,Dt=[].push,Ft="length",$t=!c((function(){RegExp(4294967295,"y")}));function Nt(t,n){for(var e=0;e<n.length;e++){var r=n[e];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function Ut(t){return(Ut=Object.setPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}function Bt(t,n){return(Bt=Object.setPrototypeOf||function(t,n){return t.__proto__=n,t})(t,n)}function Gt(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(t){return!1}}function Vt(t,n){return!n||"object"!=typeof n&&"function"!=typeof n?function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t):n}ht("split",2,(function(t,n,e,r){var o;return o="c"=="abbc".split(/(b)*/)[1]||4!="test".split(/(?:)/,-1)[Ft]||2!="ab".split(/(?:ab)*/)[Ft]||4!=".".split(/(.?)(.?)/)[Ft]||".".split(/()()/)[Ft]>1||"".split(/.?/)[Ft]?function(t,n){var r=String(this);if(void 0===t&&0===n)return[];if(!V(t))return e.call(r,t,n);for(var o,i,c,u=[],a=(t.ignoreCase?"i":"")+(t.multiline?"m":"")+(t.unicode?"u":"")+(t.sticky?"y":""),l=0,f=void 0===n?4294967295:n>>>0,s=new RegExp(t.source,a+"g");(o=ft.call(s,r))&&!((i=s.lastIndex)>l&&(u.push(r.slice(l,o.index)),o[Ft]>1&&o.index<r[Ft]&&Dt.apply(u,o.slice(1)),c=o[0][Ft],l=i,u[Ft]>=f));)s.lastIndex===o.index&&s.lastIndex++;return l===r[Ft]?!c&&s.test("")||u.push(""):u.push(r.slice(l)),u[Ft]>f?u.slice(0,f):u}:"0".split(void 0,0)[Ft]?function(t,n){return void 0===t&&0===n?[]:e.call(this,t,n)}:e,[function(e,r){var i=t(this),c=null==e?void 0:e[n];return void 0!==c?c.call(e,i,r):o.call(String(i),e,r)},function(t,n){var c=r(o,t,this,n,o!==e);if(c.done)return c.value;var u=i(t),a=String(this),l=function(t,n){var e,r=i(t).constructor;return void 0===r||null==(e=i(r)[Lt])?n:_(e)}(u,RegExp),f=u.unicode,s=(u.ignoreCase?"i":"")+(u.multiline?"m":"")+(u.unicode?"u":"")+($t?"y":"g"),p=new l($t?u:"^(?:"+u.source+")",s),v=void 0===n?4294967295:n>>>0;if(0===v)return[];if(0===a.length)return null===rt(p,a)?[a]:[];for(var h=0,d=0,g=[];d<a.length;){p.lastIndex=$t?d:0;var y,m=rt(p,$t?a:a.slice(d));if(null===m||(y=qt(z(p.lastIndex+($t?0:d)),a.length))===h)d=Q(a,d,f);else{if(g.push(a.slice(h,d)),g.length===v)return g;for(var b=1;b<=m.length-1;b++)if(g.push(m[b]),g.length===v)return g;d=h=y}}return g.push(a.slice(h)),g}]}));var Wt=n((function(t){var n=Object.prototype.hasOwnProperty,e="~";function r(){}function o(t,n,e){this.fn=t,this.context=n,this.once=e||!1}function i(t,n,r,i,c){if("function"!=typeof r)throw new TypeError("The listener must be a function");var u=new o(r,i||t,c),a=e?e+n:n;return t._events[a]?t._events[a].fn?t._events[a]=[t._events[a],u]:t._events[a].push(u):(t._events[a]=u,t._eventsCount++),t}function c(t,n){0==--t._eventsCount?t._events=new r:delete t._events[n]}function u(){this._events=new r,this._eventsCount=0}Object.create&&(r.prototype=Object.create(null),(new r).__proto__||(e=!1)),u.prototype.eventNames=function(){var t,r,o=[];if(0===this._eventsCount)return o;for(r in t=this._events)n.call(t,r)&&o.push(e?r.slice(1):r);return Object.getOwnPropertySymbols?o.concat(Object.getOwnPropertySymbols(t)):o},u.prototype.listeners=function(t){var n=e?e+t:t,r=this._events[n];if(!r)return[];if(r.fn)return[r.fn];for(var o=0,i=r.length,c=new Array(i);o<i;o++)c[o]=r[o].fn;return c},u.prototype.listenerCount=function(t){var n=e?e+t:t,r=this._events[n];return r?r.fn?1:r.length:0},u.prototype.emit=function(t,n,r,o,i,c){var u=e?e+t:t;if(!this._events[u])return!1;var a,l,f=this._events[u],s=arguments.length;if(f.fn){switch(f.once&&this.removeListener(t,f.fn,void 0,!0),s){case 1:return f.fn.call(f.context),!0;case 2:return f.fn.call(f.context,n),!0;case 3:return f.fn.call(f.context,n,r),!0;case 4:return f.fn.call(f.context,n,r,o),!0;case 5:return f.fn.call(f.context,n,r,o,i),!0;case 6:return f.fn.call(f.context,n,r,o,i,c),!0}for(l=1,a=new Array(s-1);l<s;l++)a[l-1]=arguments[l];f.fn.apply(f.context,a)}else{var p,v=f.length;for(l=0;l<v;l++)switch(f[l].once&&this.removeListener(t,f[l].fn,void 0,!0),s){case 1:f[l].fn.call(f[l].context);break;case 2:f[l].fn.call(f[l].context,n);break;case 3:f[l].fn.call(f[l].context,n,r);break;case 4:f[l].fn.call(f[l].context,n,r,o);break;default:if(!a)for(p=1,a=new Array(s-1);p<s;p++)a[p-1]=arguments[p];f[l].fn.apply(f[l].context,a)}}return!0},u.prototype.on=function(t,n,e){return i(this,t,n,e,!1)},u.prototype.once=function(t,n,e){return i(this,t,n,e,!0)},u.prototype.removeListener=function(t,n,r,o){var i=e?e+t:t;if(!this._events[i])return this;if(!n)return c(this,i),this;var u=this._events[i];if(u.fn)u.fn!==n||o&&!u.once||r&&u.context!==r||c(this,i);else{for(var a=0,l=[],f=u.length;a<f;a++)(u[a].fn!==n||o&&!u[a].once||r&&u[a].context!==r)&&l.push(u[a]);l.length?this._events[i]=1===l.length?l[0]:l:c(this,i)}return this},u.prototype.removeAllListeners=function(t){var n;return t?(n=e?e+t:t,this._events[n]&&c(this,n)):(this._events=new r,this._eventsCount=0),this},u.prototype.off=u.prototype.removeListener,u.prototype.addListener=u.prototype.on,u.prefixed=e,u.EventEmitter=u,t.exports=u})),Xt={},Yt={},Ht=function(t){!function(t,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(n&&n.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),n&&Bt(t,n)}(c,t);var n,e,r,o,i=(n=c,function(){var t,e=Ut(n);if(Gt()){var r=Ut(this).constructor;t=Reflect.construct(e,arguments,r)}else t=e.apply(this,arguments);return Vt(this,t)});function c(t){var n;return function(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}(this,c),n=i.call(this),Xt=t,Yt=t,n}return e=c,(r=[{key:"set",value:function(t,n){for(var e=this.get(t),r=t.split("."),o=Xt,i=0,c=r.length;i<c;i++)void 0===o[r[i]]&&(o[r[i]]={}),i===c-1&&(o[r[i]]=n,this.emit("env:change[".concat(t,"]"),[e,n])),o=o[r[i]]}},{key:"get",value:function(t){for(var n=t.split("."),e=Xt,r=0,o=n.length;r<o;r++){if(void 0===e[n[r]])return e[n[r]];e=e[n[r]]}return e}},{key:"getValue",value:function(){return Object.assign({},Xt)}},{key:"getInitValue",value:function(){return Object.assign({},Yt)}}])&&Nt(e.prototype,r),o&&Nt(e,o),c}(Wt),Jt=null,Kt=function(t){return Jt||(Jt=new Ht(t)),Jt};function Qt(t){var n=function(t){var n=!1;try{t&&navigator.sendBeacon&&(n=navigator.sendBeacon(t))}catch(t){}return n}(t);return n||(Et(t),null)}var Zt="https://fclick.baidu.com/w.gif";function tn(t){var n=Kt().getValue();!t.searchId&&n&&n.searchid&&(t.searchId=n.searchid),"ecom_wise_listen_n"===t.tag&&n&&(!t.asp_time&&n.aspTime&&(t.asp_time=n.aspTime),!t.query&&n.queryWordEnc&&(t.query=n.queryWordEnc),!t.queryUtf8&&n.query&&(t.queryUtf8=n.query));var e=[];for(var r in t)t.hasOwnProperty(r)&&e.push(encodeURIComponent(r)+"="+encodeURIComponent(t[r]));return e.join("&")}function nn(t){var n=Kt().getValue();n&&n.flags&&n.flags.changeFclickToBeacon?function(t){var n=(new Date).getTime();t&&(t.rand=n+Math.random()),Qt([Zt,tn(t)].join("?"))}(t):Et([Zt,tn(t)].join("?"))}var en,rn=function(t){this.env=t||{}};rn.prototype={report:function(t){nn(this.extend(this.env,{tag:"ps-js-error",datetime:(new Date).getTime(),message:t.message,stack:t.stack}))},support:function(t,n){if("function"==typeof t){n=t;try{n()}catch(t){this.report(t)}}else{var e=t[n];t[n]=function(){try{for(var n=arguments.length,r=new Array(n),o=0;o<n;o++)r[o]=arguments[o];e.apply(t,r)}catch(t){this.report(t)}}}},extend:function(){for(var t={},n=0,e=arguments.length;n<e;n++)if("[object Object]"===Object.prototype.toString.call(arguments[n]))for(var r in arguments[n])t[r]=arguments[n][r];return t}};var on=function(t){return en||(en=new rn(t)),en};t.PARAMS={};t.ck=_t,t.init=function(n){t.PARAMS=n;var e,r,o,i,c=".EC_ads_container";"image_search_imgtext"===t.PARAMS.pageid&&(c=".EC_result"),["pc_wenku_yueduye_new","pc_ns_wenku_yuedu_new","pc_search_zhidao_zsyx"].includes(t.PARAMS.pageid)&&(c="."+t.PARAMS.resultClass),["pc_wenku_zsyx_yuedu","iknow_zsyx_pcsearch","pc_wenku_zsyx_search"].includes(t.PARAMS.pageid)&&(c="[data-pz-sign]"),e=function(){["pc_wenku_yueduye_new","pc_wenku_zsyx_yuedu","iknow_zsyx_pcsearch","pc_wenku_zsyx_search"].includes(t.PARAMS.pageid)?_t.init(c,t.PARAMS.imTimeSign,!0):_t.init(c,t.PARAMS.imTimeSign)},r=!0,i=on(o||{}),!0===r?i.support(e):window.addEventListener?window.addEventListener("load",(function(){i.support(e)}),!1):window.attachEvent?window.attachEvent("onload",(function(){i.support(e)})):window.onload?window.onload=function(){i.support(e)}:i.support(e)}}(this.ecomPcOnlyCkGlobal=this.ecomPcOnlyCkGlobal||{});
+
+            (function (variable) {
+                window.ecomPcOnlyCkGlobal.init(variable);
+            })({"searchid":"98c4fc81c841d89a","eid":"7869012_300001","bwsid":0,"osid":0,"pageid":"iknow_zsyx_pcsearch","baiduid":"94482A131FA24158E50D172C35E49B2B","ovlid":"112261-dz#108866-11#110191-dz#111824-dz#110070-9#109634-2#111685-11#112589-7#112213-dz#109415-dz#112133-dz#111574-1#110643-1#111762-dz#109445-dz#63777-dz#111894-dz#109450-1#109979-dz#47135-10#110919-1#147nj-0","wpt":0,"netType":0,"cuid":"","feedCuid":"","query":"_QUERY_","imTimeSign":47,"asynMode":0,"asynUrl":"","isWiseDropDown":false,"asynsid":"","aspTime":1694664517014,"sourceAdNum":{"ads_1915":1},"asynQuery":"","jFieldLinkMap":{"DD_NR2Ar5Od663mqZw4g_3_acPrQA1JHKePZKILqhFB8Eu83SPhl1W34PLW_34PSOo7Gk_xhOU_emJqPTgeOzOgdBY3Sg0kSUQtECBOUOfoOPSLOoltnXWCmBOxSRTygG3m_EzWBOUB8OP-SRx4JqTx4JSjCBOx_Wlq8-tyV17xHdd3hcELO-Z7-lXAQQtC3Ev3oE1ux-ZSpEgZSpE6lcEL3xdOhtpZUdqbUqRHAJekOQsx-S8jNZdHYmtHA1oqauhnMgHfhH7ThuBEoYwYA5EgISGS9OcSEMOsPZWzs_OqWGOdOo355qaJegS9Nerr5wSy81NOoqM4_EzSBQqEqaEtLexSEOspxClxuGOBxgxO_dpOOKS9SLSE5SLOVxe5lhXWYOSjZSOOvrvQQGvwxEst54Ov3XAQ93q_NxHO35SK-OeZuPemESk6JB3kpc854_EWxP-1eqNxzecELOzqZ4Everv2EHg7SOtEdvpCEu7SOtC3_EHskux-Z7SL7ISUQtCO1Nl3O1NtZw7SOjSEtLWfW_OxSgl3JeOCBzq5jSp8qmhZq_H8KmuCyn-XHIER":""},"upAdNum":0,"middleAdNum":0,"downAdNum":0,"flags":{"fixPlusSign":true,"useNsWiseJs":true,"nsJsLog":true,"buildFeedLink":true,"smartappExtraUpdate":true},"variable":{},"rsContent":[],"ecomData204":"","ecomData213":"","ecomData217":"","ad204Num":0,"ad213Num":0,"ad217Num":0,"isHasImlp":false,"adsInfo":{"98c4fc81c841d89a_1274_0":{"ideaId":75913167078,"docId":"","mts":[8305]}},"bdCid":70,"bdPid":5,"queryWordEnc":"%5FQUERY%5F","wiseSt":"","requestIpV4":2329901674,"fnizebrab":"","nsVerticalKdomainList":[],"is_rm_asyn":true,"mod":"","app_verison":"","os_version":"","bd_version":"","ios_version":0,"passportId":0,"hasYunyingCard":false,"wiseFrom":"","resultClass":"fc-98c4fc81c841d89a"});
+        
+            </script>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="498:626205867670086292">
+<dt class="dt mb-3 line" alog-alias="result-title-2">
+<a href="question/626205867670086292.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:3,st:0"
+                   target="_blank" class="ti">mysqli_<em>query</em>()函数的返回值类型是</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>一、mysqli_<em>query</em>($conn, $sql)的返回值类型：(1)DML: 增删改，执行失败返回false，成功返回true (2)DQL: 查，执行失败返回false，成功返回查询结果集对象，可能有0/1/N行数据；从其中获取一行数据可以使用：row=mysql...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2022-12-15</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruid70d04069236f25705e791ecc" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:3">cn#GBLkufGLLB</a>
+</span>
+<span class="mr-8">
+<a href="question/626205867670086292.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:3">1个回答</a>
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="521:983573447239383259">
+<dt class="dt mb-3 line" alog-alias="result-title-3">
+<a href="question/983573447239383259.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:4,st:0"
+                   target="_blank" class="ti">mysql_<em>query</em>()的返回值到底是什么</a>
+</dt>
+<dd class="dd summary"><i class="i-answer-text">问：</i>查找资料说mysql_query()的返回值是一个资源标识符，这个资源标识符又该...</dd>
+<dd class="dd answer"><i class="i-answer-text">答：</i><em>mysql_query</em>()一般是用来查询数据里面的数据。如：username=$_POST[&quot;name&quot;];sql=&quot;SELECT *FROM members where login_name = &#39;username&#39;&quot;;result=mysql_query($sql);以上程序是检测数据库中是否存在表单传送过来的用户名。</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2017-09-30</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruidef484069236f25705e795062" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:4">du瓶邪</a>
+</span>
+<span class="mr-8">
+<a href="question/983573447239383259.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:4">10个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>59
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="521:1889305980059168308">
+<dt class="dt mb-3 line" alog-alias="result-title-4">
+<a href="question/1889305980059168308.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:5,st:0"
+                   target="_blank" class="ti">php里面的mysql_<em>query</em>具体的意思?</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>SQL 语句，mysql<em>_query</em>()在执行成功时返回 TRUE，出错时返回 FALSE。非 FALSE 的返回值意味着查询是合法的并能够被服务器执行。这并不说明任何有关影响到的或返回的行数。很有可能一条查询执行成功了但并未影响到或并未...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2019-08-16</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruidbc084069236f25705e79g6b1801000000" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:5">登皓君支妍</a>
+</span>
+<span class="mr-8">
+<a href="question/1889305980059168308.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:5">1个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>6
+</span>
+</dd>
+</dl>
+<script>
+            void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+        </script>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="521:382811459">
+<dt class="dt mb-3 line" alog-alias="result-title-5">
+<a href="question/382811459.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:6,st:0"
+                   target="_blank" class="ti">php mysql_<em>query</em>() 问题</a>
+</dt>
+<dd class="dd summary"><i class="i-answer-text">问：</i>&lt;?php $dbhost = "localhost"; //数据库主机名 $dbuser = "root"; //数...</dd>
+<dd class="dd answer"><i class="i-answer-text">答：</i><em>query</em>翻译为中文为查询的意思。。如果你真要扣字眼的话。。你要明白查询和查找的区别。。询的意思你可以百度。。是征求意见的意思。。mysql_query的意思也就是执行mysql语句的内容的意思。。唉。。我发现我也蛋疼了。。要...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2019-04-15</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruid8ce84069236f25705e79ga91c01000000" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:6">受璞金风</a>
+</span>
+<span class="mr-8">
+<a href="question/382811459.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:6">4个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>5
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="487:443077377522059124">
+<dt class="dt mb-3 line" alog-alias="result-title-6">
+<a href="question/443077377522059124.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:7,st:0"
+                   target="_blank" class="ti">如何解决PHP使用mysql_<em>query</em>查询超大结果集超内存问题</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>：function selecttest(){try {$pdo = new PDO(&quot;mysql:host=localhost;dbname=test&quot;, &#39;root&#39;, &#39;123456&#39;);// 不使用缓存结果集方式// $pdo-&gt;setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_<em>QUERY</em>,...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2023-07-27</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="../httpszhidao.baidu.com/business/profileid140195" target="_blank" class="f-lighter nod"
+                           data-log="pos:un,si:7">懂视生活</a>
+<span
+                                class="instype-icon icon-blue"></span>
+</span>
+<span class="mr-8">
+<a href="question/443077377522059124.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:7">1个回答</a>
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="623:97197035">
+<dt class="dt mb-3 line" alog-alias="result-title-7">
+<a href="question/97197035.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:8,st:0"
+                   target="_blank" class="ti">mysqli_<em>query</em>(&quot;SET NAMES &#39;gb2312&#39;&quot;)是什么意思?</a>
+</dt>
+<dd class="dd summary"><i class="i-answer-text">问：</i>如题，mysqli_query("SET NAMES 'gb2312'")是什么意思？ 为什么是SET NA...</dd>
+<dd class="dd answer"><i class="i-answer-text">答：</i>mysqli_<em>query</em>(&quot;SET NAMES gb2312&quot;)是用来设置客户端的字符集的，与服务器端的字符集无关。在连接mysql数据库时，为了防止现汉字乱码而使用的一个设置。SET NAMES gb2312   相当于下面三条指令：SET character_set_client...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2016-06-01</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruidffec4069236f25705e795b03" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:8">浪花涤英</a>
+</span>
+<span class="mr-8">
+<a href="question/97197035.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:8">2个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>5
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="623:2262203449514958668">
+<dt class="dt mb-3 line" alog-alias="result-title-8">
+<a href="question/2262203449514958668.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:9,st:0"
+                   target="_blank" class="ti">PHP中的mysql_<em>query</em>()函数的返回值是什么?</a>
+</dt>
+<dd class="dd summary"><i class="i-answer-text">问：</i>$insert=mysql_query($sql,$conn); if ($insert){ echo("&lt;script type='...</dd>
+<dd class="dd answer"><i class="i-answer-text">答：</i>mysql_<em>query</em>一般是用过来给MYSQL递交一个SQL语句去执行的仅对SELECT,SHOW,EXPLAIN 或 DESCRIBE 语句返回一个资源标识符,如果查询执行不正确则返回 FALSE。对于其它类型的 SQL 语句,mysql_query() 在执行成功时返回 TRUE,出错时返回 FALSE...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2008-12-17</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruid0f574069236f25705e792800" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:9">12901618</a>
+</span>
+<span class="mr-8">
+<a href="question/2262203449514958668.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:9">7个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>1
+</span>
+</dd>
+</dl>
+<dl class="dl" data-fb="pos:dt>a,type:normal" data-rank="576:586420078377601805">
+<dt class="dt mb-3 line" alog-alias="result-title-9">
+<a href="question/586420078377601805.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:10,st:0"
+                   target="_blank" class="ti">mysql_<em>query</em>的说明</a>
+</dt>
+<dd class="dd answer"><i class="i-answer-text">答：</i>resource mysql_<em>query</em> ( string query [, resource link_identifier])mysql_query() 向与指定的连接标识符关联的服务器中的当前活动数据库发送一条查询，如果没有指定 link_identifier，则使用上一个打开的连接。如果没有打开...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2016-05-18</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruid41a14069236f25705e79e01e" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:10">福州吧壹母1m</a>
+</span>
+<span class="mr-8">
+<a href="question/586420078377601805.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:10">1个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>1
+</span>
+</dd>
+</dl>
+<dl class="dl dl-last" data-fb="pos:dt>a,type:normal" data-rank="631:1540367577499209707">
+<dt class="dt mb-3 line" alog-alias="result-title-10">
+<a href="question/1540367577499209707.htmlfriksword_query_"
+                   data-log="fm:as,pos:ti,si:11,st:0"
+                   target="_blank" class="ti">php语言中的mysqli_<em>query</em></a>
+</dt>
+<dd class="dd summary"><i class="i-answer-text">问：</i>&lt;?php $db_host="localhost"; $db_user="root"; $db_pass=""; $db_name=...</dd>
+<dd class="dd answer"><i class="i-answer-text">答：</i>php语言中的mysqli_<em>query</em>() 函数执行某个针对数据库的查询。语法 mysqli_query(connection,query,resultmode);参数   描述 connection   必需。规定要使用的 MySQL 连接。query   必需，规定查询字符串。resultmode   可选...</dd>
+<dd class="dd explain f-lighter" alog-group="result-userinfo">
+<span class="mr-7">2018-03-29</span>
+<span class="mr-8">
+回答者:&nbsp;<a href="usercenteruide5bc4069236f25705e79bd45" target="_blank"
+                                   class="f-lighter nod"
+                                   data-log="pos:un,si:11">大卫安德烈</a>
+</span>
+<span class="mr-8">
+<a href="question/1540367577499209707.html" target="_blank" class="f-lighter nod"
+                       data-log="pos:ans,si:11">3个回答</a>
+</span>
+<span class="ml-10 f-grey">
+<i class="i-agree"></i>1
+</span>
+</dd>
+</dl>
+</div>
+
+
+</div>
+<div class="list-footer">
+
+
+<div id="lead-ps" class="f-14 line lead-ps" data-log-area="leadps" data-log-event="mousedown">
+<div>
+</div>
+</div>
+
+</div>
+</div>
+<aside class="aside fixheight">
+<div class="aside-inner">
+
+<div style="width: 100%;">
+<div id="right-billboard">
+<div class="billboard-head">
+<div class="billboard-title" id="billboard-head-log-target">
+<a class="billboard-title-icon" target="_blank" href="../www.baidu.com/linkurlqezzhufl28wx6ffd2ddgnrzjokp8ghrrwvnm-ciox5qu5k~1" ref="noopener noreferrer"></a>
+</div>
+<span class="billboard-reload">
+<span class="billboard-icon reload-icon mr-5"></span>
+换一换</span>
+</div>
+<ul class="billboard-list" id="billboard-log-target"></ul>
+</div>
+<script type="text/html" id="t:billboard-list">
+    <#for(var i = 0; i < data.length; i++){#>
+        <li class="billboard-item">
+            <span class="item-info">
+                <span class="item-index">
+                    <span class="item-index-num item-index-<#=data[i].itemIndex#>"><#=data[i].itemIndex#></span>
+                </span>
+        	    <a href="../https@www.baidu.com/baidu@word=_3C#:=encodeURIComponent(data[i].keyword)#>&rsv_dl=fyb_n_zhidaojs" ref="noopener noreferrer" target="_blank" class="item-title"><#=data[i].keyword#></a>
+                <#if (data[i].hotTags === 1) {#>
+                    <span class="item-text item-text-new">新</span>
+                <#} else if (data[i].hotTags === 2) {#>
+                    <span class="item-text item-text-bus">商</span>
+                <#} else if (data[i].hotTags === 3) {#>
+                    <span class="item-text item-text-hot">热</span>
+                <#} else if (data[i].hotTags === 4) {#>
+                    <span class="item-text item-text-boil">沸</span>
+                <#} else if (data[i].hotTags === 5) {#>
+                    <span class="item-text item-text-burst">爆</span>
+                <#}#>
+            </span>
+        	<span class="item-num">
+        		<span><#=data[i].searchesNum#></span>
+        	</span>
+        </li>
+    <#}#>
+</script>
+
+</div>
+
+
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+</div>
+
+
+
+
+<div class="aria-div" onclick="aria.start()">
+<a class="aria-a" href="javascript:void(0)">
+<img src="../httpsiknow-zhidao.bdimg.com/static/common-new/widget/aria/img/aria3x.b3c54ef.png">
+<p class="p-1">辅 助</p>
+<p class="p-2">模 式</p>
+</a>
+</div>
+
+
+
+
+
+<div class="search-body-end">
+
+<div class="widget-pager clearfix">
+<div class="pager" alog-alias="pager">
+<b>1</b><a href="searchword_query_site-1sites0date0pn10">2</a><a href="searchword_query_site-1sites0date0pn20">3</a><a href="searchword_query_site-1sites0date0pn30">4</a><a href="searchword_query_site-1sites0date0pn40">5</a><a href="searchword_query_site-1sites0date0pn50">6</a><a href="searchword_query_site-1sites0date0pn60">7</a><a href="searchword_query_site-1sites0date0pn70">8</a><a href="searchword_query_site-1sites0date0pn80">9</a><a href="searchword_query_site-1sites0date0pn90">10</a><a class="pager-next" href="searchword_query_site-1sites0date0pn10">下一页&gt;</a><a class="pager-last" href="searchword_query_site-1sites0date0pn750">尾页</a>
+</div>
+</div>
+
+<div id="footer-help" class="footer-help">
+<a target="_blank" rel="nofollow" href="../help.baidu.com/questionprod_id9class337">帮助</a>
+<a target="_blank" rel="nofollow" href="../help.baidu.com/newaddprod_id9category1">举报</a>
+<a target="_blank" rel="nofollow" href="javascript:;" id="footer-feedback">用户反馈</a>
+<a rel="nofollow" href="../help.baidu.com/questionprod_id9class325id2760" target="_blank">知道协议</a>
+<a target="_blank" rel="nofollow" href="../httpse.baidu.com/lp/search/refer1308">企业推广</a>
+</div>
+</div>
+
+
+
+<script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https:../fex.bdstatic.com"+d:"../fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","hunter/alog/dp.min.js");
+    </script>
+
+<script>
+				var _hmt = _hmt || [];
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "../httpshm.baidu.com/hm.js6859ce5aaf00fb00387e6434e4fcc925";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+				})();
+			</script>
+
+<script type="text/javascript"> window.tt = 1694664517;</script>
+<script defer async type="text/javascript"  src="../httpsiknow-zhidao.bdimg.com/static/common-new/wzatwo/aria.jsappidc890648bf4dd00d05eb9751dd0548c30" charset="utf-8"></script>
+</body><script type="text/javascript" src="../httpsiknow-zhidao.bdimg.com/static/common-new/lib/mod.75d1f98.js"></script><script nonce="" type="text/javascript">(window.__IKNOW_GLOBAL__ || window).require.resourceMap({"res":{"common-new:widget\/lib\/jquery\/jquery.origin.js":{"pkg":"common-new:p3"},"common-new:widget\/js\/util\/https\/https.js":{"pkg":"common-new:p6"},"common-new:widget\/js\/logic\/msg-new\/listrender.es.js":{"pkg":"common-new:p5"},"common-new:widget\/js\/logic\/msg-new\/msg-new.es.js":{"pkg":"common-new:p5","deps":["common-new:widget/js/util/tangram/tangram.js","common-new:widget/js/util/event/event.js","common-new:widget/js/util/log/log.js","common-new:widget/js/logic/msg-new/listrender.es.js"]},"common-new:widget/js/logic/tip-template/tiptemplate.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/lib\/jquery\/jquery.js"]},"common-new:widget/js/logic/usergrade/threshold.es.js":{"pkg":"common-new:p5"},"common-new:widget/js/logic/usergrade/gradedata.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/js\/logic\/usergrade\/threshold.es.js"]},"common-new:widget/js/ui/eff-reply-entry-dialog/eff-reply-entry-dialog.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/js\/util\/tangram\/tangram.js"]},"common-new:widget/js/ui/newdialog/newdialog.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/js\/util\/tangram\/tangram.js"]},"common-new:widget/js/ui/v-flash/js/v-icon.es.js":{"pkg":"common-new:p5"},"common-new:widget/js/ui/v-flash/js/flash.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/js\/ui\/v-flash\/js\/v-icon.es.js"]},"common-new:widget/js/util/domtoimage/dom-to-image.es.js":{"pkg":"common-new:p5"},"common-new:widget/js/util/monitor/monitor.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/js\/util\/log\/log.js"]},"common-new:widget/js/util/observer/observer.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/js\/util\/observer\/intersection-observer.js","common-new:widget/js/util/log/log.js"]},"common-new:widget\/js\/util\/reptile\/passMkd.es.js":{"pkg":"common-new:p5","deps":["common-new:widget/js/util/reptile/util.js"]},"common-new:widget/js/util/today/today.es.js":{"pkg":"common-new:p5","deps":["common-new:widget\/js\/util\/store\/store.js"]},"common-new:widget/bottom-ask/bottom-ask.js":{"pkg":"common-new:p0","deps":["common-new:widget\/js\/util\/tangram\/tangram.js","common-new:widget/js/util/event/event.js","common-new:widget\/js\/util\/log\/log.js"]},"common-new:widget/css/fonts/iconfont.js":{"pkg":"common-new:p0"},"common-new:widget/css/fonts/iconfont.min.js":{"pkg":"common-new:p0"},"common-new:widget/footer-new/footer-new.js":{"pkg":"common-new:p0","deps":["common-new:widget\/lib\/jquery\/jquery.js","common-new:widget/js/util/event/event.js","common-new:widget\/js\/util\/log\/log.js","common-new:widget/js/util/observer/intersection-observer.js"]},"common-new:widget\/footer\/footer.js":{"pkg":"common-new:p0"},"common-new:widget\/header-metis\/header.js":{"pkg":"common-new:p0","deps":["common-new:widget/lib/jquery/jquery.js","common-new:widget/js/ui/dialog/dialog.js","common-new:widget/js/util/template/template.js","common-new:widget/js/util/store/store.js"]},"common-new:widget/help-team-navigation/popup.js":{"pkg":"common-new:p0"},"common-new:widget/help-team-navigation/switch.js":{"pkg":"common-new:p0"},"common-new:widget/menu/menu.js":{"pkg":"common-new:p0","deps":["common-new:widget\/js\/util\/tangram\/tangram.js","common-new:widget/js/util/log/log.js"]},"common-new:widget\/search-box-new\/search-box-new.js":{"pkg":"common-new:p0","deps":["common-new:widget/js/util/tangram/tangram.js","common-new:widget/js/ui/suggestion-new/suggestion-new.js","common-new:widget/js/util/event/event.js","common-new:widget/js/util/form/form.js","common-new:widget/js/util/log/log.js","common-new:widget/js/ui/dialog/dialog.js","common-new:widget/lib/jquery.placeholder/jquery.placeholder.js"]},"common-new:widget/set-tag/set-tag.js":{"pkg":"common-new:p0","deps":["common-new:widget\/js\/util\/tangram\/tangram.js","common-new:widget/js/ui/scrollbar/scrollbar.js","common-new:widget\/js\/ui\/dialog\/dialog.js","common-new:widget/lib/jquery.ui/jquery.ui.sortable.js"]},"common-new:widget\/task\/task-last.js":{"pkg":"common-new:p0","deps":["common-new:widget/js/util/tangram/tangram.js","common-new:widget/js/util/log/log.js","common-new:widget/js/util/event/event.js","common-new:widget/js/ui/dialog/dialog.js","common-new:widget/js/util/https/https.js","common-new:widget/js/ui/pop-tip/pop-tip.js","common-new:widget/js/util/template/template.js","common-new:widget/js/logic/signin-task/signin-task.js"]},"common-new:widget/userbar-renew/userbar-renew.js":{"pkg":"common-new:p0","deps":["common-new:widget\/js\/util\/tangram\/tangram.js","common-new:widget/js/util/event/event.js","common-new:widget\/js\/util\/log\/log.js","common-new:widget/js/util/store/store.js"]},"search:widget\/js\/file\/file.js":{"url":"https:iknow-zhidao.bdimg.com/static/search/widget/js/file/file.e9783c5.js","deps":["common-new:widget/js/util/tangram/tangram.js","common-new:widget/js/util/suffix-str/suffix-str.js","common-new:widget/js/util/log/log.js","common-new:widget/js/util/event/event.js","common-new:widget/js/ui/dialog/dialog.js","common-new:widget/js/logic/submit/submit.js","common-new:widget/js/util/template/template.js"]},"search:widget/results/check-tip/check-tip.js":{"pkg":"search:p0"}},"pkg":{"common-new:p5":{"url":"https:iknow-zhidao.bdimg.com/static/common-new/pkg/esmod.3e2d044.js","has":["common-new:widget/js/logic/msg-new/listrender.es.js","common-new:widget/js/logic/msg-new/msg-new.es.js","common-new:widget/js/logic/tip-template/tiptemplate.es.js","common-new:widget/js/logic/usergrade/threshold.es.js","common-new:widget/js/logic/usergrade/gradedata.es.js","common-new:widget/js/ui/eff-reply-entry-dialog/eff-reply-entry-dialog.es.js","common-new:widget/js/ui/newdialog/newdialog.es.js","common-new:widget/js/ui/v-flash/js/v-icon.es.js","common-new:widget/js/ui/v-flash/js/flash.es.js","common-new:widget/js/util/domtoimage/dom-to-image.es.js","common-new:widget/js/util/monitor/monitor.es.js","common-new:widget/js/util/observer/observer.es.js","common-new:widget/js/util/reptile/passmkd.es.js","common-new:widget/js/util/today/today.es.js"]},"common-new:p0":{"url":"https:iknow-zhidao.bdimg.com/static/common-new/pkg/more.dbc2e5f.js","has":["common-new:widget\/bottom-ask\/bottom-ask.js","common-new:widget/css/fonts/iconfont.js","common-new:widget\/css\/fonts\/iconfont.min.js","common-new:widget/footer-new/footer-new.js","common-new:widget\/footer\/footer.js","common-new:widget/header-metis/header.js","common-new:widget\/help-team-navigation\/popup.js","common-new:widget/help-team-navigation/switch.js","common-new:widget\/menu\/menu.js","common-new:widget/search-box-new/search-box-new.js","common-new:widget\/set-tag\/set-tag.js","common-new:widget/task/task-last.js","common-new:widget\/userbar-renew\/userbar-renew.js"]}}});</script><script type="text/javascript" src="../httpsiknow-zhidao.bdimg.com/static/search/pkg/module.513918a.js"></script><script type="text/javascript" src="../httpsiknow-zhidao.bdimg.com/static/common-new/pkg/lib.ac0bfeb.js"></script><script type="text/javascript" src="../httpsiknow-zhidao.bdimg.com/static/common-new/pkg/commonjs.2aa0f58.js"></script><script type="text/javascript" src="../httpsiknow-zhidao.bdimg.com/static/search/widget/billboard/billboard.a0c4a1f.js"></script><script nonce="" type="text/javascript">
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;			window['__abbaidu_2016_subidgetf'] = function () {
+                var currentUrlArray = window.location.href.split("//");
+                var start = currentUrlArray[1].indexOf("/");
+                if (start == -1) {
+                    return 'iknow-pc-home';
+				}
+                var currentPath = currentUrlArray[1].substring(start);
+                if(currentPath.indexOf("?") != -1) {
+                    currentPath = currentPath.split("?")[0];
+                }
+                if (currentPath == "./") {
+                    return 'iknow-pc-home';
+				}
+				var pagePathMap = {
+					"question": "iknow-pc-qb",
+					"search": "iknow-pc-search",
+					"list": "iknow-pc-list",
+					"usercenter": "iknow-pc-usercenter",
+					"special/columndetail": "iknow-pc-special-detail",
+					"uteam/packageshop": "iknow-pc-packageshop",
+					"daily": {
+						"subid": "iknow-pc-daily-index",
+						"subPage": {
+							"daily/index": "iknow-pc-daily-index",
+							"daily/view": "iknow-pc-daily-view",
+							"daily/square": "iknow-pc-daily-square",
+							"daily/hotauthor": "iknow-pc-daily-hotauthor",
+							"daily/hotorg": "iknow-pc-daily-hotorg",
+							"daily/search": "iknow-pc-daily-search",
+							"daily/authorcenter": "iknow-pc-daily-authorcenter"
+						}
+					}
+				};
+				for (var key in pagePathMap) {
+					if (pagePathMap.hasOwnProperty(key)) {
+						var subPage = pagePathMap[key]["subPage"];
+						if (typeof subPage === "object") {
+							for (var subKey in subPage) {
+								if (subPage.hasOwnProperty(subKey)) {
+									if (currentPath.indexOf(subKey) === 0) {
+										if (typeof subPage[subKey] === "string") {
+											return subPage[subKey];
+										} else if (typeof subPage[subKey] === "object" && subPage[subKey]["subid"]) {
+											return subPage[subKey]["subid"];
+										}
+									}
+								}
+							}
+						}
+						if (currentPath.indexOf(key) === 0) {
+							if (typeof pagePathMap[key] === "string") {
+								return pagePathMap[key];
+							} else if (typeof pagePathMap[key] === "object" && pagePathMap[key]["subid"]) {
+								return pagePathMap[key]["subid"];
+							}
+						}
+					}
+				}
+				return 'iknow-pc-other';
+			}
+			window['__abbaidu_2016_cb'] = function (responseData) {
+                try {
+                    var respJSON = JSON.parse(responseData);
+
+                    var d = new Date();
+                    d.setTime(d.getTime()+(60*60*1000));
+                    var expires = "expires="+d.toGMTString();
+                    document.cookie = 'shitong_key_id=' + respJSON.key_id + '; ' + expires + '; path=/';
+                    document.cookie = 'shitong_data=' + respJSON.data + '; ' + expires + '; path=/';
+                    document.cookie = 'shitong_sign=' + respJSON.sign + '; ' + expires + '; path=/';
+                } catch (err) {
+                }
+   			};
+		}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    F.context('sfrom', 'search');
+    require.async(['common-new:widget/userbar-renew/userbar-renew']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['common-new:widget/search-box-new/search-box-new']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;      F.context('samplingAll', {"search_50per":["2"],"search_20per":["4"],"search_10per":["8"],"search_5per":["16"],"samplowVal":"760","qb_revision_ecom":[""],"aspluAds":["2"],"qb_knowledgeAds":["2"]});
+  }();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;  require.async(['search:widget/results/picker/picker'], function(P){P.init();});
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;  require.async(['search:widget/results/list/list']);
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['search:widget/billboard/billboard'], function(B) {
+    	B.init();
+    });
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    var $ = require('common-new:widget/js/util/tangram/tangram');
+    (function() {
+
+        // 计算悬浮框的位置
+        function countPosition () {
+            var cw = document.body.clientWidth;
+            if (cw < 1230) {
+                $('.aria-div').css({
+                    display: 'block',
+                    right: 0 + 'px',
+                    bottom: 60 + 'px'
+                });
+            }  else { 
+                $('.aria-div').css({
+                    display: 'block',
+                    right: (cw - 1070)/2 - 80 + 'px',
+                    top: '80%'
+                });
+            }
+        }
+        countPosition();
+
+        // 当页面宽度发生变化 则重新计算位置
+        $(window).on('resize', function () {
+            countPosition();    
+        });
+    })();
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require.async(['search:widget/js/dom-ready/dom-ready'], function(D){	
+      // 检索结果页接入dp平台domready打点
+      alog('speed.set', 'drt', +new Date);
+      D.init({"logConfig":{"ssid":"3229098849","pn":"0","wd":"_QUERY_","tc":"104","nsma":"2","asp_new_graphic_ad":"nonw"},"queryTab":""});	
+    });
+	}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;    require('common-new:widget/js/logic/ie-prompt/ie-prompt');
+    require.async(['common-new:widget/footer-new/footer-new'], function(footer) {
+        footer.init();
+    });
+}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;								                																					require.async(['common-new:widget/js/logic/dom-ready/dom-ready'], function(D){ D.init({"isNotPgc":"1"}) });
+            }();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;        require.async(["common-new:widget/js/logic/duration/duration"],function(dur){
+            dur.init();
+        });
+    }();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;			require.async(['common-new:widget/js/util/monitor/monitor.es'], function(m) {
+				window.iPerformance && m.monitor && m.monitor.init();
+			});
+		}();
+!function(){var F = (window.__IKNOW_GLOBAL__ || window).F;var require = (window.__IKNOW_GLOBAL__ || window).require;		require.async(['common-new:widget/js/util/log/log'], function(log) {
+			var ssrEnd = Date.now();
+			var cost = ssrEnd - Number(1694664517298);
+			setTimeout(function () {
+				log.send({
+					action: 'latency',
+					area: 'ssr',
+					plat: 'pc',
+					cost: cost,
+					uri: window.location.pathname
+				});
+			}, 1000);
+		});
+	}();
+</script>
+<script type="text/javascript">
+    require.async(['common-new:widget/lib/jquery/jquery'], function ($) {
+        if (!/chrome|firefox|safari|msie 10|rsv:11|msie [89]/i.test(navigator.userAgent)) {
+            return;
+        }
+
+        window.BaiduHttps = window.BaiduHttps || {};
+        window.BaiduHttps.callbacks = function (data) {
+            if (data && data.s === 0) {
+                window.supportHttps = 1;
+                setTimeout(function () {
+                    $('a[href^="http://www.baidu.com/s?"]').each(function (index, item) {
+                        var link = $(item).attr('href');
+                        if (~link.indexOf('?wd=') || ~link.indexOf('&wd=')) {
+                            link = link.replace(/^http/, 'https');
+                            $(item).attr('href', link);
+                        }
+                    });
+                }, 2000);
+            }
+        };
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '../httpswww.baidu.com/confromzhidao';
+        document.body.appendChild(script);
+    });
+</script>
+
+
+<script async="" src="../httpsdlswbr.baidu.com/heicha/mw/abclite-2016-s.js"></script>
+
+
+</html>

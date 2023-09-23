@@ -1,0 +1,1 @@
+define("common:widget/ui/arch/events/hover",function(e){e("common:widget/ui/arch/base/base");return{bind:function(e,n){e.hover(function(e){e.type="hover.on",n(e)},function(e){e.type="hover.off",n(e)})}}});

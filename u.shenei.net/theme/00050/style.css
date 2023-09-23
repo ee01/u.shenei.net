@@ -1,0 +1,81 @@
+/*
+[name]�m֮Ů[/name]
+Powered by hao678.cn
+*/
+body {
+	background-color: #000;
+	background-image: url(images/35395_top.jpg);
+	background-repeat: no-repeat;
+	color: #FFF;
+	background-position: center 40px;
+}
+a { color: #B4CDCD; }
+#wrap { width: 990px; }
+#header {
+	margin: 0;
+	width: 100%;
+	color: #CCC;
+	background-image: url(images/top_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+#header a { color: #FFF; }
+.headerwarp {
+	width: 950px;
+	height: 348px;
+	background: url(images/header.jpg) repeat-x 0 40px;
+}
+#header .logo a { width: 100px; height: 40px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+#header .logo a img { margin: -200px; }
+.login_thumb { background-image: url(images/login_bg.gif); }
+#space_page {
+	padding: 10px;
+	width: 970px;
+	background-image: url(images/ybg.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border: 1px solid #ADCBC0;
+}
+#ubar h2,
+#space_page .feed_header,
+.sidebox h2.title {
+	padding: 0 20px;
+	height: 30px;
+	background-image: url(images/title.gif);
+	color: #FFF;
+	line-height: 30px;
+}
+.tabs_header {
+	position: absolute;
+	width: 560px;
+	border: none;
+	margin-top: -42px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 60px;
+}
+#space_page .feed li,
+ #space_page .comments_list li,
+ #footer { border-color: #ECF1F3; }
+a#i_rss { color: #FFF; }
+.tabs_header ul.tabs li.active a,
+.tabs_header ul.tabs li.active a span,
+.tabs_header ul.tabs li a,
+.tabs_header ul.tabs li a span { background: none; }
+.ulist { background: #F9F0E3; }
+.tabs_header ul.tabs li a { border: 1px solid #ADCBC0; border-bottom: none; }
+.tabs_header { height: 31px; }
+#footer { padding: 20px 20px; border: none; background: url(images/ybg2.jpg) no-repeat 0 0; color: #FFF; }
+#footer a { color: #FFF; }
+#a_top{
+	line-height: 23px;
+	background-image: url(images/top_icon.gif);
+	display: block;
+	height: 23px;
+	width: 47px;
+	text-align: center;
+	padding-left: 10px;
+	background-repeat: no-repeat;
+}
+.active span{color:#FFF;}
+* textarea{padding:0 1px; border:1px dashed #503524; width:550px;height:90px; background:#eeeeee; background-image: url(images/l.jpg);}

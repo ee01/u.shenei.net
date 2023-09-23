@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0048)http://u.shenei.net/space-1-do-blog-id-7660.html --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<title>CSS float浮动的深入研究、详解及拓展 - 日志 - 小E←邱沼懿 - 【舍内网】 - 福州大学城最火爆的时尚交友互动平台！交友、游戏、学习、时尚一个不漏！</title>
+<meta name="keywords" content="舍内网,舍内交友,舍内资讯,舍内人,舍内市,同城交友,fzxyw,舍内时尚,舍内时尚,舍内女人,舍内妈妈宝宝" />
+<meta name="description" content="舍内网是福州大学城最火爆的交友互动网站！为福州大学城提供一个网络交友、网络学习、游戏娱乐、消磨无聊时间的一个互动平台，在这里！你可以结识到更多的朋友，商家可以在这里找到更多的客户！我们期待你的加入！" />
+<meta name="generator" content="shenei.net" />
+<meta name="author" content="shenei.net" />
+<meta name="copyright" content="2009-2010 shenei.net" />
+<script language="javascript" type="text/javascript" src="../source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_manage.js"></script>
+<script type="text/javascript" src="../js/suggestframework.js"></script>
+<script type="text/javascript">window.onload = initializeSuggestFramework;</script>
+<style type="text/css">
+@import url(../template/default/musicboxstyle.css);
+</style>
+<style type="text/css">
+@import url(../template/default/style.css);
+@import url(../template/vicstyle4/vicstyle4.css);
+@import url(../template/default/blog.css);
+@import url(../template/vicstyle4/style.css);
+</style>
+<link rel="shortcut icon" href="../image/favicon.ico" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="../xmlrpc.phprsd1" />
+</head>
+<body>
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="header">
+<div class="headerwarp">
+<h1 class="logo" ><a href="../index.php.htm"><img src="../template/vicstyle4/image/logo.gif" alt="舍内网" /></a></h1>
+<ul id="vs4_nav" >
+
+<li class="vs4_dropmenu" id="navhead_v2" onmouseover="showMenu(this.id)"><a href="javascript:;">站点导航</a></li>
+<li class="vs4_dropmenu" id="navhead_v1" onmouseover="showMenu(this.id)"><a href="javascript:;" style="color:#FFf;background-image: url(../template/vicstyle4/image/hdnav_bg.gif); background-repeat: no-repeat;background-position: center;">个人设置</a></li>
+<li class="vs4_dropmenu" id="navhead_v3" onmouseover="showMenu(this.id)"><a href="javascript:;">社区服务</a></li>
+<li><a href="../space-pm.html" style="display: block; width: 80px;">消息</a></li>
+</ul>	
+<ul id="navhead_v1_menu" class="vs4_dropmenu_drop" style="display:none;text-align:center;">
+<li><a href="space-home.html">个人中心</a></li>
+<li><a href="../cp.phpacavatar.htm">我的头像</a></li>
+<li><a href="../cp.phpacprofile.htm">个人资料</a></li>
+<li><a href="../cp.phpactheme.htm">主页风格</a></li>
+<li><a href="../cp.phpaccredit.htm">我的积分</a></li>
+<li><a href="../space-friend.html">我的好友</a></li>	
+<li><a href="../cp.phpacsendmail.htm">邮件提醒</a></li>
+<li><a href="../cp.phpacprivacy.htm">隐私筛选</a></li>
+<li><a href="../admincp.php.htm">站点管理</a></li>
+<li><a href="../do.phpacstat.htm">趋势统计</a></li>
+</ul>
+<ul id="navhead_v2_menu" class="vs4_dropmenu_drop" style="display:none;text-align:center;">
+<li><a href="../index.php.htm">首页</a></li>
+<li><a href="../network.html" target="_blank">广场</a></li>
+<li><a href="../space-top.html">排行</a></li>
+<li><a href="floor.php.htm">抢楼</a></li>
+<li><a href="sohovicstyle.php.htm">潮人</a></li>
+<li><a href="space-sys.html">论坛</a></li>
+<li><a href="../space-thread.html">圈子</a></li>
+</ul>
+<ul id="navhead_v3_menu" class="vs4_dropmenu_drop" style="display:none;text-align:center;">
+<li><a href="../cp.phpacuserapp.htm">娱乐游戏</a></li>
+<li><a href="../cp.phpacmagic.htm">道具中心</a></li>
+<li><a href="../cp.phpactask.htm">任务系统</a></li>
+<li><a href="../help.php.htm">HELP帮助</a></li>
+</ul>
+<div class="vs4_account" >
+<a href="../space-1.html" class="loginName">小E←邱沼懿</a>
+<a href="../pay.phpacvip.htm" target="_blank"><img src="../image/pay/vip2.gif" title="未激活" border="0" align="absmiddle" /></a>
+<a href="../cp.phpaccredit.htm" style="font-size:11px;padding:0 0 0 5px;">7183 <img src="../image/credit.gif"></a>
+<a href="../exchange.php.htm">兑换</a> 
+<a href="../cp.phpacinvite.htm">邀请</a> 
+<a href="../cp.phpactask.htm">任务</a> 
+<a href="../cp.phpacmagic.htm">道具</a>
+<a href="../cp.php.htm">设置</a> 
+<a href="../cp.phpaccommonoplogoutuhash25b100948615bc2337af393d6e07d571">退出</a>
+</div>
+</div>
+</div>
+<div id="wrap">
+<div id="vs4_headmain"></div>
+<div id="vs4_main">
+<div id="vs4_toolsbar">
+<ul>&nbsp;工具菜单</ul>
+<ul class="vs4_toollist topline" id="default_userapp">
+<li><div class="hidemsg"><div class="hidemain"><span>个人中心</span></p><a href="space-home.html">进入</a></div></div><a href="space-home.html"><img src="../image/app/app_sidebar_home.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的BLOG</span></p><a href="../space.html">进入</a></div></div><a href="../space.html"><img src="../image/app/app_sidebar_blog.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的心情</span></p><a href="../space-doing.html">进入</a>&nbsp;&nbsp;<a href="../ana.php.htm">语录</a></div></div><a href="../space-doing.html"><img src="../image/app/app_sidebar_xq.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的日志</span></p><a href="space-blog.html">进入</a>&nbsp;&nbsp;<a href="../cp.phpacblog.htm">发表</a></div></div><a href="space-blog.html" ><img src="../image/app/app_sidebar_rz.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的相册</span></p><a href="../space-album.html">进入</a>&nbsp;&nbsp;<a href="../cp.phpacupload.htm">上传</a></div></div><a href="../space-album.html"><img src="../image/app/app_sidebar_xc.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的音乐</span></p><a href="../space-musicbox.html">进入</a>&nbsp;&nbsp;<a href="../space-musicbox-mview-commend.html">推荐</a></div></div><a href="../space-musicbox.html" ><img src="../image/app/app_sidebar_music.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的网盘</span></p><a href="../nd_upload.php.htm">进入</a>&nbsp;&nbsp;<a href="../nd_upload.phpdoadd.htm">共享</a></div></div><a href="../nd_upload.php.htm" ><img src="../image/app/app_sidebar_disk.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的群组</span></p><a href="../space-mtag.html">进入</a>&nbsp;&nbsp;<a href="../cp.phpacthread.htm" class="gray">话题</a></div></div><a href="../space-mtag.html"><img src="../image/app/app_sidebar_qz.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的分享</span></p><a href="../space-share.html">进入</a></div></div><a href="../space-share.html"><img src="../image/app/app_sidebar_fx.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的飞信</span></p><a href="../cp.phpacfetion.htm">进入</a>&nbsp;&nbsp;<a href="../fetion.php.htm">速发</a></div></div><a href="../cp.phpacfetion.htm"><img src="../image/app/app_sidebar_fetion.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的城市</span></p><a href="../city.php.htm">进入</a>&nbsp;&nbsp;<a href="../cp.phpacprofileopcontact.htm">标记</a></div></div><a href="../city.php.htm" ><img src="../image/app/app_sidebar_city.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的天空</span></p><a href="../sky.php.htm">进入</a>&nbsp;&nbsp;<a href=../../sky.shenei.net/default.htm target="_blank">全景</a></div></div><a href="../sky.php.htm" ><img src="../image/app/app_sidebar_sky.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的投票</span></p><a href="../space-poll.html">进入</a>&nbsp;&nbsp;<a href="../cp.phpacpoll.htm" class="gray">发起</a></div></div><a href="../space-poll.html"><img src="../image/app/app_sidebar_tp.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的活动</span></p><a href="../space-event.html">进入</a>&nbsp;&nbsp;<a href="../cp.phpacevent.htm" class="gray">发起</a></div></div><a href="../space-event.html"><img src="../image/app/app_sidebar_hd.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的热闹</span></p><a href="../space-topic.html">进入</a></div></div><a href="../space-topic.html"><img src="../image/app/app_sidebar_rn.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>手机网址</span></p><a href=../../wap.shenei.net/default.htm target=_blank>进入</a>&nbsp;&nbsp;<a title=复制地址 onclick="javascript:setCopy('../wap.shenei.net');" href="javascript:;">复制</a></div></div><a href=../../wap.shenei.net/default.htm target=_blank ><img src="../image/app/app_sidebar_mobile.gif"></a></li>
+<li><div class="hidemsg"><div class="hidemain"><span>我的应用</span></p><a href="../cp.phpacuserappopmenu.htm">进入</a>&nbsp;&nbsp;<a href="../cp.phpacuserappmy_suffix_252fapp_252flist.htm">添加</a></div></div><a href="../cp.phpacuserappopmenu.htm"><img src="../image/app/app_sidebar_yy.gif"></a></li>
+</ul>
+<ul class="topline">&nbsp;默认应用</ul>
+<ul class="vs4_gamelist topline" id="my_defaultapp">
+
+<li><a href="../userapp.phpid1029889my_suffixlw_253d_253d.htm" title="开心宝贝"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficons~1.gif"></a></li>
+<li><a href="../userapp.phpid1039242my_suffixlw_253d_253d.htm" title="幸福厨房"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~2.gif"></a></li>
+<li><a href="../userapp.phpid1050925my_suffixlw_253d_253d.htm" title="快来挖Wa"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~3.gif"></a></li>
+<li><a href="../userapp.phpid1053021my_suffixlw_253d_253d.htm" title="太空时代"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~4.gif"></a></li>
+<li><a href="../userapp.phpid1003274my_suffixlw_253d_253d.htm" title="读书"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~5.gif"></a></li>
+<li><a href="../userapp.phpid1025455my_suffixlw_253d_253d.htm" title="斗牛场"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~6.gif"></a></li>
+	
+</ul>
+
+<ul class="topline">&nbsp;我的应用</ul>
+<ul class="vs4_gamelist topline" id="my_userapp">
+
+<li id="userapp_li_1004186"><a href="../userapp.phpid1004186my_suffixlw_253d_253d.htm" title="朋友买卖"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~7.gif"></a></li>
+<li id="userapp_li_1021978"><a href="../userapp.phpid1021978my_suffixlw_253d_253d.htm" title="开心农场"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~8.gif"></a></li>
+<li id="userapp_li_1025246"><a href="../userapp.phpid1025246my_suffixlw_253d_253d.htm" title="狗狗"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~9.gif"></a></li>
+<li id="userapp_li_1003094"><a href="../userapp.phpid1003094my_suffixlw_253d_253d.htm" title="争车位"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~10.gif"></a></li>
+<li id="userapp_li_1036999"><a href="../userapp.phpid1036999my_suffixlw_253d_253d.htm" title="疯狂办公室"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~11.gif"></a></li>
+<li id="userapp_li_1006588"><a href="../userapp.phpid1006588my_suffixlw_253d_253d.htm" title="挖金子"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~12.gif"></a></li>
+<li id="userapp_li_1048438"><a href="../userapp.phpid1048438my_suffixlw_253d_253d.htm" title="海底总动员"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~13.gif"></a></li>
+<li id="userapp_li_1033526"><a href="../userapp.phpid1033526my_suffixlw_253d_253d.htm" title="荣光医院"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~14.gif"></a></li>
+<li id="userapp_li_1035333"><a href="../userapp.phpid1035333my_suffixlw_253d_253d.htm" title="开心动物园"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~15.gif"></a></li>
+<li id="userapp_li_1040698"><a href="../userapp.phpid1040698my_suffixlw_253d_253d.htm" title="奇妙猪世界"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~16.gif"></a></li>
+<li id="userapp_li_1033482"><a href="../userapp.phpid1033482my_suffixlw_253d_253d.htm" title="音乐DNA"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~17.gif"></a></li>
+<li id="userapp_li_1036269"><a href="../userapp.phpid1036269my_suffixlw_253d_253d.htm" title="心跳1419"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~18.gif"></a></li>
+<li id="userapp_li_1010227"><a href="../userapp.phpid1010227my_suffixlw_253d_253d.htm" title="魔法斗地主"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~19.gif"></a></li>
+<li id="userapp_li_1040890"><a href="../userapp.phpid1040890my_suffixlw_253d_253d.htm" title="楼一幢"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~20.gif"></a></li>
+<li id="userapp_li_1013309"><a href="../userapp.phpid1013309my_suffixlw_253d_253d.htm" title="游戏厅"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~21.gif"></a></li>
+<li id="userapp_li_1011595"><a href="../userapp.phpid1011595my_suffixlw_253d_253d.htm" title="赛车总动员"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~22.gif"></a></li>
+<li id="userapp_li_1010474"><a href="../userapp.phpid1010474my_suffixlw_253d_253d.htm" title="猫鼠大作战"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~23.gif"></a></li>
+<li id="userapp_li_1028245"><a href="../userapp.phpid1028245my_suffixlw_253d_253d.htm" title="开心斗地主"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~24.gif"></a></li>
+<li id="userapp_li_1006097"><a href="../userapp.phpid1006097my_suffixlw_253d_253d.htm" title="电Ta一下"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~25.gif"></a></li>
+<li id="userapp_li_1000043"><a href="../userapp.phpid1000043my_suffixlw_253d_253d.htm" title="电影"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~26.gif"></a></li>
+<li id="userapp_li_1013913"><a href="../userapp.phpid1013913my_suffixlw_253d_253d.htm" title="朋友比较"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~27.gif"></a></li>
+<li id="userapp_li_1005122"><a href="../userapp.phpid1005122my_suffixlw_253d_253d.htm" title="德克萨斯扑克游戏"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~28.gif"></a></li>
+<li id="userapp_li_1012215"><a href="../userapp.phpid1012215my_suffixlw_253d_253d.htm" title="酷狗音乐盒"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~29.gif"></a></li>
+<li id="userapp_li_1002972"><a href="../userapp.phpid1002972my_suffixlw_253d_253d.htm" title="QQ聊天室"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~30.gif"></a></li>
+<li id="userapp_li_1022890"><a href="../userapp.phpid1022890my_suffixlw_253d_253d.htm" title="浪漫公寓"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~31.gif"></a></li>
+<li id="userapp_li_1018750"><a href="../userapp.phpid1018750my_suffixlw_253d_253d.htm" title="斗鸡"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~32.gif"></a></li>
+<li id="userapp_li_1021701"><a href="../userapp.phpid1021701my_suffixlw_253d_253d.htm" title="零距离邮筒"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~33.gif"></a></li>
+<li id="userapp_li_1018840"><a href="../userapp.phpid1018840my_suffixlw_253d_253d.htm" title="祖玛"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~34.gif"></a></li>
+<li id="userapp_li_1006752"><a href="../userapp.phpid1006752my_suffixlw_253d_253d.htm" title="疯狂出租车"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~35.gif"></a></li>
+<li id="userapp_li_1028802"><a href="../userapp.phpid1028802my_suffixlw_253d_253d.htm" title="天下名片"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~36.gif"></a></li>
+<li id="userapp_li_1007292"><a href="../userapp.phpid1007292my_suffixlw_253d_253d.htm" title="超级玛丽"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~37.gif"></a></li>
+<li id="userapp_li_1012923"><a href="../userapp.phpid1012923my_suffixlw_253d_253d.htm" title="我印我秀"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~38.gif"></a></li>
+<li id="userapp_li_1002898"><a href="../userapp.phpid1002898my_suffixlw_253d_253d.htm" title="谁请客吃冰激淋"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~39.gif"></a></li>
+<li id="userapp_li_1021692"><a href="../userapp.phpid1021692my_suffixlw_253d_253d.htm" title="福彩3D"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~40.gif"></a></li>
+<li id="userapp_li_1030248"><a href="../userapp.phpid1030248my_suffixlw_253d_253d.htm" title="VV斗地主"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~41.gif"></a></li>
+<li id="userapp_li_1027468"><a href="../userapp.phpid1027468my_suffixlw_253d_253d.htm" title="礼物"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~42.gif"></a></li>
+<li id="userapp_li_1005209"><a href="../userapp.phpid1005209my_suffixlw_253d_253d.htm" title="网上帐本"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~43.gif"></a></li>
+<li id="userapp_li_1004755"><a href="../userapp.phpid1004755my_suffixlw_253d_253d.htm" title="喜欢我吗"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~44.gif"></a></li>
+<li id="userapp_li_1034851"><a href="../userapp.phpid1034851my_suffixlw_253d_253d.htm" title="欢乐卡片"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~45.gif"></a></li>
+<li id="userapp_li_1030888"><a href="../userapp.phpid1030888my_suffixlw_253d_253d.htm" title="网页游戏"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~46.gif"></a></li>
+<li id="userapp_li_1006410"><a href="../userapp.phpid1006410my_suffixlw_253d_253d.htm" title="56动感相册"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~47.gif"></a></li>
+<li id="userapp_li_1002711"><a href="../userapp.phpid1002711my_suffixlw_253d_253d.htm" title="礼品店"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~48.gif"></a></li>
+<li id="userapp_li_1025627"><a href="../userapp.phpid1025627my_suffixlw_253d_253d.htm" title="开心恋床"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~49.gif"></a></li>
+<li id="userapp_li_1008973"><a href="../userapp.phpid1008973my_suffixlw_253d_253d.htm" title="朋友印象"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~50.gif"></a></li>
+<li id="userapp_li_1026002"><a href="../userapp.phpid1026002my_suffixlw_253d_253d.htm" title="天黑请闭眼2.0"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~51.gif"></a></li>
+<li id="userapp_li_1011587"><a href="../userapp.phpid1011587my_suffixlw_253d_253d.htm" title="人肉炸弹"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~52.gif"></a></li>
+<li id="userapp_li_1025054"><a href="../userapp.phpid1025054my_suffixlw_253d_253d.htm" title="可爱卡丁车"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~53.gif"></a></li>
+<li id="userapp_li_1033960"><a href="../userapp.phpid1033960my_suffixlw_253d_253d.htm" title="闪亮健身"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~54.gif"></a></li>
+<li id="userapp_li_1036304"><a href="../userapp.phpid1036304my_suffixlw_253d_253d.htm" title="幸运棋牌"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~55.gif"></a></li>
+<li id="userapp_li_1016054"><a href="../userapp.phpid1016054my_suffixlw_253d_253d.htm" title="礼物大派送"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~56.gif"></a></li>
+<li id="userapp_li_1002602"><a href="../userapp.phpid1002602my_suffixlw_253d_253d.htm" title="心理测试"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~57.gif"></a></li>
+<li id="userapp_li_1006771"><a href="../userapp.phpid1006771my_suffixlw_253d_253d.htm" title="我快要疯了！"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~58.gif"></a></li>
+<li id="userapp_li_1044189"><a href="../userapp.phpid1044189my_suffixlw_253d_253d.htm" title="快打旋风"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~59.gif"></a></li>
+<li id="userapp_li_1047370"><a href="../userapp.phpid1047370my_suffixlw_253d_253d.htm" title="地产大亨"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~60.gif"></a></li>
+<li id="userapp_li_1024392"><a href="../userapp.phpid1024392my_suffixlw_253d_253d.htm" title="音乐推荐"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~61.gif"></a></li>
+<li id="userapp_li_1054378"><a href="../userapp.phpid1054378my_suffixlw_253d_253d.htm" title="庄园时代"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~62.gif"></a></li>
+<li id="userapp_li_1048307"><a href="../userapp.phpid1048307my_suffixlw_253d_253d.htm" title="有间客栈"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~63.gif"></a></li>
+<li id="userapp_li_1043066"><a href="../userapp.phpid1043066my_suffixlw_253d_253d.htm" title="本草仙目"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~64.gif"></a></li>
+<li id="userapp_li_1044490"><a href="../userapp.phpid1044490my_suffixlw_253d_253d.htm" title="三十六计"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~65.gif"></a></li>
+<li id="userapp_li_1044822"><a href="../userapp.phpid1044822my_suffixlw_253d_253d.htm" title="私人博物馆"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~66.gif"></a></li>
+<li id="userapp_li_1041209"><a href="../userapp.phpid1041209my_suffixlw_253d_253d.htm" title="开心测试"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~67.gif"></a></li>
+<li id="userapp_li_1040657"><a href="../userapp.phpid1040657my_suffixlw_253d_253d.htm" title="夜店大亨"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~68.gif"></a></li>
+<li id="userapp_li_1038206"><a href="../userapp.phpid1038206my_suffixlw_253d_253d.htm" title="摩天城"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~69.gif"></a></li>
+<li id="userapp_li_1007832"><a href="../userapp.phpid1007832my_suffixlw_253d_253d.htm" title="有事就问吧"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~70.gif"></a></li>
+<li id="userapp_li_1052447"><a href="../userapp.phpid1052447my_suffixlw_253d_253d.htm" title="欢乐鱼塘"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~71.gif"></a></li>
+<li id="userapp_li_1058319"><a href="../userapp.phpid1058319my_suffixlw_253d_253d.htm" title="棒子老虎鸡"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~72.gif"></a></li>
+<li id="userapp_li_1018233"><a href="../userapp.phpid1018233my_suffixlw_253d_253d.htm" title="山寨股市"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~73.gif"></a></li>
+<li id="userapp_li_1060932"><a href="../userapp.phpid1060932my_suffixlw_253d_253d.htm" title="十年一剑"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~74.gif"></a></li>
+<li id="userapp_li_1058412"><a href="../userapp.phpid1058412my_suffixlw_253d_253d.htm" title="热血球球"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~75.gif"></a></li>
+<li id="userapp_li_1058701"><a href="../userapp.phpid1058701my_suffixlw_253d_253d.htm" title="坦克大战"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~76.gif"></a></li>
+<li id="userapp_li_1055082"><a href="../userapp.phpid1055082my_suffixlw_253d_253d.htm" title="知己人生"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~77.gif"></a></li>
+<li id="userapp_li_1059373"><a href="../userapp.phpid1059373my_suffixlw_253d_253d.htm" title="忍者村"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~78.gif"></a></li>
+<li id="userapp_li_1059430"><a href="../userapp.phpid1059430my_suffixlw_253d_253d.htm" title="枪王之王"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~79.gif"></a></li>
+<li id="userapp_li_1058035"><a href="../userapp.phpid1058035my_suffixlw_253d_253d.htm" title="汽车工厂"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~80.gif"></a></li>
+<li id="userapp_li_1045165"><a href="../userapp.phpid1045165my_suffixlw_253d_253d.htm" title="第7扑克"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~81.gif"></a></li>
+<li id="userapp_li_1056730"><a href="../userapp.phpid1056730my_suffixlw_253d_253d.htm" title="爆破方块"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~82.gif"></a></li>
+<li id="userapp_li_1054345"><a href="../userapp.phpid1054345my_suffixlw_253d_253d.htm" title="果果帮"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~83.gif"></a></li>
+<li id="userapp_li_1055802"><a href="../userapp.phpid1055802my_suffixlw_253d_253d.htm" title="天天向上"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~84.gif"></a></li>
+<li id="userapp_li_1057497"><a href="../userapp.phpid1057497my_suffixlw_253d_253d.htm" title="开心团购"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~85.gif"></a></li>
+<li id="userapp_li_1055989"><a href="../userapp.phpid1055989my_suffixlw_253d_253d.htm" title="社区城市"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~86.gif"></a></li>
+<li id="userapp_li_1056190"><a href="../userapp.phpid1056190my_suffixlw_253d_253d.htm" title="运镖天下"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~87.gif"></a></li>
+<li id="userapp_li_1054337"><a href="../userapp.phpid1054337my_suffixlw_253d_253d.htm" title="快乐小镇"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~88.gif"></a></li>
+<li id="userapp_li_1003049"><a href="../userapp.phpid1003049my_suffixlw_253d_253d.htm" title="每天进步"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~89.gif"></a></li>
+<li id="userapp_li_1054214"><a href="../userapp.phpid1054214my_suffixlw_253d_253d.htm" title="花田喜事"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~90.gif"></a></li>
+<li id="userapp_li_1056432"><a href="../userapp.phpid1056432my_suffixlw_253d_253d.htm" title="足球经理世界"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~91.gif"></a></li>
+<li id="userapp_li_1051230"><a href="../userapp.phpid1051230my_suffixlw_253d_253d.htm" title="梦幻校园"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~92.gif"></a></li>
+<li id="userapp_li_1055551"><a href="../userapp.phpid1055551my_suffixlw_253d_253d.htm" title="怪兽部落"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~93.gif"></a></li>
+<li id="userapp_li_1056000"><a href="../userapp.phpid1056000my_suffixlw_253d_253d.htm" title="疯狂足球"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~94.gif"></a></li>
+<li id="userapp_li_1055548"><a href="../userapp.phpid1055548my_suffixlw_253d_253d.htm" title="守望森林"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~95.gif"></a></li>
+<li id="userapp_li_1051041"><a href="../userapp.phpid1051041my_suffixlw_253d_253d.htm" title="开心店铺"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~96.gif"></a></li>
+<li id="userapp_li_1049305"><a href="../userapp.phpid1049305my_suffixlw_253d_253d.htm" title="城市大富豪"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~97.gif"></a></li>
+<li id="userapp_li_1049431"><a href="../userapp.phpid1049431my_suffixlw_253d_253d.htm" title="魔王名单"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~98.gif"></a></li>
+<li id="userapp_li_1051637"><a href="../userapp.phpid1051637my_suffixlw_253d_253d.htm" title="漂漂岛"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~99.gif"></a></li>
+<li id="userapp_li_1053513"><a href="../userapp.phpid1053513my_suffixlw_253d_253d.htm" title="大航运时代"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~100.gif"></a></li>
+<li id="userapp_li_1051353"><a href="../userapp.phpid1051353my_suffixlw_253d_253d.htm" title="电驴"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~101.gif"></a></li>
+<li id="userapp_li_1053282"><a href="../userapp.phpid1053282my_suffixlw_253d_253d.htm" title="社区便利店"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~102.gif"></a></li>
+<li id="userapp_li_1050266"><a href="../userapp.phpid1050266my_suffixlw_253d_253d.htm" title="园艺大亨"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~103.gif"></a></li>
+<li id="userapp_li_1053099"><a href="../userapp.phpid1053099my_suffixlw_253d_253d.htm" title="时尚人生"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~104.gif"></a></li>
+<li id="userapp_li_1052860"><a href="../userapp.phpid1052860my_suffixlw_253d_253d.htm" title="奇遇轮盘聊天世界"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~105.gif"></a></li>
+<li id="userapp_li_1053201"><a href="../userapp.phpid1053201my_suffixlw_253d_253d.htm" title="倾城"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~106.gif"></a></li>
+<li id="userapp_li_1051842"><a href="../userapp.phpid1051842my_suffixlw_253d_253d.htm" title="连连看总动员"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~107.gif"></a></li>
+<li id="userapp_li_1014835"><a href="../userapp.phpid1014835my_suffixlw_253d_253d.htm" title="我要K图"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~108.gif"></a></li>
+<li id="userapp_li_1052742"><a href="../userapp.phpid1052742my_suffixlw_253d_253d.htm" title="东北打棋摞"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~109.gif"></a></li>
+<li id="userapp_li_1051803"><a href="../userapp.phpid1051803my_suffixlw_253d_253d.htm" title="随机视频"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~110.gif"></a></li>
+<li id="userapp_li_1050467"><a href="../userapp.phpid1050467my_suffixlw_253d_253d.htm" title="幻宠奇缘"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~111.gif"></a></li>
+<li id="userapp_li_1051907"><a href="../userapp.phpid1051907my_suffixlw_253d_253d.htm" title="欢乐客栈"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~112.gif"></a></li>
+<li id="userapp_li_1051195"><a href="../userapp.phpid1051195my_suffixlw_253d_253d.htm" title="创世纪2012"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~113.gif"></a></li>
+<li id="userapp_li_1049530"><a href="../userapp.phpid1049530my_suffixlw_253d_253d.htm" title="乡村传奇"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~114.gif"></a></li>
+<li id="userapp_li_1051929"><a href="../userapp.phpid1051929my_suffixlw_253d_253d.htm" title="植物大战外星人"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~115.gif"></a></li>
+<li id="userapp_li_1040624"><a href="../userapp.phpid1040624my_suffixlw_253d_253d.htm" title="弹弹堂"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~116.gif"></a></li>
+<li id="userapp_li_1047721"><a href="../userapp.phpid1047721my_suffixlw_253d_253d.htm" title="天天背单词"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~117.gif"></a></li>
+<li id="userapp_li_1050565"><a href="../userapp.phpid1050565my_suffixlw_253d_253d.htm" title="开心星钻"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~118.gif"></a></li>
+<li id="userapp_li_1043652"><a href="../userapp.phpid1043652my_suffixlw_253d_253d.htm" title="跑火车"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~119.gif"></a></li>
+<li id="userapp_li_1014051"><a href="../userapp.phpid1014051my_suffixlw_253d_253d.htm" title="读心术"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~120.gif"></a></li>
+<li id="userapp_li_1033907"><a href="../userapp.phpid1033907my_suffixlw_253d_253d.htm" title="游戏账号中心"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~121.gif"></a></li>
+<li id="userapp_li_1049094"><a href="../userapp.phpid1049094my_suffixlw_253d_253d.htm" title="主题学校"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~122.gif"></a></li>
+<li id="userapp_li_1045020"><a href="../userapp.phpid1045020my_suffixlw_253d_253d.htm" title="干瞪眼"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~123.gif"></a></li>
+<li id="userapp_li_1048677"><a href="../userapp.phpid1048677my_suffixlw_253d_253d.htm" title="快乐庄园"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~124.gif"></a></li>
+<li id="userapp_li_1042221"><a href="../userapp.phpid1042221my_suffixlw_253d_253d.htm" title="全民富翁"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~125.gif"></a></li>
+<li id="userapp_li_1042041"><a href="../userapp.phpid1042041my_suffixlw_253d_253d.htm" title="高清电影"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~126.gif"></a></li>
+<li id="userapp_li_1050377"><a href="../userapp.phpid1050377my_suffixlw_253d_253d.htm" title="幸福摩天轮"><img src="../image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~127.gif"></a></li>
+</ul>
+
+</div>
+
+<div id="mainarea">
+
+
+<!--Add By 01-->
+
+<div id="vs4con_t"><p><img src="../template/vicstyle4/image/con_t_l.gif" /></p></div>
+<div id="vs4_content" style="padding:0 25px 0 25px;width:855px;">
+<h2 class="title"><img src="../image/app/blog.gif" />日志</h2>
+<div class="tabs_header">
+<ul class="tabs">
+<li><a href="space-1-do-blog-view-we.html"><span>好友最新日志</span></a></li><li class="active"><a href="space-1-do-blog-view-me.html"><span>我的日志</span></a></li>
+<li><a href="../space-1-do-blog-view-click.html"><span>我踩过的日志</span></a></li>
+<li><a href="../space-1-do-blog-view-all.html"><span>大家的日志</span></a></li>
+<li class="null"><a href="../cp.phpacblog.htm">发表新日志</a></li>
+</ul>
+<div class="r_option">
+<a  href="space-1-do-blog-view-me-page-2.html">&laquo; 返回上一页</a>
+</div>
+</div>
+
+<script type="text/javascript" charset="gbk" src="../source/script_calendar.js"></script>
+
+<div class="entry" style="padding:0 0 10px;">
+
+<div class="title">
+<h1>CSS float浮动的深入研究、详解及拓展</h1>	<!--Modify By 01-->
+<span class="gray">已有 79 次阅读</span>&nbsp; <span class="gray">2012-09-06 15:22</span>
+<!---->	<!--Add By 01-->
+</div>
+
+<!-- 静态HTML读取密码文章 -->
+
+<div id="blog_article" class="article " style="">
+<div class="resizeimg">
+<div class="resizeimg2">
+<div class="resizeimg3">
+<div class="resizeimg4">
+<p>&nbsp;</p>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">概念目录</h3>
+<ul style="margin: 0px; padding-right: 0px; padding-left: 0px; list-style-type: none; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; font-size: 14px; line-height: 21px; text-align: justify; ">
+	<li style="margin: 0px; padding: 0px; list-style-type: none; ">个人感悟之CSS代码的情感化思维</li>
+	<li style="margin: 0px; padding: 0px; list-style-type: none; ">个人观点之浮动的意义仅仅是文字环绕显示而已</li>
+	<li style="margin: 0px; padding: 0px; list-style-type: none; ">个人观点之浮动的本质是&ldquo;包裹及破坏&rdquo;</li>
+	<li style="margin: 0px; padding: 0px; list-style-type: none; ">个人观点之目前大多数浮动应用都不是浮动应该做的</li>
+	<li style="margin: 0px; padding: 0px; list-style-type: none; ">个人观点之浮动其实是个魔鬼、混球</li>
+</ul>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">一、引言</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">你我看待事物的方式不同，价值取向也不同，因为我们有着不同的世界观，价值观。这种世界观的差异不仅仅体现在实际的生活中，也反映在代码上。你我看待代码的方式，或者说是代码在我们情感层面的位置是不一样的，我这里说的是情感层面，与逻辑无关，与算法无关（虽然算法受情感影响）。这种看待代码的方式是我们在不断学习与工作的过程中积累出来的，是在潜意识层面逐渐积累起来的，一切悄然而至，不知不觉。当我们积累到一定阶段后，会突然发现，关于代码，我们已经形成了自己的世界观和属于自己的准则。回到我刚提到的&ldquo;情感层面&rdquo;，这个词也可以用&ldquo;感性思维&rdquo;来代替。通常而言，程序-代码属于很理性很逻辑的东西，与感性-情感这类词搭不上边，但是CSS例外。CSS也属于代码范畴，而且是一种伟大的代码，其有别于C，JAVA之类程序语言&mdash;&mdash;没有算法，没有复杂的逻辑。于是，CSS有了先天的优势可以渗入一些感性的情感化的东西。正如我上面提及的，大多数情况下，这种渗入是无意识的（除非有人直接表露&mdash;&mdash;就像我现在所做的），并且是个体差异明显的（因为是专属于自己的情感化的东西）。弗洛伊德将人格划分为无意识、前意识和意识，我发现代码的情感化思维形成正是走的从无意识到前意识到意识的路线，所以我个人认为：情感化的代码也属于人格的一部分。于是，有了&ldquo;CSS-情感化代码-人格&rdquo;这一微妙的关系。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">我不清楚他人是如何看待CSS的，CSS的这些属性在他们心中是个什么东西，他们到底赋予了多少自身的情感（或人格或品性或特质等）在这些代码身上，他们是否已经意识到这些CSS属性身上正一点一点地融入他们情感化的一些东西。但我清楚自己，在这些CSS的属性身上添加了很多个人的色彩，这种情感化的东西可以说让我更好的理解CSS，我想这不难理解，举个例子：假设你将每个CSS属性看做是你的孩子，每个孩子有着不同的性格，随着学习你会挖掘到更多的一些性格，这就好比母亲看着自己的孩子一点点长大，到了一定的程度就会把自己的孩子的性格摸得一清二楚，管教也就从容了。当然，我并没有对CSS所有的属性都有很清晰的情感化的理解，我用CSS才几年啊，我要学的还有很多。但是，对于CSS中常用的float属性，我还是有些感觉的，这也是本文的主旨所在。本文将会从我的一些感性的认识的角度讲解CSS float属性。所以，这里，你会看到别样的技术文章。</p>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">二、浮动的情感化认识</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">我对浮动感性化的认识：浮动就是一个变态，魔鬼，自私自利且影响他人的混球。我讨厌浮动。</p>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">三、浮动的原始意义是什么？</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">我们使用float浮动做了很多其本职工作以外的事情，于是我们会混淆，我们会回看不清float真正的面目。浮动真正的意义在哪里呢？要知道这个问题的答案很简单，假设现在CSS中没有浮动(float)属性，那么会变成一个什么样子。我们会发现，目前流行采用浮动方法实现的无论是分栏布局，还是列表排列我们都可以用其他一些CSS属性（不考虑table）代替实现，唯一一个实现不了的就是&ldquo;文字环绕图片&rdquo;，我是想不出来能有什么方法可以让文字环绕图片显示。好，这个替代不了的作用才是float真正的意义所在。此作用类似于word中的版式，很基础的原始的作用：</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><img alt="与浮动本职作用类似的word版式" height="274" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_150206.png" style="border: 0px; max-width: 100%; float: left; margin-right: 15px; " title="与浮动本职作用类似的word版式" width="220" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">例如左边这张word截图就含有左浮动属性(float:left)，这才是浮动应该做的事情。这是非常重要的结论，这是深入理解浮动属性的基础，我们后面探讨的一些浮动相关的问题都可以由这里引申出来，所以，请记住，<em><strong>浮动出现的意义其实只是用来让文字环绕图片而已，仅此而已。</strong></em>而我们目前用浮动实现页面布局本不是浮动该干的事情。</p>
+<div style="color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; font-size: 14px; line-height: 21px; text-align: justify; clear: both; ">&nbsp;</div>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">四、浮动的本质是什么？</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">我将浮动的本质定义为&ldquo;包裹与破坏&rdquo;！</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong>1. 浮动的&ldquo;包裹性&rdquo;</strong><br />
+	先说句您应该没有见过的结论：撇开浮动的&ldquo;破坏性&rdquo;，浮动就是个带有方位的display:inline-block属性。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">display:inline-block某种意义上的作用就是包裹(wrap)，而浮动也有类似的效果。举个常见例子，或许您有实现宽度自适应按钮的经验，实现宽度自适应的关键就是要让按钮的大小自适应于文字的个数，这就需要按钮要自动包裹在文字的外面。我们用什么方法实现呢？一就是display:inline-block；二就是float。例如我们要实现新浪博客中的&ldquo;发表文章&rdquo;之类的宽度自适应按钮（如下图）:</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><img alt="新浪博客某宽度自适应按钮" class="mr20" height="170" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_165739.png" style="border: 0px; max-width: 100%; margin-right: 20px; " title="新浪博客某宽度自适应按钮" width="392" />背景图片为：<img height="53" src="../..//www.zhangxinxu.com/study/image/sina_gray_btn.png" style="border: 0px; max-width: 100%; " width="156" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong><em>display:inline-block方法</em></strong></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">CSS代码如下：</p>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">.btn1{<strong>display:inline-block;</strong> background:url(http://www.zhangxinxu.com/study/image/sina_gray_btn.png) no-repeat left top; padding-left:3px; color:#000000; font-size:12px; text-decoration:none;}
+.btn1 cite{display:block; line-height:26px; padding:0 13px 0 10px; background:url(http://www.zhangxinxu.com/study/image/sina_gray_btn.png) no-repeat right top;}
+</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">HTML代码如下：</p>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;a href=&quot;javascript:void(0);&quot; class=&quot;btn1&quot;&gt;&lt;cite&gt;inline-block方法&lt;/cite&gt;&lt;/a&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">结果如下图：</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><img alt="inline-block方法实现的宽度自适应按钮" height="46" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_200153.png" style="border: 0px; max-width: 100%; " title="inline-block方法实现的宽度自适应按钮- 张鑫旭-鑫空间-鑫生活" width="144" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong><em>float:left方法</em></strong><br />
+	此方法的CSS代码与上面的inline-block方法唯一不同之处就在于这里是float:left;</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">CSS代码如下：</p>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">.btn1{<strong>float:left;</strong> background:url(http://www.zhangxinxu.com/study/image/sina_gray_btn.png) no-repeat left top; padding-left:3px; color:#000000; font-size:12px; text-decoration:none;}
+.btn1 cite{display:block; line-height:26px; padding:0 13px 0 10px; background:url(http://www.zhangxinxu.com/study/image/sina_gray_btn.png) no-repeat right top;}
+</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">HTML代码如下：</p>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;a href=&quot;javascript:void(0);&quot; class=&quot;btn1&quot;&gt;&lt;cite&gt;float方法&lt;/cite&gt;&lt;/a&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">结果如下图：</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><img alt="float方法实现的宽度自适应按钮" height="46" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_200735.png" style="border: 0px; max-width: 100%; " title="float方法实现的宽度自适应按钮 - 张鑫旭-鑫空间-鑫生活" width="106" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">您可以狠狠地点击这里：<a class="a_link" href="../..//www.zhangxinxu.com/study/201001/float-inline-block-width-auto-btn.html" style="color: rgb(255, 51, 0); " target="_blank">按钮宽度自适应demo</a></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">上面这个例子旨在说明浮动属性（无论是左浮动还是右浮动）某种意义上而言与display:inline-block属性的作用是一模一样的，所以类似于<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">display:block; float:left;</code>的CSS代码超过95%的情况是没有道理的(display:block是多余的)。然而，float无法等同于display:inline-block，其中原因之一就是浮动的方向性，display:inline-block仅仅一个水平排列方向，就是从左往右，而float可以从右往左排列，这就是两者的差异。然而，我们又有多少情况需要元素从右往左排列呢？很少，所以，CSS中，没有浮动这一属性不是什么大不了的事情，它其实就那么回事。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong>2. 浮动的&ldquo;破坏性&rdquo;</strong><br />
+	浮动可以说是所有CSS属性中的&ldquo;破坏之王&rdquo;。要理解浮动的破坏性，我们要从浮动最原始的意义入手。我在上面把浮动的原始意义用粗斜体表示出来了，就是&ldquo;只是用来让文字环绕图片而已，仅此而已。&rdquo;</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">所以，只要您弄明白了为什么文字会环绕含浮动属性的图片，您就会知道我所说的浮动的&ldquo;破坏性&rdquo;是什么意思了。<span style="color: rgb(153, 153, 153); font-size:../0.9em; ">//下面这部分内容是本文核心，多个人观点，我尽量表述清楚。您若有兴趣，可以放慢在这里的阅读速度。</span></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">先说结论：文字之所以会环绕含有float属性的图片时因为<span style="font-weight: bold; font-size:../0.9em; ">浮动破坏了正常的line boxes</span>。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">这里有必要先讲讲line boxes模型。先看下面一段普通的HTML代码：</p>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;p&gt;这是一行普通的文字，这里有个 &lt;em&gt;em&lt;/em&gt; 标签。&lt;/p&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">这段HTML代码涉及到4种boxes：<br />
+	1、首先是p标签所在的containing box，此box包含了其他的boxes；</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">2、然后就是inline boxes，如下图标注，<br />
+	<img alt="inline boxes示意 &gt;&gt; 张鑫旭-鑫空间-鑫生活" class="mb5" height="131" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_220341.png" style="border: 0px; max-width: 100%; margin-bottom: 5px; " title="inline boxes示意 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="539" /><br />
+	inline boxes不会让内容成块显示，而是排成一行，如果外部含inline属性的标签(span,a,cite等)，则属于inline boxes，如果是个光秃秃的文字，则属于匿名inline boxes。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">3、line boxes，见下图的标注：<br />
+	<img alt="line boxes示意 &gt;&gt; 张鑫旭-鑫空间-鑫生活" class="mb5" height="105" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_221641.png" style="border: 0px; max-width: 100%; margin-bottom: 5px; " title="line boxes示意 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="462" /><br />
+	在containing boxes里，一个一个的inline boxes组成了line boxes。这是浮动影响布局的关键box类型，下面会详细阐述。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">4、content area，见下图标注：<br />
+	<img alt="content area示意 &gt;&gt; 张鑫旭-鑫空间-鑫生活" height="116" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_223108.png" style="border: 0px; max-width: 100%; " title="content area示意 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="338" /><br />
+	content area 是一种围绕文字看不见的box。content area的大小与font-size大小相关。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong><em>正常的图文混排</em></strong><br />
+	默认情况下，图片与文字混排应该是这个样子：图片与文字基线对齐，图片与文字在同一行上，如下图所示：<br />
+	<img height="186" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_230801.png" style="border: 0px; max-width: 100%; " title="默认图文line boxes示意 &gt;&gt;  张鑫旭-鑫空间-鑫生活" width="516" /><br />
+	上图中，图片为一个inline boxes，两边的文字也是inline boxes。由于line boxes的高度是由其内部最高的inline boxes的高度决定的，所以这里line boxes的高度就是图片的高度。此时图片与文字是同一box类型的元素（都是inline boxes），是在同一行上的，所以，默认状态下，一张图片只能与一行文字对齐。而要想让一张图片要与多行文字对齐，您唯一能做的就是破坏正常的line boxes模型。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong><em>含有浮动属性的图片与文字</em></strong><br />
+	先看一下图片添加了float:left样式后的表现，见下图：<br />
+	<img alt="浮动图文布局 &gt;&gt;  张鑫旭-鑫空间-鑫生活" class="mt5 mb10" height="119" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-20_234149.png" style="border: 0px; max-width: 100%; margin-top: 5px; margin-bottom: 10px; " title="浮动属性图片与文字的排列 &gt;&gt;  张鑫旭-鑫空间-鑫生活" width="436" /><br />
+	刚才说过，正常情况下，图片自身就是个inline boxes，与两侧的文字inline boxes共同组成了line boxes，但是，一旦图片加入了浮动，情况就完全变了。我认为是浮动彻底破坏了img图片的inline boxes特性，至少有一点我可以肯定，图片的inline boxes不存在了，被恶魔附体，变身了，而这个恶魔就是浮动。一旦图片失去了inline boxes特性就无法与inline boxes的文字排在一行了，其会从line boxes上脱离出来，跟随自身的方位属性，靠边排列。这种状态跟限制性内切酶起作用几乎一致，一条基因链上(line boxes)有很多的基因(inline boxes)，然后限制性内切酶(float)会切除特定的DNA序列，此序列(float元素)就会从基因链上脱离出来。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">这个从line boxes上脱离的浮动元素其实就是一个躯体，一个空壳子，表象。因为其没有inline boxes。有人可能会问，没有inline boxes就没有呗，有什么大不了的？非也非也！这个inline boxes很个很重要的概念。我曾在&ldquo;<a href="../..//www.zhangxinxu.com/wordpress/p384" style="color: rgb(52, 83, 139); text-decoration: none; ">css行高line-height的一些深入理解及应用</a>&rdquo;一文中提到过高度的本质，这里有必要再讲一遍。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">在目前的CSS的世界中，所有的高度都是有两个CSS模型产生的，一个是box盒状模型，对应CSS为&rdquo;height+padding+margin&rdquo;，另外一个是line box模型，对应样式为&rdquo;line-height&rdquo;。前者的height属性分为明显的height值和隐藏的height值，所谓隐藏的height值是指图片的高度，一旦载入一张图片，其内在的height值就会起作用，即使您看不到&rdquo;height&rdquo;这个词。而后者针对于文字等这类inline boxes的元素（图片也属于inline boxes，但其height比line-height作用更凶猛，故其inline boxes高度等于其自身高度，对line-height无反应），inline boxes的高度直接受line-height控制（改变line-height文字拉开或重叠就是这个原因），而真正的高度表现则是由每行众多的inline boxes组成的line boxes（等于内部最高的inline box的高度），而这些line boxes的高度垂直堆叠形成了containing box的高度，也就是我们见到的div或是p标签之类的高度了。所以，对于line box模型的元素而言，没有inline boxes，就没有高度了，而浮动却恰恰做了这么龌龊的事情，其直接将元素的inline boxes也破坏了，于是这些元素也就没有了高度。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">我们所处的这个世界时需要坏人来维持平衡的。武侠世界里不是常有要消灭某个超牛叉的大魔头时，会有人修炼魔功与之抗衡嘛。浮动似乎就是这样的一个角色，在网页最初的时候就是显示一些图片的文字啊什么的，所需要的布局也就那么几个，其中之一就是文字环绕图片显示了，可是怎么实现这样的效果呢？聪明的CSS开发者就创造了一个修炼&ldquo;魔功&rdquo;的float属性，其作用就是破坏line boxes模型好让文字环绕图片显示，最后实现了吗？确实实现了。还记得我多次说到的浮动的意义吗&mdash;&mdash;只是用来让文字环绕图片而已，而要实现这个就需要用到浮动的&ldquo;破坏性&rdquo;。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">沿用上面图片的例子。浮动破坏了图片的inline box，产生了两个结果：一是图片无法与文字同行显示，脱离了其原来所在的line box链；二是没有了高度（无inline box -&gt; 无line box -&gt; 无高度）。而这些结果恰恰是文字环绕图片显示所必须的。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong><em>文字环绕图片显示的原因</em></strong><br />
+	先看下面的flash动画演示（点击按钮开始）：<br />
+	<span style="display: block; width: 550px; height: 320px; margin-top: 10px; border: 1px solid rgb(204, 204, 204); "><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="300" width="550"><embed flashvars="name=zhangxinxu" height="300" name="FlashVars" src="../..//image.zhangxinxu.com/flash/blog/201001/css_float_by_zhangxinxu.swf" type="application/x-shockwave-flash" width="550" wmode="opaque"></embed></object></span></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">动画所演示的关键点其实就是上面的一系列分析与讲解，即&ldquo;包裹与破坏&rdquo;！包裹是让标签占据的空间水平收缩，破坏是破坏的inline box。正如上面讲解的，inline boxes是高度形成的基础，浮动破坏了inline boxes也就没有高度可言了。真是由于浮动元素没有了inline boxes，没有了inline boxes高度，才能让其他inline boxes元素重新整合，环绕浮动元素排列。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">我们现在假设浮动没有破坏inline boxes，那么虽然图片会靠左显示，但是其会与文字形成新的高度包络线（同类聚合），且只能与一行文字形成line box，无法实现文字环绕效果，所以浮动破坏inline boxes是必须的。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">我们可以拿浮动元素与绝对定位元素做对比或许可以帮助理解。与浮动元素一样，绝对定位元素也具有&ldquo;包裹性&rdquo;，此&ldquo;包裹性&rdquo;适用于任何元素。那么，浮动元素与绝对定位元素的差别在哪里呢？我觉得最主要的差别在于：绝对定位的元素脱离了文档流，而浮动元素依旧在文档流中；而这造成的显示上的差异就是：同处于文档流中的文字实体不会与浮动元素重叠，而会与绝对定位元素重叠。这就是文字环绕显示的重要原因之一：虽然图片实际占据的高度为0，但是由于其宽度实体存在（包裹性），同样是content area 实体的文字不会与之重叠（外部的容器盒子containing box(p,div,ul,li)会重叠），这就好比篮球场上站了个植物人，虽然其几乎不可能得分，运球之类，但是他的实体在那里，它可以阻挡同一水平空间上的同一类型的个体（即人）直接穿过去，要通过，得绕道。但是其无法阻挡整个球队的向前推进。见下图（firebug显示截图）：<br />
+	<img alt="与浮动元素的重叠 &gt;&gt; 张鑫旭-鑫空间-鑫生活" height="294" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_162136.png" style="border: 0px; max-width: 100%; " title="与浮动元素的重叠 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="529" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; "><strong><em>简短的小结</em></strong><br />
+	虽然唠唠叨叨说了这么多，但是我个人觉得还是没有讲清楚，因为这里面涉及的东西都是看不见的，很多概念性的抽象的东西，即使我做了动画，也配了图，但是还是觉得没有讲得很明白。尤其我所说的浮动元素没有高度，&ldquo;你看，那图片实实在在就在那儿，怎么没有高度？没有高度为什么文字会绕行？&rdquo;所以我免不了在实际高度与inline boxes的关系这类概念间折腾，越折腾显得越乱。不过没有关系，下面我会根据上面的讲解分析浮动元素各种各样的表现，相信会对浮动的深入理解有更多的帮助。本文仅完成了三分之一，内容较多，我要分篇发布。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; color: rgb(51, 51, 51); font-family: 'Lucida Grande', Verdana, Arial, sans-serif; text-align: justify; ">&nbsp;</p>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; ">五、浮动的非本职工作</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">浮动的本职工作是让匿名inline boxes性质的文字环绕图片显示，而其他所有用浮动实现的效果都不是浮动应该做的事情，我称之为&ldquo;非本职工作&rdquo;。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">或许我们并没有过多的深思，把一些实际上不是浮动该干的事情当作&ldquo;这必须用浮动来实现&rdquo;。举个常见的例子，列表显示，见下面的图，截自淘宝新版首页：<br />
+	<img alt="淘宝热卖单品截图 &gt;&gt; 张鑫旭-鑫空间-鑫生活" class="mt5 mb10" height="232" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_193330.png" style="border: 0px; max-width: 100%; margin-top: 5px; margin-bottom: 10px; " title="淘宝热卖单品截图 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="508" /><br />
+	我不看代码就知道是用浮动实现的，我用firebug一看，果然是，不仅浮动，而且定宽。<span style="color: rgb(153, 153, 153); ">ps:要是在几个月以前，我会觉得这实在有待改进，不过现在我的心态宽了，布局思想不同而已，没有孰对孰错之分。</span><br />
+	<img alt="代码截图" class="mt10" height="126" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_195434.png" style="border: 0px; max-width: 100%; margin-top: 10px; " title="代码截图 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="403" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">我可以确信，浮动这个属性诞生的那天压根没有想到自己会要做这样的事情，本来它以为自己就让文字环绕显示就OK了，功德圆满了，结果，在web2.0的时代，其却在页面布局中被滥用。可能有人会反驳，你何处此言，有何证据？</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">我们只要静下心来好好想想浮动的本质，实现的原理，就可以知道为什么浮动本不应该用来对页面进行布局。还记得上一部分所说的浮动的本质吗？即&ldquo;包裹与破坏&rdquo;。我们可以用这个（&ldquo;包裹与破坏&rdquo;）解释为什么浮动可以让li这类block水平的元素水平排列。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; font-style: italic; font-weight: bold; ">单个无浮动的li元素</p>
+<div style="font-size: 14px; line-height: 21px; ">看下面的HTML代码：</div>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;ul style=&quot;width:440px;&quot;&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0;&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">结果如下图（截自Firefox浏览器，无其他样式干扰，下同）：<br />
+	<img alt="来自张鑫旭-鑫空间-鑫生活 单个无浮动li元素" class="mt5" height="169" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_202917.png" style="border: 0px; max-width: 100%; margin-top: 5px; " title="单个无浮动li元素 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="537" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">这里的li元素为什么会有高度？如果您认真读过<a href="../..//www.zhangxinxu.com/wordpress/p583" style="color: rgb(52, 83, 139); text-decoration: none; " title="CSS float浮动的深入研究、详解及拓展(一)">前半部分内容</a>关于line boxes模型与高度的关系的内容，应该知道，由于图片没有应用float属性，其本身有一个正常的inline box，这个inline box高度等于图片的height，在这行元素中，图片这个inline box的高度最高，于是传递给了line box，line box是个真正意义上的高度，直接作用于containing box（就是这里的li元素，使li元素有一个高度）。理解了这个您就会明白为什么要是这里的图片添加了float属性，li高度会塌陷了：浮动破坏了inline box。这个后面会详细讲解。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">这里的li没有添加float属性，可以见到li宽度100%自适应于父ul标签。一切显得那么的和谐！</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; font-style: italic; font-weight: bold; ">单个左浮动的li元素</p>
+<div style="font-size: 14px; line-height: 21px; ">看下面的HTML代码：</div>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;ul style=&quot;width:440px;&quot;&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0; <b>float:left;</b>&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">结果如下图：<br />
+	<img alt="来自张鑫旭-鑫空间-鑫生活 单个浮动li元素" height="146" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_205119.png" style="border: 0px; max-width: 100%; " title="单个浮动li元素 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="474" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">相比上面而言，这里多了个<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">float:left;</code>，浮动的&ldquo;包裹性&rdquo;一目了然：水平方向上，li宽度紧贴内部元素。我在<a href="../..//www.zhangxinxu.com/wordpress/p583" style="color: rgb(52, 83, 139); text-decoration: none; " title="CSS float浮动的深入研究、详解及拓展(一)">前文</a>曾说过这么句结论性的话：&ldquo;撇开浮动的&lsquo;破坏性&rsquo;，浮动就是个带有方位的display:inline-block属性&rdquo;。这不难理解，您可以讲这里的<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">float:left;</code>改成<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">display:inline-block;</code>最后实现的效果基本上就是一样的。display:inline-block将对象呈递为内联对象，但是对象的内容作为块对象呈递。所谓对象呈递为内敛对象就是元素呈递为inline box，所以浮动&ldquo;包裹性&rdquo;所产生的结果就是使得元素转为了line box模型中的inline box元素。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">浮动的&ldquo;包裹性&rdquo;让元素变成类似于inline box的元素，而浮动的&ldquo;破坏性&rdquo;正是破坏inline box元素的，这其中岂不有矛盾。其实非也，对于block水平的这类块状元素需要先让其变成类似效果的内联元素，然后再破坏之，实乃先诱拐再奸杀的生动实例啊！</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">又是我反复提到的，浮动破坏了inline box，也就是破坏了高度，所以这里含有浮动属性的li元素实际上是没有高度的。所以呢，要是后面还有同样的li标签的话，就会水平对齐排列的。如下：</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; font-style: italic; font-weight: bold; ">多个左浮动的li元素</p>
+<div style="font-size: 14px; line-height: 21px; ">看下面的HTML代码：</div>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;ul style=&quot;width:440px;&quot;&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0; <b>float:left;</b>&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0; <b>float:left;</b>&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">结果如下图：<br />
+	<img alt="来自张鑫旭-鑫空间-鑫生活 多个浮动li元素" height="138" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_214516.png" style="border: 0px; max-width: 100%; " title="多个浮动li元素 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="494" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; font-style: italic; font-weight: bold; ">左浮动的li元素和无浮动的li元素</p>
+<div style="font-size: 14px; line-height: 21px; ">看下面的HTML代码：</div>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;ul style=&quot;width:440px;&quot;&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0; <b>float:left;</b>&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0;&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">结果如下图：<br />
+	<img alt="来自张鑫旭-鑫空间-鑫生活 左浮动的li元素和无浮动的li元素" height="177" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_230302.png" style="border: 0px; max-width: 100%; " title="左浮动的li元素和无浮动的li元素 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="540" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">后面一个li无float属性，直接无视前面的float li元素，宽度100%显示，而且与float属性的li同一水平线排列，为何？因为浮动破坏了li的实际高度（原因我讲得太多次了），只是图片是个实体，无法与同样实体的同一文档流的图片重合，所以图片靠在一起。</p>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; ">六、证据</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; "><strong>1. 首要证据</strong></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; "><a href="../..//www.zhangxinxu.com/wordpress/p583" style="color: rgb(52, 83, 139); text-decoration: none; " title="CSS float浮动的深入研究、详解及拓展(一)">前文</a>是着重分析了浮动的&ldquo;本职工作&rdquo;：文字环绕显示；本文着重分析了浮动的&ldquo;非本职工作&rdquo;：列表布局；两者都是用的同样的原理解释的，那么有什么证据可以证明&ldquo;页面布局&rdquo;不是浮动的&ldquo;本职工作&rdquo;呢。答案关键字就是：<strong>高度塌陷</strong>。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">我在多个地方浓墨重彩的讲浮动与高度的关系，浮动使高度塌陷的原因，自己都觉得唠叨的太多了，这里不再讲。直接讲些实际的东西。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">您是否发现，浮动布局会让父标签高度缺失，但是实现文字环绕图片效果的时候父标签无需清除浮动。还是上面的例子，我们看看多li元素浮动时ul标签高度在哪里，我们可以给ul加个边框属性做测试，测试代码如下：</p>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">&lt;ul style=&quot;width:440px; <b>border-top:4px solid #a0b3d6; border-bottom:4px solid #34538b;</b>&quot;&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0; float:left;&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+    &lt;li style=&quot;border:4px solid #ff6633; background:#ffffc0; float:left;&quot;&gt;&lt;img src=&quot;../image/border.png&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">结果如下图：<br />
+	<img alt="来自张鑫旭-鑫空间-鑫生活 浮动元素父标签高度" class="mt5" height="164" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-21_233208.png" style="border: 0px; max-width: 100%; margin-top: 5px; " title="浮动元素父标签高度 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="536" /></p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">上图显示ul高度为0，这是必然的，正常的，应该的。您要是在IE下看到ul有高度，认为这是Firefox等浏览器有问题就错了，您把ul的width属性去掉，看看，会发现IE下ul高度也为0， 这是IE的layout作祟。至于为什么ul高度为0，我前面很多地方都已经讲了，不再说了。但是，从中我们可以看到，浮动本不是用来列表布局的，而是用来使元素环绕显示的，因为元素环绕（例如文字），其自身是含有inline boxes高度的，这是inline水平的元素形成高度的基础，所以，虽然浮动元素没有高度，但是其周围环绕的元素是有高度的，只要环绕元素比浮动元素高度高，父标签无高度的问题自然也就没有了，但是纯粹一堆浮动元素会有高度吗？没有。所以浮动元素塌陷的问题根本就不是浏览器的bug，而是我们没有正确地深入地了解浮动，是我们自己使用不当，因为浮动本不应该用在这里的。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; "><strong>2. 其他证据</strong></p>
+<div style="font-size: 14px; line-height: 21px; ">为什么说浮动的本职工作不是页面布局而应该是是元素环绕呢。还有其他些证据。</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; font-style: italic; font-weight: bold; ">历史</p>
+<div style="font-size: 14px; line-height: 21px; ">CSS刚诞生的时候，那时候的网页还是表格布局的时代，能显示几张图片就不错了，复杂的列表显示，布局啊这些概念还是很淡薄的，浮动出现的意义就是让文字能够环绕图片显示而已，就如word般。</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; font-style: italic; font-weight: bold; ">现象</p>
+<div style="font-size: 14px; line-height: 21px; ">Google是目前互联网领域的老大，技术很牛叉，毋庸置疑，但是，当我发现它所有的页面几乎都是表格布局的时候，很诧异；还有twitter，也是表格布局的；<br />
+	<img alt="twitter表格布局 &gt;&gt; 张鑫旭-鑫空间-鑫生活" height="203" src="../..//image.zhangxinxu.com/image/blog/201001/2010-01-22_010220.png" style="border: 0px; max-width: 100%; " title="twitter表格布局 &gt;&gt; 张鑫旭-鑫空间-鑫生活" width="554" /><br />
+	为什么这些顶尖的web网站使用表格布局，而不跟随潮流呢，起初我是百思不得其解。现在，我是明白了，这么做是有他的道理的，难道要用一堆浮动的元素去布局吗？这不是浮动该干的事情。而且，浮动是个很不好惹的魔鬼。</div>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; ">七、浮动是个魔鬼、混球</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">浮动的存在就是个破坏。浮动效果的实现就是先破坏自身（挥刀自宫），然后影响别人。页面中只要出现一个浮动，势必有其他元素受其影响。这是开发和维护中的一个定时炸蛋(敏感词)。我们想想浮动的意义，只是让文字环绕图片显示而已，所以其必须破坏自身模型和高度。但是，不知道幸运还是不幸，浮动的这种置之死地而后生的特性居然可以让元素布局，加上其表面意思很好理解，兼容性还不错，使用方便，于是在舍弃了table布局的这个web时代里，浮动成为当前页面布局的主流。想想，真是一件可怕的事情。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">有些人可能没有意识到浮动其实是个很糟糕的东西，是CSS中的一个魔鬼。为什么，或许因为用浮动布局页面发现还行，即使偶尔出现些小bug，打打补丁也可以解决。或许是因为没有体会到非浮动元素和浮动元素在开发和维护上所消耗的成本精力的差别。有些人可能知道浮动这个属性能不用就不用，但是由于找不到更好的替代方法，所以还是有很多地方使用了浮动布局，例如选项卡，列表显示等。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">理论上而言，除了浮动的环绕效果之外，我们使用浮动做的其他工作都可以使用别的CSS属性实现，而且大部分情况是比浮动的效果好：首先没有了清楚浮动一说，二是有关浮动的一堆bug也不会出现，三是元素间独立了，不会像浮动一样改变一个会影响其他。但是，考虑到大多数人对CSS掌握的程度，以及浏览器的一些兼容性问题等，很多时候，我们不得不使用看上去使用方面但潜在问题较大的浮动属性。所以，有关浮动的一些特性的研究还是很有必要的，这就是下面的重点。</p>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; ">八、解决高度塌陷的问题 &ndash; 清除浮动</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">CSS中有个讨论较多的话题就是如何清除浮动，清除浮动其实就一个目的，就是解决高度塌陷的问题。为什么会高度塌陷？什么时候会高度塌陷？塌陷原因是：元素含有浮动属性 &ndash; 破坏inline box &ndash; 破坏line box高度 &ndash; 没有高度 &ndash; 塌陷。什么时候会塌陷：当标签里面的元素只要样子没有实际高度时会塌陷。所以呢，并不是只要有浮动元素就会坍塌，就要清除的，CSS水平高低衡量的标准之一就是改用什么样式就用什么样式，不多用也不少用。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">下面就来讲讲如何清除浮动，<span style="color: rgb(153, 153, 153); font-size:../0.9em; ">zxx:写到这儿，一下子轻松了。</span><br />
+	IE下清除浮动准则很简单，使元素haslayout就可以了。如宽度值，高度值，绝对定位，zoom，浮动本身都可以让元素haslayout。显然，首选zoom:1;不会干扰任何样式。非IE浏览器常用的是overflow属性，overflow:hidden;或是overflow:scroll都可以，不过由于后者经常一不小心出现滚动条，所以前者用的更多些。由于现代浏览器都支持after伪类，所以常常也会用after写入一个clear属性的元素清除浮动。当然，最投机取巧的方法就是直接一个<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</code>放到当作最后一个子标签放到父标签那儿。下面小结这几个方法。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; "><strong>1. 投机取巧法</strong></p>
+<div style="font-size: 14px; line-height: 21px; ">就是直接一个<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</code>放到当作最后一个子标签放到父标签那儿，此方法屡试不爽，兼容性强，使用方便，是初学时使用的上佳之选。但是我从来不用，因为我看到的是个巨大的浪费，浪费了一个标签，而且只能使用一次，我个人是无法容忍的，所以这个方法不推荐。而且有时候一不留神中间多了个空格会产生一段空白高度的。</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; "><strong>2. overflow + zoom方法</strong></p>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">.fix{overflow:hidden; zoom:1;}</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">此方法优点在于代码简洁，涵盖所有浏览器，可谓不错的选择啊。不过也是有问题的，就是这个overflow:hidden;是个小炸蛋，要是里面的元素要是想来个margin负值定位或是负的绝对定位，岂不是直接被裁掉了，所以此方法是有不小的局限性的。我一般不用这个方法，只是有时候顺便去除浮动时用用。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; "><strong>3. after + zoom方法</strong></p>
+<div style="font-size: 14px; line-height: 21px; ">先来简单讲讲after，所谓after，就是指标签的最后一个子元素的后面。于是呢，我们可以用CSS代码生成一个具有clear属性的元素，其中的关键样式就是content了。或许您从网上看到的content里面的内容是&rdquo;.&rdquo;一个点，我了很多次，貌似随便写什么东西都没有问题，比如<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">content:&#39;clear both&#39;;</code>没问题，或是<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">content:&#39;张鑫旭&#39;</code>也是ok的。于是有：</div>
+<div class="zxx_code" style="padding: 10px; margin: 5px 0px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; ">
+	<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">.fix{zoom:1;}
+.fix:after{display:block; content:&#39;clear&#39;; clear:both; line-height:0; visibility:hidden;}</pre>
+</div>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">这里的line-height:0写成height:0也是可以的。此方法可以说是综合起来最好的方法了，我都是用这个样式清除浮动的，不会影响任何其他样式，通用性强，覆盖面广，我很推荐哦。</p>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; ">九、float与JavaScript</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">JavaScript可以改变CSS的属性，其他些属性还好，但是这个float值得一说，为何呢，因为float貌似是JavaScript中的一个关键字，不能使用<code style="margin: 0px 3px; color: rgb(0, 0, 0); font-family: 'Lucida Console', Monaco; font-size: 0.86em; ">obj.style.float=&quot;left&quot;;</code>这样的句子。得使用其他写法。</p>
+<div style="font-size: 14px; line-height: 21px; ">IE浏览器：
+	<div class="zxx_code" style="padding: 10px; margin: 5px 0px; font-size: 12px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; background-position: initial initial; background-repeat: initial initial; ">
+		<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">obj.style.styleFloat = &quot;left&quot;;</pre>
+	</div>
+	<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">其他浏览器：</p>
+	<div class="zxx_code" style="padding: 10px; margin: 5px 0px; font-size: 12px; background-color: rgb(238, 238, 238); border: 1px dashed rgb(204, 204, 204); clear: both; zoom: 1; background-position: initial initial; background-repeat: initial initial; ">
+		<pre style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255); white-space: pre-wrap; word-wrap: break-word; ">obj.style.cssFloat = &quot;left&quot;;</pre>
+	</div>
+</div>
+<h3 style="font-size: 1.3em; padding: 0px; margin: 18px 0px 0px; ">十、最后的总结</h3>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">其实原本是想通过深入分析浮动的前世今生，本质意义来揭示其丑陋的真面目的，可能是在文字表达上还欠火候，总觉得表达的有些凌乱，估计很轻松就知道我在说什么的人较少，本来是篇很有技术含量的文章，但是在表现上做的不够好，可能是内容太多，自己想要表达的内容太多，于是反而有些混乱。所以，最后其实很多东西没有继续详细展开讲解，例如清除浮动的本质是什么？浮动产生一系列bug的根本原因是什么？浮动布局更好的替代方案是什么？因为内容已经够多够乱的了，所以我决定这些内容留到以后，思路清晰的时候再表述出来。</p>
+<p style="margin: 0px; padding: 8px 0px; list-style-type: none; font-size: 1.05em; ">本文可以说是有别于目前绝大多数关于浮动的文章，我没有讲浮动的使用实例啊之类的东西，也没有去分析浮动的一些特性，仅仅从最根本的地方分析浮动，我想这个比单纯的讲解几个浮动的应用作用更深远。而且还有一点，本文其实某种程度上是批判浮动的，希望开发者尽可能的少使用浮动，少使用浮动去做些其实并不是浮动应该做的事情。所以要是花功夫讲浮动的应用的话就是搬石头砸自己的脚。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="padding:0 0 10px;">
+<div style="text-align: right; padding-top:10px; ">
+<a href="../ovr0/cp.phpacsharetypeblogid7660.htm" id="a_share" onclick="ajaxmenu(event, this.id, 1)" class="a_share">分享</a>
+
+<img src="../image/magic/bgimage.small.gif" class="magicicon">
+<a href="../magic.phpmidbgimageidtypeblogidid7660" id="a_magic_bgimage" onclick="ajaxmenu(event,this.id, 1)">信纸</a>	
+<img src="../image/magic/call.small.gif" class="magicicon">
+<a href="../magic.phpmidcallidtypeblogidid7660" id="a_magic_call" onclick="ajaxmenu(event,this.id, 1)">点名卡</a>
+<img src="../image/magic/updateline.small.gif" class="magicicon">
+<a href="../magic.phpmidupdatelineidtypeblogidid7660" id="a_magic_updateline" onclick="ajaxmenu(event,this.id, 1)">救生圈</a>
+<img src="../image/magic/downdateline.small.gif" class="magicicon">
+<a href="../magic.phpmiddowndatelineidtypeblogidid7660" id="a_magic_downdateline" onclick="ajaxmenu(event,this.id, 1)">时空机</a>
+<img src="../image/magic/color.small.gif" class="magicicon">
+<a href="../magic.phpmidcoloridtypeblogidid7660" id="a_magic_color" onclick="ajaxmenu(event,this.id, 1)">彩色灯</a>
+<img src="../image/magic/hot.small.gif" class="magicicon">
+<a href="../magic.phpmidhotidtypeblogidid7660" id="a_magic_hot" onclick="ajaxmenu(event,this.id, 1)">热点灯</a>
+<span class="pipe">|</span>
+
+<a href="../cp.phpactopicopjoinid7660idtypeblogid" id="a_topicjoin_7660" onclick="ajaxmenu(event, this.id)">凑热闹</a><span class="pipe">|</span>
+<a href="../cp.phpacblogblogid7660opedit">编辑</a><span class="pipe">|</span>
+<a href="../cp.phpacblogblogid7660opdelete" id="blog_delete_7660" onclick="ajaxmenu(event, this.id)">删除</a><span class="pipe">|</span>
+<a href="../cp.phpacblogblogid7660opedithot" id="blog_hot_7660" onclick="ajaxmenu(event, this.id)">热度</a><span class="pipe">|</span>
+<a href="../cp.phpaccommonopreportidtypeblogidid7660" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+</div>
+
+<div id="content">
+
+<div id="click_div">
+
+<div class="digc">
+<table>
+<tr>
+<td valign="bottom"><a href="../cp~8585.phpac" id="click_blogid_7660_1" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/luguo.gif" alt="" /><br />路过</div></a></td>
+<td valign="bottom"><a href="../cp~8586.phpac" id="click_blogid_7660_5" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/jidan.gif" alt="" /><br />鸡蛋</div></a></td>
+<td valign="bottom"><a href="../cp~8587.phpac" id="click_blogid_7660_4" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/xianhua.gif" alt="" /><br />鲜花</div></a></td>
+<td valign="bottom"><a href="../cp~8588.phpac" id="click_blogid_7660_3" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/woshou.gif" alt="" /><br />握手</div></a></td>
+<td valign="bottom"><a href="../cp~8589.phpac" id="click_blogid_7660_2" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/leiren.gif" alt="" /><br />雷人</div></a></td>
+</tr>
+</table>
+</div>
+
+
+
+</div>
+
+<div class="tuishare">
+<ul>
+<li>分享：<a href="../../www.douban.com/recommend/url{$url}titlecssfloat_25b8_25a1_25b6_25af_25b5_25c4_~1" title="豆瓣9点" target="_blank"><img src="../image/tui/duo9.png" border=0 
+
+alt="豆瓣9点" align="absmiddle"></a><a href="../../digg.com/submitphase2url{$url}titlecssfloat_25b8_25a1_25b6_25a~1" title="Digg" target="_blank"><img src="../image/tui/digg.png" border=0 
+
+alt="Digg" align="absmiddle"></a><a href="../../www.kaixin001.com/repaste/share~468.phprt" title="开心网" target="_blank"><img src="../image/tui/kaixin001.gif" border=0 
+
+alt="开心网" align="absmiddle"></a><a href="../../share.renren.com/share/buttonshare.dolinkhttp_253a_252f_252fu.shenei.net~1560.htmlt" title="人人网" target="_blank"><img src="../image/tui/renren.gif" border=0 
+
+alt="人人网" align="absmiddle"></a><a href="../../www.douban.com/recommend/urlhttp_253a_252f_252fu.shenei.net_252fspace-1-do-b~14.htmlt" title="豆瓣" target="_blank"><img src="../image/tui/duo.png" border=0 
+
+alt="豆瓣" align="absmiddle"></a></li>
+<ul>收藏：<a href="../../www.google.com/bookmarks/markopeditoutputpopupbkmkhttp_253a_252f_252fu.she~1198.htmlt" title="Google书签" target="_blank"><img src="../image/tui/gg.jpg" border=0 alt="Google书签"align="absmiddle"></a><a href="../'http_3a/delicious.com/saveurlhttp_253a_252f_252fu.shenei.net_252fspace-1-~14.htmlt" title="Del.icio.us" target="_blank"><img src="../image/tui/de.jpg" border=0 alt="Del.icio.us"align="absmiddle"></a><a href="../../myweb.cn.yahoo.com/popadd.htmlurlhttp_253a_252f_252fu.shenei.net_252~1460.htmlt" title="雅虎收藏" target="_blank"><img src="../image/tui/yahoo.jpg" border=0 alt="雅虎收藏"align="absmiddle"></a><a href="../../vivi.sina.com.cn/collect/icollect~682.phppi" title="爱问VIVI" target="_blank"><img src="../image/tui/sinavivi.gif" border=0 alt="爱问VIVI"align="absmiddle"></a><a href="../../cang.baidu.com/do/additcssfloat_25b8_25a1_25b6_25af_25b5_25c4_25c9_25ee~1#nw=1" title="百度收藏" target="_blank"><img src="../image/tui/baidushoucang.gif" border=0 alt="百度收藏"align="absmiddle"></a><a href="../../shuqian.qq.com/postfrom3titlecssfloat_25b8_25a1_25b6_25af_25b5_25c4_~1" title="QQ书签" target="_blank"><img src="../image/tui/qqshuqian.gif" border=0 alt="QQ书签"align="absmiddle"></a></li>
+<li>推广：<input type="text" value="http://u.shenei.net/space-1-do-blog-id-7660.html.html" size="60" name="theurl" id="theurl"> <input type="button" value="复制地址" 
+
+onclick="javascript:setCopy('../space-1-do-blog-id-7660.html.html');return false;">
+</li>
+</ul>
+</div>
+<!--Add By 01-->
+
+<div class="comments" id="div_main_content">
+<h2>
+<a href="#quickcommentform_7660" class="r_option">发表评论</a>
+评论 (<span id="comment_replynum">0</span> 个评论)</h2>
+<div class="page"></div>
+<div class="comments_list" id="comment">
+<ul id="comment_ul">
+</ul>
+</div>
+<div class="page"></div>
+
+<form id="quickcommentform_7660" name="quickcommentform_7660" action="cp.php?ac=comment" method="post" class="quickpost">
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<a href="###" id="comment_face" title="插入表情" onclick="showFace(this.id, 'comment_message');return false;"><img src="../image/facelist.gif" align="absmiddle" /></a>
+<a id="a_magic_doodle" href="../magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="../image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
+<br />
+<textarea id="comment_message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" name="message" rows="5" style="width:500px;"></textarea>
+</td>
+</tr>
+<tr>
+<td>
+<input type="hidden" name="refer" value="space.php?uid=1&do=blog&id=7660" />
+<input type="hidden" name="id" value="7660">
+<input type="hidden" name="idtype" value="blogid">
+<input type="hidden" name="commentsubmit" value="true" />
+<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论" onclick="ajaxpost('quickcommentform_7660', 'comment_add')" />
+<input type="checkbox" name="hiddenreply" value="1"> 评论仅作者可见
+<div id="__quickcommentform_7660"></div>
+</td>
+</tr>
+</table>
+<input type="hidden" name="formhash" value="d5aa53ee" /></form>
+<br />
+</div>
+
+</div>
+
+
+<div id="sidebar" style="padding-top:20px;">
+
+
+<div class="sidebox">
+<h2 class="title">
+<a href="space-1-do-blog-view-me.html" class="r_option">全部</a>
+作者的其他最新日志
+</h2>
+<ul class="news_list">
+<li style="height:auto;"><a href="space-1-do-blog-id-7750.html">LBS应用用户行动轨迹设计杂思</a></li>
+<li style="height:auto;"><a href="space-1-do-blog-id-7742.html">门槛</a></li>
+<li style="height:auto;"><a href="space-1-do-blog-id-7725.html">如何搭建开源PHP开发调试环境</a></li>
+<li style="height:auto;"><a href="space-1-do-blog-id-7724.html">【贤贤来听听小E唱的】我想我不够好</a></li>
+<li style="height:auto;"><a href="space-1-do-blog-id-7717.html">Js基础之基本数据类型和引用类型的参数传递详细分析</a></li>
+<li style="height:auto;"><a href="space-1-do-blog-id-7713.html">创业技能整理——小平</a></li>
+</ul>
+</div>
+
+<div class="sidebox">
+<h2 class="title">热门日志导读</h2>
+<ul class="news_list">
+<li style="height:auto;"><a href="../space-1.html" style="font-weight:bold;">小E←邱沼懿</a>: <a href="space-1-do-blog-id-1291.html">偷拍</a></li>
+<li style="height:auto;"><a href="../space-1.html" style="font-weight:bold;">小E←邱沼懿</a>: <a href="space-1-do-blog-id-1152.html">蝴蝶眨几次眼睛 我才眨几次</a></li>
+<li style="height:auto;"><a href="../space-1.html" style="font-weight:bold;">小E←邱沼懿</a>: <a href="space-1-do-blog-id-1140.html">又翘课了。。。</a></li>
+<li style="height:auto;"><a href="../space-258.html" style="font-weight:bold;">黄晓波</a>: <a href="../space-258-do-blog-id-1046.html">清仓清仓！剩的不多！买到赚到！</a></li>
+<li style="height:auto;"><a href="../space-214.html" style="font-weight:bold;">王美辰</a>: <a href="../space-214-do-blog-id-1044.html">高三</a></li>
+</ul>
+</div>
+
+
+</div>
+
+
+<script type="text/javascript">
+<!--
+function closeSide2(oo) {
+if($('sidebar').style.display == 'none'){
+$('content').style.cssText = '';
+$('sidebar').style.display = 'block';
+oo.innerHTML = '&raquo; 关闭侧边栏';
+}
+else{
+$('content').style.cssText = 'margin: 0pt; width: 810px;';
+$('sidebar').style.display = 'none';
+oo.innerHTML = '&laquo; 打开侧边栏';
+}
+}
+function addFriendCall(){
+var el = $('friendinput');
+if(!el || el.value == "")	return;
+var s = '<input type="checkbox" name="fusername[]" value="'+el.value+'" id="'+el.value+'" checked>';
+s += '<label for="'+el.value+'">'+el.value+'</label>';
+s += '<br />';
+$('friends').innerHTML += s;
+el.value = '';
+}
+resizeImg('blog_article','700');
+resizeImg('div_main_content','450');
+
+//彩虹炫
+var elems = selector('div[class~=magicflicker]'); 
+for(var i=0; i<elems.length; i++){
+magicColor(elems[i]);
+}
+
+-->
+</script>
+</div>
+<div id="vs4con_b"><p><img src="../template/vicstyle4/image/con_b_l.gif" /></p></div>
+</div>
+<!--/mainarea-->
+</div>
+<!--/main-->
+<div id="footer">
+
+<p class="r_option">
+<a href="javascript:;" onclick="window.scrollTo(0,0);" id="a_top" title="TOP"><img src="../image/top.gif" alt="" style="padding: 5px 6px 6px;" /></a>
+</p>
+
+
+<p>
+舍内网 - 
+<a href="mailto:service@shenei.net">联系我们</a>
+- <script src="../../s9.cnzz.com/stat.phpid2162321web_id2162321" language="JavaScript"></script>
+- Design By <a  href="../../e.shenei.net/default.htm" target="_blank"><strong> 小E</strong></a>
+</p>
+<p>
+Powered by <a  href="../../fs.shenei.net/default.htm" target="_blank"><strong>【疯·神】工作室</strong></a> <span title="20100416">2.0</span>
+&copy; 2009-2010 <a href="mailto:e5201@126.com" target="_blank">E Inc.</a> </p>
+
+
+</div>
+</div>
+<!--/wrap-->
+
+<ul id="ucappmenu_menu" class="dropmenu_drop" style="display:none;">
+<li><a href="../../buy.shenei.net/default.htm" title="舍内团秒" target="_blank">舍内团秒</a></li>
+<li><a href="../../shop.shenei.net/default.htm" title="免费开店" target="_blank">免费开店</a></li>
+<li><a href="../../xx.shenei.net/default.htm" title="舍内知天下" target="_blank">舍内知天下</a></li>
+</ul>
+
+<ul id="membernotemenu_menu" class="dropmenu_drop" style="display:none;width:auto;">
+</ul>
+
+<script language="javascript"  type="text/javascript" src="../cp.phpacpmopchecknewpmrand1694700400"></script>
+
+</body>
+</html>

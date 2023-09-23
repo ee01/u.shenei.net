@@ -1,0 +1,42 @@
+
+/*
+[name]情系爷们吧[/name]
+Powered by 54zhu.com
+*/
+
+/*全局头部及定位*/
+body {background: url(images/tile.gif) repeat; color:#ffffff;}
+#space_mymenu h2, .sidebox h2.title{color:#ffffff;}
+#footer , #footer a ,a{color:#dddddd;}
+a:hover{color:#7f53c1;}
+#header { margin: 0; padding:0; background: url(images/nav_bg.gif) repeat-x; color: #CCC; }
+#header a { color: #2C629E; }
+#header .logo a { margin-left:30px; width: 100px; height: 34px; background: url(images/logo.gif) no-repeat left center; overflow: hidden; display: block; }
+.headerwarp { margin:0; padding:0; height: 200px; width:100%;  background: url(images/footer.jpg) no-repeat center 34px;}
+.login_thumb { background-image: url(images/login_bg.gif);}
+.float_more { margin-left:450px;}
+#space_blog{ margin-top:10px;}
+#ubar h2, #space_page .sidebox h2.title,#space_page .feed_header{height:25px;line-height: 25px;margin:0; padding: 0px 10px; background-repeat:no-repeat;}
+#space_info .info_more{text-align:right; margin-bottom:10px; padding-right:10px;}
+#comment .box_content{ padding-left:5px;}
+#space_feed .box_content{padding-left:5px; }
+#space_doing .doing_list{padding-left:10px; }
+#maincontent .infotable, #maincontent  .doing_list, #friend_ul .line_list{ margin-top:-18px;}
+#space_photo .topic_list{margin-top:-8px;}
+#wrap{ margin: 0 auto; width: 990px;}
+#space_mymenu, .sidebox{width:200px;}
+#space_page #content{ width:550px;}
+#wrap, .wrap {width: 100%; }
+#space_page{ width:990px; margin:0 auto;}
+#space_info .spacemenu_list{ height:100%}
+#ubar h2, #space_page .sidebox h2.title, .line_list, #maincontent .borderbox, #space_info .spacemenu_list, #space_info .info_more, #space_feed .box_content, #space_page .feed_header,#space_photo table, .avatar_list,  .borderbox, .box_content,  .box, #comment .box, #commentsubmit_btn, #comment .box_content,#maincontent .infotable, #maincontent  .doing_list, #space_poll .line_list, #space_event .line_list, #space_share .line_list, #friend_ul .line_list{background-image:url(images/components.gif);}
+#space_mymenu .line_list, #space_app_guide .line_list, #obar .sidebox .avatar_list, #maincontent .infotable, #maincontent  .doing_list, #friend_ul .line_list, #space_poll .line_list, #space_event .line_list, #space_share .line_list, #space_info .spacemenu_list, #space_info .info_more, #space_feed .box_content, #space_photo table, #space_blog .line_list, #comment .box, #comment .box_content{border:1px solid #211235; border-top:none;}
+#comment_message{ width:490px; height:75px; border:0; background:url(images/textarea.jpg) repeat-y left center;}
+#commentsubmit_btn{background-repeat:no-repeat; background-position:-230px -9px;}
+#maincontent .borderbox a.submit{background-repeat:no-repeat; background-position:-230px -9px;}
+#ubar h2, #space_page .sidebox h2.title{background-position:-7px -9px;}
+#space_page .feed_header {background-position:-7px -55px;}
+.borderbox, .line_list, .avatar_list{background-position:-574px 0;background-repeat:repeat-y;}
+#maincontent .borderbox, #space_info .spacemenu_list, #space_info .info_more,.box_content, .box,#space_blog .line_list,  #space_photo table,#comment .box, #comment .box_content, #maincontent .infotable, #maincontent  .doing_list, #space_poll .line_list, #space_event .line_list, #space_share .line_list, #friend_ul .line_list{background-position:-778px 0;background-repeat:repeat-y;}
+#footer { width:100%; height:150px; background:url(images/footer.jpg) no-repeat center top; margin-top:10px; padding:0; color:#C98908; }
+#space_info .spacemenu_list, #comment .box{border-bottom:none;}

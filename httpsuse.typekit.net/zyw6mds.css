@@ -1,0 +1,22 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * noto-sans:
+ *   - http://typekit.com/eulas/00000000000000003b9b257c
+ *
+ * © 2009-2023 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2020-04-04 17:44:46 UTC"}*/
+
+@import url("../httpsp.typekit.net/p.csss1kzyw6mdshttkf40411a11744788apptypekitecss.css");
+
+@font-face {
+font-family:"noto-sans";
+src:url("af/a91117/00000000000000003b9b257c/27/lprimer7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831f~1") format("woff2"),url("af/a91117/00000000000000003b9b257c/27/dprimer7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831f~1") format("woff"),url("af/a91117/00000000000000003b9b257c/27/aprimer7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831f~1") format("opentype");
+font-display:auto;font-style:normal;font-weight:500;font-stretch:normal;
+}
+
+.tk-noto-sans { font-family: "noto-sans",sans-serif; }

@@ -1,0 +1,1 @@
+define("common:widget/ui/arch/events/keymap",function(){return{bind:function(){}}});

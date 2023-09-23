@@ -1,0 +1,885 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0047)http://u.shenei.net/viewspace.php?uid=1&do=wall --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>哇吐！~~ </title>
+
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/00/01_style.css1296911438.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid1.htm" title="小E←邱沼懿" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.phprsd1" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+
+<style>
+
+#diy_content {color:#fff; font-size:14px; padding:2px; text-align:center; width:100%; height:120px; background-color:#342}
+#diy_header {margin:0 auto; height:30px; background-color:#456}
+#diy_main {margin:0 auto; height:90px;background-color:#789;}
+#selectblock {margin:0 auto;}
+
+/* 弹出层时的渐变层的样式 */
+.transfer {border:1px dashed red;margin:0px auto;cursor:move;background: url(viewspace/img/tool/bg_transfer.png) !important;background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src='viewspace/img/tool/bg_transfer.png');}
+
+.transfer .transferbody{overflow:hidden;}
+.transfer .transferbody a{display:block; width:21px; height:21px; overflow:hidden; float:right;margin-right:6px; text-indent: -99999px;}
+.transfer .transferbody a.editblock{background:url(viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.editblock:hover{background:url(viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 -21px; }
+.transfer .transferbody a.delblock{background:url(viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.delblock:hover{background:url(viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 -21px; }
+
+.transfer h1{background:#ECF9FF;height:18px;margin:1px;padding:3px;text-align:right;}
+.transfer h1 a{background-color:#F00;padding:4px;}
+
+/* 颜色选择器的样式 */
+#clrMain {background-color:#FFF;height:255px;width:254px;border:1px solid #000;position:absolute;left:80px;top:100px;}
+#clrMain input {width:70px;left:80px;top:225px;padding:4px;position:absolute;}
+#clrColor {background-repeat:no-repeat;height:200px;left:3px;top:3px;width:200px;padding:7px;position:absolute;}
+#clrBGColor {background-repeat:no-repeat;height:200px;width:200px;}
+#clrHue {height:200px;width:24px;left:220px;top:7px;padding:4px 0px 4px 0px;position:absolute;}
+#clrSv {width:200px;height:200px;}
+#clrCrosshairs {position:absolute;}
+#clrH {height:200px;width:24px;}
+#clrRangeArrows {height:9px;width:40px;position:absolute;}
+#clrPreview {border:1px solid #000;background-color:#999;height:22px;width:60px;position:absolute;top:225px;left:9px;}
+
+/*临时控制某个模块的样式*/
+#mytest .blocktitle{
+background:url(images/bg_blocktitle.jpg) repeat-x;
+height:26px;
+line-height:26px;
+border-bottom:1px solid red;
+}
+#mytest .blocktitle h2{color:#1D1B1C;font-size:14px;font-weight:bold;}
+#mytest .blocktitle em a{color:#006697;}
+
+#mytest .blockcontent{
+color:#fff;
+background: #FFF url(images/1.jpg) no-repeat left left;
+}
+#mytest .blockcontent a{color:#006697;}
+
+</style>
+<script language="javascript" type="text/javascript" src="viewspace/js/bindbase.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/drageffect.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/transfer.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/selectcolor.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/rgbhexhsv.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/sortdrag.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/slider.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/phpserialize.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/stylecss.js"></script>
+<script language="javascript">
+var tempstyle = 'a:6:{s:9:"frame_set";s:2:"lc";s:8:"allframe";a:2:{s:5:"dleft";a:6:{i:0;s:7:"profile";i:1;s:5:"doing";i:2;s:6:"player";i:3;s:10:"friendlist";i:4;s:9:"footprint";i:5;s:7:"applist";}s:8:"dcontent";a:6:{i:0;s:4:"feed";i:1;s:8:"albumone";i:2;s:4:"blog";i:3;s:8:"albumall";i:4;s:11:"forumstatus";i:5;s:4:"wall";}}s:9:"effectall";a:7:{s:10:"blocktitle";a:2:{s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609381_01401200.jpg)";s:19:"border-bottom-style";s:25:"border-bottom-style:solid";}s:12:"blockcontent";a:4:{s:16:"background-image";s:21:"background-image:none";s:16:"background-color";s:28:"background-color:transparent";s:17:"background-repeat";s:24:"background-repeat:repeat";s:5:"color";s:13:"color:#FFFFFF";}s:13:"blocktitle|h2";a:1:{s:5:"color";s:13:"color:#ffffff";}s:15:"blocktitle|em a";a:1:{s:5:"color";s:13:"color:#ffffff";}s:14:"blockcontent|a";a:1:{s:5:"color";s:13:"color:#00AEFF";}s:20:"blockcontent|a:hover";a:1:{s:5:"color";s:13:"color:#00DCFF";}s:0:"";a:3:{s:12:"border-style";s:18:"border-style:solid";s:12:"border-width";s:16:"border-width:1px";s:12:"border-color";s:20:"border-color:#bbbbbb";}}s:9:"blockname";a:0:{}s:5:"music";a:0:{}s:5:"block";a:23:{s:4:"body";a:1:{s:0:"";a:4:{s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609431_44348200.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-y";s:21:"background-attachment";s:27:"background-attachment:fixed";s:16:"background-color";s:24:"background-color:#000000";}}s:6:"banner";a:4:{s:0:"";a:5:{s:6:"height";s:12:"height:330px";s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609195_34450800.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:28:"background-position:left top";}s:8:"title|h1";a:1:{s:5:"color";s:13:"color:#ffffff";}s:7:"title|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:9:"title|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:5:"title";a:1:{s:0:"";a:1:{s:3:"top";s:8:"top:12px";}}s:6:"footer";a:3:{s:0:"";a:5:{s:6:"height";s:12:"height:115px";s:16:"background-image";s:21:"background-image:none";s:17:"background-repeat";s:26:"background-repeat:norepeat";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:33:"background-position:center center";}s:11:"copyright|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:13:"copyright|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:4:"menu";a:7:{s:0:"";a:8:{s:19:"background-position";s:33:"background-position:center center";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609260_39675600.jpg)";s:16:"background-color";s:28:"background-color:transparent";s:12:"border-style";s:17:"border-style:none";s:12:"border-width";s:16:"border-width:0px";s:12:"border-color";s:17:"border-color:#FFF";s:6:"height";s:11:"height:30px";}s:6:"active";a:1:{s:16:"background-image";s:22:"background-image:url()";}s:3:"|ul";a:2:{s:12:"padding-left";s:16:"padding-left:4px";s:10:"margin-top";s:14:"margin-top:2px";}s:2:"|a";a:3:{s:9:"font-size";s:14:"font-size:14px";s:11:"font-weight";s:16:"font-weight:bold";s:5:"color";s:13:"color:#ffffff";}s:3:"|em";a:1:{s:9:"font-size";s:14:"font-size:12px";}s:8:"|a:hover";a:1:{s:5:"color";s:13:"color:#ffff00";}s:8:"active|a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:7:"profile";a:0:{}s:6:"player";a:0:{}s:4:"feed";a:0:{}s:4:"blog";a:0:{}s:5:"share";a:0:{}s:4:"mtag";a:0:{}s:5:"doing";a:0:{}s:9:"footprint";a:0:{}s:10:"friendlist";a:0:{}s:7:"applist";a:0:{}s:4:"wall";a:0:{}s:11:"forumstatus";a:0:{}s:6:"thread";a:0:{}s:8:"albumall";a:0:{}s:5:"album";a:0:{}s:7:"profect";a:0:{}s:5:"about";a:0:{}s:8:"albumone";a:0:{}}}';//数据库里取出来的diystyle,如果有就反序列化后赋值给diystyle
+var defaultset = 'lc';
+var stylenum = '7';
+var supe_uid = 1;
+var blocklist = new Array();
+var oldblockstyle = new Array();// value|bclass|tag|property|1 or 0这前是否是自定义过的
+blocklist['profile'] = '个人设置';
+blocklist['friendlist'] = '好友列表';
+blocklist['doing'] = '我的点滴';
+blocklist['albumone'] = '动态相片';
+blocklist['albumall'] = '我的相册';
+blocklist['feed'] = '个人新鲜事';
+blocklist['blog'] = '我的博文';
+blocklist['share'] = '我的分享';
+blocklist['mtag'] = '我的群组';
+blocklist['thread'] = '我的话题';
+blocklist['applist'] = '小应用';
+blocklist['wall'] = '留言板';
+blocklist['forumstatus'] = '我的投票';
+blocklist['footprint'] = '脚印';
+blocklist['player'] = '播放器';
+</script>
+<script language="javascript" type="text/javascript" src="viewspace/js/index_diy.js"></script>
+<div id="sharestyle" class="floatwin" style="display:none;" >
+<div class="floattitle" id="sharestyle_header">
+<h2>分享我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<form id="sharestyle_form" action="viewspace.php?do=mystyle&op=share" method="post">
+<div class="floatbody">
+风格在审核完毕后才能进行编辑修改。<br>
+<label for="">风格名称：</label>
+<input type="text" name="stylename" id="stylename" class="txt"/>
+<input type="hidden" name="styleid" id="styleid">
+<label for="">色系：</label>
+<select id="stylecolor" name="stylecolor">
+<option value="">选择</option>
+<option value="1">黑</option>
+<option value="2">白</option>
+<option value="3">粉</option>
+<option value="4">黄</option>
+<option value="5">绿</option>
+<option value="6">蓝</option>
+</select>
+<label for="">类别：</label>
+<select id='stylecategory' name='stylecategory'>
+<option value="">选择</option>
+<option value="1">简约</option>
+<option value="2">可爱</option>
+<option value="3">炫酷</option>
+<option value="4">浪漫</option>
+<option value="5">其它</option>
+</select>
+</div>
+</form>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="$('sharestyle').style.display='none';$('mystyles').style.display='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<a target="mainyinyue"  href="javascript:void(0);" id="sharestyle_sw"></a>
+<div class="floatwin" id="fastdiy" style="display:none; z-index:3000;">
+<div class="floattitle" id="fastdiy_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>快速自定义模板</h2>
+</div>
+<div class="floatcontent">
+<form id="fastdiyform" method="post" id="albumform" action="viewspace.php" >
+<input type="hidden" name="faststyle" id="faststyle" value=""/>
+<input type="hidden" name="fastbg" id="fastbg" value=""/>
+<input type="hidden" name="fastbgheight" id="fastbgheight" value=""/>
+</form>
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="webcolormes">
+选择你喜欢的主页色系：
+</div>
+<ul class="webcolor">
+<li>
+<a href="#" id="black" class="webcolor_black" title="黑色" onclick="fastchangesyspic(this, '1');">黑色</a>
+</li>
+<li>
+<a href="#" id="white" class="webcolor_white" title="白色" onclick="fastchangesyspic(this, '2');">白色</a>
+</li>
+<li>
+<a href="#" id="pink" class="webcolor_pink" title="粉色" onclick="fastchangesyspic(this, '3');">粉色</a>
+</li>
+<li>
+<a href="#" id="yellow" class="webcolor_yellow" title="黄色" onclick="fastchangesyspic(this, '4');">黄色</a>
+</li>
+<li>
+<a href="#" id="green" class="webcolor_green" title="绿色" onclick="fastchangesyspic(this, '5');">绿色</a>
+</li>
+<li>
+<a href="#" id="blue" class="webcolor_blue" title="蓝色" onclick="fastchangesyspic(this, '6');">蓝色</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatsub" id="fastdiysub" style="display:none">
+<div class="floatbody">
+<div class="webcolormes" id="fastpicnav">
+选择该色系下主页的头部图片：
+<span>
+<a class="on" target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '', 'fastpicnav');" id="alltype">全部</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=1', 'fastpicnav');">简约</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=2', 'fastpicnav');">可爱</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=3', 'fastpicnav');">炫酷</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=4', 'fastpicnav');">浪漫</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=5', 'fastpicnav');">其它</a>
+</span>
+</div>
+<div id="fastheaderbg">
+</div>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick=" $('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="#" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="mystyles" style="display:none; z-index:3000;">
+<div class="floattitle" id="mystyles_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="$('selectmystyle').value=''; switchstyle('', 'mystyle');$('mystyles').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a target="mainyinyue"  href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain mainnotop">
+<div class="floatbody" id="mystylelist">
+</div>
+</div>
+<div class="floatfun">
+<a target="mainyinyue"  href="javascript:void(0);" class="cancel">取消</a>
+<input type="hidden" name="selectmystyle" id="selectmystyle" value="">
+<a href="#" onclick="if($('selectmystyle').value > 0){window.location.href='viewspace.php?do=mystyle&op=use&styleid='+$('selectmystyle').value;}else{window.location.href='viewspace.php';}" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="selectshare" style="display:none; z-index:3000;">
+<div class="floattitle" id="selectshare_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>选择风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatnav" id="sharepicnav">
+<ul class="navcolor">
+<li  onclick="changesysshare(this, '&color=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黑</a></li>
+<li  onclick="changesysshare(this, '&color=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">白</a></li>
+<li  onclick="changesysshare(this, '&color=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">粉</a></li>
+<li  onclick="changesysshare(this, '&color=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黄</a></li>
+<li  onclick="changesysshare(this, '&color=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">绿</a></li>
+<li  onclick="changesysshare(this, '&color=6', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesysshare(this, '', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesysshare(this, '&category=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">简约</a></li>
+<li  onclick="changesysshare(this, '&category=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesysshare(this, '&category=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesysshare(this, '&category=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesysshare(this, '&category=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody">
+
+
+<form id="selectshareform" method="post" id="albumform" action="viewspace.php?do=getsharestyle" target="mainyinyue" >
+<input type="hidden" name="sharestyleid" id="sharestyleid" value=''>
+<div id="sharelist" class="sharelist">
+</div>
+</form>
+</div>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="clrMain" style="display:none;z-index:99999;">
+<iframe scrolling="no" frameborder="0" style="background-color:transparent;position:absolute;width:252px; height:253px;"></iframe>
+<div id="clrColor"><div id="clrBGColor"><img id="clrCrosshairs" galleryimg="false" src="viewspace/img/mappoint.gif" style="display:none;" /></div></div>
+<div id="clrHue"><img id="clrRangeArrows" galleryimg="false" src="space/indeximages/rangearrows.gif" style="display:none;" /></div>
+<div id="clrPreview"></div>
+<input type="text" name="clrColorValue" id="clrColorValue" value=""/>
+<img src="viewspace/img/nocolor.gif" style="left:165px;position:absolute;top:225px;" onclick="getColor('transparent');"/>
+<a target="mainyinyue"  href="javascript:void(0);" class="fbtn_cancel" onclick="$('clrMain').style.display='none';"
+style="width:50px;left:190px;position:absolute;top:225px;">确定</a>
+</div>
+<div id="dstdiv" style="width:400px;height:250px;background-color:#999;border:1px solid #123456;display:none;">
+cccc<a target="mainyinyue"  href="javascript:void(0);" class="closeDiv">close</a>
+</div>
+<div id="showData"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wraptwo">
+<div id="banner" class="banner">
+<div class="title" id="title">
+<h1 id="myblogname">哇吐！~~  <em> 605643 人次访问, 7183个积分 <a href="do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></em></h1>
+<p>哇吐！~~狂吐中ing...<a href="cp.phpacsign.htm" id="a_sign" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[编辑]</a></p>
+<p><a href="../e.shenei.net/default.htm" onclick="javascript:setCopy('../e.shenei.net/default.htm');return false;" class="spacelink domainurl">http://E.shenei.net</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+listURL[0]="../leishop.e.bname.us/qzone.mp3.htm"
+RadioList[0]="music_1"
+listURL[1]="../www.fjjlyz.net/disk/mp3/_25d0_25c2_25b9_25c8_25c1_25bc_25d7_25d3_25b5_25c4par~1.htm"
+RadioList[1]="music_2"
+listURL[2]="../www.fjjlyz.net/disk/mp3/_25c5_25d1_25c4_25e6_25b5_25c4_25c2_25b3_25c2_25b3_25~1.htm"
+RadioList[2]="music_3"
+listURL[3]="../mfile.home.news.cn/music/public/vdm7/200912/30/20/mufs072009123012272652209d7b.mp3"
+RadioList[3]="music_4"
+listURL[4]="../www.fjjlyz.net/disk/mp3/_25e7_258a_25ac_25e5_25a4_259c_25e5_258f_2589.mp3.htm"
+RadioList[4]="music_5"
+listURL[5]="../www.hugedomains.com/domain_profile.cfmddivast.com.htm"
+RadioList[5]="music_6"
+listURL[6]="../mfile.home.news.cn/music/public/vdm7/200909/06/3b/mufs0720090906160325503b0d8c.mp3"
+RadioList[6]="music_7"
+listURL[7]="../www.91zyzz.com/dodo/257.mp3"
+RadioList[7]="music_8"
+listURL[8]="../home.wsxz.cn/music/2010/01/28/70312500.mp3"
+RadioList[8]="music_9"
+listURL[9]="../www.firstfeeling.cn/xueyoulan/mp3/c.k.mp3"
+RadioList[9]="music_10"
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+<em>
+<a href="javascript:void(0);" id="mystylelist_sw">我的风格</a> | 
+<!--<a id="setstyle_a" href="javascript:void(0);" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);">更换风格</a>-->
+<a class="setstyle" href="javascript:void(0);"><img id="setstyle_a" src="template/default/image/btn_style.gif" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);" align="absmiddle" alt="更换风格"/></a>
+</em>
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=1', '');">
+主页 </a></li>
+-->
+
+<li>
+<a  href="viewspace.phpuid1.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doaboutme.htm', 'aboutme');">
+这谁~ </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogviewme.htm', 'blog');">
+点滴 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumviewme.htm', 'album');">
+瞬间 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewme.htm', 'poll');">
+告诉我 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dofriendviewme.htm', 'friend');">
+三铁 </a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dowallviewme.htm', 'wall');">
+骂两句 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doapplist.htm', 'applist');">
+好玩 </a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div class="frame_1">
+<div id="profile" class="block" >
+<div class="blocktitle">
+<em>
+
+
+		
+<a id="a_magic_gift" href="magic.phpmidgift.htm" onclick="ajaxmenu(event,this.id,1)"><img src="viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />埋个红包</a>
+				
+</em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a href="viewspace.phpuid1.htm" class="avatar"><img src="../uc.shenei.net/data/avatar/000/00/00/01_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_big.gif'"></a>
+<div class="username">
+<p class="avatar_op"><a href="cp.phpacavatar.htm">上传头像</a></p><p class="onlineU" title="在线">昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1.htm', '');">小E←邱沼懿</a></p>
+<p>等级：<a href="do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<a id="a_space_videophoto" href="space.phpuid1dovideophoto.htm" onClick="ajaxmenu(event, this.id, 1)"><img src="viewspace/img/tool/video.gif" align="absmiddle" title="已通过视频认证" alt="已通过视频认证" /></a>
+<a href="pay.phpacvip.htm" target="_blank"><img src="image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
+</p>
+</div>
+<div class="tool">
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+<div class="frame_3">
+<div id="about" class="block">
+<div class="blocktitle">
+<h2>留言板</h2>
+</div>
+<div class="blockcontent">
+<div class="commentlist">
+
+<ul id="comment_ul">
+<li id="comment_3616_li"><div class="avatar48"><a href="space-564.html"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3616" id="c_3616_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3616feedid.htm" id="c_3616_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3616.htm" id="a_report_3616" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-564.html" id="author_3616">清阳</a> 
+<span class="gray">2011-04-14 23:48</span>
+
+</div>
+
+<div class="detail" id="comment_3616"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 哇塞~这个绿绿的界面我很喜欢啊～</span></div>好吧好吧。有人喜欢就好。</div>
+
+</li><li id="comment_3598_li"><div class="avatar48"><a href="space-564.html"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_08_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3598" id="c_3598_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3598feedid.htm" id="c_3598_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3598.htm" id="a_report_3598" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-564.html" id="author_3598">清阳</a> 
+<span class="gray">2011-04-07 10:22</span>
+
+</div>
+
+<div class="detail" id="comment_3598"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 像我这样哈！</span></div>那还是不用了。</div>
+
+</li><li id="comment_3593_li"><div class="avatar48"><a href="space-564.html"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_02_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3593" id="c_3593_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3593feedid.htm" id="c_3593_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3593.htm" id="a_report_3593" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-564.html" id="author_3593">清阳</a> 
+<span class="gray">2011-04-06 22:57</span>
+
+</div>
+
+<div class="detail" id="comment_3593"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 为什么不换个主题呵~</span></div>额。换什么主题？？？</div>
+
+</li><li id="comment_3584_li"><div class="avatar48"><a href="space-9.html"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3584" id="c_3584_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3584feedid.htm" id="c_3584_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3584.htm" id="a_report_3584" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-9.html" id="author_3584">李慧丹</a> 
+<span class="gray">2011-04-03 01:20</span>
+
+</div>
+
+<div class="detail" id="comment_3584">某人，生日快乐！！由于你的电话号码让我纠结的无以复加。就不发短信给你了~~</div>
+
+</li><li id="comment_3395_li"><div class="avatar48"><a href="space-144.html"><img src="../uc.shenei.net/data/avatar/000/00/01/44_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_06_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3395" id="c_3395_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3395feedid.htm" id="c_3395_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3395.htm" id="a_report_3395" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-144.html" id="author_3395">じò 記憶ぴ</a> 
+<span class="gray">2010-12-13 18:22</span>
+
+</div>
+
+<div class="detail" id="comment_3395"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 干嘛用这种头像- =</span></div>我喜欢，这个发型，我还剪了</div>
+
+</li><li id="comment_3394_li"><div class="avatar48"><a href="space-1001.html"><img src="../uc.shenei.net/data/avatar/000/00/10/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3394" id="c_3394_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3394feedid.htm" id="c_3394_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="ovr0/cp.phpaccommonopreportidtypecommentid3394.htm" id="a_report_3394" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-1001.html" id="author_3394">技何</a> 
+<span class="gray">2010-12-10 14:21</span>
+
+</div>
+
+<div class="detail" id="comment_3394"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: IE和360是同一个内核的都IE内核，等于一个浏览器。。<br />
+ 回头我看看，，我是用Opera呃~</span></div>嗯，IE还不行。</div>
+
+</li><li id="comment_3391_li"><div class="avatar48"><a href="space-1001.html"><img src="../uc.shenei.net/data/avatar/000/00/10/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3391" id="c_3391_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3391feedid.htm" id="c_3391_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="ovr0/cp.phpaccommonopreportidtypecommentid3391.htm" id="a_report_3391" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-1001.html" id="author_3391">技何</a> 
+<span class="gray">2010-12-05 22:45</span>
+
+</div>
+
+<div class="detail" id="comment_3391"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 哪里一定要用这里的呵~<br />
+&nbsp;&nbsp;可以自己弄图自己搞呀哈！</span></div>有Bug，头部图片，大背景图，尾部图片形同虚设，不能自定义，点击没反应，IE、360试过都不行。</div>
+
+</li><li id="comment_3386_li"><div class="avatar48"><a href="space-1001.html"><img src="../uc.shenei.net/data/avatar/000/00/10/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_05_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3386" id="c_3386_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3386feedid.htm" id="c_3386_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="ovr0/cp.phpaccommonopreportidtypecommentid3386.htm" id="a_report_3386" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-1001.html" id="author_3386">技何</a> 
+<span class="gray">2010-12-05 01:58</span>
+
+</div>
+
+<div class="detail" id="comment_3386"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 主页不好看啊~<img src="image/face/43.gif" class="face"><br />
+ 装扮下！</span></div>可惜试遍了这里所有的风格，找不到一个和自己的风格比较搭的……</div>
+
+</li><li id="comment_3176_li"><div class="avatar48"><a href="space-9.html"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_01_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3176" id="c_3176_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3176feedid.htm" id="c_3176_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="ovr0/cp.phpaccommonopreportidtypecommentid3176.htm" id="a_report_3176" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-9.html" id="author_3176">李慧丹</a> 
+<span class="gray">2010-09-29 13:47</span>
+
+</div>
+
+<div class="detail" id="comment_3176"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 嘿嘿的界面。。什么都看不到了。。。。</span></div>改过来了啦，请您检查咯</div>
+
+</li><li id="comment_3111_li"><div class="avatar48"><a href="space-6.html"><img src="../uc.shenei.net/data/avatar/000/00/00/06_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_08_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="cp.phpaccommentopdeletecid3111" id="c_3111_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="ovr0/cp.phpaccommentopreplycid3111feedid.htm" id="c_3111_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="ovr0/cp.phpaccommonopreportidtypecommentid3111.htm" id="a_report_3111" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="space-6.html" id="author_3111">李溦伟</a> 
+<span class="gray">2010-09-07 16:53</span>
+
+</div>
+
+<div class="detail" id="comment_3111">那个你宠物我不知道哪个的说 叫她加我下吧。。</div>
+
+</li></ul>
+
+<div class="pages"><em>&nbsp;101&nbsp;</em><strong>1</strong><a href="javascript:;"  onclick="javascript:spaceCategory('ovr0/viewspace.phpuid1dowallpage2.htm', '');" >2</a><a href="javascript:;"  onclick="javascript:spaceCategory('ovr0/viewspace.phpuid1dowallpage3.htm', '');" >3</a><a href="javascript:;"  onclick="javascript:spaceCategory('ovr0/viewspace.phpuid1dowallpage4.htm', '');" >4</a><a href="javascript:;"  onclick="javascript:spaceCategory('ovr0/viewspace.phpuid1dowallpage5.htm', '');" >5</a><a href="javascript:;"  onclick="javascript:spaceCategory('ovr0/viewspace.phpuid1dowallpage2.htm', '');" class="next">&rsaquo;&rsaquo;</a><a href="javascript:;" onclick="javascript:spaceCategory('ovr0/viewspace.phpuid1dowallpage11.htm', '');"  class="last">... 11</a></div>
+
+<div class="box_action">
+<h2 class="title l_status">给自己留言</h2>
+</div>
+
+<form action="cp.php?ac=comment" id="commentform_1" name="commentform_1" method="post">
+<a href="###" id="message_face" onclick="showFace(this.id, 'comment_message');"><img src="image/facelist.gif" align="absmiddle" /></a>
+                <a id="a_magic_doodle" href="magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
+                <br />
+<textarea name="message" id="comment_message" rows="5" cols="60" style="width:98%;" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" onclick="if(this.value == '大量刷留言评论、发布广告、脏话将被处罚，严重者将被删除帐号(用户)，请勿抱侥幸心理。'){this.value='';this.style.color='#000000';}" onkeydown="ctrlEnter(event, 'comment_submit');" style="color:#737373">大量刷留言评论、发布广告、脏话将被处罚，严重者将被删除帐号(用户)，请勿抱侥幸心理。</textarea>
+<input type="hidden" name="refer" value="space.php?uid=1" />
+<input type="hidden" name="id" value="1" />
+<input type="hidden" name="idtype" value="uid" />
+<input type="hidden" name="commentsubmit" value="true" />
+<br>
+<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="留言" onclick="ajaxpost('commentform_1', 'wall_add')" />
+<input type="checkbox" name="hiddenreply" value="1"> 悄悄话	<!--Add By 01-->
+<span id="__commentform_1"></span>
+<input type="hidden" name="formhash" value="d5aa53ee" />
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<div id="footer">
+<div class="copyright">
+<div class="f_status">
+<a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
+<a title="订阅 RSS" id="a_rss" href="rss.phpuid1.htm">订阅</a>
+<a href="ovr0/cp.phpaccommonopreportidtypeuidid1.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
+</div>
+<p>小E←邱沼懿的个人博客由〖舍内网〗提供，版权所有 <a href="../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)<a href="ovr0/admincp.phpacspaceopmanageuid1.htm" id="a_manage">管理用户</a></p>
+</div>
+</div>
+
+<ul id="setstyle_a_menu" class="stylemenu" style="display:none">
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="viewspace.phpopdiy.htm">高级自定义</a></li></ul>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+<div class="toolbarbox1">
+<a class="logo" href="space.phpdohome.htm">
+舍内
+</a>
+<div class="toolbaruser">
+<ul>
+<li class="txt">欢迎您：小E←邱沼懿 &nbsp;&nbsp;<a href="cp.phpaccommonoplogoutuhash88e30fdf50da701748a7f76c40b44df3">退出</a></li>
+<li><a href="viewspace.phpuid1.htm">我的博客</a></li>
+<li><a href="cp.php.htm" target="_blank">设置</a></li>
+<li>
+<a id="a_magic_superstar" href="magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
+</li>
+<li><a href="space-pm.html">消息</a></li>
+
+</ul>
+</div>
+<div class="toolbarlink">
+<ul>
+<li class="home"><a href="ovr1/space-home.html">网站首页</a></li>
+<li><a href="network.html">闲逛</a></li>
+<li><a href="randomuser.php.htm">乱窜</a></li>
+</ul>
+</div>
+<div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
+<div id="annbody">
+<ul id="annbodylis">
+
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;<img src="image/face/32.gif" class="face">还是不了解咩~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5617-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;迷迷糊糊~感觉不是自己的自己在做什么。焕然间，意识到不该这怎做。。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5616-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;谁是谁的谁，在乎了又能怎样。一般的心情无法理解我的谁。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5615-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;心情不是很好，脾气就不好，没地方发发泄，闷出内伤了~~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5614-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1377-do-doing.html" target="_blank">xiaoya </a>说：&nbsp;&nbsp;(ˇ&#717;ˇ） 想～你~了~~~&nbsp;&nbsp;<a href="space-1377-do-doing-doid-5613-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5612-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5611-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;我正参加#新浪厦门一周年#十大微福利全城畅享活动！@厦门京闽北海湾酒店 自助餐券各类精致小吃，甜点，加上五星级酒店优雅实施的环境，享受即将开始！更多惊喜 <a href="../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>新取英文名Esone爆开心的E神小懿 @cc坏脾气 @绝望_的生鱼片 <div class="sub_doing_quote"><span>新浪厦门：【#新浪厦门一周年#福利大派送NO.20】[微博三岁啦]酒店自助餐双人版！关注@厦门京闽北海湾酒店 @新浪厦门 ，转发此博并@ 3好友，就有机会获厦门京闽北海湾酒店双人自助餐（共两套）！今天福利明天送(8-28上午11:00抽奖,获奖名单关注@新浪厦门周年庆 )更多福利：<a href="../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5607-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;想要一部呢。。<div class="sub_doing_quote"><span>厦门吃喝玩乐大全：【再送5台苹果4代，公平公正】1，请用微信“添加朋友”查找“xmdcxs”添加“厦门大城小事”为好友 2，转发本条即可 。以上两个条件缺一不可，明晚起每天抽出一台4代。（微信：厦门大城小事 ，是厦门名博@厦门大城小事 的唯一官方号，每天及时播报厦门大小事及其他优惠到你手机，是你厦门生活好帮手）</span><div class="img"><a target="_blank" href="../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5606-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;HOHO～～坐等你们大男生煮的饭饭噢～～<img src="image/face/42.gif" class="face">&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5605-goto-yes.html" class="re">回复</a>
+</li>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+var anndelay = 3000;
+var annst = 0;
+var annstop = 0;
+var annrowcount = 0;
+var anncount = 0;
+var annlis = $('annbody').getElementsByTagName("LI");
+var annrows = new Array();
+var annstatus;
+
+function announcementScroll() {
+if(annstop) {
+annst = setTimeout('announcementScroll()', anndelay);
+return;
+}
+if(!annst) {
+var lasttop = -1;
+for(i = 0;i < annlis.length;i++) {
+if(lasttop != annlis[i].offsetTop) {
+if(lasttop == -1) {
+lasttop = 0;
+}
+annrows[annrowcount] = annlis[i].offsetTop - lasttop;
+annrowcount++;
+}
+lasttop = annlis[i].offsetTop;
+}
+
+if(annrows.length == 1) {
+$('ann').onmouseover = $('ann').onmouseout = null;
+} else {
+annrows[annrowcount] = annrows[1];
+$('annbodylis').innerHTML += $('annbodylis').innerHTML;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+annrowcount = 1;
+return;
+}
+
+if(annrowcount >= annrows.length) {
+$('annbody').scrollTop = 0;
+annrowcount = 1;
+annst = setTimeout('announcementScroll()', anndelay);
+} else {
+anncount = 0;
+announcementScrollnext(annrows[annrowcount]);
+}
+}
+
+function announcementScrollnext(time) {
+$('annbody').scrollTop++;
+anncount++;
+if(anncount != time) {
+annst = setTimeout('announcementScrollnext(' + time + ')', 10);
+} else {
+annrowcount++;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+}
+announcementScroll();
+</script>
+
+</div>
+<div class="toolshadow">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+var fastdiy = new transfer('fastdiystyle', 'fastdiy', 'oksubmit', 'fastdiy_header');
+var mystylesdiy = new transfer('mystylelist_sw', 'mystyles', 'cancel', 'mystyles_header');
+var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'sharestyle_header');
+var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
+
+</script>
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
+
+</div>
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+//彩虹炫
+var elems = selector('div[class=detail magicflicker]'); 
+for(var i=0; i<elems.length; i++){
+magicColor(elems[i]);
+}
+</script>

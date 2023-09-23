@@ -1,0 +1,143 @@
+body {background-image:url("../../../../image/t/184/1206681402_05654100.gif"); background-repeat:repeat; background-attachment:fixed; background-color:#ffffff; } 
+#banner {height:300px; background-image:url("../../../../image/t/184/1206681401_85432300.gif"); background-repeat:repeat; background-color:transparent; background-position:left top; } 
+#banner .title h1 {color:#9E70DB; } 
+#banner .title p {color:#A4FFD7; } 
+#banner .title p a {color:#A4FFD7; } 
+#title {top:12px; } 
+#footer {height:150px; background-image:url(../../../../picfile/8c2e52f1c20405afcdb2ce4a78c6d1ce_b.jpg); background-repeat:norepeat; background-color:transparent; background-position:center center; } 
+#footer .copyright p {color:#ffffff; } 
+#footer .copyright p a {color:#ffffff; } 
+#menu {background-position:center center; background-repeat:repeat-x; background-image:url(../../../../image/t/184/menu.gif); background-color:transparent; border-style:none; border-width:0px; border-color:#FFF; height:40px; } 
+#menu .active {background-image:url(); } 
+#menu ul {padding-left:4px; margin-top:7px; } 
+#menu a {font-size:14px; font-weight:bold; color:#ffffff; } 
+#menu . em {font-size:12px; } 
+#menu . a:hover {color:#ffff00; } 
+#menu .active a {color:#ffffff; } 
+#profile .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#profile .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#profile .blocktitle h2 {color:#ffffff; } 
+#profile .blocktitle em a {color:#ffffff; } 
+#profile .blockcontent a {color:#ffffff; } 
+#profile .blockcontent a:hover {color:#ffffff; } 
+#profile {border-style:solid; border-width:1px; border-color:#454445; } 
+#player .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#player .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#player .blocktitle h2 {color:#ffffff; } 
+#player .blocktitle em a {color:#ffffff; } 
+#player .blockcontent a {color:#ffffff; } 
+#player .blockcontent a:hover {color:#ffffff; } 
+#player {border-style:solid; border-width:1px; border-color:#454445; } 
+#feed .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#feed .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#feed .blocktitle h2 {color:#ffffff; } 
+#feed .blocktitle em a {color:#ffffff; } 
+#feed .blockcontent a {color:#ccc; } 
+#feed .blockcontent a:hover {color:#ccc; } 
+#feed {border-style:solid; border-width:1px; border-color:#454445; } 
+#blog .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#blog .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#blog .blocktitle h2 {color:#ffffff; } 
+#blog .blocktitle em a {color:#ffffff; } 
+#blog .blockcontent a {color:#ccc; } 
+#blog .blockcontent a:hover {color:#ccc; } 
+#blog {border-style:solid; border-width:1px; border-color:#454445; } 
+#share .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#share .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#share .blocktitle h2 {color:#ffffff; } 
+#share .blocktitle em a {color:#ffffff; } 
+#share .blockcontent a {color:#ffffff; } 
+#share .blockcontent a:hover {color:#ffffff; } 
+#share {border-style:solid; border-width:1px; border-color:#454445; } 
+#mtag .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#mtag .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#mtag .blocktitle h2 {color:#ffffff; } 
+#mtag .blocktitle em a {color:#ffffff; } 
+#mtag .blockcontent a {color:#ffffff; } 
+#mtag .blockcontent a:hover {color:#ffffff; } 
+#mtag {border-style:solid; border-width:1px; border-color:#454445; } 
+#doing .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#doing .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#doing .blocktitle h2 {color:#ffffff; } 
+#doing .blocktitle em a {color:#ffffff; } 
+#doing .blockcontent a {color:#ffffff; } 
+#doing .blockcontent a:hover {color:#ffffff; } 
+#doing {border-style:solid; border-width:1px; border-color:#454445; } 
+#footprint .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#footprint .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#footprint .blocktitle h2 {color:#ffffff; } 
+#footprint .blocktitle em a {color:#ffffff; } 
+#footprint .blockcontent a {color:#ffffff; } 
+#footprint .blockcontent a:hover {color:#ffffff; } 
+#footprint {border-style:solid; border-width:1px; border-color:#454445; } 
+#friendlist .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#friendlist .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#friendlist .blocktitle h2 {color:#ffffff; } 
+#friendlist .blocktitle em a {color:#ffffff; } 
+#friendlist .blockcontent a {color:#ffffff; } 
+#friendlist .blockcontent a:hover {color:#ffffff; } 
+#friendlist {border-style:solid; border-width:1px; border-color:#454445; } 
+#applist .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#applist .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ffffff; } 
+#applist .blocktitle h2 {color:#ffffff; } 
+#applist .blocktitle em a {color:#ffffff; } 
+#applist .blockcontent a {color:#ffffff; } 
+#applist .blockcontent a:hover {color:#ffffff; } 
+#applist {border-style:solid; border-width:1px; border-color:#454445; } 
+#wall .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#wall .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#wall .blocktitle h2 {color:#ffffff; } 
+#wall .blocktitle em a {color:#ffffff; } 
+#wall .blockcontent a {color:#ccc; } 
+#wall .blockcontent a:hover {color:#ccc; } 
+#wall {border-style:solid; border-width:1px; border-color:#454445; } 
+#forumstatus .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#forumstatus .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#forumstatus .blocktitle h2 {color:#ffffff; } 
+#forumstatus .blocktitle em a {color:#ffffff; } 
+#forumstatus .blockcontent a {color:#ccc; } 
+#forumstatus .blockcontent a:hover {color:#ccc; } 
+#forumstatus {border-style:solid; border-width:1px; border-color:#454445; } 
+#thread .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#thread .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#thread .blocktitle h2 {color:#ffffff; } 
+#thread .blocktitle em a {color:#ffffff; } 
+#thread .blockcontent a {color:#ccc; } 
+#thread .blockcontent a:hover {color:#ccc; } 
+#thread {border-style:solid; border-width:1px; border-color:#454445; } 
+#albumall .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#albumall .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#albumall .blocktitle h2 {color:#ffffff; } 
+#albumall .blocktitle em a {color:#ffffff; } 
+#albumall .blockcontent a {color:#ccc; } 
+#albumall .blockcontent a:hover {color:#ccc; } 
+#albumall {border-style:solid; border-width:1px; border-color:#454445; } 
+#album .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#album .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#album .blocktitle h2 {color:#ffffff; } 
+#album .blocktitle em a {color:#ffffff; } 
+#album .blockcontent a {color:#ccc; } 
+#album .blockcontent a:hover {color:#ccc; } 
+#album {border-style:solid; border-width:1px; border-color:#454445; } 
+#profect .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#profect .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#profect .blocktitle h2 {color:#ffffff; } 
+#profect .blocktitle em a {color:#ffffff; } 
+#profect .blockcontent a {color:#ccc; } 
+#profect .blockcontent a:hover {color:#ccc; } 
+#profect {border-style:solid; border-width:1px; border-color:#454445; } 
+#about .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#about .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#about .blocktitle h2 {color:#ffffff; } 
+#about .blocktitle em a {color:#ffffff; } 
+#about .blockcontent a {color:#ccc; } 
+#about .blockcontent a:hover {color:#ccc; } 
+#about {border-style:solid; border-width:1px; border-color:#454445; } 
+#albumone .blocktitle {background-image:url(../../../../image/t/184/nav.gif); border-bottom-style:solid; } 
+#albumone .blockcontent {background-image:none; background-color:#000; background-repeat:repeat; color:#ccc; } 
+#albumone .blocktitle h2 {color:#ffffff; } 
+#albumone .blocktitle em a {color:#ffffff; } 
+#albumone .blockcontent a {color:#ccc; } 
+#albumone .blockcontent a:hover {color:#ccc; } 
+#albumone {border-style:solid; border-width:1px; border-color:#454445; } 
+ body {cursor: }

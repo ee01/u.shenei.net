@@ -1,0 +1,36 @@
+/*************************************************FLOOR PAGE***/
+#network{  overflow: hidden; }
+.vic_headmsg{ height: 30px; width: 808px; margin:0 0 5px 30px; overflow: hidden; }
+.vic_headmsg li{ padding:5px 0 0 0; height: 25px; width: auto; }
+.vic_headmt{ background-color: #FFFFFF; height: 150px; width: 838px; margin:2px 4px 5px 4px; padding:5px; }
+.vic_qlfirstpage{ height: 158px; width: 435px; float:left; }
+.vic_qlf_l{list-style-type: none; border: 1px solid #E8E8E8; height: 148px; width: 136px; float:left; }
+.vic_qlf_l_top{ float:left; list-style-type: none; height: 196px; width: 60px; background-image: url(image/48_avatar_bg.gif); background-repeat: no-repeat; background-position: top; color: #FFFFFF; }
+.vic_qlf_l_top SPAN{ font-family: "ºÚÌå"; font-size: 12px; line-height: 12px; font-weight: bold; color: #FF6600; }
+.vic_qlf_l_top img{ float:left;height: 48px ; width: 48px; margin:5px;}
+.vic_qlf_l_but{ float:right; height: 140px; width: 70px; margin: 2px; border: 1px dashed #E4E4E4; overflow: hidden; }
+.vic_qlf_l_but img{height: 33px ; width: 33px;}
+.vic_qlf_l_but img:hover{height: 29px ; width: 29px;margin: 2px}
+.vic_qlf_l li{float:left;height: 33px ; width: 33px; margin: 1px;}
+.vic_qlf_r{ border:1px solid #E8E8E8; height:125px; width: 290px; background-color: #FFFFFF; float:right; background-image: url(image/tag_bg.gif); background-repeat: repeat-x; background-position: top; list-style-type: none; padding-top:22px; }
+.vic_qlf_r li{ float:left; width:272px; margin:2px 10px; line-height: 14px; border-bottom: 1px dashed #E6E6E6; height: 14px; }
+.vic_qlf_r li:hover{ background-color: #F6F6F6; }
+.vic_qlf_r li span{ font-family: "ºÚÌå"; font-weight: bold; color: #006699; font-size: 14px; }
+.vic_nn_t{ background-color: #F7f7f7; border: 1px solid #EBEBEB; height: 17px; width: 353px; float:right; padding:4px 20px; }
+.vic_nn_t span{ font-family: "ºÚÌå"; font-size: 14px; line-height: 18px; font-weight: bold; }
+.vic_nnfirstpage{ background-color: #F7f7f7; border: 1px solid #EBEBEB; height: 108px; width: 385px; float:right; margin:2px 0 0 0; padding:5px 4px; }
+.vic_nnfirstpage ul{ margin:0px;}
+.vic_nnfirstpage li{width:35px;height:35px;float:left;}
+.vic_nnfirstpage li img {width:35px;height:35px;}
+.vic_nnfirstpage li img:hover{width:33px;height:33px;margin:2px;}
+.floormain{ background-color: #FFFFFF; margin: 35px 35px 0 35px; height: 820px; width: 828px; list-style-type: none; }
+.floorboy{ margin: 35px 0 0 20px; padding: 10px 10px 0 10px; height: 750px; width: 300px; float:left; border: 1px solid #666666; list-style-type: none; background-image: url(image/floorboybg.jpg); }
+.floorspace{ margin: 35px 0 0 0; padding: 10px 10px 0 10px; height: 750px; width: 100px; float:left; list-style-type: none; background-color: #FFFFFF; }
+.floorgirl{ margin: 35px 20px 0 0px; padding: 10px 10px 0 10px; height: 750px; width: 300px; float:left; border: 1px solid #666666; list-style-type: none; background-image: url(image/floorgirlbg.jpg); }
+.floor{ float:left; padding:4px; margin:5px 3px; background-color: #FFFFFF; height: 56px; width: 84px; border: 1px solid #666666; }
+.floorfot{ height: 745px; background-image: url(image/floorboydoor.jpg); background-repeat: no-repeat; background-position: center bottom;}
+.floorfot2{	height: 745px; background-image: url(image/floorgirldoor.jpg); background-repeat: no-repeat; background-position: center bottom;}
+.window{ background-color: #FFFFFF; height: 53px; width: 53px; border: 1px solid #666666; overflow: hidden;float:left; }
+.window img{height:80px;width:80px;}
+.window img:hover{height:53px;width:53px;}
+.lit_win{height:16px;margin:2px 2px 0 62px}

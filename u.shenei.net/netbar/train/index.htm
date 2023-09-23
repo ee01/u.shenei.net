@@ -1,0 +1,139 @@
+<html><!-- saved from url=(0042)http://u.shenei.net/netbar/train/index.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>生活百宝箱-列车查询-火车查询-爱溜日常网</title>
+<link href="../res/zl_style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/tools.js"></script>
+<script language="javascript" src="../js/train.js"></script>
+</head>
+<body lang="zh">
+<div id="queryDiv">
+	<div class="Top">
+		<a href="../index.htm" class="a_INDEX">生活百宝箱</a>
+		<b class="Top_B_arr"></b>
+		<span><strong>火车查询</strong></span>
+	</div>
+	<div class="Cont_tit">
+			<h1>火车查询</h1>		
+			<span>提供全国火车起点/终点/车次信息查询</span>
+	</div>
+	<div class="Cont">
+		<form onSubmit="return fQueryS2S();">
+		<div class="lc_wide"><h2>按<strong>乘车区间</strong>查询：</h2>
+	　 出发站： 
+			<input id="from" name="from" type="text" class="inp_jsq" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'"> 　
+			到达站：
+			<input id="end" name="end" type="text" class="inp_jsq" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'">
+			　<input type="submit" name="submit"  value=" 查询 " class="btn_comm">
+		</div>
+		</form>
+		<form onSubmit="return fQueryStation();">
+		<div class="lc_wide"><h2>按<strong>车站</strong>查询：</h2>
+	　 车站名： 
+			<input id="station" name="station" type="text" class="inp_jsq" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'"> 　
+			<input type="submit" name="Submit" value=" 查询 " class="btn_comm">
+		</div>
+		</form>
+		<form onSubmit="return fQueryNumber();">
+			<div class="lc_wide" style="border-bottom-width:0px"><h2>按<strong>车次</strong>查询：</h2>
+		　 车次号： 
+				<input id="number" name="number" type="text" class="inp_jsq" onFocus="this.style.borderColor='#889297';this.style.backgroundColor='#FFFFE8'" onBlur="this.style.borderColor='#7F9DB9';this.style.backgroundColor='#FFF'"> 　		
+				<input type="submit" name="Submit" value=" 查询 " class="btn_comm">
+			</div>
+		</form>
+	</div>
+		<div class="bot_back_btn">
+		<input type="button" value="<< 返回生活百宝箱" class="Back_IND" onClick="javascript:location.href='../index.htm'"/>
+	</div>
+</div>
+<div id="numberDiv" style="display:none;">
+	<div class="Top">
+		<a href="../index.htm" class="a_INDEX">生活百宝箱</a>
+		<b class="Top_B_arr"></b><a href="index.htm">火车查询</a>
+		<b class="Top_B_arr"></b><span><strong>车次查询</strong></span>
+	</div>
+	<div class="Cont_tit">
+		<h1 style="float:left">车次查询</h1><div class="clear"></div>
+		<div class="c_js_div">
+			<div class="fl">查询车次：<span id="numCheci" class="Cc00"></span>
+			　|　总里程：<span id="numCourse" class="C333"></span>
+			　|　全程时间：<span id="numTime" class="C333"></span>
+			<a href="#" onClick="return fGoQuery();">[重新查询]</a> </div>
+			<div class="lc_T_noti">此火车信息仅供参考</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!--主体内容开始-->
+	<div id="numberResultDiv"></div>
+	<div class="btn_botm"><input type="button" class="btn_blue_B" value="重新查询" onClick="return fGoQuery();"/></div><br/><br/>
+</div>
+
+<div id="stationDiv" style="display:none;">
+	<div class="Top">
+		<a href="../index.htm" class="a_INDEX">生活百宝箱</a>
+		<b class="Top_B_arr"></b><a href="index.htm">火车查询</a>
+		<b class="Top_B_arr"></b><span><strong>车站查询</strong></span>
+	</div>
+	<div class="Cont_tit">
+		<h1 style="float:left">车站查询</h1><div class="clear"></div>
+		<div class="c_js_div">
+			<div class="fl">查询车站：<span id="stationName" class="Cc00"></span> 
+			| 经过的火车线路有 <span id="stationLine" class="Cc00">2</span> 条 
+			<a href="#" onClick="return fGoQuery();">[重新查询]</a> </div>
+			<div class="lc_T_noti">此火车信息仅供参考</div>
+		</div> 
+		<div class="clear"></div>
+	</div>
+	<!--主体内容开始-->
+	<div id="stationResultDiv"></div>
+	<div class="btn_botm"><input type="button" class="btn_blue_B" value="重新查询" onClick="return fGoQuery();"/></div><br/><br/>
+</div>
+
+<div id="s2sDiv" style="display:none;">
+	<div class="Top">
+		<a href="../index.htm" class="a_INDEX">生活百宝箱</a>
+		<b class="Top_B_arr"></b><a href="index.htm">火车查询</a>
+		<b class="Top_B_arr"></b><span><strong>站站查询</strong></span>
+	</div>
+	<div class="Cont_tit">
+			<h1 style="float:left">站站查询</h1><div class="clear"></div>
+			<div class="c_js_div">
+				<div class="fl">乘车区间：<span id="s2sArea" class="Cc00" ></span> | 共查询到线路 <span id="s2sLine" class="Cc00"> </span>条 <a href="#" onClick="return fGoQuery();">[重新查询]</a> 
+				</div>
+				<div class="lc_T_noti">此火车信息仅供参考</div>
+			</div> 
+			<div class="clear"></div>
+	</div>
+	<!--主体内容开始-->
+	<div id="s2sResultDiv"></div>
+	<div class="btn_botm"><input type="button" class="btn_blue_B" value="重新查询" onClick="return fGoQuery();"/></div><br/><br/>
+</div>
+<div id="loadDiv" style="display:none">
+	<div class="Top">
+		<a href="../index.htm" class="a_INDEX">生活百宝箱</a>
+		<b class="Top_B_arr"></b>
+		<span><strong>火车查询</strong></span>
+	</div>
+	<div class="Cont_tit">
+			<h1>火车查询</h1>		
+			<span>提供全国火车起点/终点/车次信息查询</span>
+	</div>
+	<div class="Cont hbinfo" >
+		<img src="../res/hbload.gif" /> 正在查询数据，请稍候...
+	</div>
+</div>
+<div id="failDiv" style="display:none">
+	<div class="Top">
+		<a href="../index.htm" class="a_INDEX">生活百宝箱</a>
+		<b class="Top_B_arr"></b>
+		<span><strong>火车查询</strong></span>
+	</div>
+	<div class="Cont hbinfo" >
+		<img src="../res/error.gif" /> 查询失败 <a href="#" onClick="return fGoQuery();">重新查询</a>
+	</div>
+</div>
+  <div style='display:none'>
+<script type="text/javascript" src="../../../www.26rc.com/js/26.js"></script>
+</body>
+</html>

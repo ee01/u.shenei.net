@@ -1,0 +1,2499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0040)http://u.shenei.net/viewspace.php?op=diy --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>哇吐！~~ </title>
+
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/00/01_style.css1296911438.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid1.htm" title="小E←邱沼懿" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.phprsd1" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+
+<style>
+
+#diy_content {color:#fff; font-size:14px; padding:2px; text-align:center; width:100%; height:120px; background-color:#342}
+#diy_header {margin:0 auto; height:30px; background-color:#456}
+#diy_main {margin:0 auto; height:90px;background-color:#789;}
+#selectblock {margin:0 auto;}
+
+/* 弹出层时的渐变层的样式 */
+.transfer {border:1px dashed red;margin:0px auto;cursor:move;background: url(viewspace/img/tool/bg_transfer.png) !important;background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src='viewspace/img/tool/bg_transfer.png');}
+
+.transfer .transferbody{overflow:hidden;}
+.transfer .transferbody a{display:block; width:21px; height:21px; overflow:hidden; float:right;margin-right:6px; text-indent: -99999px;}
+.transfer .transferbody a.editblock{background:url(viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.editblock:hover{background:url(viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 -21px; }
+.transfer .transferbody a.delblock{background:url(viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.delblock:hover{background:url(viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 -21px; }
+
+.transfer h1{background:#ECF9FF;height:18px;margin:1px;padding:3px;text-align:right;}
+.transfer h1 a{background-color:#F00;padding:4px;}
+
+/* 颜色选择器的样式 */
+#clrMain {background-color:#FFF;height:255px;width:254px;border:1px solid #000;position:absolute;left:80px;top:100px;}
+#clrMain input {width:70px;left:80px;top:225px;padding:4px;position:absolute;}
+#clrColor {background-repeat:no-repeat;height:200px;left:3px;top:3px;width:200px;padding:7px;position:absolute;}
+#clrBGColor {background-repeat:no-repeat;height:200px;width:200px;}
+#clrHue {height:200px;width:24px;left:220px;top:7px;padding:4px 0px 4px 0px;position:absolute;}
+#clrSv {width:200px;height:200px;}
+#clrCrosshairs {position:absolute;}
+#clrH {height:200px;width:24px;}
+#clrRangeArrows {height:9px;width:40px;position:absolute;}
+#clrPreview {border:1px solid #000;background-color:#999;height:22px;width:60px;position:absolute;top:225px;left:9px;}
+
+/*临时控制某个模块的样式*/
+#mytest .blocktitle{
+background:url(images/bg_blocktitle.jpg) repeat-x;
+height:26px;
+line-height:26px;
+border-bottom:1px solid red;
+}
+#mytest .blocktitle h2{color:#1D1B1C;font-size:14px;font-weight:bold;}
+#mytest .blocktitle em a{color:#006697;}
+
+#mytest .blockcontent{
+color:#fff;
+background: #FFF url(images/1.jpg) no-repeat left left;
+}
+#mytest .blockcontent a{color:#006697;}
+
+</style>
+<script language="javascript" type="text/javascript" src="viewspace/js/bindbase.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/drageffect.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/transfer.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/selectcolor.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/rgbhexhsv.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/sortdrag.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/slider.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/phpserialize.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/stylecss.js"></script>
+<script language="javascript">
+var tempstyle = 'a:7:{s:9:"frame_set";s:2:"lc";s:8:"allframe";a:2:{s:5:"dleft";a:6:{i:0;s:7:"profile";i:1;s:5:"doing";i:2;s:6:"player";i:3;s:10:"friendlist";i:4;s:9:"footprint";i:5;s:7:"applist";}s:8:"dcontent";a:6:{i:0;s:4:"feed";i:1;s:8:"albumone";i:2;s:4:"blog";i:3;s:8:"albumall";i:4;s:11:"forumstatus";i:5;s:4:"wall";}}s:9:"effectall";a:7:{s:10:"blocktitle";a:2:{s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609381_01401200.jpg)";s:19:"border-bottom-style";s:25:"border-bottom-style:solid";}s:12:"blockcontent";a:4:{s:16:"background-image";s:21:"background-image:none";s:16:"background-color";s:28:"background-color:transparent";s:17:"background-repeat";s:24:"background-repeat:repeat";s:5:"color";s:13:"color:#FFFFFF";}s:13:"blocktitle|h2";a:1:{s:5:"color";s:13:"color:#ffffff";}s:15:"blocktitle|em a";a:1:{s:5:"color";s:13:"color:#ffffff";}s:14:"blockcontent|a";a:1:{s:5:"color";s:13:"color:#00AEFF";}s:20:"blockcontent|a:hover";a:1:{s:5:"color";s:13:"color:#00DCFF";}s:0:"";a:3:{s:12:"border-style";s:18:"border-style:solid";s:12:"border-width";s:16:"border-width:1px";s:12:"border-color";s:20:"border-color:#bbbbbb";}}s:9:"blockname";a:0:{}s:5:"music";a:10:{s:7:"music_1";s:33:"../hsw.net76.net/cmp4/vae.mp3";s:7:"music_2";s:90:"../www.fjjlyz.net/disk/mp3/_25d0_25c2_25b9_25c8_25c1_25bc_25d7_25d3_25b5_25c4par~1.htm";s:7:"music_3";s:63:"../www.fjjlyz.net/disk/mp3/_25c5_25d1_25c4_25e6_25b5_25c4_25c2_25b3_25c2_25b3_25~1.htm";s:7:"music_4";s:89:"../mfile.home.news.cn/music/public/vdm7/200912/30/20/mufs072009123012272652209d7b.mp3";s:7:"music_5";s:62:"../www.fjjlyz.net/disk/mp3/_25e7_258a_25ac_25e5_25a4_259c_25e5_258f_2589.mp3.htm";s:7:"music_6";s:89:"../www.hugedomains.com/domain_profile.cfmddivast.com.htm";s:7:"music_7";s:89:"../mfile.home.news.cn/music/public/vdm7/200909/06/3b/mufs0720090906160325503b0d8c.mp3";s:7:"music_8";s:34:"../www.91zyzz.com/dodo/257.mp3";s:7:"music_9";s:49:"../home.wsxz.cn/music/2010/01/28/70312500.mp3";s:8:"music_10";s:48:"../www.firstfeeling.cn/xueyoulan/mp3/c.k.mp3";}s:5:"block";a:23:{s:4:"body";a:1:{s:0:"";a:4:{s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609431_44348200.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-y";s:21:"background-attachment";s:27:"background-attachment:fixed";s:16:"background-color";s:24:"background-color:#000000";}}s:6:"banner";a:4:{s:0:"";a:5:{s:6:"height";s:12:"height:330px";s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609195_34450800.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:28:"background-position:left top";}s:8:"title|h1";a:1:{s:5:"color";s:13:"color:#ffffff";}s:7:"title|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:9:"title|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:5:"title";a:1:{s:0:"";a:1:{s:3:"top";s:8:"top:12px";}}s:6:"footer";a:3:{s:0:"";a:5:{s:6:"height";s:12:"height:115px";s:16:"background-image";s:21:"background-image:none";s:17:"background-repeat";s:26:"background-repeat:norepeat";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:33:"background-position:center center";}s:11:"copyright|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:13:"copyright|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:4:"menu";a:7:{s:0:"";a:8:{s:19:"background-position";s:33:"background-position:center center";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609260_39675600.jpg)";s:16:"background-color";s:28:"background-color:transparent";s:12:"border-style";s:17:"border-style:none";s:12:"border-width";s:16:"border-width:0px";s:12:"border-color";s:17:"border-color:#FFF";s:6:"height";s:11:"height:30px";}s:6:"active";a:1:{s:16:"background-image";s:22:"background-image:url()";}s:3:"|ul";a:2:{s:12:"padding-left";s:16:"padding-left:4px";s:10:"margin-top";s:14:"margin-top:2px";}s:2:"|a";a:3:{s:9:"font-size";s:14:"font-size:14px";s:11:"font-weight";s:16:"font-weight:bold";s:5:"color";s:13:"color:#ffffff";}s:3:"|em";a:1:{s:9:"font-size";s:14:"font-size:12px";}s:8:"|a:hover";a:1:{s:5:"color";s:13:"color:#ffff00";}s:8:"active|a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:7:"profile";a:0:{}s:6:"player";a:0:{}s:4:"feed";a:0:{}s:4:"blog";a:0:{}s:5:"share";a:0:{}s:4:"mtag";a:0:{}s:5:"doing";a:0:{}s:9:"footprint";a:0:{}s:10:"friendlist";a:0:{}s:7:"applist";a:0:{}s:4:"wall";a:0:{}s:11:"forumstatus";a:0:{}s:6:"thread";a:0:{}s:8:"albumall";a:0:{}s:5:"album";a:0:{}s:7:"profect";a:0:{}s:5:"about";a:0:{}s:8:"albumone";a:0:{}}s:6:"cursor";b:0;}';//数据库里取出来的diystyle,如果有就反序列化后赋值给diystyle
+var defaultset = 'lc';
+var stylenum = '7';
+var supe_uid = 1;
+var blocklist = new Array();
+var oldblockstyle = new Array();// value|bclass|tag|property|1 or 0这前是否是自定义过的
+blocklist['profile'] = '个人设置';
+blocklist['friendlist'] = '好友列表';
+blocklist['doing'] = '我的点滴';
+blocklist['albumone'] = '动态相片';
+blocklist['albumall'] = '我的相册';
+blocklist['feed'] = '个人新鲜事';
+blocklist['blog'] = '我的博文';
+blocklist['share'] = '我的分享';
+blocklist['mtag'] = '我的群组';
+blocklist['thread'] = '我的话题';
+blocklist['applist'] = '小应用';
+blocklist['wall'] = '留言板';
+blocklist['forumstatus'] = '我的投票';
+blocklist['footprint'] = '脚印';
+blocklist['player'] = '播放器';
+</script>
+<script language="javascript" type="text/javascript" src="viewspace/js/index_diy.js"></script>
+<div id="sharestyle" class="floatwin" style="display:none;" >
+<div class="floattitle" id="sharestyle_header">
+<h2>分享我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<form id="sharestyle_form" action="viewspace.php?do=mystyle&op=share" method="post">
+<div class="floatbody">
+风格在审核完毕后才能进行编辑修改。<br>
+<label for="">风格名称：</label>
+<input type="text" name="stylename" id="stylename" class="txt"/>
+<input type="hidden" name="styleid" id="styleid">
+<label for="">色系：</label>
+<select id="stylecolor" name="stylecolor">
+<option value="">选择</option>
+<option value="1">黑</option>
+<option value="2">白</option>
+<option value="3">粉</option>
+<option value="4">黄</option>
+<option value="5">绿</option>
+<option value="6">蓝</option>
+</select>
+<label for="">类别：</label>
+<select id='stylecategory' name='stylecategory'>
+<option value="">选择</option>
+<option value="1">简约</option>
+<option value="2">可爱</option>
+<option value="3">炫酷</option>
+<option value="4">浪漫</option>
+<option value="5">其它</option>
+</select>
+</div>
+</form>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="$('sharestyle').style.display='none';$('mystyles').style.display='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<a target="mainyinyue"  href="javascript:void(0);" id="sharestyle_sw"></a>
+<div class="floatwin" id="fastdiy" style="display:none; z-index:3000;">
+<div class="floattitle" id="fastdiy_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>快速自定义模板</h2>
+</div>
+<div class="floatcontent">
+<form id="fastdiyform" method="post" id="albumform" action="viewspace.php" >
+<input type="hidden" name="faststyle" id="faststyle" value=""/>
+<input type="hidden" name="fastbg" id="fastbg" value=""/>
+<input type="hidden" name="fastbgheight" id="fastbgheight" value=""/>
+</form>
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="webcolormes">
+选择你喜欢的主页色系：
+</div>
+<ul class="webcolor">
+<li>
+<a href="#" id="black" class="webcolor_black" title="黑色" onclick="fastchangesyspic(this, '1');">黑色</a>
+</li>
+<li>
+<a href="#" id="white" class="webcolor_white" title="白色" onclick="fastchangesyspic(this, '2');">白色</a>
+</li>
+<li>
+<a href="#" id="pink" class="webcolor_pink" title="粉色" onclick="fastchangesyspic(this, '3');">粉色</a>
+</li>
+<li>
+<a href="#" id="yellow" class="webcolor_yellow" title="黄色" onclick="fastchangesyspic(this, '4');">黄色</a>
+</li>
+<li>
+<a href="#" id="green" class="webcolor_green" title="绿色" onclick="fastchangesyspic(this, '5');">绿色</a>
+</li>
+<li>
+<a href="#" id="blue" class="webcolor_blue" title="蓝色" onclick="fastchangesyspic(this, '6');">蓝色</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatsub" id="fastdiysub" style="display:none">
+<div class="floatbody">
+<div class="webcolormes" id="fastpicnav">
+选择该色系下主页的头部图片：
+<span>
+<a class="on" target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '', 'fastpicnav');" id="alltype">全部</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=1', 'fastpicnav');">简约</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=2', 'fastpicnav');">可爱</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=3', 'fastpicnav');">炫酷</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=4', 'fastpicnav');">浪漫</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=5', 'fastpicnav');">其它</a>
+</span>
+</div>
+<div id="fastheaderbg">
+</div>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick=" $('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="#" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="mystyles" style="display:none; z-index:3000;">
+<div class="floattitle" id="mystyles_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="$('selectmystyle').value=''; switchstyle('', 'mystyle');$('mystyles').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a target="mainyinyue"  href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain mainnotop">
+<div class="floatbody" id="mystylelist">
+</div>
+</div>
+<div class="floatfun">
+<a target="mainyinyue"  href="javascript:void(0);" class="cancel">取消</a>
+<input type="hidden" name="selectmystyle" id="selectmystyle" value="">
+<a href="#" onclick="if($('selectmystyle').value > 0){window.location.href='viewspace.php?do=mystyle&op=use&styleid='+$('selectmystyle').value;}else{window.location.href='viewspace.php';}" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="selectshare" style="display:none; z-index:3000;">
+<div class="floattitle" id="selectshare_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>选择风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatnav" id="sharepicnav">
+<ul class="navcolor">
+<li  onclick="changesysshare(this, '&color=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黑</a></li>
+<li  onclick="changesysshare(this, '&color=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">白</a></li>
+<li  onclick="changesysshare(this, '&color=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">粉</a></li>
+<li  onclick="changesysshare(this, '&color=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黄</a></li>
+<li  onclick="changesysshare(this, '&color=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">绿</a></li>
+<li  onclick="changesysshare(this, '&color=6', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesysshare(this, '', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesysshare(this, '&category=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">简约</a></li>
+<li  onclick="changesysshare(this, '&category=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesysshare(this, '&category=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesysshare(this, '&category=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesysshare(this, '&category=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody">
+
+
+<form id="selectshareform" method="post" id="albumform" action="viewspace.php?do=getsharestyle" target="mainyinyue" >
+<input type="hidden" name="sharestyleid" id="sharestyleid" value=''>
+<div id="sharelist" class="sharelist">
+</div>
+</form>
+</div>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="clrMain" style="display:none;z-index:99999;">
+<iframe scrolling="no" frameborder="0" style="background-color:transparent;position:absolute;width:252px; height:253px;"></iframe>
+<div id="clrColor"><div id="clrBGColor"><img id="clrCrosshairs" galleryimg="false" src="viewspace/img/mappoint.gif" style="display:none;" /></div></div>
+<div id="clrHue"><img id="clrRangeArrows" galleryimg="false" src="space/indeximages/rangearrows.gif" style="display:none;" /></div>
+<div id="clrPreview"></div>
+<input type="text" name="clrColorValue" id="clrColorValue" value=""/>
+<img src="viewspace/img/nocolor.gif" style="left:165px;position:absolute;top:225px;" onclick="getColor('transparent');"/>
+<a target="mainyinyue"  href="javascript:void(0);" class="fbtn_cancel" onclick="$('clrMain').style.display='none';"
+style="width:50px;left:190px;position:absolute;top:225px;">确定</a>
+</div>
+<div id="dstdiv" style="width:400px;height:250px;background-color:#999;border:1px solid #123456;display:none;">
+cccc<a target="mainyinyue"  href="javascript:void(0);" class="closeDiv">close</a>
+</div>
+<div id="showData"></div>
+	
+<style>
+
+body{background-position:50% 65px;}
+#wrap{margin:65px auto 0 !important;}/*默认三列框架*/
+#wraptwo{margin:65px auto 0 !important;}/*默认两列框架*/
+
+.banner .title{border:2px dashed red;cursor:move;}
+/*toolbar*/
+.toolbar{background:url(viewspace/img/tool/bg_toolbar.jpg) repeat-x;height:64px;}
+
+</style>
+
+
+<div class="floatwin" id="selectbg_div" style="display:none; z-index:3000;">
+<div class="floattitle" id="selectbg_header">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('selectbg_div').style.display='none';$('qwert').style.display = 'none'; 
+if(cur_transferdiv != '') {
+$(cur_transferdiv).style.display = '';
+cur_transferdiv='';
+}
+$('setfooter').style.display = 'none';$('setbannerheight').style.display = 'none';$('setbodybgstate').style.display = 'none';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2 id="selectbgtitle">选择背景</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+<ul>
+<li id="syspicli" class="on" onclick="showbgdiv('syspic', this.id);"><a href="javascript:void(0);">系统推荐</a></li>
+<li id="albumpicli" onclick="showbgdiv('albumpic', this.id);"><a href="javascript:void(0);">相册中的图片</a></li>
+<li id="uploadpicli" onclick="showbgdiv('uploadpic', this.id);"><a href="javascript:void(0);">上 传</a></li>
+<li id="urlpicli" onclick="showbgdiv('urlpic', this.id);"><a href="javascript:void(0);">网络上的图片</a></li>
+</ul>
+</div>
+
+<div class="floatmain" id="syspic">
+<div class="floatnav" id="syspicnav">
+<ul class="navcolor">
+<li  onclick="changesyspic(this, '&color=1');"><a href="javascript:void(0);">黑</a></li>
+<li  onclick="changesyspic(this, '&color=2');"><a href="javascript:void(0);">白</a></li>
+<li  onclick="changesyspic(this, '&color=3');"><a href="javascript:void(0);">粉</a></li>
+<li  onclick="changesyspic(this, '&color=4');"><a href="javascript:void(0);">黄</a></li>
+<li  onclick="changesyspic(this, '&color=5');"><a href="javascript:void(0);">绿</a></li>
+<li  onclick="changesyspic(this, '&color=6');"><a href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesyspic(this, '');"><a href="javascript:void(0);">全部</a></li>
+<li  onclick="changesyspic(this, '&category=1');"><a href="javascript:void(0);">简约</a></li>
+<li  onclick="changesyspic(this, '&category=2');"><a href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesyspic(this, '&category=3');"><a href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesyspic(this, '&category=4');"><a href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesyspic(this, '&category=5');"><a href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody imgheight" id="syspiclist">
+<img src="viewspace/img/tool/loading.gif" class="imgloading">
+<div class="floatpage"></div>
+</div>
+</div>
+
+<div class="floatmain" id="albumpic" style="display:none">
+<div class="floatnav">
+<label>选择相册图片</label>
+<select name="photo" id="albums" onchange="changealbum(this);">
+<option value="" selected>请选择相册</option>
+<option value="113">瞬间～</option>
+<option value="16">看M~</option>
+<option value="10">随便拍</option>
+<option value="2">鬼E</option>
+</select>
+</div>
+<div class="floatbody imgheight" id="piclist">
+<p align="center">请选择相册</p>
+</div>
+</div>
+
+<div class="floatmain" id="uploadpic" style="display:none">
+<form method="post" id="albumform" action="cp.php?ac=uploadbg" class="global_wide" enctype="multipart/form-data">
+<div class="floatbody">
+<ul class="formupload">
+<li>
+<label for="">选择要上传的图片：</label>
+<input name="attach" type="file" id="attach" class="uploadtxt" />
+<input type="submit" name="uploadsubmit" id="btnupload" value="上传"  class="btnupload"  onclick="ajaxpostt('albumform', 'uploadresult', 'useuploadimg')" />
+<input type="hidden" name="albumsubmit" id="albumsubmit" value="true" />
+<input type="hidden" name="pic_title" id="pic_title" value="" />
+<script language="javascript">
+function useuploadimg() {
+$('attach').value = '';
+var imgsrc = $('newbg').src;
+imgsrc = imgsrc.replace(/(\.thumb\.(.){3,4})$/i, '');
+setblockstyle(imgsrc, cur_bclass, '', 'background-image');
+
+}
+</script>
+<p>图片要求：上传的背景图最大不要超过800k</p>
+</li>
+<li>
+<label for="">上传图片将保存在：</label>
+<select name="albumid" >
+<option value="" selected>请选择相册</option>
+<option value="113">瞬间～</option>
+<option value="16">看M~</option>
+<option value="10">随便拍</option>
+<option value="2">鬼E</option>
+</select>
+</li>
+</ul>
+<dl class="loadpic" id="uploadresult">
+</dl>
+</div>
+</form>
+</div>
+
+<div class="floatmain" id="urlpic" style="display:none">
+<div class="floatbody">
+<ul class="formupload uploadurl">
+<li>
+<label for="">请输入图片的网络地址：</label>
+</li>
+<li>
+<input name="newurlpic" id="newurlpic" type="text" class="txt" value="" /><input class="btnupload" name="" value="应用" type="button" onclick="setblockstyle($('newurlpic').value, cur_bclass, '', 'background-image');"/>
+</li>
+</ul>
+<div class="uploadurlmes">
+</div>
+</div>
+</div>
+
+<div class="floatsub" id="selectbg_sub" style="display:none">
+<div class="floatbody">
+<ul class="formlist">
+<li>
+<label for="">背景重复：</label>
+<select id='other_bgrepeat' onchange="setblockstyle(this.value, '', '', 'background-repeat');">
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+<option value="no-repeat">不重复</option>
+</select>
+</li>
+<li id="setbodybgstate" style="display:none">
+<label for="">背景状态：</label>
+<select id="bodybgstate" onchange="setblockstyle(this.value, '', '', 'background-attachment');">
+<option value="scroll">滚动</option>
+<option value="fixed">固定</option>
+</select>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="hidden" class="txt" id="other_oldbgimg" />
+<input type="text" class="txt" id="other_bgcolor" />
+<span class="control_color" id="other_bgcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'other_bgcolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('other_bgcolor').value; otherbg = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist" id="bgsetplace" style="display:">
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+<ul class="formlist" id="setbannerheight" style="display:none">
+<li>
+<label for="">头部高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverangebanner">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderHbanner"></div>
+<script language="javascript">
+var vmovebanner = new drag('sliderHbanner', '', 'hxmoverangebanner', 'horizontalbanner', changeheightbanner, 1);
+
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="bannerheight" value="" onKeyUp="if(parseInt(this.value) >= 70)changeheightbanner(this.value);">px
+</li>
+</ul>
+<ul class="formlist" id="setfooter" style="display:none">
+<li>
+<label for="">尾部高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverangefooter">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderHfooter"></div>
+<script language="javascript">
+var vmovefooter = new drag('sliderHfooter', '', 'hxmoverangefooter', 'horizontalfooter', changeheightfooter, 1);
+vmovefooter.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="footerheight" value="" onKeyUp="if(parseInt(this.value) >= 30)changeheightfooter(this.value);">px
+</li>
+<li>
+<label for="">字体颜色：</label>
+<input type="text" class="txt" name="footerfontcolor" id="footerfontcolor" />
+<span class="control_color" id="footerfontcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'footerfontcolor'; cur_colorclass = 'copyright'; cur_colortag = 'p'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('footerfontcolor').value; footerfont = new selectColor(getColor);"></span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="floatfun">
+<a id="cancel_bg" href="javascript:void(0);" class="cancel" style="display:none" onclick="cancelstyle(); $('selectbg_div').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv=''; $('setfooter').style.display = 'none';$('setbannerheight').style.display = 'none';$('setbodybgstate').style.display = 'none';$('bgsetplace').style.display = '';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+
+<div id="smusicp" class="floatwin" style="display:none; z-index:3000;">
+<div class="floattitle" id="smusicp_header">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="musicselected = false; $('smusicp').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置播放器样式</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatnav" id="smusicpnav">
+<ul class="navcolor">
+<li  onclick="changesyspic(this, '&color=1', 'smusicpnav');"><a href="javascript:void(0);">黑</a></li>
+<li  onclick="changesyspic(this, '&color=2', 'smusicpnav');"><a href="javascript:void(0);">白</a></li>
+<li  onclick="changesyspic(this, '&color=3', 'smusicpnav');"><a href="javascript:void(0);">粉</a></li>
+<li  onclick="changesyspic(this, '&color=4', 'smusicpnav');"><a href="javascript:void(0);">黄</a></li>
+<li  onclick="changesyspic(this, '&color=5', 'smusicpnav');"><a href="javascript:void(0);">绿</a></li>
+<li  onclick="changesyspic(this, '&color=6', 'smusicpnav');"><a href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesyspic(this, '', 'smusicpnav');"><a href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesyspic(this, '&category=1', 'smusicpnav');"><a href="javascript:void(0);">简约</a></li>
+<li  onclick="changesyspic(this, '&category=2', 'smusicpnav');"><a href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesyspic(this, '&category=3', 'smusicpnav');"><a href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesyspic(this, '&category=4', 'smusicpnav');"><a href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesyspic(this, '&category=5', 'smusicpnav');"><a href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody">
+<form id="smusicpform" method="post" id="musicpform" action="viewspace.php?do=getsharestyle" target="mainyinyue">
+<input type="hidden" name="smusicpid" id="smusicpid" value=''>
+<div id="smusicplist" class="sharelist">
+</div>
+</form>
+</div>
+</div>
+
+<div class="floatfun">
+<a  href="#" class="cancel" onclick="musicselected = false; $('smusicp').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a target="mainyinyue" href="#" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="setcursor" class="floatwin" style="display:none; z-index:3000;">
+<div class="floattitle" id="cursorheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('setcursor').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';contentdiv = 'syspiclist';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置鼠标样式</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain" id="cursorpic">
+<div class="floatnav" id="cursorpicnav">
+<ul class="navcolor">
+<li  onclick="changesyspic(this, '&color=1', 'cursorpicnav');"><a href="javascript:void(0);">黑</a></li>
+<li  onclick="changesyspic(this, '&color=2', 'cursorpicnav');"><a href="javascript:void(0);">白</a></li>
+<li  onclick="changesyspic(this, '&color=3', 'cursorpicnav');"><a href="javascript:void(0);">粉</a></li>
+<li  onclick="changesyspic(this, '&color=4', 'cursorpicnav');"><a href="javascript:void(0);">黄</a></li>
+<li  onclick="changesyspic(this, '&color=5', 'cursorpicnav');"><a href="javascript:void(0);">绿</a></li>
+<li  onclick="changesyspic(this, '&color=6', 'cursorpicnav');"><a href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesyspic(this, '', 'cursorpicnav');"><a href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesyspic(this, '&category=1', 'cursorpicnav');"><a href="javascript:void(0);">简约</a></li>
+<li  onclick="changesyspic(this, '&category=2', 'cursorpicnav');"><a href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesyspic(this, '&category=3', 'cursorpicnav');"><a href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesyspic(this, '&category=4', 'cursorpicnav');"><a href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesyspic(this, '&category=5', 'cursorpicnav');"><a href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody imgheight" id="cursorlist">
+<ul class="imglist">
+</ul>
+<div class="floatpage"></div>
+</div>
+</div>	
+<div class="floatfun">
+<a id="cancel_bg" href="javascript:void(0);" class="cancel" style="display:none" onclick="$('setcursor').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';contentdiv = 'syspiclist';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="setplayer" class="floatwin" style="display:none;">
+<div class="floattitle" id="playerheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('setplayer').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';contentdiv = 'syspiclist';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置播放音乐</h2>
+</div>
+
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="musicmes" align=right>
+<input type="button" name="continuousplay" value="同步音乐盒" class="submit" onclick="javascript:window.open('space.phpdomusicboxmviewbackgroundmusic.htm','jjcutemusiclisten','').focus();" />&nbsp;
+</div>
+　以下是当前博客背景音乐的音乐列表，如果与您的音乐盒不同请点击“同步音乐盒”！
+<ul class="musiclist" id="musicUL">
+<li>
+<strong>曲目1</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-132.html" target="_blank">伤声</a>(<a href="space-1-do-musicbox-mview-mpage-mid-132.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>听着这首歌 此刻你的心里会是怎样
+你知不知道 我默默在祈祷
+有一天你会回到我怀抱</em>-->
+</li>
+<li>
+<strong>曲目2</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-130.html" target="_blank">Parallel Paradise</a>(<a href="space-1-do-musicbox-mview-mpage-mid-130.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>日文歌翻唱，不错噢~</em>-->
+</li>
+<li>
+<strong>曲目3</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-131.html" target="_blank">Stories</a>(<a href="space-1-do-musicbox-mview-mpage-mid-131.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>每次听这首歌都有种灵魂被净化的感觉~</em>-->
+</li>
+<li>
+<strong>曲目4</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-94.html" target="_blank">说谎</a>(<a href="space-1-do-musicbox-mview-mpage-mid-94.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>我没有说谎
+你懂我的
+我对你从来就不会假装</em>-->
+</li>
+<li>
+<strong>曲目5</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-102.html" target="_blank">inuyasha</a>(<a href="space-1-do-musicbox-mview-mpage-mid-102.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-1-userspace-1.html" target="_blank">以前喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>唯美伤感音乐</em>-->
+</li>
+<li>
+<strong>曲目6</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-78.html" target="_blank">背叛</a>(<a href="space-1-do-musicbox-mview-mpage-mid-78.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>我用背叛自己
+完成你的期盼</em>-->
+</li>
+<li>
+<strong>曲目7</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-76.html" target="_blank">不要走太远</a>(<a href="space-1-do-musicbox-mview-mpage-mid-76.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-4-do-musicbox-mview-malbum-albumid-18-userspace-4.html" target="_blank">小贱</a></em>
+<em>来自<a href="space-4-do-musicbox-view-me.html" target="_blank">Se⒎en</a>(<a href="space-4-do-musicbox-view-me.html" target="_blank">xi77</a>)的推荐</em>
+<!--<em>倘若，有一天天晴了，记得为自己储备一点阳光。我怕天黑，你会难过。我已发誓褪弃，我很好。只是，不再需要你。</em>-->
+</li>
+<li>
+<strong>曲目8</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-2.html" target="_blank">说爱我</a>(<a href="space-1-do-musicbox-mview-mpage-mid-2.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em></em>-->
+</li>
+<li>
+<strong>曲目9</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-83.html" target="_blank">灰色头像</a>(<a href="space-1-do-musicbox-mview-mpage-mid-83.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>调调真的不错
+配上触感的歌词
+Pefect~</em>-->
+</li>
+<li>
+<strong>曲目10</strong>
+<em><a href="space-1-do-musicbox-mview-mpage-mid-4.html" target="_blank">飞向别人的床</a>(<a href="space-1-do-musicbox-mview-mpage-mid-4.html" target="_blank">试听</a>)</em>
+<em>专辑:<a href="space-1-do-musicbox-mview-malbum-albumid-3-userspace-1.html" target="_blank">最近喜欢听</a></em>
+<em>来自<a href="space-1-do-musicbox-view-me.html" target="_blank">小E←邱沼懿</a>(<a href="space-1-do-musicbox-view-me.html" target="_blank">01</a>)的推荐</em>
+<!--<em>不小心设成手机铃声了。。。</em>-->
+</li>
+</ul>
+</div>
+</div>
+<div class="floatfun"></div>
+</div>
+
+<!--
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="musicmes">
+请输入您要播放音乐的媒体文件地址，目前只支持MP3格式。
+</div>
+<ul class="musiclist" id="musicUL">
+<li>
+<strong>曲目1</strong><input class="txt" type="text" name="music_1" id="music_1" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_1'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目2</strong><input class="txt" type="text" name="music_2" id="music_2" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_2'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目3</strong><input class="txt" type="text" name="music_3" id="music_3" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_3'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目4</strong><input class="txt" type="text" name="music_4" id="music_4" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_4'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目5</strong><input class="txt" type="text" name="music_5" id="music_5" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_5'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目6</strong><input class="txt" type="text" name="music_6" id="music_6" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_6'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目7</strong><input class="txt" type="text" name="music_7" id="music_7" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_7'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目8</strong><input class="txt" type="text" name="music_8" id="music_8" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_8'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目9</strong><input class="txt" type="text" name="music_9" id="music_9" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_9'), 1);">清除</a></em>
+</li>
+<li>
+<strong>曲目10</strong><input class="txt" type="text" name="music_10" id="music_10" value="" onblur="javascript:setMusic(this);" /><em><a href="javascript:void(0);" onclick="setMusic($('music_10'), 1);">清除</a></em>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+-->
+</div>
+
+<div id="diy_frame" class="floatwin" style="display:none;" >
+<div class="floattitle" id="diy_frameheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('diy_frame').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>框架选择</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<ul class="webframe" id="selectframe_content">
+<li>
+<a href="javascript:void(0);" id="lc_f" class="frame13" title="1:3" onclick="changeframe('lc');">1:3</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="cl_f" class="frame31" title="3:1" onclick="changeframe('cl');">3:1</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="lcr_f" class="frame121" title="1:2:1" onclick="changeframe('lcr');">1:2:1</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="lrc_f" class="frame112" title="1:1:2" onclick="changeframe('lrc');">1:1:2</a>
+</li>
+<li>
+<a href="javascript:void(0);" id="clr_f" class="frame211" title="2:1:1" onclick="changeframe('clr');">2:1:1</a>
+</li>
+</ul>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="selectblock" class="floatwin" style="display:none;" >
+<div class="floattitle" id="selectblockheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('selectblock').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>模块选择</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<ul class="floatmodule">
+<li><input type="checkbox" id="setfriendlist" onclick="diysetblock(this, 'friendlist');" checked /> 好友列表 </li>
+<li><input type="checkbox" id="setdoing" onclick="diysetblock(this, 'doing');" checked  /> 我的点滴 </li>
+<li><input type="checkbox" id="setalbumone" onclick="diysetblock(this, 'albumone');" checked  /> 动态相片 </li>
+<li><input type="checkbox" id="setalbumall" onclick="diysetblock(this, 'albumall');" checked  /> 我的相册 </li>
+<li><input type="checkbox" id="setfeed" onclick="diysetblock(this, 'feed');" checked  /> 个人新鲜事 </li>
+<li><input type="checkbox" id="setblog" onclick="diysetblock(this, 'blog');" checked  /> 我的博文 </li>
+<li><input type="checkbox" id="setshare" onclick="diysetblock(this, 'share');" checked  /> 我的分享 </li>
+<li><input type="checkbox" id="setmtag" onclick="diysetblock(this, 'mtag');" checked  /> 我的群组 </li>
+<li><input type="checkbox" id="setthread" onclick="diysetblock(this, 'thread');" checked  /> 我的话题 </li>
+<li><input type="checkbox" id="setwall" onclick="diysetblock(this, 'wall');" checked  /> 留言板 </li>
+<li><input type="checkbox" id="setforumstatus" onclick="diysetblock(this, 'forumstatus');" checked  /> 我的投票 </li>
+<li><input type="checkbox" id="setfootprint" onclick="diysetblock(this, 'footprint');" checked  /> 脚印 </li>
+<li><input type="checkbox" id="setplayer" onclick="diysetblock(this, 'player');" checked  /> 播放器 </li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>	
+
+<div id="menu_set" class="floatwin" style="display:none;" >
+<div class="floattitle" id="menu_setheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('menu_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置导航条</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+
+</div>
+<div class="floatmain">
+<div class="floatbody">
+<ul class="formlist">
+<li>
+<label for="">导航背景：</label>
+<a href="#" class="fbtn_select" id="menu_setbg">选图</a>
+<a href="javascript:void(0);" class="fbtn_cancel" onclick="setblockstyle('', '', '', 'background-image');"">不使用图片</a>
+<input type="hidden" value="" id="menu_oldbgimg">
+</li>
+<li>
+<label for="">背景重复：</label>
+<select id='menu_repeat' onchange="setblockstyle(this.value, '', '', 'background-repeat');">
+<option value="no-repeat">不重复</option>
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+</select>
+</li>
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/></td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/></td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="text" id="menu_bgcolor" class="txt"/>
+<span class="control_color" id="menu_bgcolor_ctrl" style="background-color:#000000"  onclick="cur_colortext = 'menu_bgcolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_bgcolor').value; menu_color = new selectColor(getColor);" ></span>
+</li>
+<li>
+<label for="">导航左边距：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_navleft">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_navleft"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_navleft', '', 'hxmoverange_navleft', 'horizontal', changeheight_navleft, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="navleft" value="" onKeyUp="if(parseInt(this.value) >= 20)changeheight_navleft(this.value);">px
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">字体：</label>
+<select onchange="setblockstyle(this.value, '', 'a', 'font-size');setblockstyle(this.value, '', 'em', 'font-size');" id="menu_size" name="text">
+<option value="12">12px</option>
+<option value="14">14px</option>
+<option value="16">16px</option>
+</select>
+<input type="checkbox" onclick="changebold(this, '');" value="" name="menu_weight" id="menu_weight"/>加粗
+</li>
+<li>
+<label for="">链接颜色：</label>
+<input type="text" id="menu_hrefcolor" class="txt"/>
+<span class="control_color" id="menu_hrefcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_hrefcolor'; cur_colorclass = ''; cur_colortag = 'a'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_hrefcolor').value; menuhref = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">划过颜色：</label>
+<input type="text" id="menu_hovercolor" class="txt"/>
+<span class="control_color" id="menu_hovercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_hovercolor'; cur_colorclass = ''; cur_colortag = 'a:hover'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_hovercolor').value; menuhover = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">当前链接：</label>
+<input type="text" id="menu_curcolor" class="txt"/>
+<span class="control_color" id="menu_curcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_curcolor'; cur_colorclass = 'active'; cur_colortag = 'a'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_color').value; menucur = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">导航外框：</label>
+<select onchange="setblockstyle(this.value, '', '', 'border-style');" name="text" id="menu_borderstyle">
+<option value=""></option>
+<option value="solid">实线</option>
+<option value="dashed">虚线</option>
+<option value="dotted">点划线</option>
+</select>
+<select onchange="setblockstyle(this.value, '', '', 'border-width');" name="size" id="menu_borderwidth">
+<option value="0">无边框</option>
+<option value="1">1px</option>
+<option value="2">2px</option>
+<option value="3">3px</option>
+</select>
+</li>
+<li>
+<label for="">外框颜色：</label>
+<input type="text" id="menu_bordercolor" class="txt"/>
+<span class="control_color" id="menu_bordercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'menu_bordercolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'border-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('menu_bordercolor').value; menuborder = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">导航高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_nav">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_nav"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_nav', '', 'hxmoverange_nav', 'horizontal', changeheight_nav, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="navheight" value="" onKeyUp="if(parseInt(this.value) >= 31)changeheight_nav(this.value);">px
+</li>
+<li>
+<label for="">链接位置：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_a">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_a"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_a', '', 'hxmoverange_a', 'horizontal', changeheight_a, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick="cancelstyle(); $('menu_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<div id="title_set" class="floatwin" style="display:none;" >
+<div class="floattitle" id="title_setheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('title_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>设置博客头信息</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+
+</div>
+<div class="floatmain">
+<div class="floatbody">
+<ul class="formlist">
+<li>
+<label for="">名称颜色：</label>
+<input type="text" id="title_color" class="txt"/>
+<span class="control_color" id="title_color_ctrl" style="background-color:#000000" onclick="cur_colortext = 'title_color'; cur_colorclass = 'title'; cur_colortag = 'h1'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('title_color').value; menu_titlecolor = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">签名颜色：</label>
+<input type="text" id="title_sigcolor" class="txt"/>
+<span class="control_color" id="title_sigcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'title_sigcolor'; cur_colorclass = 'title'; cur_colortag = 'p'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('title_sigcolor').value; titlesigchg = new selectColor(getColor);"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick="cancelstyle(); $('title_set').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<div id="tsetblock" class="floatwin" style="display:none;" >
+<div class="floattitle" id="testblockheader">
+<div class="rcon"><a href="javascript:void(0);" class="btnclose" title="关闭" onclick="cancelstyle(); $('tsetblock').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>定义模块样式 －－ <a id="blockname"></a></h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu">
+<ul>
+<li class="on" id="menutitle"><a href="javascript:void(0);" onclick="bgtype='3';$('titleset').style.display='';$('contentset').style.display='none'; $('menutitle').className = 'on'; $('menucontent').className = ''; cur_bclass = 'blocktitle';">标题设置</a></li>
+
+<li id="menucontent"><a href="javascript:void(0);" onclick="bgtype='1';$('titleset').style.display='none';$('contentset').style.display=''; $('menutitle').className = ''; $('menucontent').className = 'on'; cur_bclass = 'blockcontent';">主体设置</a></li>
+</ul>
+</div>
+<div class="floatmain">
+<div class="floatbody" id="titleset">
+<ul class="formlist">
+<li>
+<label for="">标题背景：</label>
+<a href="javascript:void(0);" class="fbtn_select" id="selectbg_t">选图</a>
+<a href="javascript:void(0);" class="fbtn_cancel" onclick="setblockstyle('', 'blocktitle', '', 'background-image');">不使用图片</a>
+<input type="hidden" value="" id="oldbgimg_t">
+</li>
+<li>
+<label for="">背景重复：</label>
+<select id='bgrepeat_t' onchange="setblockstyle(this.value, 'blocktitle', '', 'background-repeat');">
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+<option value="no-repeat">不重复</option>
+</select>
+</li>
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="text" class="txt" id="titlebgcolor" />
+<span class="control_color" id="titlebgcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'titlebgcolor'; cur_colorclass = 'blocktitle'; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('titlebgcolor').value; titlebgcolor = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">标题字体：</label>
+<select name="text" id="titlefontsize" onchange="setblockstyle(this.value, 'blocktitle', 'h2', 'font-size');setblockstyle(this.value, 'blocktitle', 'em a', 'font-size');">
+<option value="12">12px</option>
+<option value="14">14px</option>
+<option value="16">16px</option>
+</select>
+<input id="titleweight" name="titleweight" type="checkbox" value="" onclick="changebold(this, 'blocktitle');"/>加粗
+</li>
+<li>
+<label for="">字体颜色：</label>
+<input type="text" class="txt" name="titlefontcolor" id="titlefontcolor" />
+<span class="control_color" id="titlefontcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'titlefontcolor'; cur_colorclass = 'blocktitle'; cur_colortag = 'h2'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('titlefontcolor').value; titlefont = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">标题高度：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH"></div>
+<script language="javascript">
+var vmove = new drag('sliderH', '', 'hxmoverange', 'horizontal', changeheight, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="titleheight" value="" onKeyUp="if(parseInt(this.value) >= 20)changeheight(this.value);">px
+</li>
+<li>
+<label for="">标题边距：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_left">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_left"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_left', '', 'hxmoverange_left', 'horizontal', changeheight_left, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+<input class="txtnum" type="text" id="titleleft" value="" onKeyUp="if(parseInt(this.value) >= 18)changeheight_left(this.value);">px
+</li>
+<li>
+<label for="">分割线：</label>
+<select id="titleborderstyle" name="text" onchange="setblockstyle(this.value, 'blocktitle', '', 'border-bottom-style');" >
+<option value=""></option>
+<option value="solid">实线</option>
+<option value="dashed">虚线</option>
+<option value="dotted">点划线</option>
+</select>
+<select id="titleborderwidth" name="size" onchange="setblockstyle(this.value, 'blocktitle', '', 'border-bottom-width');">
+<option value="0">无分割线</option>
+<option value="1">1px</option>
+<option value="2">2px</option>
+<option value="3">3px</option>
+</select>
+</li>
+<li>
+<label for="">线颜色：</label>
+<input type="text" class="txt" id="titlebordercolor"/>
+<span class="control_color" id="titlebordercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'titlebordercolor'; cur_colorclass = 'blocktitle'; cur_colortag = ''; cur_colorproperty = 'border-bottom-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('titlebordercolor').value; borderchg = new selectColor(getColor);"></span>
+</li>
+</ul>
+</div>
+<div class="floatbody" id="contentset" style="display:none;">
+<ul class="formlist">
+<li>
+<label for="">主体背景：</label>						
+<a href="javascript:void(0);" class="fbtn_select" id="selectbg_c">选图</a>
+<a href="javascript:void(0);" class="fbtn_cancel" onclick="setblockstyle('', 'blockcontent', '', 'background-image');"">不使用图片</a>
+<input type="hidden" value="" id="bc_oldbgimg">
+</li>
+<li>
+<label for="">背景重复：</label>
+<select id='bc_bgrepeat' onchange="setblockstyle(this.value, 'blockcontent', '', 'background-repeat');">
+<option value="repeat">重复</option>
+<option value="repeat-x">水平重复</option>
+<option value="repeat-y">垂直重复</option>
+<option value="no-repeat">不重复</option>
+</select>
+</li>
+<li>
+<label for="">背景位置：</label>
+<div class="wc-o az">
+<table id="selectplace_c" class="wc">
+<tbody>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0 selected"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+<tr class="wcr1">
+<td colspan="5"/> </td>
+</tr>
+<tr class="wcr0">
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+<td class="wcc1"/> </td>
+<td class="wcc0 iw0"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<label for="">背景色：</label>
+<input type="text" class="txt" id="bc_bgcolor" />
+<span class="control_color" id="bc_bgcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_bgcolor'; cur_colorclass = 'blockcontent'; cur_colortag = ''; cur_colorproperty = 'background-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_bgcolor').value; contentbgcolor = new selectColor(getColor);"></span>
+</li>
+</ul>
+<ul class="formlist">
+<li>
+<label for="">字体：</label>
+<select name="text" id="bc_size" onchange="setblockstyle(this.value, 'blockcontent', '', 'font-size');">
+<option value="12">12px</option>
+<option value="14">14px</option>
+<option value="16">16px</option>
+</select>
+<input id="bc_weight" name="bc_weight" type="checkbox" value="" onclick="changebold(this, 'blockcontent');"/>加粗
+</li>
+<li>
+<label for="">字体颜色：</label>
+<input type="text" class="txt" id="bc_color" />
+<span class="control_color" id="bc_color_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_color'; cur_colorclass = 'blockcontent'; cur_colortag = ''; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_color').value; borderchg = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">链接颜色：</label>
+<input type="text" class="txt" id="bc_hrefcolor" />
+<span class="control_color" id="bc_hrefcolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_hrefcolor'; cur_colorclass = 'blockcontent'; cur_colortag = 'a'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_hrefcolor').value; bchrefchg = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">划过颜色：</label>
+<input type="text" class="txt" id="bc_hovercolor" />
+<span class="control_color" id="bc_hovercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_hovercolor'; cur_colorclass = 'blockcontent'; cur_colortag = 'a:hover'; cur_colorproperty = 'color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_hovercolor').value; bchoverchg = new selectColor(getColor);"></span>
+</li>
+<li>
+<label for="">主体外框：</label>
+<select id="bc_borderstyle" name="text" onchange="setblockstyle(this.value, '', '', 'border-style');" >
+<option value=""></option>
+<option value="solid">实线</option>
+<option value="dashed">虚线</option>
+<option value="dotted">点划线</option>
+</select>
+<select id="bc_borderwidth" name="size" onchange="setblockstyle(this.value, '', '', 'border-width');">
+<option value="0">无边框</option>
+<option value="1">1px</option>
+<option value="2">2px</option>
+<option value="3">3px</option>
+</select>
+</li>
+<li>
+<label for="">外框颜色：</label>
+<input type="text" class="txt" id="bc_bordercolor"/>
+<span class="control_color" id="bc_bordercolor_ctrl" style="background-color:#000000" onclick="cur_colortext = 'bc_bordercolor'; cur_colorclass = ''; cur_colortag = ''; cur_colorproperty = 'border-color'; $('clrMain').style.display=''; $('clrColorValue').value=$('bc_bordercolor').value; bcborderchg = new selectColor(getColor);"></span>
+</li>
+<li id="playertop" style="display:none">
+<label for="">位置：</label>
+<div class="hxdiv">
+<div class="hxmoverange" id="hxmoverange_player">
+<div class="hxmovebg"></div>
+<div class="hxmove" id="sliderH_player"></div>
+<script language="javascript">
+var vmove = new drag('sliderH_player', '', 'hxmoverange_player', 'horizontal', changeheight_player, 1);
+vmove.cursor = 'default';
+</script>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick="cancelstyle(); $('tsetblock').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+<p>以上设置应用于：<input name="mo" type="radio" value="1" id="mo" checked /><label>仅此模块</label><input name="mo" type="radio" value="2" id="mo" /><label>所有模块</label></p>
+</div>
+</div>
+</div>
+<div id="transferReady" class="transfer" style="display:none;z-index:200;">
+<div class="transferbody"><a href="#" id="delblock" onmousedown="closeblock(event);" class="delblock">删除</a><a href="javascript:void(0);" id="editblock" class="editblock">编辑</a></div>
+</div>
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wraptwo">
+<div id="banner" class="banner">
+<div class="title" id="title">
+	<a href="#" id="edittitle" class="editblock">编辑</a><h1 id="myblogname">哇吐！~~  <em> 605643 人次访问, 7196个积分 <a href="do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></em></h1>
+<p>哇吐！~~狂吐中ing...<a href="cp.phpacsign.htm" id="a_sign" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[编辑]</a></p>
+<p><a href="../e.shenei.net/default.htm" onclick="javascript:setCopy('../e.shenei.net/default.htm');return false;" class="spacelink domainurl">http://E.shenei.net</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+<a href="#" id="editmenu" class="editblock">编辑</a>
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=1', '');">
+主页 <a href="cp.php?ac=hometitle" id="a_hometitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+-->
+
+<li>
+<a  href="viewspace.phpuid1.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doaboutme.htm', 'aboutme');">
+这谁~ <a href="cp.phpacaboutmetitle.htm" id="a_aboutmetitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogviewme.htm', 'blog');">
+点滴 <a href="cp.phpacblogtitle.htm" id="a_blogtitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumviewme.htm', 'album');">
+瞬间 <a href="cp.phpacalbumtitle.htm" id="a_albumtitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewme.htm', 'poll');">
+告诉我 <a href="cp.phpacpolltitle.htm" id="a_polltitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dofriendviewme.htm', 'friend');">
+三铁 <a href="cp.phpacfriendtitle.htm" id="a_friendtitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dowallviewme.htm', 'wall');">
+骂两句 <a href="cp.phpacwalltitle.htm" id="a_walltitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doapplist.htm', 'applist');">
+好玩 <a href="cp.phpacapplisttitle.htm" id="a_applisttitle" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[改]</a></a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="dleft" class="frame_1"><div id="profile" class="block" >
+<div class="blocktitle">
+<em>
+<a id="a_magic_gift" href="magic.phpmidgift.htm" onclick="ajaxmenu(event,this.id,1)" title="给来访者埋个红包" class="hi"><img src="viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />埋个红包</a>
+</em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doaboutme.htm', 'aboutme');" class="avatar"><img src="../uc.shenei.net/data/avatar/000/00/00/01_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_01_big.gif'"></a><center>影子讽刺地跟着我难分难离.. <a href='space.phpuid1dodoing'>&raquo;</a></center><div class="username">
+<p class="avatar_op"><a href="cp.phpacavatar.htm">上传头像</a></p>
+<p>实名：
+<a href="space-1.html">小E←邱沼懿</a></p>
+<p class="onlineU" title="在线">昵称：<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1.htm', '');">01</a></p>
+<p>等级：<a href="cp.phpaccredit.htm" target="blank"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<a href="space-1-do-videophoto.html" id="a_space_videophoto" onclick="ajaxmenu(event, this.id, 1)"><img src="viewspace/img/tool/video.gif" align="absmiddle" title="已通过视频认证" alt="已通过视频认证" /></a>
+<a href='pay.phpacvip.htm' target='_blank'><img src='image/pay/vip2.gif' title='未激活' alt='未激活' border='0' align='absmiddle' /></a>
+</p>
+</div>
+<div class="tool">
+</div>
+</div>
+</div>
+</div>
+<div id="doing" class="block" >
+<div class="blocktitle">
+<em><a id="a_doing_form" onclick="ajaxmenu(event, this.id, 99999, '', -1)" href="viewspace.phpdodoingf.htm">发表点滴</a></em>
+<h2>我的点滴</h2>
+</div>
+<div class="blockcontent">
+<div class="diandilist"><ul>
+<li>&#8226; 【同居新闻】最近经常生气 <a href="../t.cn/zwtgen4.htm" target=_blank rel=nofollow>http://t.cn/zWTgeN4</a> (<a href="space-1-do-doing-doid-5569-goto-yes.html">回复</a>)</li>
+<li>&#8226; 如果给我一部天翼双模手机，我将【老婆】一个号，【小三】一个号。创想双号生活 玩转天翼3G，我心仪的双模3G手机是【天语e619】。了解更多精彩双号3G生活请点击：<a href="../mn.sina.com.cn/city/zt/dianxinshuangmo/default.htm" target=_blank rel=nofollow>http://t.cn/zWYUd8C</a> 。@张尚玲 @CC且留下 @小玲欢  (<a href="space-1-do-doing-doid-5564-goto-yes.html">回复</a>)</li>
+<li>&#8226; #前端这条路# 【技术发布】clearfix最新版 <a href="../t.cn/zwyod0r.htm" target=_blank rel=nofollow>http://t.cn/zWYOd0r</a> (<a href="space-1-do-doing-doid-5563-goto-yes.html">回复</a>)</li>
+<li>&#8226; 好口爱~~~放公司里养着就是了<img src="image/face/10.gif" class="face"><div class="sub_doing_quote"><span>黄抒询：老鼠一只，so cute 我在:<a href="../m.weibo.cn/p/100101118.183555_24.48476.htm" target=_blank rel=nofollow>http://t.cn/zWYG6DO</a></span><div class="img"><a target="_blank" href="../ww4.sinaimg.cn/large/55dd6f6ejw1dvw11g38qvj.jpg"><img src="../ww4.sinaimg.cn/bmiddle/55dd6f6ejw1dvw11g38qvj.jpg"></a></div><ol></ol></div> (<a href="space-1-do-doing-doid-5562-goto-yes.html">回复</a>)</li>
+<li>&#8226; 我早上在公司啃包子，赢了自不必说，输了就说吃太多呛着了跳不起来。@CC且留下<div class="sub_doing_quote"><span>杰森的文： @一粒肉包 我中午去艾美吃自助餐补充能量，赢了自不必说，输了就说吃太多跳不起来。 @张舜地 @新取英文名Esone爆开心的E神小懿 加油，干掉他，中华无人耶？</span><ol></ol></div> (<a href="space-1-do-doing-doid-5561-goto-yes.html">回复</a>)</li>
+</ul></div>
+</div></div>
+<div id="player" class="block" >
+<div class="blocktitle">
+<em></em>
+<h2>播放器</h2>
+</div>
+<div class="blockcontent">
+<div class="musicbody">
+<div class="music">
+
+<object id="player1" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="0" height="0" codebase="nsmp2inf.cab#Version=5,1,52,701standby=Loading" tppabs="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701standby=Loading" type="application/x-oleobject">
+<param name="URL" value="">
+<param name="UIMode" value="invisible">
+<param name="AutoStart" value="true">
+<param name="Enabled" value="true">
+<param name="enableContextMenu" value="false">
+<param name="Volume" value="100">
+<param name="DisplayBackColor" value="100">
+<param name="DisplayForeColor" value="100">
+<param name="WindowlessVideo" value="true">
+</object>
+<object  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../fpdownload2.macromedia.com/get/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="200" height="110" id="musicSwf">
+<param name="movie" value="viewspace/flash/38561.swf">
+<param name="quality" value="high">
+<param name="wmode" value="transparent">
+<param name="allowScriptAccess" value="always">
+</object>
+
+</div>
+</div>
+</div>
+</div>
+<div id="friendlist" class="block" >
+<div class="blocktitle">
+<em><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dofriend.htm', 'friend');">全部</a></em>
+<h2>我的好友</h2>
+</div>
+<div class="blockcontent">
+<div class="friendlist">
+<ul>
+<li>
+<a href="viewspace.phpuid2.htm" class="avatar" title="Sweet">
+<img src="../uc.shenei.net/data/avatar/000/00/00/02_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a>
+<p><a href="viewspace.phpuid2.htm">张颖</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid9.htm" class="avatar" title="fei1019">
+<img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_07_small.gif'"></a>
+<p><a href="viewspace.phpuid9.htm">李慧丹</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid11.htm" class="avatar" title="yujuan">
+<img src="../uc.shenei.net/data/avatar/000/00/00/11_real_avatar_small.jpg.gif" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a>
+<p><a href="viewspace.phpuid11.htm">高雨娟</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid214.htm" class="avatar" title="美辰">
+<img src="../uc.shenei.net/data/avatar/000/00/02/14_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a>
+<p><a href="viewspace.phpuid214.htm">王美辰</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid144.htm" class="avatar" title="hongling">
+<img src="../uc.shenei.net/data/avatar/000/00/01/44_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_02_small.gif'"></a>
+<p><a href="viewspace.phpuid144.htm">じò 記憶ぴ</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid564.htm" class="avatar" title="564864chen">
+<img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_07_small.gif'"></a>
+<p><a href="viewspace.phpuid564.htm">清阳</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid258.htm" class="avatar" title="freesix2007">
+<img src="../uc.shenei.net/data/avatar/000/00/02/58_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a>
+<p><a href="viewspace.phpuid258.htm">黄晓波</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid160.htm" class="avatar" title="Dove">
+<img src="../uc.shenei.net/data/avatar/000/00/01/60_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_01_small.gif'"></a>
+<p><a href="viewspace.phpuid160.htm">蔡莹冰</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid4.htm" class="avatar" title="xi77">
+<img src="../uc.shenei.net/data/avatar/000/00/00/04_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a>
+<p><a href="viewspace.phpuid4.htm">Se⒎en</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid27.htm" class="avatar" title="残风追月">
+<img src="../uc.shenei.net/data/avatar/000/00/00/27_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_02_small.gif'"></a>
+<p><a href="viewspace.phpuid27.htm">李敏利Milly</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid3.htm" class="avatar" title="auriour">
+<img src="../uc.shenei.net/data/avatar/000/00/00/03_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_04_small.gif'"></a>
+<p><a href="viewspace.phpuid3.htm">菜头</a></p>
+</li>
+<li>
+<a href="viewspace.phpuid612.htm" class="avatar" title="chiefai">
+<img src="../uc.shenei.net/data/avatar/000/00/06/12_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a>
+<p><a href="viewspace.phpuid612.htm">艾朝峰</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footprint" class="block" >
+<div class="blocktitle">
+<em>
+<a href="space-1-do-friend-view-visitor.html">全部</a></em>
+<h2>脚印</h2>
+</div>
+<div class="blockcontent">
+<div class="nomessage">暂时还没有人留下脚印。</div>
+</div></div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="cp.phpacuserapp.htm" target="_blank">全部</a></em>
+<h2>小应用</h2>
+</div>
+<div class="blockcontent">
+<ul class="pluglist">
+<li>
+<a href="userapp.phpid1027468my_suffixlw_253d_253d.htm" title="礼物" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~42.gif" alt="礼物" target="blank">礼物</a>
+</li>
+<li>
+<a href="userapp.phpid1052447my_suffixlw_253d_253d.htm" title="欢乐鱼塘" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~71.gif" alt="欢乐鱼塘" target="blank">欢乐鱼塘</a>
+</li>
+<li>
+<a href="userapp.phpid1003274my_suffixlw_253d_253d.htm" title="读书" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~5.gif" alt="读书" target="blank">读书</a>
+</li>
+<li>
+<a href="userapp.phpid1058319my_suffixlw_253d_253d.htm" title="棒子老虎鸡" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~72.gif" alt="棒子老虎鸡" target="blank">棒子老虎鸡</a>
+</li>
+<li>
+<a href="userapp.phpid1018233my_suffixlw_253d_253d.htm" title="山寨股市" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~73.gif" alt="山寨股市" target="blank">山寨股市</a>
+</li>
+<li>
+<a href="userapp.phpid1060932my_suffixlw_253d_253d.htm" title="十年一剑" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~74.gif" alt="十年一剑" target="blank">十年一剑</a>
+</li>
+<li>
+<a href="userapp.phpid1058412my_suffixlw_253d_253d.htm" title="热血球球" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~75.gif" alt="热血球球" target="blank">热血球球</a>
+</li>
+<li>
+<a href="userapp.phpid1058701my_suffixlw_253d_253d.htm" title="坦克大战" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~76.gif" alt="坦克大战" target="blank">坦克大战</a>
+</li>
+<li>
+<a href="userapp.phpid1055082my_suffixlw_253d_253d.htm" title="知己人生" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~77.gif" alt="知己人生" target="blank">知己人生</a>
+</li>
+<li>
+<a href="userapp.phpid1059373my_suffixlw_253d_253d.htm" title="忍者村" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~78.gif" alt="忍者村" target="blank">忍者村</a>
+</li>
+<li>
+<a href="userapp.phpid1059430my_suffixlw_253d_253d.htm" title="枪王之王" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~79.gif" alt="枪王之王" target="blank">枪王之王</a>
+</li>
+<li>
+<a href="userapp.phpid1058035my_suffixlw_253d_253d.htm" title="汽车工厂" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~80.gif" alt="汽车工厂" target="blank">汽车工厂</a>
+</li>
+<li>
+<a href="userapp.phpid1045165my_suffixlw_253d_253d.htm" title="第7扑克" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~81.gif" alt="第7扑克" target="blank">第7扑克</a>
+</li>
+<li>
+<a href="userapp.phpid1056730my_suffixlw_253d_253d.htm" title="爆破方块" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~82.gif" alt="爆破方块" target="blank">爆破方块</a>
+</li>
+<li>
+<a href="userapp.phpid1054345my_suffixlw_253d_253d.htm" title="果果帮" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~83.gif" alt="果果帮" target="blank">果果帮</a>
+</li>
+<li>
+<a href="userapp.phpid1055802my_suffixlw_253d_253d.htm" title="天天向上" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~84.gif" alt="天天向上" target="blank">天天向上</a>
+</li>
+<li>
+<a href="userapp.phpid1057497my_suffixlw_253d_253d.htm" title="开心团购" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~85.gif" alt="开心团购" target="blank">开心团购</a>
+</li>
+<li>
+<a href="userapp.phpid1024392my_suffixlw_253d_253d.htm" title="音乐推荐" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~61.gif" alt="音乐推荐" target="blank">音乐推荐</a>
+</li>
+<li>
+<a href="userapp.phpid1054378my_suffixlw_253d_253d.htm" title="庄园时代" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~62.gif" alt="庄园时代" target="blank">庄园时代</a>
+</li>
+<li>
+<a href="userapp.phpid1055989my_suffixlw_253d_253d.htm" title="社区城市" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~86.gif" alt="社区城市" target="blank">社区城市</a>
+</li>
+<li>
+<a href="userapp.phpid1056190my_suffixlw_253d_253d.htm" title="运镖天下" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~87.gif" alt="运镖天下" target="blank">运镖天下</a>
+</li>
+<li>
+<a href="userapp.phpid1054337my_suffixlw_253d_253d.htm" title="快乐小镇" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~88.gif" alt="快乐小镇" target="blank">快乐小镇</a>
+</li>
+<li>
+<a href="userapp.phpid1003049my_suffixlw_253d_253d.htm" title="每天进步" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~89.gif" alt="每天进步" target="blank">每天进步</a>
+</li>
+<li>
+<a href="userapp.phpid1054214my_suffixlw_253d_253d.htm" title="花田喜事" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~90.gif" alt="花田喜事" target="blank">花田喜事</a>
+</li>
+<li>
+<a href="userapp.phpid1056432my_suffixlw_253d_253d.htm" title="足球经理世界" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~91.gif" alt="足球经理世界" target="blank">足球经理世界</a>
+</li>
+<li>
+<a href="userapp.phpid1051230my_suffixlw_253d_253d.htm" title="梦幻校园" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~92.gif" alt="梦幻校园" target="blank">梦幻校园</a>
+</li>
+<li>
+<a href="userapp.phpid1055551my_suffixlw_253d_253d.htm" title="怪兽部落" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~93.gif" alt="怪兽部落" target="blank">怪兽部落</a>
+</li>
+<li>
+<a href="userapp.phpid1056000my_suffixlw_253d_253d.htm" title="疯狂足球" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~94.gif" alt="疯狂足球" target="blank">疯狂足球</a>
+</li>
+<li>
+<a href="userapp.phpid1055548my_suffixlw_253d_253d.htm" title="守望森林" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~95.gif" alt="守望森林" target="blank">守望森林</a>
+</li>
+<li>
+<a href="userapp.phpid1051041my_suffixlw_253d_253d.htm" title="开心店铺" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~96.gif" alt="开心店铺" target="blank">开心店铺</a>
+</li>
+<li>
+<a href="userapp.phpid1049305my_suffixlw_253d_253d.htm" title="城市大富豪" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~97.gif" alt="城市大富豪" target="blank">城市大富豪</a>
+</li>
+<li>
+<a href="userapp.phpid1049431my_suffixlw_253d_253d.htm" title="魔王名单" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~98.gif" alt="魔王名单" target="blank">魔王名单</a>
+</li>
+<li>
+<a href="userapp.phpid1051637my_suffixlw_253d_253d.htm" title="漂漂岛" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~99.gif" alt="漂漂岛" target="blank">漂漂岛</a>
+</li>
+<li>
+<a href="userapp.phpid1053513my_suffixlw_253d_253d.htm" title="大航运时代" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~100.gif" alt="大航运时代" target="blank">大航运时代</a>
+</li>
+<li>
+<a href="userapp.phpid1051353my_suffixlw_253d_253d.htm" title="电驴" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~101.gif" alt="电驴" target="blank">电驴</a>
+</li>
+<li>
+<a href="userapp.phpid1053282my_suffixlw_253d_253d.htm" title="社区便利店" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~102.gif" alt="社区便利店" target="blank">社区便利店</a>
+</li>
+<li>
+<a href="userapp.phpid1053021my_suffixlw_253d_253d.htm" title="太空时代" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~4.gif" alt="太空时代" target="blank">太空时代</a>
+</li>
+<li>
+<a href="userapp.phpid1050266my_suffixlw_253d_253d.htm" title="园艺大亨" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~103.gif" alt="园艺大亨" target="blank">园艺大亨</a>
+</li>
+<li>
+<a href="userapp.phpid1053099my_suffixlw_253d_253d.htm" title="时尚人生" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~104.gif" alt="时尚人生" target="blank">时尚人生</a>
+</li>
+<li>
+<a href="userapp.phpid1052860my_suffixlw_253d_253d.htm" title="奇遇轮盘聊天世界" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~105.gif" alt="奇遇轮盘聊天世界" target="blank">奇遇轮盘聊天世界</a>
+</li>
+<li>
+<a href="userapp.phpid1053201my_suffixlw_253d_253d.htm" title="倾城" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~106.gif" alt="倾城" target="blank">倾城</a>
+</li>
+<li>
+<a href="userapp.phpid1051842my_suffixlw_253d_253d.htm" title="连连看总动员" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~107.gif" alt="连连看总动员" target="blank">连连看总动员</a>
+</li>
+<li>
+<a href="userapp.phpid1014835my_suffixlw_253d_253d.htm" title="我要K图" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~108.gif" alt="我要K图" target="blank">我要K图</a>
+</li>
+<li>
+<a href="userapp.phpid1050925my_suffixlw_253d_253d.htm" title="快来挖Wa" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~3.gif" alt="快来挖Wa" target="blank">快来挖Wa</a>
+</li>
+<li>
+<a href="userapp.phpid1052742my_suffixlw_253d_253d.htm" title="东北打棋摞" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~109.gif" alt="东北打棋摞" target="blank">东北打棋摞</a>
+</li>
+<li>
+<a href="userapp.phpid1051803my_suffixlw_253d_253d.htm" title="随机视频" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~110.gif" alt="随机视频" target="blank">随机视频</a>
+</li>
+<li>
+<a href="userapp.phpid1050467my_suffixlw_253d_253d.htm" title="幻宠奇缘" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~111.gif" alt="幻宠奇缘" target="blank">幻宠奇缘</a>
+</li>
+<li>
+<a href="userapp.phpid1051907my_suffixlw_253d_253d.htm" title="欢乐客栈" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~112.gif" alt="欢乐客栈" target="blank">欢乐客栈</a>
+</li>
+<li>
+<a href="userapp.phpid1051195my_suffixlw_253d_253d.htm" title="创世纪2012" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~113.gif" alt="创世纪2012" target="blank">创世纪2012</a>
+</li>
+<li>
+<a href="userapp.phpid1049530my_suffixlw_253d_253d.htm" title="乡村传奇" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~114.gif" alt="乡村传奇" target="blank">乡村传奇</a>
+</li>
+<li>
+<a href="userapp.phpid1051929my_suffixlw_253d_253d.htm" title="植物大战外星人" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~115.gif" alt="植物大战外星人" target="blank">植物大战外星人</a>
+</li>
+<li>
+<a href="userapp.phpid1040624my_suffixlw_253d_253d.htm" title="弹弹堂" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~116.gif" alt="弹弹堂" target="blank">弹弹堂</a>
+</li>
+<li>
+<a href="userapp.phpid1047721my_suffixlw_253d_253d.htm" title="天天背单词" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~117.gif" alt="天天背单词" target="blank">天天背单词</a>
+</li>
+<li>
+<a href="userapp.phpid1050565my_suffixlw_253d_253d.htm" title="开心星钻" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~118.gif" alt="开心星钻" target="blank">开心星钻</a>
+</li>
+<li>
+<a href="userapp.phpid1043652my_suffixlw_253d_253d.htm" title="跑火车" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~119.gif" alt="跑火车" target="blank">跑火车</a>
+</li>
+<li>
+<a href="userapp.phpid1014051my_suffixlw_253d_253d.htm" title="读心术" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~120.gif" alt="读心术" target="blank">读心术</a>
+</li>
+<li>
+<a href="userapp.phpid1033907my_suffixlw_253d_253d.htm" title="游戏账号中心" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~121.gif" alt="游戏账号中心" target="blank">游戏账号中心</a>
+</li>
+<li>
+<a href="userapp.phpid1049094my_suffixlw_253d_253d.htm" title="主题学校" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~122.gif" alt="主题学校" target="blank">主题学校</a>
+</li>
+<li>
+<a href="userapp.phpid1048438my_suffixlw_253d_253d.htm" title="海底总动员" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~13.gif" alt="海底总动员" target="blank">海底总动员</a>
+</li>
+<li>
+<a href="userapp.phpid1045020my_suffixlw_253d_253d.htm" title="干瞪眼" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~123.gif" alt="干瞪眼" target="blank">干瞪眼</a>
+</li>
+<li>
+<a href="userapp.phpid1048677my_suffixlw_253d_253d.htm" title="快乐庄园" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~124.gif" alt="快乐庄园" target="blank">快乐庄园</a>
+</li>
+<li>
+<a href="userapp.phpid1002602my_suffixlw_253d_253d.htm" title="心理测试" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~57.gif" alt="心理测试" target="blank">心理测试</a>
+</li>
+<li>
+<a href="userapp.phpid1006771my_suffixlw_253d_253d.htm" title="我快要疯了！" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~58.gif" alt="我快要疯了！" target="blank">我快要疯了！</a>
+</li>
+<li>
+<a href="userapp.phpid1044189my_suffixlw_253d_253d.htm" title="快打旋风" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~59.gif" alt="快打旋风" target="blank">快打旋风</a>
+</li>
+<li>
+<a href="userapp.phpid1047370my_suffixlw_253d_253d.htm" title="地产大亨" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~60.gif" alt="地产大亨" target="blank">地产大亨</a>
+</li>
+<li>
+<a href="userapp.phpid1048307my_suffixlw_253d_253d.htm" title="有间客栈" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~63.gif" alt="有间客栈" target="blank">有间客栈</a>
+</li>
+<li>
+<a href="userapp.phpid1042221my_suffixlw_253d_253d.htm" title="全民富翁" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~125.gif" alt="全民富翁" target="blank">全民富翁</a>
+</li>
+<li>
+<a href="userapp.phpid1042041my_suffixlw_253d_253d.htm" title="高清电影" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~126.gif" alt="高清电影" target="blank">高清电影</a>
+</li>
+<li>
+<a href="userapp.phpid1025455my_suffixlw_253d_253d.htm" title="斗牛场" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~6.gif" alt="斗牛场" target="blank">斗牛场</a>
+</li>
+<li>
+<a href="userapp.phpid1043066my_suffixlw_253d_253d.htm" title="本草仙目" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~64.gif" alt="本草仙目" target="blank">本草仙目</a>
+</li>
+<li>
+<a href="userapp.phpid1044490my_suffixlw_253d_253d.htm" title="三十六计" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~65.gif" alt="三十六计" target="blank">三十六计</a>
+</li>
+<li>
+<a href="userapp.phpid1044822my_suffixlw_253d_253d.htm" title="私人博物馆" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~66.gif" alt="私人博物馆" target="blank">私人博物馆</a>
+</li>
+<li>
+<a href="userapp.phpid1041209my_suffixlw_253d_253d.htm" title="开心测试" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~67.gif" alt="开心测试" target="blank">开心测试</a>
+</li>
+<li>
+<a href="userapp.phpid1040657my_suffixlw_253d_253d.htm" title="夜店大亨" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~68.gif" alt="夜店大亨" target="blank">夜店大亨</a>
+</li>
+<li>
+<a href="userapp.phpid1038206my_suffixlw_253d_253d.htm" title="摩天城" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~69.gif" alt="摩天城" target="blank">摩天城</a>
+</li>
+<li>
+<a href="userapp.phpid1026002my_suffixlw_253d_253d.htm" title="天黑请闭眼2.0" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~51.gif" alt="天黑请闭眼2.0" target="blank">天黑请闭眼2.0</a>
+</li>
+<li>
+<a href="userapp.phpid1040890my_suffixlw_253d_253d.htm" title="楼一幢" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~20.gif" alt="楼一幢" target="blank">楼一幢</a>
+</li>
+<li>
+<a href="userapp.phpid1007292my_suffixlw_253d_253d.htm" title="超级玛丽" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~37.gif" alt="超级玛丽" target="blank">超级玛丽</a>
+</li>
+<li>
+<a href="userapp.phpid1011587my_suffixlw_253d_253d.htm" title="人肉炸弹" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~52.gif" alt="人肉炸弹" target="blank">人肉炸弹</a>
+</li>
+<li>
+<a href="userapp.phpid1025054my_suffixlw_253d_253d.htm" title="可爱卡丁车" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~53.gif" alt="可爱卡丁车" target="blank">可爱卡丁车</a>
+</li>
+<li>
+<a href="userapp.phpid1033960my_suffixlw_253d_253d.htm" title="闪亮健身" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~54.gif" alt="闪亮健身" target="blank">闪亮健身</a>
+</li>
+<li>
+<a href="userapp.phpid1036304my_suffixlw_253d_253d.htm" title="幸运棋牌" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~55.gif" alt="幸运棋牌" target="blank">幸运棋牌</a>
+</li>
+<li>
+<a href="userapp.phpid1016054my_suffixlw_253d_253d.htm" title="礼物大派送" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~56.gif" alt="礼物大派送" target="blank">礼物大派送</a>
+</li>
+<li>
+<a href="userapp.phpid1050377my_suffixlw_253d_253d.htm" title="幸福摩天轮" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~127.gif" alt="幸福摩天轮" target="blank">幸福摩天轮</a>
+</li>
+<li>
+<a href="userapp.phpid1018750my_suffixlw_253d_253d.htm" title="斗鸡" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~32.gif" alt="斗鸡" target="blank">斗鸡</a>
+</li>
+<li>
+<a href="userapp.phpid1040698my_suffixlw_253d_253d.htm" title="奇妙猪世界" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~16.gif" alt="奇妙猪世界" target="blank">奇妙猪世界</a>
+</li>
+<li>
+<a href="userapp.phpid1018840my_suffixlw_253d_253d.htm" title="祖玛" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~34.gif" alt="祖玛" target="blank">祖玛</a>
+</li>
+<li>
+<a href="userapp.phpid1006752my_suffixlw_253d_253d.htm" title="疯狂出租车" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~35.gif" alt="疯狂出租车" target="blank">疯狂出租车</a>
+</li>
+<li>
+<a href="userapp.phpid1006588my_suffixlw_253d_253d.htm" title="挖金子" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~12.gif" alt="挖金子" target="blank">挖金子</a>
+</li>
+<li>
+<a href="userapp.phpid1028802my_suffixlw_253d_253d.htm" title="天下名片" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~36.gif" alt="天下名片" target="blank">天下名片</a>
+</li>
+<li>
+<a href="userapp.phpid1012923my_suffixlw_253d_253d.htm" title="我印我秀" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~38.gif" alt="我印我秀" target="blank">我印我秀</a>
+</li>
+<li>
+<a href="userapp.phpid1002898my_suffixlw_253d_253d.htm" title="谁请客吃冰激淋" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~39.gif" alt="谁请客吃冰激淋" target="blank">谁请客吃冰激淋</a>
+</li>
+<li>
+<a href="userapp.phpid1021692my_suffixlw_253d_253d.htm" title="福彩3D" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~40.gif" alt="福彩3D" target="blank">福彩3D</a>
+</li>
+<li>
+<a href="userapp.phpid1030248my_suffixlw_253d_253d.htm" title="VV斗地主" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~41.gif" alt="VV斗地主" target="blank">VV斗地主</a>
+</li>
+<li>
+<a href="userapp.phpid1036269my_suffixlw_253d_253d.htm" title="心跳1419" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~18.gif" alt="心跳1419" target="blank">心跳1419</a>
+</li>
+<li>
+<a href="userapp.phpid1005209my_suffixlw_253d_253d.htm" title="网上帐本" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~43.gif" alt="网上帐本" target="blank">网上帐本</a>
+</li>
+<li>
+<a href="userapp.phpid1004755my_suffixlw_253d_253d.htm" title="喜欢我吗" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~44.gif" alt="喜欢我吗" target="blank">喜欢我吗</a>
+</li>
+<li>
+<a href="userapp.phpid1036999my_suffixlw_253d_253d.htm" title="疯狂办公室" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~11.gif" alt="疯狂办公室" target="blank">疯狂办公室</a>
+</li>
+<li>
+<a href="userapp.phpid1005122my_suffixlw_253d_253d.htm" title="德克萨斯扑克游戏" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~28.gif" alt="德克萨斯扑克游戏" target="blank">德克萨斯扑克游戏</a>
+</li>
+<li>
+<a href="userapp.phpid1034851my_suffixlw_253d_253d.htm" title="欢乐卡片" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~45.gif" alt="欢乐卡片" target="blank">欢乐卡片</a>
+</li>
+<li>
+<a href="userapp.phpid1033526my_suffixlw_253d_253d.htm" title="荣光医院" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~14.gif" alt="荣光医院" target="blank">荣光医院</a>
+</li>
+<li>
+<a href="userapp.phpid1030888my_suffixlw_253d_253d.htm" title="网页游戏" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~46.gif" alt="网页游戏" target="blank">网页游戏</a>
+</li>
+<li>
+<a href="userapp.phpid1007832my_suffixlw_253d_253d.htm" title="有事就问吧" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~70.gif" alt="有事就问吧" target="blank">有事就问吧</a>
+</li>
+<li>
+<a href="userapp.phpid1010227my_suffixlw_253d_253d.htm" title="魔法斗地主" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~19.gif" alt="魔法斗地主" target="blank">魔法斗地主</a>
+</li>
+<li>
+<a href="userapp.phpid1006410my_suffixlw_253d_253d.htm" title="56动感相册" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~47.gif" alt="56动感相册" target="blank">56动感相册</a>
+</li>
+<li>
+<a href="userapp.phpid1002711my_suffixlw_253d_253d.htm" title="礼品店" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~48.gif" alt="礼品店" target="blank">礼品店</a>
+</li>
+<li>
+<a href="userapp.phpid1035333my_suffixlw_253d_253d.htm" title="开心动物园" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~15.gif" alt="开心动物园" target="blank">开心动物园</a>
+</li>
+<li>
+<a href="userapp.phpid1025627my_suffixlw_253d_253d.htm" title="开心恋床" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~49.gif" alt="开心恋床" target="blank">开心恋床</a>
+</li>
+<li>
+<a href="userapp.phpid1006097my_suffixlw_253d_253d.htm" title="电Ta一下" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~25.gif" alt="电Ta一下" target="blank">电Ta一下</a>
+</li>
+<li>
+<a href="userapp.phpid1000043my_suffixlw_253d_253d.htm" title="电影" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~26.gif" alt="电影" target="blank">电影</a>
+</li>
+<li>
+<a href="userapp.phpid1013913my_suffixlw_253d_253d.htm" title="朋友比较" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~27.gif" alt="朋友比较" target="blank">朋友比较</a>
+</li>
+<li>
+<a href="userapp.phpid1012215my_suffixlw_253d_253d.htm" title="酷狗音乐盒" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~29.gif" alt="酷狗音乐盒" target="blank">酷狗音乐盒</a>
+</li>
+<li>
+<a href="userapp.phpid1002972my_suffixlw_253d_253d.htm" title="QQ聊天室" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~30.gif" alt="QQ聊天室" target="blank">QQ聊天室</a>
+</li>
+<li>
+<a href="userapp.phpid1022890my_suffixlw_253d_253d.htm" title="浪漫公寓" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~31.gif" alt="浪漫公寓" target="blank">浪漫公寓</a>
+</li>
+<li>
+<a href="userapp.phpid1025246my_suffixlw_253d_253d.htm" title="狗狗" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~9.gif" alt="狗狗" target="blank">狗狗</a>
+</li>
+<li>
+<a href="userapp.phpid1021701my_suffixlw_253d_253d.htm" title="零距离邮筒" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~33.gif" alt="零距离邮筒" target="blank">零距离邮筒</a>
+</li>
+<li>
+<a href="userapp.phpid1033482my_suffixlw_253d_253d.htm" title="音乐DNA" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~17.gif" alt="音乐DNA" target="blank">音乐DNA</a>
+</li>
+<li>
+<a href="userapp.phpid1011554my_suffixlw_253d_253d.htm" title="超级大富翁" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~133.gif" alt="超级大富翁" target="blank">超级大富翁</a>
+</li>
+<li>
+<a href="userapp.phpid1025635my_suffixlw_253d_253d.htm" title="百万富翁" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~134.gif" alt="百万富翁" target="blank">百万富翁</a>
+</li>
+<li>
+<a href="userapp.phpid1029889my_suffixlw_253d_253d.htm" title="开心宝贝" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficons~1.gif" alt="开心宝贝" target="blank">开心宝贝</a>
+</li>
+<li>
+<a href="userapp.phpid1013309my_suffixlw_253d_253d.htm" title="游戏厅" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~21.gif" alt="游戏厅" target="blank">游戏厅</a>
+</li>
+<li>
+<a href="userapp.phpid1011595my_suffixlw_253d_253d.htm" title="赛车总动员" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~22.gif" alt="赛车总动员" target="blank">赛车总动员</a>
+</li>
+<li>
+<a href="userapp.phpid1010474my_suffixlw_253d_253d.htm" title="猫鼠大作战" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~23.gif" alt="猫鼠大作战" target="blank">猫鼠大作战</a>
+</li>
+<li>
+<a href="userapp.phpid1008973my_suffixlw_253d_253d.htm" title="朋友印象" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~50.gif" alt="朋友印象" target="blank">朋友印象</a>
+</li>
+<li>
+<a href="userapp.phpid1039242my_suffixlw_253d_253d.htm" title="幸福厨房" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~2.gif" alt="幸福厨房" target="blank">幸福厨房</a>
+</li>
+<li>
+<a href="userapp.phpid1028245my_suffixlw_253d_253d.htm" title="开心斗地主" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~24.gif" alt="开心斗地主" target="blank">开心斗地主</a>
+</li>
+<li>
+<a href="userapp.phpid1003094my_suffixlw_253d_253d.htm" title="争车位" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~10.gif" alt="争车位" target="blank">争车位</a>
+</li>
+<li>
+<a href="userapp.phpid1021978my_suffixlw_253d_253d.htm" title="开心农场" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~8.gif" alt="开心农场" target="blank">开心农场</a>
+</li>
+<li>
+<a href="userapp.phpid1004186my_suffixlw_253d_253d.htm" title="朋友买卖" target="blank"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~7.gif" alt="朋友买卖" target="blank">朋友买卖</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div id="dcontent" class="frame_3"><div id="share" class="block" style="display:none">
+<div class="blocktitle">
+<em><a id="a_sharef_form" onclick="ajaxmenu(event, this.id, 99999, '', -1)" href="viewspace.phpdosharef.htm">快速分享</a></em>
+<h2>我的分享</h2>
+</div>
+<div class="blockcontent">
+<ul class="post_list line_list">
+<li>
+<div class="title">
+	<div class="r_option"><a href="space-1-do-share-id-115.html">评论</a></div>分享了一个视频</div>
+	<div class="feed">
+<div class="detail"><a href="../www.tudou.com/default.htm" target="_blank">http://www.tudou.com/p ... w/MXRz8DDGUzY</a><br />
+<a href="space-1-do-share-id-115.html"><img src="image/vd.gif" width="80" alt="点击查看" /></a>
+</div>
+		<div class="quote"><span id="quote" class="q">暗淡- =<br />
+史上最冷、最难、最爆笑的超级玛莉第一关</span></div>
+		</div>
+		</li>
+<li>
+<div class="title">
+	<div class="r_option"><a href="space-1-do-share-id-114.html">评论</a></div>分享了一个网址</div>
+	<div class="feed">
+<div class="detail"><a href="../img3.cache.netease.com/photo/0031/2010-11-11/6l7tkhrq3s010031.jpg.gif" target="_blank">http://img3.cache.nete ... Q3S010031.jpg</a></div>
+		<div class="quote"><span id="quote" class="q">逛手机论坛不小心看到的~</span></div>
+		</div>
+		</li>
+<li>
+<div class="title">
+	<div class="r_option"><a href="space-1-do-share-id-113.html">评论</a></div>分享了一个视频</div>
+	<div class="feed">
+<div class="detail"><a href="../www.tudou.com/default.htm" target="_blank">http://www.tudou.com/p ... /hi6UeoC9NsA/</a><br />
+<a href="space-1-do-share-id-113.html"><img src="image/vd.gif" width="80" alt="点击查看" /></a>
+</div>
+		<div class="quote"><span id="quote" class="q">依旧大爱～</span></div>
+		</div>
+		</li>
+<li>
+<div class="title">
+	<div class="r_option"><a href="space-1-do-share-id-111.html">评论</a></div>分享了一个视频</div>
+	<div class="feed">
+<a href="default.htm"><img src="../g2.ykimg.com/0100641f464c637605e87a044fc9eba317b9a0-5c6e-2d79-2d68~1.htm" class="summaryimg image" alt="" width="70" /></a>
+<div class="detail"><a href="../v.youku.com/v_show/id_xmja0njc5nju2.html" target="_blank">http://v.youku.com/v_s ... Njc5NjU2.html</a><br />
+<a href="space-1-do-share-id-111.html"><img src="image/vd.gif" width="80" alt="点击查看" /></a>
+</div>
+		<div class="quote"><span id="quote" class="q">女主好正～</span></div>
+		</div>
+		</li>
+<li>
+<div class="title">
+	<div class="r_option"><a href="space-1-do-share-id-110.html">评论</a></div>分享了一个视频</div>
+	<div class="feed">
+<a href="default.htm"><img src="../g3.ykimg.com/0100641f464bcb4ba2aee40015670bac4b52c9-f9bd-a5db-636b~1.jpg" class="summaryimg image" alt="" width="70" /></a>
+<div class="detail"><a href="../v.youku.com/v_show/id_xmjm2mtmyoa.html" target="_blank">http://v.youku.com/v_s ... OA%3D%3D.html</a><br />
+<a href="space-1-do-share-id-110.html"><img src="image/vd.gif" width="80" alt="点击查看" /></a>
+</div>
+		<div class="quote"><span id="quote" class="q">找到一个劲爆的绳子视频</span></div>
+		</div>
+		</li>
+</ul>
+</div></div>
+<div id="mtag" class="block" style="display:none" >
+<div class="blocktitle">
+<h2>我的群组</h2>
+</div>
+<div class="blockcontent">
+<table cellspacing="0" cellpadding="0" class="infotable"><tr>
+       <th width="100"><strong>学习交流</strong></th>
+       <td><a href="space-mtag-tagid-3.html" target="_blank" title="24个人有同样的选择">计算机系</a></td></tr></table><table cellspacing="0" cellpadding="0" class="infotable"><tr>
+       <th width="100"><strong>兴趣联盟</strong></th>
+       <td><a href="space-mtag-tagid-1.html" target="_blank" title="6个人有同样的选择">IT</a>、<a href="space-mtag-tagid-38.html" target="_blank" title="10个人有同样的选择">大学★创业</a>、<a href="space-mtag-tagid-42.html" target="_blank" title="13个人有同样的选择">绿林好汉</a>、<a href="space-mtag-tagid-46.html" target="_blank" title="8个人有同样的选择">创业者生态园</a>、<a href="space-mtag-tagid-50.html" target="_blank" title="3个人有同样的选择">军训集中营</a>、<a href="space-mtag-tagid-40.html" target="_blank" title="27个人有同样的选择">春哥群</a>、<a href="space-mtag-tagid-2.html" target="_blank" title="3个人有同样的选择">BBK舞队</a></td></tr></table><table cellspacing="0" cellpadding="0" class="infotable"><tr>
+       <th width="100"><strong>本站应用</strong></th>
+       <td><a href="space-mtag-tagid-4.html" target="_blank" title="15个人有同样的选择">开心宝贝</a>、<a href="space-mtag-tagid-5.html" target="_blank" title="5个人有同样的选择">楼一幢</a></td></tr></table></div></div>
+<div id="thread" class="block" style="display:none" >
+<div class="blocktitle">
+<em><a href="space-1-do-thread-view-me.html" target="_blank">全部</a></em>
+<h2>我的话题</h2>
+</div>
+<div class="blockcontent">
+<ul class="post_list line_list">
+<li><a href="space-1-do-thread-id-82.html">明天新生军训咯HOHO~</a> <span class="time"><!--{date('m-d H:i',1284564942,1)}--></span></li>
+<li><a href="space-1-do-thread-id-81.html">最近有人来收那个饮水机钱，骗子啊不要交！</a> <span class="time"><!--{date('m-d H:i',1284555599,1)}--></span></li>
+<li><a href="space-1-do-thread-id-76.html">女生穿短裙、短裤什么的，大腿就不怕太阳晒么？</a> <span class="time"><!--{date('m-d H:i',1284456442,1)}--></span></li>
+<li><a href="space-1-do-thread-id-45.html">幸福厨房菜谱(01.30虎年第一次更新）-----来看的统统给我留下酷点</a> <span class="time"><!--{date('m-d H:i',1264952768,1)}--></span></li>
+<li><a href="space-1-do-thread-id-69.html">【我猜，我猜，我猜猜猜！】2010南非世界杯猜猜猜，赢取诺基亚N78大奖！</a> <span class="time"><!--{date('m-d H:i',1276364386,1)}--></span></li>
+</ul></div></div>
+<div id="feed" class="block" >
+<div class="blocktitle">
+<em><a href="space-1-do-feed.html">全部</a></em>
+<h2>个人新鲜事</h2>
+</div>
+<div class="blockcontent">
+<div class="feedlist"><ul>
+<li id="feed_13875_li"><div style="width:100%;overflow:hidden;">
+<a href="cp.phpacfeedopmenufeedid13875.htm" class="float_del" id="a_feed_13875" onclick="ajaxmenu(event, this.id)" title="删除">删除</a>
+<a class="type" href="space.phpuiddofeedviewmeappid1iconalbum.htm" title="只看此类动态"><img src="" /></a><a target="_blank"   href="space.phpuid1.htm" >小E←邱沼懿</a>&nbsp;正在浏览&nbsp;<a target="_blank"   href="space.phpdopicwall.htm" >照片墙</a>&nbsp;...
+<span class="time">2分钟前</span><div class="feed_content">
+</div></div>
+</li>
+<li id="feed_13870_li"><div style="width:100%;overflow:hidden;">
+<a href="cp.phpacfeedopmenufeedid13870.htm" class="float_del" id="a_feed_13870" onclick="ajaxmenu(event, this.id)" title="删除">删除</a>
+<a class="type" href="space.phpuiddofeedviewmeappid1iconsky.htm" title="只看此类动态"><img src="" /></a><a target="_blank"   href="space.phpuid1.htm" >小E←邱沼懿</a> 刚刚溜进了<a target="_blank"   href="sky.php.htm" >大学城的天空</a>正在许愿！
+<span class="time">2分钟前</span><div class="feed_content">
+</div></div>
+</li>
+<li id="feed_13872_li"><div style="width:100%;overflow:hidden;">
+<a href="cp.phpacfeedopmenufeedid13872.htm" class="float_del" id="a_feed_13872" onclick="ajaxmenu(event, this.id)" title="删除">删除</a>
+<a class="type" href="space.phpuiddofeedviewmeappid1icontaobaojie.htm" title="只看此类动态"><img src="" /></a><a target="_blank"   href="space.phpuid1.htm" >小E←邱沼懿</a> 正在使用<a target="_blank"   href="fetion.php.htm" >免费飞信</a>发短信！
+<span class="time">2分钟前</span><div class="feed_content">
+</div></div>
+</li>
+<li id="feed_13869_li"><div style="width:100%;overflow:hidden;">
+<a href="cp.phpacfeedopmenufeedid13869.htm" class="float_del" id="a_feed_13869" onclick="ajaxmenu(event, this.id)" title="删除">删除</a>
+<a class="type" href="space.phpuiddofeedviewmeappid1iconxiehou.htm" title="只看此类动态"><img src="" /></a><a target="_blank"   href="space.phpuid1.htm" >小E←邱沼懿</a> 在<a target="_blank"   href="city.php.htm" >大学城那块地</a>上，辛苦的寻找同在大学城的老乡!
+<span class="time">2分钟前</span><div class="feed_content">
+</div></div>
+</li>
+<li id="feed_13892_li"><div style="width:100%;overflow:hidden;">
+<a href="cp.phpacfeedopmenufeedid13892.htm" class="float_del" id="a_feed_13892" onclick="ajaxmenu(event, this.id)" title="删除">删除</a>
+<a class="type" href="space.phpuiddofeedviewmeappid1iconqecn.htm" title="只看此类动态"><img src="" /></a>“<a target="_blank"   href="askqecn.php.htm" >求医通</a>”很好，很实用！<a target="_blank"   href="space.phpuid1.htm" >小E←邱沼懿</a> 正在咨询在线医生呢！
+<span class="time">2分钟前</span><div class="feed_content">
+</div></div>
+</li>
+<li id="feed_13873_li"><div style="width:100%;overflow:hidden;">
+<a href="cp.phpacfeedopmenufeedid13873.htm" class="float_del" id="a_feed_13873" onclick="ajaxmenu(event, this.id)" title="删除">删除</a>
+<a class="type" href="space.phpuiddofeedviewmeappid1icontask.htm" title="只看此类动态"><img src="" /></a><a target="_blank"   href="space.phpuid1.htm" >小E←邱沼懿</a> 完成了有奖任务 <a target="_blank"   href="cp.phpactasktaskid7.htm" >领取每日访问大礼包</a>，领取了 5 个奖励积分
+<span class="time">23分钟前</span><div class="feed_content">
+</div></div>
+</li>
+</ul></div>
+</div></div>
+<div id="albumone" class="block" ><div class="blocktitle">
+<em><a href="cp.phpacupload.htm">上传图片</a></em>
+<h2>我的相片</h2></div>
+<div class="blockcontent">
+<style type="text/css">
+.marqueePic {
+padding: 0 3px;
+}
+.marqueePic a {
+display:block;
+width:90px;
+height:72px;
+overflow:hidden;
+text-decoration:none; 
+}
+.marqueePic a:hover {
+text-decoration:none; 
+}
+</style>
+<div class="photolist" id="albumPicList" style="overflow:hidden;width:100%;color:#ffffff;">
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td id="moveList"><table cellpadding="0" cellspacing="0"><tr>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1844.htm', 'album');" alt="QQ截图20110618120309.jpg" style="background-image:url(attachment/201106/18/1_1308369941Tefb.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1842.htm', 'album');" alt="未命名.jpg" style="background-image:url(attachment/201106/10/1_130771581184k4.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1841.htm', 'album');" alt="黑手.jpg" style="background-image:url(attachment/201106/10/1_13077158036M4y.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1840.htm', 'album');" alt="QQ截图20110609225335.jpg" style="background-image:url(attachment/201106/10/1_1307715800kdwo.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1839.htm', 'album');" alt="iMolo1.jpg" style="background-image:url(attachment/201105/24/1_13061991387cE5.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1838.htm', 'album');" alt="iMolo.jpg" style="background-image:url(attachment/201105/24/1_1306199136KnG5.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1832.htm', 'album');" alt="QQ截图未命名.jpg" style="background-image:url(attachment/201104/10/1_1302442620psWO.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1831.htm', 'album');" alt="未命名.jpg" style="background-image:url(attachment/201104/10/1_1302440557tTD1.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1811.htm', 'album');" alt="将乐烟花.jpg" style="background-image:url(attachment/201102/14/1_1297709504Ioo0.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+<td class="marqueePic">
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumpicid1806.htm', 'album');" alt="6L7TKHRQ3S010031.jpg" style="background-image:url(attachment/201101/30/1_12963944250u34.jpg.thumb.jpg); background-repeat:no-repeat; background-position:center;" > </a>
+</td>
+</tr></table></td>
+<td id="moveCopyList"></td>
+</tr>
+</table>
+</div>
+<script>
+var speed=8; //speed
+function Marquee() {
+if($('moveCopyList').offsetWidth - $('albumPicList').scrollLeft <= 0) {
+$('albumPicList').scrollLeft -= $('moveList').offsetWidth;
+} else {
+$('albumPicList').scrollLeft++;
+}
+}
+if($('albumPicList').offsetWidth < $('moveList').offsetWidth) {
+$('moveCopyList').innerHTML = $('moveList').innerHTML;
+var MyMar = setInterval(Marquee, speed);
+}
+$('albumPicList').onmouseover = function() {
+clearInterval(MyMar);
+}
+$('albumPicList').onmouseout = function() {
+MyMar=setInterval(Marquee, speed);
+}
+/*
+ 修正IE下背景图闪烁的BUG
+*/
+try {
+document.execCommand("BackgroundImageCache", false, true);
+} catch(err) {}
+</script>
+</div></div>
+<div id="blog" class="block" ><div class="blocktitle">
+<em><a href="cp.phpacblog.htm">发表博文</a></em>
+<h2>我的博文</h2></div><div class="blockcontent">
+<div class="bloglist"><ul>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7750.htm', '');"  >LBS应用用户行动轨迹设计杂思</a></h3>
+		   <div class="info">
+		   <span class="times">2013-01-16 00:48</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7750.htm', '');">浏览(42)</a></span></div>
+           <div class="content">
+          <p>&nbsp;　　最近关于LBS是否有泡沫的争论此起彼伏，尤其是对Color模式质疑，甚至传出了国内某某基于Foursquare签到模式的LBS公司要大规模裁员的消息。毋</p>
+           </div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7742.htm', '');"  >门槛</a></h3>
+		   <div class="info">
+		   <span class="times">2013-01-03 13:30</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7742.htm', '');">浏览(71)</a></span></div>
+           <div class="content">
+          <p>为什么中国人那么多，，大家不会全都依据自己的兴趣爱好，或是依据票子赚得多不多，而全都挤到某个行业去。。。每个行业都有他自己的门槛。。而这个门槛绝</p>
+           </div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7725.htm', '');"  >如何搭建开源PHP开发调试环境</a></h3>
+		   <div class="info">
+		   <span class="times">2012-12-11 10:03</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7725.htm', '');">浏览(190)</a></span></div>
+           <div class="content">
+          <p>&nbsp;                                  &nbsp;                  一个好的集成开发环境可以使你的开发工作事半功倍，我使用过不少针对PHP的IDE，代码编辑和</p>
+           </div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7724.htm', '');"  >【贤贤来听听小E唱的】我想我不够好</a></h3>
+		   <div class="info">
+		   <span class="times">2012-12-10 22:40</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7724.htm', '');">浏览(126)</a></span></div>
+           <div class="content">
+          <p>《我想我不够好》      &mdash;&mdash;唱给贤贤听      原唱歌手：单色凌      我最喜欢的一句个歌词：看聊天记录多美好...      歌曲评价：          &nbsp;</p>
+           </div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7717.htm', '');"  >Js基础之基本数据类型和引用类型的参数传递详细分析</a></h3>
+		   <div class="info">
+		   <span class="times">2012-11-26 09:14</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogid7717.htm', '');">浏览(131)</a></span></div>
+           <div class="content">
+          <p>原来一直都没注意，，这么基础的问题。。原来JS对象传参一直都是引用传参。。。     那时候还一直怪JS连个引用传参都没。。现在发现了，，可以利用起来哈！</p>
+           </div>
+          </li>
+</ul></div>
+</div></div>
+<div id="albumall" class="block" >
+<div class="blocktitle">
+<em><a href="cp.phpacupload.htm">上传图片</a></em>
+<h2>我的相册</h2>
+</div>
+<div class="blockcontent">
+<table cellspacing="4" cellpadding="4">
+	    <tr>
+<td width="85" align="center"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid10.htm', '');"><img src="attachment/201106/18/1_1308369941tefb.jpg.thumb.jpg" alt="随便拍" width="70" /></a></td>
+		<td width="165">
+		<h6><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid10.htm', '');" title="随便拍">随便拍</a></h6>
+		<p class="gray">20 张照片</p>
+               
+		<p class="gray">更新于 2009-10-29 19:56</p>
+		</td>
+<td width="85" align="center"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid16.htm', '');"><img src="attachment/201104/10/1_1302440557ttd1.jpg.thumb.jpg" alt="看M~" width="70" /></a></td>
+		<td width="165">
+		<h6><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid16.htm', '');" title="看M~">看M~</a></h6>
+		<p class="gray">11 张照片</p>
+               
+		<p class="gray">更新于 2009-12-28 00:11</p>
+		</td>
+</tr><tr>
+<td width="85" align="center"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid113.htm', '');"><img src="attachment/201102/14/1_1297709504ioo0.jpg.thumb.jpg" alt="瞬间～" width="70" /></a></td>
+		<td width="165">
+		<h6><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid113.htm', '');" title="瞬间～">瞬间～</a></h6>
+		<p class="gray">19 张照片</p>
+               
+		<p class="gray">更新于 2011-01-11 20:37</p>
+		</td>
+<td width="85" align="center"><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid2.htm', '');"><img src="attachment/201009/8/1_1283954312xppz.jpg.thumb.jpg" alt="鬼E" width="70" /></a></td>
+		<td width="165">
+		<h6><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumid2.htm', '');" title="鬼E">鬼E</a></h6>
+		<p class="gray">15 张照片</p>
+               
+		<p class="gray">更新于 2009-09-14 19:34</p>
+		</td>
+</tr><tr>
+</tr>
+	</table>
+</div></div>
+<div id="forumstatus" class="block"  >
+<div class="blocktitle">
+<em><a href="cp.phpacpoll.htm">发起投票</a></em>
+<h2>我的投票</h2>
+</div>
+<div class="blockcontent">
+<div class="bloglist"><ul>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid74.htm', '');">【世界杯】瑞士 VS 洪都拉斯〖我猜，我猜，我猜猜猜！〗</a></h3>
+		   <div class="info">
+		   <span class="times">2010-06-12 09:43</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid74.htm', '');">4人投票</a></span></div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid73.htm', '');">【世界杯】西班牙 VS 智利〖我猜，我猜，我猜猜猜！〗</a></h3>
+		   <div class="info">
+		   <span class="times">2010-06-12 09:43</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid73.htm', '');">1人投票</a></span></div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid72.htm', '');">【世界杯】朝鲜 VS 科特迪瓦〖我猜，我猜，我猜猜猜！〗</a></h3>
+		   <div class="info">
+		   <span class="times">2010-06-12 09:43</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid72.htm', '');">0人投票</a></span></div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid71.htm', '');">【世界杯】巴西 VS 葡萄牙〖我猜，我猜，我猜猜猜！〗</a></h3>
+		   <div class="info">
+		   <span class="times">2010-06-12 09:42</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid71.htm', '');">1人投票</a></span></div>
+          </li>
+<li><h3><a  target="mainyinyue"  href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid70.htm', '');">【世界杯】荷兰 VS 喀麦隆〖我猜，我猜，我猜猜猜！〗</a></h3>
+		   <div class="info">
+		   <span class="times">2010-06-12 09:42</span> | <span class="tool">评论(0) | <a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid$uiddopollpid70.htm', '');">1人投票</a></span></div>
+          </li>
+</ul></div>
+</div></div>
+<div id="wall" class="block" >
+<div class="blocktitle">
+<em><a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dowall.htm', '');">全部</a></em>
+<h2>留言板</h2>
+</div>
+<div class="blockcontent">
+<div class="commentlist">
+<ul id="comment_ul">
+<li id="comment_3616_li">
+<div class="avatar48"><a href="viewspace.phpuid564.htm"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_04_small.gif'"></a></div>
+<div class="title">
+	<div class="r_option">
+<a href="cp.phpaccommentopdeletecid3616" id="c_3616_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3616.htm" id="c_3616_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3616.htm" id="a_report_3616" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+<a href="viewspace.phpuid564.htm" id="author_3616">清阳</a> <span class="time">2011-04-14 22:48</span>
+</div>
+<div class="detail" id="comment_3616"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 哇塞~这个绿绿的界面我很喜欢啊～</span></div>好吧好吧。有人喜欢就好。</div>
+</li>
+<li id="comment_3598_li">
+<div class="avatar48"><a href="viewspace.phpuid564.htm"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<div class="title">
+	<div class="r_option">
+<a href="cp.phpaccommentopdeletecid3598" id="c_3598_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3598.htm" id="c_3598_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3598.htm" id="a_report_3598" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+<a href="viewspace.phpuid564.htm" id="author_3598">清阳</a> <span class="time">2011-04-07 09:22</span>
+</div>
+<div class="detail" id="comment_3598"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 像我这样哈！</span></div>那还是不用了。</div>
+</li>
+<li id="comment_3593_li">
+<div class="avatar48"><a href="viewspace.phpuid564.htm"><img src="../uc.shenei.net/data/avatar/000/00/05/64_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<div class="title">
+	<div class="r_option">
+<a href="cp.phpaccommentopdeletecid3593" id="c_3593_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3593.htm" id="c_3593_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3593.htm" id="a_report_3593" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+<a href="viewspace.phpuid564.htm" id="author_3593">清阳</a> <span class="time">2011-04-06 21:57</span>
+</div>
+<div class="detail" id="comment_3593"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 为什么不换个主题呵~</span></div>额。换什么主题？？？</div>
+</li>
+<li id="comment_3584_li">
+<div class="avatar48"><a href="viewspace.phpuid9.htm"><img src="../uc.shenei.net/data/avatar/000/00/00/09_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
+<div class="title">
+	<div class="r_option">
+<a href="cp.phpaccommentopdeletecid3584" id="c_3584_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3584.htm" id="c_3584_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3584.htm" id="a_report_3584" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+<a href="viewspace.phpuid9.htm" id="author_3584">李慧丹</a> <span class="time">2011-04-03 00:20</span>
+</div>
+<div class="detail" id="comment_3584">某人，生日快乐！！由于你的电话号码让我纠结的无以复加。就不发短信给你了~~</div>
+</li>
+<li id="comment_3395_li">
+<div class="avatar48"><a href="viewspace.phpuid144.htm"><img src="../uc.shenei.net/data/avatar/000/00/01/44_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/f_01_small.gif'"></a></div>
+<div class="title">
+	<div class="r_option">
+<a href="cp.phpaccommentopdeletecid3395" id="c_3395_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="cp.phpaccommentopreplycid3395.htm" id="c_3395_reply" onclick="ajaxmenu(event, this.id, 1)">回复</a>
+<a href="cp.phpaccommonopreportidtypecommentid3395.htm" id="a_report_3395" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+<a href="viewspace.phpuid144.htm" id="author_3395">じò 記憶ぴ</a> <span class="time">2010-12-13 17:22</span>
+</div>
+<div class="detail" id="comment_3395"><div class="quote"><span class="q"><b>小E←邱沼懿</b>: 干嘛用这种头像- =</span></div>我喜欢，这个发型，我还剪了</div>
+</li>
+</ul>
+<form action="cp.php?ac=comment" id="quick_commentform_1" name="quick_commentform_1" method="post" style="padding:0 0 0 5px;">
+<a href="###" id="editface" onclick="showFace(this.id, 'comment_message');"><img src="image/facelist.gif" align="absmiddle" /></a>
+<a id="a_magic_doodle" href="magic.phpmiddoodleshowidcomment_doodletargetcomment_message.htm" onclick="ajaxmenu(event, this.id, 1)"><img src="image/magic/doodle.small.gif" class="magicicon" />涂鸦板</a>
+<br />
+<textarea name="message" id="comment_message" rows="5" cols="60" style="width:98%;" onkeydown="ctrlEnter(event, 'commentsubmit_btn');" onclick="if(this.value == '大量刷留言评论、发布广告、脏话将被处罚，严重者将被删除帐号(用户)，请勿抱侥幸心理。'){this.value='';this.style.color='#000000';}" onkeydown="ctrlEnter(event, 'comment_submit');" style="color:#737373">大量刷留言评论、发布广告、脏话将被处罚，严重者将被删除帐号(用户)，请勿抱侥幸心理。</textarea><br>
+<input type="hidden" name="refer" value="space.php?uid=1" />
+<input type="hidden" name="id" value="1" />
+<input type="hidden" name="idtype" value="uid" />
+<input type="hidden" name="commentsubmit" value="true" />
+<input type="button" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="留言" onclick="ajaxpost('quick_commentform_1', 'wall_add')" />
+<input type="checkbox" name="hiddenreply" value="1"> 悄悄话	<!--Add By 01-->
+<span id="__quick_commentform_1"></span>
+<input type="hidden" name="formhash" value="d5aa53ee" />
+</form>
+
+
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div class="copyright">
+<div class="f_status">
+<a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
+<a title="订阅 RSS" id="a_rss" href="rss.phpuid1.htm">订阅</a>
+<a href="cp.phpaccommonopreportidtypespaceid1.htm">举报该用户</a>
+</div>
+<p>小E←邱沼懿的个人博客由〖舍内网〗提供，版权所有 <a href="../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)</p>
+</div>
+</div>
+
+<ul id="setstyle_a_menu" class="stylemenu" style="display:none">
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+</ul>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+<form id="diy_form" method="post" action="viewspace.php">
+<input type="hidden" id="diystyle" name="diystyle" value=''>
+<input type="hidden" id="getback" name="getback" value='0'>
+<div class="toolbarbox">
+<div class="toolbarmymenu">
+<ul>
+<li class="m10"><a href="viewspace.php.htm" onclick="return confirm('本次自定义样式将丢失，确定关闭吗？');">111</a></li>
+<li class="m8"><a href="#" onclick="stylegetback();">111</a></li>
+<li class="m9"><a href="#" onclick="savestyle();">111</a></li>
+</ul>
+</div>
+<div class="toolbarmenu">
+<ul>
+<li class="m1"><a href="javascript:void(0);" id="opensetframe">111</a></li>
+<li class="m2"><a href="javascript:void(0);" id="bodybg">111</a></li>
+<li class="m3"><a href="javascript:void(0);" id="bannerbg">111</a></li>
+<li class="m4"><a href="javascript:void(0);" id="footerbg">111</a></li>
+<li class="m5"><a href="javascript:void(0);" id="opensetblock">111</a></li>
+<li class="m11"><a href="javascript:void(0);" id="smusicp_sw">111</a></li>
+</ul>
+</div>
+<div class="toolbartxt">
+<ul>
+<li><a href="javascript:void(0);" id="cursor_btn">鼠标指针</a></li>
+<li><a href="javascript:void(0);" id="player_btn">播放地址</a></li>
+</ul>
+</div>
+</div>
+</form>
+<div class="toolshadow">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+var fastdiy = new transfer('fastdiystyle', 'fastdiy', 'oksubmit', 'fastdiy_header');
+var mystylesdiy = new transfer('mystylelist_sw', 'mystyles', 'cancel', 'mystyles_header');
+var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'sharestyle_header');
+var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
+
+var smusicp = new transfer('smusicp_sw', 'smusicp', 'oksubmit', 'smusicp_header');
+
+var setframe = new transfer('opensetframe', 'diy_frame', 'oksubmit', 'diy_frameheader');
+var setblock = new transfer('opensetblock', 'selectblock', 'oksubmit', 'selectblockheader');
+var tsetblock = new transfer('editblock', 'tsetblock', 'oksubmit', 'testblockheader');
+var selectbg_t = new transfer('selectbg_t', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var selectbg_c = new transfer('selectbg_c', 'selectbg_div', 'oksubmit', 'selectbg_header');
+
+var player = new transfer('player_btn', 'setplayer', 'oksubmit', 'playerheader');
+var cursor = new transfer('cursor_btn', 'setcursor', 'oksubmit', 'cursorheader');
+
+var bodybg = new transfer('bodybg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var bannerbg = new transfer('bannerbg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var footerbg = new transfer('footerbg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var sort = new sortDrag('block', 'blocktitle', 'blockcontent');
+var menuset = new transfer('editmenu', 'menu_set', 'oksubmit', 'menu_setheader');
+var menu_setbg = new transfer('menu_setbg', 'selectbg_div', 'oksubmit', 'selectbg_header');
+var titleset = new transfer('edittitle', 'title_set', 'oksubmit', 'title_setheader');
+
+var rangetitle = new drag('title', '', 'banner', '', function(obj) {
+// 此函数为回调函数
+var top = parseInt(obj.body.style.top)
+var left = parseInt(obj.body.style.left);
+if(isNaN(top) == false && isNaN(left) == false ) {
+cur_block = 'title';
+setblockstyle(top, '', '', 'top');
+setblockstyle(left, '', '', 'left');
+}
+}, 0);
+chgselectframe(defaultset);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+define("common:widget/ui/arch/events/events",function(e){var n={keymap:e("common:widget/ui/arch/events/keymap"),hover:e("common:widget/ui/arch/events/hover")},i={bind:function(e,i,r){var t=n[i];return t?(t.bind(e,r),!0):!1}};return i});

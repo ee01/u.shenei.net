@@ -1,0 +1,11 @@
+<form method="post" id="doingform" action="cp.php?ac=doing&view=" style="width:440px;height:160px;padding:10px;">
+<div style="r_option" style="float:right;">还可输入 <strong id="maxlimit">200</strong> 个字符</div>
+<a href="###" id="doingface" onclick="showFace(this.id, 'message');return false;"><img src="image/facelist.gif" align="absmiddle" /></a></td>
+<br>
+<textarea id="message" name="message" onkeyup="textCounter(this, 'maxlimit', 200)" onkeydown="ctrlEnter(event, 'add');" rows="4" style="width:400px; height: 72px;margin:10px;"></textarea>
+<input type="hidden" name="addsubmit" value="true" />
+<button type="submit" id="add" name="add" class="submit" style="float:right; margin-right:20px;">发布</button>
+<input type="hidden" name="refer" value="space.php?uid=1&do=doingf&view=we" />
+<input type="hidden" name="topicid" value="" />
+<input type="hidden" name="formhash" value="d5aa53ee" />
+</form>

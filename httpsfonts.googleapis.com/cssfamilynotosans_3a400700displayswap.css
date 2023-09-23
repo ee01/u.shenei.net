@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../httpsfonts.gstatic.com/s/notosans/v30/o-0iipqlx3qulc5a4pnr5trg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../httpsfonts.gstatic.com/s/notosans/v30/o-0nipqlx3qulc5a4pnjxhfvznyh.woff) format('woff');
+}

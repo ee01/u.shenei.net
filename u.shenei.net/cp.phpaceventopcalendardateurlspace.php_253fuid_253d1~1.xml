@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="gbk"?>
+<root><![CDATA[<!--Add By 01-->
+
+
+
+ 
+<div class="calendar">
+<div id="calendar_pre" class="floatleft"><a href="#" onclick="showcalendar('2023-8'); this.blur(); return false;">&lt;&lt;</a></div>
+<div id="calendar_next" class="floatright"><a href="#" onclick="showcalendar('2023-10'); this.blur(); return false;">&gt;&gt;</a></div>
+<span id="thecalendar_year">2023</span>年 <span id="thecalendar_month">9</span>月
+<ul>
+<li class="calendarli calendarweek">日</li>
+<li class="calendarli calendarweek">一</li>
+<li class="calendarli calendarweek">二</li>
+<li class="calendarli calendarweek">三</li>
+<li class="calendarli calendarweek">四</li>
+<li class="calendarli calendarweek">五</li>
+<li class="calendarli calendarweek">六</li> 
+<li class="calendarblank">&nbsp;</li><li class="calendarblank">&nbsp;</li><li class="calendarblank">&nbsp;</li><li class="calendarblank">&nbsp;</li><li class="calendarblank">&nbsp;</li> 
+<li class="calendarli">1</li>
+ 
+<li class="calendarli">2</li>
+ 
+<li class="calendarli">3</li>
+ 
+<li class="calendarli">4</li>
+ 
+<li class="calendarli">5</li>
+ 
+<li class="calendarli">6</li>
+ 
+<li class="calendarli">7</li>
+ 
+<li class="calendarli">8</li>
+ 
+<li class="calendarli">9</li>
+ 
+<li class="calendarli">10</li>
+ 
+<li class="calendarli">11</li>
+ 
+<li class="calendarli">12</li>
+ 
+<li class="calendarli">13</li>
+ 
+<li class="calendarli">14</li>
+ 
+<li class="calendarli">15</li>
+ 
+<li class="calendarli">16</li>
+ 
+<li class="calendarli">17</li>
+ 
+<li class="calendarli">18</li>
+ 
+<li class="calendarli">19</li>
+ 
+<li class="calendarli">20</li>
+ 
+<li class="calendarli">21</li>
+ 
+<li class="calendarli">22</li>
+ 
+<li class="calendarli">23</li>
+ 
+<li class="calendarli">24</li>
+ 
+<li class="calendarli">25</li>
+ 
+<li class="calendarli">26</li>
+ 
+<li class="calendarli">27</li>
+ 
+<li class="calendarli">28</li>
+ 
+<li class="calendarli">29</li>
+ 
+<li class="calendarli">30</li>
+</ol>
+</div>]]></root>

@@ -1,0 +1,1 @@
+define("home:widget/ui/festival/festival",function(e){var i=e("home:widget/ui/festival/newyear/newyear"),t={activity:i};return t});

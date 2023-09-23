@@ -1,0 +1,28 @@
+
+
+<a id="a-link"></a>
+<script>
+  localStorage.x5referer = "../httpswww.aliexpress.com/default.htm";	
+  var link = document.getElementById("a-link");
+  var isMobile = navigator.userAgent.match(/.*(iPhone|iPad|Android|ios|SymbianOS|Windows Phone).*/i);
+  var host = isMobile ? "../httpsm.aliexpress.com/login.htmlreturn_url" : "../httpslogin.aliexpress.com/fromsmreturn_url";
+  try {
+	var hostValue = window.location.host;
+	var parts = hostValue && hostValue.split('.');
+	var exp = new Date();
+	var maxAge = -100;
+	exp.setTime(exp.getTime() + maxAge);
+	var cookie = 'x5secdata=;maxAge=' + maxAge + ';expires=' + exp.toUTCString() + ';path=/;domain=.' + parts.slice(-2).join('.') + ';';
+	document.cookie = cookie;
+	document.cookie = cookie + 'Secure;SameSite=None';
+  } catch(e) {}
+  link.href = host + "https%3a%2f%2fwww.aliexpress.com:443%2F_____tmd_____%2Fpage%2Flogin_jump%3Frand%3DS3WxGHAgAt756EpznwfNzJq2AFA2qBNla3j6EINUS8We9dazM_iKElp8DwVSHZUevpC41Bx7RzivXIj9RnZgdg%26_lgt_%3D2b218ffbecd6df5aa67833365d958a4b___113749___d1191b55d73d004ec715ad6f355af664___eaebc79cac1eb5d2f7d8b4595e00ec73344a42d5a0b8cf56539c823cd24ac06cb0fdadb7010d7c9570914d1cfea4b6e32e9e1d9534eecc58ed05cc7f9c1995f3fce2d982fe3b817377b3729db49d9533047184fdf1101b44bc8a550040e8bf51b8a09b260731f1bcd9d6874a5b381ab10fa5a006f894296684ae17bbd0aade11a09c5aa2c8e498d9265814f8c69a4af87797d69bc51ff57c35f2aef7ee89e7cb776fefbeb31e24833a1418f1269cc4b85829692f524e8aa836c9753b193cf7ded0e1a727e1c10b1c0e3b54e482a797e59ecfa26f441571ef212c35a64e4d3f7b3e2524d6d54cef60a855fd087470b7ceb31c345960abc7237adfb48abd3c7a80efa07e14d88eb58b48eb69ffc546dfe7f85ed255d4d340ffc40b76bc9d879faf&uuid=2b218ffbecd6df5aa67833365d958a4b";
+  link.click();
+ window._config_ = {
+   "action": "login",
+   "url": "../httpsm.aliexpress.com/login.htmlreturn_urlhttps_253a_252f_252fwww.aliexpres~1.com_",
+   "h5url": "../httpsm.aliexpress.com/login.htmlreturn_urlhttps_253a_252f_252fwww.aliexpres~1.com_",
+   "dialogSize": {"width": "", "height": ""}
+};
+</script>
+<!--rgv587_flag:sm-->

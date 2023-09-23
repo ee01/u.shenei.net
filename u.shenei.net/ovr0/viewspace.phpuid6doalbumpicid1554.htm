@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0059)http://u.shenei.net/viewspace.php?uid=6&do=album&picid=1554 --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>李溦伟 的博客 </title>
+
+<script language="javascript" type="text/javascript" src="../source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="../viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="../viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="../viewspace/css/000/00/00/06_style.css" /><link rel="alternate" type="application/rss+xml" href="../rss.phpuid6" title="李溦伟" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="../xmlrpc.phprsd6" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wraptwo">
+<div id="banner" class="banner">
+<div class="title" id="title">
+<h1 id="myblogname">李溦伟 的博客  <em> 17215 人次访问, 239个积分 <a href="do.phpacajaxopcredituid6.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level3.gif" align="absmiddle" /></a></em></h1>
+<p>这家伙很懒，什么都没留下...</p>
+<p><a href="../6.htm" onclick="javascript:setCopy('6');return false;" class="spacelink domainurl">http://u.shenei.net/6</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="../viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=6', '');">
+主页 </a></li>
+-->
+
+<li>
+<a  href="../viewspace.phpuid6.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid6doaboutme.htm', 'aboutme');">
+关于我 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid6doblogviewme.htm', 'blog');">
+博文 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid6doalbumviewme.htm', 'album');">
+相册 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid6dopollviewme.htm', 'poll');">
+投票 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid6dofriendviewme.htm', 'friend');">
+好友 </a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid6dowallviewme.htm', 'wall');">
+留言板 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid6doapplist.htm', 'applist');">
+应用 </a></li>
+</ul>
+</div>
+</div>
+
+
+ 
+ 
+<div class="block">		
+<div class="blocktitle">
+<h2>李溦伟相册 - 默认相册</h2>
+</div>
+<div class="blockcontent">
+<div class="photobody">
+ 
+<div class="showbody">
+<div class="num">
+<div class="showbtn" style="float:right;">
+<span id="displayNum" class="displayNum"></span>
+<a href="javascript:;" id="playid" onclick="playNextPic(true);" class="btn_hd">幻灯播放</a>
+<a class="btn_up" href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid6doalbumpicid1554gotoup', '');">上一张</a>
+<a class="btn_down" href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid6doalbumpicid1554gotodown', '');" id="nextlink">下一张</a>
+</div>
+<p>当前第 1 张<span class="pipe">|</span>共 8 张图片<span class="pipe">|</span> <a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid6doalbumid-1', '');" 返回相册</a><span class="pipe"> | </span>
+<a href="../cp.phpaccommonopmanageidtypepicidid1554" id="a_manage" onclick="ajaxmenu(event, this.id, 99999)">管理</a><span class="pipe"> | </span><a href="../cp.phpaccommonopreportidtypepicidid1554" id="a_report" onclick="ajaxmenu(event, this.id, 99999,'' , -1)">举报</a><span class="pipe"> </span>
+</p>
+</div></div>
+<div class="photobox">
+ 
+<div id="photo_pic" class="">
+<div class="pic_lb1">
+<table cellpadding="0" cellspacing="0" class="">
+<tr>
+<td class="frame_jiao frame_top_left"></td>
+<td class="frame_x frame_top_middle"></td>
+<td class="frame_jiao frame_top_right"></td>
+</tr>
+<tr>
+<td class="frame_y frame_middle_left"></td>
+<td class="frame_middle_middle"><a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid6doalbumpicid1554gotodown', '');"><img src="../attachment/201009/6/6_1283786855j977.jpg" /></a></td>
+<td class="frame_y frame_middle_right"></td>
+</tr>
+<tr>
+<td class="frame_jiao frame_bottom_left"></td>
+<td class="frame_x frame_bottom_middle"></td>
+<td class="frame_jiao frame_bottom_right"></td>
+</tr>
+</table>
+</div></div>
+ 
+ 
+<div class="yinfo">
+<p>DSC00753</p>
+ 
+ 
+ 
+<p class="time">
+<span class="hot"><em>热</em>1</span>上传于 2010-09-07 00:27 (24.3 KB)
+</p>
+ 
+</div>
+ 
+ 
+<table width="100%">
+<tr><td align="left">
+<a href="../attachment/201009/6/6_1283786855j977.jpg" target="_blank">查看原图</a>
+<span class="pipe">|</span><a href="../viewspace.phpuid6doalbumpicid1554exif">查看EXIF信息</a>
+</td>
+<td align="right">
+<a href="../cp.phpacsharetypepicid1554" id="a_share_1554" class="a_share" onclick="ajaxmenu(event, this.id, 1)" id="a_share">分享</a>
+ 
+ 
+<a href="../cp.phpactopicopjoinid1554idtypepicid" id="a_topicjoin_1554" onclick="ajaxmenu(event, this.id)">凑热闹</a><span class="pipe">|</span>
+<a href="../admincp.phpacpicpicid1554" target="_blank">删除</a><span class="pipe">|</span>
+ 
+<a href="../cp.phpacalbumpicid1554opedithot" id="a_hot_1554" onclick="ajaxmenu(event, this.id)">热度</a><span class="pipe">|</span>
+<a href="../cp.phpaccommonopreportidtypepicidid1554" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</td></tr>
+</table>
+</div>
+ 
+<div id="click_div" style="margin:0 auto;padding:10px;width:100%;text-align:left;">
+
+<div class="digc">
+<table>
+<tr>
+<td valign="bottom"><a href="../cp~256.phpac" id="click_picid_1554_10" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/jidan.gif" alt="" /><br />鸡蛋</div></a></td>
+<td valign="bottom"><a href="../cp~257.phpac" id="click_picid_1554_9" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/xianhua.gif" alt="" /><br />鲜花</div></a></td>
+<td valign="bottom"><a href="../cp~258.phpac" id="click_picid_1554_8" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/leiren.gif" alt="" /><br />雷人</div></a></td>
+<td valign="bottom"><a href="../cp~259.phpac" id="click_picid_1554_7" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/kubi.gif" alt="" /><br />酷毙</div></a></td>
+<td valign="bottom"><a href="../cp~260.phpac" id="click_picid_1554_6" onclick="ajaxmenu(event, this.id, 0, 2000, 'show_click')"><div class="digface"><img src="../image/click/piaoliang.gif" alt="" /><br />漂亮</div></a></td>
+</tr>
+</table>
+</div>
+
+
+
+</div>
+ 
+<div style="padding:10px; width:100%; overflow:hidden;" id="pic_comment">
+<div class="num">
+<h2>评论</h2>
+<div class="comments_list" id="comment">
+ 
+<ul id="comment_ul">
+<li id="comment_3108_li"><div class="avatar48"><a href="../space.phpuid1.htm"><img src="../..//uc.shenei.net/data/avatar/000/00/00/01_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<img src="../image/magic/anonymous.small.gif" class="magicicon">
+<a id="a_magic_anonymous_3108" href="../magic.phpmidanonymousidtypecidid3108" onclick="ajaxmenu(event,this.id, 1)">匿名卡</a>
+<span class="pipe">|</span>
+<img src="../image/magic/flicker.small.gif" class="magicicon">
+<a id="a_magic_flicker_3108" href="../magic.phpmidflickeridtypecidid3108" onclick="ajaxmenu(event,this.id, 1)">彩虹炫</a>
+<span class="pipe">|</span>
+
+<a href="../cp.phpaccommentopeditcid3108" id="c_3108_edit" onclick="ajaxmenu(event, this.id, 1)">编辑</a>
+<a href="../cp.phpaccommentopdeletecid3108" id="c_3108_delete" onclick="ajaxmenu(event, this.id)">删除</a>
+<a href="../cp.phpaccommonopreportidtypecommentid3108" id="a_report_3108" onclick="ajaxmenu(event, this.id, 1)">举报</a>
+</div>
+
+<a href="../space.phpuid1.htm" id="author_3108">小E←邱沼懿</a> 
+<span class="gray">2010-09-07 14:47</span>
+
+</div>
+
+<div class="detail" id="comment_3108">吃粑粑…<img src="../image/face/1.gif" class="face"></div>
+
+</li><li id="comment_3110_li"><div class="avatar48"><a href="../space.phpuid6.htm"><img src="../..//uc.shenei.net/data/avatar/000/00/00/06_real_avatar_small.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_small.gif'"></a></div>
+<div class="title">
+<div class="r_option">
+
+
+<a href="../cp.phpaccommentopdeletecid3110" id="c_3110_delete" onclick="ajaxmenu(event, this.id)">删除</a>

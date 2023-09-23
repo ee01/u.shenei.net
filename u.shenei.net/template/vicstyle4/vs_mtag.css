@@ -1,0 +1,23 @@
+.vs4_m_user{ width:420px; height: 18px; margin: 0 5px 0 10px; float:left; }
+.vs4_m_user span { color: #666666; text-decoration: none; font-family: "Î¢ÈíÑÅºÚ"; }
+.vs4_m_userinfo{ padding:5px 2px 0 2px; width: 385px; height:75px; }
+.vs4_m_box{ float:right; width: 310px; padding:2px 3px; margin-bottom:3px; }
+.vs4_m_box li{ height: 22px; width: 75px; float:left;margin:0 1px; vertical-align: middle;float:left;}
+.vs4_m_box li img{ width: 16px; height:16px; }
+.vs4_uin { width:400px;float:left; overflow: hidden; }
+.vs4_right { width:400px; height:75px; float:right; overflow: hidden; }
+.vs4_right span { font-weight: bold; }
+#v4mtag_show { width: 270px; float: left; border: 1px solid #E4E4E4; margin:8px 2px; padding: 2px 0; background-color: #fff; overflow: hidden; }
+#v4mtag_show .headusermsg{ position:relative; background-color: #F5F5F5; margin-left: 5px; padding:5px; border: 1px solid #DDDDDD; width:63px; float:left; }
+#v4mtag_show .headusermsg img{ position:relative; height: 100px; width: 100px; border: 1px solid #DDDDDD; z-index:2; }
+#v4mtag_show .headuserinfo{ background-color: #FFF; overflow: hidden; border: 1px solid #DDDDDD; height:68px; margin:3px 7px 5px 7px; float:right; width:172px; }
+#v4mtag_show .headuserinfo p{ width:auto; height: 66px; overflow: hidden; margin: 0 5px; line-height: 16px; }
+#v4mtag_show .headusertopl { padding-left:10px; float:left; width: 130px; overflow: hidden; line-height: 18px; }
+#v4mtag_show .headusertopr { padding-right:5px; float:right; line-height: 18px; width: auto; }
+.mtg_top { width:830px; height:56px; margin: 0 0 10px 0; padding: 10px; overflow: hidden; z-index: 15;position: relative; }
+.mtg_top .info{ float:right; padding: 3px 0 3px 5px; color: #960; width:757px; height:14px; overflow: hidden; line-height: 16px; z-index: 10; background-color: #FFF; position: relative; }
+.mtg_top .info:hover { height:auto; min-height:65px; color: #006600; }
+.mtg_top #space_avatar img { margin: 0 10px 10px 0; padding: 3px; border: 1px solid #E4E6E3; background: #FFF; }
+.menuvs_list { display:block; padding: 0 10px; width: 740px; overflow: hidden; z-index: 0; position: relative; }
+    .menuvs_list li { float: left; width: 80px; line-height: 180%; text-align: center;border: 1px solid #E4E6E3;margin-right:5px; }
+	.menuvs_list li:hover a{ color: #FF6600; font-weight: bold; }

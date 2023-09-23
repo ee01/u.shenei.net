@@ -1,0 +1,17 @@
+/* 404 */
+.notFound { display: block; width: 1198px; height: 378px; background-color: #fff; margin: 0 auto; overflow: hidden; position: relative; z-index: 1; border: 1px solid #ebebeb; margin-top: 30px; background: url(../../..//icon.zol-img.com.cn/newshop/dealershop/login/404.png) 80px center no-repeat; }
+.notFound .notFound-box { width: 698px; height: 233px; padding-left: 500px; padding-top: 145px; position: relative; }
+.notFound .notFound-box .notFound-box-text .notFoundTit { font-size: 28px; color: #666666; font-weight: 600; line-height: 50px; }
+.notFound .notFound-box .notFound-box-text .notFoundTim { font-size: 14px; color: #999; line-height: 25px; font-family: 'Microsoft YaHei'}
+.notFound .notFound-box .notFound-box-text .notFoundTim em { color: #ff6633; }
+.notFound .notFound-box .notFound-box-text .notFoundLin { font-size: 14px; color: #999; line-height: 25px; vertical-align: middle; font-family: "Microsoft YaHei"; }
+.notFound .notFound-box .notFound-box-text .notFoundLin a { display: inline-block; color: #ff3333; text-decoration: none; }
+.notFound .notFound-box .notFound-box-text .notFoundLin b { display: inline-block; font-size: 12px; color: #c6c6c6; vertical-align: top; }
+
+/* µ×²¿ */
+.s-zol-footer { width: 1200px; margin: 0 auto; margin-top: 15px; height: 20px; line-height: 20px; overflow: hidden; font-size: 12px; position: relative; }
+.s-zol-footer .footerUl, .s-zol-footer .copyright { float: left; }
+.s-zol-footer .footerUl a, .s-zol-footer .footerUl b { display: inline-block; color: #666; font-size: 12px; white-space: nowrap; text-decoration: none;}
+.s-zol-footer .footerUl a:hover { color: #ff3333; }
+.s-zol-footer .footerUl b { color: #ccc; font-weight: 100; }
+.s-zol-copyright {float: left; margin-left: 20px; color: #666; }

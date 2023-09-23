@@ -1,0 +1,112 @@
+<!doctype html public "-//wapforum//dtd xhtml mobile 1.0//en" "http://www.wapforum.org/dtd/xhtml-mobile10.dtd" ><HTML>
+<!-- saved from url=(0092)http://wap.shenei.net/space.php?m_sid=21959e22790fbbf701073ef6f866081b&uid=1&do=blog&id=7717 --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="application/vnd.wap.xhtml+xml;charset=utf-8" />
+<title>小E←邱沼懿 - 舍内网 - 福建工程学院学生网</title>
+<link href="tpl/sn/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="header">
+<div id="logo_panel"><img alt="logo" src="image/logo.gif" /></div>
+<div id="nav_panel">
+<a href="do.phpm_sid21959e22790fbbf701073ef6f866081bacelogin.htm">登录</a>|
+<a href="do.phpm_sid21959e22790fbbf701073ef6f866081bacereg.htm">注册</a>
+</div>
+</div>
+<div id="mainarea">
+
+<div class="nav">
+<a href="index.phpm_sid21959e22790fbbf701073ef6f866081b.htm">首页</a>&gt;
+<a href="space.phpm_sid21959e22790fbbf701073ef6f866081buid1.htm">小E←邱沼懿</a>&gt;
+<a href="space.phpm_sid21959e22790fbbf701073ef6f866081buid1do~6.htm"><span>日志</span></a>
+</div>
+<div class="title">
+<h3>Js基础之基本数据类型和引用类型的参数传递详细分析</h3>
+<span class="gray">阅(132)&nbsp;</span><span class="gray">2012-11-26 09:14</span>
+</div>
+<div class="content">
+<blockquote>
+	<p>原来一直都没注意，，这么基础的问题。。原来JS对象传参一直都是引用传参。。。</p>
+	<p>那时候还一直怪JS连个引用传参都没。。现在发现了，，可以利用起来哈！</p>
+</blockquote>
+<p>Js中所有函数的参数传递都是按值传递的，也就是把函数外面的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样。下面举几个特别的例子</p>
+<div id="con_all" style="padding: 0px; margin: 0px;">
+	<div id="con_da1" style="padding: 0px; margin: 0px;">1、基本数据类型传递参数：</div>
+</div>
+<br style="padding: 0px; margin: 0px;" />
+<div class="codetitle" style="padding: 0px; margin: 0px;"><span style="padding: 0px; margin: 0px; font-size: 12px;">代码如下:</span></div>
+<div class="codebody" id="code61695" style="padding: 0px; margin: 0px;"><br style="padding: 0px; margin: 0px;" />
+	<span style="padding: 0px; margin: 0px; font-size: 12px;">　　funciton addTen(num){<br style="padding: 0px; margin: 0px;" />
+	　　　　num+=10;<br style="padding: 0px; margin: 0px;" />
+	　　　　return num;<br style="padding: 0px; margin: 0px;" />
+	　　}<br style="padding: 0px; margin: 0px;" />
+	　　var count=20;<br style="padding: 0px; margin: 0px;" />
+	　　var result=addTen(count);<br style="padding: 0px; margin: 0px;" />
+	　　alert(count);//20<br style="padding: 0px; margin: 0px;" />
+	　　alert(resullt);//30</span></div>
+<br style="padding: 0px; margin: 0px;" />
+<p><span style="padding: 0px; margin: 0px; font-size: 12px;">　 　执行结果是：20和30。在这段代码中，将变量count当做参数传递给了函数addTen，也就是相当于将变量count的值复制给了函数 addTen的参数。这时addTen的参数num可以看做是函数内部的一个变量。在上段代码中，就相当于两个基本数据类型变量之间的值复制。而基本数据 类型都有自己独立的内存地址，所以num和count是没有任何关系的，他们只是值相等而已，函数执行完毕后，count的值并没有改变。而函数外面的 result是被直接赋值的，所以result的值就是函数的结果30。<br style="padding: 0px; margin: 0px;" />
+	　　2、引用类型传递参数:</span></p>
+<br style="padding: 0px; margin: 0px;" />
+<div class="codetitle" style="padding: 0px; margin: 0px;"><span style="padding: 0px; margin: 0px; font-size: 12px;">代码如下:</span></div>
+<div class="codebody" id="code53409" style="padding: 0px; margin: 0px;"><br style="padding: 0px; margin: 0px;" />
+	<span style="padding: 0px; margin: 0px; font-size: 12px;">　　function setName(obj){<br style="padding: 0px; margin: 0px;" />
+	　　　　obj.name=&quot;LSN&quot;;<br style="padding: 0px; margin: 0px;" />
+	　　}<br style="padding: 0px; margin: 0px;" />
+	　　var person=new Object();<br style="padding: 0px; margin: 0px;" />
+	　　setName(person);<br style="padding: 0px; margin: 0px;" />
+	　　alert(person.name);//LSN</span></div>
+<br style="padding: 0px; margin: 0px;" />
+<p><span style="padding: 0px; margin: 0px; font-size: 12px;">　 　执行结果是：LSN。在这段代码中，函数setName的作用是给obj对象添加了一个属性name并给该属性赋值为&quot;LSN&quot;,因为obj是引用类 型，所以这里属于是将引用类型person赋值给了obj，也就是说person和obj引用了一个内存地址，所以当给obj新加了属性name时，在函 数外面的person也跟着改变，最后person.naem的结果为LSN。<br style="padding: 0px; margin: 0px;" />
+	　　3、引用类型传递参数到底传的是值还是引用?</span></p>
+<br style="padding: 0px; margin: 0px;" />
+<div class="codetitle" style="padding: 0px; margin: 0px;"><span style="padding: 0px; margin: 0px; font-size: 12px;">&nbsp;代码如下:</span></div>
+<div class="codebody" id="code31383" style="padding: 0px; margin: 0px;"><br style="padding: 0px; margin: 0px;" />
+	<span style="padding: 0px; margin: 0px; font-size: 12px;">　　function setName(obj){<br style="padding: 0px; margin: 0px;" />
+	　　　　obj.name=&quot;ABC&quot;;<br style="padding: 0px; margin: 0px;" />
+	　　　　obj=new Object();<br style="padding: 0px; margin: 0px;" />
+	　　　　obj.name=&quot;BCD&quot;;<br style="padding: 0px; margin: 0px;" />
+	　　}<br style="padding: 0px; margin: 0px;" />
+	　　var person=new Object();<br style="padding: 0px; margin: 0px;" />
+	　　setName(person);<br style="padding: 0px; margin: 0px;" />
+	　　alert(person.name);// ABC</span></div>
+<p><br style="padding: 0px; margin: 0px;" />
+	<span style="padding: 0px; margin: 0px; font-size: 12px;">　 　执行结果是：ABC。实例3与实例2的区别是在函数中又加了2行代码，在给obj对象新加一个属性name并赋值后 又将obj定义成了一个新的对象（new Object()），定义新对象后又name赋上新的值&ldquo;BCD&rdquo;。这个时候如果是按引用传递的话，那么最后person对象就会自动修改为指向其 name属性为&quot;BCD&quot;的新对象，但最后显示的却是&ldquo;ABC&rdquo;，这说明即使在函数内部修改了参数的值，但原始的引用还保持不变。实际上，当在函数内部 obj=new Object()时 这个新的obj就已经成为函数内部的局部对象了，这个对象会在函数执行完毕后自动销毁。</span></p>
+<p><span style="color:#d3d3d3;"><span style="padding: 0px; margin: 0px; font-size: 12px;">转自：http://www.58action.com/a/wzjx/wyzhz/2012/0328/1627.html</span></span></p>
+</div>
+<div class="c" >
+<h3>评论 ( 0个评论)</h3>
+暂无评论
+<div class="page"></div>
+
+<form id="quickcommentform_7717" name="quickcommentform_7717" action="cp.php?m_sid=21959e22790fbbf701073ef6f866081b&ac=comment" method="post" >
+
+<textarea id="comment_message" name="message"></textarea>
+<br/>
+<input type="submit" id="commentsubmit_btn" name="commentsubmit_btn" class="submit" value="评论"/>
+<input type="hidden" name="refer" value="space.php?uid=1&do=blog&id=7717" />
+<input type="hidden" name="id" value="7717">
+<input type="hidden" name="idtype" value="blogid">
+<input type="hidden" name="commentsubmit" value="true" />
+<input type="hidden" name="formhash" value="ef01cfd6" /></form>
+</div>
+<div class="c">
+<h3>热门日志导读</h2>
+<a href="space.phpm_sid21959e22790fbbf701073ef6f866081buid1dob~1.htm">偷拍</a><br/>
+<a href="space.phpm_sid21959e22790fbbf701073ef6f866081buid1do~3.htm">蝴蝶眨几次眼睛 我才眨几次</a><br/>
+<a href="space.phpm_sid21959e22790fbbf701073ef6f866081buid1do~4.htm">又翘课了。。。</a><br/>
+<a href="space.phpm_sid21959e22790fbbf701073ef6f866081buid258d~1.htm">清仓清仓！剩的不多！买到赚到！</a><br/>
+<a href="space.phpm_sid21959e22790fbbf701073ef6f866081buid214d~1.htm">高三</a><br/>
+</div>
+
+</div>
+<div id="footer">
+友情链接：<br/><a href="..//xx.shenei.net/wap">【舍内知天下】</a>(兼职|叫餐|培训|二手…)<br/><a href="../u.shenei.net/default.htm">【舍内家园】电脑网页</a><br/><a href="../shop.shenei.net/default.htm">【舍内网店】电脑网页</a><br/>
+2023-09-14 11:53<br/>
+〖疯·神〗工作室 &copy;2009-2010<br/>
+</div>
+</body>
+</html>

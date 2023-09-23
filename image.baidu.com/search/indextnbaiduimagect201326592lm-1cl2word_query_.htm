@@ -1,0 +1,1178 @@
+<!DOCTYPE html><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- saved from url=(0086)http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&word=_QUERY_ --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+           
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = '../../imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.logid = "11089763472954528935";
+            data.sid = '4afa56de5dc75a41add5c84dc4c23f46e8bbd323';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '56';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '';
+            data.protocol = window.location.protocol.replace(':', '');
+            if ('0' - 0) {
+                data.ishttps = '0';
+            }
+            
+            data.sync = "";
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: '../../imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            loadmark: function () {
+                value = new Date - start;
+
+                if (speed.firstScCount) {
+                    speed.firstScCount += 1;
+                }else{
+                    speed.firstScCount = 1;
+                }
+
+                data['firstSc'] = value;
+
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+        speed.firstScCount = 0;
+        (function () {
+            window.logid = "11089763472954528935";
+            loaded = 0;
+            var addWindowEvent = window.addEventListener ?
+                function(type, fn) { window.addEventListener(type, fn, false); } :
+                function(type, fn) { window.attachEvent('on' + type, fn); };
+            addWindowEvent('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            addWindowEvent('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+<script>
+    // ala进入打点
+    try {
+        if (!window._alaEnter) {
+            window._alaEnter = true;
+            function query2Json(query) {
+                var json = {};
+                var search = query.split("&");
+                for (var i = search.length - 1; i >= 0; i--) {
+                    var s = search[i].split('=');
+                    json[s[0]] = s[1];
+                }
+                return json;
+            }
+            var query = query2Json((location.search || '').replace('?', ''));
+            if (+query.hs && query.tn === 'baiduimage') {
+                var payload = 'dsp=pc&tn=result&hs=' + query.hs;
+                (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + (+new Date);
+                window._alaEnter = function (type) {
+                    (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload
+                        + '&type=' + type + '&t=' + (+new Date);
+                };
+                var sid = "a4f1a73ffc546d1afea6f4a773eece1bccc1c4fd";
+                if (window.localStorage
+                    && window.localStorage.sid
+                    && window.localStorage.sid !== sid) {
+                    window._alaEnter('change');
+                }
+                window.localStorage.sid = sid;
+            }
+        }
+    } catch(e) {}
+</script>
+   <html>   <!--STATUS OK-->  <head>  
+<meta http-equiv='Content-Type' content="text/html; charset=utf-8">
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<noscript>
+<meta http-equiv="refresh" content="0;url=../ict201326592lm-1tnbaiduimagenojsipnrnjpvword_query_z0~1">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+ <title>
+_QUERY__百度图片搜索</title> <link rel="shortcut icon" href="../../img1.bdstatic.com/static/common/img/icon_cf1b905.png" type="image/x-icon"> <link rel="icon" sizes="any" href="../../img1.bdstatic.com/static/common/img/icon_cf1b905.png">  <script>
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"../../https@fex.bdstatic.com"+d:"../../fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","error.html","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("error.html",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("error.html","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("error.html","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("error.html","catch",function(n){alog("error.html","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>     
+   <script>
+        var Ihttps_agent_config = {"../../nssug.baidu.com/default.htm":"https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su","../../www.baidu.com/search/error.html":"https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq","../../himg.bdimg.com/default.htm":"https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG","../../apps.bdimg.com/default.htm":"https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG","../../www.baidu.com/search/error.htmltc04544947372439359754091412.htm":"https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf","../../bzclk.baidu.com/default.htm":"https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K","../../img0.imgtn.bdimg.com/default.htm":"https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy","../../img1.imgtn.bdimg.com/default.htm":"https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy","../../img2.imgtn.bdimg.com/default.htm":"https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy","../../img3.imgtn.bdimg.com/default.htm":"https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy","../../img4.imgtn.bdimg.com/default.htm":"https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy","../../img5.imgtn.bdimg.com/default.htm":"https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy","../../www.baidu.com/search/error.html":"https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv","../../dispatcher.video.qiyi.com/default.htm":"https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_","../../www.baidu.com/search/error.html":"https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv"};
+    </script> <script type="text/javascript" src="../../img1.bdstatic.com/static/common/mod_6f6741d.js"></script> 
+<script>
+    //记录页面开始时间, 也用于vs埋点
+    window.pageStartTime = (new Date()).getTime();
+    window.isBigFu = '';
+   // window.scrollTo(0, 0);
+</script>
+
+<script>
+    // 时效性热点
+        </script>
+ <link rel="stylesheet" type="text/css" href="../../img1.bdstatic.com/static/common/pkg/co_14c8d6b.css"/><link rel="stylesheet" type="text/css" href="../../img0.bdstatic.com/static/searchresult/pkg/result_288d8e9.css"/><link rel="stylesheet" type="text/css" href="../../img0.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="../../img1.bdstatic.com/static/common/widget/ui/userinfo/userinfo_81fda3f.css"/><link rel="stylesheet" type="text/css" href="../../img0.bdstatic.com/static/searchresult/widget/ui/base/view/avfilterview/avfilterview_ede2e3a.css"/><link rel="stylesheet" type="text/css" href="../../img1.bdstatic.com/static/searchresult/widget/ui/base/view/avmuiltsizefilterview/avmuiltsizefilterview_7a57226.css"/><link rel="stylesheet" type="text/css" href="../../img1.bdstatic.com/static/searchresult/widget/ui/base/view/avtypefilterview/avtypefilterview_5f3a19e37.css"/><link rel="stylesheet" type="text/css" href="../../img0.bdstatic.com/static/searchresult/widget/ui/base/view/avcolorwallfilterview/avcolorwallfilterview_1c9dbf5.css"/><link rel="stylesheet" type="text/css" href="../../img0.bdstatic.com/static/searchresult/widget/ui/base/view/avcolorfilterview/avcolorfilterview_0853ba4.css"/><link rel="stylesheet" type="text/css" href="../../img1.bdstatic.com/static/searchresult/widget/pagelets/base/newimgfilter/newimgfilter_db54797.css"/><link rel="stylesheet" type="text/css" href="../../img0.bdstatic.com/static/searchresult/widget/pagelets/base/avfilter/avfilter_e68017c.css"/><link rel="stylesheet" type="text/css" href="../../img1.bdstatic.com/static/common/widget/loginbar/loginbar_5ddfcdc.css"/></head>  <script> alog('error.html', 'ht', +new Date); </script>        <body class=""> <script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"searchresult:widget/ui/app/noResultPage.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_aac2743.js","deps":["common:error.html","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:error.html","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:error.html","searchresult:widget/ui/models/filtermodel.js","searchresult:error.html","common:widget/ui/utils/utils.js"]},"common:error.html":{"url":"../../img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js","deps":["common:widget/ui/base/base.js"]},"common:error.html":{"url":"../../img1.bdstatic.com/static/common/widget/shitu/static/compressimage_7669526.js"},"common:error.html":{"url":"../../img0.bdstatic.com/static/common/widget/shitu/run_fc16662.js","deps":["common:widget/ui/base/base.js","common:error.html","common:widget/shitu/static/animate.js","common:error.html"]},"searchresult:widget/pagelets/base/topRs/topRs.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/base/topRs/topRs_c41d15e.js","deps":["common:error.html","common:widget/ui/utils/utils.js"]},"common:error.html":{"url":"../../img0.bdstatic.com/static/common/widget/ui/historyrecord/historyrecord_69f28d7.js","deps":["common:widget/ui/base/base.js","common:error.html"]},"common:widget/ui/loginBox/loginBox.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js"},"common:error.html":{"url":"../../img0.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:error.html","common:widget/ui/base/EventDispatcher.js"]},"common:error.html":{"url":"../../img1.bdstatic.com/static/common/widget/ui/sourcehttps/sourcehttps_a8b93d5.js"},"common:error.html":{"url":"../../img1.bdstatic.com/static/common/widget/ui/fmcheck/fmcheck_e6197fc.js","deps":["common:widget/ui/base/base.js"]},"common:error.html":{"url":"../../img1.bdstatic.com/static/common/widget/ui/durationstat/durationstat_d292e9f.js","deps":["common:widget/ui/utils/utils.js","common:error.html"]}}});</script> 
+
+<div id="search" class="cg_avatar">
+<script>
+        (function() {
+            var search = document.getElementById('search');
+            var width = window.innerWidth
+                || (document.documentElement && document.documentElement.clientWidth)
+                || (document.body && document.body.clientWidth);
+            if (search && width < 1217) {
+                search.className = 'narrow ' + search.className;
+            }
+        })();
+    </script>
+<div class="s_search">
+<div id="imgSearchBox">
+<div id="imgMainSearch">
+<a href="../default.htm" class="s_logo">
+<img src="../../www.baidu.com/img/flexible/logo/pc/result_402.png" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="0">
+<input name="hd" type="hidden" value="0">
+<input name="latest" type="hidden" value="0">
+<input name="copyright" type="hidden" value="0">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="dyTabStr" type="hidden" value="">
+<input name="ie" type="hidden" value="utf-8">
+<input name="ctd" type="hidden" value="">
+<input name="sid" type="hidden" value="">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="_QUERY_" autocomplete="off" onfocus="this.parentNode.className='s_ipt_wr active'" onblur="this.parentNode.className='s_ipt_wr'"/></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h ariaskiptheme'" onmouseout="this.className='s_btn ariaskiptheme'"  value="百度一下"   /></span>
+</form><div id="stcontent" class="common-shitu"> <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"> <img class="st_camera_off" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAqNJREFUaN7tWMtu1DAULeL1B2XBCgRL3j8APwBLxIblsCqbfkAH/qAJsROGne2CsuiyXY5gTVsJluUfAIlHRRkN9ySdiTMMtZ3JJIzqK1mKZnJ9z/E9vnbu0pI3b968Lbxxnl4MIvV4PRJd0wi5WsO78PkvwK/H6kHAxE8CN3Qb8kfIxP12wTN1h4AcuoMfkzh8kYjbrYBPkvdng0h+GIE5eu5aDSY+6n5pmp5rnEDA5DNtNb8xpi7b+uJd+BT+6nmz4OM3N0j3v8YAmFxxl59c0aUU8Ne3agfa7/fPQKOk9Y4ugSAS+2MJMPluOByecp0bPgT8bTGP+FSWGcWkPQYMlcAztnGdAuyZKkkcq6tVFyh6lV4h4N8NMfaAxRk8rfLBcRPT5vtK2r03a5ZDLu7mcx0XSxxYk0DKJlb+M1WNpHQQxeIR55vL9R2Em8uYE3NrlSrJYmuZsJJTXtsL8GEvveQKqNfbuBBG8mHA5SoGnvGbc3YodokEYbMh0CkcROJUnaiSULq3yXcwRQoD/Be9VDfdqlWWiVxKXDwxO+QpHAXt2oNXT6ki/TadvngH71oTcMVThQAA/QUykjvZ6tHA8yQ5WxJzJ5DJRgOHq8G0QymXl3b1yDJhPrzmTyDXfAF+a+v8P9+l/8r3J7HdKgFUltGGtV3RiYwNTNVprgRQHrXV37He8NgfR36YozUCqPFVSm65NMpVT+DESmjhN/HCl9FZDzKbe5G/SpyIy5zLddr1471RAnV/0LRGoNbunzOBGb7I5tO+LE5tYDM6ZH2gYsN9cem41W2IDQwjPFZ91DRNTwdM7Ook9K5EYwPlVwMPTMBm1w1I5DVTX6jJASzA5NbSAAktE62BJwzO4HU5TeuNNiMh1UFsa9l48+bNm7cq9gfmr6wmxprr4wAAAABJRU5ErkJggg==" width="24" height="24"> <img class="st_camera_on" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAphJREFUaN7tWMtuEzEULeL1B7BgBYIljzhpK1iVJRtYVYjNeNJWgU3Z8AEE/iK/wA90DfsUCZb0HyhSCxW2dblnKiZ3otCxJ5MZovpKlkaJr32OfXz8WFmJESNGjKWPhwnd6GmbqNQMS0vi3qIucv4L8L2+faa0/dVJDIUUldifHW2ftgpeaeoyEBMKXpAw3T6pVsB3B3RZafMlB8PfXhLKZGS+yrzNIV1pnEBHm3eT0bRHq1t0yzcXdZEjZuN9o+DXtug+6/53DiB1u8EDwDlSSr1t6tQOdGNIl6BRpd2gKAH7TUjgExFdCG0bOZz7cdKOPSj0gT55jQFDtQWa0D2WyecyJ1lP6U5lE9im2wz8+MzFzhiApQJ4e1IC/kc3MY/ntuHUbKCts0nYE28SmLLCyGv7nUdpNLURvXj0iq7VJVW0hTbR9kRCdoS+5Ux4yQm6k+DXduhmKKD1Hbqu+vZ5V7s3KPjGb8FmwX1LEsDmQcANxMIaBcmBnYRz9rhTN0MGDv+tpvQgbLPkmchl616WJ/D05Qn87b2xafeatWw9dl+Lut4EQvFUIQBA0yDZIsfZ2skKf0+R8yWxcAKZbAQ4HA1mbUqn8hJHD87x2bwWTiDTvAD/ZJeu/qsu/iuen+xeqwTgLH8XrO+IFmaMc8vcaaEEYI9i9Mf+zmLGeR630RoBeHwVy5XWiDYigXMroaVfxEtvo/NuZD7noniUOBeHuZDjdOjlvVECdV9oWiNQ6+tfMIE5bmSLeb4UNzLGVr4Y+6QEgcOQF7e6A30DQ+5cPu+omx/ookrMviRReJVoqpxa8OHEvcw+sPlZYkp3y96FGi2MBZjCXp85Qc5EWwUYgsFLOc18G21EQm6Avr1lEyNGjBgxqsQfpdcIhlb9ZYwAAAAASUVORK5CYII=" width="24" height="24"> <div class="st_tips" id="stTipsBox">按图片搜索</div> </a> <div id="stsug" class="stsug" style="display:none"> <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="../../img1.bdstatic.com/static/common/widget/shitu/images/mark_cac9c0b.png" /></div> <div class="stf"> <form id="form2" target="_self" enctype="multipart/form-data" name="form2"> <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload">本地上传<input type="file" name="image" id="stfile" size="2"></a> <div class="st_dragtg" id="dragtg" style="display:none;">提示：您也可以把图片拖到这里</div> <input id="shitu2" name="pos" value="" type="hidden"> <input name="uptype" value="upload_pc" type="hidden"> <input name="fm" value="index" type="hidden"> </form> <form id="form1" target="_self" enctype="multipart/form-data" method="get" name="form1"> <div id="sturl"> <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off"  class="stuurl" name="objurl"> </span> <span class="stsb"> <input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" onmouseover="this.className='stsb2 stsb4'" value="识图一下"> </span> </div> <input name="filename" id="filename" value="" type="hidden"> <input name="rt" value="0" type="hidden"> <input name="rn" value="10" type="hidden"> <input id="stftn" name="ftn" value="wantu" type="hidden"> <input name="ct" value="1" type="hidden"> <input name="stt" value="0" type="hidden"> <input name="tn" value="shituresultpc" type="hidden"> <input id="shitu1" name="uptype" value="paste" type="hidden"> <input name="fm" value="index" type="hidden"> </form> </div> <div class="drag-text-tip" id="dttip">拖拽图片到此处试试</div> <div id="stmore" style="display:none;"> <div class="stmore-header">百度识图</div> <ul> <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li> </ul> <div class="stmore_arrow_in"></div> <div class="stmore_arrow_out"></div> </div> <a id="closest" href="javascript:void(0);" title="关闭"></a> <div id="point" style="display:none;"> <img src="../../img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="undrag-text-tip" id="undragtip"> <p>抱歉，Safari不支持拖拽识图。<br/> 请保存图片到本地，通过本地上传或在搜索框粘贴图片url进行识图。</p> </div> <div class="undrag-text-tip" id="untip"> <p>IE9及以下版本浏览器不支持识图功能，<br/> 请升级浏览器或使用Chrome、QQ、搜狗浏览器进行识图</p> </div> <div id="dragtip" style="display:none;"> <span>请拖拽图片到此处</span> <div class="drag_dot_area drag_dot_left_top"></div> <div class="drag_dot_area drag_dot_left_bottom"></div> <div class="drag_dot_area drag_dot_right_top"></div> <div class="drag_dot_area drag_dot_right_bottom"></div> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="left-border"></div> <div class="right-border"></div> </div> <div id="mock-stsug"></div> <script>
+        /***
+        * 识图渠道号。
+        */
+        window['__abbaidu_2033_subidgetf'] = function () {
+            var subid = 'shitu_pc';
+            return subid;
+        };
+    </script> <script>
+        window['__abbaidu_2033_cb'] = function (responseData) {
+            window.sdkParams = responseData;
+        };
+    </script> <script async="" src="../../httpsdlswbr.baidu.com/heicha/mw/abclite-2033-s.js"></script> </div>  </div>
+<div id='userInfo'>
+<a target='_blank' href='../../www.baidu.com/default.htm'>百度首页</a>
+</div>
+</div>
+</div>
+</div>
+<div id="pageLayoutTipWindow">
+<div class="page-layouttip-banner">
+<div class="page-layouttip-describe">温馨提示：由于您的浏览器安装了某些插件，导致页面布局失败，重新加载可恢复布局</div>
+<div class="page-layouttip-loadbtn">重新加载</div>
+<div class="page-layouttip-viewbtn">继续查看</div>
+</div>
+</div><script type="text/javascript" src="../../img1.bdstatic.com/static/searchresult/js/base64_73b3e30.js"></script>
+<script>
+var TAB_MAP = {
+    "0": {
+        "ename": "ps",
+        "iconcontent": "\\e608",
+        "name": "网页",
+        "needDyTabStr": "0",
+        "trueUrl": "../../www.baidu.com/swd_query_.htm"
+    },
+    "1": {
+        "ename": "news",
+        "iconcontent": "\\e606",
+        "name": "资讯",
+        "needDyTabStr": "0",
+        "trueUrl": "../../www.baidu.com/srtt1bsst1cl2tnnewsword_query_.htm"
+    },
+    "2": {
+        "ename": "video",
+        "iconcontent": "\\e604",
+        "name": "视频",
+        "needDyTabStr": "0",
+        "trueUrl": "../../www.baidu.com/sf/vsearchpdvideotnvsearchwd_query_.htm"
+    },
+    "3": {
+        "ename": "pic",
+        "iconcontent": "\\e607",
+        "name": "图片",
+        "needDyTabStr": "1",
+        "trueUrl": "indextnbaiduimagect201326592lm-1cl2word_query_.htm"
+    },
+    "4": {
+        "ename": "zhidao",
+        "iconcontent": "\\e633",
+        "name": "知道",
+        "needDyTabStr": "1",
+        "trueUrl": "../../zhidao.baidu.com/searchct17pn0tnikaslistrn10word_query_.htm"
+    },
+    "5": {
+        "ename": "wenku",
+        "iconcontent": "\\e605",
+        "name": "文库",
+        "needDyTabStr": "1",
+        "trueUrl": "../../wenku.baidu.com/searchlm0od0word_query_.htm"
+    },
+    "6": {
+        "ename": "tieba",
+        "iconcontent": "\\e609",
+        "name": "贴吧",
+        "needDyTabStr": "1",
+        "trueUrl": "../../tieba.baidu.com/f/search/resqw_query_sm2cf1ieutf-8red_tag0504417729.htm"
+    },
+    "7": {
+        "ename": "map",
+        "iconcontent": "\\e630",
+        "name": "地图",
+        "needDyTabStr": "0",
+        "trueUrl": "../../map.baidu.com/newmap1ieutf-8sswd_query_.htm"
+    },
+    "8": {
+        "ename": "b2b",
+        "iconcontent": "\\e603",
+        "name": "采购",
+        "needDyTabStr": "0",
+        "trueUrl": "../../b2b.baidu.com/sq_query_.htm"
+    },
+    "9": {
+        "ename": "more",
+        "iconcontent": "",
+        "name": "更多",
+        "needDyTabStr": "0",
+        "trueUrl": "../../www.baidu.com/more/default.htm"
+    },
+    "10": {
+        "ename": "realtime_ugc",
+        "iconcontent": "\\e689",
+        "name": "热议",
+        "needDyTabStr": "0",
+        "trueUrl": "../../www.baidu.com/default.htm"
+    },
+    "11": {
+        "ename": "ai",
+        "iconBlackUrl": "../../gips0.baidu.com/it/u4275348639682457103fm3028app3028fpngfmtautoq100sizef42_42.png",
+        "iconUrl": "../../gips2.baidu.com/it/u40780750821747835917fm3028app3028fpngfmtautoq100sizef14_14.png",
+        "iconWhiteUrl": "../../gips0.baidu.com/it/u4275348639682457103fm3028app3028fpngfmtautoq100sizef42_42.png",
+        "iconcontent": "",
+        "name": "对话",
+        "needDyTabStr": "1",
+        "trueUrl": "../../chat.baidu.com/aichat/chatfrompctabword_query_"
+    }
+};
+
+require.async(["common:widget/ui/base/base"],function($){
+    getTabList();
+
+    function getTabList() {
+          $.ajax({
+                url: '../../pc-index-static.cdn.bcebos.com/search/dytabstr.json',
+                type: 'get',
+                success: function (response) {
+                    TAB_MAP = response.tabMap;
+                    handleTabShow(TAB_MAP)
+                },
+                error: function () {
+                    console.warn('Tab配置数据获取失败！！');
+                    handleTabShow(TAB_MAP)
+                }
+            });
+    }
+});
+</script>
+<script>
+var commonHeaderConf = {
+    sugProdName: "image",
+    searchInputId: "kw"
+};
+void function(w){
+    window.setHeadUrl= function(o){
+        var index = o.name.split('_')[1],
+        kw = document.getElementById(w),
+        reg = new RegExp('^\\s+|\\s+\x24'),
+        key = kw.value.replace(reg,'');
+        var info = TAB_MAP[index];
+        if(info){
+            if(key.length > 0){
+                var url = info.trueUrl;
+                var searchQuery = location.search;
+                // 如果URL中带有纠错的字段，则跳转到其他tab时，也需带该字段
+                if (searchQuery.indexOf('nojc=1') > -1) {
+                    url += '&nojc=1';
+                }
+                o.href = url.replace('_QUERY_', encodeURIComponent(key)) + (+info.needDyTabStr && '' ? '&dyTabStr=' + '' : '');
+            }else{
+                o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+            }
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+        }
+    }
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab" id="bdpcImgTab">
+</div>
+<script>
+var imgMainSearch = document.getElementById('imgMainSearch');
+var imgSearchBox = document.getElementById('imgSearchBox');
+var bdpcImgTab = document.getElementById('bdpcImgTab');
+// 图片下标 是固定的
+var BASE_INDEX = 3;
+var showAiTab = '0';
+var dyTabStr = Base64.fromBase64('');
+function handleTabShow(TAB_MAP) {
+    //tab布局
+    var tabListDom = [];
+    var tabMapKeys = Object.keys(TAB_MAP);
+    for(var i = 0; i < tabMapKeys.length; i++) {
+        var item = TAB_MAP[i];
+        if (i === BASE_INDEX) {
+            tabListDom.push('<b class="s_tab_item s_tab_img">图片</b>');
+        } else if (item.ename === 'more') {
+            tabListDom.push('<a class="s_tab_item s_tab_more" href="'+ encodeURI(item.trueUrl) + '" name="more" >'+ item.name +'</a>');
+        } else  {
+            tabListDom.push('<a class="s_tab_item s_tab_'
+            + item.ename
+            + '" onmousedown="setHeadUrl(this)" href="#" name="'
+            + item.ename + '_' + i + '" >' + (item.iconUrl ? '<img class="s_tab_icon" src="'+item.iconUrl+'">' : '') + item.name + '</a>');
+        }
+    }
+    var dyTabStrArr = dyTabStr.split(',').map(function (item) { return parseInt(item); });
+    dyTabStrArr = fixTab(dyTabStrArr);
+    // 如果要展示的tab少于10个或者第9位不是更多，则展示兜底tab
+    var len = dyTabStrArr.length;
+    var cTab = len < 10  || dyTabStrArr[len - 1] !== 9 ? [0,1,2,3,4,5,6,7,8,9] : dyTabStrArr;
+    var innerHTML = '';
+    cTab.forEach(function (item) {
+        innerHTML += tabListDom[item];
+    });
+    bdpcImgTab.insertAdjacentHTML('afterbegin', innerHTML);
+
+}
+function fixTab (arr) {
+    if (arr.length < 10) {
+        return arr;
+    }
+    // showAiTab跟进权限判断是否展示ai tab，如果不展示ai tab 则从要展示tab中删除掉
+    // AI tab下标是固定的
+    var AI_INDEX = 11;
+    var index = arr.indexOf(AI_INDEX);
+    if (!(+showAiTab) && index !== -1) {
+        arr.splice(index, 1);
+    }
+    var normalArr = arr.slice(0, 9);
+    if (normalArr.indexOf(BASE_INDEX) === -1) {
+        normalArr[8] = BASE_INDEX;
+    }
+    normalArr.push(9);
+    return normalArr;
+}
+
+
+var setSearchStyle = function (flag) {
+    var winWidth = window.innerWidth
+    || (document.documentElement && document.documentElement.clientWidth)
+    || (document.body && document.body.clientWidth);
+    if (imgMainSearch && imgSearchBox && bdpcImgTab && winWidth > 1920) {
+        imgMainSearch.className = 's_img_search';
+    } else if (flag) {
+        imgMainSearch.className = '';
+    }
+};
+
+setSearchStyle();
+
+window.onresize = function () {
+    setSearchStyle(1);
+};
+</script>
+<div class="top-info-bar-wrapper">
+<div id="topInfoBar">
+<div id="resultInfo" style="font-size: 13px;">找到相关图片约20,600张</div>
+<div id="newImgFilter">
+<div class="new-filter-container filter">
+<div id="typeFilter" class="typeFilter"></div>
+<div id="sizeFilter" class="subFilter sizeFilter"></div>
+<div id="colorFilter" class="subFilter"></div>
+</div>
+</div><div style="position: relative;">
+<div id="topRS">
+<a class="pull-rs" title="查看全部"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~77"><p class="pull-rs-p">全部</p></a>
+<a class="pull-rs" title="查看 高级"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~78">
+<p class="pull-rs-p">高级</p>
+</a><a class="pull-rs" title="查看 教程"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~79">
+<p class="pull-rs-p">教程</p>
+</a><a class="pull-rs" title="查看 方法"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~80">
+<p class="pull-rs-p">方法</p>
+</a><a class="pull-rs" title="查看 excel"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~81">
+<p class="pull-rs-p">excel</p>
+</a><a class="pull-rs" title="查看 启用"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~82">
+<p class="pull-rs-p">启用</p>
+</a><a class="pull-rs" title="查看 参数"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~83">
+<p class="pull-rs-p">参数</p>
+</a><a class="pull-rs" title="查看 micro"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~84">
+<p class="pull-rs-p">micro</p>
+</a><a class="pull-rs" title="查看 js"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~85">
+<p class="pull-rs-p">js</p>
+</a><a class="pull-rs" title="查看 获取"  target="_self"  href="indexct201326592cl2st-1lm-1nc1ieutf-8tnbaiduimageip~86">
+<p class="pull-rs-p">获取</p>
+</a></div>
+</div>
+</div>
+<div id="timeliness" class="hotpot-container">
+</div>
+<script type="text/juicer" id="timeliness-tpl">
+    <div id="timeliness-bless">
+        <div class="blessing-img-wrapper">
+            <img class="blessing-img" src="${icon.normal}" alt="" />
+            <img class="blessing-img icon-zoomup" src="${icon.normal}" alt="" />
+        </div>
+        <span class="blessing-content">
+            ${title}
+        </span>
+        <div class="blessing-count-wrapper">
+            (<span class="blessing-count"></span>人)
+        </div>
+    </div>
+    <div class="egg">
+        <img class="blessing-img-egg" src="${egg}" alt="" />
+    </div>
+</script>
+<div id="avfilter"></div>
+<div class="top-bar-mask"></div>
+</div>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+
+</div>
+ 
+
+<script>
+    window.vsid = '31ec84c78d737949ce49a1fa776c8406f21b6078';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" class="cg_avatar">
+<div id="timeliness-title">
+<img class="blessing-img guideIcon" src="">
+<span class="timeliness-desc"></span>
+</div>
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+<p style="margin: 20px 0px 5px 0;font: bold 14px '宋体';color: #333;display: none;"><span>根据相关法律法规和政策，部分搜索结果未予显示。</span></p>
+</div>
+<div id="specialRecommend"></div>
+
+
+
+
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="../default.htm">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">_QUERY_</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="indexct201326592zstnbaiduimageipnrword_query_ieutf-8o~1" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div>
+<link rel="stylesheet" href="../../img1.bdstatic.com/static/searchresult/mediacyfont/iconfont_c4b6d32.css">
+</div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+<div id="relecom54">
+</div>
+</div>
+</div>
+<div id="righter">
+<div id="righter-wrapper">
+<div id="righter-content">
+<div class="mediacy-upper">
+<div class="mediacy">
+<div class="img-loading"></div>
+<img class="mediacy-img" src="" draggable="false"/>
+</div>
+<div class="mediacy-close">
+<i class="mediacyIcon icon-a-guanbi">
+</i>
+</div>
+<div class="mediacy-pre-btn">
+<i class="mediacyIcon icon-a-jiantou-zuo"></i>
+</div>
+<div class="mediacy-next-btn">
+<i class="mediacyIcon icon-a-jiantou-you"></i>
+</div>
+</div>
+<div class="mediacy-card-wrapper">
+<div id="mediacy-toolbar" class="mediacy-toolbar">
+<div id="mediacy-zoom">
+<span id="btnZoomIn" hidefocus="true" log-click="p=5.36">
+<i class="mediacyIcon icon-a-jiahao"></i></span>
+<label id="zoomScale">100%</label>
+<span id="btnZoomOut" hidefocus="true" log-click="p=5.36">
+<i class="mediacyIcon icon-a-jianhao"></i></span>
+</div>
+<div class="toPhone-wrap">
+<span class="btn-toPhone" hidefocus="true" log-click="p=5.50">
+<i class="mediacyIcon icon-a-shouji"></i>扫描到手机</span>
+</div>
+<a class="btn-download" target="_self" hidefocus="true" href="default.htm" log-click="p=5.42">
+<i class="mediacyIcon icon-a-xiazai"></i>下载</a>
+<a class="btn-shitu" href="default.htm" hidefocus="true" log-click="p=5.46">
+<i class="mediacyIcon icon-a-shitu"></i>按图搜索</a>
+<span id="report_link" class="reportlink" hidefocus="true" log-click="p=5.408">
+<i class="mediacyIcon icon-a-fankui"></i>反馈</span>
+</div>
+<div class="imgInfoPnl"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;"> <div class="loginbar-inner"> <div class="login-png"></div> <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a> </div> <a class="loginbar-close" href="javascript:;">关闭</a> </div>  <script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"../../https@fex.bdstatic.com"+d:"../../fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","error.html","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("error.html",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("error.html","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("error.html","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("error.html","catch",function(n){alog("error.html","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>  <script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("error.html",{fsItems:i,fs:a})}(window,document);
+</script> 
+ <div id="fixBtn"> <div id="common-back-top" data-title="返回顶部"> <div class="btn-inner-text">返回顶部</div> </div> <div id="common-feedback-link" data-title="反馈图片"> <div class="common-feedback-text">用户反馈</div> </div> </div>  
+
+
+<script>
+    (function () {
+        var pos = '';
+        if (pos == 1) {
+            pos = '-title';
+        } else if (pos == 3) {
+            pos = '-more';
+        } else {
+            pos = '';
+        }
+
+        document.addEventListener && document.addEventListener('DOMContentLoaded', function () {
+
+            var net = 0;
+            var isPreLoaded = 0;
+            var start = speed.get('start');
+
+            if(window.performance){
+                net = window.performance.timing.navigationStart;
+            }
+            net && speed.mark('net', start - net);
+            speed.mark('preloaded', isPreLoaded);
+            speed.mark('domc');
+            // 针对chrome细分数据
+            if (window.performance && window.performance.timing) {
+                var timing = window.performance.timing;
+                // tcp connct时间
+                speed.mark('dnst', timing.domainLookupEnd - timing.domainLookupStart);
+                // dns解析时间
+                speed.mark('cot', timing.connectEnd - timing.connectStart);
+                // 首字节返回时间点
+                speed.mark('rpnt', timing.responseStart);
+                if (net) {
+                    // tc跳板时间
+                    speed.mark('tct', timing.navigationStart - net);
+                    // 网络开始时间点
+                    speed.mark('nets', net);
+                }
+                speed.mark('connectStart', timing.connectStart);
+            }
+        }, false);
+
+        var addWindowEvent = window.addEventListener ?
+            function(type, fn) { window.addEventListener(type, fn, false); } :
+            function(type, fn) { window.attachEvent('on' + type, fn); };
+        addWindowEvent('load', function () {
+            var url = location.href;
+            url = url.replace(/&ctd=([^&]+)/, '');
+            if (url) {
+                window.history && window.history.replaceState && window.history.replaceState(null, "", url + '');
+            }
+
+            speed.mark('load');
+            LazySend();
+        });
+
+        function LazySend() {
+            if (speed.firstScCount >= 5) {
+                speed.mark('frm', '');
+                speed.send();
+            } else {
+                setTimeout(LazySend, 1000);
+            }
+        }
+    })();
+</script>
+<script>
+    (function () {
+        if (window._alaEnter && window._alaEnter !== true) {
+            window._alaEnter('end');
+            var oldOnerror = window.onerror;
+            window.onerror = function (msg, source, lineno, colno) {
+                try {
+                    oldOnerror && oldOnerror.apply(window, arguments);
+                    var str = 'error&source=' + source + '&msg=' + msg + '&ln=' + lineno + '&cn=' + colno;
+                    window._alaEnter(str);
+                } catch (e) {}
+            };
+        }
+    })();
+</script>
+<script>
+    </script>
+                     <script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("error.html","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https:../../fex.bdstatic.com"+d:"../../fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("error.html","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","error.html");
+</script>    </body><script type="text/javascript"  src="../../img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js" ></script>
+<script type="text/javascript"  src="../../img1.bdstatic.com/static/common/widget/ui/browser-storage/browser-storage_ad6bd42.js" ></script>
+<script type="text/javascript"  src="../../img1.bdstatic.com/static/common/pkg/cores_451d70c.js" ></script>
+<script type="text/javascript"  src="../../img0.bdstatic.com/static/common/widget/verificationcode/useaiverificationcode_fe7964c.js" ></script>
+<script type="text/javascript"  src="../../img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js" ></script>
+<script type="text/javascript"  src="../../img0.bdstatic.com/static/searchresult/pkg/result_eeed49a.js" ></script>
+<script type="text/javascript">!function(){    window._alaEnter && window._alaEnter !== true && window._alaEnter('sample');
+    var sample = [];
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekeyAll = sample;
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){// ala进入问题调查
+window._alaEnter && window._alaEnter !== true && window._alaEnter('prerequire');
+require.async(['searchresult:widget/ui/app/app'], function (app) {
+    window._alaEnter && window._alaEnter !== true && window._alaEnter('postrequire');
+    require.async(['searchresult:widget/ui/action/base/base']);
+    require.async(['searchresult:widget/ui/base/common/common']);
+    app.setPageInfo({
+        detailSwitch: '0',
+        preOpenMediacyPn: -1,
+        // 在后端对query进行抽样的时候，用这个来统计实验组和对照组
+        queryPageType : '0',
+        tag_type: '',
+        tag: '',
+        subtag: '',
+        gsm: '1e',
+        listNum : '1543',
+        dispNum : '20631',
+        bdIsClustered : '0',
+        fr : '',
+        sme : '',
+        ie : 'utf-8',
+        oe : 'utf-8',
+        fInsertNum : "0",
+        queryWordEnc: '_QUERY_',
+        queryWordGBKEnc: '_QUERY_',
+        word : '_QUERY_',
+        queryWord : '_QUERY_',
+        queryUrlWord : '_QUERY_',
+        bdFmtDispNum : '约20,600',
+        bdSearchTime : '',
+        gbkword:'_QUERY_',
+        resTabs : [],
+        userid:'',
+        useSign:'',
+        userNumID:'', // 这个才是真正的 userid
+        encodeUserNumId:'',
+        spaceUrl:'',
+        hasUserName: ('' == '0'),
+        bdstoken : '',
+        thirdLogo :'0', // 第三方网站登录的logo，为空则不显示
+        se:'',
+        needIE:'1',
+        jit:'',
+        showHot:'',
+        hasResult: '1',
+        aspSID:'',
+        oriquery: '',
+        fm: '',
+        hs: '0',
+        adBigPicPos: -1,
+        cms_gonggao:"{\"store\":{\"text\":\"\\u7535\\u8111\\u7aef\\u201c\\u6211\\u7684\\u56fe\\u7247\\u201d\\u529f\\u80fd\\u5373\\u5c06\\u4e0b\\u7ebf\\u8bf7\\u60a8\\u63d0\\u524d\\u4e0b\\u8f7d\\u60a8\\u9700\\u8981\\u7684\\u56fe\\u7247\\u3002\",\"url\":\"https:\\\/\\\/image.baidu.com\\\/img\\\/image\\\/notice\\\/\"},\"agingswitch\":{\"switch\":0}}",
+                checkHttps: 0,
+                strategyType: 'normal',
+                                        personalized:'0'
+    });
+    app.setData('jsConfs', {    "normal": {        "margin": 0,        "padding": 8,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "comic": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "ald": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "star": {        "margin": 16,        "padding": 0,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu":0    },    "avatar_brand": {        "margin": 16,        "padding": 0,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight": 320,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 500,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_star": {        "margin": 16,        "padding": 0,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "mediacy_weak": {        "margin": 0,        "padding": 8,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 624    },    "mediacy_normal": {        "margin": 0,        "padding": 8,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 816    },    "mediacy_strong": {        "margin": 0,        "padding": 8,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 1008    },    "avatar_head": {        "margin": 0,        "padding": 8,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 330    },    "avatar_wallpaper": {        "margin": 0,        "padding": 8,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 330    },    "single": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 1,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "personalized": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight":160,        "maxBaseLineHeight":160,        "minBaseLineHeight":160,        "pageLineNum": 2,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    }}
+);
+    app.setData('imgData', {    "queryEnc":"_QUERY_",    "displayNum":20631,    "bdIsClustered" : "0",    "listNum":1543,    "bdFmtDispNum" : "20631",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,"data":[{"thumbURL":"../../httpsimg0.baidu.com/it/u22441914161644744296fm253fmtautoapp138fjpegw500h500","replaceUrl": [{"ObjURL":"https:../zhengxin-pub.cdn.bcebos.com/mark/cd27046b934fa3c5737c41f73a023917_fullsize.jpeg","ObjUrl":"https:../zhengxin-pub.cdn.bcebos.com/mark/cd27046b934fa3c5737c41f73a023917_fullsize.jpeg","FromURL":"../../aiqicha.baidu.com/mark/sqqueryit","FromUrl":"../../aiqicha.baidu.com/mark/sqqueryit"}],"adType":"0","middleURL":"../../httpsimg0.baidu.com/it/u22441914161644744296fm253fmtautoapp138fjpegw500h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg0.baidu.com/it/u22441914161644744296fm253fmtautoapp138fjpegw500h500",            "pageNum":0,            "objURL":"../../httpszhengxin-pub.cdn.bcebos.com/mark/cd27046b934fa3c5737c41f73a023917_fullsize.jpeg",            "fromURL":"ippr_z2c$qazdh3fazdh3fwtqtviw_ze3bkwt17_ze3bv54azdh3~6",            "fromJumpUrl":"ippr_z2c$qazdh3fazdh3fwtqtviw_ze3bkwt17_ze3bv54azdh3~6",            "fromURLHost":"aiqicha.baidu.com","currentIndex":"",            "width":1063,            "height":1063,            "type":"jpeg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "76551632_1124_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2020-11-08 18:30",            "fromPageTitle":" em><strong>query<\/strong> /em>",            "fromPageTitleEnc":" em>query /em>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3223073278,3101488477",            "os" : "1040633535,3501969232",            "simid" : "3223073278,3101488477",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "a55e9d",            "clickUrl": ""        },{"thumbURL":"../../httpsimg1.baidu.com/it/u9599728003337107267fm253fmtautoapp138fjpegw590h474","replaceUrl": [{"ObjURL":"https:\/\/ask.qcloudimg.com\/http-save\/developer-news\/o6sz893pel.jpeg?imageView2\/2\/w\/1620","ObjUrl":"https:\/\/ask.qcloudimg.com\/http-save\/developer-news\/o6sz893pel.jpeg?imageView2\/2\/w\/1620","FromURL":"../../cloud.tencent.com/developer/news/375355","FromUrl":"../../cloud.tencent.com/developer/news/375355"}],"adType":"0","middleURL":"../../httpsimg1.baidu.com/it/u9599728003337107267fm253fmtautoapp138fjpegw590h474",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg1.baidu.com/it/u9599728003337107267fm253fmtautoapp138fjpegw590h474",            "pageNum":1,            "objURL":"../../httpsask.qcloudimg.com/http-save/developer-news/o6sz893pel.jpegimageview2_2f2_2fw_2f1620",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fvs571_z&e3Bpjgvjgp_z&e3Bv54AzdH3F1jejs5rj6AzdH3FgjofAzdH3Fn0cncc",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fvs571_z&e3Bpjgvjgp_z&e3Bv54AzdH3F1jejs5rj6AzdH3FgjofAzdH3Fn0cncc",            "fromURLHost":"cloud.tencent.com","currentIndex":"",            "width":590,            "height":474,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2213548464_159_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2018-12-22 00:00",            "fromPageTitle":"<strong>query<\/strong>简介",            "fromPageTitleEnc":"query简介",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3700405588,2478066611",            "os" : "1207784622,3026812454",            "simid" : "3700405588,2478066611",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "a73ac5",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u30542045871642665168fm253fmtautoapp138fjpegw500h502","replaceUrl": [{"ObjURL":"https:\/\/ask.qcloudimg.com\/http-save\/developer-news\/3auhsoi7ab.jpeg?imageView2\/2\/w\/1620","ObjUrl":"https:\/\/ask.qcloudimg.com\/http-save\/developer-news\/3auhsoi7ab.jpeg?imageView2\/2\/w\/1620","FromURL":"../../cloud.tencent.com/developer/news/375355","FromUrl":"../../cloud.tencent.com/developer/news/375355"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u30542045871642665168fm253fmtautoapp138fjpegw500h502",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u30542045871642665168fm253fmtautoapp138fjpegw500h502",            "pageNum":2,            "objURL":"../../httpsask.qcloudimg.com/http-save/developer-news/3auhsoi7ab.jpegimageview2_2f2_2fw_2f1620",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fvs571_z&e3Bpjgvjgp_z&e3Bv54AzdH3F1jejs5rj6AzdH3FgjofAzdH3Fn0cncc",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fvs571_z&e3Bpjgvjgp_z&e3Bv54AzdH3F1jejs5rj6AzdH3FgjofAzdH3Fn0cncc",            "fromURLHost":"cloud.tencent.com","currentIndex":"",            "width":557,            "height":559,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2213548464_158_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2018-12-22 00:00",            "fromPageTitle":"<strong>query<\/strong>简介",            "fromPageTitleEnc":"query简介",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "924391664,2741340555",            "os" : "1341642057,2547691298",            "simid" : "924391664,2741340555",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "588cb0",            "clickUrl": ""        },{"thumbURL":"../../t14.baidu.com/it/u1568727682106360042fm224app112fjpegw400h400","replaceUrl": [{"ObjURL":"https_3a//item.m.jd.com/product/1198373686~1.htmlc","ObjUrl":"https_3a//item.m.jd.com/product/1198373686~1.htmlc","FromURL":"../../item.m.jd.com/product/1198373686~1.htmlc","FromUrl":"../../item.m.jd.com/product/1198373686~1.htmlc"}],"adType":"0","middleURL":"../../t14.baidu.com/it/u1568727682106360042fm224app112fjpegw400h400",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../t13.baidu.com/it/u1568727682106360042fm224app112fjpegw400h400",            "pageNum":3,            "objURL":"../../httpsimg14.360buyimg.com/pop/jfs/t196/320/1421228008/13512/746b8d74/53ad1b02nf004142c.jpg",            "fromURL":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~4",            "fromJumpUrl":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~4",            "fromURLHost":"京东","currentIndex":"",            "width":400,            "height":400,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "66065200_1182_0_0",            "filesize":"",            "bdSrcType":"14",            "di":"58720257",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"",            "fromPageTitle":"预订 mining <strong>query<\/strong> logs : turning search usage data into",            "fromPageTitleEnc":"预订 mining query logs : turning search usage data into",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1568727682,106360042",            "os" : "664044692,7083439",            "simid" : "1568727682,106360042",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "1",            "commodityInfo":{"landpage_url":"https:../item.jd.com/1198373686.html","price":1145,"bmc_id":"15472112981","xcx_params":{"xcx_appkey":"4VvF29wlVg61mjRYCp4tY5dqkBgOyoYN","xcx_url":"pages/product/productwareid1198373686cutrueutm_sourcebaiduxcscsutm_~1"},"is_cps":1,"source":"\u4eac\u4e1c\u5546\u57ce","pid":"10019","is_pc":1,"sales_volume":"0","domain":0,"goods_sign":"","cps_url":"https_3a//union-click.jd.com/jdcepjf8bancjk1olxq4fufldcewtbl8ig1mcxwaau1daoa9iwzfx~1","logo_image_url":"https:error.html","cps_promotion":"\u6bcf\u6ee199\u5143\uff0c\u53ef\u51cf5\u5143\u73b0\u91d1","shop_name":"\u6f9c\u745e\u5916\u6587Lanree\u56fe\u4e66\u4e13\u8425\u5e97"},            "shituToken": "71a67c",            "clickUrl": ""        },{"thumbURL":"../../t15.baidu.com/it/u1161505612712732187fm224app112fjpegw500h500","replaceUrl": [{"ObjURL":"https_3a//item.m.jd.com/product/10058437154691~1.htmlc","ObjUrl":"https_3a//item.m.jd.com/product/10058437154691~1.htmlc","FromURL":"../../item.m.jd.com/product/10058437154691~1.htmlc","FromUrl":"../../item.m.jd.com/product/10058437154691~1.htmlc"}],"adType":"0","middleURL":"../../t15.baidu.com/it/u1161505612712732187fm224app112fjpegw500h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../t14.baidu.com/it/u1161505612712732187fm224app112fjpegw500h500",            "pageNum":4,            "objURL":"../../httpsimg14.360buyimg.com/pop/jfs/t1/171916/12/28647/38868/62f89dcae6d700c17/d86291034b4fc200.jpg",            "fromURL":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~5",            "fromJumpUrl":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~5",            "fromURLHost":"京东","currentIndex":"",            "width":800,            "height":800,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "62920288_1188_0_0",            "filesize":"",            "bdSrcType":"14",            "di":"58720257",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"",            "fromPageTitle":"预订 <strong>query<\/strong> processing over incomplete databases",            "fromPageTitleEnc":"预订 query processing over incomplete databases",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1161505612,712732187",            "os" : "2519833257,1790170309",            "simid" : "1161505612,712732187",            "source_type":"",            "personalized":"0",            "base64": "data:image/jpeg;base64,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",            "adPicId": "0",            "isCommodity": "1",            "commodityInfo":{"landpage_url":"https:../item.jd.com/10058437154691.html","price":682,"bmc_id":"23344972737","xcx_params":{"xcx_appkey":"4VvF29wlVg61mjRYCp4tY5dqkBgOyoYN","xcx_url":"pages/product/productwareid10058437154691cutrueutm_sourcebaiduxcscs~1"},"is_cps":1,"source":"\u4eac\u4e1c\u5546\u57ce","pid":"10019","is_pc":1,"sales_volume":"0","domain":0,"goods_sign":"","cps_url":"https_3a//union-click.jd.com/jdcepjf8ban8jk1olxq4fufldcewtbl8iglorvamaul5zduwfa19m~1","logo_image_url":"https:error.html","cps_promotion":"\u6bcf\u6ee199\u5143\uff0c\u53ef\u51cf5\u5143\u73b0\u91d1","shop_name":"\u6f9c\u745e\u5916\u6587Lanree\u56fe\u4e66\u4e13\u8425\u5e97"},            "shituToken": "14d88e",            "clickUrl": ""        },{"thumbURL":"../../httpsimg1.baidu.com/it/u40822928292963084532fm253fmtautoapp138fjpegw500h310","replaceUrl": [{"ObjURL":"https:../img2021.freeaihub.com/4/425026e27459c3465f071a460ba6f49a-2.jpg","ObjUrl":"https:../img2021.freeaihub.com/4/425026e27459c3465f071a460ba6f49a-2.jpg","FromURL":"../../www.freeaihub.com/post/46634.html","FromUrl":"../../www.freeaihub.com/post/46634.html"}],"adType":"0","middleURL":"../../httpsimg1.baidu.com/it/u40822928292963084532fm253fmtautoapp138fjpegw500h310",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg1.baidu.com/it/u40822928292963084532fm253fmtautoapp138fjpegw500h310",            "pageNum":5,            "objURL":"../../httpsimg2021.freeaihub.com/4/425026e27459c3465f071a460ba6f49a-2.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bu6jjwti7k_z&e3Bv54AzdH3Fr5fpAzdH3F9mmn9_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bu6jjwti7k_z&e3Bv54AzdH3Fr5fpAzdH3F9mmn9_z&e3Bip4s",            "fromURLHost":"www.freeaihub.com","currentIndex":"",            "width":954,            "height":592,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2216694576_95_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2019-12-11 22:44",            "fromPageTitle":"一步一步理解impala <strong>query<\/strong> profile(一)",            "fromPageTitleEnc":"一步一步理解impala query profile(一)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1814999212,671774407",            "os" : "2433100874,1826348058",            "simid" : "1814999212,671774407",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "8b4dcf",            "clickUrl": ""        },{"thumbURL":"../../t13.baidu.com/it/u40470914752266669080fm224app112fjpegw406h500","replaceUrl": [{"ObjURL":"https_3a//uland.taobao.com/item/edetailidqwvxoei2t0onv8tdwqiwt0-dqyokwmfnymoqkpacwk","ObjUrl":"https_3a//uland.taobao.com/item/edetailidqwvxoei2t0onv8tdwqiwt0-dqyokwmfnymoqkpacwk","FromURL":"https_3a//uland.taobao.com/item/edetailidqwvxoei2t0onv8tdwqiwt0-dqyokwmfnymoqkpacwk","FromUrl":"https_3a//uland.taobao.com/item/edetailidqwvxoei2t0onv8tdwqiwt0-dqyokwmfnymoqkpacwk"}],"adType":"0","middleURL":"../../t13.baidu.com/it/u40470914752266669080fm224app112fjpegw406h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../t13.baidu.com/it/u40470914752266669080fm224app112fjpegw406h500",            "pageNum":6,            "objURL":"../../httpsimg.alicdn.com/bao/uploaded/i3/3161438380/o1cn01a16t8s2bm5qpmch2d_21210-item_pic.jpg",            "fromURL":"ipprf_z2c$qazdh3fazdh3f7swg1_ze3bpw5kw5_ze3bv54azdh~10",            "fromJumpUrl":"ipprf_z2c$qazdh3fazdh3f7swg1_ze3bpw5kw5_ze3bv54azdh~10",            "fromURLHost":"淘宝","currentIndex":"",            "width":1000,            "height":1233,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "69210928_1152_0_0",            "filesize":"",            "bdSrcType":"14",            "di":"58720257",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"",            "fromPageTitle":"【预售 按需印刷】<strong>query<\/strong> answer authentication",            "fromPageTitleEnc":"【预售 按需印刷】query answer authentication",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4047091475,2266669080",            "os" : "3876999891,65222944",            "simid" : "4047091475,2266669080",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "1",            "commodityInfo":{"landpage_url":"https_3a//uland.taobao.com/item/edetailidmjb33xquktvqynwsdbxcqta-dqyokwmfnymoqkpacwk","price":494,"bmc_id":"26976308348","xcx_params":[],"is_cps":1,"source":"\u6dd8\u5b9d","pid":"30019","is_pc":1,"sales_volume":"0","domain":1,"goods_sign":"","cps_url":"https:\/\/s.click.taobao.com\/t?e=m%3D2%26s%3D7Kxu97VjZUocQipKwQzePOeEDrYVVa64r4ll3HtqqoxyINtkUhsv0FttZED3qt3dJllEqaezRfgZvXyjnZz4DyRUVuhXTANrzAzxiKY9o1o21iH3QDqMDGEs8nka5PQlxl%2BhMPmMA%2BPfKNlRtmjJcts5SH%2BkQbRv4Nbpje3Z8kekL7oLqX3%2Fg0eqIIErA43DBFHA9Gm1XU56z5Qe82PTvwDK%2FSomDCDADF1JC%2BSN5MWURQpieUtmS32LUrcUT0MzLk08JaEK5bM%3D&scm=1007.30148.309617.0&pvid=16334c3a-0e35-4cc6-bc53-bd74b9a0405b&app_pvid=59590_33.7.40.223_807_1678812300750&ptl=floorId:2836;originalFloorId:2836;pvid:16334c3a-0e35-4cc6-bc53-bd74b9a0405b;app_pvid:59590_33.7.40.223_807_1678812300750&xId=2TOSNpbRJORanpX2DWcYYxYqNbZEOdWyO6U8VR7YCOAorR2N8yPMJVzSPjYQKgkiemJqFuDIvJUNCnYpEjOJMy1zYasUD6m8PDg0o14RHUSq&union_lens=lensId%3AMAPI%401678812300%40210728df_0b79_186e102c68c_4fc7%4001%40eyJmbG9vcklkIjoyODM2fQieie","logo_image_url":"https:error.html","cps_coupons_array":[{"cps_coupons_text":"\u6ee1400\u5143\u51cf65\u5143"}],"shop_name":"\u4e2d\u56fe\u6570\u5b57\u56fe\u4e66\u4e13\u8425\u5e97"},            "shituToken": "3178c8",            "clickUrl": ""        },{"thumbURL":"../../httpsimg1.baidu.com/it/u3873887719532944284fm253fmtautoapp138fpngw519h500","replaceUrl": [{"ObjURL":"https:../cdn.onlinewebfonts.com/svg/img_220743.png","ObjUrl":"https:../cdn.onlinewebfonts.com/svg/img_220743.png","FromURL":"../../www.onlinewebfonts.com/icon/220743","FromUrl":"../../www.onlinewebfonts.com/icon/220743"}],"adType":"0","middleURL":"../../httpsimg1.baidu.com/it/u3873887719532944284fm253fmtautoapp138fpngw519h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg1.baidu.com/it/u3873887719532944284fm253fmtautoapp138fpngw519h500",            "pageNum":7,            "objURL":"../../httpscdn.onlinewebfonts.com/svg/img_220743.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B5gstgjojku5gpf_z&e3Bv54AzdH3Ftv5gAzdH3Fdda09n",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B5gstgjojku5gpf_z&e3Bv54AzdH3Ftv5gAzdH3Fdda09n",            "fromURLHost":"www.onlinewebfonts.com","currentIndex":"",            "width":980,            "height":944,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "74453696_98_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7249025186345779201",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2017-06-09 04:56",            "fromPageTitle":"<strong>query<\/strong> free icon",            "fromPageTitleEnc":"query free icon",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1919905708,1518837746",            "os" : "64242679,2155223086",            "simid" : "3445579565,270958140",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "51579c",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u30875345802533054981fm253fmtautoapp138fjpegw554h305","replaceUrl": [{"ObjURL":"https:\/\/s2.51cto.com\/images\/blog\/202105\/31\/d57531adc5d37ce818afe8da3f16aa88.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=","ObjUrl":"https:\/\/s2.51cto.com\/images\/blog\/202105\/31\/d57531adc5d37ce818afe8da3f16aa88.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=","FromURL":"../../blog.51cto.com/15239532/2836078","FromUrl":"../../blog.51cto.com/15239532/2836078"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u30875345802533054981fm253fmtautoapp138fjpegw554h305",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u30875345802533054981fm253fmtautoapp138fjpegw554h305",            "pageNum":8,            "objURL":"../../httpss2.51cto.com/images/blog/202105/31/d57531adc5d37ce818afe8da3f16aa88~1.pngx-",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bc8vp5_z&e3Bv54AzdH3F8cdnlcndAzdH3Fdbnma0b",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fks52_z&e3Bc8vp5_z&e3Bv54AzdH3F8cdnlcndAzdH3Fdbnma0b",            "fromURLHost":"blog.51cto.com","currentIndex":"",            "width":554,            "height":305,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2214597424_1119_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2021-05-31 17:14",            "fromPageTitle":"白话elasticsearch05结构化搜索之使用range<strong>query<\/strong>来进行范围过滤",            "fromPageTitleEnc":"白话elasticsearch05结构化搜索之使用rangequery来进行范围过滤",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2143716091,3832208565",            "os" : "3411617085,3197504654",            "simid" : "2143716091,3832208565",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "86ff91",            "clickUrl": ""        },{"thumbURL":"../../t15.baidu.com/it/u38746246452289265690fm224app112fjpegw400h400","replaceUrl": [{"ObjURL":"https_3a//item.m.jd.com/product/1197669687~1.htmlc","ObjUrl":"https_3a//item.m.jd.com/product/1197669687~1.htmlc","FromURL":"../../item.m.jd.com/product/1197669687~1.htmlc","FromUrl":"../../item.m.jd.com/product/1197669687~1.htmlc"}],"adType":"0","middleURL":"../../t15.baidu.com/it/u38746246452289265690fm224app112fjpegw400h400",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../t15.baidu.com/it/u38746246452289265690fm224app112fjpegw400h400",            "pageNum":9,            "objURL":"../../httpsimg14.360buyimg.com/pop/jfs/t175/144/1418042355/19851/e16c8333/53ac5bban29eb74a3.jpg",            "fromURL":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~6",            "fromJumpUrl":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~6",            "fromURLHost":"京东","currentIndex":"",            "width":400,            "height":400,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2213548848_1121_0_0",            "filesize":"",            "bdSrcType":"14",            "di":"58720257",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"",            "fromPageTitle":"预订 <strong>query<\/strong> letters that worked!",            "fromPageTitleEnc":"预订 query letters that worked!",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3874624645,2289265690",            "os" : "687584523,39431004",            "simid" : "3874624645,2289265690",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "1",            "commodityInfo":{"landpage_url":"https:../item.jd.com/1197669687.html","price":248,"bmc_id":"15442451041","xcx_params":{"xcx_appkey":"4VvF29wlVg61mjRYCp4tY5dqkBgOyoYN","xcx_url":"pages/product/productwareid1197669687cutrueutm_sourcebaiduxcscsutm_~1"},"is_cps":1,"source":"\u4eac\u4e1c\u5546\u57ce","pid":"10019","is_pc":1,"sales_volume":"0","domain":0,"goods_sign":"","cps_url":"https_3a//union-click.jd.com/jdcepjf8bancjk1olxq4fufldcewtbl8ig1mtwgeku1dboa9iwzfx~1","logo_image_url":"https:error.html","cps_promotion":"\u6bcf\u6ee199\u5143\uff0c\u53ef\u51cf5\u5143\u73b0\u91d1","shop_name":"\u6f9c\u745e\u5916\u6587Lanree\u56fe\u4e66\u4e13\u8425\u5e97"},            "shituToken": "03c443",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u41020422331896895815fm253fmtautoapp138fjpegw667h500","replaceUrl": [{"ObjURL":"https:../file1.renrendoc.com/fileroot2/2020-1/7/c4f5af22-d85a-447a-ac1e-2e93b31e0a55/c4f5af22-d85a-447a-ac1e-2e93b31e0a552.gif","ObjUrl":"https:../file1.renrendoc.com/fileroot2/2020-1/7/c4f5af22-d85a-447a-ac1e-2e93b31e0a55/c4f5af22-d85a-447a-ac1e-2e93b31e0a552.gif","FromURL":"../../www.renrendoc.com/paper/91892995.html","FromUrl":"../../www.renrendoc.com/paper/91892995.html"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u41020422331896895815fm253fmtautoapp138fjpegw667h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u41020422331896895815fm253fmtautoapp138fjpegw667h500",            "pageNum":10,            "objURL":"../../httpsfile1.renrendoc.com/fileroot2/2020-1/7/c4f5af22-d85a-447a-ac1e-2e93b31e0a55/c4f5af22-d85a-447a-ac1e-2e93b31e0a552.gif",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B6jg6jg15v_z&e3Bv54AzdH3Frwrj6AzdH3Fl8bldllc_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B6jg6jg15v_z&e3Bv54AzdH3Frwrj6AzdH3Fl8bldllc_z&e3Bip4s",            "fromURLHost":"error.html","currentIndex":"",            "width":800,            "height":600,            "type":"gif",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2214597424_164_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2020-08-10 00:00",            "fromPageTitle":"<strong>query<\/strong>languagesppt",            "fromPageTitleEnc":"querylanguagesppt",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1882353036,3682431607",            "os" : "3297457059,3704436674",            "simid" : "1882353036,3682431607",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "705d0f",            "clickUrl": ""        },{"thumbURL":"../../httpsimg0.baidu.com/it/u41851344622131328839fm253fmtautoapp138fjpegw939h428","replaceUrl": [{"ObjURL":"https:../imgsa.baidu.com/exp/pic/item/caae68094b36acafed9d30547ed98d1000e99cde.jpg","ObjUrl":"https:../imgsa.baidu.com/exp/pic/item/caae68094b36acafed9d30547ed98d1000e99cde.jpg","FromURL":"../../jingyan.baidu.com/article/cbcede07c96ee102f40b4dee.html","FromUrl":"../../jingyan.baidu.com/article/cbcede07c96ee102f40b4dee.html"}],"adType":"0","middleURL":"../../httpsimg0.baidu.com/it/u41851344622131328839fm253fmtautoapp138fjpegw939h428",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg0.baidu.com/it/u41851344622131328839fm253fmtautoapp138fjpegw939h428",            "pageNum":11,            "objURL":"../../httpsimgsa.baidu.com/exp/pic/item/caae68094b36acafed9d30547ed98d1000e99cde.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F3tg2ywg_z&e3Bkwt17_z&e3Bv54AzdH3Fw6ptvsjAzdH3Fvkvj1ja0vlmjj8adu9ak91jj_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3F3tg2ywg_z&e3Bkwt17_z&e3Bv54AzdH3Fw6ptvsjAzdH3Fvkvj1ja0vlmjj8adu9ak91jj_z&e3Bip4s",            "fromURLHost":"jingyan.baidu.com","currentIndex":"",            "width":939,            "height":428,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2214596608_157_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2014-04-11 15:36",            "fromPageTitle":"php<strong>query<\/strong>简单使用教程",            "fromPageTitleEnc":"phpquery简单使用教程",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1160958243,2847425080",            "os" : "2045302513,625882250",            "simid" : "1160958243,2847425080",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "9844b2",            "clickUrl": ""        },{"thumbURL":"../../httpsimg0.baidu.com/it/u30836582324226571520fm253fmtautoapp138fjpegw961h500","replaceUrl": [{"ObjURL":"https:../pic1.zhimg.com/v2-960125fbdd7820775688040cb881d5fc_r.jpg","ObjUrl":"https:../pic1.zhimg.com/v2-960125fbdd7820775688040cb881d5fc_r.jpg","FromURL":"../../zhuanlan.zhihu.com/p/201477554","FromUrl":"../../zhuanlan.zhihu.com/p/201477554"}],"adType":"0","middleURL":"../../httpsimg0.baidu.com/it/u30836582324226571520fm253fmtautoapp138fjpegw961h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg0.baidu.com/it/u30836582324226571520fm253fmtautoapp138fjpegw961h500",            "pageNum":12,            "objURL":"../../httpspic1.zhimg.com/v2-960125fbdd7820775688040cb881d5fc_r.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3Fda8900cc9",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3Fda8900cc9",            "fromURLHost":"error.html","currentIndex":"",            "width":1240,            "height":645,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2214597424_92_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2020-08-27 22:56",            "fromPageTitle":"sapc4ccrm和s4hana的saved<strong>query<\/strong>使用介绍",            "fromPageTitleEnc":"sapc4ccrm和s4hana的savedquery使用介绍",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3138326213,1553605090",            "os" : "1648440434,1836308897",            "simid" : "3138326213,1553605090",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "9932bf",            "clickUrl": ""        },{"thumbURL":"../../httpsimg1.baidu.com/it/u27100947362178581932fm253fmtautoapp138fjpegw665h275","replaceUrl": [{"ObjURL":"https:../www.vimsky.com/wp-content/uploads/2020/02/1fccb0d34adebee0efded9cdd9f4b4cc.jpg","ObjUrl":"https:../www.vimsky.com/wp-content/uploads/2020/02/1fccb0d34adebee0efded9cdd9f4b4cc.jpg","FromURL":"../../vimsky.com/examples/usage/html-dom-queryselector-method.html","FromUrl":"../../vimsky.com/examples/usage/html-dom-queryselector-method.html"}],"adType":"0","middleURL":"../../httpsimg1.baidu.com/it/u27100947362178581932fm253fmtautoapp138fjpegw665h275",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg1.baidu.com/it/u27100947362178581932fm253fmtautoapp138fjpegw665h275",            "pageNum":13,            "objURL":"../../httpswww.vimsky.com/wp-content/uploads/2020/02/1fccb0d34adebee0efded9cdd9f4b4cc.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fet4fhy_z&e3Bv54AzdH3Fjxw4rsjfAzdH3F7fw2jAzdH3Fip4s-154-q7j6yfjsjvp56-4jpi51_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fet4fhy_z&e3Bv54AzdH3Fjxw4rsjfAzdH3F7fw2jAzdH3Fip4s-154-q7j6yfjsjvp56-4jpi51_z&e3Bip4s",            "fromURLHost":"vimsky.com","currentIndex":"",            "width":665,            "height":275,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "63968048_1122_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2020-10-07 01:16",            "fromPageTitle":"html dom <strong>query<\/strong>selector()用法及代码示例",            "fromPageTitleEnc":"html dom queryselector()用法及代码示例",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2905419992,505537077",            "os" : "2761640296,2766021743",            "simid" : "2905419992,505537077",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "cb4e45",            "clickUrl": ""        },{"thumbURL":"../../t15.baidu.com/it/u3331791824385146755fm224app112fjpegw405h500","replaceUrl": [{"ObjURL":"https_3a//uland.taobao.com/item/edetailidynaoxmbhrt2rod4trxjfvta-dqyokwmf033a3jxf0","ObjUrl":"https_3a//uland.taobao.com/item/edetailidynaoxmbhrt2rod4trxjfvta-dqyokwmf033a3jxf0","FromURL":"https_3a//uland.taobao.com/item/edetailidynaoxmbhrt2rod4trxjfvta-dqyokwmf033a3jxf0","FromUrl":"https_3a//uland.taobao.com/item/edetailidynaoxmbhrt2rod4trxjfvta-dqyokwmf033a3jxf0"}],"adType":"0","middleURL":"../../t15.baidu.com/it/u3331791824385146755fm224app112fjpegw405h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../t15.baidu.com/it/u3331791824385146755fm224app112fjpegw405h500",            "pageNum":14,            "objURL":"../../httpsimg.alicdn.com/bao/uploaded/i2/16620024190162119/t1et4hfbdcxxxxxxxx_21210-item_pic.jpg",            "fromURL":"ipprf_z2c$qazdh3fazdh3f7swg1_ze3bpw5kw5_ze3bv54azdh~11",            "fromJumpUrl":"ipprf_z2c$qazdh3fazdh3f7swg1_ze3bpw5kw5_ze3bv54azdh~11",            "fromURLHost":"淘宝","currentIndex":"",            "width":648,            "height":800,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "51385952_1152_0_0",            "filesize":"",            "bdSrcType":"14",            "di":"58720257",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"",            "fromPageTitle":"【预售】<strong>query<\/strong> answer authentication",            "fromPageTitleEnc":"【预售】query answer authentication",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3331791824,385146755",            "os" : "2588572311,2058968215",            "simid" : "3331791824,385146755",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "1",            "commodityInfo":{"landpage_url":"https_3a//uland.taobao.com/item/edetailidojdygnrcztd4rwysvdbumtj-dqyokwmf033a3jxf0","price":410,"bmc_id":"25031795203","xcx_params":[],"is_cps":1,"source":"\u6dd8\u5b9d","pid":"30019","is_pc":1,"sales_volume":"0","domain":1,"goods_sign":"","cps_url":"https:\/\/s.click.taobao.com\/t?e=m%3D2%26s%3DA29PMb0PYjocQipKwQzePOeEDrYVVa64r4ll3HtqqoxyINtkUhsv0AKhQbIHkIQ5LJZNqUVQqB8ZvXyjnZz4DyRUVuhXTANrzAzxiKY9o1o21iH3QDqMDGEs8nka5PQlxl%2BhMPmMA%2BMOCP8nP%2FA7pTRD4ECWrJNx%2FhD9bAtuMBI29Fxhpolpr8rxN2xIHxmA%2B%2B2pbkXtaLypEUUawvSBeIsZz9gX0Lg%2BFtDEUNfZcP%2BvrY6%2B44mcXbjP5WOqHnkgcSpj5qSCmbA%3D&scm=1007.30148.309617.0&pvid=dac6bbc7-7a43-42e7-bbf3-770531739bcc&app_pvid=59590_33.7.54.159_836_1671122074521&ptl=floorId:2836;originalFloorId:2836;pvid:dac6bbc7-7a43-42e7-bbf3-770531739bcc;app_pvid:59590_33.7.54.159_836_1671122074521&xId=2JLMwtOyWwHVzbTwULdlkqrWvqcH2XYDLmhoC0DtoO02eqioJRfKKfXykslWehJOuqVepobDHR5Ti9vx9tJZNmCbxqGQx0yQaAyQhPDzZxzA&union_lens=lensId%3AMAPI%401671122074%402107369f_0c38_18516a33c70_e173%4001","logo_image_url":"https:error.html","cps_coupons_array":[{"cps_coupons_text":"\u6ee1300\u5143\u51cf60\u5143"}],"shop_name":"\u4e2d\u56fd\u56fd\u9645\u56fe\u4e66\u4e13\u8425\u5e97"},            "shituToken": "ff2781",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u490785580447275222fm253fmtautoapp138fjpegw448h284","replaceUrl": [{"ObjURL":"https:../www.veidc.com/wp-content/uploads/2021/12/20211204_61ab07cb9f3e0.png","ObjUrl":"https:../www.veidc.com/wp-content/uploads/2021/12/20211204_61ab07cb9f3e0.png","FromURL":"../../www.veidc.com/23230.html","FromUrl":"../../www.veidc.com/23230.html"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u490785580447275222fm253fmtautoapp138fjpegw448h284",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u490785580447275222fm253fmtautoapp138fjpegw448h284",            "pageNum":15,            "objURL":"../../httpswww.veidc.com/wp-content/uploads/2021/12/20211204_61ab07cb9f3e0.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bejt1v_z&e3Bv54AzdH3Fdndna_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bejt1v_z&e3Bv54AzdH3Fdndna_z&e3Bip4s",            "fromURLHost":"www.veidc.com","currentIndex":"",            "width":472,            "height":299,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2211451696_1120_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2021-12-01 16:06",            "fromPageTitle":"使用wp<strong>query<\/strong>构建高效的wordpress查询",            "fromPageTitleEnc":"使用wpquery构建高效的wordpress查询",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2558260895,990761199",            "os" : "163126842,3657564955",            "simid" : "2558260895,990761199",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "a51c1c",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u40470201481920464741fm253fmtautoapp138fjpegw571h253","replaceUrl": [{"ObjURL":"https:../img.vpsss.net/wp-content/uploads/2021/12/1638346825-querymonitorcj.png","ObjUrl":"https:../img.vpsss.net/wp-content/uploads/2021/12/1638346825-querymonitorcj.png","FromURL":"../../www.vpsss.net/27534.html","FromUrl":"../../www.vpsss.net/27534.html"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u40470201481920464741fm253fmtautoapp138fjpegw571h253",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u40470201481920464741fm253fmtautoapp138fjpegw571h253",            "pageNum":16,            "objURL":"../../httpsimg.vpsss.net/wp-content/uploads/2021/12/1638346825-querymonitorcj.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Berfff_z&e3BgjpAzdH3Fd0cn9_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Berfff_z&e3BgjpAzdH3Fd0cn9_z&e3Bip4s",            "fromURLHost":"www.vpsss.net","currentIndex":"",            "width":571,            "height":253,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "59774416_1119_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2022-01-11 01:01",            "fromPageTitle":"wordpress检查检测插件<strong>query<\/strong>monitor",            "fromPageTitleEnc":"wordpress检查检测插件querymonitor",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2946233977,4098142375",            "os" : "4015050676,1600270598",            "simid" : "2946233977,4098142375",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "00575c",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u20483047051618845374fm253fmtautoapp138fjpegw500h281","replaceUrl": [{"ObjURL":"https_3a//pic4.zhimg.com/v2-241db9a3040e2ed6b5c6379a43e5388c_1440w.jpgsource172ae18b","ObjUrl":"https_3a//pic4.zhimg.com/v2-241db9a3040e2ed6b5c6379a43e5388c_1440w.jpgsource172ae18b","FromURL":"../../zhuanlan.zhihu.com/p/256385215","FromUrl":"../../zhuanlan.zhihu.com/p/256385215"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u20483047051618845374fm253fmtautoapp138fjpegw500h281",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u20483047051618845374fm253fmtautoapp138fjpegw500h281",            "pageNum":17,            "objURL":"../../httpspic4.zhimg.com/v2-241db9a3040e2ed6b5c6379a43e5388c_1440w.jpgsource172ae18b",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3Fdcmnbcd8c",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3Fdcmnbcd8c",            "fromURLHost":"error.html","currentIndex":"",            "width":1280,            "height":720,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2216694576_101_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7249025186345779201",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2020-07-24 00:00",            "fromPageTitle":"数据不规范power<strong>query<\/strong>中这个m函数你应该掌握",            "fromPageTitleEnc":"数据不规范powerquery中这个m函数你应该掌握",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3049264349,352056595",            "os" : "3618759293,1760742792",            "simid" : "3049264349,352056595",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "a462bb",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u28433594754005563994fm253fmtautoapp138fjpegw1058h500","replaceUrl": [{"ObjURL":"https:../pic2.zhimg.com/v2-fbaca1ed88438aa15800d7b04a371cb5_r.jpg","ObjUrl":"https:../pic2.zhimg.com/v2-fbaca1ed88438aa15800d7b04a371cb5_r.jpg","FromURL":"../../zhuanlan.zhihu.com/p/105115902","FromUrl":"../../zhuanlan.zhihu.com/p/105115902"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u28433594754005563994fm253fmtautoapp138fjpegw1058h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u28433594754005563994fm253fmtautoapp138fjpegw1058h500",            "pageNum":18,            "objURL":"../../httpspic2.zhimg.com/v2-fbaca1ed88438aa15800d7b04a371cb5_r.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3F8ac88clad",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3F8ac88clad",            "fromURLHost":"error.html","currentIndex":"",            "width":1830,            "height":865,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "68161392_97_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7249025186345779201",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2020-02-10 00:01",            "fromPageTitle":"power<strong>query<\/strong>灵活处理员工特殊出勤问题1初遇问题",            "fromPageTitleEnc":"powerquery灵活处理员工特殊出勤问题1初遇问题",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2782040845,4151235622",            "os" : "2984240246,1285745477",            "simid" : "2782040845,4151235622",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "50c0e8",            "clickUrl": ""        },{"thumbURL":"../../httpsimg0.baidu.com/it/u31698077031683395972fm253fmtautoapp138fjpegw667h500","replaceUrl": [{"ObjURL":"https:../img.doc.xuehai.net/pic/13e8522ac396742fad625a24/1-810-jpg_6-1080-0-0-1080.jpg","ObjUrl":"https:../img.doc.xuehai.net/pic/13e8522ac396742fad625a24/1-810-jpg_6-1080-0-0-1080.jpg","FromURL":"../../doc.xuehai.net/b13e8522ac396742fad625a24.html","FromUrl":"../../doc.xuehai.net/b13e8522ac396742fad625a24.html"}],"adType":"0","middleURL":"../../httpsimg0.baidu.com/it/u31698077031683395972fm253fmtautoapp138fjpegw667h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg0.baidu.com/it/u31698077031683395972fm253fmtautoapp138fjpegw667h500",            "pageNum":19,            "objURL":"../../httpsimg.doc.xuehai.net/pic/13e8522ac396742fad625a24/1-810-jpg_6-1080-0-0-1080.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F15v_z&e3Bx7jiwt_z&e3BgjpAzdH3Fk8njbcddwvnlm09duw1mdcwd9_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3F15v_z&e3Bx7jiwt_z&e3BgjpAzdH3Fk8njbcddwvnlm09duw1mdcwd9_z&e3Bip4s",            "fromURLHost":"doc.xuehai.net","currentIndex":"",            "width":1080,            "height":810,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2221938128_95_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2018-07-18 17:18",            "fromPageTitle":"08_<strong>query<\/strong>expansion",            "fromPageTitleEnc":"08_queryexpansion",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "733097684,813773184",            "os" : "1612788372,3032017442",            "simid" : "733097684,813773184",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "22d0a6",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u28498759161149177710fm253fmtautoapp138fpngw500h407","replaceUrl": [{"ObjURL":"https_3a//www.audiokinetic.com/images/2021.1.3_7665/sourcehelpidimages_2fquery_editor.png","ObjUrl":"https_3a//www.audiokinetic.com/images/2021.1.3_7665/sourcehelpidimages_2fquery_editor.png","FromURL":"../../www.audiokinetic.com/zh/library/edge/sourcehelpidworking_with_queries","FromUrl":"../../www.audiokinetic.com/zh/library/edge/sourcehelpidworking_with_queries"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u28498759161149177710fm253fmtautoapp138fpngw500h407",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u28498759161149177710fm253fmtautoapp138fpngw500h407",            "pageNum":20,            "objURL":"../../httpswww.audiokinetic.com/images/2021.1.3_7665/sourcehelpidimages_2fquery_editor.png",            "fromURL":"ippr_z2c$qazdh3fazdh3fooo_ze3bw71t5htgjptv_ze3bv54azd~1",            "fromJumpUrl":"ippr_z2c$qazdh3fazdh3fooo_ze3bw71t5htgjptv_ze3bv54azd~1",            "fromURLHost":"www.audiokinetic.com","currentIndex":"",            "width":915,            "height":745,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2210403152_94_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2018-03-26 19:41",            "fromPageTitle":"使用<strong>query<\/strong>",            "fromPageTitleEnc":"使用query",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1577709145,2320997635",            "os" : "1802850818,2981583816",            "simid" : "1577709145,2320997635",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "6d66e2",            "clickUrl": ""        },{"thumbURL":"../../httpsimg1.baidu.com/it/u7890838003341150746fm253fmtautoapp138fjpegw1000h500","replaceUrl": [{"ObjURL":"https:../docs.microsoft.com/zh-cn/power-query/media/power-query-ui/pqui-change-to-schema-view.png","ObjUrl":"https:../docs.microsoft.com/zh-cn/power-query/media/power-query-ui/pqui-change-to-schema-view.png","FromURL":"../../docs.microsoft.com/zh-cn/power-query/power-query-quickstart-using-power-bi","FromUrl":"../../docs.microsoft.com/zh-cn/power-query/power-query-quickstart-using-power-bi"}],"adType":"0","middleURL":"../../httpsimg1.baidu.com/it/u7890838003341150746fm253fmtautoapp138fjpegw1000h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg1.baidu.com/it/u7890838003341150746fm253fmtautoapp138fjpegw1000h500",            "pageNum":21,            "objURL":"../../httpsdocs.microsoft.com/zh-cn/power-query/media/power-query-ui/pqui-change-to-schema-view.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F15vf_z&e3B4tv65f5up_z&e3Bv54AzdH3Fzi-vgAzdH3Fr5oj6-q7j6yAzdH3Fr5oj6-q7j6y-q7tvhfpw6p-7ftg2-r5oj6-kt",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3F15vf_z&e3B4tv65f5up_z&e3Bv54AzdH3Fzi-vgAzdH3Fr5oj6-q7j6yAzdH3Fr5oj6-q7j6y-q7tvhfpw6p-7ftg2-r5oj6-kt",            "fromURLHost":"docs.microsoft.com","currentIndex":"",            "width":1232,            "height":616,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2215646000_96_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7249025186345779201",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2005-04-20 00:00",            "fromPageTitle":"power<strong>query<\/strong>用户界面",            "fromPageTitleEnc":"powerquery用户界面",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2649485263,2634259432",            "os" : "3916473531,694126656",            "simid" : "2649485263,2634259432",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "3a8980",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u41439169021608707931fm253fmtautoapp138fpngw500h500","replaceUrl": [{"ObjURL":"https:../cdn.onlinewebfonts.com/svg/download_301789.png","ObjUrl":"https:../cdn.onlinewebfonts.com/svg/download_301789.png","FromURL":"../../www.onlinewebfonts.com/icon/301789","FromUrl":"../../www.onlinewebfonts.com/icon/301789"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u41439169021608707931fm253fmtautoapp138fpngw500h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u41439169021608707931fm253fmtautoapp138fpngw500h500",            "pageNum":22,            "objURL":"../../httpscdn.onlinewebfonts.com/svg/download_301789.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B5gstgjojku5gpf_z&e3Bv54AzdH3Ftv5gAzdH3Fna80bl",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B5gstgjojku5gpf_z&e3Bv54AzdH3Ftv5gAzdH3Fna80bl",            "fromURLHost":"www.onlinewebfonts.com","currentIndex":"",            "width":980,            "height":980,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2224035280_101_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7249025186345779201",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2017-06-11 00:00",            "fromPageTitle":"home report <strong>query<\/strong> comments",            "fromPageTitleEnc":"home report query comments",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3274256590,1804437835",            "os" : "941889339,888901337",            "simid" : "3344361009,422911",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "5da862",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u13071813481147354621fm253fmtautoapp138fjpegw667h500","replaceUrl": [{"ObjURL":"https:../img.mianfeiwendang.com/pic/98948f2600f9783144ea143b/1-810-jpg_6-1080-0-0-1080.jpg","ObjUrl":"https:../img.mianfeiwendang.com/pic/98948f2600f9783144ea143b/1-810-jpg_6-1080-0-0-1080.jpg","FromURL":"../../www.mianfeiwendang.com/doc/98948f2600f9783144ea143b","FromUrl":"../../www.mianfeiwendang.com/doc/98948f2600f9783144ea143b"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u13071813481147354621fm253fmtautoapp138fjpegw667h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u13071813481147354621fm253fmtautoapp138fjpegw667h500",            "pageNum":23,            "objURL":"../../httpsimg.mianfeiwendang.com/pic/98948f2600f9783144ea143b/1-810-jpg_6-1080-0-0-1080.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B4twgujtojg1wg2_z&e3Bv54AzdH3F15vAzdH3Flbl9budmaaul0bn899jw89nk",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B4twgujtojg1wg2_z&e3Bv54AzdH3F15vAzdH3Flbl9budmaaul0bn899jw89nk",            "fromURLHost":"error.html","currentIndex":"",            "width":1080,            "height":810,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2221937072_98_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2018-12-17 01:11",            "fromPageTitle":"sap r3之<strong>query<\/strong>说明ppt",            "fromPageTitleEnc":"sap r3之query说明ppt",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1449649872,1182576415",            "os" : "1966185893,1610043802",            "simid" : "3394440602,176921583",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "f52432",            "clickUrl": ""        },{"thumbURL":"../../httpsimg0.baidu.com/it/u12061928674197525339fm253fmtautoapp138fpngw560h426","replaceUrl": [{"ObjURL":"https:../www.webhek.com/wordpress/wp-content/uploads/2017/06/1-560x426.png","ObjUrl":"https:../www.webhek.com/wordpress/wp-content/uploads/2017/06/1-560x426.png","FromURL":"../../www.webhek.com/post/making-a-short-alias-for-document-queryselectorall.html","FromUrl":"../../www.webhek.com/post/making-a-short-alias-for-document-queryselectorall.html"}],"adType":"0","middleURL":"../../httpsimg0.baidu.com/it/u12061928674197525339fm253fmtautoapp138fpngw560h426",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg0.baidu.com/it/u12061928674197525339fm253fmtautoapp138fpngw560h426",            "pageNum":24,            "objURL":"../../httpswww.webhek.com/wordpress/wp-content/uploads/2017/06/1-560x426.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bojkijh_z&e3Bv54AzdH3Fr5fpAzdH3F4whtg2-w-fi56p-wstwf-u56-15v74jgp-q7j6yfjsjvp56wss_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bojkijh_z&e3Bv54AzdH3Fr5fpAzdH3F4whtg2-w-fi56p-wstwf-u56-15v74jgp-q7j6yfjsjvp56wss_z&e3Bip4s",            "fromURLHost":"www.webhek.com","currentIndex":"",            "width":560,            "height":426,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2210403152_92_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7249025186345779201",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2015-12-21 14:40",            "fromPageTitle":"<strong>query<\/strong>selectorall",            "fromPageTitleEnc":"queryselectorall",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1657330634,492338487",            "os" : "3198684541,3392413980",            "simid" : "3534738193,345948536",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "a82975",            "clickUrl": ""        },{"thumbURL":"../../t15.baidu.com/it/u1862098223977095619fm224app112fjpegw267h400","replaceUrl": [{"ObjURL":"https_3a//item.m.jd.com/product/10036139704934~1.htmlc","ObjUrl":"https_3a//item.m.jd.com/product/10036139704934~1.htmlc","FromURL":"../../item.m.jd.com/product/10036139704934~1.htmlc","FromUrl":"../../item.m.jd.com/product/10036139704934~1.htmlc"}],"adType":"0","middleURL":"../../t15.baidu.com/it/u1862098223977095619fm224app112fjpegw267h400",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../t15.baidu.com/it/u1862098223977095619fm224app112fjpegw267h400",            "pageNum":25,            "objURL":"../../httpsimg14.360buyimg.com/pop/jfs/t1/203432/26/3271/14006/6128a586e49ea536d/7fa538c515084235.jpg",            "fromURL":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~7",            "fromJumpUrl":"ippr_z2c$qazdh3fazdh3ftpj4_ze3b4_ze3b31_ze3bv54azdh3~7",            "fromURLHost":"京东","currentIndex":"",            "width":267,            "height":400,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "50337376_1088_0_0",            "filesize":"",            "bdSrcType":"14",            "di":"58720257",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"",            "fromPageTitle":"预订approximate <strong>query<\/strong> processing",            "fromPageTitleEnc":"预订approximate query processing",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "186209822,3977095619",            "os" : "2599311600,1776053211",            "simid" : "186209822,3977095619",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "1",            "commodityInfo":{"landpage_url":"https:../item.jd.com/10036139704934.html","price":785,"bmc_id":"15616506116","xcx_params":{"xcx_appkey":"4VvF29wlVg61mjRYCp4tY5dqkBgOyoYN","xcx_url":"pages/product/productwareid10036139704934cutrueutm_sourcebaiduxcscs~1"},"is_cps":1,"source":"\u4eac\u4e1c\u5546\u57ce","pid":"10019","is_pc":1,"sales_volume":"0","domain":0,"goods_sign":"","cps_url":"https_3a//union-click.jd.com/jdcepjf8ban8jk1olxqmeuv5zcksuc18igloxwgyaxfhcdumvbl9m~1","logo_image_url":"https:error.html","cps_coupons_array":[{"cps_coupons_text":"\u6ee129\u5143\u51cf2\u5143"}],"cps_promotion":"\u6ee1200\u5143\u51cf30\u5143","shop_name":"\u9605\u4e16\u754c\u539f\u7248\u56fe\u4e66\u4e13\u8425\u5e97"},            "shituToken": "8beca4",            "clickUrl": ""        },{"thumbURL":"../../httpsimg2.baidu.com/it/u41391724373093948961fm253fmtautoapp138fjpegw1062h500","replaceUrl": [{"ObjURL":"https:../pic1.zhimg.com/v2-a625a7b8ea92e73f5f318bebeccd8b60_r.jpg","ObjUrl":"https:../pic1.zhimg.com/v2-a625a7b8ea92e73f5f318bebeccd8b60_r.jpg","FromURL":"../../zhuanlan.zhihu.com/p/201477554","FromUrl":"../../zhuanlan.zhihu.com/p/201477554"}],"adType":"0","middleURL":"../../httpsimg2.baidu.com/it/u41391724373093948961fm253fmtautoapp138fjpegw1062h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg2.baidu.com/it/u41391724373093948961fm253fmtautoapp138fjpegw1062h500",            "pageNum":26,            "objURL":"../../httpspic1.zhimg.com/v2-a625a7b8ea92e73f5f318bebeccd8b60_r.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3Fda8900cc9",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fzi7wgswg_z&e3Bziti7_z&e3Bv54AzdH3FrAzdH3Fda8900cc9",            "fromURLHost":"error.html","currentIndex":"",            "width":1240,            "height":584,            "type":"jpg",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2213548848_92_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2020-08-27 22:56",            "fromPageTitle":"sapc4ccrm和s4hana的saved<strong>query<\/strong>使用介绍",            "fromPageTitleEnc":"sapc4ccrm和s4hana的savedquery使用介绍",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1547152935,3564752456",            "os" : "2122720109,1718096949",            "simid" : "1547152935,3564752456",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "4c1027",            "clickUrl": ""        },{"thumbURL":"../../httpsimg0.baidu.com/it/u9997950942912275517fm253fmtautoapp138fjpegw587h352","replaceUrl": [{"ObjURL":"https:../img.vpsss.net/wp-content/uploads/2021/12/1638427013-querymonitorcj.png","ObjUrl":"https:../img.vpsss.net/wp-content/uploads/2021/12/1638427013-querymonitorcj.png","FromURL":"../../www.vpsss.net/27534.html","FromUrl":"../../www.vpsss.net/27534.html"}],"adType":"0","middleURL":"../../httpsimg0.baidu.com/it/u9997950942912275517fm253fmtautoapp138fjpegw587h352",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg0.baidu.com/it/u9997950942912275517fm253fmtautoapp138fjpegw587h352",            "pageNum":27,            "objURL":"../../httpsimg.vpsss.net/wp-content/uploads/2021/12/1638427013-querymonitorcj.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Berfff_z&e3BgjpAzdH3Fd0cn9_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Berfff_z&e3BgjpAzdH3Fd0cn9_z&e3Bip4s",            "fromURLHost":"www.vpsss.net","currentIndex":"",            "width":587,            "height":352,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "2211451696_1115_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2022-01-11 01:01",            "fromPageTitle":"wordpress检查检测插件<strong>query<\/strong>monitor",            "fromPageTitleEnc":"wordpress检查检测插件querymonitor",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1810024394,1970788314",            "os" : "3932885638,1548492645",            "simid" : "1810024394,1970788314",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "cdfe3c",            "clickUrl": ""        },{"thumbURL":"../../httpsimg1.baidu.com/it/u27488494324004471689fm253fmtautoapp138fjpgw757h500","replaceUrl": [{"ObjURL":"https:../images0.cnblogs.com/blog/8622/201308/25194305-33039236032e4997b9f24c0bb27202f5.png","ObjUrl":"https:../images0.cnblogs.com/blog/8622/201308/25194305-33039236032e4997b9f24c0bb27202f5.png","FromURL":"../../t.zoukankan.com/riskyer-p-3281250.html","FromUrl":"../../t.zoukankan.com/riskyer-p-3281250.html"}],"adType":"0","middleURL":"../../httpsimg1.baidu.com/it/u27488494324004471689fm253fmtautoapp138fjpgw757h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg1.baidu.com/it/u27488494324004471689fm253fmtautoapp138fjpgw757h500",            "pageNum":28,            "objURL":"../../httpsimages0.cnblogs.com/blog/8622/201308/25194305-33039236032e4997b9f24c0bb27202f5.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fp_z&e3Bz57hwghwg_z&e3Bv54AzdH3F6tfhyj6-r-ndb8dca_z&e3Bip4s",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fp_z&e3Bz57hwghwg_z&e3Bv54AzdH3F6tfhyj6-r-ndb8dca_z&e3Bip4s",            "fromURLHost":"t.zoukankan.com","currentIndex":"",            "width":831,            "height":549,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "60821680_153_0_0",            "filesize":"",            "bdSrcType":"0",            "di":"7249025186345779201",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2004-01-13 00:00",            "fromPageTitle":"power bi for office 365(二)power <strong>query<\/strong>",            "fromPageTitleEnc":"power bi for office 365(二)power query",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1367968754,4245014347",            "os" : "9625880,2400818040",            "simid" : "1367968754,4245014347",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "445d7b",            "clickUrl": ""        },{"thumbURL":"../../httpsimg1.baidu.com/it/u18702811542676093313fm253fmtautoapp138fjpegw910h500","replaceUrl": [{"ObjURL":"https_3a//pic.wangt.cc/download/pic_router.phppathhttps_3a_2f_2fimg2020.cnblogs.com_2~1.png","ObjUrl":"https_3a//pic.wangt.cc/download/pic_router.phppathhttps_3a_2f_2fimg2020.cnblogs.com_2~1.png","FromURL":"../../www.wangt.cc/2021/06/hibernate-query/default.htm","FromUrl":"../../www.wangt.cc/2021/06/hibernate-query/default.htm"}],"adType":"0","middleURL":"../../httpsimg1.baidu.com/it/u18702811542676093313fm253fmtautoapp138fjpegw910h500",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"../../httpsimg1.baidu.com/it/u18702811542676093313fm253fmtautoapp138fjpegw910h500",            "pageNum":29,            "objURL":"../../httpspic.wangt.cc/download/pic_router.phppathhttps_3a_2f_2fimg2020.cnblogs.com_2~1.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bowg2p_z&e3BvvAzdH3Fdad8AzdH3FamAzdH3Fitkj6gwpj-q7j6yAzdH3F",            "fromJumpUrl":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bowg2p_z&e3BvvAzdH3Fdad8AzdH3FamAzdH3Fitkj6gwpj-q7j6yAzdH3F",            "fromURLHost":"www.wangt.cc","currentIndex":"",            "width":2871,            "height":1577,            "type":"png",            "is_gif":0,            "isCopyright":0,            "resourceInfo":null,            "strategyAssessment": "67114448_1115_0_0",            "filesize":"",            "bdSrcType":"15",            "di":"7249025186408693761",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,"spn":0,            "bdImgnewsDate":"2021-06-14 00:00",            "fromPageTitle":"hibernate<strong>query<\/strong>",            "fromPageTitleEnc":"hibernatequery",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4197588104,1502748371",            "os" : "1377568973,1436615449",            "simid" : "4197588104,1502748371",            "source_type":"",            "personalized":"0",            "base64": "",            "adPicId": "0",            "isCommodity": "0",            "commodityInfo":null,            "shituToken": "efeef6",            "clickUrl": ""        },{}]}
+);
+    app.setData('fcadData', {"fcData":[],"fcMidData":[],"fcBtData":[],"fcType":"","adType":0,"fcAdDatasLen":"0"}
+);
+    app.setData('albumBannerData', []);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('rpData', {"data": []});
+    app.setData('browserRsData', {    "Status" : "",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]}
+);
+    app.setData('rsQuery', [["高级", ""],["教程", ""],["方法", ""],["excel", ""],["启用", ""],["参数", ""],["micro", ""],["js", ""],["获取", ""]]);
+    app.setData('middlers', []);
+
+    app.setData('rsResult', []);
+    app.setData('hotWords', [{            "query": "重庆4.8级地震",            "flag": "重庆4.8级地震",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~2.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "内蒙古现罕见日柱",            "flag": "内蒙古现罕见日柱",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~3.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "女歌手本兮22岁逝世",            "flag": "女歌手本兮22岁逝世",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~4.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "蒋劲夫托举佟丽娅",            "flag": "蒋劲夫托举佟丽娅",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~5.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "打工钱被咬成碎片",            "flag": "打工钱被咬成碎片",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~6.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "村民发现奇石似飞碟",            "flag": "村民发现奇石似飞碟",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~7.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "环卫夫妻身高不足一米四",            "flag": "环卫夫妻身高不足一米四",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~8.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "沙滩现巨大黑色怪物",            "flag": "沙滩现巨大黑色怪物",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresultf~9.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "黄子韬搂何炅",            "flag": "黄子韬搂何炅",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresult~10.htm",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "2016nba圣诞大战",            "flag": "2016nba圣诞大战",            "url": "indextnbaiduimageipnrct201326592cl2lm-1st-1fmresult~11.htm",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+
+    
+    
+    app.init();
+    app.run();
+});
+}();
+!function(){    window.tn = 'result';
+    window.vsid = 'dfc66e7d73305ac78d90b13f10b2f96f7f219212';
+    if ('index' === window.tn
+        || 'result' === window.tn
+        || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb');
+        sttb.removeAttribute && sttb.removeAttribute('title');
+    }
+    /**
+     * 统计代码
+    **/
+    window.ss = function(){
+        var URL = '../../imgstat.baidu.com/9.gifrainbow1';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json != 'object') return json;
+        var query = [];
+        for(var i in json){
+            if(i != '')
+                query[query.length] = i + '=' + json[i];
+        }
+        return query.join('&');
+    }
+
+    require.async(["common:widget/ui/base/base","common:widget/shitu/run"],function($, shitu){
+        window.$ = $;
+        $(document).ready(function() {
+            var st = new shitu();
+            st.init();
+            window.stInstance = st;
+        });
+    });
+
+}();
+!function(){    require.async(["searchresult:widget/pagelets/base/topRs/topRs"],function(topRsClass){
+        var topRs = new topRsClass();
+        var changeFilter = false;
+                    changeFilter = true;
+                topRs.init({
+            changeFilter: changeFilter
+        });
+    })
+}();
+!function(){    if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+            new Timeliness().init(window.hotspotData);
+        });
+    }
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/base/base","searchresult:widget/ui/utils/utils","common:widget/ui/historyRecord/historyRecord","common:widget/ui/utils/utils"],function( $, utils, HistoryRecord, commonUtils){
+
+    window.s_submit = function(form,isRefresh){
+
+
+//图片url检索跳转
+var keyword = form.word.value;
+
+if ($.trim(keyword).length > 0) {
+    var historyRecord = new HistoryRecord({historyKey: 'indexPageSugList'});
+    historyRecord.setRecord(keyword);
+    $.cookie.set('cleanHistoryStatus', 0, {path: '../default.htm'});
+}
+
+
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var ajaxURL = '../../httpsgraph.baidu.com/uploadimage' + encodeURIComponent(keyword) + '&range=imagePage&tn=pc&from=pc&image_source=PC_UPLOAD_IMAGE_ICONURL&extUiData%5bisLogoShow%5d=1';
+var isIE6789 = $.browser.msie && ($.browser.version <= 9);
+
+        if (tiaoma && !isIE6789) {
+            // speed
+            $.cookie('uploadTime', new Date().getTime(), {path: '../default.htm'});
+
+            $.ajax({
+                url: ajaxURL,
+                type: 'post',
+                success: function (response) {
+                    if (response.status === 0) {
+                        location.href = response.data.url;
+                    } else if (response.status === 1002) {
+                        alert('未找到该图片的详细信息，请上传其他图片');
+                    } else {
+                        alert('出错了！（规则未定）');
+                    }
+                },
+                error: function () {
+                    alert('网络问题，请稍候再试！');
+                }
+            });
+           return false;
+        }
+
+
+        var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+        if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+        if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+        if(utils.trim(searchConf.queryWord) == form.word.value){
+            form.fmq.value = utils.fmqValueSet();
+        }else{
+            var fmqDate = new Date();
+            var T = fmqDate.getTime();
+            if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+                var fmqvalue = searchConf.fmq;
+                form.fmq.value = T + '_' +fmqvalue + '_R';
+            }else{
+                form.fmq.value =  T + '_R';
+            }
+
+        }
+        var isflip = $('body').hasClass('flip');
+        form.tn.value = "baiduimage";
+
+        form.ct.value = "201326592";
+        form.cl.value = "2";
+        
+        form.pv.value = "";
+        form.action = "index";
+
+        // 新筛选，及未命中阿凡达筛选时，重新检索时需要记录筛选
+                    form.z.value = commonUtils.getQueryValue('z');
+            form.ic.value = commonUtils.getQueryValue('ic');
+            form.lm.value = commonUtils.getQueryValue('lm');
+            form.hd.value = commonUtils.getQueryValue('hd');
+            form.latest.value = commonUtils.getQueryValue('latest');
+            form.copyright.value = commonUtils.getQueryValue('copyright');
+            form.width.value = commonUtils.getQueryValue('width');
+            form.height.value = commonUtils.getQueryValue('height');
+        
+        if (window.canUseHttps) {
+            form.action = '../../https_2f/' + window.location.host + '/search/index';
+        }
+
+        if(isflip) {
+            form.action = "flip";
+        }
+        if(isRefresh == true){
+            // submit直接提交新query
+            form.se.value = "1";
+        }else{
+            var showtab =  parseInt(searchConf.showtab);
+            if(!isNaN(showtab)&&showtab>0){
+                form.showtab.value = showtab;
+            }
+        }
+        form.ctd.value = (+new Date()) + "^00_" + $(window).width() + "X" +  window.innerHeight;
+
+        return true;
+    }
+})
+
+}();
+!function(){    require.async(["searchresult:widget/pagelets/base/imgShowOpt/imgShowOpt"],function(imgShowOptClass){
+        var imgShowOpt= new imgShowOptClass();
+        imgShowOpt.init();
+    })
+}();
+!function(){
+		window.bid = 56;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = '../../passport.baidu.com/passapi/js/uni_login_wrapper.jscdnversion' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['common:widget/ui/backtop/backTop']);
+
+    require.async(['common:widget/ui/feedback/feedback'], function (feedback) {
+        var callbacks = {};
+        var containerId = 'common-feedback-link';
+        feedback.init(callbacks, containerId);
+    });
+}();
+!function(){            
+        require.async(['common:widget/ui/sourcehttps/sourcehttps'], function(init){
+            init({
+                tn: 'baiduimage',
+                word: '_QUERY_',
+                sample: 100 - 0
+            });
+        });
+    
+        require.async(['searchresult:widget/ui/utils/utils'], function(utils){
+        try {
+            utils.reportHttpsStatus();
+        } catch(e) {}
+    });
+}();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "_QUERY_";
+	var tn = "result";
+	var host = "../../imgstat.baidu.com/4.gif";
+	var hostSweb = "../pv/pv2.gif";
+    var rsw = "";
+
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw = '';
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "logid11089763472954528935ieutf-8q"+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "error.html" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "ieutf-8q"+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=&fr=" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();
+!function(){require.async(['common:widget/ui/base/base'], function($) {
+    var userFrom = '';
+
+    var elem = document.createElement('a');
+    elem.href = document.referrer;
+    var hostname = elem['hostname'];
+    var urlfr = '';
+    var chenjin = '';
+    var urlword = '_QUERY_';
+
+    if (hostname !== 'error.html') {
+        if (urlfr) {
+            userFrom += urlfr;
+            if (chenjin === '1') {
+                userFrom += 'chenjin1';
+            } else if (chenjin === '0') {
+                var wordList = ["%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87",
+                    "%E5%A4%B4%E5%83%8F",
+                    "%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87"];
+                if (wordList.indexOf(urlword) >= 0) {
+                    userFrom += 'chenjin0';
+                }
+            }
+        } else {
+            userFrom = hostname;
+        }
+    } else {
+        userFrom = $.cookie('userFrom') || '';
+    }
+
+    if (userFrom.length > 0) {
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 60 * 1000));
+        $.cookie('userFrom', userFrom, {path: '../default.htm', expires: date, domain: '.baidu.com'});
+    } else {
+        $.cookie('userFrom', null, {path: '../default.htm', domain: '.baidu.com'});
+    }
+});
+}();
+!function(){            require.async(["common:widget/ui/durationStat/durationStat"],function(durationStat){
+            durationStat.heartStart({
+                pageId: 2 - 0,
+                sid: '97777e90e05e3ed6ca9e3c187484ff41ef5f0e93',
+                cs: '',
+                word: '_QUERY_'
+            });
+        });
+    }();</script>   </html> 

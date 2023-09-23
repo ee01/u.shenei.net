@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="gbk"?>
+<root><![CDATA[<!--Add By 01-->
+
+
+
+
+
+&nbsp;&nbsp;暂时没有评分记录!
+
+<div class="ye_r_t"><div class="ye_l_t"><div class="ye_r_b"><div class="ye_l_b" style="background:#fff5b8">
+
+     
+     <table width="100%" border="0" cellpadding="0" cellspacing="2">
+  <tr>
+    <td width="75"><input type="radio" name="pingfen" value="5">非常好听</td>
+    <td><img src="images/star5.gif" /></td>
+  </tr>
+  <tr>
+    <td><input type="radio" name="pingfen" value="4">还不错</td>
+    <td><img src="images/star4.gif" /></td>
+  </tr>
+  <tr>
+    <td><input type="radio" name="pingfen" value="3">一般吧</td>
+    <td><img src="images/star3.gif" /></td>
+  </tr>
+  <tr>
+    <td><input type="radio" name="pingfen" value="2">比较难听</td>
+    <td><img src="images/star2.gif" /></td>
+  </tr>
+  <tr>
+    <td><input type="radio" name="pingfen" value="1">太难听了</td>
+    <td><img src="images/star1.gif" /></td>
+  </tr>
+  <tr>
+    <td align="left" colspan="2">
+                    <input type="hidden" name="pingfensubmit" value="true" />
+     <input type="button" name="commendpingfen_btn" value="提交" class="submit" onclick="ajaxpost('musicpingfenform', 'musicpingfenget', 2000)">
+     <input type="hidden" name="formhash" value="d5aa53ee" />
+              </td>
+  </tr>
+</table>
+
+</div></div></div></div>]]></root>

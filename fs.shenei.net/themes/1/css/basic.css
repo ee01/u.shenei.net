@@ -1,0 +1,78 @@
+body {
+font-family:"Helvetica Neue", "Lucida Grande", Helvetica, "microsoft sans serif", Arial, Verdana, sans-serif;
+font-size:75%;
+}
+
+html>body { font-size: 12px;}
+
+/*
+|| typo 
+*/
+* {text-shadow: #000000 0 0 0px; /*Fixes Safari text*/}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, p { font-weight:normal;}
+h1, h2, h3, h4, h5, h6 {margin-bottom:18px;letter-spacing:1px;}
+
+
+h1 { font-size: 2.0em; margin:0; }
+h2 { font-size: 1.7em;}
+h3 { font-size: 1.4em;}
+h4 { font-size: 1.2em;font-weight: bold; }
+h5 { font-size: 1.0em;font-weight: bold; }
+h6 { font-size: 0.8em;font-weight: bold; }
+
+
+/* Text elements*/
+
+p { line-height:18px;font-size:1em; margin:0 0 18px;}
+p img {padding:0;}
+abbr, acronym { border-bottom: 1px dotted #666; }
+address { margin-top: 18px; font-style: italic; }
+del { color:#666; }
+strong, th, thead, dt { font-weight: bold; }
+cite, em, dfn, i { font-style: italic; }
+blockquote { margin: 18px; color: #333; font-style: italic;}
+pre,code,tt { font: 1em 'andale mono', 'monotype.com', 'lucida console', monospace; line-height: 18px; } 
+tt { display: block; margin: 18px 0; line-height: 18px; }
+
+
+/* LISTS  & Links */
+
+.post ul, .page_post ul, .post ol, .page_post ol { margin:0 0 18px 18px; list-style-position:inside;}
+.post ul, .page_post ul { list-style:disc;}
+.post ol, .page_post ol { list-style-type: decimal;}
+.post ol li, .page_post ol li, .post ul li, .page_post ul li {line-height:18px;margin:6px 0;}
+.post ol ol, .page_post ol ol {list-style:upper-alpha;}
+.post ol ol ol, .page_post ol ol ol {list-style:lower-roman;}
+.post ol ol ol ol, .page_post ol ol ol ol {list-style:lower-alpha;}
+.post ul ul, .page_post ul ul, .post ol ol, .page_post ol ol, .post ul ol, .page_post ul ol, .post ol ul,  .page_post ol ul {margin-bottom:0;}
+dl { margin: 0 0 18px 0; }
+dl dt { font-weight: bold;margin:18px 0 6px; }
+dd { margin-left: 18px;line-height:18px;}
+
+/*###########################################################################################*/
+/* This needs to be first because FF3 is now supporting this */
+.clearfix {display: inline-block;}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    font-size: 0;
+    visibility: hidden;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+/*################################################################################################*/
+/*some wordpress related css*/
+.alignleft, img.alignleft {float: left;margin:0 18px 18px 0;}
+.alignright, img.alignright {display: block;float: right;margin:0 0 18px 18px;}
+.aligncenter, img.aligncenter {margin:0 auto 18px;display: block;clear: both;}
+.wp-caption {text-align: center;margin-bottom:18px;}
+.wp-caption img {margin: 0;padding: 0;border: 0 none;}
+.wp-caption p.wp-caption-text {margin: 0;padding:6px 0;}

@@ -1,0 +1,48 @@
+
+<script>
+var documentElement = document.documentElement || "";
+var isAjax = (documentElement.clientHeight || body.clientHeight) === 320 || (documentElement.clientHeight || body.clientHeight) === 480 || window.frames.length !== parent.frames.length;
+if (isAjax) {
+    try {
+      //兼容较新版本关闭逻辑
+      window.parent.postMessage(
+        JSON.stringify({
+          type: "child",
+          content: '{"smToken":"token","queryToken":"sm","sm":"sm"}'
+        }),
+        '*'
+      );
+    } catch (e) {
+      window.parent.postMessage(
+        '{"type":"child","content":"{\\"smToken\\":\\"token\\",\\"queryToken\\":\\"sm\\",\\"sm\\":\\"sm\\"}"}'
+      );
+    }
+    try {
+      //兼容老版本关闭方法
+      window.pointman.require(["m/messenger"], function(messenger) {
+        messenger.initListener({
+          currentWin: window,
+          originWin: window.parent,
+          msgTransfer: "fromParent"
+        });
+        messenger.send({
+          type: "msg:validateSuccess@sufei",
+          content: "smToken=xxxx"
+        });
+      });
+    } catch (e) {
+      console.log("not messenger");
+    }
+  } else {
+    if (sessionStorage && sessionStorage.x5referer !== location.href) {
+      //html 页面
+      location.replace(sessionStorage.x5referer || "../../../../https@www.taobao.com");
+      sessionStorage.x5referer = "";
+    } else if (sessionStorage && sessionStorage.x5referer) {
+      sessionStorage.x5referer = "";
+      location.reload();
+    } else {
+      location.href = "../../../../https@www.taobao.com";
+    }
+  }
+</script>

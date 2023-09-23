@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0051)http://u.shenei.net/viewspace.php?uid=32&do=applist --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>梦里花落知多少 </title>
+
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/00/32_style.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid32" title="李锋辉" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.phprsd32" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wraptwo">
+<div id="banner" class="banner">
+<div class="title" id="title">
+<h1 id="myblogname">梦里花落知多少  <em> 5233 人次访问, 428个积分 <a href="do.phpacajaxopcredituid32.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level3.gif" align="absmiddle" /><img src="image/star_level3.gif" align="absmiddle" /></a></em></h1>
+<p>我想可以呀…</p>
+<p><a href="32.htm" onclick="javascript:setCopy('32');return false;" class="spacelink domainurl">http://u.shenei.net/32</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=32', '');">
+主页 </a></li>
+-->
+
+<li>
+<a  href="viewspace.phpuid32.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('ovr0/viewspace.phpuid32doaboutme.htm', 'aboutme');">
+关于我 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('ovr0/viewspace.phpuid32doblogviewme.htm', 'blog');">
+博文 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid32doalbumviewme.htm', 'album');">
+相册 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('ovr0/viewspace.phpuid32dopollviewme.htm', 'poll');">
+投票 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('ovr0/viewspace.phpuid32dofriendviewme.htm', 'friend');">
+好友 </a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('ovr0/viewspace.phpuid32dowallviewme.htm', 'wall');">
+留言板 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid32doapplist.htm', 'applist');">
+应用 </a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="frame_1">
+<div id="profile" class="block" >
+<div class="blocktitle">
+<em>
+
+<a id="a_magic_viewmagiclog" href="magic.phpmidviewmagiclogidtypeuidid32.htm" onclick="ajaxmenu(event,this.id,1)">
+<img src="image/magic/viewmagiclog.small.gif" title="八卦镜" alt="八卦镜" style="vertical-align: middle;" />
+</a>
+<a id="a_magic_viewmagic" href="magic.phpmidviewmagicidtypeuidid32.htm" onclick="ajaxmenu(event,this.id,1)">
+<img src="image/magic/viewmagic.small.gif" title="透视镜" alt="透视镜" style="vertical-align: middle;" />
+</a>
+<a id="a_magic_viewvisitor" href="magic.phpmidviewvisitoridtypeuidid32.htm" onclick="ajaxmenu(event,this.id,1)">
+<img src="image/magic/viewvisitor.small.gif" title="偷窥镜" alt="偷窥镜" style="vertical-align: middle;" />
+</a>
+</em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a href="viewspace.phpuid32.htm" class="avatar"><img src="..//uc.shenei.net/data/avatar/000/00/00/32_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/l_06_big.gif'"></a>
+<div class="username">
+<p >昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid32.htm', '');">李锋辉</a></p>
+<p>等级：<a href="do.phpacajaxopcredituid32.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level3.gif" align="absmiddle" /><img src="image/star_level3.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<img src="viewspace/img/tool/video_off.gif" align="absmiddle" title="未视频认证用户" alt="未视频认证用户"/>
+<a href="pay.phpacvip.htm" target="_blank"><img src="image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
+</p>
+</div>
+<div class="tool">
+<a href="ovr0/cp.phpacfetionuid32.htm" id="a_fetion_send" onclick="ajaxmenu(event, this.id, 1)" title="发短信到TA手机" class="fetion">飞信短信</a>
+<a href="cp.phpacpmuid32.htm" id="a_pm" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="发送站内短消息" class="message">发消息</a>
+<a href="cp.phpacpokeopsenduid32.htm" id="a_poke" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="打个招呼" class="hi">问候</a>
+<a href="cp.phpaccommonopreportidtypeuidid32.htm" id="a_report" onclick="ajaxmenu(event, this.id, 99999, '', -1)" title="举报此人" class="report">举报</a>
+<a href="userapp.phpid1027468my_suffixlw_253d_253d.htm" title="赠送礼物" class="sendgift" target="_blank">送礼物</a>
+<a target="mainyinyue" href="javascript:;" onclick="javascript:spaceCategory('ovr0/viewspace.phpuid32dowallviewme.htm', 'wall');" id="a_comment" title="给TA留言" class="comment">留言板</a>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="cp.phpacuserapp.htm" target="_blank">全部</a></em>
+<h2>小应用</h2>
+</div>
+<div class="blockcontent">
+<ul class="pluglist">
+<li class="userapp-1029889"><a href="userapp.phpid1029889uid32" title="开心宝贝"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficons~1.gif" alt="开心宝贝" />开心宝贝</a></li>
+<li class="userapp-1051195"><a href="userapp.phpid1051195uid32" title="创世纪2012"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~113.gif" alt="创世纪2012" />创世纪2012</a></li>
+<li class="userapp-1051929"><a href="userapp.phpid1051929uid32" title="植物大战外星人"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~115.gif" alt="植物大战外星人" />植物大战外星人</a></li>
+<li class="userapp-1040890"><a href="userapp.phpid1040890uid32" title="楼一幢"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~20.gif" alt="楼一幢" />楼一幢</a></li>
+<li class="userapp-1021978"><a href="userapp.phpid1021978uid32" title="开心农场"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~8.gif" alt="开心农场" />开心农场</a></li>
+<li class="userapp-1008973"><a href="userapp.phpid1008973uid32" title="朋友印象"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~50.gif" alt="朋友印象" />朋友印象</a></li>
+<li class="userapp-1003094"><a href="userapp.phpid1003094uid32" title="争车位"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~10.gif" alt="争车位" />争车位</a></li>
+</ul>
+</div>
+</div>
+<div id="applist" >
+
+</div>
+</div>
+<div class="frame_3">
+<div id="applist" >
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1008973my_suffixlw_253d_253d.htm">详情</a></em>
+<h2>朋友印象</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1008973"><div><style type="text/css">.app_content_1008973  #app1008973_container {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+    font: 12px Arial;
+}
+
+.app_content_1008973  #app1008973_title {
+    text-align: center;
+    height: 50px;
+}
+
+.app_content_1008973  #app1008973_title table {
+    text-align: center;
+    vertical-align: middle;
+    width: 800px;
+}
+
+.app_content_1008973  #app1008973_title table tr td div {
+    line-height: 38px;
+    text-align: right;
+    height: 40px;
+    color: #333333;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.app_content_1008973  #app1008973_signlink a {
+}
+
+.app_content_1008973  #app1008973_menuChildren {
+    border-bottom: #888888 1px solid;
+    width: 800px;
+    height: auto;
+    line-height: 28px;
+}
+
+.app_content_1008973  #app1008973_leftFrame {
+    float: left;
+    width: 210px;
+    height: auto;
+    margin-left: 40px;
+}
+
+.app_content_1008973  .leftFrame_list {
+    float: left;
+    width: 700px;
+    height: auto;
+    margin-left: 40px;
+}
+
+.app_content_1008973  #app1008973_userInfo, .app_content_1008973  #app1008973_meInfo, .app_content_1008973  .leftFrame_list ul {
+    width: 210px;
+}
+
+.app_content_1008973  #app1008973_userInfo ul, .app_content_1008973  #app1008973_FrameTag ul, .app_content_1008973  #app1008973_meInfo ul, .app_content_1008973  .leftFrame_list ul {
+    list-style: none;
+}
+
+.app_content_1008973  #app1008973_userInfo ul li, .app_content_1008973  #app1008973_meInfo ul li, .app_content_1008973  .leftFrame_list ul li {
+    line-height: 38px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.app_content_1008973  #app1008973_rightFrame {
+    float: right;
+    width: 500px;
+    height: auto;
+}
+
+.app_content_1008973  #app1008973_meInfo {
+    margin-top: 40px;
+}
+
+.app_content_1008973  #app1008973_errorView {
+    width: 400px;
+    height: auto;
+    background-color: #FFFF66;
+    display: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #ff0000;
+    border: #888 1px solid;
+}
+
+.app_content_1008973  #app1008973_loadingBar {
+    width: 400px;
+    height: auto;
+    display: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #ff0000;
+    border: #888 1px solid;
+}
+
+.app_content_1008973  #app1008973_loadingBar img {
+    vertical-align: middle;
+}
+
+.app_content_1008973  #app1008973_FrameTag, .app_content_1008973  #app1008973_FrameTagMe {
+    width: 490px;
+    margin: 0 auto;
+    padding: 0 0;
+    line-height: 36px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+}
+
+.app_content_1008973  .frameTagList {
+    width: 400px;
+    margin: 0 0;
+    padding: 0 0;
+    float: right;
+    line-height: 36px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+}
+
+.app_content_1008973  .frameTagList span {
+    float: left;
+}
+
+.app_content_1008973  #app1008973_FrameTagMe {
+    margin-top: 100px;
+}
+
+.app_content_1008973  #app1008973_FrameTagMe span {
+    float: left;
+    margin-right: 8px;
+    line-height: 60px;
+}
+
+.app_content_1008973  #app1008973_FrameTag p {
+    width: 60px;
+    height: 36px;
+    text-decoration: none;
+    padding: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 34px;
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+    margin-top: -14px;
+}
+
+.app_content_1008973  #app1008973_FrameTag a {
+    width: 60px;
+    height: 36px;
+    text-decoration: none;
+    padding: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 34px;
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+}
+
+.app_content_1008973  #app1008973_FrameTag a:hover {
+    margin: 0 0;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 60px;
+    height: 36px;
+    background-color: #fff;
+    text-align: center;
+    color: #000;
+}
+
+.app_content_1008973  #app1008973_styleRows {
+    padding-top: 20px;
+    width: 490px;
+    height: 21px;
+}
+
+.app_content_1008973  #app1008973_otherWord {
+    margin-left: 30px;
+    line-height: 30px;
+}
+
+.app_content_1008973  #app1008973_userPLink {
+    width: 400px;
+    height: auto;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.app_content_1008973  #app1008973_userPLink a {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.app_content_1008973  #app1008973_userPLink a:hover {
+    text-decoration: none;
+}
+
+.app_content_1008973  .inputContent {
+    width: 100px;
+    height: 24px;
+    border: #CCCCCC 3px solid;
+    background-color: #CCCC99;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.app_content_1008973  .inputFriend {
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    border: #CCCCCC 1px solid;
+    background-color: #FFCC66;
+    font-size: 12px;
+}
+
+.app_content_1008973  .lineheard {
+    line-height: 60px;
+}
+
+.app_content_1008973  .submit {
+    border-right: 2px #ccc solid;
+    width: 40px;
+    border-bottom: 2px #ccc solid;
+    background-color: #efefef;
+    height: 28px;
+    line-height: 24px;
+}
+
+.app_content_1008973  .colorFont {
+    color: #fff;
+}
+
+.app_content_1008973  .colorFont1 a:hover {
+    color: #00998A;
+}
+
+.app_content_1008973  .colorFont2 a:hover {
+    color: #6666CC;
+}
+
+.app_content_1008973  .colorFont3 a:hover {
+    color: #FF9966;
+}
+
+.app_content_1008973  .colorFont4 a:hover {
+    color: #337799;
+}
+
+.app_content_1008973  .colorFont5 a:hover {
+    color: #718A0F;
+}
+
+.app_content_1008973  .colorFont6 a:hover {
+    color: #999900;
+}
+
+.app_content_1008973  .colorFont7 a:hover {
+    color: #0033FF;
+}
+
+.app_content_1008973  .colorFont8 a:hover {
+    color: #B266FF;
+}
+
+.app_content_1008973  .colorFont9 a:hover {
+    color: #66CC00;
+}
+
+.app_content_1008973  .colorFont10 a:hover {
+    color: #80ABDA;
+}
+
+.app_content_1008973  .borderBg1 {
+    border: #00998A 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg2 {
+    border: #6666CC 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg3 {
+    border: #FF9966 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg4 {
+    border: #337799 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg5 {
+    border: #718A0F 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg6 {
+    border: #999900 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg7 {
+    border: #0033FF 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg8 {
+    border: #B266FF 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg9 {
+    border: #66CC00 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg10 {
+    border: #80ABDA 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .colorBg1 {
+    background-color: #00998A;
+}
+
+.app_content_1008973  .colorBg2 {
+    background-color: #6666CC;
+}
+
+.app_content_1008973  .colorBg3 {
+    background-color: #FF9966;
+}
+
+.app_content_1008973  .colorBg4 {
+    background-color: #337799;
+}
+
+.app_content_1008973  .colorBg5 {
+    background-color: #718A0F;
+}
+
+.app_content_1008973  .colorBg6 {
+    background-color: #999900;
+}
+
+.app_content_1008973  .colorBg7 {
+    background-color: #0033FF;
+}
+
+.app_content_1008973  .colorBg8 {
+    background-color: #B266FF;
+}
+
+.app_content_1008973  .colorBg9 {
+    background-color: #66CC00;
+}
+
+.app_content_1008973  .colorBg10 {
+    background-color: #80ABDA;
+}
+
+.app_content_1008973  .colorFont1 {
+    color: #00998A;
+}
+
+.app_content_1008973  .colorFont2 {
+    color: #6666CC;
+}
+
+.app_content_1008973  .colorFont3 {
+    color: #FF9966;
+}
+
+.app_content_1008973  .colorFont4 {
+    color: #337799;
+}
+
+.app_content_1008973  .colorFont5 {
+    color: #718A0F;
+}
+
+.app_content_1008973  .colorFont6 {
+    color: #999900;
+}
+
+.app_content_1008973  .colorFont7 {
+    color: #0033FF;
+}
+
+.app_content_1008973  .colorFont8 {
+    color: #B266FF;
+}
+
+.app_content_1008973  .colorFont9 {
+    color: #66CC00;
+}
+
+.app_content_1008973  .colorFont10 {
+    color: #80ABDA;
+}
+
+.app_content_1008973  .sizeFont1 {
+    font-size: 48px;
+}
+
+.app_content_1008973  .sizeFont2 {
+    font-size: 44px;
+}
+
+.app_content_1008973  .sizeFont3 {
+    font-size: 40px;
+}
+
+.app_content_1008973  .sizeFont4 {
+    font-size: 36px;
+}
+
+.app_content_1008973  .sizeFont5 {
+    font-size: 32px;
+}
+
+.app_content_1008973  .sizeFont6 {
+    font-size: 28px;
+}
+
+.app_content_1008973  .sizeFont7 {
+    font-size: 24px;
+}
+
+.app_content_1008973  .sizeFont8 {
+    font-size: 20px;
+}
+
+.app_content_1008973  .sizeFont9 {
+    font-size: 16px;
+}
+
+.app_content_1008973  .sizeFont10 {
+    font-size: 12px;
+}
+
+.app_content_1008973  #app1008973_btnStep a {
+    line-height: 80px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    width: 200px;
+    height: 80px;
+}
+
+.app_content_1008973  #app1008973_btnStep a:hover {
+    line-height: 80px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    height: 80px;
+}
+
+</style><table cellpadding="0" cellspacing="0" border="0" align="center" width="560"><tr style="padding-top: -20px; margin-top: -20px; padding-bottom: 12px;"><td colspan="2" style="padding-top: -20px; margin-top: -20px; padding-bottom: 12px;"><a href="../uchome.manyou.com/profile/1024719454" target="_top">李锋辉</a>的好友对的印象：</td></tr><tr><td align="left" valign="middle"><div id="app1008973_FrameTag"></div></td></tr><tr><td colspan="2" align="center" valign="middle" id="app1008973_btnStep"><a href="userapp.phpid1008973my_suffixl2luzgv4lnbocd9wawq9mtay~1.htm" alt="描述我对好友的印象" target="_top">描述我对好友的印象</a></td></tr></table></div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1003094my_suffixlw_253d_253d.htm">详情</a></em>
+<h2>争车位</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1003094"><div>把你的车停到好友的私家车位赚更多的钱</div></div></div></div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<div id="footer">
+<div class="copyright">
+<div class="f_status">
+<a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
+<a title="订阅 RSS" id="a_rss" href="rss.phpuid32">订阅</a>
+<a href="cp.phpaccommonopreportidtypeuidid32.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
+</div>
+<p>李锋辉的个人博客由〖舍内网〗提供，版权所有 <a href="../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)<a href="admincp.phpacspaceopmanageuid32.htm" id="a_manage">管理用户</a></p>
+</div>
+</div>
+
+<ul id="setstyle_a_menu" class="stylemenu" style="display:none">
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="viewspace.phpopdiy.htm">高级自定义</a></li></ul>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+<div class="toolbarbox1">
+<a class="logo" href="space.phpdohome.htm">
+舍内
+</a>
+<div class="toolbaruser">
+<ul>
+<li class="txt">欢迎您：小E←邱沼懿 &nbsp;&nbsp;<a href="cp.phpaccommonoplogoutuhashf92365b40326bb769bdd7029bab744db">退出</a></li>
+<li><a href="viewspace.phpuid1.htm">我的博客</a></li>
+<li><a href="cp.php.htm" target="_blank">设置</a></li>
+<li>
+<a id="a_magic_superstar" href="magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
+</li>
+<li><a href="space-pm.html">消息</a></li>
+
+</ul>
+</div>
+<div class="toolbarlink">
+<ul>
+<li class="home"><a href="ovr1/space-home.html">网站首页</a></li>
+<li><a href="network.html">闲逛</a></li>
+<li><a href="randomuser.php.htm">乱窜</a></li>
+</ul>
+</div>
+<div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
+<div id="annbody">
+<ul id="annbodylis">
+
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;<img src="image/face/32.gif" class="face">还是不了解咩~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5617-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;迷迷糊糊~感觉不是自己的自己在做什么。焕然间，意识到不该这怎做。。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5616-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;谁是谁的谁，在乎了又能怎样。一般的心情无法理解我的谁。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5615-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;心情不是很好，脾气就不好，没地方发发泄，闷出内伤了~~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5614-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1377-do-doing.html" target="_blank">xiaoya </a>说：&nbsp;&nbsp;(ˇ&#717;ˇ） 想～你~了~~~&nbsp;&nbsp;<a href="space-1377-do-doing-doid-5613-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5612-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5611-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;我正参加#新浪厦门一周年#十大微福利全城畅享活动！@厦门京闽北海湾酒店 自助餐券各类精致小吃，甜点，加上五星级酒店优雅实施的环境，享受即将开始！更多惊喜 <a href="../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>新取英文名Esone爆开心的E神小懿 @cc坏脾气 @绝望_的生鱼片 <div class="sub_doing_quote"><span>新浪厦门：【#新浪厦门一周年#福利大派送NO.20】[微博三岁啦]酒店自助餐双人版！关注@厦门京闽北海湾酒店 @新浪厦门 ，转发此博并@ 3好友，就有机会获厦门京闽北海湾酒店双人自助餐（共两套）！今天福利明天送(8-28上午11:00抽奖,获奖名单关注@新浪厦门周年庆 )更多福利：<a href="../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="..//ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5607-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;想要一部呢。。<div class="sub_doing_quote"><span>厦门吃喝玩乐大全：【再送5台苹果4代，公平公正】1，请用微信“添加朋友”查找“xmdcxs”添加“厦门大城小事”为好友 2，转发本条即可 。以上两个条件缺一不可，明晚起每天抽出一台4代。（微信：厦门大城小事 ，是厦门名博@厦门大城小事 的唯一官方号，每天及时播报厦门大小事及其他优惠到你手机，是你厦门生活好帮手）</span><div class="img"><a target="_blank" href="../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="..//ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5606-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;HOHO～～坐等你们大男生煮的饭饭噢～～<img src="image/face/42.gif" class="face">&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5605-goto-yes.html" class="re">回复</a>
+</li>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+var anndelay = 3000;
+var annst = 0;
+var annstop = 0;
+var annrowcount = 0;
+var anncount = 0;
+var annlis = $('annbody').getElementsByTagName("LI");
+var annrows = new Array();
+var annstatus;
+
+function announcementScroll() {
+if(annstop) {
+annst = setTimeout('announcementScroll()', anndelay);
+return;
+}
+if(!annst) {
+var lasttop = -1;
+for(i = 0;i < annlis.length;i++) {
+if(lasttop != annlis[i].offsetTop) {
+if(lasttop == -1) {
+lasttop = 0;
+}
+annrows[annrowcount] = annlis[i].offsetTop - lasttop;
+annrowcount++;
+}
+lasttop = annlis[i].offsetTop;
+}
+
+if(annrows.length == 1) {
+$('ann').onmouseover = $('ann').onmouseout = null;
+} else {
+annrows[annrowcount] = annrows[1];
+$('annbodylis').innerHTML += $('annbodylis').innerHTML;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+annrowcount = 1;
+return;
+}
+
+if(annrowcount >= annrows.length) {
+$('annbody').scrollTop = 0;
+annrowcount = 1;
+annst = setTimeout('announcementScroll()', anndelay);
+} else {
+anncount = 0;
+announcementScrollnext(annrows[annrowcount]);
+}
+}
+
+function announcementScrollnext(time) {
+$('annbody').scrollTop++;
+anncount++;
+if(anncount != time) {
+annst = setTimeout('announcementScrollnext(' + time + ')', 10);
+} else {
+annrowcount++;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+}
+announcementScroll();
+</script>
+
+</div>
+<div class="toolshadow">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+var fastdiy = new transfer('fastdiystyle', 'fastdiy', 'oksubmit', 'fastdiy_header');
+var mystylesdiy = new transfer('mystylelist_sw', 'mystyles', 'cancel', 'mystyles_header');
+var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'sharestyle_header');
+var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
+
+</script>
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
+
+</div>
+
+
+</body>
+</html>

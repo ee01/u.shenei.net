@@ -1,0 +1,1369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0050)http://u.shenei.net/viewspace.php?uid=1&do=applist --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>哇吐！~~ </title>
+
+<script language="javascript" type="text/javascript" src="source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="viewspace/css/000/00/00/01_style.css1296911438.css" /><link rel="alternate" type="application/rss+xml" href="rss.phpuid1.htm" title="小E←邱沼懿" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.phprsd1" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+
+<style>
+
+#diy_content {color:#fff; font-size:14px; padding:2px; text-align:center; width:100%; height:120px; background-color:#342}
+#diy_header {margin:0 auto; height:30px; background-color:#456}
+#diy_main {margin:0 auto; height:90px;background-color:#789;}
+#selectblock {margin:0 auto;}
+
+/* 弹出层时的渐变层的样式 */
+.transfer {border:1px dashed red;margin:0px auto;cursor:move;background: url(viewspace/img/tool/bg_transfer.png) !important;background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src='viewspace/img/tool/bg_transfer.png');}
+
+.transfer .transferbody{overflow:hidden;}
+.transfer .transferbody a{display:block; width:21px; height:21px; overflow:hidden; float:right;margin-right:6px; text-indent: -99999px;}
+.transfer .transferbody a.editblock{background:url(viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.editblock:hover{background:url(viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 -21px; }
+.transfer .transferbody a.delblock{background:url(viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.delblock:hover{background:url(viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 -21px; }
+
+.transfer h1{background:#ECF9FF;height:18px;margin:1px;padding:3px;text-align:right;}
+.transfer h1 a{background-color:#F00;padding:4px;}
+
+/* 颜色选择器的样式 */
+#clrMain {background-color:#FFF;height:255px;width:254px;border:1px solid #000;position:absolute;left:80px;top:100px;}
+#clrMain input {width:70px;left:80px;top:225px;padding:4px;position:absolute;}
+#clrColor {background-repeat:no-repeat;height:200px;left:3px;top:3px;width:200px;padding:7px;position:absolute;}
+#clrBGColor {background-repeat:no-repeat;height:200px;width:200px;}
+#clrHue {height:200px;width:24px;left:220px;top:7px;padding:4px 0px 4px 0px;position:absolute;}
+#clrSv {width:200px;height:200px;}
+#clrCrosshairs {position:absolute;}
+#clrH {height:200px;width:24px;}
+#clrRangeArrows {height:9px;width:40px;position:absolute;}
+#clrPreview {border:1px solid #000;background-color:#999;height:22px;width:60px;position:absolute;top:225px;left:9px;}
+
+/*临时控制某个模块的样式*/
+#mytest .blocktitle{
+background:url(images/bg_blocktitle.jpg) repeat-x;
+height:26px;
+line-height:26px;
+border-bottom:1px solid red;
+}
+#mytest .blocktitle h2{color:#1D1B1C;font-size:14px;font-weight:bold;}
+#mytest .blocktitle em a{color:#006697;}
+
+#mytest .blockcontent{
+color:#fff;
+background: #FFF url(images/1.jpg) no-repeat left left;
+}
+#mytest .blockcontent a{color:#006697;}
+
+</style>
+<script language="javascript" type="text/javascript" src="viewspace/js/bindbase.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/drageffect.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/transfer.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/selectcolor.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/rgbhexhsv.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/sortdrag.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/slider.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/phpserialize.js"></script>
+<script language="javascript" type="text/javascript" src="viewspace/js/stylecss.js"></script>
+<script language="javascript">
+var tempstyle = 'a:6:{s:9:"frame_set";s:2:"lc";s:8:"allframe";a:2:{s:5:"dleft";a:6:{i:0;s:7:"profile";i:1;s:5:"doing";i:2;s:6:"player";i:3;s:10:"friendlist";i:4;s:9:"footprint";i:5;s:7:"applist";}s:8:"dcontent";a:6:{i:0;s:4:"feed";i:1;s:8:"albumone";i:2;s:4:"blog";i:3;s:8:"albumall";i:4;s:11:"forumstatus";i:5;s:4:"wall";}}s:9:"effectall";a:7:{s:10:"blocktitle";a:2:{s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609381_01401200.jpg)";s:19:"border-bottom-style";s:25:"border-bottom-style:solid";}s:12:"blockcontent";a:4:{s:16:"background-image";s:21:"background-image:none";s:16:"background-color";s:28:"background-color:transparent";s:17:"background-repeat";s:24:"background-repeat:repeat";s:5:"color";s:13:"color:#FFFFFF";}s:13:"blocktitle|h2";a:1:{s:5:"color";s:13:"color:#ffffff";}s:15:"blocktitle|em a";a:1:{s:5:"color";s:13:"color:#ffffff";}s:14:"blockcontent|a";a:1:{s:5:"color";s:13:"color:#00AEFF";}s:20:"blockcontent|a:hover";a:1:{s:5:"color";s:13:"color:#00DCFF";}s:0:"";a:3:{s:12:"border-style";s:18:"border-style:solid";s:12:"border-width";s:16:"border-width:1px";s:12:"border-color";s:20:"border-color:#bbbbbb";}}s:9:"blockname";a:0:{}s:5:"music";a:0:{}s:5:"block";a:23:{s:4:"body";a:1:{s:0:"";a:4:{s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609431_44348200.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-y";s:21:"background-attachment";s:27:"background-attachment:fixed";s:16:"background-color";s:24:"background-color:#000000";}}s:6:"banner";a:4:{s:0:"";a:5:{s:6:"height";s:12:"height:330px";s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609195_34450800.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:28:"background-position:left top";}s:8:"title|h1";a:1:{s:5:"color";s:13:"color:#ffffff";}s:7:"title|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:9:"title|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:5:"title";a:1:{s:0:"";a:1:{s:3:"top";s:8:"top:12px";}}s:6:"footer";a:3:{s:0:"";a:5:{s:6:"height";s:12:"height:115px";s:16:"background-image";s:21:"background-image:none";s:17:"background-repeat";s:26:"background-repeat:norepeat";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:33:"background-position:center center";}s:11:"copyright|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:13:"copyright|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:4:"menu";a:7:{s:0:"";a:8:{s:19:"background-position";s:33:"background-position:center center";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-image";s:68:"background-image:url(viewspace/image/t/158/1206609260_39675600.jpg)";s:16:"background-color";s:28:"background-color:transparent";s:12:"border-style";s:17:"border-style:none";s:12:"border-width";s:16:"border-width:0px";s:12:"border-color";s:17:"border-color:#FFF";s:6:"height";s:11:"height:30px";}s:6:"active";a:1:{s:16:"background-image";s:22:"background-image:url()";}s:3:"|ul";a:2:{s:12:"padding-left";s:16:"padding-left:4px";s:10:"margin-top";s:14:"margin-top:2px";}s:2:"|a";a:3:{s:9:"font-size";s:14:"font-size:14px";s:11:"font-weight";s:16:"font-weight:bold";s:5:"color";s:13:"color:#ffffff";}s:3:"|em";a:1:{s:9:"font-size";s:14:"font-size:12px";}s:8:"|a:hover";a:1:{s:5:"color";s:13:"color:#ffff00";}s:8:"active|a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:7:"profile";a:0:{}s:6:"player";a:0:{}s:4:"feed";a:0:{}s:4:"blog";a:0:{}s:5:"share";a:0:{}s:4:"mtag";a:0:{}s:5:"doing";a:0:{}s:9:"footprint";a:0:{}s:10:"friendlist";a:0:{}s:7:"applist";a:0:{}s:4:"wall";a:0:{}s:11:"forumstatus";a:0:{}s:6:"thread";a:0:{}s:8:"albumall";a:0:{}s:5:"album";a:0:{}s:7:"profect";a:0:{}s:5:"about";a:0:{}s:8:"albumone";a:0:{}}}';//数据库里取出来的diystyle,如果有就反序列化后赋值给diystyle
+var defaultset = 'lc';
+var stylenum = '7';
+var supe_uid = 1;
+var blocklist = new Array();
+var oldblockstyle = new Array();// value|bclass|tag|property|1 or 0这前是否是自定义过的
+blocklist['profile'] = '个人设置';
+blocklist['friendlist'] = '好友列表';
+blocklist['doing'] = '我的点滴';
+blocklist['albumone'] = '动态相片';
+blocklist['albumall'] = '我的相册';
+blocklist['feed'] = '个人新鲜事';
+blocklist['blog'] = '我的博文';
+blocklist['share'] = '我的分享';
+blocklist['mtag'] = '我的群组';
+blocklist['thread'] = '我的话题';
+blocklist['applist'] = '小应用';
+blocklist['wall'] = '留言板';
+blocklist['forumstatus'] = '我的投票';
+blocklist['footprint'] = '脚印';
+blocklist['player'] = '播放器';
+</script>
+<script language="javascript" type="text/javascript" src="viewspace/js/index_diy.js"></script>
+<div id="sharestyle" class="floatwin" style="display:none;" >
+<div class="floattitle" id="sharestyle_header">
+<h2>分享我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<form id="sharestyle_form" action="viewspace.php?do=mystyle&op=share" method="post">
+<div class="floatbody">
+风格在审核完毕后才能进行编辑修改。<br>
+<label for="">风格名称：</label>
+<input type="text" name="stylename" id="stylename" class="txt"/>
+<input type="hidden" name="styleid" id="styleid">
+<label for="">色系：</label>
+<select id="stylecolor" name="stylecolor">
+<option value="">选择</option>
+<option value="1">黑</option>
+<option value="2">白</option>
+<option value="3">粉</option>
+<option value="4">黄</option>
+<option value="5">绿</option>
+<option value="6">蓝</option>
+</select>
+<label for="">类别：</label>
+<select id='stylecategory' name='stylecategory'>
+<option value="">选择</option>
+<option value="1">简约</option>
+<option value="2">可爱</option>
+<option value="3">炫酷</option>
+<option value="4">浪漫</option>
+<option value="5">其它</option>
+</select>
+</div>
+</form>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="$('sharestyle').style.display='none';$('mystyles').style.display='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<a target="mainyinyue"  href="javascript:void(0);" id="sharestyle_sw"></a>
+<div class="floatwin" id="fastdiy" style="display:none; z-index:3000;">
+<div class="floattitle" id="fastdiy_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>快速自定义模板</h2>
+</div>
+<div class="floatcontent">
+<form id="fastdiyform" method="post" id="albumform" action="viewspace.php" >
+<input type="hidden" name="faststyle" id="faststyle" value=""/>
+<input type="hidden" name="fastbg" id="fastbg" value=""/>
+<input type="hidden" name="fastbgheight" id="fastbgheight" value=""/>
+</form>
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="webcolormes">
+选择你喜欢的主页色系：
+</div>
+<ul class="webcolor">
+<li>
+<a href="#" id="black" class="webcolor_black" title="黑色" onclick="fastchangesyspic(this, '1');">黑色</a>
+</li>
+<li>
+<a href="#" id="white" class="webcolor_white" title="白色" onclick="fastchangesyspic(this, '2');">白色</a>
+</li>
+<li>
+<a href="#" id="pink" class="webcolor_pink" title="粉色" onclick="fastchangesyspic(this, '3');">粉色</a>
+</li>
+<li>
+<a href="#" id="yellow" class="webcolor_yellow" title="黄色" onclick="fastchangesyspic(this, '4');">黄色</a>
+</li>
+<li>
+<a href="#" id="green" class="webcolor_green" title="绿色" onclick="fastchangesyspic(this, '5');">绿色</a>
+</li>
+<li>
+<a href="#" id="blue" class="webcolor_blue" title="蓝色" onclick="fastchangesyspic(this, '6');">蓝色</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatsub" id="fastdiysub" style="display:none">
+<div class="floatbody">
+<div class="webcolormes" id="fastpicnav">
+选择该色系下主页的头部图片：
+<span>
+<a class="on" target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '', 'fastpicnav');" id="alltype">全部</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=1', 'fastpicnav');">简约</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=2', 'fastpicnav');">可爱</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=3', 'fastpicnav');">炫酷</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=4', 'fastpicnav');">浪漫</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=5', 'fastpicnav');">其它</a>
+</span>
+</div>
+<div id="fastheaderbg">
+</div>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick=" $('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="#" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="mystyles" style="display:none; z-index:3000;">
+<div class="floattitle" id="mystyles_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="$('selectmystyle').value=''; switchstyle('', 'mystyle');$('mystyles').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a target="mainyinyue"  href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain mainnotop">
+<div class="floatbody" id="mystylelist">
+</div>
+</div>
+<div class="floatfun">
+<a target="mainyinyue"  href="javascript:void(0);" class="cancel">取消</a>
+<input type="hidden" name="selectmystyle" id="selectmystyle" value="">
+<a href="#" onclick="if($('selectmystyle').value > 0){window.location.href='viewspace.php?do=mystyle&op=use&styleid='+$('selectmystyle').value;}else{window.location.href='viewspace.php';}" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="selectshare" style="display:none; z-index:3000;">
+<div class="floattitle" id="selectshare_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>选择风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatnav" id="sharepicnav">
+<ul class="navcolor">
+<li  onclick="changesysshare(this, '&color=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黑</a></li>
+<li  onclick="changesysshare(this, '&color=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">白</a></li>
+<li  onclick="changesysshare(this, '&color=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">粉</a></li>
+<li  onclick="changesysshare(this, '&color=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黄</a></li>
+<li  onclick="changesysshare(this, '&color=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">绿</a></li>
+<li  onclick="changesysshare(this, '&color=6', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesysshare(this, '', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesysshare(this, '&category=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">简约</a></li>
+<li  onclick="changesysshare(this, '&category=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesysshare(this, '&category=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesysshare(this, '&category=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesysshare(this, '&category=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody">
+
+
+<form id="selectshareform" method="post" id="albumform" action="viewspace.php?do=getsharestyle" target="mainyinyue" >
+<input type="hidden" name="sharestyleid" id="sharestyleid" value=''>
+<div id="sharelist" class="sharelist">
+</div>
+</form>
+</div>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="clrMain" style="display:none;z-index:99999;">
+<iframe scrolling="no" frameborder="0" style="background-color:transparent;position:absolute;width:252px; height:253px;"></iframe>
+<div id="clrColor"><div id="clrBGColor"><img id="clrCrosshairs" galleryimg="false" src="viewspace/img/mappoint.gif" style="display:none;" /></div></div>
+<div id="clrHue"><img id="clrRangeArrows" galleryimg="false" src="space/indeximages/rangearrows.gif" style="display:none;" /></div>
+<div id="clrPreview"></div>
+<input type="text" name="clrColorValue" id="clrColorValue" value=""/>
+<img src="viewspace/img/nocolor.gif" style="left:165px;position:absolute;top:225px;" onclick="getColor('transparent');"/>
+<a target="mainyinyue"  href="javascript:void(0);" class="fbtn_cancel" onclick="$('clrMain').style.display='none';"
+style="width:50px;left:190px;position:absolute;top:225px;">确定</a>
+</div>
+<div id="dstdiv" style="width:400px;height:250px;background-color:#999;border:1px solid #123456;display:none;">
+cccc<a target="mainyinyue"  href="javascript:void(0);" class="closeDiv">close</a>
+</div>
+<div id="showData"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wraptwo">
+<div id="banner" class="banner">
+<div class="title" id="title">
+<h1 id="myblogname">哇吐！~~  <em> 605643 人次访问, 7183个积分 <a href="do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></em></h1>
+<p>哇吐！~~狂吐中ing...<a href="cp.phpacsign.htm" id="a_sign" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[编辑]</a></p>
+<p><a href="../e.shenei.net/default.htm" onclick="javascript:setCopy('../e.shenei.net/default.htm');return false;" class="spacelink domainurl">http://E.shenei.net</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+listURL[0]="../leishop.e.bname.us/qzone.mp3.htm"
+RadioList[0]="music_1"
+listURL[1]="../www.fjjlyz.net/disk/mp3/_25d0_25c2_25b9_25c8_25c1_25bc_25d7_25d3_25b5_25c4par~1.htm"
+RadioList[1]="music_2"
+listURL[2]="../www.fjjlyz.net/disk/mp3/_25c5_25d1_25c4_25e6_25b5_25c4_25c2_25b3_25c2_25b3_25~1.htm"
+RadioList[2]="music_3"
+listURL[3]="../mfile.home.news.cn/music/public/vdm7/200912/30/20/mufs072009123012272652209d7b.mp3"
+RadioList[3]="music_4"
+listURL[4]="../www.fjjlyz.net/disk/mp3/_25e7_258a_25ac_25e5_25a4_259c_25e5_258f_2589.mp3.htm"
+RadioList[4]="music_5"
+listURL[5]="../www.hugedomains.com/domain_profile.cfmddivast.com.htm"
+RadioList[5]="music_6"
+listURL[6]="../mfile.home.news.cn/music/public/vdm7/200909/06/3b/mufs0720090906160325503b0d8c.mp3"
+RadioList[6]="music_7"
+listURL[7]="../www.91zyzz.com/dodo/257.mp3"
+RadioList[7]="music_8"
+listURL[8]="../home.wsxz.cn/music/2010/01/28/70312500.mp3"
+RadioList[8]="music_9"
+listURL[9]="../www.firstfeeling.cn/xueyoulan/mp3/c.k.mp3"
+RadioList[9]="music_10"
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+<em>
+<a href="javascript:void(0);" id="mystylelist_sw">我的风格</a> | 
+<!--<a id="setstyle_a" href="javascript:void(0);" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);">更换风格</a>-->
+<a class="setstyle" href="javascript:void(0);"><img id="setstyle_a" src="template/default/image/btn_style.gif" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);" align="absmiddle" alt="更换风格"/></a>
+</em>
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=1', '');">
+主页 </a></li>
+-->
+
+<li>
+<a  href="viewspace.phpuid1.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doaboutme.htm', 'aboutme');">
+这谁~ </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doblogviewme.htm', 'blog');">
+点滴 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doalbumviewme.htm', 'album');">
+瞬间 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewme.htm', 'poll');">
+告诉我 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dofriendviewme.htm', 'friend');">
+三铁 </a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dowallviewme.htm', 'wall');">
+骂两句 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1doapplist.htm', 'applist');">
+好玩 </a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="frame_1">
+<div id="profile" class="block" >
+<div class="blocktitle">
+<em>
+
+
+		
+<a id="a_magic_gift" href="magic.phpmidgift.htm" onclick="ajaxmenu(event,this.id,1)"><img src="viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />埋个红包</a>
+				
+</em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a href="viewspace.phpuid1.htm" class="avatar"><img src="../uc.shenei.net/data/avatar/000/00/00/01_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_big.gif'"></a>
+<div class="username">
+<p class="avatar_op"><a href="cp.phpacavatar.htm">上传头像</a></p><p class="onlineU" title="在线">昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1.htm', '');">小E←邱沼懿</a></p>
+<p>等级：<a href="do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="image/star_level5.gif" align="absmiddle" /><img src="image/star_level5.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<a id="a_space_videophoto" href="space.phpuid1dovideophoto.htm" onClick="ajaxmenu(event, this.id, 1)"><img src="viewspace/img/tool/video.gif" align="absmiddle" title="已通过视频认证" alt="已通过视频认证" /></a>
+<a href="pay.phpacvip.htm" target="_blank"><img src="image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
+</p>
+</div>
+<div class="tool">
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="cp.phpacuserapp.htm" target="_blank">全部</a></em>
+<h2>小应用</h2>
+</div>
+<div class="blockcontent">
+<ul class="pluglist">
+<li class="userapp-1027468"><a href="userapp.phpid1027468my_suffixlw_253d_253d.htm" title="礼物"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~42.gif" alt="礼物" />礼物</a></li>
+<li class="userapp-1052447"><a href="userapp.phpid1052447my_suffixlw_253d_253d.htm" title="欢乐鱼塘"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~71.gif" alt="欢乐鱼塘" />欢乐鱼塘</a></li>
+<li class="userapp-1003274"><a href="userapp.phpid1003274my_suffixlw_253d_253d.htm" title="读书"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~5.gif" alt="读书" />读书</a></li>
+<li class="userapp-1058319"><a href="userapp.phpid1058319my_suffixlw_253d_253d.htm" title="棒子老虎鸡"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~72.gif" alt="棒子老虎鸡" />棒子老虎鸡</a></li>
+<li class="userapp-1018233"><a href="userapp.phpid1018233my_suffixlw_253d_253d.htm" title="山寨股市"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~73.gif" alt="山寨股市" />山寨股市</a></li>
+<li class="userapp-1060932"><a href="userapp.phpid1060932my_suffixlw_253d_253d.htm" title="十年一剑"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~74.gif" alt="十年一剑" />十年一剑</a></li>
+<li class="userapp-1058412"><a href="userapp.phpid1058412my_suffixlw_253d_253d.htm" title="热血球球"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~75.gif" alt="热血球球" />热血球球</a></li>
+<li class="userapp-1058701"><a href="userapp.phpid1058701my_suffixlw_253d_253d.htm" title="坦克大战"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~76.gif" alt="坦克大战" />坦克大战</a></li>
+<li class="userapp-1055082"><a href="userapp.phpid1055082my_suffixlw_253d_253d.htm" title="知己人生"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~77.gif" alt="知己人生" />知己人生</a></li>
+<li class="userapp-1059373"><a href="userapp.phpid1059373my_suffixlw_253d_253d.htm" title="忍者村"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~78.gif" alt="忍者村" />忍者村</a></li>
+<li class="userapp-1059430"><a href="userapp.phpid1059430my_suffixlw_253d_253d.htm" title="枪王之王"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~79.gif" alt="枪王之王" />枪王之王</a></li>
+<li class="userapp-1058035"><a href="userapp.phpid1058035my_suffixlw_253d_253d.htm" title="汽车工厂"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~80.gif" alt="汽车工厂" />汽车工厂</a></li>
+<li class="userapp-1045165"><a href="userapp.phpid1045165my_suffixlw_253d_253d.htm" title="第7扑克"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~81.gif" alt="第7扑克" />第7扑克</a></li>
+<li class="userapp-1056730"><a href="userapp.phpid1056730my_suffixlw_253d_253d.htm" title="爆破方块"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~82.gif" alt="爆破方块" />爆破方块</a></li>
+<li class="userapp-1054345"><a href="userapp.phpid1054345my_suffixlw_253d_253d.htm" title="果果帮"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~83.gif" alt="果果帮" />果果帮</a></li>
+<li class="userapp-1055802"><a href="userapp.phpid1055802my_suffixlw_253d_253d.htm" title="天天向上"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~84.gif" alt="天天向上" />天天向上</a></li>
+<li class="userapp-1057497"><a href="userapp.phpid1057497my_suffixlw_253d_253d.htm" title="开心团购"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~85.gif" alt="开心团购" />开心团购</a></li>
+<li class="userapp-1024392"><a href="userapp.phpid1024392my_suffixlw_253d_253d.htm" title="音乐推荐"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~61.gif" alt="音乐推荐" />音乐推荐</a></li>
+<li class="userapp-1054378"><a href="userapp.phpid1054378my_suffixlw_253d_253d.htm" title="庄园时代"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~62.gif" alt="庄园时代" />庄园时代</a></li>
+<li class="userapp-1055989"><a href="userapp.phpid1055989my_suffixlw_253d_253d.htm" title="社区城市"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~86.gif" alt="社区城市" />社区城市</a></li>
+<li class="userapp-1056190"><a href="userapp.phpid1056190my_suffixlw_253d_253d.htm" title="运镖天下"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~87.gif" alt="运镖天下" />运镖天下</a></li>
+<li class="userapp-1054337"><a href="userapp.phpid1054337my_suffixlw_253d_253d.htm" title="快乐小镇"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~88.gif" alt="快乐小镇" />快乐小镇</a></li>
+<li class="userapp-1003049"><a href="userapp.phpid1003049my_suffixlw_253d_253d.htm" title="每天进步"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~89.gif" alt="每天进步" />每天进步</a></li>
+<li class="userapp-1054214"><a href="userapp.phpid1054214my_suffixlw_253d_253d.htm" title="花田喜事"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~90.gif" alt="花田喜事" />花田喜事</a></li>
+<li class="userapp-1056432"><a href="userapp.phpid1056432my_suffixlw_253d_253d.htm" title="足球经理世界"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~91.gif" alt="足球经理世界" />足球经理世界</a></li>
+<li class="userapp-1051230"><a href="userapp.phpid1051230my_suffixlw_253d_253d.htm" title="梦幻校园"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~92.gif" alt="梦幻校园" />梦幻校园</a></li>
+<li class="userapp-1055551"><a href="userapp.phpid1055551my_suffixlw_253d_253d.htm" title="怪兽部落"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~93.gif" alt="怪兽部落" />怪兽部落</a></li>
+<li class="userapp-1056000"><a href="userapp.phpid1056000my_suffixlw_253d_253d.htm" title="疯狂足球"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~94.gif" alt="疯狂足球" />疯狂足球</a></li>
+<li class="userapp-1055548"><a href="userapp.phpid1055548my_suffixlw_253d_253d.htm" title="守望森林"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~95.gif" alt="守望森林" />守望森林</a></li>
+<li class="userapp-1051041"><a href="userapp.phpid1051041my_suffixlw_253d_253d.htm" title="开心店铺"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~96.gif" alt="开心店铺" />开心店铺</a></li>
+<li class="userapp-1049305"><a href="userapp.phpid1049305my_suffixlw_253d_253d.htm" title="城市大富豪"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~97.gif" alt="城市大富豪" />城市大富豪</a></li>
+<li class="userapp-1049431"><a href="userapp.phpid1049431my_suffixlw_253d_253d.htm" title="魔王名单"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~98.gif" alt="魔王名单" />魔王名单</a></li>
+<li class="userapp-1051637"><a href="userapp.phpid1051637my_suffixlw_253d_253d.htm" title="漂漂岛"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~99.gif" alt="漂漂岛" />漂漂岛</a></li>
+<li class="userapp-1053513"><a href="userapp.phpid1053513my_suffixlw_253d_253d.htm" title="大航运时代"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~100.gif" alt="大航运时代" />大航运时代</a></li>
+<li class="userapp-1051353"><a href="userapp.phpid1051353my_suffixlw_253d_253d.htm" title="电驴"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~101.gif" alt="电驴" />电驴</a></li>
+<li class="userapp-1053282"><a href="userapp.phpid1053282my_suffixlw_253d_253d.htm" title="社区便利店"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~102.gif" alt="社区便利店" />社区便利店</a></li>
+<li class="userapp-1053021"><a href="userapp.phpid1053021my_suffixlw_253d_253d.htm" title="太空时代"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~4.gif" alt="太空时代" />太空时代</a></li>
+<li class="userapp-1050266"><a href="userapp.phpid1050266my_suffixlw_253d_253d.htm" title="园艺大亨"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~103.gif" alt="园艺大亨" />园艺大亨</a></li>
+<li class="userapp-1053099"><a href="userapp.phpid1053099my_suffixlw_253d_253d.htm" title="时尚人生"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~104.gif" alt="时尚人生" />时尚人生</a></li>
+<li class="userapp-1052860"><a href="userapp.phpid1052860my_suffixlw_253d_253d.htm" title="奇遇轮盘聊天世界"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~105.gif" alt="奇遇轮盘聊天世界" />奇遇轮盘聊天世界</a></li>
+<li class="userapp-1053201"><a href="userapp.phpid1053201my_suffixlw_253d_253d.htm" title="倾城"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~106.gif" alt="倾城" />倾城</a></li>
+<li class="userapp-1051842"><a href="userapp.phpid1051842my_suffixlw_253d_253d.htm" title="连连看总动员"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~107.gif" alt="连连看总动员" />连连看总动员</a></li>
+<li class="userapp-1014835"><a href="userapp.phpid1014835my_suffixlw_253d_253d.htm" title="我要K图"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~108.gif" alt="我要K图" />我要K图</a></li>
+<li class="userapp-1050925"><a href="userapp.phpid1050925my_suffixlw_253d_253d.htm" title="快来挖Wa"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~3.gif" alt="快来挖Wa" />快来挖Wa</a></li>
+<li class="userapp-1052742"><a href="userapp.phpid1052742my_suffixlw_253d_253d.htm" title="东北打棋摞"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~109.gif" alt="东北打棋摞" />东北打棋摞</a></li>
+<li class="userapp-1051803"><a href="userapp.phpid1051803my_suffixlw_253d_253d.htm" title="随机视频"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~110.gif" alt="随机视频" />随机视频</a></li>
+<li class="userapp-1050467"><a href="userapp.phpid1050467my_suffixlw_253d_253d.htm" title="幻宠奇缘"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~111.gif" alt="幻宠奇缘" />幻宠奇缘</a></li>
+<li class="userapp-1051907"><a href="userapp.phpid1051907my_suffixlw_253d_253d.htm" title="欢乐客栈"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~112.gif" alt="欢乐客栈" />欢乐客栈</a></li>
+<li class="userapp-1051195"><a href="userapp.phpid1051195my_suffixlw_253d_253d.htm" title="创世纪2012"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~113.gif" alt="创世纪2012" />创世纪2012</a></li>
+<li class="userapp-1049530"><a href="userapp.phpid1049530my_suffixlw_253d_253d.htm" title="乡村传奇"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~114.gif" alt="乡村传奇" />乡村传奇</a></li>
+<li class="userapp-1051929"><a href="userapp.phpid1051929my_suffixlw_253d_253d.htm" title="植物大战外星人"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~115.gif" alt="植物大战外星人" />植物大战外星人</a></li>
+<li class="userapp-1040624"><a href="userapp.phpid1040624my_suffixlw_253d_253d.htm" title="弹弹堂"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~116.gif" alt="弹弹堂" />弹弹堂</a></li>
+<li class="userapp-1047721"><a href="userapp.phpid1047721my_suffixlw_253d_253d.htm" title="天天背单词"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~117.gif" alt="天天背单词" />天天背单词</a></li>
+<li class="userapp-1050565"><a href="userapp.phpid1050565my_suffixlw_253d_253d.htm" title="开心星钻"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~118.gif" alt="开心星钻" />开心星钻</a></li>
+<li class="userapp-1043652"><a href="userapp.phpid1043652my_suffixlw_253d_253d.htm" title="跑火车"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~119.gif" alt="跑火车" />跑火车</a></li>
+<li class="userapp-1014051"><a href="userapp.phpid1014051my_suffixlw_253d_253d.htm" title="读心术"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~120.gif" alt="读心术" />读心术</a></li>
+<li class="userapp-1033907"><a href="userapp.phpid1033907my_suffixlw_253d_253d.htm" title="游戏账号中心"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~121.gif" alt="游戏账号中心" />游戏账号中心</a></li>
+<li class="userapp-1049094"><a href="userapp.phpid1049094my_suffixlw_253d_253d.htm" title="主题学校"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~122.gif" alt="主题学校" />主题学校</a></li>
+<li class="userapp-1048438"><a href="userapp.phpid1048438my_suffixlw_253d_253d.htm" title="海底总动员"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~13.gif" alt="海底总动员" />海底总动员</a></li>
+<li class="userapp-1045020"><a href="userapp.phpid1045020my_suffixlw_253d_253d.htm" title="干瞪眼"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~123.gif" alt="干瞪眼" />干瞪眼</a></li>
+<li class="userapp-1048677"><a href="userapp.phpid1048677my_suffixlw_253d_253d.htm" title="快乐庄园"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~124.gif" alt="快乐庄园" />快乐庄园</a></li>
+<li class="userapp-1002602"><a href="userapp.phpid1002602my_suffixlw_253d_253d.htm" title="心理测试"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~57.gif" alt="心理测试" />心理测试</a></li>
+<li class="userapp-1006771"><a href="userapp.phpid1006771my_suffixlw_253d_253d.htm" title="我快要疯了！"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~58.gif" alt="我快要疯了！" />我快要疯了！</a></li>
+<li class="userapp-1044189"><a href="userapp.phpid1044189my_suffixlw_253d_253d.htm" title="快打旋风"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~59.gif" alt="快打旋风" />快打旋风</a></li>
+<li class="userapp-1047370"><a href="userapp.phpid1047370my_suffixlw_253d_253d.htm" title="地产大亨"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~60.gif" alt="地产大亨" />地产大亨</a></li>
+<li class="userapp-1048307"><a href="userapp.phpid1048307my_suffixlw_253d_253d.htm" title="有间客栈"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~63.gif" alt="有间客栈" />有间客栈</a></li>
+<li class="userapp-1042221"><a href="userapp.phpid1042221my_suffixlw_253d_253d.htm" title="全民富翁"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~125.gif" alt="全民富翁" />全民富翁</a></li>
+<li class="userapp-1042041"><a href="userapp.phpid1042041my_suffixlw_253d_253d.htm" title="高清电影"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~126.gif" alt="高清电影" />高清电影</a></li>
+<li class="userapp-1025455"><a href="userapp.phpid1025455my_suffixlw_253d_253d.htm" title="斗牛场"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~6.gif" alt="斗牛场" />斗牛场</a></li>
+<li class="userapp-1043066"><a href="userapp.phpid1043066my_suffixlw_253d_253d.htm" title="本草仙目"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~64.gif" alt="本草仙目" />本草仙目</a></li>
+<li class="userapp-1044490"><a href="userapp.phpid1044490my_suffixlw_253d_253d.htm" title="三十六计"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~65.gif" alt="三十六计" />三十六计</a></li>
+<li class="userapp-1044822"><a href="userapp.phpid1044822my_suffixlw_253d_253d.htm" title="私人博物馆"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~66.gif" alt="私人博物馆" />私人博物馆</a></li>
+<li class="userapp-1041209"><a href="userapp.phpid1041209my_suffixlw_253d_253d.htm" title="开心测试"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~67.gif" alt="开心测试" />开心测试</a></li>
+<li class="userapp-1040657"><a href="userapp.phpid1040657my_suffixlw_253d_253d.htm" title="夜店大亨"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~68.gif" alt="夜店大亨" />夜店大亨</a></li>
+<li class="userapp-1038206"><a href="userapp.phpid1038206my_suffixlw_253d_253d.htm" title="摩天城"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~69.gif" alt="摩天城" />摩天城</a></li>
+<li class="userapp-1026002"><a href="userapp.phpid1026002my_suffixlw_253d_253d.htm" title="天黑请闭眼2.0"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~51.gif" alt="天黑请闭眼2.0" />天黑请闭眼2.0</a></li>
+<li class="userapp-1040890"><a href="userapp.phpid1040890my_suffixlw_253d_253d.htm" title="楼一幢"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~20.gif" alt="楼一幢" />楼一幢</a></li>
+<li class="userapp-1007292"><a href="userapp.phpid1007292my_suffixlw_253d_253d.htm" title="超级玛丽"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~37.gif" alt="超级玛丽" />超级玛丽</a></li>
+<li class="userapp-1011587"><a href="userapp.phpid1011587my_suffixlw_253d_253d.htm" title="人肉炸弹"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~52.gif" alt="人肉炸弹" />人肉炸弹</a></li>
+<li class="userapp-1025054"><a href="userapp.phpid1025054my_suffixlw_253d_253d.htm" title="可爱卡丁车"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~53.gif" alt="可爱卡丁车" />可爱卡丁车</a></li>
+<li class="userapp-1033960"><a href="userapp.phpid1033960my_suffixlw_253d_253d.htm" title="闪亮健身"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~54.gif" alt="闪亮健身" />闪亮健身</a></li>
+<li class="userapp-1036304"><a href="userapp.phpid1036304my_suffixlw_253d_253d.htm" title="幸运棋牌"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~55.gif" alt="幸运棋牌" />幸运棋牌</a></li>
+<li class="userapp-1016054"><a href="userapp.phpid1016054my_suffixlw_253d_253d.htm" title="礼物大派送"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~56.gif" alt="礼物大派送" />礼物大派送</a></li>
+<li class="userapp-1050377"><a href="userapp.phpid1050377my_suffixlw_253d_253d.htm" title="幸福摩天轮"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fic~127.gif" alt="幸福摩天轮" />幸福摩天轮</a></li>
+<li class="userapp-1018750"><a href="userapp.phpid1018750my_suffixlw_253d_253d.htm" title="斗鸡"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~32.gif" alt="斗鸡" />斗鸡</a></li>
+<li class="userapp-1040698"><a href="userapp.phpid1040698my_suffixlw_253d_253d.htm" title="奇妙猪世界"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~16.gif" alt="奇妙猪世界" />奇妙猪世界</a></li>
+<li class="userapp-1018840"><a href="userapp.phpid1018840my_suffixlw_253d_253d.htm" title="祖玛"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~34.gif" alt="祖玛" />祖玛</a></li>
+<li class="userapp-1006752"><a href="userapp.phpid1006752my_suffixlw_253d_253d.htm" title="疯狂出租车"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~35.gif" alt="疯狂出租车" />疯狂出租车</a></li>
+<li class="userapp-1006588"><a href="userapp.phpid1006588my_suffixlw_253d_253d.htm" title="挖金子"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~12.gif" alt="挖金子" />挖金子</a></li>
+<li class="userapp-1028802"><a href="userapp.phpid1028802my_suffixlw_253d_253d.htm" title="天下名片"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~36.gif" alt="天下名片" />天下名片</a></li>
+<li class="userapp-1012923"><a href="userapp.phpid1012923my_suffixlw_253d_253d.htm" title="我印我秀"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~38.gif" alt="我印我秀" />我印我秀</a></li>
+<li class="userapp-1002898"><a href="userapp.phpid1002898my_suffixlw_253d_253d.htm" title="谁请客吃冰激淋"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~39.gif" alt="谁请客吃冰激淋" />谁请客吃冰激淋</a></li>
+<li class="userapp-1021692"><a href="userapp.phpid1021692my_suffixlw_253d_253d.htm" title="福彩3D"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~40.gif" alt="福彩3D" />福彩3D</a></li>
+<li class="userapp-1030248"><a href="userapp.phpid1030248my_suffixlw_253d_253d.htm" title="VV斗地主"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~41.gif" alt="VV斗地主" />VV斗地主</a></li>
+<li class="userapp-1036269"><a href="userapp.phpid1036269my_suffixlw_253d_253d.htm" title="心跳1419"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~18.gif" alt="心跳1419" />心跳1419</a></li>
+<li class="userapp-1005209"><a href="userapp.phpid1005209my_suffixlw_253d_253d.htm" title="网上帐本"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~43.gif" alt="网上帐本" />网上帐本</a></li>
+<li class="userapp-1004755"><a href="userapp.phpid1004755my_suffixlw_253d_253d.htm" title="喜欢我吗"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~44.gif" alt="喜欢我吗" />喜欢我吗</a></li>
+<li class="userapp-1036999"><a href="userapp.phpid1036999my_suffixlw_253d_253d.htm" title="疯狂办公室"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~11.gif" alt="疯狂办公室" />疯狂办公室</a></li>
+<li class="userapp-1005122"><a href="userapp.phpid1005122my_suffixlw_253d_253d.htm" title="德克萨斯扑克游戏"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~28.gif" alt="德克萨斯扑克游戏" />德克萨斯扑克游戏</a></li>
+<li class="userapp-1034851"><a href="userapp.phpid1034851my_suffixlw_253d_253d.htm" title="欢乐卡片"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~45.gif" alt="欢乐卡片" />欢乐卡片</a></li>
+<li class="userapp-1033526"><a href="userapp.phpid1033526my_suffixlw_253d_253d.htm" title="荣光医院"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~14.gif" alt="荣光医院" />荣光医院</a></li>
+<li class="userapp-1030888"><a href="userapp.phpid1030888my_suffixlw_253d_253d.htm" title="网页游戏"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~46.gif" alt="网页游戏" />网页游戏</a></li>
+<li class="userapp-1007832"><a href="userapp.phpid1007832my_suffixlw_253d_253d.htm" title="有事就问吧"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~70.gif" alt="有事就问吧" />有事就问吧</a></li>
+<li class="userapp-1010227"><a href="userapp.phpid1010227my_suffixlw_253d_253d.htm" title="魔法斗地主"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~19.gif" alt="魔法斗地主" />魔法斗地主</a></li>
+<li class="userapp-1006410"><a href="userapp.phpid1006410my_suffixlw_253d_253d.htm" title="56动感相册"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~47.gif" alt="56动感相册" />56动感相册</a></li>
+<li class="userapp-1002711"><a href="userapp.phpid1002711my_suffixlw_253d_253d.htm" title="礼品店"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~48.gif" alt="礼品店" />礼品店</a></li>
+<li class="userapp-1035333"><a href="userapp.phpid1035333my_suffixlw_253d_253d.htm" title="开心动物园"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~15.gif" alt="开心动物园" />开心动物园</a></li>
+<li class="userapp-1025627"><a href="userapp.phpid1025627my_suffixlw_253d_253d.htm" title="开心恋床"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~49.gif" alt="开心恋床" />开心恋床</a></li>
+<li class="userapp-1006097"><a href="userapp.phpid1006097my_suffixlw_253d_253d.htm" title="电Ta一下"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~25.gif" alt="电Ta一下" />电Ta一下</a></li>
+<li class="userapp-1000043"><a href="userapp.phpid1000043my_suffixlw_253d_253d.htm" title="电影"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~26.gif" alt="电影" />电影</a></li>
+<li class="userapp-1013913"><a href="userapp.phpid1013913my_suffixlw_253d_253d.htm" title="朋友比较"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~27.gif" alt="朋友比较" />朋友比较</a></li>
+<li class="userapp-1012215"><a href="userapp.phpid1012215my_suffixlw_253d_253d.htm" title="酷狗音乐盒"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~29.gif" alt="酷狗音乐盒" />酷狗音乐盒</a></li>
+<li class="userapp-1002972"><a href="userapp.phpid1002972my_suffixlw_253d_253d.htm" title="QQ聊天室"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~30.gif" alt="QQ聊天室" />QQ聊天室</a></li>
+<li class="userapp-1022890"><a href="userapp.phpid1022890my_suffixlw_253d_253d.htm" title="浪漫公寓"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~31.gif" alt="浪漫公寓" />浪漫公寓</a></li>
+<li class="userapp-1025246"><a href="userapp.phpid1025246my_suffixlw_253d_253d.htm" title="狗狗"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~9.gif" alt="狗狗" />狗狗</a></li>
+<li class="userapp-1021701"><a href="userapp.phpid1021701my_suffixlw_253d_253d.htm" title="零距离邮筒"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~33.gif" alt="零距离邮筒" />零距离邮筒</a></li>
+<li class="userapp-1033482"><a href="userapp.phpid1033482my_suffixlw_253d_253d.htm" title="音乐DNA"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~17.gif" alt="音乐DNA" />音乐DNA</a></li>
+<li class="userapp-1029889"><a href="userapp.phpid1029889my_suffixlw_253d_253d.htm" title="开心宝贝"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficons~1.gif" alt="开心宝贝" />开心宝贝</a></li>
+<li class="userapp-1013309"><a href="userapp.phpid1013309my_suffixlw_253d_253d.htm" title="游戏厅"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~21.gif" alt="游戏厅" />游戏厅</a></li>
+<li class="userapp-1011595"><a href="userapp.phpid1011595my_suffixlw_253d_253d.htm" title="赛车总动员"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~22.gif" alt="赛车总动员" />赛车总动员</a></li>
+<li class="userapp-1010474"><a href="userapp.phpid1010474my_suffixlw_253d_253d.htm" title="猫鼠大作战"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~23.gif" alt="猫鼠大作战" />猫鼠大作战</a></li>
+<li class="userapp-1008973"><a href="userapp.phpid1008973my_suffixlw_253d_253d.htm" title="朋友印象"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~50.gif" alt="朋友印象" />朋友印象</a></li>
+<li class="userapp-1039242"><a href="userapp.phpid1039242my_suffixlw_253d_253d.htm" title="幸福厨房"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~2.gif" alt="幸福厨房" />幸福厨房</a></li>
+<li class="userapp-1028245"><a href="userapp.phpid1028245my_suffixlw_253d_253d.htm" title="开心斗地主"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~24.gif" alt="开心斗地主" />开心斗地主</a></li>
+<li class="userapp-1003094"><a href="userapp.phpid1003094my_suffixlw_253d_253d.htm" title="争车位"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2fico~10.gif" alt="争车位" />争车位</a></li>
+<li class="userapp-1021978"><a href="userapp.phpid1021978my_suffixlw_253d_253d.htm" title="开心农场"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~8.gif" alt="开心农场" />开心农场</a></li>
+<li class="userapp-1004186"><a href="userapp.phpid1004186my_suffixlw_253d_253d.htm" title="朋友买卖"><img src="image/app/subject.gifurlhttp_3a_2f_2fappicon.manyou.com_2ficon~7.gif" alt="朋友买卖" />朋友买卖</a></li>
+</ul>
+</div>
+</div>
+<div id="applist" >
+<div id="Div2" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1004186my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1004186" id="A1" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>朋友买卖</h2>
+</div>
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1004186"><div><div style="float: left; margin-right: 4px;"><a href="../uchome.manyou.com/profile/863166786" target="_top"><img src="../uchome.manyou.com/avatar/863166786thumb"/></a></div><div>主　人：<a href="../uchome.manyou.com/profile/967722408" target="_top">Se⒎en</a><br/>现　金：946<br/>总资产：5200<br/></div><div style="clear: both; background: #EAEAEA; padding: 3px; margin-top: 5px;"><a href="../uchome.manyou.com/profile/863166786" target="_top">小E←邱沼懿</a>的宠物们</div><ul style="overflow: hidden;"><li style="float: left; padding-top: 5px; width: 65px; white-space: nowrap; overflow: hidden; display: inline;"><a href="../uchome.manyou.com/profile/864450019" target="_top"><img src="../uchome.manyou.com/avatar/864450019thumb"/></a><br/><a href="../uchome.manyou.com/profile/864450019" target="_top">张颖</a></li><li style="float: left; padding-top: 5px; width: 65px; white-space: nowrap; overflow: hidden; display: inline;"><a href="../uchome.manyou.com/profile/2085490865" target="_top"><img src="../uchome.manyou.com/avatar/2085490865thumb"/></a><br/><a href="../uchome.manyou.com/profile/2085490865" target="_top">余小立</a></li><li style="float: left; padding-top: 5px; width: 65px; white-space: nowrap; overflow: hidden; display: inline;"><a href="../uchome.manyou.com/profile/1704188215" target="_top"><img src="../uchome.manyou.com/avatar/1704188215thumb"/></a><br/><a href="../uchome.manyou.com/profile/1704188215" target="_top">倪鸿展</a></li><li style="float: left; padding-top: 5px; width: 65px; white-space: nowrap; overflow: hidden; display: inline;"><a href="../uchome.manyou.com/profile/967890819" target="_top"><img src="../uchome.manyou.com/avatar/967890819thumb"/></a><br/><a href="../uchome.manyou.com/profile/967890819" target="_top">敏敏</a></li></ul></div></div></div></div>
+</div>
+
+</div>
+</div>
+<div class="frame_3">
+<div id="applist" >
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1052447my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1052447" id="user_app_1052447" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>欢乐鱼塘</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1052447"><div>闲来无事的时候，来到属于你的私家鱼塘，喂喂鱼，钓钓宝。邀约上朋友们，<a href="userapp.phpid1052447my_suffixl2luzgv4lnboca_253d_253d.htm" target="_top">一起来享受喂鱼和钓鱼的乐趣吧！</a></div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1003274my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1003274" id="user_app_1003274" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>读书</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1003274"><div><div style="border-bottom: 1px solid #CCCCCC; color: #888888; font-size: 14px; font-weight: bold; margin: 0 0 5px; padding: 0 0 5px;">最近在读的书... &nbsp; &nbsp; <a href="userapp.phpid1003274my_suffixl3jlbgf0aw9ulmh0bww_252f~1.htm" target="_top">查看所有 (0)</a></div><div style="color: #666666; font-size: 14px; line-height: 160%; padding: 5px 10px;">暂时还没有加入在读的书。在网页顶部的搜索框中输入书名或者作者，点搜索，找到您在读的书后点击进去；在图书页面点击红色的“最近在读”按钮，即可将书加入到这里。</div><div style="border-bottom: 1px solid #CCCCCC; color: #888888; font-size: 14px; font-weight: bold; margin: 0 0 5px; padding: 20px 0 5px;">想读的书... &nbsp; &nbsp; <a href="userapp.phpid1003274my_suffixl3jlbgf0aw9ulmh0bww_252~2.htm" target="_top">查看所有 (1)</a></div><a title="每天懂一点好玩心理学" href="userapp.phpid1003274my_suffixl2rldgfpbc5odg1sp2lkptiz~1.htm" target="_top"><img alt="每天懂一点好玩心理学" style="border: 0 none; margin: 5px; vertical-align: bottom;" src="../www.tushucheng.com/image/book/2391432/65_100.jpg"/></a><div style="border-bottom: 1px solid #CCCCCC; color: #888888; font-size: 14px; font-weight: bold; margin: 0 0 5px; padding: 20px 0 5px;">读过的书... &nbsp; &nbsp; <a href="userapp.phpid1003274my_suffixl3jlbgf0aw9ulmh0bww_252~3.htm" target="_top">查看所有 (1)</a></div><a title="黑客大曝光：网络安全机密与解决方案（第3版，1CD）" href="userapp.phpid1003274my_suffixl2rldgfpbc5odg1sp2lkpte2~1.htm" target="_top"><img alt="黑客大曝光：网络安全机密与解决方案（第3版，1CD）" style="border: 0 none; margin: 5px; vertical-align: bottom;" src="../www.tushucheng.com/image/book/1627660/65_100.jpg"/></a></div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1003049my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1003049" id="user_app_1003049" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>每天进步</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1003049"><div>从今天开始，我要尝试每天进步百分之一！</div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1040624my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1040624" id="user_app_1040624" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>弹弹堂</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1040624"><div><div style="height: 200px; margin-top: 5px;"><div style="float: left; margin-left: 20; text-indent: 20; width: 100; font-size: 13;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../uchome.manyou.com/profile/863166786" target="_top"><img src="../uchome.manyou.com/avatar/863166786thumb"/></a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../uchome.manyou.com/profile/863166786" target="_top">小E←邱沼懿</a><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在<a href="userapp.phpid1040624my_suffixlw_253d_253d.htm" target="_top">弹弹堂</a>中正在体验超炫感觉<br/><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="userapp.phpid1040624my_suffixlw_253d_253d.htm" target="_top"><img src="../app.yeswan.com/manyou/images/xzjqyx.gif"/></a></div><div style="float: right; margin-right: 0px; border: none; background: none;"><a href="userapp.phpid1040624my_suffixlw_253d_253d.htm" target="_top"><img src="../app.yeswan.com/manyou/images/ddt_profile.gif"/></a></div></div></div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1002602my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1002602" id="user_app_1002602" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>心理测试</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_action"><span class="r_option"></span>做过的测试</div><div class="box_content"><div class="app_content_1002602"><div><ul><li style="border-bottom: 1px solid #ecf1f3; padding: 5px 15px 5px 5px;"><div style="float: left; width: 64px; padding: 0;"><img src="../flower.manyou-apps.com/psycho/images/tests/25.jpg" border="0"/></div><div style="margin: 0pt 0pt 0pt 74px; padding: 0pt;"><h4><a href="userapp.phpid1002602my_suffixl2luzgv4lnbocd9hy3rpb249~1.htm" target="_top">你是否感情用事？</a></h4><p style="padding: 5px 0px;">你希望得到一个明确的答案吗？下面一组测试可以帮助你达到目的。</p></div><div style="clear: both;"></div></li><li style="border-bottom: 1px solid #ecf1f3; padding: 5px 15px 5px 5px;"><div style="float: left; width: 64px; padding: 0;"><img src="../flower.manyou-apps.com/psycho/images/tests/1481.jpg" border="0"/></div><div style="margin: 0pt 0pt 0pt 74px; padding: 0pt;"><h4><a href="userapp.phpid1002602my_suffixl2luzgv4lnbocd9hy3rpb24~2.htm" target="_top">探索你的心灵深处</a></h4><p style="padding: 5px 0px;"></p></div><div style="clear: both;"></div></li></ul></div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1025455my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1025455" id="user_app_1025455" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>斗牛场</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1025455"><div><div style="background-color: rgb(255,255,204); border: 1px solid rgb(232,210,73); width: 220px; float: left;"><div style="margin: 1px 5px 3px;"><h2 style="margin: 5px 0;">斗牛场：<a href="userapp.phpid1025455my_suffixl3vzzxiucghwp3vpzd04njmx~1.htm" target="_top">小E←邱沼懿</a></h2>头衔：牛小兵(等级1)<br/>牛粪：<img src="../manyougame.45451.com/images/xyx_goldcorn_new.gif"/>143<br/>擅长： <a href="userapp.phpid1025455my_suffixl2dhbwuucghwp2dhbwvpzd0z~1.htm" target="_top">小猫走钢线</a><a style="background: url(../manyougame.45451.com/images/xyx_pk_btn.gif) repeat scroll 0 0 transparent; color: #666666 !important; line-height: 25px; padding-left: 25px; width: 53px; display: block; float: right;" href="userapp.phpid1025455my_suffixl2dhbwuucghwp2dhbwvpzd0~2.htm" target="_top">挑战TA</a><br/>战绩:7胜 14负</div></div><ul style="height: 100px;"><li style="float: left; margin-left: 5px; width: 98px;"><a href="userapp.phpid1025455my_suffixl2dhbwuucghwp2dhbwvpzd00~1.htm" target="_top"><img style="border: 1px solid #E0E0E0; height: 65px; padding: 2px; width: 90px;" src="../manyougame.45451.com/template/pic/shonen_jump.gif"/></a><div style="overflow: hidden; text-align: center;"><p style="color: #999999;">最高分:3807</p></div></li><li style="float: left; margin-left: 5px; width: 98px;"><a href="userapp.phpid1025455my_suffixl2dhbwuucghwp2dhbwvpzd0y~1.htm" target="_top"><img style="border: 1px solid #E0E0E0; height: 65px; padding: 2px; width: 90px;" src="../manyougame.45451.com/template/pic/jay_piano.gif"/></a><div style="overflow: hidden; text-align: center;"><p style="color: #999999;">最高分:12494</p></div></li><li style="float: left; margin-left: 5px; width: 98px;"><a href="userapp.phpid1025455my_suffixl2dhbwuucghwp2dhbwvpzd05~1.htm" target="_top"><img style="border: 1px solid #E0E0E0; height: 65px; padding: 2px; width: 90px;" src="../manyougame.45451.com/template/pic/peaks_solitaire.gif"/></a><div style="overflow: hidden; text-align: center;"><p style="color: #999999;">最高分:6805</p></div></li></ul></div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1011554my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1011554" id="user_app_1011554" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>超级大富翁</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1011554"><div><div style="background-color: #FFFFCC; border: solid 1px #E8D249; margin: 10px;"><div style="margin: 10px;"><h2>超级大富翁：小E←邱沼懿</h2>排名：1 名<br/>慈善： 0 点 &nbsp;&nbsp;<br/>总资产：2200万 元 | 企业价值：1600万 元<br/>城市：没有城市 | 城市价格：0万</div></div></div></div></div></div>
+</div>
+<div id="applist" class="block" >
+<div class="blocktitle">
+<em><a href="userapp.phpid1008973my_suffixlw_253d_253d.htm">详情</a> | <a href="cp.phpacspaceopdeleteappid1008973" id="user_app_1008973" onclick="ajaxmenu(event, this.id, 99999)" title="隐藏">隐藏</a></em>
+<h2>朋友印象</h2>
+</div>
+
+<div class="blockcontent">	
+<div class="box_content"><div class="app_content_1008973"><div><style type="text/css">.app_content_1008973  #app1008973_container {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+    font: 12px Arial;
+}
+
+.app_content_1008973  #app1008973_title {
+    text-align: center;
+    height: 50px;
+}
+
+.app_content_1008973  #app1008973_title table {
+    text-align: center;
+    vertical-align: middle;
+    width: 800px;
+}
+
+.app_content_1008973  #app1008973_title table tr td div {
+    line-height: 38px;
+    text-align: right;
+    height: 40px;
+    color: #333333;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.app_content_1008973  #app1008973_signlink a {
+}
+
+.app_content_1008973  #app1008973_menuChildren {
+    border-bottom: #888888 1px solid;
+    width: 800px;
+    height: auto;
+    line-height: 28px;
+}
+
+.app_content_1008973  #app1008973_leftFrame {
+    float: left;
+    width: 210px;
+    height: auto;
+    margin-left: 40px;
+}
+
+.app_content_1008973  .leftFrame_list {
+    float: left;
+    width: 700px;
+    height: auto;
+    margin-left: 40px;
+}
+
+.app_content_1008973  #app1008973_userInfo, .app_content_1008973  #app1008973_meInfo, .app_content_1008973  .leftFrame_list ul {
+    width: 210px;
+}
+
+.app_content_1008973  #app1008973_userInfo ul, .app_content_1008973  #app1008973_FrameTag ul, .app_content_1008973  #app1008973_meInfo ul, .app_content_1008973  .leftFrame_list ul {
+    list-style: none;
+}
+
+.app_content_1008973  #app1008973_userInfo ul li, .app_content_1008973  #app1008973_meInfo ul li, .app_content_1008973  .leftFrame_list ul li {
+    line-height: 38px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.app_content_1008973  #app1008973_rightFrame {
+    float: right;
+    width: 500px;
+    height: auto;
+}
+
+.app_content_1008973  #app1008973_meInfo {
+    margin-top: 40px;
+}
+
+.app_content_1008973  #app1008973_errorView {
+    width: 400px;
+    height: auto;
+    background-color: #FFFF66;
+    display: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #ff0000;
+    border: #888 1px solid;
+}
+
+.app_content_1008973  #app1008973_loadingBar {
+    width: 400px;
+    height: auto;
+    display: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #ff0000;
+    border: #888 1px solid;
+}
+
+.app_content_1008973  #app1008973_loadingBar img {
+    vertical-align: middle;
+}
+
+.app_content_1008973  #app1008973_FrameTag, .app_content_1008973  #app1008973_FrameTagMe {
+    width: 490px;
+    margin: 0 auto;
+    padding: 0 0;
+    line-height: 36px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+}
+
+.app_content_1008973  .frameTagList {
+    width: 400px;
+    margin: 0 0;
+    padding: 0 0;
+    float: right;
+    line-height: 36px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+}
+
+.app_content_1008973  .frameTagList span {
+    float: left;
+}
+
+.app_content_1008973  #app1008973_FrameTagMe {
+    margin-top: 100px;
+}
+
+.app_content_1008973  #app1008973_FrameTagMe span {
+    float: left;
+    margin-right: 8px;
+    line-height: 60px;
+}
+
+.app_content_1008973  #app1008973_FrameTag p {
+    width: 60px;
+    height: 36px;
+    text-decoration: none;
+    padding: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 34px;
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+    margin-top: -14px;
+}
+
+.app_content_1008973  #app1008973_FrameTag a {
+    width: 60px;
+    height: 36px;
+    text-decoration: none;
+    padding: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 34px;
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+}
+
+.app_content_1008973  #app1008973_FrameTag a:hover {
+    margin: 0 0;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 60px;
+    height: 36px;
+    background-color: #fff;
+    text-align: center;
+    color: #000;
+}
+
+.app_content_1008973  #app1008973_styleRows {
+    padding-top: 20px;
+    width: 490px;
+    height: 21px;
+}
+
+.app_content_1008973  #app1008973_otherWord {
+    margin-left: 30px;
+    line-height: 30px;
+}
+
+.app_content_1008973  #app1008973_userPLink {
+    width: 400px;
+    height: auto;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.app_content_1008973  #app1008973_userPLink a {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.app_content_1008973  #app1008973_userPLink a:hover {
+    text-decoration: none;
+}
+
+.app_content_1008973  .inputContent {
+    width: 100px;
+    height: 24px;
+    border: #CCCCCC 3px solid;
+    background-color: #CCCC99;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.app_content_1008973  .inputFriend {
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    border: #CCCCCC 1px solid;
+    background-color: #FFCC66;
+    font-size: 12px;
+}
+
+.app_content_1008973  .lineheard {
+    line-height: 60px;
+}
+
+.app_content_1008973  .submit {
+    border-right: 2px #ccc solid;
+    width: 40px;
+    border-bottom: 2px #ccc solid;
+    background-color: #efefef;
+    height: 28px;
+    line-height: 24px;
+}
+
+.app_content_1008973  .colorFont {
+    color: #fff;
+}
+
+.app_content_1008973  .colorFont1 a:hover {
+    color: #00998A;
+}
+
+.app_content_1008973  .colorFont2 a:hover {
+    color: #6666CC;
+}
+
+.app_content_1008973  .colorFont3 a:hover {
+    color: #FF9966;
+}
+
+.app_content_1008973  .colorFont4 a:hover {
+    color: #337799;
+}
+
+.app_content_1008973  .colorFont5 a:hover {
+    color: #718A0F;
+}
+
+.app_content_1008973  .colorFont6 a:hover {
+    color: #999900;
+}
+
+.app_content_1008973  .colorFont7 a:hover {
+    color: #0033FF;
+}
+
+.app_content_1008973  .colorFont8 a:hover {
+    color: #B266FF;
+}
+
+.app_content_1008973  .colorFont9 a:hover {
+    color: #66CC00;
+}
+
+.app_content_1008973  .colorFont10 a:hover {
+    color: #80ABDA;
+}
+
+.app_content_1008973  .borderBg1 {
+    border: #00998A 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg2 {
+    border: #6666CC 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg3 {
+    border: #FF9966 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg4 {
+    border: #337799 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg5 {
+    border: #718A0F 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg6 {
+    border: #999900 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg7 {
+    border: #0033FF 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg8 {
+    border: #B266FF 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg9 {
+    border: #66CC00 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .borderBg10 {
+    border: #80ABDA 1px solid;
+    width: 60px;
+    height: 36px;
+}
+
+.app_content_1008973  .colorBg1 {
+    background-color: #00998A;
+}
+
+.app_content_1008973  .colorBg2 {
+    background-color: #6666CC;
+}
+
+.app_content_1008973  .colorBg3 {
+    background-color: #FF9966;
+}
+
+.app_content_1008973  .colorBg4 {
+    background-color: #337799;
+}
+
+.app_content_1008973  .colorBg5 {
+    background-color: #718A0F;
+}
+
+.app_content_1008973  .colorBg6 {
+    background-color: #999900;
+}
+
+.app_content_1008973  .colorBg7 {
+    background-color: #0033FF;
+}
+
+.app_content_1008973  .colorBg8 {
+    background-color: #B266FF;
+}
+
+.app_content_1008973  .colorBg9 {
+    background-color: #66CC00;
+}
+
+.app_content_1008973  .colorBg10 {
+    background-color: #80ABDA;
+}
+
+.app_content_1008973  .colorFont1 {
+    color: #00998A;
+}
+
+.app_content_1008973  .colorFont2 {
+    color: #6666CC;
+}
+
+.app_content_1008973  .colorFont3 {
+    color: #FF9966;
+}
+
+.app_content_1008973  .colorFont4 {
+    color: #337799;
+}
+
+.app_content_1008973  .colorFont5 {
+    color: #718A0F;
+}
+
+.app_content_1008973  .colorFont6 {
+    color: #999900;
+}
+
+.app_content_1008973  .colorFont7 {
+    color: #0033FF;
+}
+
+.app_content_1008973  .colorFont8 {
+    color: #B266FF;
+}
+
+.app_content_1008973  .colorFont9 {
+    color: #66CC00;
+}
+
+.app_content_1008973  .colorFont10 {
+    color: #80ABDA;
+}
+
+.app_content_1008973  .sizeFont1 {
+    font-size: 48px;
+}
+
+.app_content_1008973  .sizeFont2 {
+    font-size: 44px;
+}
+
+.app_content_1008973  .sizeFont3 {
+    font-size: 40px;
+}
+
+.app_content_1008973  .sizeFont4 {
+    font-size: 36px;
+}
+
+.app_content_1008973  .sizeFont5 {
+    font-size: 32px;
+}
+
+.app_content_1008973  .sizeFont6 {
+    font-size: 28px;
+}
+
+.app_content_1008973  .sizeFont7 {
+    font-size: 24px;
+}
+
+.app_content_1008973  .sizeFont8 {
+    font-size: 20px;
+}
+
+.app_content_1008973  .sizeFont9 {
+    font-size: 16px;
+}
+
+.app_content_1008973  .sizeFont10 {
+    font-size: 12px;
+}
+
+.app_content_1008973  #app1008973_btnStep a {
+    line-height: 80px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    width: 200px;
+    height: 80px;
+}
+
+.app_content_1008973  #app1008973_btnStep a:hover {
+    line-height: 80px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    height: 80px;
+}
+
+</style><table cellpadding="0" cellspacing="0" border="0" align="center" width="560"><tr style="padding-top: -20px; margin-top: -20px; padding-bottom: 12px;"><td colspan="2" style="padding-top: -20px; margin-top: -20px; padding-bottom: 12px;"><a href="../uchome.manyou.com/profile/863166786" target="_top">小E←邱沼懿</a>的好友对他的印象：</td></tr><tr><td width="130" align="center" valign="middle"><a href="../uchome.manyou.com/profile/863166786" target="_top"><img src="../uchome.manyou.com/avatar/863166786small"/></a><p style="margin-top: 10px;"><a href="../uchome.manyou.com/profile/863166786" target="_top">小E←邱沼懿</a></p></td><td align="left" valign="middle" class="lineheard"><span class="colorFont1 sizeFont1">帅气</span>&nbsp;&nbsp;<span class="colorFont2 sizeFont2">超复杂的</span>&nbsp;&nbsp;<span class="colorFont3 sizeFont3">笨宠物</span>&nbsp;&nbsp;<span class="colorFont4 sizeFont4">很拽</span>&nbsp;&nbsp;</td></tr><tr><td colspan="2" align="center" valign="middle" id="app1008973_btnStep"><a href="userapp.phpid1008973my_suffixl2luzgv4lnbocd9wawq9odyz~1.htm" alt="描述我对好友的印象" target="_top">描述我对好友的印象</a></td></tr></table></div></div></div></div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<div id="footer">
+<div class="copyright">
+<div class="f_status">
+<a title="TOP" id="a_top" onclick="window.scrollTo(0,0);" href="javascript:;">TOP</a>
+<a title="订阅 RSS" id="a_rss" href="rss.phpuid1.htm">订阅</a>
+<a href="ovr0/cp.phpaccommonopreportidtypeuidid1.htm" id="a_report" onclick="ajaxmenu(event, this.id, 1)">举报该用户</a>
+</div>
+<p>小E←邱沼懿的个人博客由〖舍内网〗提供，版权所有 <a href="../fs.shenei.net/default.htm" target="_blank">【疯·神】工作室</a>(2009-2010)<a href="ovr0/admincp.phpacspaceopmanageuid1.htm" id="a_manage">管理用户</a></p>
+</div>
+</div>
+
+<ul id="setstyle_a_menu" class="stylemenu" style="display:none">
+<li><a href="javascript:void(0);" id="selectshare_sw">选择风格</a></li>
+<li><a href="javascript:void(0);" id="fastdiystyle">快速自定义</a></li>
+<li><a href="viewspace.phpopdiy.htm">高级自定义</a></li></ul>
+
+</div>
+
+<div class="toolbar" id="toolbar">
+<div class="toolbarbox1">
+<a class="logo" href="space.phpdohome.htm">
+舍内
+</a>
+<div class="toolbaruser">
+<ul>
+<li class="txt">欢迎您：小E←邱沼懿 &nbsp;&nbsp;<a href="cp.phpaccommonoplogoutuhash88e30fdf50da701748a7f76c40b44df3">退出</a></li>
+<li><a href="viewspace.phpuid1.htm">我的博客</a></li>
+<li><a href="cp.php.htm" target="_blank">设置</a></li>
+<li>
+<a id="a_magic_superstar" href="magic.phpmidsuperstar.htm" onclick="ajaxmenu(event, this.id, 1)">顶部动画</a>
+</li>
+<li><a href="space-pm.html">消息</a></li>
+
+</ul>
+</div>
+<div class="toolbarlink">
+<ul>
+<li class="home"><a href="ovr1/space-home.html">网站首页</a></li>
+<li><a href="network.html">闲逛</a></li>
+<li><a href="randomuser.php.htm">乱窜</a></li>
+</ul>
+</div>
+<div id="ann" onmouseover="annstop = 1" onmouseout="annstop = 0">
+<div id="annbody">
+<ul id="annbodylis">
+
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;<img src="image/face/32.gif" class="face">还是不了解咩~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5617-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;迷迷糊糊~感觉不是自己的自己在做什么。焕然间，意识到不该这怎做。。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5616-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;谁是谁的谁，在乎了又能怎样。一般的心情无法理解我的谁。&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5615-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;心情不是很好，脾气就不好，没地方发发泄，闷出内伤了~~&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5614-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1377-do-doing.html" target="_blank">xiaoya </a>说：&nbsp;&nbsp;(ˇ&#717;ˇ） 想～你~了~~~&nbsp;&nbsp;<a href="space-1377-do-doing-doid-5613-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5612-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;有份小~小 思绪。不为人知的 思。路&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5611-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;我正参加#新浪厦门一周年#十大微福利全城畅享活动！@厦门京闽北海湾酒店 自助餐券各类精致小吃，甜点，加上五星级酒店优雅实施的环境，享受即将开始！更多惊喜 <a href="../t.cn/zwcvecw_40" target=_blank rel=nofollow>http://t.cn/zWCVecW@</a>新取英文名Esone爆开心的E神小懿 @cc坏脾气 @绝望_的生鱼片 <div class="sub_doing_quote"><span>新浪厦门：【#新浪厦门一周年#福利大派送NO.20】[微博三岁啦]酒店自助餐双人版！关注@厦门京闽北海湾酒店 @新浪厦门 ，转发此博并@ 3好友，就有机会获厦门京闽北海湾酒店双人自助餐（共两套）！今天福利明天送(8-28上午11:00抽奖,获奖名单关注@新浪厦门周年庆 )更多福利：<a href="../mn.sina.com.cn/oneyear/default.htm" target=_blank rel=nofollow>http://t.cn/zWKxwn5</a></span><div class="img"><a target="_blank" href="../ww3.sinaimg.cn/large/67be458fgw1dwb1mvnh83j.jpg"><img src="../ww3.sinaimg.cn/bmiddle/67be458fgw1dwb1mvnh83j.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5607-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;想要一部呢。。<div class="sub_doing_quote"><span>厦门吃喝玩乐大全：【再送5台苹果4代，公平公正】1，请用微信“添加朋友”查找“xmdcxs”添加“厦门大城小事”为好友 2，转发本条即可 。以上两个条件缺一不可，明晚起每天抽出一台4代。（微信：厦门大城小事 ，是厦门名博@厦门大城小事 的唯一官方号，每天及时播报厦门大小事及其他优惠到你手机，是你厦门生活好帮手）</span><div class="img"><a target="_blank" href="../ww1.sinaimg.cn/large/93c1b3f7gw1dwbcyv1vukj.jpg"><img src="../ww1.sinaimg.cn/bmiddle/93c1b3f7gw1dwbcyv1vukj.jpg"></a></div><ol></ol></div>&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5606-goto-yes.html" class="re">回复</a>
+</li>
+<li>
+<a href="space-1162-do-doing.html" target="_blank">tianxin </a>说：&nbsp;&nbsp;HOHO～～坐等你们大男生煮的饭饭噢～～<img src="image/face/42.gif" class="face">&nbsp;&nbsp;<a href="space-1162-do-doing-doid-5605-goto-yes.html" class="re">回复</a>
+</li>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+var anndelay = 3000;
+var annst = 0;
+var annstop = 0;
+var annrowcount = 0;
+var anncount = 0;
+var annlis = $('annbody').getElementsByTagName("LI");
+var annrows = new Array();
+var annstatus;
+
+function announcementScroll() {
+if(annstop) {
+annst = setTimeout('announcementScroll()', anndelay);
+return;
+}
+if(!annst) {
+var lasttop = -1;
+for(i = 0;i < annlis.length;i++) {
+if(lasttop != annlis[i].offsetTop) {
+if(lasttop == -1) {
+lasttop = 0;
+}
+annrows[annrowcount] = annlis[i].offsetTop - lasttop;
+annrowcount++;
+}
+lasttop = annlis[i].offsetTop;
+}
+
+if(annrows.length == 1) {
+$('ann').onmouseover = $('ann').onmouseout = null;
+} else {
+annrows[annrowcount] = annrows[1];
+$('annbodylis').innerHTML += $('annbodylis').innerHTML;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+annrowcount = 1;
+return;
+}
+
+if(annrowcount >= annrows.length) {
+$('annbody').scrollTop = 0;
+annrowcount = 1;
+annst = setTimeout('announcementScroll()', anndelay);
+} else {
+anncount = 0;
+announcementScrollnext(annrows[annrowcount]);
+}
+}
+
+function announcementScrollnext(time) {
+$('annbody').scrollTop++;
+anncount++;
+if(anncount != time) {
+annst = setTimeout('announcementScrollnext(' + time + ')', 10);
+} else {
+annrowcount++;
+annst = setTimeout('announcementScroll()', anndelay);
+}
+}
+announcementScroll();
+</script>
+
+</div>
+<div class="toolshadow">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+var fastdiy = new transfer('fastdiystyle', 'fastdiy', 'oksubmit', 'fastdiy_header');
+var mystylesdiy = new transfer('mystylelist_sw', 'mystyles', 'cancel', 'mystyles_header');
+var sharestyle = new transfer('sharestyle_sw', 'sharestyle', 'oksubmit', 'sharestyle_header');
+var selectshare = new transfer('selectshare_sw', 'selectshare', 'oksubmit', 'selectshare_header');
+
+</script>
+<div style="visibility: hidden;display:block;/*统一转化为块级元素*/ overflow: hidden; width: 0; height: 0; ">
+
+</div>
+
+
+</body>
+</html>

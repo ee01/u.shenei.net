@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- saved from url=(0074)http://u.shenei.net/viewspace.php?uid=1&do=poll&view=me&filtrate=me&page=4 --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gbk" />
+
+<title>哇吐！~~ </title>
+
+<script language="javascript" type="text/javascript" src="../source/script_cookie.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_common.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_menu.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_manage.js"></script>
+<script language="javascript" type="text/javascript" src="../source/script_face.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/script_ajax.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/horoscopes.js"></script>
+<link type="text/css" rel="stylesheet" href="../viewspace/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="../viewspace/css/template.css" />
+
+
+<link type="text/css" rel="stylesheet" href="../viewspace/css/000/00/00/01_style.css1296911438.css" /><link rel="alternate" type="application/rss+xml" href="../rss.phpuid1.htm" title="小E←邱沼懿" />
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="../xmlrpc.phprsd1" />
+</head>
+
+<body onLoad="playerinit();">
+
+
+
+<style>
+
+#diy_content {color:#fff; font-size:14px; padding:2px; text-align:center; width:100%; height:120px; background-color:#342}
+#diy_header {margin:0 auto; height:30px; background-color:#456}
+#diy_main {margin:0 auto; height:90px;background-color:#789;}
+#selectblock {margin:0 auto;}
+
+/* 弹出层时的渐变层的样式 */
+.transfer {border:1px dashed red;margin:0px auto;cursor:move;background: url(../viewspace/img/tool/bg_transfer.png) !important;background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src='viewspace/img/tool/bg_transfer.png');}
+
+.transfer .transferbody{overflow:hidden;}
+.transfer .transferbody a{display:block; width:21px; height:21px; overflow:hidden; float:right;margin-right:6px; text-indent: -99999px;}
+.transfer .transferbody a.editblock{background:url(../viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.editblock:hover{background:url(../viewspace/img/tool/floatbtn_editblock.gif) no-repeat 0 -21px; }
+.transfer .transferbody a.delblock{background:url(../viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 0; }
+.transfer .transferbody a.delblock:hover{background:url(../viewspace/img/tool/floatbtn_delblock.gif) no-repeat 0 -21px; }
+
+.transfer h1{background:#ECF9FF;height:18px;margin:1px;padding:3px;text-align:right;}
+.transfer h1 a{background-color:#F00;padding:4px;}
+
+/* 颜色选择器的样式 */
+#clrMain {background-color:#FFF;height:255px;width:254px;border:1px solid #000;position:absolute;left:80px;top:100px;}
+#clrMain input {width:70px;left:80px;top:225px;padding:4px;position:absolute;}
+#clrColor {background-repeat:no-repeat;height:200px;left:3px;top:3px;width:200px;padding:7px;position:absolute;}
+#clrBGColor {background-repeat:no-repeat;height:200px;width:200px;}
+#clrHue {height:200px;width:24px;left:220px;top:7px;padding:4px 0px 4px 0px;position:absolute;}
+#clrSv {width:200px;height:200px;}
+#clrCrosshairs {position:absolute;}
+#clrH {height:200px;width:24px;}
+#clrRangeArrows {height:9px;width:40px;position:absolute;}
+#clrPreview {border:1px solid #000;background-color:#999;height:22px;width:60px;position:absolute;top:225px;left:9px;}
+
+/*临时控制某个模块的样式*/
+#mytest .blocktitle{
+background:url(../images/bg_blocktitle.jpg) repeat-x;
+height:26px;
+line-height:26px;
+border-bottom:1px solid red;
+}
+#mytest .blocktitle h2{color:#1D1B1C;font-size:14px;font-weight:bold;}
+#mytest .blocktitle em a{color:#006697;}
+
+#mytest .blockcontent{
+color:#fff;
+background: #FFF url(../images/1.jpg) no-repeat left left;
+}
+#mytest .blockcontent a{color:#006697;}
+
+</style>
+<script language="javascript" type="text/javascript" src="../viewspace/js/bindbase.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/drageffect.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/transfer.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/selectcolor.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/rgbhexhsv.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/sortdrag.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/slider.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/phpserialize.js"></script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/stylecss.js"></script>
+<script language="javascript">
+var tempstyle = 'a:6:{s:9:"frame_set";s:2:"lc";s:8:"allframe";a:2:{s:5:"dleft";a:6:{i:0;s:7:"profile";i:1;s:5:"doing";i:2;s:6:"player";i:3;s:10:"friendlist";i:4;s:9:"footprint";i:5;s:7:"applist";}s:8:"dcontent";a:6:{i:0;s:4:"feed";i:1;s:8:"albumone";i:2;s:4:"blog";i:3;s:8:"albumall";i:4;s:11:"forumstatus";i:5;s:4:"wall";}}s:9:"effectall";a:7:{s:10:"blocktitle";a:2:{s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609381_01401200.jpg)";s:19:"border-bottom-style";s:25:"border-bottom-style:solid";}s:12:"blockcontent";a:4:{s:16:"background-image";s:21:"background-image:none";s:16:"background-color";s:28:"background-color:transparent";s:17:"background-repeat";s:24:"background-repeat:repeat";s:5:"color";s:13:"color:#FFFFFF";}s:13:"blocktitle|h2";a:1:{s:5:"color";s:13:"color:#ffffff";}s:15:"blocktitle|em a";a:1:{s:5:"color";s:13:"color:#ffffff";}s:14:"blockcontent|a";a:1:{s:5:"color";s:13:"color:#00AEFF";}s:20:"blockcontent|a:hover";a:1:{s:5:"color";s:13:"color:#00DCFF";}s:0:"";a:3:{s:12:"border-style";s:18:"border-style:solid";s:12:"border-width";s:16:"border-width:1px";s:12:"border-color";s:20:"border-color:#bbbbbb";}}s:9:"blockname";a:0:{}s:5:"music";a:0:{}s:5:"block";a:23:{s:4:"body";a:1:{s:0:"";a:4:{s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609431_44348200.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-y";s:21:"background-attachment";s:27:"background-attachment:fixed";s:16:"background-color";s:24:"background-color:#000000";}}s:6:"banner";a:4:{s:0:"";a:5:{s:6:"height";s:12:"height:330px";s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609195_34450800.jpg)";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:28:"background-position:left top";}s:8:"title|h1";a:1:{s:5:"color";s:13:"color:#ffffff";}s:7:"title|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:9:"title|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:5:"title";a:1:{s:0:"";a:1:{s:3:"top";s:8:"top:12px";}}s:6:"footer";a:3:{s:0:"";a:5:{s:6:"height";s:12:"height:115px";s:16:"background-image";s:21:"background-image:none";s:17:"background-repeat";s:26:"background-repeat:norepeat";s:16:"background-color";s:28:"background-color:transparent";s:19:"background-position";s:33:"background-position:center center";}s:11:"copyright|p";a:1:{s:5:"color";s:13:"color:#ffffff";}s:13:"copyright|p a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:4:"menu";a:7:{s:0:"";a:8:{s:19:"background-position";s:33:"background-position:center center";s:17:"background-repeat";s:26:"background-repeat:repeat-x";s:16:"background-image";s:68:"background-image:url(../viewspace/image/t/158/1206609260_39675600.jpg)";s:16:"background-color";s:28:"background-color:transparent";s:12:"border-style";s:17:"border-style:none";s:12:"border-width";s:16:"border-width:0px";s:12:"border-color";s:17:"border-color:#FFF";s:6:"height";s:11:"height:30px";}s:6:"active";a:1:{s:16:"background-image";s:22:"background-image:url()";}s:3:"|ul";a:2:{s:12:"padding-left";s:16:"padding-left:4px";s:10:"margin-top";s:14:"margin-top:2px";}s:2:"|a";a:3:{s:9:"font-size";s:14:"font-size:14px";s:11:"font-weight";s:16:"font-weight:bold";s:5:"color";s:13:"color:#ffffff";}s:3:"|em";a:1:{s:9:"font-size";s:14:"font-size:12px";}s:8:"|a:hover";a:1:{s:5:"color";s:13:"color:#ffff00";}s:8:"active|a";a:1:{s:5:"color";s:13:"color:#ffffff";}}s:7:"profile";a:0:{}s:6:"player";a:0:{}s:4:"feed";a:0:{}s:4:"blog";a:0:{}s:5:"share";a:0:{}s:4:"mtag";a:0:{}s:5:"doing";a:0:{}s:9:"footprint";a:0:{}s:10:"friendlist";a:0:{}s:7:"applist";a:0:{}s:4:"wall";a:0:{}s:11:"forumstatus";a:0:{}s:6:"thread";a:0:{}s:8:"albumall";a:0:{}s:5:"album";a:0:{}s:7:"profect";a:0:{}s:5:"about";a:0:{}s:8:"albumone";a:0:{}}}';//数据库里取出来的diystyle,如果有就反序列化后赋值给diystyle
+var defaultset = 'lc';
+var stylenum = '7';
+var supe_uid = 1;
+var blocklist = new Array();
+var oldblockstyle = new Array();// value|bclass|tag|property|1 or 0这前是否是自定义过的
+blocklist['profile'] = '个人设置';
+blocklist['friendlist'] = '好友列表';
+blocklist['doing'] = '我的点滴';
+blocklist['albumone'] = '动态相片';
+blocklist['albumall'] = '我的相册';
+blocklist['feed'] = '个人新鲜事';
+blocklist['blog'] = '我的博文';
+blocklist['share'] = '我的分享';
+blocklist['mtag'] = '我的群组';
+blocklist['thread'] = '我的话题';
+blocklist['applist'] = '小应用';
+blocklist['wall'] = '留言板';
+blocklist['forumstatus'] = '我的投票';
+blocklist['footprint'] = '脚印';
+blocklist['player'] = '播放器';
+</script>
+<script language="javascript" type="text/javascript" src="../viewspace/js/index_diy.js"></script>
+<div id="sharestyle" class="floatwin" style="display:none;" >
+<div class="floattitle" id="sharestyle_header">
+<h2>分享我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<form id="sharestyle_form" action="viewspace.php?do=mystyle&op=share" method="post">
+<div class="floatbody">
+风格在审核完毕后才能进行编辑修改。<br>
+<label for="">风格名称：</label>
+<input type="text" name="stylename" id="stylename" class="txt"/>
+<input type="hidden" name="styleid" id="styleid">
+<label for="">色系：</label>
+<select id="stylecolor" name="stylecolor">
+<option value="">选择</option>
+<option value="1">黑</option>
+<option value="2">白</option>
+<option value="3">粉</option>
+<option value="4">黄</option>
+<option value="5">绿</option>
+<option value="6">蓝</option>
+</select>
+<label for="">类别：</label>
+<select id='stylecategory' name='stylecategory'>
+<option value="">选择</option>
+<option value="1">简约</option>
+<option value="2">可爱</option>
+<option value="3">炫酷</option>
+<option value="4">浪漫</option>
+<option value="5">其它</option>
+</select>
+</div>
+</form>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="$('sharestyle').style.display='none';$('mystyles').style.display='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+<a target="mainyinyue"  href="javascript:void(0);" id="sharestyle_sw"></a>
+<div class="floatwin" id="fastdiy" style="display:none; z-index:3000;">
+<div class="floattitle" id="fastdiy_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" class="btnclose" title="关闭" onclick="$('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>快速自定义模板</h2>
+</div>
+<div class="floatcontent">
+<form id="fastdiyform" method="post" id="albumform" action="viewspace.php" >
+<input type="hidden" name="faststyle" id="faststyle" value=""/>
+<input type="hidden" name="fastbg" id="fastbg" value=""/>
+<input type="hidden" name="fastbgheight" id="fastbgheight" value=""/>
+</form>
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatbody">
+<div class="webcolormes">
+选择你喜欢的主页色系：
+</div>
+<ul class="webcolor">
+<li>
+<a href="#" id="black" class="webcolor_black" title="黑色" onclick="fastchangesyspic(this, '1');">黑色</a>
+</li>
+<li>
+<a href="#" id="white" class="webcolor_white" title="白色" onclick="fastchangesyspic(this, '2');">白色</a>
+</li>
+<li>
+<a href="#" id="pink" class="webcolor_pink" title="粉色" onclick="fastchangesyspic(this, '3');">粉色</a>
+</li>
+<li>
+<a href="#" id="yellow" class="webcolor_yellow" title="黄色" onclick="fastchangesyspic(this, '4');">黄色</a>
+</li>
+<li>
+<a href="#" id="green" class="webcolor_green" title="绿色" onclick="fastchangesyspic(this, '5');">绿色</a>
+</li>
+<li>
+<a href="#" id="blue" class="webcolor_blue" title="蓝色" onclick="fastchangesyspic(this, '6');">蓝色</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="floatsub" id="fastdiysub" style="display:none">
+<div class="floatbody">
+<div class="webcolormes" id="fastpicnav">
+选择该色系下主页的头部图片：
+<span>
+<a class="on" target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '', 'fastpicnav');" id="alltype">全部</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=1', 'fastpicnav');">简约</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=2', 'fastpicnav');">可爱</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=3', 'fastpicnav');">炫酷</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=4', 'fastpicnav');">浪漫</a>
+ | <a target="mainyinyue"  href="javascript:void(0);" onclick="changesyspic(this, '&category=5', 'fastpicnav');">其它</a>
+</span>
+</div>
+<div id="fastheaderbg">
+</div>
+</div>
+</div>
+<div class="floatfun">
+<a href="javascript:void(0);" class="cancel" onclick=" $('fastheaderbg').innerHTML=''; $('faststyle').value = ''; $('fastbg').value = ''; $('fastdiy').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="#" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="mystyles" style="display:none; z-index:3000;">
+<div class="floattitle" id="mystyles_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="$('selectmystyle').value=''; switchstyle('', 'mystyle');$('mystyles').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a target="mainyinyue"  href="javascript:void(0);" title="帮助">?帮助文档</a></div>
+<h2>我的风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain mainnotop">
+<div class="floatbody" id="mystylelist">
+</div>
+</div>
+<div class="floatfun">
+<a target="mainyinyue"  href="javascript:void(0);" class="cancel">取消</a>
+<input type="hidden" name="selectmystyle" id="selectmystyle" value="">
+<a href="#" onclick="if($('selectmystyle').value > 0){window.location.href='viewspace.php?do=mystyle&op=use&styleid='+$('selectmystyle').value;}else{window.location.href='viewspace.php';}" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div class="floatwin" id="selectshare" style="display:none; z-index:3000;">
+<div class="floattitle" id="selectshare_header">
+<div class="rcon"><a target="mainyinyue"  href="javascript:void(0);" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';" class="btnclose" title="关闭">关闭</a><a href="#" title="帮助">?帮助文档</a></div>
+<h2>选择风格</h2>
+</div>
+<div class="floatcontent">
+<div class="floatmenu"></div>
+<div class="floatmain">
+<div class="floatnav" id="sharepicnav">
+<ul class="navcolor">
+<li  onclick="changesysshare(this, '&color=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黑</a></li>
+<li  onclick="changesysshare(this, '&color=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">白</a></li>
+<li  onclick="changesysshare(this, '&color=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">粉</a></li>
+<li  onclick="changesysshare(this, '&color=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">黄</a></li>
+<li  onclick="changesysshare(this, '&color=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">绿</a></li>
+<li  onclick="changesysshare(this, '&color=6', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">蓝</a></li>
+</ul>
+<ul>
+<li class="on" onclick="changesysshare(this, '', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">全部</a></li>					
+<li  onclick="changesysshare(this, '&category=1', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">简约</a></li>
+<li  onclick="changesysshare(this, '&category=2', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">可爱</a></li>
+<li  onclick="changesysshare(this, '&category=3', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">炫酷</a></li>
+<li  onclick="changesysshare(this, '&category=4', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">浪漫</a></li>
+<li  onclick="changesysshare(this, '&category=5', 'sharepicnav');"><a target="mainyinyue"  href="javascript:void(0);">其它</a></li>
+</ul>
+</div>
+<div class="floatbody">
+
+
+<form id="selectshareform" method="post" id="albumform" action="viewspace.php?do=getsharestyle" target="mainyinyue" >
+<input type="hidden" name="sharestyleid" id="sharestyleid" value=''>
+<div id="sharelist" class="sharelist">
+</div>
+</form>
+</div>
+</div>
+<div class="floatfun">
+<a  href="javascript:void(0);" class="cancel" onclick="shareselected = false;$('selectshare').style.display='none'; $('qwert').style.display = 'none'; cur_transferdiv='';">取消</a>
+<a href="javascript:void(0);" class="oksubmit">确定</a>
+</div>
+</div>
+</div>
+
+<div id="clrMain" style="display:none;z-index:99999;">
+<iframe scrolling="no" frameborder="0" style="background-color:transparent;position:absolute;width:252px; height:253px;"></iframe>
+<div id="clrColor"><div id="clrBGColor"><img id="clrCrosshairs" galleryimg="false" src="../viewspace/img/mappoint.gif" style="display:none;" /></div></div>
+<div id="clrHue"><img id="clrRangeArrows" galleryimg="false" src="../space/indeximages/rangearrows.gif" style="display:none;" /></div>
+<div id="clrPreview"></div>
+<input type="text" name="clrColorValue" id="clrColorValue" value=""/>
+<img src="../viewspace/img/nocolor.gif" style="left:165px;position:absolute;top:225px;" onclick="getColor('transparent');"/>
+<a target="mainyinyue"  href="javascript:void(0);" class="fbtn_cancel" onclick="$('clrMain').style.display='none';"
+style="width:50px;left:190px;position:absolute;top:225px;">确定</a>
+</div>
+<div id="dstdiv" style="width:400px;height:250px;background-color:#999;border:1px solid #123456;display:none;">
+cccc<a target="mainyinyue"  href="javascript:void(0);" class="closeDiv">close</a>
+</div>
+<div id="showData"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="wraptwo">
+<div id="banner" class="banner">
+<div class="title" id="title">
+<h1 id="myblogname">哇吐！~~  <em> 605643 人次访问, 7183个积分 <a href="../do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level5.gif" align="absmiddle" /><img src="../image/star_level5.gif" align="absmiddle" /></a></em></h1>
+<p>哇吐！~~狂吐中ing...<a href="../cp.phpacsign.htm" id="a_sign" onclick="ajaxmenu(event, this.id, 99999, '', -1)">[编辑]</a></p>
+<p><a href="../../e.shenei.net/default.htm" onclick="javascript:setCopy('../../e.shenei.net/default.htm');return false;" class="spacelink domainurl">http://E.shenei.net</a></p>
+<iframe name="mainyinyue" src="about:blank" width="0" height="0">
+</iframe>
+<script language="javascript" src="../viewspace/js/player1.js"></script>
+<script language="javascript" for="player1" event="playstatechange(newstate)">
+//播放器事件触发
+switch (newstate){
+
+  case 1:
+   musicSwf.SetVariable("musicName", "停止");
+   //playerinfo.innerHTML = "停止";
+   if (!userstop){//判断是否是用户自己停止，非用户停止的话再决定歌曲循环   
+   //判断是否循环，是的话1秒后播放下一首
+   if (loop) {
+   setTimeout("next();",1000); 
+   }
+   }
+   break;
+  case 2:
+   //playerinfo.innerHTML = "暂停";
+   musicSwf.SetVariable("musicName", "暂停");
+   break;
+  case 3:
+   musicSwf.SetVariable("musicName", RadioList[NowId]);
+   //playerinfo.innerHTML = "正在播放";
+   break;
+  case 4:
+   //playerinfo.innerHTML = "4";
+   break;
+  case 5:
+   //playerinfo.innerHTML = "5";
+   break;
+  case 6:
+   musicSwf.SetVariable("musicName", "正在缓冲……");
+   //playerinfo.innerHTML = "正在缓冲……";
+   break;
+  case 7:
+   //playerinfo.innerHTML = "7";
+   break;
+  case 8:
+   //playerinfo.innerHTML = "8";
+   break;
+  case 9:
+  musicSwf.SetVariable("musicName", "正在连接……");
+   break;
+  case 10:
+  musicSwf.SetVariable("musicName", "准备就绪");
+   break;
+  case 11:
+   //playerinfo.innerHTML = "11";
+   break;
+  default:
+   //playerinfo.innerHTML = "";
+}
+//播放器事件触发结束
+</script>
+<script language="javascript">
+//歌曲列表
+function musicSwf_DOFSCommand(command,args){
+if (command=="lay"){
+play();
+}
+if (command=="Stop"){
+stop();
+}
+if (command=="ause"){
+pause();
+}
+if (command=="next"){
+next();
+}
+if (command=="previous"){
+previous();
+}
+if (command=="gotoMusic") {
+showmusiclist();
+}
+}
+</script>
+<script language="javascript">
+//音乐初始化
+function playerinit()
+{
+loop=true;
+userstop=false;
+count=10;
+listURL = new Array();
+RadioList = new Array(count);
+listURL[0]="../../leishop.e.bname.us/qzone.mp3.htm"
+RadioList[0]="music_1"
+listURL[1]="../../www.fjjlyz.net/disk/mp3/_25d0_25c2_25b9_25c8_25c1_25bc_25d7_25d3_25b5_25c4par~1.htm"
+RadioList[1]="music_2"
+listURL[2]="../../www.fjjlyz.net/disk/mp3/_25c5_25d1_25c4_25e6_25b5_25c4_25c2_25b3_25c2_25b3_25~1.htm"
+RadioList[2]="music_3"
+listURL[3]="../../mfile.home.news.cn/music/public/vdm7/200912/30/20/mufs072009123012272652209d7b.mp3"
+RadioList[3]="music_4"
+listURL[4]="../../www.fjjlyz.net/disk/mp3/_25e7_258a_25ac_25e5_25a4_259c_25e5_258f_2589.mp3.htm"
+RadioList[4]="music_5"
+listURL[5]="../../www.hugedomains.com/domain_profile.cfmddivast.com.htm"
+RadioList[5]="music_6"
+listURL[6]="../../mfile.home.news.cn/music/public/vdm7/200909/06/3b/mufs0720090906160325503b0d8c.mp3"
+RadioList[6]="music_7"
+listURL[7]="../../www.91zyzz.com/dodo/257.mp3"
+RadioList[7]="music_8"
+listURL[8]="../../home.wsxz.cn/music/2010/01/28/70312500.mp3"
+RadioList[8]="music_9"
+listURL[9]="../../www.firstfeeling.cn/xueyoulan/mp3/c.k.mp3"
+RadioList[9]="music_10"
+NowId=0;
+musicSwf.SetVariable("musicName", RadioList[NowId]);
+player1.URL=listURL[NowId];
+//音乐初始结束
+}
+</script>
+<script language="vbscript">
+//音乐播放器命FSCommand
+Sub musicSwf_FSCommand(ByVal command, ByVal args)
+call musicSwf_DOFSCommand(command, args)
+end sub
+</script>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="menubody">
+<div id="menu" class="menu">
+<em>
+<a href="javascript:void(0);" id="mystylelist_sw">我的风格</a> | 
+<!--<a id="setstyle_a" href="javascript:void(0);" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);">更换风格</a>-->
+<a class="setstyle" href="javascript:void(0);"><img id="setstyle_a" src="../template/default/image/btn_style.gif" onMouseOver="showMenu('setstyle_a', true, 0, 2, 500, 0, 'setstyle_a', 0, 0);" align="absmiddle" alt="更换风格"/></a>
+</em>
+
+<ul>
+<!--
+<li>
+<a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('viewspace.php?uid=1', '');">
+主页 </a></li>
+-->
+
+<li>
+<a  href="../viewspace.phpuid1.htm">
+主页 </li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doaboutme.htm', 'aboutme');">
+这谁~ </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doblogviewme.htm', 'blog');">
+点滴 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doalbumviewme.htm', 'album');">
+瞬间 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollviewme.htm', 'poll');">
+告诉我 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dofriendviewme.htm', 'friend');">
+三铁 </a></li>
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dowallviewme.htm', 'wall');">
+骂两句 </a></li>
+
+<li><a  target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1doapplist.htm', 'applist');">
+好玩 </a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="frame_1">
+<div id="profile" class="block" >
+<div class="blocktitle">
+<em>
+
+
+		
+<a id="a_magic_gift" href="../magic.phpmidgift.htm" onclick="ajaxmenu(event,this.id,1)"><img src="../viewspace/img/tool/h_y.gif" style="width:15px;height:15px;margin-right:5px;vertical-align: middle;" />埋个红包</a>
+				
+</em>
+<h2>个人资料</h2>
+</div>
+<div class="blockcontent">
+<div class="userinfo">
+<a href="../viewspace.phpuid1.htm" class="avatar"><img src="../..//uc.shenei.net/data/avatar/000/00/00/01_real_avatar_big.jpg" onerror="this.onerror=null;this.src='http://uc.shenei.net/images/avatar/m_01_big.gif'"></a>
+<div class="username">
+<p class="avatar_op"><a href="../cp.phpacavatar.htm">上传头像</a></p><p >昵称：<a target="mainyinyue"  href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1.htm', '');">小E←邱沼懿</a></p>
+<p>等级：<a href="../do.phpacajaxopcredituid1.htm" id="a_space_view" onclick="ajaxmenu(event, this.id, 99999)"><img src="../image/star_level5.gif" align="absmiddle" /><img src="../image/star_level5.gif" align="absmiddle" /></a></p>
+<p>荣誉：
+<a id="a_space_videophoto" href="../space.phpuid1dovideophoto.htm" onClick="ajaxmenu(event, this.id, 1)"><img src="../viewspace/img/tool/video.gif" align="absmiddle" title="已通过视频认证" alt="已通过视频认证" /></a>
+<a href="../pay.phpacvip.htm" target="_blank"><img src="../image/pay/vip2.gif" title="未激活" alt="未激活" border="0" align="absmiddle" /></a>
+</p>
+</div>
+<div class="tool">
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+<div class="frame_3">
+<div id="forumstatus" class="block">		
+<div class="blocktitle">
+<h2>小E←邱沼懿的投票</h2>
+</div>
+<div class="blockcontent"style="padding:20px;">
+
+
+<div class="poll_list">
+<ul>
+<li>
+
+<div class="poll_content">
+
+<h4>
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid56', '');">【世界杯】朝鲜 VS 葡萄牙〖我猜，我猜，我猜猜猜！〗</a>
+</h4>
+<div class="poll_options">
+<ol>
+ <li><input type="radio" disabled name="poll_56"/> 朝鲜</li>
+ <li><input type="radio" disabled name="poll_56"/> 葡萄牙</li>
+ <li>……</li>
+ </ol>
+ <p>
+ 	<span class="gray">2010-06-12 10:35</span>
+ 	<span class="pipe">|</span>
+ 	<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid56#comment', '');">评论(0)</a>
+ 	 	<span class="pipe">|</span>
+ 	<span class="gray">投票已结束</span>&nbsp;<a class="green" href="javascript:;" onclick="javascript:spaceCategory('space.phpuid1dopollpid56.htm', '');">去写写投票总结</a> 	 </p>
+</div>
+</div>
+<div class="poll_status">
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid56', '');" class="poll_joins pj_7"><span>1</span>人参与</a> <a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid56', '');" class="go2_poll">去投票</a>
+</div>
+</li>
+<li>
+
+<div class="poll_content">
+
+<h4>
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid55', '');">【世界杯】巴西 VS 科特迪瓦〖我猜，我猜，我猜猜猜！〗</a>
+</h4>
+<div class="poll_options">
+<ol>
+ <li><input type="radio" disabled name="poll_55"/> 巴西</li>
+ <li><input type="radio" disabled name="poll_55"/> 科特迪瓦</li>
+ <li>……</li>
+ </ol>
+ <p>
+ 	<span class="gray">2010-06-12 10:35</span>
+ 	<span class="pipe">|</span>
+ 	<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid55#comment', '');">评论(0)</a>
+ 	 	<span class="pipe">|</span>
+ 	<span class="gray">投票已结束</span>&nbsp;<a class="green" href="javascript:;" onclick="javascript:spaceCategory('space.phpuid1dopollpid55.htm', '');">去写写投票总结</a> 	 </p>
+</div>
+</div>
+<div class="poll_status">
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid55', '');" class="poll_joins pj_6"><span>1</span>人参与</a> <a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid55', '');" class="go2_poll">去投票</a>
+</div>
+</li>
+<li>
+
+<div class="poll_content">
+
+<h4>
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid54', '');">【世界杯】意大利 VS 新西兰〖我猜，我猜，我猜猜猜！〗</a>
+</h4>
+<div class="poll_options">
+<ol>
+ <li><input type="radio" disabled name="poll_54"/> 意大利</li>
+ <li><input type="radio" disabled name="poll_54"/> 新西兰</li>
+ <li>……</li>
+ </ol>
+ <p>
+ 	<span class="gray">2010-06-12 10:34</span>
+ 	<span class="pipe">|</span>
+ 	<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid54#comment', '');">评论(0)</a>
+ 	 	<span class="pipe">|</span>
+ 	<span class="gray">投票已结束</span>&nbsp;<a class="green" href="javascript:;" onclick="javascript:spaceCategory('space.phpuid1dopollpid54.htm', '');">去写写投票总结</a> 	 </p>
+</div>
+</div>
+<div class="poll_status">
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid54', '');" class="poll_joins pj_2"><span>0</span>人参与</a> <a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid54', '');" class="go2_poll">去投票</a>
+</div>
+</li>
+<li>
+
+<div class="poll_content">
+
+<h4>
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid53', '');">【世界杯】巴拉圭 VS 斯洛伐克〖我猜，我猜，我猜猜猜！〗</a>
+</h4>
+<div class="poll_options">
+<ol>
+ <li><input type="radio" disabled name="poll_53"/> 巴拉圭</li>
+ <li><input type="radio" disabled name="poll_53"/> 斯洛伐克</li>
+ <li>……</li>
+ </ol>
+ <p>
+ 	<span class="gray">2010-06-12 10:34</span>
+ 	<span class="pipe">|</span>
+ 	<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid53#comment', '');">评论(0)</a>
+ 	 	<span class="pipe">|</span>
+ 	<span class="gray">投票已结束</span>&nbsp;<a class="green" href="javascript:;" onclick="javascript:spaceCategory('space.phpuid1dopollpid53.htm', '');">去写写投票总结</a> 	 </p>
+</div>
+</div>
+<div class="poll_status">
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid53', '');" class="poll_joins pj_2"><span>0</span>人参与</a> <a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid53', '');" class="go2_poll">去投票</a>
+</div>
+</li>
+<li>
+
+<div class="poll_content">
+
+<h4>
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid52', '');">【世界杯】丹麦 VS 喀麦隆〖我猜，我猜，我猜猜猜！〗</a>
+</h4>
+<div class="poll_options">
+<ol>
+ <li><input type="radio" disabled name="poll_52"/> 丹麦</li>
+ <li><input type="radio" disabled name="poll_52"/> 喀麦隆</li>
+ <li>……</li>
+ </ol>
+ <p>
+ 	<span class="gray">2010-06-12 10:33</span>
+ 	<span class="pipe">|</span>
+ 	<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid52#comment', '');">评论(0)</a>
+ 	 	<span class="pipe">|</span>
+ 	<span class="gray">投票已结束</span>&nbsp;<a class="green" href="javascript:;" onclick="javascript:spaceCategory('space.phpuid1dopollpid52.htm', '');">去写写投票总结</a> 	 </p>
+</div>
+</div>
+<div class="poll_status">
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid52', '');" class="poll_joins pj_8"><span>0</span>人参与</a> <a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid52', '');" class="go2_poll">去投票</a>
+</div>
+</li>
+<li>
+
+<div class="poll_content">
+
+<h4>
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid51', '');">【世界杯】加纳 VS 澳大利亚〖我猜，我猜，我猜猜猜！〗</a>
+</h4>
+<div class="poll_options">
+<ol>
+ <li><input type="radio" disabled name="poll_51"/> 加纳</li>
+ <li><input type="radio" disabled name="poll_51"/> 澳大利亚</li>
+ <li>……</li>
+ </ol>
+ <p>
+ 	<span class="gray">2010-06-12 10:32</span>
+ 	<span class="pipe">|</span>
+ 	<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid51#comment', '');">评论(0)</a>
+ 	 	<span class="pipe">|</span>
+ 	<span class="gray">投票已结束</span>&nbsp;<a class="green" href="javascript:;" onclick="javascript:spaceCategory('space.phpuid1dopollpid51.htm', '');">去写写投票总结</a> 	 </p>
+</div>
+</div>
+<div class="poll_status">
+<a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid51', '');" class="poll_joins pj_4"><span>0</span>人参与</a> <a href="javascript:;" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollpid51', '');" class="go2_poll">去投票</a>
+</div>
+</li>
+
+</ul>
+</div>
+
+<div class="pages"><em>&nbsp;48&nbsp;</em><a href="javascript:;" class="first" onclick="javascript:spaceCategory('../viewspace.phpuid1dopollviewmefiltrateme'page=1', '');">1 ...</a><a href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewmefiltratemepage3.htm', '');" class="prev">&lsaquo;&lsaquo;</a><a href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewmefiltratemepage2.htm', '');" >2</a><a href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewmefiltratemepage3.htm', '');" >3</a><strong>4</strong><a href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewmefiltratemepage5.htm', '');" >5</a><a href="javascript:;"  onclick="javascript:spaceCategory('../viewspace.phpuid1dopollviewmefiltratemepage6', '');" >6</a><a href="javascript:;"  onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewmefiltratemepage5.htm', '');" class="next">&rsaquo;&rsaquo;</a><a href="javascript:;" onclick="javascript:spaceCategory('viewspace.phpuid1dopollviewmefiltratemepage8.htm', '');"  class="last">... 8</a></div>
+
+
+</div>
+
+
+<script type="text/javascript">jQuery("#loading div").animate({width:"73%"}).text("73%");</script>	<!--Add By 01	载入进度条-->
+</div>
+
+<!--/mainarea-->
+<div id="bottom"></div>
+</div>
+<!--/main-->
+
+<div id="footer" title="">
+<div class="footer_t"><b><a>舍内网</a> ┊ <a  href="../../fs.shenei.net/default.htm" target="_blank">关于我们</a> ┊ <a href="mailto:service@shenei.net">联系我们</a> ┊ <a href="mailto:service@shenei.net">网站合作</a></b></div>
+
+<div class="footer_b">
+
+<p class="r_option">
+<a href="javascript:;" onclick="window.scrollTo(0,0);" id="a_top" title="TOP"><img src="../image/top.gif" alt="" style="padding: 5px 6px 6px;" /></a>
+</p>
+
+
+<p>
+友情链接 -> 
+<a href="../../www.shenei.net/default.htm" target="_blank"><font color=black>舍内网</font></a> -
+<a href="../../shop.shenei.net/default.htm" target="_blank"><font color=black>舍内网店</font></a> -
+<a href="../../buy.shenei.net/default.htm" target="_blank"><font color=black>舍内团秒</font></a> -
+<a href="../../me.shenei.net/default.htm" target="_blank"><font color=black>舍内博客</font></a> -
+<a href="../../www.fjut.edu.cn/main.htm" target="_blank">工院官方</a> -
+<a href="../../caizijiaren.book.topzj.com/default.htm" target="_blank">琴声网</a> -
+<span id="count_online"></span>
+</p>
+<!--
+<p>
+舍内网 - 
+<a href="mailto:service@shenei.net">联系我们</a>
+ - <span id="count_online"></span>
+</p>
+-->
+<p>
+Powered by <a  href="../../fs.shenei.net/default.htm" target="_blank"><strong>【疯·神】工作室</strong></a> <span title="2.02">2.02</span>
+&copy; 2008-2009
+</p>
+</div>
+</div>
+</div>
+<!--/wrap-->
+
+<ul id="ucappmenu_menu" class="dropmenu_drop" style="display:none;">
+<li><a href="../../buy.shenei.net/default.htm" title="舍内团秒" target="_blank">舍内团秒</a></li>
+<li><a href="../../shop.shenei.net/default.htm" title="免费开店" target="_blank">免费开店</a></li>
+<li><a href="../../xx.shenei.net/default.htm" title="舍内知天下" target="_blank">舍内知天下</a></li>
+</ul>
+
+<ul id="membernotemenu_menu" class="dropmenu_drop" style="display:none;">
+</ul>
+
+<script language="javascript"  type="text/javascript" src="../cp.phpacpmopchecknewpmrand1694663783"></script>
+
+<script type="text/javascript">jQuery("#loading div").animate({width:"87%"}).text("87%");jQuery("#preview").fadeOut(2000);</script>	<!--Add By 01	载入进度条-->
+<span id="countonline" style="display:none;"><script src="../../s9.cnzz.com/stat.phpid2162321web_id2162321" language="JavaScript"></script></span>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="../../v2.jiathis.com/code/jiathis_r.jsmove0btnr1.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<script type="text/javascript">document.getElementById("count_online").innerHTML = document.getElementById("countonline").innerHTML; jQuery("#loading div").animate({width:"99%"}).text("99%");</script>	<!--Add By 01	载入进度条-->
+</body>
+</html>

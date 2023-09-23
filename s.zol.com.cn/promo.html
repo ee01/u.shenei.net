@@ -1,0 +1,1258 @@
+<!doctype html><!-- saved from url=(0030)http://s.zol.com.cn/promo.html --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+    <meta charset="GBK"/>
+    <title>ZOL火爆促销-3C数码产品促销大全|大牌商品促销活动|全场商品折扣特卖-ZOL数码超市</title>
+    <meta name="keywords" content="3C数码产品限时促销,3C数码产品促销活动,3C数码产品折扣特惠"/>
+    <meta name="description" content="ZOL火爆促销频道每日为您提供最新的3C数码产品促销优惠活动。手机、电脑、笔记本、单反相机、打印机、服务器等全品类促销商品，让您随时买到性价比最高的3C数码产品"/>
+    <link href="css/public/publichead.cssv1694664094" rel="stylesheet" type="text/css">
+    <link href="css/shumamarket/qiangindex.css" rel="stylesheet"/>
+    <link href="css/shumamarket/promo.cssv1694664094" rel="stylesheet"/>
+    <script src="js/jquery-1.8.1.js" type="text/javascript"></script>
+    <script>
+            //手机适配
+            if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+                try {
+                    if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                        window.location.href = "../m.zol.com/index.phpcshop_listkeyworddiy_25d6_25f7_25bb_25fastrs6";
+                    }
+                } catch (e) {
+                }
+            }
+        </script>
+    <style>
+        a{ color:#333; text-decoration:none;}
+    </style>
+</head>
+<body>
+    
+    <!-- 公共头部 -->
+    <script src="index.phpcpublicapublichead"></script>
+    
+        <style>
+    .search-history-selected{background:#f5f5f5}
+    .search-history .delete{ display:none; position:absolute; top:0; right:8px; color:#c00; cursor:pointer;}
+</style>
+<div class="header clearfix">
+    <div class="logo" style='width:496px'>
+        <div class="title"><a title="ZOL数码超市" href="../dealer.zol.com.cn/fuzhou/default.htm" class="mall-logo"></a></div>
+                     <div class="logo-text">
+                促销信息 随时知晓
+            </div>
+             </div>
+    <div class="search-box">
+        <form action="/promo.html" method="get">
+            <div class="search">
+                <input name="keyword" type="text" class="search-text" autocomplete="off" value=""/>
+                <input type="submit" value="搜 索" class="search-btn" hidefocus="true"/>
+            </div>
+            <input type="hidden" name="spm" value="921">
+        </form>
+        <!-- add by wangzilong 2016-3-11 -->
+        	            
+    </div>
+        <div class="personage">
+        <a href="../my.zol.com/default.htm" target="_blank">
+            <i class="personage-icon"></i>
+            <span>个人中心 <em>&gt;</em></span>
+        </a>
+    </div>
+        
+</div>
+
+<script type="text/javascript" src="js/scroll.js"></script>
+<script type="text/javascript">
+    
+function showNavUl() {
+    document.getElementById("category-menu-nav").style.display = "block";
+};
+function hideNavUl() {
+    document.getElementById("category-menu-nav").style.display = "none";
+};
+function showNavList(obj) {
+    obj.className = "current";
+};
+function hideNavList(obj) {
+    obj.className = " ";
+};
+           var searchFunction = {
+                searchKeyword: null,
+                searchButton: null,
+                searchHistory: null,
+                searchHistoryList: null,
+                searchHistoryListDel: null,
+                searchHistoryListClose: null,
+                getHistoryList: function () {
+                    if (typeof jQuery == "undefined") {
+                        return false;
+                    } else {
+                        var url = "../www.zol.com/index.phpcajax_publicheadaajaxgetsearchhistorycallbackt.js" + Math.random();
+                        $.getJSON(url, function (data) {
+                            if (data.msg) {
+                                if($(".search").has(".search-history")){
+                                    $(".search-history").remove();
+                                };
+                                $(".search").append(data.msg);
+                                searchFunction.getElements();
+                                searchFunction.eventListener();
+                            };
+                        });
+                    };
+                },
+                getElements: function () {
+                    searchFunction.searchKeyword = document.querySelector(".search .search-text");
+                    searchFunction.searchButton = document.querySelector(".search .search-btn");
+                    searchFunction.searchHistory = document.querySelector(".search-history");
+                    searchFunction.searchHistoryList = document.querySelectorAll(".search-history ul li");
+                    searchFunction.searchHistoryListLength = document.querySelectorAll(".search-history ul li").length;
+                    searchFunction.searchHistoryListDel = document.querySelectorAll(".search-history ul li .delete");
+                    searchFunction.searchHistoryListClose = document.querySelector(".search-history .close");
+                    
+                },
+                eventListener: function () {
+                    
+                    searchFunction.searchKeyword.addEventListener("focus", function () {
+                        searchFunction.showHistory();
+                    });
+                    searchFunction.searchKeyword.addEventListener("click", function () {
+                        searchFunction.showHistory();
+                    });
+                    var index_key = -1;
+                    searchFunction.searchKeyword.addEventListener("keydown", function (e) {
+                        if (window.event) {
+                            e = window.event;
+                        };
+                        var keyNumber = e.keyCode;
+                        
+                        if (38 == keyNumber) {
+                            if(index_key<=0){
+                                index_key = searchFunction.searchHistoryListLength - 1;
+                            }else{
+                                index_key--;
+                            };
+                            $(".search ul li:eq("+index_key+")").siblings().removeClass("search-history-selected").end().addClass("search-history-selected");
+                            $(".search ul li:eq("+index_key+")").children(".delete").show();
+                            $(".search ul li:eq("+index_key+")").siblings().children(".delete").hide();
+                            var keyword = $(".search ul li:eq("+index_key+")").attr("keyword");
+                            $(".search .search-text").val(keyword);
+                            var tongjiVaule = $(".search ul li:eq("+index_key+")").attr("tongji");
+                            $("input[name=spm]").val(tongjiVaule);
+                        }else if(40 == keyNumber){
+                            if(index_key == (searchFunction.searchHistoryListLength - 1)){
+                                index_key = 0;
+                            }else{
+                                index_key++;
+                            };
+                            $(".search ul li:eq("+index_key+")").siblings().removeClass("search-history-selected").end().addClass("search-history-selected");
+                            $(".search ul li:eq("+index_key+")").children(".delete").show();
+                            $(".search ul li:eq("+index_key+")").siblings().children(".delete").hide();
+                            var keyword = $(".search ul li:eq("+index_key+")").attr("keyword");
+                            $(".search .search-text").val(keyword);
+                            var tongjiVaule = $(".search ul li:eq("+index_key+")").attr("tongji");
+                            $("input[name=spm]").val(tongjiVaule);
+                        };
+                    });
+
+                    $(".search").on("mouseover",".search-history ul li",function(){
+                        index_key = $(this).index();
+                        $(this).siblings().removeClass("search-history-selected").end().addClass("search-history-selected");
+                        $(this).children(".delete").show();
+                        $(this).siblings().children(".delete").hide();
+                        var tongjiVaule = $(this).attr("tongji");
+                        $("input[name=spm]").val(tongjiVaule);
+                    });
+                    $(".search").on("mouseout",".search-history",function(){
+                        $("input[name=spm]").val("921");
+                    });
+                    searchFunction.searchKeyword.addEventListener("keyup",function(e){
+                        var searchKeywordVal = searchFunction.searchKeyword.value;
+                        var searchKeywordLength = searchFunction.searchKeyword.value.length;
+                        if (window.event) {
+                            e = window.event;
+                        };
+                        var keyNumber = e.keyCode;
+                        if((8 == keyNumber) && (searchKeywordLength == 0)){
+                            /* 历史记录*/
+                            var url  = "../www.zol.com/index.phpcajax_publicheadaajaxgetsearchhistorycallbackt.js" + Math.random()+"&debug=yes";
+                            $.getJSON(url, function (data) {
+                                if (data.msg) {
+                                    if($(".search").has(".search-history")){
+                                        $(".search-history").remove();
+                                    };
+                                    $(".search").append(data.msg);
+                                    $(".search-history").css("display","block");
+                                    searchFunction.getElements();
+                                    index_key = -1;
+                                };
+                            });
+                            if(searchFunction.searchKeyword.value.length == 0){
+                                $("input[name=spm]").val("921");
+                            };
+                        }else{
+                            /* 关联记录 */
+                            if(searchKeywordLength > 2 && (keyNumber != 37) && (keyNumber != 38) && (keyNumber != 39) && (keyNumber != 40) && (keyNumber != 13)){
+                                var url  = "../www.zol.com/index.phpcajax_publicheadaajaxgetrelatedsearchhistory~1.js" + Math.random()+"&debug=yes";
+                                var data = {keyword:searchKeywordVal};
+                                $.getJSON(url, data, function (data) {
+                                    if (data.msg) {
+                                        if($(".search").has(".search-history")){
+                                            $(".search-history").remove();
+                                        };
+                                        $(".search").append(data.msg);
+                                        $(".search-history").css("display","block");
+                                        searchFunction.getElements();
+                                        index_key = -1;
+                                    };
+                                });
+                            };
+                        };
+                    }); 
+                    
+                    searchFunction.searchKeyword.addEventListener("click", function (e) {
+                        searchFunction.stopPropagation(e);
+                    });
+                    $(document).click(function(event){
+                        index_key = -1;
+                        $(".search-history ul li").siblings().removeClass("search-history-selected");
+                        $(".search-history ul li").siblings().children(".delete").hide();
+                        searchFunction.hideHistory();
+                        
+                    });
+                    searchFunction.searchHistoryListClose.addEventListener("click", function () {
+                        searchFunction.hideHistory();
+                    });
+                    $(".search").on("click",".search-history ul li",function(){
+                        $(".search .search-text").val($(this).attr("keyword"));
+                        $(".search .search-btn").click();
+                    });
+                    $(".search").on("click",".search-history ul li .delete",function(e){
+                        e = e || window.event;
+                        if (e.stopPropagation) {
+                                e.stopPropagation();
+                        } else {
+                                e.cancelBubble = true;
+                        };
+                        var _this = $(this);
+                        var dataId = _this.attr("data-id");
+                        var url = "../www.zol.com/index.phpcajax_publicheadaajaxdeletesearchhistorycallbackt" + Math.random();
+                        $.getJSON(url, {dataId: dataId}, function (data) {
+                            if (data.flag) {
+                                _this.parent("li").remove();
+                                searchFunction.searchHistoryListLength = searchFunction.searchHistoryListLength - 1;
+                                var index_key1 = index_key + 1;
+                                $(".search ul li:eq("+index_key1+")").siblings().removeClass("search-history-selected").end().addClass("search-history-selected");
+                                $(".search ul li:eq("+index_key1+")").children(".delete").show();
+                                $(".search ul li:eq("+index_key1+")").siblings().children(".delete").hide();
+                                $(".search .search-text").focus();
+                            };
+                        });
+                    });
+                },
+                showHistory: function () {
+                    searchFunction.searchHistory.style.display = "block";
+                },
+                hideHistory: function () {
+                    searchFunction.searchHistory.style.display = "none";
+                },
+                stopPropagation: function (e) {
+                    e = e || window.event;
+                    if (e.stopPropagation) {
+                        e.stopPropagation();
+                    } else {
+                        e.cancelBubble = true;
+                    };
+                }
+            };
+            searchFunction.getHistoryList();
+      
+// 统计代码
+function getUserTrack(event, goodsId, url) {
+    var statsImg = new Image();
+    var rand     = new Date().getTime();
+    var ipck     = getCookie("ip_ck");
+    var URL      = typeof(url) == "undefined" ? document.URL : url;    
+    statsImg.src = "../pvtest.zol.com.cn/images/pvevents.gift"
+            + rand + "&event=" + event
+            + "&ip_ck=" + ipck
+            + "&goodsId=" + goodsId
+            + "&url=" + URL;
+
+};
+
+if (document.getElementById("noresearch_keyword")) {
+      document.getElementById("noresearch_keyword").addEventListener("click", function() {
+          getUserTrack("noresearch_keyword");
+      });
+};
+
+
+        
+$("#navRight").Scroll({line:6,speed:1000,timer:5000});
+
+
+</script>
+<script type="text/javascript">
+    $("#cotysTrigger,.dealer-citys-list").live('mouseover',function(){
+        $(".dealer-citys-list").show();
+    }).live('mouseout',function(){
+        $(".dealer-citys-list").hide();
+    });
+    //地区筛选
+    function getCityInfo(nodeObj, provinceId, cityId, urlType, linkStyle){
+        var _this       = nodeObj,
+            linkStyle   = parseInt(linkStyle),
+            url     = 'index.phpcdefaultaajaxgetprocityrelt'+Math.random(),
+            params  = {provinceId : provinceId};
+        $.getJSON(url, params, function(data) {
+            if (data.length) {
+                //基本操作
+                $('.dealer-citys-list').find('li').removeClass('current');
+                $('.dealer-citys-area').removeClass('dealer-citys-area-on').hide();
+                $('.dealer-citys-area').find('ul').html('');
+                //城市选中
+                var liStr = '';
+                for (var i in data) {
+                    var checkStr    = '';
+                    if(cityId && data[i].cityId == cityId){
+                        checkStr    = ' style="background:#9a9a9a;color:#fff" ';
+                    }
+                    liStr += '<li class="city"  data-province-id="'+data[i].provinceId+'" data-city-id="'+data[i].cityId+'"><a href="javascript:void(0)" '+ checkStr+'>'+data[i].cityName+'</a></li>';
+                }
+                _this.addClass('current');
+                _this.nextAll('.dealer-citys-area').first().addClass('dealer-citys-area-on');
+                _this.nextAll('.dealer-citys-area').first().find('ul').html(liStr);
+                _this.nextAll('.dealer-citys-area').first().show();
+            }
+        })
+    }
+    //点击省份加载城市
+    $('.dealer-citys-list').find('.province').click(function() {
+        var _this       = $(this),
+            provinceId  = _this.find('a').data('value');
+        //调用函数
+        getCityInfo(_this, provinceId,0,'1','1');
+    });
+    
+    // 地区筛选跳转
+    $(".dealer-citys-list").find(".city").live('click',function(){
+        var provinceId = $(this).data('provinceId'),
+            cityId     = $(this).data('cityId'),
+            showType    = '0';
+        var baseUrl = '../dealer.zol.com.cn/fuzhou/';
+            switch(parseInt(showType)){
+                case 1:
+                    baseUrl += "p"+provinceId+"_c"+cityId+".html";
+                    break;
+                case 2:
+                    baseUrl += "qianggou_p"+provinceId+"_c"+cityId+".html";
+                    break;
+                case 3:
+                    var searchType = '';
+                    baseUrl += "qiangGou/"+searchType+"/p"+provinceId+"_c"+cityId+".html";
+                    break;
+                case 4:
+                    baseUrl += "list/sheng"+provinceId+"_city"+cityId+".html";
+                    break;
+            }
+            window.location.href = baseUrl;
+    });
+    
+</script>
+ 
+    <!-- 主体盒子 -->
+    <!-- 导航条 -->
+    <!-- 吸顶加class名fixTop -->
+    <div class="code-nav">
+            <div class="code-nav-box">
+                <ul class="clearfix">
+                    <li  class="cur">
+                            <a href="promo/list/0_33_199_1.html">
+                                    促销首页
+                            </a>
+                        </li>
+                                                    <li >
+                                <a href="promo/list/1_33_199_1.html">
+                                    手机通讯                                </a>
+                            </li>
+                                                    <li >
+                                <a href="promo/list/2_33_199_1.html">
+                                    电脑整机                                </a>
+                            </li>
+                                                    <li >
+                                <a href="promo/list/3_33_199_1.html">
+                                    相机摄像机                                </a>
+                            </li>
+                                                    <li >
+                                <a href="promo/list/4_33_199_1.html">
+                                    DIY装机                                </a>
+                            </li>
+                                                    <li >
+                                <a href="promo/list/5_33_199_1.html">
+                                    办公打印                                </a>
+                            </li>
+                                                    <li >
+                                <a href="promo/list/6_33_199_1.html">
+                                    服务器配件                                </a>
+                            </li>
+                                        </ul>
+            </div>
+    </div>
+	<div class="wrapper">
+            		<!-- banner -->
+		<div class="code-banner">
+			<!-- 背景图片 -->
+			<a href="javascript:;">
+				<!-- 填写内容 -->
+				<p class="banner-text1">错过双·11？ 没关系</p>
+				<p class="banner-text2">海量促销商品都在这里</p>
+			</a>
+		</div>
+            		<!-- 主题内容 -->
+		<div class="content clearfix">
+			<!-- 左边内容 -->
+			<div class="contentLeft" style="display:block">
+                            
+				<!-- 头部标题 -->
+				<div class="contentLeft-head clearfix">
+					<h3 class="boutique-tit clearfix">
+						精<em></em>品<em></em>促<em></em>销
+					</h3>
+					<p class="boutique-somtit">总有您想要！</p>
+					<!-- 收货地 -->
+					<div class="take">
+						<!-- 下拉框出现后class名由down变为up,div下边框变为白色 -->
+						<div class="delivery-origin clearfix">
+							<i class="take-logo"></i>
+							<span>收货地</span>
+							<i class="up" id="city-arrow"></i>
+						</div>
+                                                <div class="city-list ax" id="cityAllMove" style="display:none">
+                                                    <!--<div class="backcity">请在下方选择相关的城市。<a href="/merchant_info_index.html">查看全国&gt;&gt;</a></div>-->
+                                                    <ul>
+                                                                                                                                                                                            <li>
+                                                                        <b>A</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('24','0')">安徽</span>
+                                                                                                                                                                <a href="javascript:choseCity('24','181')">合肥市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','182')">淮南市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','194')">亳州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','191')">宿州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','190')">滁州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','189')">黄山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','188')">安庆市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','183')">淮北市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','187')">马鞍山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','186')">蚌埠市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','184')">芜湖市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','193')">六安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','608')">宣城市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','185')">铜陵市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('24','582')">阜阳市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>B</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('1','0')">北京</span>
+                                                                                                                                                                <a href="javascript:choseCity('1','478')">朝阳区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','587')">昌平区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','586')">石景山区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','583')">其它地区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','483')">门头沟区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','482')">房山区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','481')">通州区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','480')">丰台区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','479')">宣武区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','477')">西城区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','476')">东城区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('1','475')">海淀区</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>C</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('4','0')">重庆</span>
+                                                                                                                                                                <a href="javascript:choseCity('4','1')">万州区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('4','5')">南川区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('4','539')">重庆市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('4','2')">江津区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('4','3')">合川区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('4','4')">永川区</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>F</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('33','0')">福建</span>
+                                                                                                                                                                <a href="javascript:choseCity('33','198')">福州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','200')">三明市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','589')">龙岩市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','203')">漳州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','201')">莆田市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','202')">泉州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','204')">南平市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','207')">宁德市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('33','199')">厦门市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>G</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('12','0')">甘肃</span>
+                                                                                                                                                                <a href="javascript:choseCity('12','445')">兰州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','449')">天水市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','446')">嘉峪关市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','448')">白银市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','450')">平凉市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','452')">武威市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','453')">张掖市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','454')">酒泉市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','570')">陇南市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','687')">甘南藏族自治州</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('12','447')">金昌市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>G</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('19','0')">贵州</span>
+                                                                                                                                                                <a href="javascript:choseCity('19','414')">贵阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('19','415')">六盘水市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('19','416')">遵义市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('19','417')">安顺市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>G</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('30','0')">广东</span>
+                                                                                                                                                                <a href="javascript:choseCity('30','347')">广州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','357')">佛山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','356')">江门市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','355')">中山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','354')">东莞市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','351')">韶关市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','514')">肇庆市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','348')">深圳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','349')">珠海市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','350')">汕头市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','353')">汕尾市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','352')">惠州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','359')">湛江市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','358')">阳江市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','360')">茂名市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('30','584')">梅州市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>G</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('31','0')">广西</span>
+                                                                                                                                                                <a href="javascript:choseCity('31','367')">南宁市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','375')">玉林市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','374')">贵港市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','373')">钦州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','371')">北海市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','370')">梧州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','369')">桂林市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','368')">柳州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','378')">河池市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','541')">来宾市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('31','372')">防城港市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>H</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('5','0')">黑龙江</span>
+                                                                                                                                                                <a href="javascript:choseCity('5','102')">哈尔滨市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','109')">佳木斯市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','108')">伊春市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','110')">牡丹江市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','111')">七台河市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','112')">黑河市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','113')">绥化市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','107')">鹤岗市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','106')">双鸭山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','105')">大庆市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','104')">鸡西市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('5','103')">齐齐哈尔市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>H</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('8','0')">河北</span>
+                                                                                                                                                                <a href="javascript:choseCity('8','6')">石家庄市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','10')">保定市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','16')">衡水市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','14')">沧州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','13')">秦皇岛市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','12')">承德市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','11')">张家口市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','7')">唐山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','9')">邢台市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','15')">廊坊市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('8','8')">邯郸市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>H</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('20','0')">湖南</span>
+                                                                                                                                                                <a href="javascript:choseCity('20','326')">长沙市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','331')">岳阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','327')">株洲市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','328')">湘潭市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','329')">衡阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','335')">益阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','336')">永州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','337')">怀化市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','338')">娄底市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','333')">张家界市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','332')">常德市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','330')">邵阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('20','334')">郴州市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>H</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('21','0')">湖北</span>
+                                                                                                                                                                <a href="javascript:choseCity('21','291')">武汉市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','297')">荆门市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','301')">咸宁市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','292')">黄石市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','293')">十堰市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','294')">宜昌市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','295')">荆州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','296')">襄阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','298')">鄂州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','299')">孝感市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','302')">随州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('21','300')">黄冈市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>H</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('22','0')">河南</span>
+                                                                                                                                                                <a href="javascript:choseCity('22','260')">郑州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','275')">周口市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','271')">三门峡市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','272')">南阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','263')">平顶山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','264')">焦作市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','265')">鹤壁市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','266')">新乡市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','267')">安阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','269')">许昌市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','270')">漯河市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','276')">驻马店市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','262')">洛阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','274')">信阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','273')">商丘市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','261')">开封市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('22','268')">濮阳市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>H</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('34','0')">海南</span>
+                                                                                                                                                                <a href="javascript:choseCity('34','380')">海口市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('34','381')">三亚市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>J</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('7','0')">吉林</span>
+                                                                                                                                                                <a href="javascript:choseCity('7','85')">长春市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('7','91')">松原市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('7','86')">吉林市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('7','87')">四平市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('7','88')">辽源市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('7','89')">通化市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('7','92')">白城市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('7','90')">白山市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>J</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('25','0')">江苏</span>
+                                                                                                                                                                <a href="javascript:choseCity('25','123')">南京市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','133')">苏州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','132')">无锡市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','128')">扬州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','140')">淮安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','129')">南通市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','585')">泰州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','127')">盐城市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','130')">镇江市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','125')">连云港市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','124')">徐州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('25','131')">常州市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>J</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('32','0')">江西</span>
+                                                                                                                                                                <a href="javascript:choseCity('32','209')">南昌市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','213')">新余市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','210')">景德镇市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','211')">萍乡市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','214')">鹰潭市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','215')">赣州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','219')">吉安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','216')">上饶市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','217')">宜春市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('32','212')">九江市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>L</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('6','0')">辽宁</span>
+                                                                                                                                                                <a href="javascript:choseCity('6','63')">沈阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','72')">阜新市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','71')">营口市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','66')">抚顺市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','69')">锦州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','68')">丹东市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','73')">辽阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','64')">大连市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','74')">铁岭市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','75')">朝阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','76')">盘锦市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','65')">鞍山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','70')">葫芦岛市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('6','67')">本溪市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>N</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('9','0')">内蒙古</span>
+                                                                                                                                                                <a href="javascript:choseCity('9','48')">呼和浩特市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('9','540')">通辽市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('9','50')">乌海市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('9','61')">巴彦淖尔市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('9','58')">乌兰察布市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('9','51')">赤峰市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('9','49')">包头市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>N</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('13','0')">宁夏</span>
+                                                                                                                                                                <a href="javascript:choseCity('13','459')">银川市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('13','460')">石嘴山市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>Q</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('16','0')">青海</span>
+                                                                                                                                                                <a href="javascript:choseCity('16','456')">西宁市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>S</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('2','0')">上海</span>
+                                                                                                                                                                <a href="javascript:choseCity('2','502')">宝山区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','504')">杨浦区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','494')">徐汇区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','496')">黄浦区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','497')">南市区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','498')">闵行区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','499')">长宁区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','503')">闸北区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','500')">嘉定区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','501')">普陀区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','507')">崇明县</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','505')">虹口区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','506')">浦东新区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','495')">静安区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','510')">卢湾区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','511')">松江区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','512')">南汇县</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','509')">金山区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','508')">奉贤区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('2','513')">青浦区</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>S</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('10','0')">陕西</span>
+                                                                                                                                                                <a href="javascript:choseCity('10','433')">西安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','435')">咸阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','441')">商洛市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','436')">铜川市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','437')">渭南市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','438')">延安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','439')">汉中市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','440')">榆林市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('10','434')">宝鸡市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>S</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('11','0')">山西</span>
+                                                                                                                                                                <a href="javascript:choseCity('11','33')">太原市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','569')">晋中市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','40')">临汾市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','43')">忻州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','38')">朔州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','37')">晋城市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','36')">长治市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','35')">阳泉市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','34')">大同市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','623')">吕梁市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('11','42')">运城市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>S</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('17','0')">四川</span>
+                                                                                                                                                                <a href="javascript:choseCity('17','386')">成都市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','393')">广元市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','402')">雅安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','409')">资阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','397')">宜宾市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','395')">乐山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','392')">内江市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','389')">德阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','391')">绵阳市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','394')">遂宁市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','398')">广安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','396')">南充市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','410')">巴中市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','399')">达州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','387')">自贡市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','388')">攀枝花市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('17','390')">泸州市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>S</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('23','0')">山东</span>
+                                                                                                                                                                <a href="javascript:choseCity('23','225')">济南市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','238')">滨州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','226')">青岛市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','231')">烟台市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','228')">枣庄市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','229')">东营市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','236')">莱芜市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','235')">日照市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','233')">泰安市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','234')">威海市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','240')">菏泽市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','232')">济宁市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','237')">聊城市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','230')">潍坊市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','227')">淄博市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','580')">德州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('23','568')">临沂市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>T</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('3','0')">天津</span>
+                                                                                                                                                                <a href="javascript:choseCity('3','590')">北辰区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','542')">大港区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','486')">河东区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','489')">南开区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','490')">静海县</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','491')">武清区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','492')">宝坁区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','493')">蓟县</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','488')">塘沽区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','487')">红桥区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','485')">河西区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('3','484')">和平区</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>X</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('14','0')">新疆</span>
+                                                                                                                                                                <a href="javascript:choseCity('14','462')">乌鲁木齐市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','467')">哈密地区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','463')">克拉玛依市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','465')">伊犁哈萨克自治州</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','466')">喀什地区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','469')">昌吉回族自治州</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','473')">塔城地区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','470')">阿克苏地区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','471')">和田地区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','472')">吐鲁番地区</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','591')">巴音郭楞蒙古自治州</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('14','588')">博尔塔拉蒙古自治州</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                    <li>
+                                                                        <b>X</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('15','0')">西藏</span>
+                                                                                                                                                                <a href="javascript:choseCity('15','432')">拉萨市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>Y</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('18','0')">云南</span>
+                                                                                                                                                                <a href="javascript:choseCity('18','420')">昆明市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('18','421')">曲靖市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('18','422')">玉溪市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('18','423')">昭通市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('18','428')">保山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('18','427')">大理白族自治州</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                                                                                                            <li>
+                                                                        <b>Z</b>
+                                                                        <p>
+                                                                                                                                                                                                                                                <span onclick="choseCity('26','0')">浙江</span>
+                                                                                                                                                                <a href="javascript:choseCity('26','153')">杭州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','179')">台州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','155')">温州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','156')">嘉兴市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','157')">湖州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','158')">绍兴市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','160')">衢州市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','161')">舟山市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','174')">丽水市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','154')">宁波市</a>
+                                                                                                                                                                                                                                            <a href="javascript:choseCity('26','159')">金华市</a>
+                                                                                                                                                    </p>    
+                                                                    </li>
+                                                                                                                                                                            </ul>
+                                                </div>
+					</div>
+				</div>
+                                                                    <div class="no-data">
+					<div class="no-data-text clearfix">
+						<i></i>
+						<span>没有符合要求的促销信息呦~<br>去促销频道首页看看吧！</span>
+					</div>
+					<a href="index.phpcpromo_index" class="goindex">前往首页</a>
+                                    </div>
+                                			</div>
+			<!-- 右边内容 -->
+                        			<div class="contentRight">
+				<h3 class="contentRight-tit">最后疯抢</h3>
+				<div class="last-goods">
+					<ul>
+                                            						<!-- 第一条数据 -->
+						<li class="clearfix">
+							<div class="last-goodsImg">
+								<a href="shop_23161/market_17933489.html" target="_blank">
+                                                                    <img src="../https2c.zol-img.com.cn/product/221_300x255/114/cezfmbikitwra.jpg" width="126" height="83" alt="科大讯飞 翻译机4.0">
+								</a>
+							</div>
+							<div class="last-goodsInfo">
+								<h3>
+									<a href="shop_23161/market_17933489.html" target="_blank">科大讯飞翻译机4.0 双屏翻译机 多语种离线</a>
+								</h3>
+								<dl class="clearfix">
+									<dt>促销价：</dt>
+									<dd>
+										<span class="current-price">
+                                                                                    &yen;2399										</span>
+                                                                                                                                                                    <span class="cost-price">3072</span>
+                                                                                									</dd>
+								</dl>
+								<div class="last-opera clearfix">
+									<a class="last-opera-btn" href="shop_23161/market_17933489.html" target="_blank">立即抢购</a>
+                                                                        <div class="residue-time lastQiangCountTime" id="countTimeDiv0" div-key ="0" end-time="1694668332">
+										仅剩余<span>8</span>时<span>30</span>分<span>34</span>秒
+									</div>
+								</div>
+							</div>
+						</li>
+                                                						<!-- 第一条数据 -->
+						<li class="clearfix">
+							<div class="last-goodsImg">
+								<a href="shop_23161/market_17933501.html" target="_blank">
+                                                                    <img src="../https2e.zol-img.com.cn/product/238_300x255/52/cer5uzwkapka.jpg" width="126" height="83" alt="HUAWEI MateBook X Pro 2023 微绒典藏版(i7 1360P/16GB/1TB/集显)">
+								</a>
+							</div>
+							<div class="last-goodsInfo">
+								<h3>
+									<a href="shop_23161/market_17933501.html" target="_blank">华为 笔记本MateBook X Pro 超轻薄电脑全面</a>
+								</h3>
+								<dl class="clearfix">
+									<dt>促销价：</dt>
+									<dd>
+										<span class="current-price">
+                                                                                    &yen;9299										</span>
+                                                                                                                                                                    <span class="cost-price">11399</span>
+                                                                                									</dd>
+								</dl>
+								<div class="last-opera clearfix">
+									<a class="last-opera-btn" href="shop_23161/market_17933501.html" target="_blank">立即抢购</a>
+                                                                        <div class="residue-time lastQiangCountTime" id="countTimeDiv1" div-key ="1" end-time="1694668562">
+										仅剩余<span>8</span>时<span>30</span>分<span>34</span>秒
+									</div>
+								</div>
+							</div>
+						</li>
+                                                						<!-- 第一条数据 -->
+						<li class="clearfix">
+							<div class="last-goodsImg">
+								<a href="shop_160479/market_17910712.html" target="_blank">
+                                                                    <img src="../https2b.zol-img.com.cn/product/190_300x255/355/cerdu5x98zelc.jpg" width="126" height="83" alt="缤特力 RIG 500HS">
+								</a>
+							</div>
+							<div class="last-goodsInfo">
+								<h3>
+									<a href="shop_160479/market_17910712.html" target="_blank">缤特力RIG 600 学习游戏耳麦 海量现货 佩戴</a>
+								</h3>
+								<dl class="clearfix">
+									<dt>促销价：</dt>
+									<dd>
+										<span class="current-price">
+                                                                                    &yen;899										</span>
+                                                                                									</dd>
+								</dl>
+								<div class="last-opera clearfix">
+									<a class="last-opera-btn" href="shop_160479/market_17910712.html" target="_blank">立即抢购</a>
+                                                                        <div class="residue-time lastQiangCountTime" id="countTimeDiv2" div-key ="2" end-time="1694668566">
+										仅剩余<span>8</span>时<span>30</span>分<span>34</span>秒
+									</div>
+								</div>
+							</div>
+						</li>
+                                                						<!-- 第一条数据 -->
+						<li class="clearfix">
+							<div class="last-goodsImg">
+								<a href="shop_157387/market_17933508.html" target="_blank">
+                                                                    <img src="../https2a.zol-img.com.cn/product/223_300x255/944/cei019dpwmg.png" width="126" height="83" alt="微软 Surface Pro 9(i7 1255U/16GB/256GB/集显)">
+								</a>
+							</div>
+							<div class="last-goodsInfo">
+								<h3>
+									<a href="shop_157387/market_17933508.html" target="_blank">微软Surface Pro 9 12代i7/I5/ 8G/16G/512G</a>
+								</h3>
+								<dl class="clearfix">
+									<dt>促销价：</dt>
+									<dd>
+										<span class="current-price">
+                                                                                    &yen;8599										</span>
+                                                                                                                                                                    <span class="cost-price">10154</span>
+                                                                                									</dd>
+								</dl>
+								<div class="last-opera clearfix">
+									<a class="last-opera-btn" href="shop_157387/market_17933508.html" target="_blank">立即抢购</a>
+                                                                        <div class="residue-time lastQiangCountTime" id="countTimeDiv3" div-key ="3" end-time="1694668677">
+										仅剩余<span>8</span>时<span>30</span>分<span>34</span>秒
+									</div>
+								</div>
+							</div>
+						</li>
+                                                						<!-- 第一条数据 -->
+						<li class="clearfix">
+							<div class="last-goodsImg">
+								<a href="shop_198394/market_17910725.html" target="_blank">
+                                                                    <img src="../https2f.zol-img.com.cn/product/208_300x255/57/ceie3psvmnfjs.jpg" width="126" height="83" alt="华为  IdeaHub S 65">
+								</a>
+							</div>
+							<div class="last-goodsInfo">
+								<h3>
+									<a href="shop_198394/market_17910725.html" target="_blank">HUAWEI华为Ideahub S 65企业智慧屏现货供应</a>
+								</h3>
+								<dl class="clearfix">
+									<dt>促销价：</dt>
+									<dd>
+										<span class="current-price">
+                                                                                    &yen;12999										</span>
+                                                                                                                                                                    <span class="cost-price">24966</span>
+                                                                                									</dd>
+								</dl>
+								<div class="last-opera clearfix">
+									<a class="last-opera-btn" href="shop_198394/market_17910725.html" target="_blank">立即抢购</a>
+                                                                        <div class="residue-time lastQiangCountTime" id="countTimeDiv4" div-key ="4" end-time="1694669167">
+										仅剩余<span>8</span>时<span>30</span>分<span>34</span>秒
+									</div>
+								</div>
+							</div>
+						</li>
+                                                					</ul>
+				</div>
+			</div>
+                        		</div>
+	</div>
+
+	<!-- 返回顶部 -->
+        <div class="goTop"></div>
+        <script language="JavaScript" src="../js.zol.com.cn/pv.js" type="text/javascript"></script>
+        <script src="index.phpcajax_publicfootertype3"></script>
+</body>
+<script>
+    $(function(){
+        var nowTime = "1694664094";
+        
+        // 顶部导航固定
+	var $window = $(window),
+		$nav = $('.code-nav'),
+		kong = $nav.offset().top;
+            $window.scroll(function(){
+                    var window_top = $window.scrollTop();
+                    if (window_top > kong) {
+                    $nav.addClass('fixTop');
+            }else{
+                    $nav.removeClass('fixTop');	
+            }
+	});
+        
+        // 点击其它关闭弹窗
+        $(document).click(function(event){
+            // 关闭地区筛选
+            $("#city-arrow").removeClass().addClass('up');
+            $("#cityAllMove").hide();
+            // 关闭咨询电话
+            $(".phone-num").hide();
+        });
+                        
+        
+        // 头部广告关闭操作
+        $(".code-poster-close").click(function(){
+            $(".code-poster").hide();
+        })
+        
+        // 回到顶部
+        $(".goTop").bind('click',function(e) {
+            $('html,body').scrollTop(0);
+        })
+        
+        // 电话咨询
+        $(".tel-talk").click(function(e){
+            e.stopPropagation();
+            // 关闭地区筛选
+            $("#city-arrow").removeClass().addClass('up');
+            $("#cityAllMove").hide();
+            // 关闭咨询电话
+            $(".phone-num").hide();
+            var telObj = $(this).parent().find(".phone-num");
+            if(telObj.is(":hidden")){
+                    telObj.show();    //如果元素为隐藏,则将它显现
+             }else{
+                    telObj.hide();     //如果元素为显现,则将其隐藏
+             }
+             
+             // 添加统计代码
+             var merchantId = $(this).attr('merchant-id');
+             var goodsId = $(this).attr('goods-id');
+             countTelClick('shuma_promo_tel_talk', '&merchant_id='+merchantId+'&goodsId='+goodsId);
+        })
+        
+        function countdownClock(endTime,idName){
+            var leave = endTime - nowTime;
+             if (leave <= 0) {
+                  var lastTime = '仅剩余00时00分00秒';
+             }else {
+                 var hour = Math.floor(leave / 3600);
+                     hour = hour < 10 ? "0" + hour : hour;
+                 var minute = Math.floor(leave / 60) - (hour * 60);
+                     minute = minute < 10 ? "0" + minute : minute;
+                 var second = leave - (hour * 3600) - (minute * 60);
+                     second = second < 10 ? "0" + second : second;
+                 var lastTime = '仅剩余'+hour+'时'+minute+'分'+second+'秒';                   
+             }
+             $("#"+idName).html(lastTime);           
+             endTime-- ; 
+             if(leave >0){
+                setTimeout(function() {
+                    countdownClock(endTime, idName);
+                }, 1000);
+             }
+        }
+        
+        // 倒计时
+        $(".lastQiangCountTime").each(function(){
+            var endTime = $(this).attr("end-time"),
+                key     = $(this).attr("div-key"),
+                idName  = "countTimeDiv"+key;
+                countdownClock(endTime,idName);
+        })
+        
+        // 收货地区显示
+        $(".delivery-origin").click(function(e){
+            e.stopPropagation();
+            var cityAll     = $("#cityAllMove"),
+                cityArrow   = $("#city-arrow");
+            // 关闭地区筛选
+            cityArrow.removeClass().addClass('up');
+            $("#cityAllMove").hide();
+            // 关闭咨询电话
+            $(".phone-num").hide();
+            
+            if(cityAll.is(":hidden")){
+                cityArrow.removeClass().addClass('down');
+                cityAll.show();    //如果元素为隐藏,则将它显现
+             }else{
+                cityArrow.removeClass().addClass('up');
+                cityAll.hide();     //如果元素为显现,则将其隐藏
+             }
+        });
+        
+})
+function choseCity(provinceId,cityId){
+    var navId       = '0',
+        keyWord     = '',
+        url         = "promo/list/"+navId+"_"+provinceId+"_"+cityId;;
+//    if (parseInt(cityId)){
+//        url     += "_"+cityId;
+//    }
+    url     += "_1.html";//默认第一页
+    if(keyWord){
+        url += "promo.htmlkeyword"+keyWord;
+    }
+    
+    window.location = url;
+}
+
+
+// 获取cookie
+function getCookie(name) {
+    var strCookie = document.cookie;
+    var arrCookie = strCookie.split("; ");
+    for (var i = 0; i < arrCookie.length; i++) {
+        var arr = arrCookie[i].split("=");
+        if (arr[0] == name)
+            return arr[1];
+    }
+    return "";
+} 
+
+
+ // 统计代码
+function countTelClick(event,other) {
+    var statsImg = new Image();
+    var rand = new Date().getTime();
+    var ipck = getCookie('ip_ck');
+    var src  = '../pvtest.zol.com.cn/images/pvevents.gift'
+            + rand + '&event=' + event
+            + '&ip_ck=' + ipck                    
+            + '&url=' + document.URL;
+    if(typeof other != 'undefined'){
+        src = src + other;
+    }
+    statsImg.src = src;
+};
+
+</script>
+</html>
+
+

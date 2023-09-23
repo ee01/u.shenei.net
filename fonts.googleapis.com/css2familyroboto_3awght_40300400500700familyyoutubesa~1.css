@@ -1,0 +1,80 @@
+/*
+ * See: https://fonts.google.com/license/googlerestricted
+ */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v30/kfolcnqeu92fr1mmsu5vaa.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v30/kfomcnqeu92fr1me5g.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v30/kfolcnqeu92fr1mmeu9vaa.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v30/kfolcnqeu92fr1mmwulvaa.woff) format('woff');
+}
+@font-face {
+  font-family: 'YouTube Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubesans/v18/qw3hzqngedjao2m6tqiqx5e-avs5_rsejo46_pctrspj0oosolrbe~1.woff) format('woff');
+}
+@font-face {
+  font-family: 'YouTube Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubesans/v18/qw3hzqngedjao2m6tqiqx5e-avs5_rsejo46_pctrspj0oosolrb~2.woff) format('woff');
+}
+@font-face {
+  font-family: 'YouTube Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubesans/v18/qw3hzqngedjao2m6tqiqx5e-avs5_rsejo46_pctrspj0oosolrb~3.woff) format('woff');
+}
+@font-face {
+  font-family: 'YouTube Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubesans/v18/qw3hzqngedjao2m6tqiqx5e-avs5_rsejo46_pctrspj0oosolrb~4.woff) format('woff');
+}
+@font-face {
+  font-family: 'YouTube Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubesans/v18/qw3hzqngedjao2m6tqiqx5e-avs5_rsejo46_pctrspj0oosolrb~5.woff) format('woff');
+}
+@font-face {
+  font-family: 'YouTube Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubesans/v18/qw3hzqngedjao2m6tqiqx5e-avs5_rsejo46_pctrspj0oosolrb~6.woff) format('woff');
+}
+@font-face {
+  font-family: 'YouTube Sans';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubesans/v18/qw3hzqngedjao2m6tqiqx5e-avs5_rsejo46_pctrspj0oosolrb~7.woff) format('woff');
+}

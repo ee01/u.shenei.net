@@ -115,7 +115,7 @@ GoogleMap.prototype.poweredby = function() {
 	div.style.position ="absolute";
 	div.style.left="180px"; 
 	div.style.bottom= "2px";
-	div.innerHTML = '<a href="../www.shenei.net" target="_blank" style="color:black">舍内网</a>';
+	div.innerHTML = '<a href="http://sn.eexx.me" target="_blank" style="color:black">舍内网</a>';
 	this.divObj.appendChild(div);
 }
 
